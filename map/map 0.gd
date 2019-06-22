@@ -7,6 +7,7 @@ onready var her = preload("res://hero.tscn")
 func _ready():
 	charger_intro()
 	pass # Replace with function body.
+	print ("BITANE")
 
 
 #func _process(delta):
