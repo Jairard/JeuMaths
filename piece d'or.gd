@@ -25,11 +25,11 @@ func _on_piece_body_entered(body):
 	print("touché")
 	print("loot : " + str(loot_type))
 	self.emit_signal("loot", loot_type)
-	if str(loot_type) == "0" :
+	if loot_type == type_loot.Armure :
 		inventaire[0] = "armure"
 #		armure = "armure" 
 #		inventaire[0] = armure
-	if str(loot_type) == "1" :
+	if loot_type == type_loot.Piece_or :
 		inventaire[1] = "piece d'or"
 #		piece_dor = "piece d'or"
 #		inventaire[1] = piece_dor
