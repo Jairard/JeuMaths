@@ -18,4 +18,7 @@ func charger_intro() :
 	add_child(intro.instance())
 	add_child(hero.instance())
 	
-	
+
+func combat(valeur) :
+	if valeur == 0 :
+		var ret = get_tree().change_scene("res://map/map 1.tscn")

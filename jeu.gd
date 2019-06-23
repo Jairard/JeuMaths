@@ -43,13 +43,3 @@ func ennemi_kill(gain_xp, piece_or, loot):
 	
 	print ("Xp : " + str (xp), "  Level : " + str(level), "  Trésor : " + str(tresor), " Loot : " + str(loot), "  Pv : " + str(pv))
 	
-
-func combat(valeur) :
-	
-	if valeur == 0 : 
-		print ("le combat commence")
-		get_tree().change_scene("res://map/map 1.tscn")
-		pass
-	else : 
-		pass
-	
