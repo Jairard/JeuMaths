@@ -1,0 +1,41 @@
+accueil-connexion
+	choix niveau
+		4 niveaux
+	choix du hero
+		4 heros
+	choix du skin
+		casque
+		armure
+		pantalon
+		botte
+	choix de la classe
+		3 classes
+
+caracteristiques
+	hp - coeur
+	degats - epee
+	
+
+niveaux
+	niveau 1 1er sort
+	niveau 5 2eme sort
+	niveau 10 ultime
+	niveau 20 donjon pve
+	niveau 30 donjon pvp
+
+musique
+	d'accueil 
+	map
+	combat
+
+
+mission
+	code classe
+		
+
+map	
+	monde ouvert
+	monstre errant
+	combat autonome
+
+ 

@@ -1,0 +1,72 @@
+Hero :
+	Possibilité de créer 3 persos à chaque fois de classe différente
+	20 niveaux 
+
+Classes :
+
+	tank : 1 sort d'aggro  / 1 sort de degats (faible) / ulti bouclier + renvois des degats / beaucoup d'hp  
+	assassin : 1 sort de degats de feu / 1 sort de degats de glace / ulti de degats  / peu d'hp 
+	mage : 1 sort de heal  / 1 sort de degats neutre / ulti de degats  / hp moyens 
+
+Sorts : 
+
+	degats de feu
+	degats de glace
+	
+Monstres : 
+
+	monstres de feu
+	monstres de glace
+
+Loot :
+ 
+	set degats 1 : 	beaucoup de dégats
+	set degats 2 : 	peu de degats + chance de critiques
+	set tank :		un peu de degats + hp
+	
+	le loot spawn et est recup par le hero
+
+
+Combat : 
+	
+	entrée en combat le hero ne peut plus se déplacer
+	la vitesse de réponse influe sur les dégats 
+	chance de degats critiques
+	fin du combat le hero peut récupérer le loot si gagné ou recommencer le combat si perdu
+
+
+Combat solo : 	
+
+	vie des monstres qui évoluent avec les niveaux des joueurs 
+	a chaque niveau le joueur choisit s'il augmente ses pv ou ses dégats
+
+Combat 1v1 : 
+	
+	premier joueur qui répond lance l'attaque
+	reponse fausse perte de vie + monstre regen
+
+Combat de groupe pve : 
+
+	hp du groupe de 3 joueurs = hp du monstre 
+
+
+Combat de groupe pvp :
+
+	3v3
+	le premier qui a la réponse lance son attaque
+
+Carte :
+	
+	carte interactive
+	passer la souris dessus met la region en surbrillance
+	cliquer sur un monstre et le hero y va
+	chaque region est une sorte de parcours predefini ( chemin deja trace)
+	pour debloquer la region suivante il faut tuer tous les monstres + le donjon
+	region par niveau / 5niveaux par region
+	
+	
+Inventaire : 
+
+	stuff visible
+	stats visibles
+	
