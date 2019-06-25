@@ -8,6 +8,7 @@ extents = Vector2( 32.3936, 33.8875 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "animation sort"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -27,8 +28,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 8.10185, -0.25, 0, 0.25, 0, 16.7824, -0.25, 0, 0.25, 0, 35.424, -0.25, 0, 0.25, 0, 42.336, -0.25, 0, 0.25, 0, 23.1481, -0.25, 0, 0.246522, 0, 54.432, -0.25, 0, 0.25, 0, 64.8, -0.25, 0, 0.25, 0, 28.9352, -0.25, 0, 0.25, 0, 123.552, -0.25, 0, 0.25, 0, 73.44, -0.25, 0, 0.25, 0, 83.808, -0.25, 0, 0.25, 0, 94.176, -0.25, 0, 0.25, 0, 102.816, -0.25, 0, 0.25, 0, 111.456, -0.25, 0, 0.25, 0, 123.552, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0.200715, 0.278832, 0.288384, 0.325595, 0.361288, 0.374434, 0.439553, 0.462188, 0.5, 0.502347, 0.553512, 0.595374, 0.639562, 0.686076, 0.748869 )
+"points": PoolRealArray( 7.46496, -0.25, 0, 0.25, 0, 17.4182, -0.25, 0, 0.25, 0, 42.336, -0.25, 0, 0.25, 0, 57.2314, -0.25, 0, 0.25, 0, 77.1379, -0.25, 0, 0.25, 0, 99.5328, -0.25, 0, 0.25, 0, 106.998, -0.25, 0, 0.25, 0, 126.904, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.40499, 0.501187, 0.606042, 0.7, 0.8 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("Sprite:position:y")
@@ -49,7 +50,7 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray(  ),
 "transitions": PoolRealArray(  ),
-"update": 3,
+"update": 0,
 "values": [  ]
 }
 
@@ -91,7 +92,7 @@ position = Vector2( 2.598, -2.14447 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2.592, -1.36725 )
+position = Vector2( 126.904, -1.36725 )
 texture = ExtResource( 2 )
 vframes = 8
 hframes = 8
