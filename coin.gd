@@ -19,13 +19,6 @@ func _ready():
 #	pass
 
 
-# warning-ignore:unused_argument
-#func _on_piece_body_entered(body):
-	
-
-
-
-
 func _on_Area2D_body_entered(body):
 	print("touché")
 	print("loot : " + str(loot_type))
@@ -41,4 +34,4 @@ func _on_Area2D_body_entered(body):
 	print ("inventaire 1 : ", inventaire[0])
 	print ("inventaire 2 : ", inventaire[1])
 	queue_free()
-	pass # Replace with function body.
+	
