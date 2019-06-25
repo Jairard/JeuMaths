@@ -14,7 +14,7 @@ onready var coin = preload("res://coin.tscn")
 
 func _ready():
 	charger_intro()
-	pass # Replace with function body.
+
 	
 
 

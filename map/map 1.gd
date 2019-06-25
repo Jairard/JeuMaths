@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var hero = preload("res://hero.tscn")
-#onready var ennemi preload("")
 
 
 
