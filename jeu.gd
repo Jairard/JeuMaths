@@ -1,10 +1,5 @@
 extends Node2D
 
-var xp = 0
-var level = 1
-# warning-ignore:unused_class_variable
-var pv = 100
-var tresor = 0
 
 
 
@@ -19,11 +14,6 @@ func _ready():
 	#ennemi_kill(200, 10, "epee")
 	pass 
 
-# warning-ignore:unused_argument
-func recup_loot(valeur):
-	#print("item recupere : " + str(valeur))
-	ennemi_kill(200,200,200)
-	
 
 
 # warning-ignore:unused_argument
@@ -31,15 +21,3 @@ func recup_loot(valeur):
 #	pass
 
 
-
-# warning-ignore:unused_argument
-func ennemi_kill(gain_xp, piece_or, loot):		
-	xp += gain_xp				
-	tresor += piece_or
-	if xp >= 100 : 
-		xp = 0
-		level += 1
-		pv += 10
-	
-	print ("Xp : " + str (xp), "  Level : " + str(level), "  Trésor : " + str(tresor), " Loot : " + str(loot), "  Pv : " + str(pv))
-	
