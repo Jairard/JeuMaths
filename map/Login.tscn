@@ -35,10 +35,10 @@ tile_data = PoolIntArray( 7, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 131077
 
 [node name="Label" type="Label" parent="TileMap"]
 modulate = Color( 0.0823529, 0.184314, 0.45098, 1 )
-margin_left = 167.979
-margin_top = 356.09
-margin_right = 416.979
-margin_bottom = 479.09
+margin_left = 162.81
+margin_top = 354.798
+margin_right = 411.81
+margin_bottom = 477.798
 text = "Pseudo :"
 align = 1
 valign = 1
@@ -51,4 +51,12 @@ margin_top = 380.0
 margin_right = 704.708
 margin_bottom = 450.0
 text = "Log In"
+
+[node name="LineEdit" type="LineEdit" parent="TileMap"]
+modulate = Color( 0.352941, 0.352941, 0.352941, 0.352941 )
+self_modulate = Color( 0.768627, 0.705882, 0.705882, 1 )
+margin_left = 316.0
+margin_top = 385.0
+margin_right = 447.0
+margin_bottom = 447.0
 [connection signal="pressed" from="TileMap/Button" to="." method="_on_Button_pressed"]

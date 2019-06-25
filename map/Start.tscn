@@ -109,9 +109,9 @@ autowrap = true
 [node name="Button-signin" type="Button" parent="."]
 modulate = Color( 0.933333, 0.960784, 0.027451, 0.541176 )
 self_modulate = Color( 0.764706, 0.807843, 0.0313726, 1 )
-margin_left = 265.0
+margin_left = 259.0
 margin_top = 383.0
-margin_right = 439.0
+margin_right = 443.0
 margin_bottom = 449.0
 custom_colors/font_color_disabled = Color( 0.545098, 0.054902, 0.054902, 1 )
 custom_colors/font_color = Color( 0.470588, 0.027451, 0.027451, 1 )
@@ -122,7 +122,7 @@ text = "Sign In"
 [node name="Button-login" type="Button" parent="."]
 margin_left = 639.0
 margin_top = 386.0
-margin_right = 829.0
+margin_right = 833.0
 margin_bottom = 447.0
 text = "Log In"
 [connection signal="pressed" from="Button-signin" to="." method="_on_Button_pressed"]

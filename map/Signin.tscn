@@ -72,4 +72,25 @@ margin_top = 383.544
 margin_right = 704.0
 margin_bottom = 447.544
 text = "Sign In"
+
+[node name="LineEdit2" type="LineEdit" parent="TileMap"]
+modulate = Color( 0.352941, 0.352941, 0.352941, 0.352941 )
+margin_left = 255.0
+margin_top = 281.0
+margin_right = 384.0
+margin_bottom = 319.0
+
+[node name="LineEdit3" type="LineEdit" parent="TileMap"]
+modulate = Color( 0.352941, 0.352941, 0.352941, 0.352941 )
+margin_left = 257.0
+margin_top = 348.0
+margin_right = 384.0
+margin_bottom = 384.0
+
+[node name="LineEdit" type="LineEdit" parent="TileMap"]
+modulate = Color( 0.352941, 0.352941, 0.352941, 0.352941 )
+margin_left = 253.0
+margin_top = 220.0
+margin_right = 384.0
+margin_bottom = 257.0
 [connection signal="pressed" from="TileMap/Button" to="." method="_on_Button_pressed"]
