@@ -1,10 +1,6 @@
 extends RigidBody2D
 
 
-
-
-
-
 func _ready():
 	pass # Replace with function body.
 
@@ -20,12 +16,6 @@ func sort(positio : Vector2) -> void :
 	$particul.emitting = true
 	
 	
-	
-#func animation_get_next(animationplayer,animationplayer2):
-#	animation_get_next(animationplayer,animationplayer2)
-	
-
-
 
 func _on_Timer_timeout():
 	queue_free()
