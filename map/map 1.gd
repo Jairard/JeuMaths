@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var player = preload("res://hero.tscn")
+onready var hero = preload("res://hero.tscn")
 #onready var ennemi preload("")
 
 
@@ -17,7 +17,5 @@ func _ready():
 
 func spawn() :
 	print ("111111111111111111111111")
-	var objet
-	objet = player.instance()
-	objet.position = Vector2(100,100)
-	add_child(objet)
+	add_child(hero.instance())
+	
