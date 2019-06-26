@@ -3,7 +3,7 @@
 [ext_resource path="res://hero.gd" type="Script" id=1]
 [ext_resource path="res://image sol/spritesheet.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "mouvement bas"
 length = 0.4
 loop = true
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ 16, 17 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "mouvement droite"
 length = 0.4
 loop = true
@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ 20, 21 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "mouvement gauche"
 length = 0.4
 loop = true
@@ -54,7 +54,7 @@ tracks/0/keys = {
 "values": [ 22, 23 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "values": [ 19, 18 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("hero_spr:frame")
@@ -85,11 +85,11 @@ tracks/0/keys = {
 "values": [ 24, 25 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 31.9445, 39.3886 )
 
 [node name="hero" type="KinematicBody2D"]
-position = Vector2( 106.317, 98.195 )
+position = Vector2( 246.583, 209.695 )
 collision_mask = 20
 script = ExtResource( 1 )
 __meta__ = {
@@ -104,11 +104,11 @@ hframes = 8
 frame = 17
 
 [node name="animation hero" type="AnimationPlayer" parent="."]
-"anims/mouvement bas" = SubResource( 2 )
-"anims/mouvement droite" = SubResource( 3 )
-"anims/mouvement gauche" = SubResource( 4 )
-"anims/mouvement haut" = SubResource( 5 )
-anims/saut = SubResource( 6 )
+"anims/mouvement bas" = SubResource( 1 )
+"anims/mouvement droite" = SubResource( 2 )
+"anims/mouvement gauche" = SubResource( 3 )
+"anims/mouvement haut" = SubResource( 4 )
+anims/saut = SubResource( 5 )
 
 [node name="RayCast_bas" type="RayCast2D" parent="."]
 enabled = true
@@ -132,4 +132,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
 position = Vector2( 1.40787, 4.6563 )
-shape = SubResource( 1 )
+shape = SubResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
