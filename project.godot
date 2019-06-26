@@ -19,6 +19,11 @@ config/name="jeu"
 run/main_scene="res://map/Start.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1940
+window/size/height=1024
+
 [layer_names]
 
 2d_physics/layer_1="hero"
