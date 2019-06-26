@@ -84,6 +84,8 @@ scale_curve = SubResource( 6 )
 color_ramp = SubResource( 4 )
 
 [node name="animation sort" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 20
 mode = 3
 script = ExtResource( 1 )
 

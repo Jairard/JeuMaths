@@ -19,6 +19,14 @@ config/name="jeu"
 run/main_scene="res://map/Start.tscn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="hero"
+2d_physics/layer_2="wall"
+2d_physics/layer_3="ennemy"
+2d_physics/layer_4="spell"
+2d_physics/layer_5="coin"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

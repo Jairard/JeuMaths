@@ -24,6 +24,6 @@ func charger_intro() :
 
 func combat(valeur) :
 	if valeur == 0 :
-		var ret = get_tree().change_scene("res://map/map 1.tscn")
+		get_tree().change_scene("res://map/map 1.tscn")
 		
 
