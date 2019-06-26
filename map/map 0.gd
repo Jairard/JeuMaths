@@ -7,7 +7,7 @@ var pv = 100
 var tresor = 0
 
 
-onready var intro = preload("res://jeu.tscn")
+onready var ennemy = preload("res://ennemy.tscn")
 onready var hero = preload("res://hero.tscn")
 onready var coin = preload("res://coin.tscn")
 #onready var enemi = preload("res://ennemi.tscn")
@@ -23,7 +23,7 @@ func _ready():
 
 func charger_intro() :
 	print ("2222222222222222222222222")
-	add_child(intro.instance())
+	add_child(ennemy.instance())
 	add_child(hero.instance())
 	add_child(coin.instance())
 	

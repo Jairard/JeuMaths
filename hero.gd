@@ -19,7 +19,7 @@ func _process(delta):
 	velocite = Vector2(0,0)
 	
 	if Input.is_action_pressed("ui_down") :
-		if !$RayCast_bas.is_colliding() : #== false :
+		if !$RayCast_bas.is_colliding(): #== false :
 			velocite.y += vitesse
 			$"animation hero".play("mouvement bas")
 		else : 

@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Ennemy.gd" type="Script" id=1]
+[ext_resource path="res://image sol/spritesheet.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 38.8985, 42.8537 )
+
+[node name="Ennemy" type="KinematicBody2D"]
+position = Vector2( 160, 288 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.666667, 0.0823529, 0.0823529, 1 )
+scale = Vector2( 1.27929, 1.37239 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 26
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="RayCast_bas" type="RayCast2D" parent="."]
+
+[node name="RayCast_haut" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, -50 )
+
+[node name="RayCast2_droite" type="RayCast2D" parent="."]
+cast_to = Vector2( 50, 0 )
+
+[node name="RayCast_gauche" type="RayCast2D" parent="."]
+cast_to = Vector2( -50, 0 )

@@ -89,8 +89,11 @@ tracks/0/keys = {
 }
 
 [node name="hero" type="KinematicBody2D"]
-position = Vector2( 100, 100 )
+position = Vector2( 106.317, 98.195 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="hero_spr" type="Sprite" parent="."]
 modulate = Color( 0.878431, 0.878431, 0.878431, 1 )
