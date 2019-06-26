@@ -1,5 +1,12 @@
 extends KinematicBody2D
 
+var xp = 0
+var level = 1
+var pv = 100
+var tresor = 0
+
+var inventaire = [null,null]
+
 onready var sort = preload("res://animation sort.tscn")
 
 
@@ -58,4 +65,26 @@ func _process(delta):
 		
 	
 	velocite = move_and_slide(velocite).normalized()
+	
+func recup_loot(valeur):
+	print("item recupere : " + str(valeur))
+	if valeur == 0 :
+		inventaire[0] = "armure"
+	if valeur == 1 :
+		inventaire[1] = "piece d'or"
+	print ("inventaire 1 : ", inventaire[0])
+	print ("inventaire 2 : ", inventaire[1])
+	ennemi_kill(200,200,200)
+	
+func ennemi_kill(gain_xp, piece_or, loot):		
+	xp += gain_xp				
+	tresor += piece_or
+	if xp >= 100 : 
+		xp = 0
+		level += 1
+		pv += 10
+	
+	print ("Xp : " + str (xp), "  Level : " + str(level), "  Trésor : " + str(tresor), " Loot : " + str(loot), "  Pv : " + str(pv))
+	
+
 	
