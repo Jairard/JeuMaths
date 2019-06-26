@@ -16,7 +16,6 @@ func _ready():
 #	pass
 
 func charger_intro() :
-	print ("2222222222222222222222222")
 	add_child(ennemy.instance())
 	add_child(hero.instance())
 	add_child(coin.instance())

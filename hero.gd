@@ -14,10 +14,13 @@ export(int) var vitesse = 200
 var velocite = Vector2(0,0)
 
 signal comb(valeur)
+signal damage(valeur)
+
 
 func _ready():
 # warning-ignore:return_value_discarded
 	self.connect("comb", get_parent(), 'combat')
+	self.connect("damage", get_parent().get_node("Ennemy"), 'death')
 	pass 
 
 
@@ -61,7 +64,7 @@ func _process(delta):
 		s.sort(self.position)
 		get_parent().add_child(s)
 		if $RayCast_droite.is_colliding() == true :
-			print("77777777777777777777777")
+			emit_signal("damage",0)
 		
 	
 	velocite = move_and_slide(velocite).normalized()

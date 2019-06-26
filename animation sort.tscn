@@ -84,17 +84,21 @@ scale_curve = SubResource( 6 )
 color_ramp = SubResource( 4 )
 
 [node name="animation sort" type="RigidBody2D"]
+position = Vector2( -2, 1 )
 collision_layer = 8
-collision_mask = 20
+collision_mask = 0
 mode = 3
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.598, -2.14447 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 126.904, -1.36725 )
+position = Vector2( 7.46496, -3.36725 )
 texture = ExtResource( 2 )
 vframes = 8
 hframes = 8
@@ -120,4 +124,5 @@ process_material = SubResource( 7 )
 [node name="RayCast_droite" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 50, 0 )
+collision_mask = 8
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

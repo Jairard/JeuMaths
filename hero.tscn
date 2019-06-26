@@ -101,7 +101,7 @@ modulate = Color( 0.878431, 0.878431, 0.878431, 1 )
 texture = ExtResource( 2 )
 vframes = 8
 hframes = 8
-frame = 17
+frame = 16
 
 [node name="animation hero" type="AnimationPlayer" parent="."]
 "anims/mouvement bas" = SubResource( 1 )

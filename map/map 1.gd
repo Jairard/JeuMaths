@@ -6,7 +6,6 @@ onready var ennemy = preload("res://Ennemy.tscn")
 
 
 func _ready():
-	print ("00000000000000000000000")
 	spawn()
 	pass
 
@@ -16,7 +15,6 @@ func _ready():
 
 
 func spawn() :
-	print ("111111111111111111111111")
 	add_child(hero.instance())
 	add_child(ennemy.instance())
 	re_size()

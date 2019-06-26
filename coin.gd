@@ -8,7 +8,6 @@ export(type_loot) var loot_type
 
 
 func _ready():
-	print("555555555555555555555555")
 	self.connect("loot", get_parent().get_node("hero"), "recup_loot")
 
 #func _process(delta):
