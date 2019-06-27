@@ -11,7 +11,6 @@ func _ready():
 
 	
 
-
 #func _process(delta):
 #	pass
 
@@ -28,7 +27,5 @@ func combat(valeur) :
 		
 
 
-
 func _on_Button_pressed():
 	get_tree().change_scene("res://map/start.tscn")
-	pass # Replace with function body.

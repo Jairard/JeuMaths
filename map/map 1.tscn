@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://map/map 1.gd" type="Script" id=1]
 [ext_resource path="res://image sol/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://image sol/spritesheet2.png" type="Texture" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -105,6 +106,38 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 size = 35
 font_data = ExtResource( 3 )
 
+[sub_resource type="TileSet" id=8]
+0/name = "spritesheet2.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 256, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+1/name = "spritesheet2.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 128, 256, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [  ]
+1/z_index = 0
+2/name = "spritesheet2.png 2"
+2/texture = ExtResource( 4 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 256, 256, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [  ]
+2/z_index = 0
+
 [node name="map 1" type="Node2D"]
 light_mask = 0
 script = ExtResource( 1 )
@@ -146,4 +179,8 @@ polygon = PoolVector2Array( -128.005, -68.1385, -129.953, 631.201, -61.7722, 627
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="sol/StaticBody2D"]
 polygon = PoolVector2Array( -126.057, -124.631, 1151.84, -126.579, 1149.9, 697.434, -129.953, 699.382, -129.953, 631.201, 1091.46, 633.149, 1085.61, -73.9826, -131.901, -68.1385 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 8 )
+format = 1
 [connection signal="pressed" from="sol/Button" to="." method="_on_Button_pressed"]

@@ -7,20 +7,23 @@ var tresor = 0
 
 var inventaire = [null,null]
 
-onready var sort = preload("res://animation sort.tscn")
+#onready var sort = preload("res://animation sort.tscn")
 
 
 export(int) var vitesse = 200
 var velocite = Vector2(0,0)
 
+
 signal comb(valeur)
 signal damage(valeur)
+signal hero_position(valeur)
 
 
 func _ready():
 # warning-ignore:return_value_discarded
 	self.connect("comb", get_parent(), 'combat')
 	self.connect("damage", get_parent().get_node("Ennemy"), 'death')
+	self.connect("hero_position", get_parent().get_node("animation sort"), "position_hero")
 	pass 
 
 
@@ -59,15 +62,17 @@ func _process(delta):
 	else :
 		$"animation hero".play("saut")
 		
-	if Input.is_action_just_pressed("ui_accept"	):
-		var s = sort.instance()
-		s.sort(self.position)
-		get_parent().add_child(s)
-		if $RayCast_droite.is_colliding() == true :
-			emit_signal("damage",0)
 		
 	
 	velocite = move_and_slide(velocite).normalized()
+	
+	var z = Vector2()
+	z.x = position.x
+	z.y = position.y
+#	print(z)
+	emit_signal('hero_position',z)
+	
+	
 	
 func recup_loot(valeur):
 	print("item recupere : " + str(valeur))

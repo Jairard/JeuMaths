@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-
+onready var valeur = Vector2()
 
 func _ready():
 	
@@ -18,8 +18,11 @@ func sort(positio : Vector2) -> void :
 	$particul.emitting = true
 		
 	
+func position_hero(valeur):
+	get_parent().sort(valeur)
 
 func _on_Timer_timeout():
+	position_hero(valeur)
 	queue_free()
 
 
