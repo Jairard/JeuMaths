@@ -30,6 +30,7 @@ window/size/height=640
 2d_physics/layer_3="ennemy"
 2d_physics/layer_4="spell"
 2d_physics/layer_5="coin"
+2d_physics/layer_6="loot"
 
 [rendering]
 

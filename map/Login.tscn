@@ -60,3 +60,4 @@ margin_top = 385.0
 margin_right = 447.0
 margin_bottom = 447.0
 [connection signal="pressed" from="TileMap/Button" to="." method="_on_Button_pressed"]
+[connection signal="text_entered" from="TileMap/LineEdit" to="." method="_on_LineEdit_text_entered"]

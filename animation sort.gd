@@ -18,11 +18,12 @@ func sort(positio : Vector2) -> void :
 	$particul.emitting = true
 		
 	
-func position_hero(valeur):
-	get_parent().sort(valeur)
+#func position_hero(valeur):
+#	get_parent().sort(valeur)
 
 func _on_Timer_timeout():
-	position_hero(valeur)
+#	position_hero(valeur)
+	get_parent().sort(self.position)
 	queue_free()
 
 

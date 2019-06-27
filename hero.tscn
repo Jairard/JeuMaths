@@ -86,11 +86,11 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 31.9445, 39.3886 )
+extents = Vector2( 28.0717, 32.6612 )
 
 [node name="hero" type="KinematicBody2D"]
 position = Vector2( 246.583, 209.695 )
-collision_mask = 20
+collision_mask = 52
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -112,27 +112,25 @@ anims/saut = SubResource( 5 )
 
 [node name="RayCast_bas" type="RayCast2D" parent="."]
 enabled = true
-collision_mask = 4
+collision_mask = 36
 
 [node name="RayCast_haut" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, -50 )
-collision_mask = 4
+collision_mask = 36
 
 [node name="RayCast_gauche" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( -50, 0 )
-collision_mask = 4
+collision_mask = 36
 
 [node name="RayCast_droite" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 50, 0 )
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-show_behind_parent = true
-position = Vector2( 1.40787, 4.6563 )
-shape = SubResource( 6 )
+collision_mask = 36
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
