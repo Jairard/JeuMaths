@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://map/map 0.gd" type="Script" id=1]
 [ext_resource path="res://image sol/spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -73,10 +72,6 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 } ]
 3/z_index = 0
 
-[sub_resource type="DynamicFont" id=5]
-size = 30
-font_data = ExtResource( 3 )
-
 [node name="map 0" type="Node2D"]
 light_mask = 0
 script = ExtResource( 1 )
@@ -100,92 +95,3 @@ polygon = PoolVector2Array( -27.8722, 36.2419, 46.4832, 35.8864, 48.5393, 663.98
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="sol/StaticBody2D"]
 polygon = PoolVector2Array( -20.0823, 667.18, -20.0823, 743.152, 1131.2, 735.36, 1131.2, -30.2101, -25.9263, -28.2621, -23.9783, 30.1784, 1076.65, 37.9704, 1068.86, 671.076 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-modulate = Color( 1, 1, 1, 0.490196 )
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -512.0
-margin_right = 513.0
-margin_bottom = 66.0
-color = Color( 0.968627, 0.905882, 0.905882, 1 )
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 0.902496
-margin_right = 9.9025
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 1024.0
-margin_bottom = 56.0
-
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/HBoxContainer"]
-modulate = Color( 0.894118, 0.145098, 0.0196078, 1 )
-margin_top = 6.0
-margin_right = 114.0
-margin_bottom = 39.0
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color_shadow = Color( 0.690196, 0.713726, 0.247059, 1 )
-text = "Degats :"
-
-[node name="degats" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/HBoxContainer"]
-modulate = Color( 0.113725, 0.0470588, 0.8, 1 )
-margin_left = 118.0
-margin_top = 6.0
-margin_right = 379.0
-margin_bottom = 39.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color_shadow = Color( 0.690196, 0.713726, 0.247059, 1 )
-text = "100    "
-
-[node name="Label2" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/HBoxContainer"]
-modulate = Color( 0.894118, 0.145098, 0.0196078, 1 )
-margin_left = 383.0
-margin_top = 6.0
-margin_right = 434.0
-margin_bottom = 39.0
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color_shadow = Color( 0.690196, 0.713726, 0.247059, 1 )
-text = "vie :"
-
-[node name="vie" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/HBoxContainer"]
-modulate = Color( 0.113725, 0.0470588, 0.8, 1 )
-margin_left = 438.0
-margin_top = 6.0
-margin_right = 699.0
-margin_bottom = 39.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color_shadow = Color( 0.690196, 0.713726, 0.247059, 1 )
-text = "100     "
-
-[node name="Label3" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/HBoxContainer"]
-modulate = Color( 0.894118, 0.145098, 0.0196078, 1 )
-margin_left = 703.0
-margin_top = 6.0
-margin_right = 749.0
-margin_bottom = 39.0
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color_shadow = Color( 0.690196, 0.713726, 0.247059, 1 )
-text = "XP :"
-
-[node name="XP" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/HBoxContainer"]
-modulate = Color( 0.113725, 0.0470588, 0.8, 1 )
-margin_left = 753.0
-margin_top = 6.0
-margin_right = 1014.0
-margin_bottom = 39.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color_shadow = Color( 0.690196, 0.713726, 0.247059, 1 )
-text = "100"
