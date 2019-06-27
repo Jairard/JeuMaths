@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://map/map 1.gd" type="Script" id=1]
 [ext_resource path="res://image sol/spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -100,6 +101,10 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 } ]
 4/z_index = 0
 
+[sub_resource type="DynamicFont" id=7]
+size = 35
+font_data = ExtResource( 3 )
+
 [node name="map 1" type="Node2D"]
 light_mask = 0
 script = ExtResource( 1 )
@@ -120,6 +125,16 @@ text = "Combat"
 align = 1
 valign = 1
 
+[node name="Button" type="Button" parent="sol"]
+modulate = Color( 0.952941, 0.960784, 0.0235294, 1 )
+self_modulate = Color( 0.713726, 0.713726, 0.74902, 1 )
+margin_left = 960.0
+margin_top = -67.5073
+margin_right = 1086.0
+margin_bottom = -2.50734
+custom_fonts/font = SubResource( 7 )
+text = "Retour"
+
 [node name="StaticBody2D" type="StaticBody2D" parent="sol"]
 visible = false
 collision_layer = 0
@@ -131,3 +146,4 @@ polygon = PoolVector2Array( -128.005, -68.1385, -129.953, 631.201, -61.7722, 627
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="sol/StaticBody2D"]
 polygon = PoolVector2Array( -126.057, -124.631, 1151.84, -126.579, 1149.9, 697.434, -129.953, 699.382, -129.953, 631.201, 1091.46, 633.149, 1085.61, -73.9826, -131.901, -68.1385 )
+[connection signal="pressed" from="sol/Button" to="." method="_on_Button_pressed"]

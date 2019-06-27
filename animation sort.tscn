@@ -18,7 +18,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.801 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ 36, 36, 36, 36, 36, 36, 36, 36, 36, 36 ]
 }
 tracks/1/type = "bezier"
@@ -41,17 +41,55 @@ tracks/2/keys = {
 "points": PoolRealArray(  ),
 "times": PoolRealArray(  )
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("CollisionShape2D:position.x")
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("RayCast_droite:collision_mask")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
+"points": PoolRealArray( 8, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("CollisionShape2D:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 2.598, -0.25, 0, 0.25, 0, 2.598, -0.25, 0, 0.25, 0, 2.598, -0.25, 0, 0.25, 0, 2.598, -0.25, 0, 0.25, 0, 2.598, -0.25, 0, 0.25, 0, 2.598, -0.25, 0, 0.25, 0, 2.598, -0.25, 0, 0.25, 0, 2.598, -0.25, 0, 0.25, 0, 2.598, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.4, 0.5, 0.501, 0.502, 0.6, 0.601, 0.7, 0.8 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("CollisionShape2D:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("RayCast_droite:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("RayCast_droite:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
 }
 
 [sub_resource type="Gradient" id=3]
@@ -84,14 +122,11 @@ scale_curve = SubResource( 6 )
 color_ramp = SubResource( 4 )
 
 [node name="animation sort" type="RigidBody2D"]
-position = Vector2( -2, 1 )
+position = Vector2( 1, 0 )
 collision_layer = 8
-collision_mask = 0
+collision_mask = 4
 mode = 3
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.598, -2.14447 )
@@ -122,7 +157,6 @@ randomness = 1.0
 process_material = SubResource( 7 )
 
 [node name="RayCast_droite" type="RayCast2D" parent="."]
-enabled = true
 cast_to = Vector2( 50, 0 )
 collision_mask = 8
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

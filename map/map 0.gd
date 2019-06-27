@@ -27,3 +27,8 @@ func combat(valeur) :
 		get_tree().change_scene("res://map/map 1.tscn")
 		
 
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://map/start.tscn")
+	pass # Replace with function body.
