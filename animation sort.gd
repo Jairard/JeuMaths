@@ -16,6 +16,7 @@ func sort(positio : Vector2) -> void :
 	self.position = positio
 	self.position.x += 70 
 	$particul.emitting = true
+	
 		
 	
 #func position_hero(valeur):

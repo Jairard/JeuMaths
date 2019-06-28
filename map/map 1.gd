@@ -4,6 +4,7 @@ onready var hero   = preload("res://hero.tscn")
 onready var ennemy = preload("res://Ennemy.tscn")
 onready var sort   = preload("res://animationsort.tscn")
 onready var loot   = preload("res://loot_monstre.tscn")
+onready var hud    = preload("res://Hud.tscn")
 
 func _ready():
 	spawn()
@@ -23,12 +24,14 @@ func _process(delta):
 		var boo = i.start(pos)
 		if boo :
 			add_child(i)
+			i.connect("loot", GLOBAL, "item_loot")
 #	pass
 
 
 func spawn() :
 	add_child(hero.instance())
 	add_child(ennemy.instance())
+	add_child(hud.instance())
 	re_size()
 	
 
@@ -42,7 +45,7 @@ func _on_Button_pressed():
 
 
 func sort(positio : Vector2):
-	print(positio)
+#	print(positio)
 	pass
 	
 	

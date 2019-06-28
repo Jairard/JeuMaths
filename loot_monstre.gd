@@ -1,10 +1,8 @@
 extends Area2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var type
+signal loot(valeur)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
@@ -16,16 +14,23 @@ func _ready():
 func start(pos) -> bool:
 	self.position = Vector2(pos.x,pos.y)
 	var r = randi() % 100
-	if r >= 66 :
-		print(r)
+	if r >= 80 :
+#		print(r)
 		return false
 	else :
-		if r >=0 && r<33:
+		if r >=0 && r<20:
 			$loot.frame = 42
-			print(r)
-		if r>=33 && r<66:
+			type = GLOBAL.items.xp
+#			print(r)
+		if r>=20 && r<40:
 			$loot.frame = 44
-			print(r)
+			type = GLOBAL.items.pv
+		if r>=40 && r<60:
+			$loot.frame = 46
+			type = GLOBAL.items.armure
+		if r>=60 && r<80:
+			$loot.frame = 48
+			type = GLOBAL.items.degats
 		
 		return true
 	
@@ -34,5 +39,6 @@ func start(pos) -> bool:
 
 
 func _on_loot_monstre_body_entered(body):
+	self.emit_signal("loot", type)
 	queue_free()
 	pass # Replace with function body.
