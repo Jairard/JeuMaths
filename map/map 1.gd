@@ -4,7 +4,8 @@ onready var hero   = preload("res://hero.tscn")
 onready var ennemy = preload("res://Ennemy.tscn")
 onready var sort   = preload("res://animationsort.tscn")
 onready var loot   = preload("res://loot_monstre.tscn")
-onready var hud    = preload("res://Hud.tscn")
+#onready var hud    = preload("res://Hud.tscn")
+onready var hud    = preload("res://Hudpro.tscn")
 
 func _ready():
 	spawn()

@@ -22,7 +22,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -511.0
 margin_right = 511.0
-margin_bottom = 43.0
+margin_bottom = 67.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect"]
 anchor_left = 0.5
@@ -53,7 +53,6 @@ modulate = Color( 0.113725, 0.0470588, 0.8, 1 )
 margin_left = 160.0
 margin_right = 174.0
 margin_bottom = 33.0
-size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "0"
 
@@ -70,7 +69,6 @@ modulate = Color( 0.113725, 0.0470588, 0.8, 1 )
 margin_left = 303.0
 margin_right = 331.0
 margin_bottom = 33.0
-size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "0  "
 
@@ -87,7 +85,6 @@ modulate = Color( 0.113725, 0.0470588, 0.8, 1 )
 margin_left = 455.0
 margin_right = 497.0
 margin_bottom = 33.0
-size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "0    "
 
@@ -104,6 +101,5 @@ modulate = Color( 0.113725, 0.0470588, 0.8, 1 )
 margin_left = 661.0
 margin_right = 676.0
 margin_bottom = 33.0
-size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "1"

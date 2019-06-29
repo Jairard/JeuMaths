@@ -2,9 +2,9 @@ extends Node
 
 var xp      = 0
 var level   = 1
-var pv      = 100
+var pv      = 10
 var tresor  = 0
-var degats  = 100
+var degats  = 1
 var life    = 0
 var armure = 0
 
@@ -25,7 +25,7 @@ func _ready():
 func item_loot(type):
 #	print (type)
 	if type == 0 : 
-		xp += 50
+		xp += 10
 		emit_signal("refreshloot", "xp" , xp)
 		print ("xp : " + str(xp))
 		if xp == 100 :
