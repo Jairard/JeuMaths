@@ -7,7 +7,7 @@ var tresor = 0
 
 var inventaire = [null,null]
 
-#onready var sort = preload("res://animationsort.tscn")
+onready var spell = preload("res://animationsort.tscn")
 
 
 export(int) var vitesse = 200
@@ -16,14 +16,12 @@ var velocite = Vector2(0,0)
 
 signal comb(valeur)
 signal damage(valeur)
-#signal hero_position(valeur)
+
 
 
 func _ready():
-# warning-ignore:return_value_discarded
 	self.connect("comb", get_parent(), 'combat')
 	self.connect("damage", get_parent().get_node("Ennemy"), 'death')
-#	self.connect("hero_position", get_parent().get_node("animation sort"), "position_hero")
 	pass 
 
 
@@ -66,17 +64,6 @@ func _process(delta):
 	
 	velocite = move_and_slide(velocite).normalized()
 	
-#	if Input.is_action_just_pressed("ui_accept"	):
-#		var s = sort.instance()
-#		s.sort(self.position)
-#		add_child(get_parent().s)
-	
-	
-#	var z = Vector2()
-#	z.x = position.x
-#	z.y = position.y
-##	print(z)
-#	emit_signal('hero_position',z)
 	
 	
 	
@@ -100,5 +87,12 @@ func ennemi_kill(gain_xp, piece_or, loot):
 	
 	print ("Xp : " + str (xp), "  Level : " + str(level), "  Trésor : " + str(tresor), " Loot : " + str(loot), "  Pv : " + str(pv))
 	
-
+	
+func add_spell():
+	add_child(spell.instance())
+	
+	#hero.add_spell
+# methode dans hero qui prenne le noeud de l'animation
+#add_spell(node2d)
+#add_child a la position du hero
 	

@@ -8,10 +8,7 @@ onready var loot   = preload("res://loot_monstre.tscn")
 onready var hud    = preload("res://hudpro.tscn")
 
 
-#hero.add_spell
-# methode dans hero qui prenne le noeud de l'animation
-#add_spell(node2d)
-#add_child a la position du hero
+
 func _ready():
 	spawn()
 	pass
@@ -19,9 +16,10 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"	):
-		var s = sort.instance()
-		s.sort(self.position)
-		add_child(s)
+#		var s = sort.instance()
+#		s.sort(self.position)
+#		add_child(sort.instance())
+		get_node("hero").add_spell()
 		
 
 
@@ -50,8 +48,8 @@ func _on_Button_pressed():
 	pass # Replace with function body.
 
 
-func sort(positio : Vector2):
+#func sort(positio : Vector2):
 #	print(positio)
-	pass
-	
-	
+#	pass
+#
+#
