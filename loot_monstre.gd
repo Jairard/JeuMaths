@@ -4,24 +4,25 @@ var type
 signal loot(valeur)
 
 func _ready():
-	pass # Replace with function body.
+	pass
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 
 func start(pos) -> bool:
 	self.position = Vector2(pos.x,pos.y)
+	randomize()
 	var r = randi() % 100
+	print(r)
 	if r >= 80 :
-#		print(r)
 		return false
 	else :
 		if r >=0 && r<20:
 			$loot.frame = 42
 			type = GLOBAL.items.xp
-#			print(r)
+			
 		if r>=20 && r<40:
 			$loot.frame = 44
 			type = GLOBAL.items.pv

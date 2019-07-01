@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/epee.png-568bf532744d3db215bc0f702834d2f7.stex"
+path="res://.import/bombs_icon.png-bffe29ddedfc43efa1d1710d3e3fb563.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://epee.png"
-dest_files=[ "res://.import/epee.png-568bf532744d3db215bc0f702834d2f7.stex" ]
+source_file="res://image sol/bombs_icon.png"
+dest_files=[ "res://.import/bombs_icon.png-bffe29ddedfc43efa1d1710d3e3fb563.stex" ]
 
 [params]
 

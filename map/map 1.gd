@@ -5,8 +5,13 @@ onready var ennemy = preload("res://Ennemy.tscn")
 onready var sort   = preload("res://animationsort.tscn")
 onready var loot   = preload("res://loot_monstre.tscn")
 #onready var hud    = preload("res://Hud.tscn")
-onready var hud    = preload("res://Hudpro.tscn")
+onready var hud    = preload("res://hudpro.tscn")
 
+
+#hero.add_spell
+# methode dans hero qui prenne le noeud de l'animation
+#add_spell(node2d)
+#add_child a la position du hero
 func _ready():
 	spawn()
 	pass

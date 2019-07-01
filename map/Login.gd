@@ -14,4 +14,5 @@ func _on_Button_pressed():
 	pass
 
 func _on_LineEdit_text_entered(new_text):
-	pass # Replace with function body.
+	var pseudo = new_text
+	
