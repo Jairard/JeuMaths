@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lifebar_fill.png-392faad01c2384510f65d844fcb98fa3.stex"
+path="res://.import/spritesheet2.png-a291b32d663a875e9bde32fc1b1d635b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image sol/lifebar_fill.png"
-dest_files=[ "res://.import/lifebar_fill.png-392faad01c2384510f65d844fcb98fa3.stex" ]
+source_file="res://hud/spritesheet2.png"
+dest_files=[ "res://.import/spritesheet2.png-a291b32d663a875e9bde32fc1b1d635b.stex" ]
 
 [params]
 

@@ -9,7 +9,8 @@ agrandir l'ennemi en combat
 preload animation sort dans hero ==> dans map1  : 
 				mauvaise position
 				raycast_droite du sort qui se déplace
-				
+				loot qui apparait quand monstre tué et le stocker
+
 
 
 récupérer texte : vérifier si pseudo connu :

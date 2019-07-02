@@ -1,10 +1,10 @@
 extends Node2D
 
 
-onready var ennemy = preload("res://ennemy.tscn")
-onready var hero = preload("res://hero.tscn")
+onready var ennemy = preload("res://characters/Ennemy.tscn")
+onready var hero = preload("res://characters/hero.tscn")
 onready var coin = preload("res://coin.tscn")
-onready var hud = preload("res://hudpro.tscn")
+onready var hud = preload("res://hud/hudpro.tscn")
 
 func _ready():
 	charger_intro()

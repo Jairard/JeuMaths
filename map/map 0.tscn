@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://map/map 0.gd" type="Script" id=1]
-[ext_resource path="res://image sol/spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://hud/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]

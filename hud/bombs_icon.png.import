@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/energy_bar_fill.png-edf00bd9c9995a286c61dad3b53c2194.stex"
+path="res://.import/bombs_icon.png-1eeefde38a72b7ca55d8418737636122.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image sol/energy_bar_fill.png"
-dest_files=[ "res://.import/energy_bar_fill.png-edf00bd9c9995a286c61dad3b53c2194.stex" ]
+source_file="res://hud/bombs_icon.png"
+dest_files=[ "res://.import/bombs_icon.png-1eeefde38a72b7ca55d8418737636122.stex" ]
 
 [params]
 

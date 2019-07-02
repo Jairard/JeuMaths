@@ -7,7 +7,7 @@ var tresor = 0
 
 var inventaire = [null,null]
 
-onready var spell = preload("res://animationsort.tscn")
+onready var spell = preload("res://fight/animationsort.tscn")
 
 
 export(int) var vitesse = 200
@@ -25,19 +25,18 @@ func _ready():
 	pass 
 
 
-# warning-ignore:unused_argument
 func _process(delta):
 	velocite = Vector2(0,0)
 	
 	if Input.is_action_pressed("ui_down") :
-		if !$RayCast_bas.is_colliding(): #== false : 
+		if !$RayCast_bas.is_colliding(): 
 			velocite.y += vitesse
 			$"animation hero".play("mouvement bas")
 		else : 
 			emit_signal('comb', 0)
 			
 	elif Input.is_action_pressed("ui_left") :
-		if !$RayCast_gauche.is_colliding(): #== false :
+		if !$RayCast_gauche.is_colliding(): 
 			velocite.x -= vitesse
 			$"animation hero".play("mouvement gauche")
 		else : 
@@ -90,9 +89,4 @@ func ennemi_kill(gain_xp, piece_or, loot):
 	
 func add_spell():
 	add_child(spell.instance())
-	
-	#hero.add_spell
-# methode dans hero qui prenne le noeud de l'animation
-#add_spell(node2d)
-#add_child a la position du hero
 	

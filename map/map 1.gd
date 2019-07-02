@@ -1,11 +1,10 @@
 extends Node2D
 
-onready var hero   = preload("res://hero.tscn")
-onready var ennemy = preload("res://Ennemy.tscn")
-onready var sort   = preload("res://animationsort.tscn")
-onready var loot   = preload("res://loot_monstre.tscn")
-#onready var hud    = preload("res://Hud.tscn")
-onready var hud    = preload("res://hudpro.tscn")
+onready var hero   = preload("res://characters/hero.tscn")
+onready var ennemy = preload("res://characters/Ennemy.tscn")
+onready var sort   = preload("res://fight/animationsort.tscn")
+onready var loot   = preload("res://fight/loot_monstre.tscn")
+onready var hud    = preload("res://hud/hudpro.tscn")
 
 
 
@@ -16,9 +15,6 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"	):
-#		var s = sort.instance()
-#		s.sort(self.position)
-#		add_child(sort.instance())
 		get_node("hero").add_spell()
 		
 
@@ -29,7 +25,7 @@ func _process(delta):
 		if boo :
 			add_child(i)
 			i.connect("loot", GLOBAL, "item_loot")
-#	pass
+
 
 
 func spawn() :
@@ -47,9 +43,3 @@ func _on_Button_pressed():
 	get_tree().change_scene("res://map/map 0.tscn")
 	pass # Replace with function body.
 
-
-#func sort(positio : Vector2):
-#	print(positio)
-#	pass
-#
-#
