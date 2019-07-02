@@ -23,22 +23,21 @@ func _ready():
 
 
 func item_loot(type):
-	if type == items.xp : 
+	if type == items.xp :
 		xp += 10
-		emit_signal("refreshloot", "xp" , xp)
+		emit_signal("refreshloot", items.xp, xp)
 		print ("xp : " + str(xp))
 		if xp == 100 :
 			level += 1
 			xp = 0
-			emit_signal("refreshloot", "xp" , xp)
-			emit_signal("refreshloot", "level" , level)
+			emit_signal("refreshloot", items.xp, xp)
+			emit_signal("refreshloot", items.level, level)
 			print ("level : " + str(level))
 	if type == items.pv :
 		pv += 10
-		emit_signal("refreshloot", "pv" , pv)
+		emit_signal("refreshloot", items.pv, pv)
 		print ("pv : " + str(pv))
-
-	if type == items.degats : 
+	if type == items.degats :
 		degats += 10
-		emit_signal("refreshloot", "degats" , degats)
+		emit_signal("refreshloot", items.degats, degats)
 		print ("degats : " + str(degats))
