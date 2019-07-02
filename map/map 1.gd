@@ -2,7 +2,6 @@ extends Node2D
 
 onready var hero   = preload("res://characters/hero.tscn")
 onready var ennemy = preload("res://characters/Ennemy.tscn")
-onready var sort   = preload("res://fight/animationsort.tscn")
 onready var loot   = preload("res://fight/loot_monstre.tscn")
 onready var hud    = preload("res://hud/hudpro.tscn")
 

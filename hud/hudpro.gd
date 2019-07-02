@@ -1,11 +1,5 @@
 extends Node2D
 
-
-
-
-
-
-
 func _ready():
 	GLOBAL.connect("refreshloot", self, "refresh_item")
 	
@@ -19,14 +13,3 @@ func refresh_item(type, value):
 		$CanvasLayer/MarginContainer2/bars/bar/count/background/degats.text = str(value)
 	if type == GLOBAL.items.level :
 		$CanvasLayer/MarginContainer2/bars/bar/count/background/niveau.text = str(value)
-
-	
-	
-	
-	
-#func _process(delta):
-#	pass
-
-
-
-
