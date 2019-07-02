@@ -25,7 +25,8 @@ func spawn() :
 	add_child(enemy.instance())
 	add_child(hud.instance())
 	re_size()
-	
+	var sprite = $Ennemy/Sprite # Or enemy.instance().get_node("Sprite")
+	sprite.apply_scale(Vector2(2, 2)) # Multiply scale by 2 on both X and Y axis
 
 func re_size():
 	print("resize")
