@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var hero   = preload("res://characters/hero.tscn")
-onready var ennemy = preload("res://characters/Ennemy.tscn")
+onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var loot   = preload("res://fight/loot_monstre.tscn")
 onready var hud    = preload("res://hud/hudpro.tscn")
 
@@ -29,7 +29,7 @@ func _process(delta):
 
 func spawn() :
 	add_child(hero.instance())
-	add_child(ennemy.instance())
+	add_child(enemy.instance())
 	add_child(hud.instance())
 	re_size()
 	
