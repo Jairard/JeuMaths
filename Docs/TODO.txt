@@ -1,11 +1,3 @@
-
-
-					mettre hud après combat à jour
-			
-agrandir l'ennemi en combat
-
-
-
 preload animation sort dans hero ==> dans map1  : 
 				raycast_droite du sort qui se déplace
 				loot qui apparait quand monstre tué et le stocker
