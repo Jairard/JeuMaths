@@ -6,8 +6,8 @@ func _ready():
 	pass
 
 
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass
 
 
 func sort(positio : Vector2) -> void :
@@ -17,8 +17,8 @@ func sort(positio : Vector2) -> void :
 	
 
 
+
 func _on_Timer_timeout():
-	
 	queue_free()
 
 

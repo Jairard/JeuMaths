@@ -42,7 +42,7 @@ tracks/2/keys = {
 "times": PoolRealArray(  )
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("RayCast_droite:collision_mask")
+tracks/3/path = NodePath("oeil_droit:collision_mask")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -72,7 +72,7 @@ tracks/5/keys = {
 "times": PoolRealArray(  )
 }
 tracks/6/type = "bezier"
-tracks/6/path = NodePath("RayCast_droite:position:x")
+tracks/6/path = NodePath("oeil_droit:position:x")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -82,7 +82,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 )
 }
 tracks/7/type = "bezier"
-tracks/7/path = NodePath("RayCast_droite:position:y")
+tracks/7/path = NodePath("oeil_droit:position:y")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -157,8 +157,9 @@ explosiveness = 0.5
 randomness = 1.0
 process_material = SubResource( 7 )
 
-[node name="RayCast_droite" type="RayCast2D" parent="."]
+[node name="oeil_droit" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 50, 0 )
-collision_mask = 4
+collision_mask = 12
+[connection signal="body_entered" from="." to="." method="_on_animationsort_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

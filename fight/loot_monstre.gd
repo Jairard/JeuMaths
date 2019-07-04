@@ -15,7 +15,7 @@ func start(pos) -> bool:
 	self.position = Vector2(pos.x,pos.y)
 	randomize()
 	var r = randi() % 100
-	print(r)
+#	print(r)
 	if r >= 80 :
 		return false
 	else :
@@ -25,10 +25,10 @@ func start(pos) -> bool:
 			
 		if r>=20 && r<40:
 			$loot.frame = 44
-			type = GLOBAL.items.pv
+			type = GLOBAL.items.pv_hero
 		if r>=40 && r<60:
 			$loot.frame = 46
-			type = GLOBAL.items.armure
+			type = GLOBAL.items.pv_ennemy
 		if r>=60 && r<80:
 			$loot.frame = 48
 			type = GLOBAL.items.degats

@@ -15,13 +15,13 @@ var velocite = Vector2(0,0)
 
 
 signal comb(valeur)
-signal damage(valeur)
+
 
 
 
 func _ready():
 	self.connect("comb", get_parent(), 'combat')
-	self.connect("damage", get_parent().get_node("Ennemy"), 'death')
+	
 	pass 
 
 
@@ -33,6 +33,7 @@ func _process(delta):
 			velocite.y += vitesse
 			$"animation hero".play("mouvement bas")
 		else : 
+			velocite.y += 0
 			emit_signal('comb', 0)
 			
 	elif Input.is_action_pressed("ui_left") :
@@ -40,6 +41,7 @@ func _process(delta):
 			velocite.x -= vitesse
 			$"animation hero".play("mouvement gauche")
 		else : 
+			velocite.x -= 0
 			emit_signal('comb', 0)
 			
 	elif Input.is_action_pressed("ui_up") :
@@ -47,6 +49,7 @@ func _process(delta):
 			velocite.y -= vitesse
 			$"animation hero".play("mouvement haut")
 		else : 
+			velocite.y -= 0
 			emit_signal('comb', 0)
 			
 	elif Input.is_action_pressed("ui_right") :
@@ -54,6 +57,7 @@ func _process(delta):
 			velocite.x += vitesse
 			$"animation hero".play("mouvement droite")
 		else : 
+			velocite.x += 0
 			emit_signal('comb', 0)
 	
 	else :

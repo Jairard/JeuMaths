@@ -6,3 +6,20 @@ preload animation sort dans hero ==> dans map1  :
 
 récupérer texte : vérifier si pseudo connu 
 
+
+
+problèmes prioritaires: 
+	
+	collision entre spell et ennemy :
+		raycast_droite (renommé oeil_droit) qui ne suit pas le spell
+
+
+
+
+sinon :
+
+	agrandir la taille du collision_shape de Ennemy
+	
+	Nouvel hud pour le combat ==> mettre a jour l'hud hors combat
+	 
+	

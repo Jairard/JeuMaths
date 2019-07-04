@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var ennemy = preload("res://characters/Ennemy.tscn")
+onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var hero = preload("res://characters/hero.tscn")
 onready var coin = preload("res://coin.tscn")
 onready var hud = preload("res://hud/hudpro.tscn")
@@ -15,11 +15,10 @@ func _ready():
 #	pass
 
 func charger_intro() :
-	add_child(ennemy.instance())
+	add_child(enemy.instance())
 	add_child(hero.instance())
 	add_child(coin.instance())
 	add_child(hud.instance())
-	
 
 func combat(valeur) :
 	if valeur == 0 :

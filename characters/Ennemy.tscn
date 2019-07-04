@@ -8,9 +8,9 @@ extents = Vector2( 38.8985, 42.8537 )
 
 [node name="Ennemy" type="KinematicBody2D"]
 modulate = Color( 0.92549, 0.898039, 0.898039, 1 )
-position = Vector2( 160, 288 )
+position = Vector2( 470.618, 229.068 )
 collision_layer = 4
-collision_mask = 9
+collision_mask = 0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -29,14 +29,14 @@ shape = SubResource( 1 )
 
 [node name="RayCast_bas" type="RayCast2D" parent="."]
 enabled = true
-collision_mask = 9
+collision_mask = 8
 
 [node name="RayCast_haut" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, -50 )
 collision_mask = 9
 
-[node name="RayCast2_droite" type="RayCast2D" parent="."]
+[node name="RayCast_droite" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 50, 0 )
 collision_mask = 9
@@ -45,3 +45,4 @@ collision_mask = 9
 enabled = true
 cast_to = Vector2( -50, 0 )
 collision_mask = 9
+collide_with_areas = true
