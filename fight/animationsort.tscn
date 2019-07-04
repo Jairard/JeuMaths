@@ -129,7 +129,6 @@ mode = 3
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 2.598, -2.14447 )
 shape = SubResource( 1 )
 
@@ -160,6 +159,6 @@ process_material = SubResource( 7 )
 [node name="oeil_droit" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 50, 0 )
-collision_mask = 12
+collision_mask = 8
 [connection signal="body_entered" from="." to="." method="_on_animationsort_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -28,10 +28,8 @@ func spawn() :
 	add_child(enemy.instance())
 	add_child(hud.instance())
 	var sprite = $Ennemy/Sprite # Or enemy.instance().get_node("Sprite")
-	sprite.apply_scale(Vector2(1, 1)) # Multiply scale by 2 on both X and Y axis
-#	var shape =  enemy.instance().get_node("CollisionShape2D")
-#	shape.apply_scale(Vector2(20,20))
-
+	sprite.apply_scale(Vector2(3, 3)) # Multiply scale by 2 on both X and Y axis
+	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://map/map 0.tscn")
