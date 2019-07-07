@@ -1,12 +1,8 @@
 problèmes prioritaires: 
 	
 	collision entre spell et ennemy :
-		raycast_droite (renommé oeil_droit) qui ne suit pas le spell
-
-		==> Animationsort pas dans le bon format genre area2D ou kinematic
 		==> mouvement du sort pas dans une animation mais "move_and_collide"
-								  "move_and_slide"	 
-
+								  "move_and_slide"
 		==> l'arborescence de Ennemy n'est pas bonne, il faudrait mettre les
 							raycast en enfants
 
@@ -20,6 +16,5 @@ sinon :
 	récupérer texte : vérifier si pseudo connu 
 
 
-preload animation sort dans hero ==> dans map1  : 
-				raycast_droite du sort qui se déplace
+preload animation sort dans hero ==> dans map1  :
 				loot qui apparait quand monstre tué et le stocker
