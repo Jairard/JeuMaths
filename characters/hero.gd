@@ -7,8 +7,12 @@ var tresor = 0
 
 var inventaire = [null,null]
 
-onready var spell = preload("res://fight/animationsort.tscn")
-
+# We use an enum so that we can easily add more spells
+enum spellType {fireball}
+# This variable is a dictionary that gives, for each type of spell,
+# the variable that allows use to spawn the spell.
+# By default, out hero has no spell so its dictionary is empty
+var spells = {} # empty dictionary
 
 export(int) var vitesse = 200
 var velocite = Vector2(0,0)
@@ -74,8 +78,22 @@ func ennemi_kill(gain_xp, piece_or, loot):
 		pv += 10
 	
 	print ("Xp : " + str (xp), "  Level : " + str(level), "  Trésor : " + str(tresor), " Loot : " + str(loot), "  Pv : " + str(pv))
-	
-	
-func add_spell():
-	add_child(spell.instance())
-	
+
+func add_spell(spellRoot, type):
+	# Store the spell in the dictionary
+	# For now, we don't need to spawn it
+	spells[type] = spellRoot
+
+func cast_spell(type):
+	# Check if the hero has a spell for this type
+	if (spells.has(type)):
+		# If it does, we instantiate it
+		var spell = spells[type].instance()
+		# Add the spell as a child
+		# FIXME this is not a good idea since the spell will move with the hero
+		add_child(spell)
+		# Cast it
+		spell.cast()
+	else:
+		print("cast_spell: no spell registered for type " + str(type))
+

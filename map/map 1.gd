@@ -4,15 +4,19 @@ onready var hero   = preload("res://characters/hero.tscn")
 onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var loot   = preload("res://fight/loot_monstre.tscn")
 onready var hud    = preload("res://hud/hud_fight.tscn")
+# We load the spelle here so that we can inject it into hero
+onready var spell = preload("res://fight/animationsort.tscn")
+
+# Each call of instance() create a new object
+# Here we only want one of them so we store it in a variable
+onready var heroRoot = hero.instance()
 
 func _ready():
 	spawn()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		get_node("hero").add_spell()
-		
-
+		heroRoot.cast_spell(heroRoot.spellType.fireball)
 		var pos = self.position
 		var i = loot.instance()
 		var boo = i.start(pos)
@@ -21,7 +25,11 @@ func _process(delta):
 			i.connect("loot", GLOBAL, "item_loot")
 
 func spawn() :
-	add_child(hero.instance())
+	# Inject hero into map
+	add_child(heroRoot)
+	# Register the fireball spell
+	heroRoot.add_spell(spell, heroRoot.spellType.fireball)
+
 	add_child(enemy.instance())
 	add_child(hud.instance())
 	var sprite = $Ennemy/Sprite # Or enemy.instance().get_node("Sprite")
