@@ -22,5 +22,3 @@ func _process(delta):
 #		emit_signal("damage",0)
 	pass
 
-
-

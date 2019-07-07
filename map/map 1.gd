@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 onready var hero   = preload("res://characters/hero.tscn")
 onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var loot   = preload("res://fight/loot_monstre.tscn")
@@ -9,10 +7,9 @@ onready var hud    = preload("res://hud/hud_fight.tscn")
 
 func _ready():
 	spawn()
-	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"	):
+	if Input.is_action_just_pressed("ui_accept"):
 		get_node("hero").add_spell()
 		
 

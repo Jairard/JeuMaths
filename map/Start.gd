@@ -18,5 +18,4 @@ func _on_Button_pressed():
 
 func _on_Buttonlogin_pressed():
 	get_tree().change_scene("res://map/login.tscn")
-	print("log")
 
