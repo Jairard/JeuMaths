@@ -12,12 +12,10 @@ func _ready():
 	
 func death(valeur):
 	queue_free()
-	print ("mort")
 	var pos = self.position
 	var i = lot.instance()
 	var boo = i.start(pos)
 	if boo :
-		print ("test")
 		get_parent().add_child(i)
 		i.connect("loot", GLOBAL, "item_loot")
 	

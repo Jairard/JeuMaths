@@ -15,6 +15,3 @@ sinon :
 	 
 	récupérer texte : vérifier si pseudo connu 
 
-
-preload animation sort dans hero ==> dans map1  :
-				loot qui apparait quand monstre tué et le stocker

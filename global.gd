@@ -26,18 +26,11 @@ func item_loot(type):
 #			print ("level : " + str(level))
 
 	if type == items.pv_hero :
-		pv_hero -= 10
+		pv_hero += 10
 		emit_signal("refreshloot", items.pv_hero, pv_hero)
 		print ("pv : " + str(pv_hero))
 		if pv_hero == 0 :
 			fight_lose()
-
-#	if type == items.pv_ennemy :
-#		pv_ennemy -= 10
-#		emit_signal("refreshloot", items.pv_ennemy, pv_ennemy)
-#		print ("pv_ennemy : " + str(pv_ennemy))
-#		if pv_ennemy == 0:
-#			fight_win()
 
 	if type == items.degats :
 		degats += 10
