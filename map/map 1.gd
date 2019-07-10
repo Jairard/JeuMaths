@@ -43,8 +43,22 @@ func spawn() :
 	huddd.set_level(GLOBAL.level)
 	
 
-func _on_Button_pressed():
+func _on_return_pressed():
 	get_tree().change_scene("res://map/map 0.tscn")
 
 func combat(valeur):
 	pass
+
+func _on_ready_pressed():
+	$sol/ready.hide()
+	$sol/calcul.show()
+	$sol/answer_1.show()
+	$sol/answer_2.show()
+
+func _on_answer_1_pressed():
+	print ("gagné")
+
+
+func _on_answer_2_pressed():
+	print ("perdu")
+
