@@ -1,25 +1,14 @@
 extends Node2D
 
-
-func _ready():
-#	GLOBAL.connect("refreshloot", self, "refresh_item")
-	refresh_all()
-
-func refresh_all():
-	# TODO: you need to initialize your UI components here !
-#	GLOBAL.xp.init()
-#	GLOBAL.pv_hero.init()
-#	GLOBAL.degats.init()
-#	GLOBAL.level.init()
-	pass
-
-func refresh_item(type, value):
-	if type == GLOBAL.items.xp :
-		$CanvasLayer/MarginContainer2/bars/bar/count/background/xp_progress.value = value
-	if type == GLOBAL.items.pv_hero :
-		$CanvasLayer/MarginContainer2/bars/bar/count/background/vie_progress.value = value
-	if type == GLOBAL.items.degats :
-		$CanvasLayer/MarginContainer2/bars/bar/count/background/degats.text = str(value)
-	if type == GLOBAL.items.level :
-		$CanvasLayer/MarginContainer2/bars/bar/count/background/niveau.text = str(value)
-	pass
+func set_xp(value):
+	$CanvasLayer/MarginContainer2/bars/bar/count/background/xp_progress.value = value
+		
+func set_pv_hero(value):
+	$CanvasLayer/MarginContainer2/bars/bar/count/background/vie_progress.value = value
+	$CanvasLayer/MarginContainer2/bars/bar/count/background/pv.text = str(value)
+		
+func set_degats(value):
+	$CanvasLayer/MarginContainer2/bars/bar/count/background/degats.text = str(value)
+		
+func set_level(value):
+	$CanvasLayer/MarginContainer2/bars/bar/count/background/niveau.text = str(value)

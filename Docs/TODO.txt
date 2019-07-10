@@ -1,17 +1,22 @@
 problèmes prioritaires: 
-	
-	collision entre spell et ennemy :
-		==> mouvement du sort pas dans une animation mais "move_and_collide"
-								  "move_and_slide"
-		==> l'arborescence de Ennemy n'est pas bonne, il faudrait mettre les
-							raycast en enfants
+
+	get text when login
+
+	send calcul
+		answer
+			spell
+
+	interface calcul
 
 
 -----------------------------------------
 
-sinon :
+	circular xp gauge   
 
-	Nouvel hud pour le combat ==> mettre a jour l'hud hors combat
-	 
-	récupérer texte : vérifier si pseudo connu 
+	separate hud right / left
+
+
+----------------------------------------
+
+	harder better faster stronger tamer
 

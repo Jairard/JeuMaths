@@ -88,7 +88,7 @@ func cast_spell(type):
 	# Check if the hero has a spell for this type
 	if (spells.has(type)):
 		# If it does, we instantiate it
-		var spell = spells[type].instance()
+		var spell = spells[type].instance() #we create a node animationsort.tscn
 		# Add the spell as a child
 		# FIXME this is not a good idea since the spell will move with the hero
 		add_child(spell)

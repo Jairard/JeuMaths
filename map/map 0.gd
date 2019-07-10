@@ -18,7 +18,13 @@ func charger_intro() :
 	add_child(enemy.instance())
 	add_child(hero.instance())
 	add_child(coin.instance())
-	add_child(hud.instance())
+	var hudd = hud.instance()
+	add_child(hudd)
+	hudd.set_xp(GLOBAL.xp)
+	hudd.set_pv_hero(GLOBAL.pv_hero)
+	hudd.set_degats(GLOBAL.degats)
+	hudd.set_level(GLOBAL.level)
+	
 
 func combat(valeur) :
 	if valeur == 0 :

@@ -21,24 +21,27 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		heroRoot.cast_spell(heroRoot.spellType.fireball)
 		emit_signal("fight",0)
-#		var pos = self.position
-#		var i = loot.instance()
-#		var boo = i.start(pos)
-#		if boo :
-#			add_child(i)
-#			i.connect("loot", GLOBAL, "item_loot")
+
 
 func spawn() :
 	# Inject hero into map
 	add_child(heroRoot)
 	# Register the fireball spell
 	heroRoot.add_spell(spell, heroRoot.spellType.fireball)
-
 	add_child(enemy.instance())
-	add_child(hud.instance())
+	
 	var sprite = $Ennemy/Sprite # Or enemy.instance().get_node("Sprite")
 	sprite.apply_scale(Vector2(3, 3)) # Multiply scale by 2 on both X and Y axis
 	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
+	
+	var huddd = hud.instance()
+	add_child(huddd)
+	huddd.set_pv_ennemy(GLOBAL.pv_ennemy)
+	huddd.set_pv_hero(GLOBAL.pv_hero)
+	huddd.set_degats(GLOBAL.degats)
+	huddd.set_xp(GLOBAL.xp)
+	huddd.set_level(GLOBAL.level)
+	
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://map/map 0.tscn")

@@ -30,11 +30,11 @@ margin_bottom = 153.681
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/degats"]
 margin_right = 80.0
-margin_bottom = 81.0
+margin_bottom = 80.0
 
 [node name="degat" type="TextureRect" parent="CanvasLayer/degats/MarginContainer"]
 margin_right = 80.0
-margin_bottom = 81.0
+margin_bottom = 80.0
 texture = ExtResource( 2 )
 
 [node name="pv_ennemy" type="HBoxContainer" parent="CanvasLayer"]

@@ -67,10 +67,10 @@ text = "0"
 align = 2
 
 [node name="vie_progress" type="TextureProgress" parent="CanvasLayer/MarginContainer2/bars/bar/count/background"]
-margin_left = 90.9724
-margin_top = 14.4423
-margin_right = 486.972
-margin_bottom = 67.4423
+margin_left = 92.9724
+margin_top = 15.4423
+margin_right = 488.972
+margin_bottom = 68.4423
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 
@@ -101,9 +101,16 @@ custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "1"
 
 [node name="vie" type="TextureRect" parent="CanvasLayer/MarginContainer2/bars/bar/count/background"]
-margin_left = 36.0
-margin_top = 21.0
-margin_right = 53.0
-margin_bottom = 38.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 37.0
+margin_top = 15.5404
+margin_right = 54.0
+margin_bottom = 33.5404
+rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 8 )
+
+[node name="pv" type="Label" parent="CanvasLayer/MarginContainer2/bars/bar/count/background"]
+margin_left = 49.0807
+margin_top = 34.0
+margin_right = 91.0807
+margin_bottom = 48.0
+text = "100"
