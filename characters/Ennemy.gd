@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-#signal damage(valeur)
+onready var lot   = preload("res://fight/loot_monstre.tscn")
 
 func _ready():
 	GLOBAL.connect("win", self, "death")
@@ -11,14 +11,19 @@ func _ready():
 	
 	
 func death(valeur):
-	print ("mort")
 	queue_free()
+	print ("mort")
+	var pos = self.position
+	var i = lot.instance()
+	var boo = i.start(pos)
+	if boo :
+		print ("test")
+		get_parent().add_child(i)
+		i.connect("loot", GLOBAL, "item_loot")
+	
 	
 
 	
 func _process(delta):
-	if $RayCast_gauche.is_colliding() == true: #or $RayCast_gauche.is_colliding() or $RayCast_droite.is_colliding() or $RayCast_haut.is_colliding() :
-		print ("test collision") 
-#		emit_signal("damage",0)
 	pass
 

@@ -1,8 +1,10 @@
 extends Node2D
 
+signal fight(value)
+
 onready var hero   = preload("res://characters/hero.tscn")
 onready var enemy = preload("res://characters/Ennemy.tscn")
-onready var loot   = preload("res://fight/loot_monstre.tscn")
+#onready var loot   = preload("res://fight/loot_monstre.tscn")
 onready var hud    = preload("res://hud/hud_fight.tscn")
 # We load the spelle here so that we can inject it into hero
 onready var spell = preload("res://fight/animationsort.tscn")
@@ -12,17 +14,19 @@ onready var spell = preload("res://fight/animationsort.tscn")
 onready var heroRoot = hero.instance()
 
 func _ready():
+	connect("fight", GLOBAL, "end_fight")	
 	spawn()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		heroRoot.cast_spell(heroRoot.spellType.fireball)
-		var pos = self.position
-		var i = loot.instance()
-		var boo = i.start(pos)
-		if boo :
-			add_child(i)
-			i.connect("loot", GLOBAL, "item_loot")
+		emit_signal("fight",0)
+#		var pos = self.position
+#		var i = loot.instance()
+#		var boo = i.start(pos)
+#		if boo :
+#			add_child(i)
+#			i.connect("loot", GLOBAL, "item_loot")
 
 func spawn() :
 	# Inject hero into map

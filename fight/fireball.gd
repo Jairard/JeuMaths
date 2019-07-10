@@ -1,5 +1,6 @@
 extends Node2D
 
+
 func cast():
 	# To start the spell, we play the animation and trigger the particles !
 	$AnimationPlayer.play("cast_right");

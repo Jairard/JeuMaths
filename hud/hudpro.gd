@@ -7,6 +7,10 @@ func _ready():
 
 func refresh_all():
 	# TODO: you need to initialize your UI components here !
+#	GLOBAL.xp.init()
+#	GLOBAL.pv_hero.init()
+#	GLOBAL.degats.init()
+#	GLOBAL.level.init()
 	pass
 
 func refresh_item(type, value):

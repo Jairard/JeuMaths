@@ -11,13 +11,19 @@ collision_layer = 32
 script = ExtResource( 1 )
 
 [node name="loot" type="Sprite" parent="."]
-position = Vector2( 470.69, 405.392 )
+position = Vector2( 4.87418, 0.0706787 )
 texture = ExtResource( 2 )
 vframes = 8
 hframes = 8
 frame = 48
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 470.834, 406.528 )
+position = Vector2( 5.01819, 1.2067 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 [connection signal="body_entered" from="." to="." method="_on_loot_monstre_body_entered"]
