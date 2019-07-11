@@ -4,7 +4,8 @@ problèmes prioritaires:
 
 	send calcul
 		answer
-			spell
+			when answer is true ==> damage to Ennemy
+			when answer is wrong ==> damage to Hero
 
 	
 -----------------------------------------
@@ -13,8 +14,6 @@ problèmes prioritaires:
 
 	separate hud right / left
 
-	
-	 a 3s timer before starting fight
 ----------------------------------------
 
 	harder better faster stronger tamer
