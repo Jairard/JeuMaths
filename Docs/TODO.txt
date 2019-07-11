@@ -6,16 +6,15 @@ problèmes prioritaires:
 		answer
 			spell
 
-	interface calcul
-
-
+	
 -----------------------------------------
 
 	circular xp gauge   
 
 	separate hud right / left
 
-
+	
+	 a 3s timer before starting fight
 ----------------------------------------
 
 	harder better faster stronger tamer
