@@ -6,12 +6,8 @@ func _ready():
 	GLOBAL.connect("level", self, "set_level")
 	GLOBAL.connect("pv_hero", self, "set_pv_hero")
 	GLOBAL.connect("degats", self, "set_degats")
-	GLOBAL.connect("pv_ennemy", self, "set_pv_ennemy")
-	pass 
 
 
-func set_pv_ennemy(value) :
-	$CanvasLayer/pv_ennemy/MarginContainer/life_ennemy.value = value
 	
 func set_pv_hero(value) :
 	$CanvasLayer/pv_hero/MarginContainer/life_hero.max_value = value

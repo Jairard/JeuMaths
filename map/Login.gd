@@ -10,7 +10,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://map/map 0.tscn")
+	get_tree().change_scene("res://map/map_level.tscn")
 	pass
 
 func _on_LineEdit_text_entered(new_text):

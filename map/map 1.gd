@@ -7,7 +7,8 @@ var sec = 4
 
 onready var hero   = preload("res://characters/hero.tscn")
 onready var enemy = preload("res://characters/Ennemy.tscn")
-onready var hud    = preload("res://hud/hud_fight.tscn")
+onready var hud    = preload("res://hud/hud_hero.tscn")
+onready var hud_pro    = preload("res://hud/hud_enemy.tscn")
 onready var spell = preload("res://fight/animationsort.tscn")
 onready var calcul = preload("res://fight/calcul.tscn")
 onready var time_label = get_node("sol/time_label")
@@ -40,13 +41,18 @@ func spawn() :
 	sprite.apply_scale(Vector2(3, 3)) # Multiply scale by 2 on both X and Y axis
 	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
 	
-	var huddd = hud.instance()
+	var hudd = hud.instance()
+	add_child(hudd)
+	
+	hudd.set_pv_hero(GLOBAL.pv_hero)				#hud Hero
+	hudd.set_degats(GLOBAL.degats)
+	hudd.set_xp(GLOBAL.xp)
+	hudd.set_level(GLOBAL.level)
+	
+	var huddd = hud_pro.instance()
 	add_child(huddd)
-	huddd.set_pv_ennemy(GLOBAL.pv_ennemy)
-	huddd.set_pv_hero(GLOBAL.pv_hero)
-	huddd.set_degats(GLOBAL.degats)
-	huddd.set_xp(GLOBAL.xp)
-	huddd.set_level(GLOBAL.level)
+
+	huddd.set_pv_ennemy(GLOBAL.pv_ennemy)		#hud Enemy
 	
 	
 	
@@ -64,4 +70,4 @@ func _on_game_timer_timeout():
 
 func _on_return_pressed():
 	print ("test")
-	get_tree().change_scene("res://map/map 0.tscn")
+	get_tree().change_scene("res://map/map_level.tscn")
