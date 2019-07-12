@@ -12,8 +12,6 @@ problèmes prioritaires:
 
 	circular xp gauge   
 
-	separate hud right / left
-
 ----------------------------------------
 
 	harder better faster stronger tamer

@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://hud/hudpro.gd" type="Script" id=1]
+[ext_resource path="res://hud/hud_enemy.gd" type="Script" id=1]
 [ext_resource path="res://hud/lifebar_bg.png" type="Texture" id=2]
 [ext_resource path="res://hud/lifebar_fill.png" type="Texture" id=3]
+
 
 [node name="hud_enemy" type="Node2D"]
 script = ExtResource( 1 )
