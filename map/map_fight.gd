@@ -19,7 +19,7 @@ onready var game_timer = get_node("game_timer")
 onready var heroRoot = hero.instance()
 
 func _ready():
-	connect("fight", GLOBAL, "end_fight")	
+#	connect("fight", GLOBAL, "end_fight")
 	spawn()
 
 func _process(delta):
@@ -27,12 +27,14 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		heroRoot.cast_spell(heroRoot.spellType.fireball)
-		emit_signal("fight",0)
+#		emit_signal("fight",0)
 
 
 func spawn() :
 	# Inject hero into map
 	add_child(heroRoot)
+	var pos_x = heroRoot.position.x
+	var pos_y = heroRoot.position.y
 	# Register the fireball spell
 	heroRoot.add_spell(spell, heroRoot.spellType.fireball)
 	add_child(enemy.instance())
@@ -64,10 +66,17 @@ func combat(valeur):
 func _on_game_timer_timeout():
 	sec -= 4
 	if sec == 0 :
-		print ("test")
 		time_label.hide()
 		add_child(calcul.instance())
 
 func _on_return_pressed():
-	print ("test")
 	get_tree().change_scene("res://map/map_level.tscn")
+	
+	
+func ready_spell(value):
+	if value == 0 : 
+		var test = spell.instance()
+		test.position.x = heroRoot.position.x
+		test.position.y = heroRoot.position.y
+		add_child(test)
+		test.cast()

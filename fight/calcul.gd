@@ -1,7 +1,9 @@
 extends Node2D
 
+signal fight(value)
 
 func _ready():
+	connect("fight", GLOBAL, "end_fight")
 	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,6 +17,7 @@ func _on_answer_1_pressed():
 
 func _on_answer_2_pressed():
 	print("gagné")
+	emit_signal("fight",0)
 
 
 

@@ -18,9 +18,11 @@ export(int) var vitesse = 200
 var velocite = Vector2(0,0)
 
 signal comb(valeur)
+signal spell_ready(value)
 
 func _ready():
 	self.connect("comb", get_parent(), 'combat')
+	connect("spell_ready", get_parent(), "ready_spell")	
 
 
 func _process(delta):
@@ -88,12 +90,13 @@ func cast_spell(type):
 	# Check if the hero has a spell for this type
 	if (spells.has(type)):
 		# If it does, we instantiate it
-		var spell = spells[type].instance() #we create a node animationsort.tscn
-		# Add the spell as a child
-		# FIXME this is not a good idea since the spell will move with the hero
-		add_child(spell)
-		# Cast it
-		spell.cast()
+#		var spell = spells[type].instance() #we create a node animationsort.tscn
+#		# Add the spell as a child
+#		# FIXME this is not a good idea since the spell will move with the hero
+#		add_child(spell)
+#		# Cast it
+#		spell.cast()
+		emit_signal("spell_ready", 0)
 	else:
 		print("cast_spell: no spell registered for type " + str(type))
 
