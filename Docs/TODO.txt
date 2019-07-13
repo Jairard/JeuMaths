@@ -23,6 +23,12 @@ Priorities:
 			Hero lose life if colliding
 				before fight
 
+	transition effect between scenes
+
+	sound effect for spells
+
+	visual effects for damage taken
+
 ----------------------------------------
 
 	harder better faster stronger tamer
