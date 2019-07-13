@@ -24,21 +24,22 @@ func item_loot(type):
 	if type == items.xp :
 		xp += 40
 		emit_signal("xp", xp)
-#		print ("xp : " + str(xp))
-		if xp >= 100 :
-			level += 1
-			xp = 0
-			emit_signal("xp", xp)
-			emit_signal("level", level)
-#			print ("level : " + str(level))
+		check_xp()
+		
 
 	if type == items.pv_hero :
 		pv_hero_max += 10
+		xp += 40
 		emit_signal("pv_hero_max", pv_hero_max)
+		emit_signal("xp", xp)
+		check_xp()
 
 	if type == items.degats :
 		degats += 10
+		xp += 40
 		emit_signal("degats", degats)
+		emit_signal("xp", xp)
+		check_xp()
 
 func end_fight(value):
 	
@@ -65,3 +66,10 @@ func fight_win():
 	GLOBAL.pv_hero = GLOBAL.pv_hero_max
 	GLOBAL.pv_ennemy_max = GLOBAL.pv_hero_max
 	emit_signal("win", 0)
+
+func check_xp():
+	if xp >= 100 :
+			level += 1
+			xp = 0
+			emit_signal("xp", xp)
+			emit_signal("level", level)
