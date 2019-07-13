@@ -1,6 +1,5 @@
 extends Node2D
 
-signal fight(value)
 
 var sec = 4 
 
@@ -27,7 +26,6 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		heroRoot.cast_spell(heroRoot.spellType.fireball)
-#		emit_signal("fight",0)
 
 
 func spawn() :
@@ -46,7 +44,9 @@ func spawn() :
 	var hudd = hud.instance()
 	add_child(hudd)
 	
-	hudd.set_pv_hero(GLOBAL.pv_hero)				#hud Hero
+	hudd.set_pv_hero(GLOBAL.pv_hero_max)				#hud Hero
+	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
+	GLOBAL.pv_hero = GLOBAL.pv_hero_max
 	hudd.set_degats(GLOBAL.degats)
 	hudd.set_xp(GLOBAL.xp)
 	hudd.set_level(GLOBAL.level)

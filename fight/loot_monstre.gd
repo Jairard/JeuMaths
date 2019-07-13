@@ -22,7 +22,8 @@ func start(pos) -> bool:
 	else :
 		if r >=0 && r<30:
 			$loot.frame = 42
-			type = GLOBAL.items.xp
+#			type = GLOBAL.items.xp
+			type = GLOBAL.items.pv_hero
 			
 		if r>=30 && r<60:
 			$loot.frame = 44
@@ -30,8 +31,8 @@ func start(pos) -> bool:
 			
 		if r>=60 && r<90:
 			$loot.frame = 46
-			type = GLOBAL.items.degats
-		
+#			type = GLOBAL.items.degats
+			type = GLOBAL.items.pv_hero
 		return true
 	
 

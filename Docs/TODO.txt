@@ -1,16 +1,27 @@
-problèmes prioritaires: 
+Priorities: 
 
 	get text when login
 
-	send calcul
-		answer
-			when answer is true ==> damage to Ennemy
-			when answer is wrong ==> damage to Hero
-
-	
+	send calcul --- 
+		answer	---
+			when answer is true ==> damage to Ennemy ---	
+							spell from Hero to Enemy
+			when answer is wrong ==> damage to Hero	---	
+							spell from Enemy to Hero
+		
 -----------------------------------------
 
 	circular xp gauge   
+
+	speedest is the answer ==> biggest are the damages
+
+	highest Hero life is ==> Highest Enemies life are	
+
+	All 3x level player can choice between +pv or +damage
+
+	little monsters spawning randomly
+			Hero lose life if colliding
+				before fight
 
 ----------------------------------------
 

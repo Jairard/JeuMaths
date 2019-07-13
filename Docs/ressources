@@ -1,32 +1,41 @@
-accueil-connexion
-	choix niveau
-		4 niveaux
-	choix du hero
+First connection
+
+	difficulty level choice (6°, ..3°)
+
+	Hero choice
 		4 heros
-	choix du skin
-		casque
-		armure
-		pantalon
-		botte
-	choix de la classe
-		3 classes
+						(skin choice :
+								helmet
+								armor	
+								boots)
+	Class choice
+		Tank
+		Assasin
+		Mage
 
 caracteristiques
-	hp - coeur
-	degats - epee
+	hp - heart
+	damage - sword
 	
 
 niveaux
-	niveau 1 1er sort
-	niveau 5 2eme sort
-	niveau 10 ultime
-	niveau 20 donjon pve
-	niveau 30 donjon pvp
+
+	Bonus xp every level
+
+		every 3 levels the player can choice between +pv or +damage
+
+						(level 1 one spell
+						level 5 two spell
+						level 10 ultimate
+						level 20 donjon pve
+						level 30 donjon pvp)
 
 musique
-	d'accueil 
-	map
-	combat
+	start
+		login 
+			signin
+				map_level
+					map_fight
 
 
 mission
@@ -34,8 +43,9 @@ mission
 		
 
 map	
-	monde ouvert
-	monstre errant
-	combat autonome
-
+	
+	little monsters
+			spawn random
+					Hero lose pv if colliding
+	
  

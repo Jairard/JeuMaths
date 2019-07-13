@@ -5,15 +5,20 @@ func _ready():
 	GLOBAL.connect("xp", self, "set_xp")
 	GLOBAL.connect("level", self, "set_level")
 	GLOBAL.connect("pv_hero", self, "set_pv_hero")
+	GLOBAL.connect("pv_hero_max", self, "set_pv_hero_max")
 	GLOBAL.connect("degats", self, "set_degats")
 
 
 	
 func set_pv_hero(value) :
-	$CanvasLayer/pv_hero/MarginContainer/life_hero.max_value = value
 	$CanvasLayer/pv_hero/MarginContainer/life_hero.value = value
 	$CanvasLayer/HBoxContainer4/Label.text = str(value)
 	
+func set_pv_hero_max(value) :
+	$CanvasLayer/pv_hero/MarginContainer/life_hero.max_value = value
+	$CanvasLayer/pv_hero/MarginContainer/life_hero.value = value
+	$CanvasLayer/HBoxContainer4/Label.text = str(value)
+
 func set_degats(value) :
 	$CanvasLayer/valeur_degats/MarginContainer/valeur_degat.text = str(value)
 		

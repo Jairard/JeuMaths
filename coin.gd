@@ -15,8 +15,8 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	print("touché")
-	print("loot : " + str(loot_type))
+#	print("touché")
+#	print("loot : " + str(loot_type))
 	self.emit_signal("loot", loot_type)
 	queue_free()
 	
