@@ -1,8 +1,6 @@
 extends Node2D
 
-
 var sec = 4 
-
 
 onready var hero   = preload("res://characters/hero.tscn")
 onready var enemy = preload("res://characters/Ennemy.tscn")
@@ -44,9 +42,10 @@ func spawn() :
 	var hudd = hud.instance()
 	add_child(hudd)
 	
+	GLOBAL.pv_hero = GLOBAL.pv_hero_max					#init pv_hero to that max value
 	hudd.set_pv_hero(GLOBAL.pv_hero_max)				#hud Hero
 	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
-	GLOBAL.pv_hero = GLOBAL.pv_hero_max
+	
 	hudd.set_degats(GLOBAL.degats)
 	hudd.set_xp(GLOBAL.xp)
 	hudd.set_level(GLOBAL.level)
@@ -54,9 +53,11 @@ func spawn() :
 	var huddd = hud_pro.instance()
 	add_child(huddd)
 
-	huddd.set_pv_ennemy(GLOBAL.pv_ennemy)		#hud Enemy
-	
-	
+	GLOBAL.pv_ennemy_max = GLOBAL.pv_hero_max * 1.5			#init pv_ennemy to pv_hero_max x 1.1
+	GLOBAL.pv_ennemy = GLOBAL.pv_ennemy_max
+	print (GLOBAL.pv_ennemy_max)
+	huddd.set_pv_ennemy(GLOBAL.pv_ennemy_max)				#hud Enemy
+	huddd.set_pv_ennemy_max(GLOBAL.pv_ennemy_max)
 	
 
 func combat(valeur):

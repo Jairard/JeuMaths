@@ -126,9 +126,9 @@ texture = ExtResource( 8 )
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer"]
 margin_left = 30.9368
-margin_top = 26.3507
+margin_top = 25.2427
 margin_right = 70.9368
-margin_bottom = 61.3507
+margin_bottom = 60.2427
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer4"]
 margin_top = 10.0

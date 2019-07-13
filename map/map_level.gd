@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var hero = preload("res://characters/hero.tscn")
 onready var coin = preload("res://coin.tscn")

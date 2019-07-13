@@ -13,9 +13,7 @@ Priorities:
 
 	circular xp gauge   
 
-	speedest is the answer ==> biggest are the damages
-
-	highest Hero life is ==> Highest Enemies life are	
+	speedest is the answer ==> biggest are the damages	
 
 	All 3x level player can choice between +pv or +damage
 
