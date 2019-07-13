@@ -21,6 +21,9 @@ func _on_answer_2_pressed():
 #	print("gagné")
 	emit_signal("fight",0)
 
-
+func clean_up(value):
+	if value == 0 :
+		print ("test")
+		queue_free()
 
 

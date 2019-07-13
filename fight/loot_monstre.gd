@@ -1,7 +1,11 @@
 extends Area2D
 
+onready var choic = preload("res://fight/choice_3xlevel.tscn")
+
 var type
+
 signal loot(valeur)
+
 
 func _ready():
 	connect("loot", GLOBAL, "item_loot")
@@ -17,28 +21,32 @@ func start(pos) -> bool:
 	randomize()
 	var r = randi() % 100
 #	print(r)
-	if r >= 90 :
-		return false
-	else :
-		if r >=0 && r<30:
-			$loot.frame = 42
-			type = GLOBAL.items.xp
-			
-		if r>=30 && r<60:
-			$loot.frame = 44
-			type = GLOBAL.items.pv_hero
-			
-		if r>=60 && r<90:
-			$loot.frame = 46
-			type = GLOBAL.items.degats
-			
-		return true
+ 
+	if r >=0 && r<33:
+		$loot.frame = 42
+		type = GLOBAL.items.xp
+		
+	if r>=33 && r<66:
+		$loot.frame = 44
+		type = GLOBAL.items.pv_hero
+		
+	if r>=66 && r<101:
+		$loot.frame = 46
+		type = GLOBAL.items.degats
+		
+	return true
 	
 
 
 
 
 func _on_loot_monstre_body_entered(body):
+	
 	self.emit_signal("loot", type)
+	
+	if (GLOBAL.level % 2) == 0 :
+		print ("test")
+		get_parent().add_child(choic.instance())
+		
 	queue_free()
-	pass # Replace with function body.
+

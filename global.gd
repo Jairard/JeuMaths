@@ -20,10 +20,9 @@ signal degats(value)
 signal pv_ennemy(value)
 signal win(value)
 
+
 func item_loot(type):
 	if type == items.xp :
-#		xp += 100
-#		emit_signal("xp", xp)
 		check_xp()
 		
 
@@ -71,10 +70,7 @@ func check_xp():
 	xp += 100
 	emit_signal("xp", xp)
 	if xp >= 100 :
-			level += 1
-			xp = 0
-			emit_signal("xp", xp)
-			emit_signal("level", level)
-			if (level % 3) == 0  :
-				print ("choix")
-				
+		level += 1
+		xp = 0
+		emit_signal("xp", xp)
+		emit_signal("level", level)

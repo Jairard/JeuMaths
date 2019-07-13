@@ -8,15 +8,16 @@ onready var hud    = preload("res://hud/hud_hero.tscn")
 onready var hud_pro    = preload("res://hud/hud_enemy.tscn")
 onready var spell = preload("res://fight/animationsort.tscn")
 onready var calcul = preload("res://fight/calcul.tscn")
+
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")
+
 
 # Each call of instance() create a new object
 # Here we only want one of them so we store it in a variable
 onready var heroRoot = hero.instance()
 
 func _ready():
-#	connect("fight", GLOBAL, "end_fight")
 	spawn()
 
 func _process(delta):
@@ -81,3 +82,7 @@ func ready_spell(value):
 		test.position.y = heroRoot.position.y
 		add_child(test)
 		test.cast()
+		
+
+
+

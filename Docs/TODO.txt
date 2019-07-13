@@ -16,6 +16,7 @@ Priorities:
 	speedest is the answer ==> biggest are the damages	
 
 	All 3x level player can choice between +pv or +damage
+			show it instantly on the hud  in map_fight
 
 	little monsters spawning randomly
 			Hero lose life if colliding
