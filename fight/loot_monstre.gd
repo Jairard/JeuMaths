@@ -45,7 +45,6 @@ func _on_loot_monstre_body_entered(body):
 	self.emit_signal("loot", type)
 	
 	if (GLOBAL.level % 2) == 0 :
-		print ("test")
 		get_parent().add_child(choic.instance())
 		
 	queue_free()
