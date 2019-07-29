@@ -23,9 +23,18 @@ func _ready():
 func _process(delta):
 	time_label.set_text(str(int(game_timer.get_time_left())))
 	
-	if Input.is_action_just_pressed("ui_accept"):
-		heroRoot.cast_spell(heroRoot.spellType.fireball)
+#	connect("spell_hero", self, "hero_spell")
+	
+#	if Input.is_action_just_pressed("ui_accept"):
+#		heroRoot.cast_spell(heroRoot.spellType.fireball)
 
+func hero_spell(value):
+	print ("00000000000000")
+	if value == 0 :
+		print ("1111111111111111111")
+		heroRoot.cast_spell(heroRoot.spellType.fireball)	
+	if value == 1 :
+		print ("22222222222222222222")
 
 func spawn() :
 	# Inject hero into map
