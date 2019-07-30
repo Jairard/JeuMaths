@@ -7,6 +7,7 @@ onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var hud    = preload("res://hud/hud_hero.tscn")
 onready var hud_pro    = preload("res://hud/hud_enemy.tscn")
 onready var spell = preload("res://fight/animationsort.tscn")
+onready var spell_enemy = preload("res://fight/spell_enemy.tscn")
 onready var calcul = preload("res://fight/calcul.tscn")
 
 onready var time_label = get_node("sol/time_label")
@@ -16,6 +17,7 @@ onready var game_timer = get_node("game_timer")
 # Each call of instance() create a new object
 # Here we only want one of them so we store it in a variable
 onready var heroRoot = hero.instance()
+onready var enemyRoot = enemy.instance()
 
 func _ready():
 	spawn()
@@ -28,21 +30,14 @@ func _process(delta):
 #	if Input.is_action_just_pressed("ui_accept"):
 #		heroRoot.cast_spell(heroRoot.spellType.fireball)
 
-func hero_spell(value):
-	print ("00000000000000")
-	if value == 0 :
-		print ("1111111111111111111")
-		heroRoot.cast_spell(heroRoot.spellType.fireball)	
-	if value == 1 :
-		print ("22222222222222222222")
 
 func spawn() :
 	# Inject hero into map
 	add_child(heroRoot)
-	var pos_x = heroRoot.position.x
-	var pos_y = heroRoot.position.y
+	add_child(enemyRoot)
 	# Register the fireball spell
 	heroRoot.add_spell(spell, heroRoot.spellType.fireball)
+	enemyRoot.add_spell(spell, enemyRoot.spellType.ballfire)
 	add_child(enemy.instance())
 	
 	var sprite = $Ennemy/Sprite # Or enemy.instance().get_node("Sprite")
@@ -68,7 +63,13 @@ func spawn() :
 	print (GLOBAL.pv_ennemy_max)
 	huddd.set_pv_ennemy(GLOBAL.pv_ennemy_max)				#hud Enemy
 	huddd.set_pv_ennemy_max(GLOBAL.pv_ennemy_max)
-	
+
+
+func throw_spell(value):
+	if value == 0 :
+		heroRoot.cast_spell(heroRoot.spellType.fireball)	
+	if value == 1 :
+		enemyRoot.cast_spell(enemyRoot.spellType.ballfire)	
 
 func combat(valeur):
 	pass
@@ -86,11 +87,19 @@ func _on_return_pressed():
 	
 func ready_spell(value):
 	if value == 0 : 
+		print ("111111111111111")
 		var test = spell.instance()
 		test.position.x = heroRoot.position.x
 		test.position.y = heroRoot.position.y
 		add_child(test)
 		test.cast()
+	if value == 1 : 
+		print ("22222222222222222")
+		var test2 = spell_enemy.instance()
+		test2.position.x = enemyRoot.position.x
+		test2.position.y = enemyRoot.position.y
+		add_child(test2)
+		test2.cast()
 		
 
 

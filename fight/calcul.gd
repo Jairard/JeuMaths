@@ -6,8 +6,8 @@ signal spell_enemy(value)
 
 func _ready():
 	connect("fight", GLOBAL, "end_fight")
-	connect("spell_hero", get_parent(), "hero_spell")
-	connect("spell_enemy", get_parent(), "hero_spell")
+	connect("spell_hero", get_parent(), "throw_spell")
+	connect("spell_enemy", get_parent(), "throw_spell")
 	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
