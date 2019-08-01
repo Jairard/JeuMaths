@@ -1,30 +1,47 @@
 extends Node2D
 
+
 var sec = 4 
 
 onready var hero   = preload("res://characters/hero.tscn")
 onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var hud    = preload("res://hud/hud_hero.tscn")
 onready var hud_pro    = preload("res://hud/hud_enemy.tscn")
-onready var spell = preload("res://fight/animationsort.tscn")
+onready var spell = preload("res://fight/test_spell.tscn")
 onready var spell_enemy = preload("res://fight/spell_enemy.tscn")
 onready var calcul = preload("res://fight/calcul.tscn")
 
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")
 
-
-# Each call of instance() create a new object
-# Here we only want one of them so we store it in a variable
 onready var heroRoot = hero.instance()
 onready var enemyRoot = enemy.instance()
 
+onready var right = 0
+onready var wrong = 0
+onready var test = 0
+onready var test2 = 0
+# Register the fireball spell
 func _ready():
 	spawn()
 
 func _process(delta):
 	time_label.set_text(str(int(game_timer.get_time_left())))
 	
+	if right == 1 : 
+#		print ("right") 
+		var pos_x = GLOBAL.hero_pos_x
+		while pos_x <= GLOBAL.enemy_pos_x:
+			pos_x += 10
+			test.position.x = pos_x
+
+		right = 0
+		
+	if wrong == 1 :
+#		print ("wrong")
+		wrong = 0
+		
+#	velocite = get_node(spell).move_and_collide(velocite)
 #	connect("spell_hero", self, "hero_spell")
 	
 #	if Input.is_action_just_pressed("ui_accept"):
@@ -33,12 +50,17 @@ func _process(delta):
 
 func spawn() :
 	# Inject hero into map
+	
 	add_child(heroRoot)
 	add_child(enemyRoot)
-	# Register the fireball spell
+#	# Register the fireball spell
 	heroRoot.add_spell(spell, heroRoot.spellType.fireball)
 	enemyRoot.add_spell(spell, enemyRoot.spellType.ballfire)
 	add_child(enemy.instance())
+	GLOBAL.hero_pos_x = heroRoot.position.x
+	GLOBAL.hero_pos_y = heroRoot.position.y
+	GLOBAL.enemy_pos_x = enemyRoot.position.x
+	GLOBAL.enemy_pos_y = enemyRoot.position.y
 	
 	var sprite = $Ennemy/Sprite # Or enemy.instance().get_node("Sprite")
 	sprite.apply_scale(Vector2(3, 3)) # Multiply scale by 2 on both X and Y axis
@@ -86,21 +108,19 @@ func _on_return_pressed():
 	
 	
 func ready_spell(value):
-	if value == 0 : 
-		print ("111111111111111")
-		var test = spell.instance()
-		test.position.x = heroRoot.position.x
+	if value == 1 : 
+		test = spell.instance()
+		test.position.x = heroRoot.position.x + 70
 		test.position.y = heroRoot.position.y
 		add_child(test)
-		test.cast()
-	if value == 1 : 
-		print ("22222222222222222")
-		var test2 = spell_enemy.instance()
-		test2.position.x = enemyRoot.position.x
+#		test.cast()
+		right = 1
+	if value == 0 : 
+		test2 = spell_enemy.instance()
+		test2.position.x = enemyRoot.position.x - 150
 		test2.position.y = enemyRoot.position.y
 		add_child(test2)
-		test2.cast()
+#		test2.cast()
+		wrong = 1
 		
-
-
 

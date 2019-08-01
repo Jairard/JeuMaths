@@ -61,25 +61,41 @@ func _process(delta):
 
 	velocite = move_and_slide(velocite).normalized()
 
-func recup_loot(valeur):
-	print("item recupere : " + str(valeur))
-	if valeur == 0 :
-		inventaire[0] = "armure"
-	if valeur == 1 :
-		inventaire[1] = "piece d'or"
-	print ("inventaire 1 : ", inventaire[0])
-	print ("inventaire 2 : ", inventaire[1])
-	ennemi_kill(200,200,200)
+func recup_loot(value):
+#	print("item recupere : " + str(valeur))
+#	if valeur == 0 :
+#		inventaire[0] = "armure"
+#	if valeur == 1 :
+#		inventaire[1] = "piece d'or"
+#	print ("inventaire 1 : ", inventaire[0])
+#	print ("inventaire 2 : ", inventaire[1])
 
-func ennemi_kill(gain_xp, piece_or, loot):
-	xp += gain_xp
-	tresor += piece_or
-	if xp >= 100 : 
-		xp = 0
-		level += 1
-		pv += 10
+	if value == 0 :
+		print ("bonus")
+		bonus_health()
+		
+	if value == 1 :
+		print ("malus")
+		malus_health()
+	if value == 2 :
+		print ("or")
+		bonus_or()
+
+
+func bonus_health():
+	GLOBAL.pv_hero += 10
+	if GLOBAL.pv_hero >= 100 :
+		GLOBAL.pv_hero_max += 10
+	print("pv hero : " + str(GLOBAL.pv_hero))
 	
-	print ("Xp : " + str (xp), "  Level : " + str(level), "  Trésor : " + str(tresor), " Loot : " + str(loot), "  Pv : " + str(pv))
+func malus_health():
+	GLOBAL.pv_hero -= 10
+	print("pv hero : " + str(GLOBAL.pv_hero))
+	
+func bonus_or():
+	tresor += 10
+	print ("tresor : " + str(tresor))
+	
 
 func add_spell(spellRoot, type):
 	# Store the spell in the dictionary

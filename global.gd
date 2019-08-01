@@ -10,6 +10,11 @@ var pv_ennemy_max = pv_hero_max * 1.1
 var pv_ennemy   = pv_ennemy_max
 var armure 		= 0
 
+var hero_pos_x = 0
+var hero_pos_y = 0
+var enemy_pos_x = 0
+var enemy_pos_y = 0
+
 enum items {xp,level, pv_hero, pv_ennemy, tresor, armure, life, degats}
 
 signal xp(value)
