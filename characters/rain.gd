@@ -16,7 +16,6 @@ func _ready():
 
 func _process(delta):
 	if self.position.y >= 540 :
-		print ("too late")
 		queue_free()
 
 func start(pos, type):

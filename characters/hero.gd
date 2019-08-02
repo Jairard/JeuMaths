@@ -20,10 +20,20 @@ var velocite = Vector2(0,0)
 signal comb(valeur)
 signal spell_ready(value)
 
+signal bonushealth (value)
+signal bonushealthmax (value)
+signal malushealth (value)
+#signal treasure (value)
+
 func _ready():
 	self.connect("comb", get_parent(), 'combat')
 	connect("spell_ready", get_parent(), "ready_spell")	
+	
+	connect("bonushealthmax", get_parent().get_node("res://hud/hud_hero.tscn"), "set_pv_hero_max")
+	connect("bonushealth", get_parent().get_node("res://hud/hud_hero.tscn"), "set_pv_hero")
+	connect("malushealth", get_parent().get_node("res://hud/hud_hero.tscn"), "set_pv_hero")
 
+#	connect("malushealth", get_parent().get_node("res://hud/hud_hero.tscn"), "set_pv_hero")
 
 func _process(delta):
 	velocite = Vector2(0,0)
@@ -63,39 +73,53 @@ func _process(delta):
 
 	
 func recup_loot(value):
-#	print("item recupere : " + str(valeur))
-#	if valeur == 0 :
-#		inventaire[0] = "armure"
-#	if valeur == 1 :
-#		inventaire[1] = "piece d'or"
-#	print ("inventaire 1 : ", inventaire[0])
-#	print ("inventaire 2 : ", inventaire[1])
-
+	
 	if value == 0 :
-		print ("bonus")
 		bonus_health()
 		
 	if value == 1 :
-		print ("malus")
 		malus_health()
+		
 	if value == 2 :
-		print ("or")
 		bonus_or()
 
 
 func bonus_health():
-	GLOBAL.pv_hero += 10
-	if GLOBAL.pv_hero >= 100 :
-		GLOBAL.pv_hero_max += 10
-	print("pv hero : " + str(GLOBAL.pv_hero))
 	
+	if GLOBAL.pv_hero == GLOBAL.pv_hero_max :
+		
+		GLOBAL.pv_hero_max += 10
+		GLOBAL.pv_hero += 10
+		
+		emit_signal("bonushealthmax",GLOBAL.pv_hero_max)
+		print ("bonus MAX")
+		print("pv hero max: " + str(GLOBAL.pv_hero_max))
+		print("pv hero : " + str(GLOBAL.pv_hero))
+	
+	else :
+
+		GLOBAL.pv_hero += 10
+
+		emit_signal("bonushealth",GLOBAL.pv_hero)
+	
+		print ("bonus  ")
+		print("pv hero max: " + str(GLOBAL.pv_hero_max))
+		print("pv hero : " + str(GLOBAL.pv_hero))
+		
 func malus_health():
+	
 	GLOBAL.pv_hero -= 10
+	
+	emit_signal("malushealth",GLOBAL.pv_hero)
+	print ("malus ")
+	
+	print("pv hero max: " + str(GLOBAL.pv_hero_max))
 	print("pv hero : " + str(GLOBAL.pv_hero))
+
 	
 func bonus_or():
 	tresor += 10
-	print ("tresor : " + str(tresor))
+#	print ("tresor : " + str(tresor))
 	
 
 func add_spell(spellRoot, type):

@@ -13,6 +13,7 @@ func _ready():
 	rain_spawn()
 
 func _process(delta):
+	load_hud()
 	pass
 	
 
@@ -20,17 +21,19 @@ func charger_intro() :
 	add_child(enemy.instance())
 	add_child(hero.instance())
 	
+	load_hud()
+
+func load_hud() :
 	var hudd = hud.instance()
 	add_child(hudd)
 	
 	hudd.set_xp(GLOBAL.xp)						# Maj global
-	hudd.set_pv_hero(GLOBAL.pv_hero_max)
-	GLOBAL.pv_hero = GLOBAL.pv_hero_max
-	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
+	hudd.set_pv_hero(GLOBAL.pv_hero)
+#	GLOBAL.pv_hero = GLOBAL.pv_hero_max
+#	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
 	hudd.set_degats(GLOBAL.degats)
 	hudd.set_level(GLOBAL.level)
-
-
+	
 func combat(valeur) :
 	if valeur == 0 :
 		get_tree().change_scene("res://map/map_fight.tscn")
@@ -43,7 +46,6 @@ func _on_Button_pressed():
 func rain_spawn():
 	randomize()
 	var screen_size = get_viewport().size
-	print (screen_size)
 	var screen_tile = Vector2(screen_size.x, screen_size.y) / Vector2(64,64)
 	
 	_unique()

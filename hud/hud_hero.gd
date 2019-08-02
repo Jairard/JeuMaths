@@ -8,7 +8,6 @@ func _ready():
 	GLOBAL.connect("pv_hero_max", self, "set_pv_hero_max")
 	GLOBAL.connect("degats", self, "set_degats")
 
-
 	
 func set_pv_hero(value) :
 	$CanvasLayer/pv_hero/MarginContainer/life_hero.value = value
