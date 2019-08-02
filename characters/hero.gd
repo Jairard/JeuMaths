@@ -61,6 +61,7 @@ func _process(delta):
 
 	velocite = move_and_slide(velocite).normalized()
 
+	
 func recup_loot(value):
 #	print("item recupere : " + str(valeur))
 #	if valeur == 0 :

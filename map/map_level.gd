@@ -2,22 +2,23 @@ extends Node2D
 
 onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var hero = preload("res://characters/hero.tscn")
-#onready var coin = preload("res://coin.tscn")
 onready var hud = preload("res://hud/hud_hero.tscn")
 onready var spawn_rain = preload("res://characters/rain.tscn")
+onready var rains = preload("res://characters/rain.tscn")
 
-
+var unique = []
+	
 func _ready():
 	charger_intro()
 	rain_spawn()
 
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass
+	
 
 func charger_intro() :
 	add_child(enemy.instance())
 	add_child(hero.instance())
-#	add_child(coin.instance())
 	
 	var hudd = hud.instance()
 	add_child(hudd)
@@ -45,21 +46,25 @@ func rain_spawn():
 	print (screen_size)
 	var screen_tile = Vector2(screen_size.x, screen_size.y) / Vector2(64,64)
 	
-	for x in 15 :
-		var x_pos = randi() % 14
-		var i = spawn_rain.instance()
-		i.start(Vector2(x_pos * 64 , 0), randi() % 3)
-		self.add_child(i)
+	_unique()
+	
+	for x in 10 :
+		if unique[x] == [1] :
+			var x_pos = x
+			var i = spawn_rain.instance()
+			i.start(Vector2(x_pos * 64 , 0), randi() % 3)
+			self.add_child(i)	
+	return unique
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+func _unique():
+	for x in 10 :
+		unique.append([])
+		if randi() % 2 == 1 :
+			unique[x].append(1)
+		else :
+			unique[x].append(0)
+	return unique
+
+
 	

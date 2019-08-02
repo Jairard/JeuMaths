@@ -7,7 +7,6 @@
 extents = Vector2( 38.8985, 42.8537 )
 
 [node name="Ennemy" type="KinematicBody2D"]
-visible = false
 modulate = Color( 0.92549, 0.898039, 0.898039, 1 )
 position = Vector2( 650.801, 301.341 )
 collision_layer = 4
