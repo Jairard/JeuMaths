@@ -1,7 +1,5 @@
 Priorities: 
 
-	get text when login
-
 	send calcul --- 
 		answer	---
 			when answer is true ==> damage to Ennemy ---	

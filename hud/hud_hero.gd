@@ -9,14 +9,14 @@ func _ready():
 	GLOBAL.connect("degats", self, "set_degats")
 
 	
-func set_pv_hero(value) :
+func set_pv_hero(value) :		
+	print (value)
 	$CanvasLayer/pv_hero/MarginContainer/life_hero.value = value
-	$CanvasLayer/HBoxContainer4/Label.text = str(value)
+	$CanvasLayer/HBoxContainer4/MarginContainer/Label.text = str(value)
 	
-func set_pv_hero_max(value) :
+func set_pv_hero_max(value) :	
+	print (value)
 	$CanvasLayer/pv_hero/MarginContainer/life_hero.max_value = value
-	$CanvasLayer/pv_hero/MarginContainer/life_hero.value = value
-	$CanvasLayer/HBoxContainer4/Label.text = str(value)
 
 func set_degats(value) :
 	$CanvasLayer/valeur_degats/MarginContainer/valeur_degat.text = str(value)

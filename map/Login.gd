@@ -1,29 +1,28 @@
 extends Node2D
 
+var dict = {}
+var file = File.new()
+
 func _ready():
-	pass 
+	_load()
+
 #func _process(delta):
 #	pass
 
-
-
 func _on_Button_pressed():
-	get_tree().change_scene("res://map/map_level.tscn")
-	pass
-
-func _on_LineEdit_text_entered(new_text):
-	_load()
+	verif_pseudo()
+		
 
 func _load() :
-	var dict = {"pseudo" : ""}
-	var file = File.new()
+	
 	file.open("res://log_in/pseudo.json", File.READ)
-	var new_text = parse_json(file.get_as_text())
+	dict = parse_json(file.get_as_text())
 	file.close()
-	print (dict)
-	dict["pseudo"] = new_text
-	if dict["pseudo"] != "" :
-		print ("connu")
+	
+func verif_pseudo():
+	if dict["pseudo"] == $TileMap/LineEdit.get_text():
+		get_tree().change_scene("res://map/map_level.tscn")
 	else :
-		print ("s'inscrire")
+		get_tree().change_scene("res://map/Signin.tscn")
+		
 

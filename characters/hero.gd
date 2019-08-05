@@ -1,11 +1,6 @@
 extends KinematicBody2D
 
-var xp = 0
-var level = 1
-var pv = 100
-var tresor = 0
-
-var inventaire = [null,null]
+#var inventaire = [null,null]
 
 # We use an enum so that we can easily add more spells
 enum spellType {fireball}
@@ -20,20 +15,12 @@ var velocite = Vector2(0,0)
 signal comb(valeur)
 signal spell_ready(value)
 
-signal bonushealth (value)
-signal bonushealthmax (value)
-signal malushealth (value)
 #signal treasure (value)
 
 func _ready():
 	self.connect("comb", get_parent(), 'combat')
 	connect("spell_ready", get_parent(), "ready_spell")	
 	
-	connect("bonushealthmax", get_parent().get_node("res://hud/hud_hero.tscn"), "set_pv_hero_max")
-	connect("bonushealth", get_parent().get_node("res://hud/hud_hero.tscn"), "set_pv_hero")
-	connect("malushealth", get_parent().get_node("res://hud/hud_hero.tscn"), "set_pv_hero")
-
-#	connect("malushealth", get_parent().get_node("res://hud/hud_hero.tscn"), "set_pv_hero")
 
 func _process(delta):
 	velocite = Vector2(0,0)
@@ -80,8 +67,8 @@ func recup_loot(value):
 	if value == 1 :
 		malus_health()
 		
-	if value == 2 :
-		bonus_or()
+#	if value == 2 :
+#		bonus_or()
 
 
 func bonus_health():
@@ -91,34 +78,24 @@ func bonus_health():
 		GLOBAL.pv_hero_max += 10
 		GLOBAL.pv_hero += 10
 		
-		emit_signal("bonushealthmax",GLOBAL.pv_hero_max)
-		print ("bonus MAX")
-		print("pv hero max: " + str(GLOBAL.pv_hero_max))
-		print("pv hero : " + str(GLOBAL.pv_hero))
-	
-	else :
+		GLOBAL.emit_signal("pv_hero_max",GLOBAL.pv_hero_max)
+		GLOBAL.emit_signal("pv_hero",GLOBAL.pv_hero)
+		
+	if GLOBAL.pv_hero < GLOBAL.pv_hero_max :
 
 		GLOBAL.pv_hero += 10
+		GLOBAL.emit_signal("pv_hero",GLOBAL.pv_hero)
 
-		emit_signal("bonushealth",GLOBAL.pv_hero)
 	
-		print ("bonus  ")
-		print("pv hero max: " + str(GLOBAL.pv_hero_max))
-		print("pv hero : " + str(GLOBAL.pv_hero))
-		
 func malus_health():
 	
 	GLOBAL.pv_hero -= 10
 	
-	emit_signal("malushealth",GLOBAL.pv_hero)
-	print ("malus ")
-	
-	print("pv hero max: " + str(GLOBAL.pv_hero_max))
-	print("pv hero : " + str(GLOBAL.pv_hero))
+	GLOBAL.emit_signal("pv_hero",GLOBAL.pv_hero)
 
-	
-func bonus_or():
-	tresor += 10
+
+#func bonus_or():
+#	tresor += 10
 #	print ("tresor : " + str(tresor))
 	
 

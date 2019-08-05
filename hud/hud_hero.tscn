@@ -130,9 +130,9 @@ margin_top = 25.2427
 margin_right = 70.9368
 margin_bottom = 60.2427
 
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer4"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer4"]
+margin_bottom = 35.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer4/MarginContainer"]
 margin_top = 10.0
-margin_right = 24.0
 margin_bottom = 24.0
-custom_colors/font_color = Color( 0.819608, 0.780392, 0.780392, 1 )
-text = "100"

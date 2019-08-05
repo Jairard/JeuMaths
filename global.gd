@@ -3,7 +3,7 @@ extends Node
 var xp      	= 0
 var level   	= 1
 var pv_hero_max = 100
-var pv_hero     = 100
+var pv_hero     = pv_hero_max
 var tresor  	= 0
 var degats 		= 1
 var pv_ennemy_max = pv_hero_max * 1.1

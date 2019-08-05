@@ -30,12 +30,13 @@ func _process(delta):
 	
 	if right == 1 : 
 #		print ("right") 
-		var pos_x = GLOBAL.hero_pos_x
-		while pos_x <= GLOBAL.enemy_pos_x:
-			pos_x += 10
-			test.position.x = pos_x
-
-		right = 0
+		var pos = heroRoot.get_position()
+		print (pos)
+		if pos.x <= enemyRoot.get_position().x :
+			pos.x += 10
+			heroRoot.set_position(pos)
+		else: 
+			right = 0
 		
 	if wrong == 1 :
 #		print ("wrong")
@@ -82,7 +83,6 @@ func spawn() :
 
 	GLOBAL.pv_ennemy_max = GLOBAL.pv_hero_max * 1.5			#init pv_ennemy to pv_hero_max x 1.1
 	GLOBAL.pv_ennemy = GLOBAL.pv_ennemy_max
-	print (GLOBAL.pv_ennemy_max)
 	huddd.set_pv_ennemy(GLOBAL.pv_ennemy_max)				#hud Enemy
 	huddd.set_pv_ennemy_max(GLOBAL.pv_ennemy_max)
 
