@@ -7,6 +7,7 @@ onready var spawn_rain = preload("res://characters/rain.tscn")
 onready var rains = preload("res://characters/rain.tscn")
 onready var _eye = preload("res://characters/eye.tscn")
 
+
 var unique = []
 var file = File.new()
 var dict = {}
@@ -18,6 +19,7 @@ func _ready():
 
 func _process(delta):
 	pass
+
 	
 
 func charger_intro() :
@@ -29,9 +31,9 @@ func charger_intro() :
 func load_hud() :
 
 	var hudd = hud.instance()
-	var eye_ = _eye.instance()
+
 	add_child(hudd)
-	add_child(eye_)
+	add_child(_eye.instance())
 	
 	hudd.set_xp(GLOBAL.xp)						# Maj global
 	
@@ -95,8 +97,6 @@ func save_ressources():
 	file.store_string(health)
 	file.close()
 	
-	
-	
-	
-	
-	
+func _on_Timer_timeout():
+
+	add_child(_eye.instance())

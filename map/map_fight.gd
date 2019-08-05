@@ -1,8 +1,5 @@
 extends Node2D
 
-
-var sec = 4 
-
 onready var hero   = preload("res://characters/hero.tscn")
 onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var hud    = preload("res://hud/hud_hero.tscn")
@@ -42,11 +39,6 @@ func _process(delta):
 #		print ("wrong")
 		wrong = 0
 		
-#	velocite = get_node(spell).move_and_collide(velocite)
-#	connect("spell_hero", self, "hero_spell")
-	
-#	if Input.is_action_just_pressed("ui_accept"):
-#		heroRoot.cast_spell(heroRoot.spellType.fireball)
 
 
 func spawn() :
@@ -101,10 +93,9 @@ func combat(valeur):
 
 
 func _on_game_timer_timeout():
-	sec -= 4
-	if sec == 0 :
-		time_label.hide()
-		add_child(calcul.instance())
+
+	time_label.hide()
+	add_child(calcul.instance())
 
 func _on_return_pressed():
 	get_tree().change_scene("res://map/map_level.tscn")

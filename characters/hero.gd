@@ -23,46 +23,6 @@ func _ready():
 	connect("spell_ready", get_parent(), "ready_spell")	
 	
 
-#func _process(delta):
-#	velocite = Vector2(0,0)
-#	velocite.y = gravity * delta
-	
-#	if Input.is_action_pressed("ui_down") :
-#		if !$RayCast_bas.is_colliding(): 
-#			velocite.y += vitesse
-#			$"animation hero".play("mouvement bas")
-#		else : 
-#			emit_signal('comb', 0)
-
-#	if Input.is_action_pressed("ui_left") :
-#		if !$RayCast_gauche.is_colliding(): 
-#			velocite.x -= vitesse
-#			$"animation hero".play("mouvement gauche")
-#		else : 
-#			emit_signal('comb', 0)
-
-#	elif Input.is_action_pressed("ui_up") :
-#		if $RayCast_haut.is_colliding() == false :
-#			velocite.y -= vitesse
-#			$"animation hero".play("mouvement haut")
-#		else : 
-#			emit_signal('comb', 0)
-
-#	elif Input.is_action_pressed("ui_right") :
-#		if $RayCast_droite.is_colliding() == false :
-#			velocite.x += vitesse
-#			$"animation hero".play("mouvement droite")
-#		else : 
-#			emit_signal('comb', 0)
-#
-#	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-#		velocite.y -= 5000
-#		print ("saut")
-#		$"animation hero".play("mouvement haut")
-#
-#
-#	velocite = move_and_slide(velocite,Vector2(0,-1)).normalized()
-
 func _physics_process(delta):				# 60 ticks / sec whatever fps
 	
 	velocite.x = 0
@@ -72,27 +32,25 @@ func _physics_process(delta):				# 60 ticks / sec whatever fps
 	move_and_slide(velocite,Vector2(0,-1))
 
 func move():
-	var left = Input.is_action_pressed("ui_left")
-	var right = Input.is_action_pressed("ui_right") 						# move left
-	var jump = Input.is_action_just_pressed("ui_accept")
 		
-	if left == true :
+	if Input.is_action_pressed("ui_left") :
 		if !$RayCast_gauche.is_colliding(): 
 			velocite.x -= vitesse
 			$"animation hero".play("mouvement gauche")
 		else : 
 			emit_signal('comb', 0)
 
-	if right == true :														# move right
+	if Input.is_action_pressed("ui_right") :
 		if $RayCast_droite.is_colliding() == false :
 			velocite.x += vitesse
 			$"animation hero".play("mouvement droite")
 		else : 
 			emit_signal('comb', 0)
 			
-	if jump == true and is_on_floor():			# jump
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocite.y = - 600
 		print ("saut")
+		$"animation hero".play("mouvement haut")
 
 #	else :
 #		velocite.x += 0
