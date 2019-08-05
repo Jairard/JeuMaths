@@ -32,8 +32,9 @@ func _physics_process(delta):				# 60 ticks / sec whatever fps
 	move_and_slide(velocite,Vector2(0,-1))
 
 func move():
-		
+	var moving = false
 	if Input.is_action_pressed("ui_left") :
+		moving = true
 		if !$RayCast_gauche.is_colliding(): 
 			velocite.x -= vitesse
 			$"animation hero".play("mouvement gauche")
@@ -41,6 +42,7 @@ func move():
 			emit_signal('comb', 0)
 
 	if Input.is_action_pressed("ui_right") :
+		moving = true
 		if $RayCast_droite.is_colliding() == false :
 			velocite.x += vitesse
 			$"animation hero".play("mouvement droite")
@@ -48,13 +50,14 @@ func move():
 			emit_signal('comb', 0)
 			
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		moving = true
 		velocite.y = - 600
 		print ("saut")
 		$"animation hero".play("mouvement haut")
 
-#	else :
-#		velocite.x += 0
-#		$"animation hero".play("saut")
+	if moving == false : 
+		velocite.x += 0
+		$"animation hero".play("saut")
 	
 func recup_loot(value):
 	
