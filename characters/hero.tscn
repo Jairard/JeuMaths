@@ -89,7 +89,7 @@ tracks/0/keys = {
 extents = Vector2( 28.0717, 32.6612 )
 
 [node name="hero" type="KinematicBody2D"]
-position = Vector2( 110.129, 544.483 )
+position = Vector2( 91.089, 538.137 )
 collision_mask = 52
 script = ExtResource( 1 )
 __meta__ = {
