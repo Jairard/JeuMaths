@@ -8,9 +8,44 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "ComponentsLibrary",
+"language": "GDScript",
+"path": "res://ecs/Components/Library.gd"
+}, {
+"base": "Reference",
+"class": "DamageSystem",
+"language": "GDScript",
+"path": "res://IngameSystems/DamageSystem.gd"
+}, {
+"base": "System",
+"class": "MoveRightSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/MoveRight.gd"
+}, {
+"base": "Component",
+"class": "PositionComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Position.gd"
+}, {
+"base": "Reference",
+"class": "System",
+"language": "GDScript",
+"path": "res://ecs/system.gd"
+}, {
+"base": "Node",
+"class": "SystemsLibrary",
+"language": "GDScript",
+"path": "res://ecs/Systems/Library.gd"
+} ]
 _global_script_class_icons={
-
+"ComponentsLibrary": "",
+"DamageSystem": "",
+"MoveRightSystem": "",
+"PositionComponent": "",
+"System": "",
+"SystemsLibrary": ""
 }
 
 [application]
@@ -22,6 +57,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GLOBAL="*res://global.gd"
+ECS="*res://ecs/ecs.gd"
 
 [display]
 
