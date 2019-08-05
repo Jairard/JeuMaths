@@ -32,8 +32,9 @@ func load_hud() :
 	
 	hudd.set_xp(GLOBAL.xp)						# Maj global
 	
-	hudd.set_pv_hero(GLOBAL.pv_hero)			#hud Hero
+				#hud Hero
 	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
+	hudd.set_pv_hero(GLOBAL.pv_hero)
 	
 	hudd.set_degats(GLOBAL.degats)
 	hudd.set_level(GLOBAL.level)
