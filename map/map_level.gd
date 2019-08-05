@@ -5,6 +5,7 @@ onready var hero = preload("res://characters/hero.tscn")
 onready var hud = preload("res://hud/hud_hero.tscn")
 onready var spawn_rain = preload("res://characters/rain.tscn")
 onready var rains = preload("res://characters/rain.tscn")
+onready var _eye = preload("res://characters/eye.tscn")
 
 var unique = []
 var file = File.new()
@@ -28,7 +29,9 @@ func charger_intro() :
 func load_hud() :
 
 	var hudd = hud.instance()
+	var eye_ = _eye.instance()
 	add_child(hudd)
+	add_child(eye_)
 	
 	hudd.set_xp(GLOBAL.xp)						# Maj global
 	

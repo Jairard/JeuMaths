@@ -54,18 +54,20 @@ func spawn() :
 	
 	add_child(heroRoot)
 	add_child(enemyRoot)
+	
 #	# Register the fireball spell
 	heroRoot.add_spell(spell, heroRoot.spellType.fireball)
 	enemyRoot.add_spell(spell, enemyRoot.spellType.ballfire)
-	add_child(enemy.instance())
+
 	GLOBAL.hero_pos_x = heroRoot.position.x
 	GLOBAL.hero_pos_y = heroRoot.position.y
 	GLOBAL.enemy_pos_x = enemyRoot.position.x
 	GLOBAL.enemy_pos_y = enemyRoot.position.y
+	enemyRoot.set_position(Vector2(750,350))
 	
 	var sprite = $Ennemy/Sprite # Or enemy.instance().get_node("Sprite")
-	sprite.apply_scale(Vector2(3, 3)) # Multiply scale by 2 on both X and Y axis
-	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
+	sprite.apply_scale(Vector2(4, 4)) # Multiply scale by 2 on both X and Y axis
+	$Ennemy/CollisionShape2D.scale = Vector2(4, 4)
 	
 	var hudd = hud.instance()
 	add_child(hudd)
