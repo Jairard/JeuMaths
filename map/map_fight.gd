@@ -71,8 +71,9 @@ func spawn() :
 	add_child(hudd)
 	
 	GLOBAL.pv_hero = GLOBAL.pv_hero_max					#init pv_hero to that max value
-	hudd.set_pv_hero(GLOBAL.pv_hero_max)				#hud Hero
+	
 	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
+	hudd.set_pv_hero(GLOBAL.pv_hero_max)				#hud Hero
 	
 	hudd.set_degats(GLOBAL.degats)
 	hudd.set_xp(GLOBAL.xp)
