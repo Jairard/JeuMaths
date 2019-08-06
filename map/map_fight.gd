@@ -1,8 +1,5 @@
 extends Node2D
 
-
-var sec = 4 
-
 onready var hero   = preload("res://characters/hero.tscn")
 onready var enemy = preload("res://characters/Ennemy.tscn")
 onready var hud    = preload("res://hud/hud_hero.tscn")
@@ -30,22 +27,18 @@ func _process(delta):
 	
 	if right == 1 : 
 #		print ("right") 
-		var pos_x = GLOBAL.hero_pos_x
-		while pos_x <= GLOBAL.enemy_pos_x:
-			pos_x += 10
-			test.position.x = pos_x
-
-		right = 0
+		var pos = heroRoot.get_position()
+		print (pos)
+		if pos.x <= enemyRoot.get_position().x :
+			pos.x += 10
+			heroRoot.set_position(pos)
+		else: 
+			right = 0
 		
 	if wrong == 1 :
 #		print ("wrong")
 		wrong = 0
 		
-#	velocite = get_node(spell).move_and_collide(velocite)
-#	connect("spell_hero", self, "hero_spell")
-	
-#	if Input.is_action_just_pressed("ui_accept"):
-#		heroRoot.cast_spell(heroRoot.spellType.fireball)
 
 
 func spawn() :
@@ -53,25 +46,28 @@ func spawn() :
 	
 	add_child(heroRoot)
 	add_child(enemyRoot)
+	
 #	# Register the fireball spell
 	heroRoot.add_spell(spell, heroRoot.spellType.fireball)
 	enemyRoot.add_spell(spell, enemyRoot.spellType.ballfire)
-	add_child(enemy.instance())
+
 	GLOBAL.hero_pos_x = heroRoot.position.x
 	GLOBAL.hero_pos_y = heroRoot.position.y
 	GLOBAL.enemy_pos_x = enemyRoot.position.x
 	GLOBAL.enemy_pos_y = enemyRoot.position.y
+	enemyRoot.set_position(Vector2(750,350))
 	
 	var sprite = $Ennemy/Sprite # Or enemy.instance().get_node("Sprite")
-	sprite.apply_scale(Vector2(3, 3)) # Multiply scale by 2 on both X and Y axis
-	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
+	sprite.apply_scale(Vector2(4, 4)) # Multiply scale by 2 on both X and Y axis
+	$Ennemy/CollisionShape2D.scale = Vector2(4, 4)
 	
 	var hudd = hud.instance()
 	add_child(hudd)
 	
 	GLOBAL.pv_hero = GLOBAL.pv_hero_max					#init pv_hero to that max value
-	hudd.set_pv_hero(GLOBAL.pv_hero_max)				#hud Hero
+	
 	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
+	hudd.set_pv_hero(GLOBAL.pv_hero_max)				#hud Hero
 	
 	hudd.set_degats(GLOBAL.degats)
 	hudd.set_xp(GLOBAL.xp)
@@ -82,7 +78,6 @@ func spawn() :
 
 	GLOBAL.pv_ennemy_max = GLOBAL.pv_hero_max * 1.5			#init pv_ennemy to pv_hero_max x 1.1
 	GLOBAL.pv_ennemy = GLOBAL.pv_ennemy_max
-	print (GLOBAL.pv_ennemy_max)
 	huddd.set_pv_ennemy(GLOBAL.pv_ennemy_max)				#hud Enemy
 	huddd.set_pv_ennemy_max(GLOBAL.pv_ennemy_max)
 
@@ -98,10 +93,9 @@ func combat(valeur):
 
 
 func _on_game_timer_timeout():
-	sec -= 4
-	if sec == 0 :
-		time_label.hide()
-		add_child(calcul.instance())
+
+	time_label.hide()
+	add_child(calcul.instance())
 
 func _on_return_pressed():
 	get_tree().change_scene("res://map/map_level.tscn")

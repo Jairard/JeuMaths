@@ -5,16 +5,21 @@ onready var hero = preload("res://characters/hero.tscn")
 onready var hud = preload("res://hud/hud_hero.tscn")
 onready var spawn_rain = preload("res://characters/rain.tscn")
 onready var rains = preload("res://characters/rain.tscn")
+onready var _eye = preload("res://characters/eye.tscn")
+
 
 var unique = []
+var file = File.new()
+var dict = {}
 	
 func _ready():
+	_load_ressources()
 	charger_intro()
 	rain_spawn()
 
 func _process(delta):
-	load_hud()
 	pass
+
 	
 
 func charger_intro() :
@@ -24,15 +29,21 @@ func charger_intro() :
 	load_hud()
 
 func load_hud() :
+
 	var hudd = hud.instance()
+
 	add_child(hudd)
+	add_child(_eye.instance())
 	
 	hudd.set_xp(GLOBAL.xp)						# Maj global
+	
+				#hud Hero
+	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
 	hudd.set_pv_hero(GLOBAL.pv_hero)
-#	GLOBAL.pv_hero = GLOBAL.pv_hero_max
-#	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
+	
 	hudd.set_degats(GLOBAL.degats)
 	hudd.set_level(GLOBAL.level)
+	hudd.set_name("hud_hero")
 	
 func combat(valeur) :
 	if valeur == 0 :
@@ -41,7 +52,11 @@ func combat(valeur) :
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://map/start.tscn")
+	dict ["health"] = GLOBAL.pv_hero
+	dict ["health_max"] = GLOBAL.pv_hero_max
+	dict["xp"] = GLOBAL.xp
+	save_ressources()
+	get_tree().change_scene("res://map/Start.tscn")
 
 func rain_spawn():
 	randomize()
@@ -68,5 +83,20 @@ func _unique():
 			unique[x].append(0)
 	return unique
 
-
+func _load_ressources():
 	
+	file.open("res://log_in/pseudo.json", File.READ)
+	dict = parse_json(file.get_as_text())
+	GLOBAL.pv_hero_max = dict["health_max"]
+	GLOBAL.pv_hero = dict["health"]
+	file.close()
+	
+func save_ressources():
+	file.open("res://log_in/pseudo.json", File.WRITE)
+	var health = to_json(dict)
+	file.store_string(health)
+	file.close()
+	
+func _on_Timer_timeout():
+
+	add_child(_eye.instance())
