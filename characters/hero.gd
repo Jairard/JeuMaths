@@ -12,15 +12,17 @@ var spells = {} # empty dictionary
 const gravity = 1300
 export(int) var vitesse = 200
 var velocite = Vector2()
+var moving = false
 
 signal comb(valeur)
 signal spell_ready(value)
-
-#signal treasure (value)
+signal spawn_treasure()
 
 func _ready():
+	
 	self.connect("comb", get_parent(), 'combat')
 	connect("spell_ready", get_parent(), "ready_spell")	
+	connect("spawn_treasure", get_parent(), "treasure_spawn")
 	
 
 func _physics_process(delta):				# 60 ticks / sec whatever fps
@@ -30,9 +32,11 @@ func _physics_process(delta):				# 60 ticks / sec whatever fps
 	
 	move()
 	move_and_slide(velocite,Vector2(0,-1))
-
+	
+	detect_monster()
+	
 func move():
-	var moving = false
+	
 	if Input.is_action_pressed("ui_left") :
 		moving = true
 		if !$RayCast_gauche.is_colliding(): 
@@ -52,13 +56,22 @@ func move():
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		moving = true
 		velocite.y = - 600
-		print ("saut")
 		$"animation hero".play("mouvement haut")
 
 	if moving == false : 
 		velocite.x += 0
 		$"animation hero".play("saut")
 	
+func detect_monster():
+	if $RayCast_bas.is_colliding() :
+		moving = true
+		velocite.y = - 350
+		$"animation hero".play("mouvement haut")
+		GLOBAL.emit_signal("treasure")
+		emit_signal("spawn_treasure")
+		bonus_or()
+
+
 func recup_loot(value):
 	
 	if value == 0 :
@@ -94,9 +107,10 @@ func malus_health():
 	GLOBAL.emit_signal("pv_hero",GLOBAL.pv_hero)
 
 
-#func bonus_or():
-#	tresor += 10
-#	print ("tresor : " + str(tresor))
+func bonus_or():
+	GLOBAL.treasure += 10
+#	GLOBAL.emit_signal("treasure", GLOBAL.treasure)
+	print ("tresor : " + str(GLOBAL.treasure))
 	
 
 func add_spell(spellRoot, type):

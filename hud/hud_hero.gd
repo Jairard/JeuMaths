@@ -3,6 +3,7 @@ extends Node2D
 
 func _ready():
 	GLOBAL.connect("xp", self, "set_xp")
+#	GLOBAL.connect("treasure", self, "set_xp")
 	GLOBAL.connect("level", self, "set_level")
 	GLOBAL.connect("pv_hero", self, "set_pv_hero")
 	GLOBAL.connect("pv_hero_max", self, "set_pv_hero_max")
@@ -10,12 +11,10 @@ func _ready():
 
 	
 func set_pv_hero(value) :		
-	print (value)
 	$CanvasLayer/pv_hero/MarginContainer/life_hero.value = value
 	$CanvasLayer/HBoxContainer4/MarginContainer/Label.text = str(value)
 	
 func set_pv_hero_max(value) :	
-	print (value)
 	$CanvasLayer/pv_hero/MarginContainer/life_hero.max_value = value
 
 func set_degats(value) :

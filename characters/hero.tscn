@@ -90,7 +90,7 @@ extents = Vector2( 28.0717, 32.6612 )
 
 [node name="hero" type="KinematicBody2D"]
 position = Vector2( 91.089, 538.137 )
-collision_mask = 52
+collision_mask = 116
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -112,7 +112,8 @@ anims/saut = SubResource( 5 )
 
 [node name="RayCast_bas" type="RayCast2D" parent="."]
 enabled = true
-collision_mask = 36
+collision_mask = 116
+collide_with_areas = true
 
 [node name="RayCast_haut" type="RayCast2D" parent="."]
 enabled = true

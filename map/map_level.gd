@@ -6,6 +6,8 @@ onready var hud = preload("res://hud/hud_hero.tscn")
 onready var spawn_rain = preload("res://characters/rain.tscn")
 onready var rains = preload("res://characters/rain.tscn")
 onready var _eye = preload("res://characters/eye.tscn")
+onready var monster = preload("res://characters/monsters.tscn")
+onready var treasure = preload("res://characters/treasure.tscn")
 
 
 var unique = []
@@ -21,19 +23,23 @@ func _process(delta):
 	pass
 
 	
-
 func charger_intro() :
-	add_child(enemy.instance())
-	add_child(hero.instance())
 	
+	load_characters()
 	load_hud()
 
+func load_characters() :
+	add_child(enemy.instance())
+	add_child(hero.instance())
+	add_child(_eye.instance())
+	add_child(monster.instance())
+	
 func load_hud() :
 
 	var hudd = hud.instance()
 
 	add_child(hudd)
-	add_child(_eye.instance())
+	
 	
 	hudd.set_xp(GLOBAL.xp)						# Maj global
 	
@@ -58,6 +64,22 @@ func _on_Button_pressed():
 	save_ressources()
 	get_tree().change_scene("res://map/Start.tscn")
 
+func treasure_spawn() :
+	
+	var hero_pos = hero.instance()
+	var treasure_pos = hero_pos.get_position()
+	print (treasure_pos)
+	add_child(treasure.instance())
+	treasure.instance().set_position(treasure_pos) 
+	var test = treasure.instance().get_position()
+	print (test)
+#	if right == 1 : 
+##		print ("right") 
+#		var pos = heroRoot.get_position()
+#		print (pos)
+#		if pos.x <= enemyRoot.get_position().x :
+#			pos.x += 10
+#			heroRoot.set_position(pos)
 func rain_spawn():
 	randomize()
 	var screen_size = get_viewport().size

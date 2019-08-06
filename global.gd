@@ -4,7 +4,7 @@ var xp      	= 0
 var level   	= 1
 var pv_hero_max = 100
 var pv_hero     = pv_hero_max
-var tresor  	= 0
+var treasure  	= 0
 var degats 		= 1
 var pv_ennemy_max = pv_hero_max * 1.1
 var pv_ennemy   = pv_ennemy_max
@@ -24,6 +24,7 @@ signal pv_hero_max(value)
 signal degats(value)
 signal pv_ennemy(value)
 signal win(value)
+signal treasure(value)
 
 
 func item_loot(type):
