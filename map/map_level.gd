@@ -13,6 +13,7 @@ var file = File.new()
 var dict = {}
 	
 func _ready():
+	# ECS.register_system(SystemsLibrary.MoveRight)
 	_load_ressources()
 	charger_intro()
 	rain_spawn()
@@ -24,7 +25,9 @@ func _process(delta):
 
 func charger_intro() :
 	add_child(enemy.instance())
-	add_child(hero.instance())
+	var heroNode = hero.instance()
+	add_child(heroNode)
+	# ECS.add_component(heroNode, ComponentsLibrary.Position)
 	
 	load_hud()
 
