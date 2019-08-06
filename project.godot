@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://IngameSystems/DamageSystem.gd"
 }, {
-"base": "Node",
-"class": "ECS_World",
-"language": "GDScript",
-"path": "res://ecs/World.gd"
-}, {
 "base": "System",
 "class": "MoveRightSystem",
 "language": "GDScript",
@@ -53,7 +48,6 @@ _global_script_class_icons={
 "Component": "",
 "ComponentsLibrary": "",
 "DamageSystem": "",
-"ECS_World": "",
 "MoveRightSystem": "",
 "PositionComponent": "",
 "System": "",

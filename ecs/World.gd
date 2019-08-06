@@ -1,7 +1,5 @@
 extends Node
 
-class_name ECS_World
-
 var active_systems = {}
 var components = {}
 var is_processing = false
@@ -136,7 +134,6 @@ func __get_components_for_system(system : System, id : int):
 
 		var component = __get_component(id, componentType)
 		if (component == null):
-			print("ECS.__get_components_for_system: object " + str(id) + " doesn't have a component of type " + componentType.resource_path)
 			return null
 
 		components[componentType] = component
