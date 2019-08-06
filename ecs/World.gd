@@ -1,5 +1,7 @@
 extends Node
 
+class_name ECS_World
+
 var root = null
 var active_systems = {}
 var components = {}
