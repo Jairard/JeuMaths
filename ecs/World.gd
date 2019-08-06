@@ -27,7 +27,7 @@ func register_system(systemResource : Resource) -> bool:
 		print("ECS.register_system: couldn't create system " + systemResource.resource_path)
 		return false
 
-	active_systems.append(system)
+	active_systems[systemResource] = system
 	return true
 
 func unregister_system(systemResource : Resource) -> bool:
@@ -106,8 +106,8 @@ func _process(dt : float) -> void:
 	if (root == null):
 		return
 
-	for system in active_systems:
-		__process_system(system, root, dt)
+	for systemType in active_systems:
+		__process_system(active_systems[systemType], root, dt)
 
 	is_processing = false
 
