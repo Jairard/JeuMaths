@@ -98,22 +98,22 @@ func _process(dt : float) -> void:
 	for system in active_systems:
 		__process_system(system, root, dt)
 
-func __process_system(system, node : Node, dt):
+func __process_system(system : System, node : Node, dt : float):
 	if (node == null):
 		return
 
 	var id = node.get_instance_id()
 	var components = __get_components_for_system(system, id)
 	if (components != null):
-		system.process_node(dt, id, components)
+		system._process_node(dt, components)
 
 	for child in node.get_children():
 		__process_system(system, child, dt)
 
 # Gets all the components that the system needs
-func __get_components_for_system(system, id : int):
+func __get_components_for_system(system : System, id : int):
 	var components = {}
-	for componentType in system.get_used_components():
+	for componentType in system._get_used_components():
 		if (components.has(componentType)):
 			print("ECS.__get_components_for_system: system " + system.resource_path + " uses several times the component of type " + componentType.resource_path)
 			return null
