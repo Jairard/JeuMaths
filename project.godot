@@ -8,9 +8,44 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Object",
+"class": "Component",
+"language": "GDScript",
+"path": "res://ecs/Component.gd"
+}, {
+"base": "Node",
+"class": "ComponentsLibrary",
+"language": "GDScript",
+"path": "res://ecs/Components/Library.gd"
+}, {
+"base": "System",
+"class": "MoveRightSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/MoveRight.gd"
+}, {
+"base": "Component",
+"class": "PositionComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Position.gd"
+}, {
+"base": "Object",
+"class": "System",
+"language": "GDScript",
+"path": "res://ecs/System.gd"
+}, {
+"base": "Node",
+"class": "SystemsLibrary",
+"language": "GDScript",
+"path": "res://ecs/Systems/Library.gd"
+} ]
 _global_script_class_icons={
-
+"Component": "",
+"ComponentsLibrary": "",
+"MoveRightSystem": "",
+"PositionComponent": "",
+"System": "",
+"SystemsLibrary": ""
 }
 
 [application]
@@ -22,6 +57,9 @@ config/icon="res://icon.png"
 [autoload]
 
 GLOBAL="*res://global.gd"
+ECS="*res://ecs/World.gd"
+ComponentsLibrary="*res://ecs/Components/Library.gd"
+SystemsLibrary="*res://ecs/Systems/Library.gd"
 
 [display]
 
