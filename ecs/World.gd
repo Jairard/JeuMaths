@@ -4,10 +4,18 @@ class_name ECS_World
 
 var active_systems = {}
 var components = {}
+var is_processing = false
 
 func _ready():
-	pass
+	var res = get_tree().connect("node_removed", self, "__on_node_removed")
 
+func __on_node_removed(node : Node) -> void:
+	if (is_processing == true):
+		push_error("ECS.__on_node_removed: removing the node " + str(node) + " while processing !")
+
+	# Delete all the associated components
+	for componentType in components:
+		remove_component(node, componentType, false)
 
 func register_system(systemResource : Resource) -> bool:
 	if (active_systems.has(systemResource)):
@@ -56,8 +64,8 @@ func add_component(node : Node, componentResource : Resource) -> bool:
 	typedComponents[id] = component
 	return true
 
-func remove_component(node : Node, componentResource : Resource) -> bool:
-	if (node != null):
+func remove_component(node : Node, componentResource : Resource, mustExist : bool = true) -> bool:
+	if (node == null):
 		print("ECS.remove_component: node is null")
 		return false
 
@@ -68,7 +76,8 @@ func remove_component(node : Node, componentResource : Resource) -> bool:
 	var id = node.get_instance_id()
 	var typedComponents = components[componentResource]
 	if (!typedComponents.has(id)):
-		print("ECS.remove_component: node " + str(node) + " doesn't have a component " + componentResource.resource_path)
+		if (mustExist):
+			print("ECS.remove_component: node " + str(node) + " doesn't have a component " + componentResource.resource_path)
 		return false
 
 	typedComponents[id].free()
@@ -91,12 +100,17 @@ func __instanciate_component(id : int, componentResource : Resource) -> Componen
 	return component
 
 func _process(dt : float) -> void:
+	is_processing = true
+
 	var root = __get_root_node()
 	if (root == null):
 		return
 
 	for system in active_systems:
 		__process_system(system, root, dt)
+
+	is_processing = false
+
 func __get_root_node() -> Node:
 	return get_tree().get_current_scene()
 
