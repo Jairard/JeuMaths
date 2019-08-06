@@ -2,15 +2,12 @@ extends Node
 
 class_name ECS_World
 
-var root = null
 var active_systems = {}
 var components = {}
 
 func _ready():
 	pass
 
-func set_root(node : Node) -> void:
-	root = node
 
 func register_system(systemResource : Resource) -> bool:
 	if (active_systems.has(systemResource)):
@@ -94,11 +91,14 @@ func __instanciate_component(id : int, componentResource : Resource) -> Componen
 	return component
 
 func _process(dt : float) -> void:
+	var root = __get_root_node()
 	if (root == null):
 		return
 
 	for system in active_systems:
 		__process_system(system, root, dt)
+func __get_root_node() -> Node:
+	return get_tree().get_current_scene()
 
 func __process_system(system : System, node : Node, dt : float):
 	if (node == null):
