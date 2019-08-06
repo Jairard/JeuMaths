@@ -49,7 +49,7 @@ func add_component(node : Node, componentResource : Resource) -> bool:
 		print("ECS.add_component: node " + str(node) + " already has a component " + componentResource.resource_path)
 		return false
 
-	var component = __instanciate_component(componentResource)
+	var component = __instanciate_component(id, componentResource)
 	if (component == null):
 		print("ECS.add_component: couldn't create component " + componentResource.resource_path)
 		return false
@@ -76,7 +76,7 @@ func remove_component(node : Node, componentResource : Resource) -> bool:
 	typedComponents.erase(id)
 	return true
 
-func __get_component(id : int, componentResource : Resource):
+func __get_component(id : int, componentResource : Resource) -> Component:
 	if (!components.has(componentResource)):
 		return null
 
@@ -86,8 +86,10 @@ func __get_component(id : int, componentResource : Resource):
 
 	return typedComponents[id]
 
-func __instanciate_component(componentResource : Resource):
-	return componentResource.new()
+func __instanciate_component(id : int, componentResource : Resource) -> Component:
+	var component = componentResource.new()
+	component.__set_object_id(id)
+	return component
 
 func _process(dt : float) -> void:
 	if (root == null):
