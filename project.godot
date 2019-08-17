@@ -20,9 +20,24 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Library.gd"
 }, {
 "base": "System",
+"class": "InputSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Input.gd"
+}, {
+"base": "System",
+"class": "MoveLeftSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/MoveLeft.gd"
+}, {
+"base": "System",
 "class": "MoveRightSystem",
 "language": "GDScript",
 "path": "res://ecs/Systems/MoveRight.gd"
+}, {
+"base": "Component",
+"class": "MovementComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Movement.gd"
 }, {
 "base": "Component",
 "class": "PositionComponent",
@@ -42,7 +57,10 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Component": "",
 "ComponentsLibrary": "",
+"InputSystem": "",
+"MoveLeftSystem": "",
 "MoveRightSystem": "",
+"MovementComponent": "",
 "PositionComponent": "",
 "System": "",
 "SystemsLibrary": ""

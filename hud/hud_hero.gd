@@ -1,9 +1,11 @@
 extends Node2D
 
+onready var gold = preload("res://characters/Gold.tscn")
 
 func _ready():
+	add_child(gold.instance())
 	GLOBAL.connect("xp", self, "set_xp")
-#	GLOBAL.connect("treasure", self, "set_xp")
+	GLOBAL.connect("treasure", self, "set_treasure")
 	GLOBAL.connect("level", self, "set_level")
 	GLOBAL.connect("pv_hero", self, "set_pv_hero")
 	GLOBAL.connect("pv_hero_max", self, "set_pv_hero_max")
@@ -26,4 +28,5 @@ func set_xp(value) :
 func set_level(value) :
 	$CanvasLayer/HBoxContainer2/MarginContainer/level.text = str(value)
 		
-	
+func set_treasure(value) :
+	$CanvasLayer/HBoxContainer6/MarginContainer/Label.text = str(value)

@@ -10,7 +10,7 @@ enum spellType {fireball}
 var spells = {} # empty dictionary
 
 const gravity = 1300
-export(int) var vitesse = 200
+export(int) var vitesse = 250
 var velocite = Vector2()
 var moving = false
 
@@ -26,7 +26,7 @@ func _ready():
 	
 
 func _physics_process(delta):				# 60 ticks / sec whatever fps
-	
+
 	velocite.x = 0
 	velocite.y += gravity * delta 
 	
@@ -36,6 +36,10 @@ func _physics_process(delta):				# 60 ticks / sec whatever fps
 	detect_monster()
 	
 func move():
+	
+#	var MoveComponent = ECS.__get_component(get_instance_id(), ComponentsLibrary.Movement)  as MovementComponent
+#
+#	if MoveComponent.is_moving() :
 	
 	if Input.is_action_pressed("ui_left") :
 		moving = true
@@ -52,7 +56,7 @@ func move():
 			$"animation hero".play("mouvement droite")
 		else : 
 			emit_signal('comb', 0)
-			
+
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		moving = true
 		velocite.y = - 600
@@ -61,13 +65,13 @@ func move():
 	if moving == false : 
 		velocite.x += 0
 		$"animation hero".play("saut")
-	
+
 func detect_monster():
 	if $RayCast_bas.is_colliding() :
 		moving = true
 		velocite.y = - 350
 		$"animation hero".play("mouvement haut")
-		GLOBAL.emit_signal("treasure")
+		GLOBAL.emit_signal("treasure",GLOBAL.treasure)
 		emit_signal("spawn_treasure")
 		bonus_or()
 
@@ -80,8 +84,8 @@ func recup_loot(value):
 	if value == 1 :
 		malus_health()
 		
-#	if value == 2 :
-#		bonus_or()
+	if value == 2 :
+		bonus_or()
 
 
 func bonus_health():
@@ -108,8 +112,8 @@ func malus_health():
 
 
 func bonus_or():
-	GLOBAL.treasure += 10
-#	GLOBAL.emit_signal("treasure", GLOBAL.treasure)
+	GLOBAL.treasure += 1
+	GLOBAL.emit_signal("treasure", GLOBAL.treasure)
 	print ("tresor : " + str(GLOBAL.treasure))
 	
 

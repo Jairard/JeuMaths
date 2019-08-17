@@ -1,9 +1,14 @@
 extends Area2D
 
-#var parent_position = Vector2()
+
 func _ready():
-#	parent_position = get_parent().position
-#	print (parent_position)
 	pass
 #func _process(delta):
 #	pass
+
+
+func _on_Area2D_body_entered(body):
+	GLOBAL.treasure += 1
+	GLOBAL.emit_signal("treasure", GLOBAL.treasure)
+	queue_free()
+	pass # Replace with function body.

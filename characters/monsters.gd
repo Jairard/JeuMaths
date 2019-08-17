@@ -4,6 +4,8 @@ onready var right_move = true
 onready var left_move = false
 
 func _ready():
+	self.position.x = 725
+	self.position.y =  425
 	GLOBAL.connect("treasure", self, "death_monster")	
 	pass 
 
@@ -16,7 +18,7 @@ func _process(delta):
 
 
 func move_right():
-	if self.position.x <= 255 :	
+	if self.position.x <= 1000 :	
 		self.position.x += 1
 		$AnimationPlayer.play("anim_monster_right")
 	else : 
