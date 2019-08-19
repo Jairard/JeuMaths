@@ -25,6 +25,7 @@ signal degats(value)
 signal pv_ennemy(value)
 signal win(value)
 signal treasure(value)
+signal death()
 
 
 func item_loot(type):

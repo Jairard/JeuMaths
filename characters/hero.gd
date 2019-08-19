@@ -36,11 +36,11 @@ func _physics_process(delta):				# 60 ticks / sec whatever fps
 	detect_monster()
 	
 func move():
-	
-#	var MoveComponent = ECS.__get_component(get_instance_id(), ComponentsLibrary.Movement)  as MovementComponent
+
+##	var MoveComponent = ECS.__get_component(get_instance_id(), ComponentsLibrary.Movement)  as MovementComponent
+##
+##	if MoveComponent.is_moving() :
 #
-#	if MoveComponent.is_moving() :
-	
 	if Input.is_action_pressed("ui_left") :
 		moving = true
 		if !$RayCast_gauche.is_colliding(): 
@@ -73,7 +73,7 @@ func detect_monster():
 		$"animation hero".play("mouvement haut")
 		GLOBAL.emit_signal("treasure",GLOBAL.treasure)
 		emit_signal("spawn_treasure")
-		bonus_or()
+		GLOBAL.emit_signal("death")
 
 
 func recup_loot(value):
@@ -114,7 +114,7 @@ func malus_health():
 func bonus_or():
 	GLOBAL.treasure += 1
 	GLOBAL.emit_signal("treasure", GLOBAL.treasure)
-	print ("tresor : " + str(GLOBAL.treasure))
+	print ("test")
 	
 
 func add_spell(spellRoot, type):

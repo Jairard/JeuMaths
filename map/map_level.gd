@@ -8,15 +8,16 @@ onready var rains = preload("res://characters/rain.tscn")
 onready var _eye = preload("res://characters/eye.tscn")
 onready var monster = preload("res://characters/monsters.tscn")
 onready var treasure = preload("res://characters/treasure.tscn")
-
+onready var smoke_spawn = preload("res://particules_2D/smoke_2.tscn")
+onready var sparkle_spawn =preload("res://particules_2D/sparkle.tscn")
+onready var spawn_fire = preload("res://particules_2D/Fire.tscn")
 
 var unique = []
 var file = File.new()
 var dict = {}
 	
 func _ready():
-#	ECS.register_system(SystemsLibrary.MoveRight)
-#	ECS.register_system(SystemsLibrary.MoveLeft)
+#	ECS.register_system(SystemsLibrary.Move)
 #	ECS.register_system(SystemsLibrary.Input)
 	_load_ressources()
 	charger_intro()
@@ -36,6 +37,7 @@ func charger_intro() :
 	load_hud()
 
 func load_characters() :
+	
 	add_child(enemy.instance())
 	add_child(_eye.instance())
 	add_child(enemy.instance())
@@ -47,6 +49,9 @@ func load_characters() :
 	var monsterNode = monster.instance()
 	add_child(monsterNode)
 	monsterNode.set_name("monster")
+	
+	particules_spawn_monster()
+	particules_spawn_hero()	
 	
 #	ECS.add_component(heroNode, ComponentsLibrary.Position)
 #	ECS.add_component(heroNode, ComponentsLibrary.Movement)
@@ -87,12 +92,34 @@ func _on_Button_pressed():
 func treasure_spawn() :
 	
 	var treasure_pos = get_node("monster").get_position()
-	print (treasure_pos)
 	var treasureNode = treasure.instance()
 	add_child(treasureNode)
 	treasureNode.set_position(treasure_pos) 
 	
-
+func particules_spawn_monster():
+	
+	var smoke_pos = get_node("monster").get_position()
+	var smoke_Node = smoke_spawn.instance()
+	add_child(smoke_Node)
+	smoke_Node.set_position(smoke_pos) 
+	
+	var sparkle_pos = get_node("monster").get_position()
+	var sparkle_Node = sparkle_spawn.instance()
+	add_child(sparkle_Node)
+	sparkle_Node.set_position(sparkle_pos) 
+	
+func particules_spawn_hero():
+	
+	var smoke_pos = get_node("hero").get_position()
+#	var smoke_Node = smoke_spawn.instance()
+	var fire_Node = spawn_fire.instance()
+	add_child(fire_Node)
+	fire_Node.set_position(smoke_pos) 
+	
+	var sparkle_pos = get_node("hero").get_position()
+	var fireNode = spawn_fire.instance()
+	add_child(fireNode)
+	fireNode.set_position(sparkle_pos) 
  
 func rain_spawn():
 	randomize()
@@ -133,6 +160,8 @@ func save_ressources():
 	file.open("res://log_in/pseudo.json", File.WRITE)
 	var health = to_json(dict)
 	file.store_string(health)
+#	var treasure = to_json(dict)
+#	file.store_string(treasure)
 	file.close()
 	
 func _on_Timer_timeout():
