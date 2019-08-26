@@ -23,14 +23,15 @@ func _ready():
 	self.connect("comb", get_parent(), 'combat')
 	connect("spell_ready", get_parent(), "ready_spell")	
 	connect("spawn_treasure", get_parent(), "treasure_spawn")
+	$animation_hero.set_name("anim_hero")
+	$CollisionShape2D.set_name("hero_coll")
 	
-
 func _physics_process(delta):				# 60 ticks / sec whatever fps
 
 	velocite.x = 0
 	velocite.y += gravity * delta 
 	
-	move()
+#	move()
 	move_and_slide(velocite,Vector2(0,-1))
 	
 	detect_monster()

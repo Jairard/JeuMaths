@@ -1,1 +1,5 @@
-{"health":-130,"health_max":150,"pseudo":"","treasure":26,"xp":0}
+{
+    "pseudo" : "",
+    "health" : 0,
+    "xp" : 0
+}

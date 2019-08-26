@@ -10,10 +10,11 @@ colors = PoolColorArray( 1, 0, 1, 0.843137, 1, 0.980392, 0, 1, 1, 0.951426, 0.22
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
+angular_velocity = 1.11477e-038
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color_ramp = SubResource( 2 )
@@ -23,6 +24,6 @@ emitting = false
 one_shot = true
 preprocess = 0.25
 explosiveness = 0.25
-process_material = SubResource( 5 )
+process_material = SubResource( 3 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )

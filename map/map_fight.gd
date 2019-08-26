@@ -6,7 +6,7 @@ onready var hud    = preload("res://hud/hud_hero.tscn")
 onready var hud_pro    = preload("res://hud/hud_enemy.tscn")
 onready var spell = preload("res://fight/test_spell.tscn")
 onready var spell_enemy = preload("res://fight/spell_enemy.tscn")
-onready var calcul = preload("res://fight/calcul.tscn")
+onready var calcul = preload("res://fight/calcul2.tscn")
 
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")

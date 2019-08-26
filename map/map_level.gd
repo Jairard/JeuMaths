@@ -17,9 +17,11 @@ var file = File.new()
 var dict = {}
 	
 func _ready():
-#	ECS.register_system(SystemsLibrary.Move)
-#	ECS.register_system(SystemsLibrary.Input)
-	_load_ressources()
+	ECS.register_system(SystemsLibrary.Move)
+	ECS.register_system(SystemsLibrary.Input)
+	ECS.register_system(SystemsLibrary.Animation)
+	ECS.register_system(SystemsLibrary.Collision)
+#	_load_ressources()
 	charger_intro()
 	rain_spawn()
 
@@ -29,22 +31,22 @@ func _process(delta):
 	
 func charger_intro() :
 
-	
-
-
-	
 	load_characters()
 	load_hud()
 
 func load_characters() :
 	
+	var enemyNode = enemy.instance()
 	add_child(enemy.instance())
+	enemyNode.set_name("enemy")
+	
 	add_child(_eye.instance())
 	add_child(enemy.instance())
 	
 	var heroNode = hero.instance()
 	add_child(heroNode)
 	heroNode.set_name("hero")
+
 	
 	var monsterNode = monster.instance()
 	add_child(monsterNode)
@@ -53,8 +55,12 @@ func load_characters() :
 	particules_spawn_monster()
 	particules_spawn_hero()	
 	
-#	ECS.add_component(heroNode, ComponentsLibrary.Position)
-#	ECS.add_component(heroNode, ComponentsLibrary.Movement)
+	ECS.add_component(heroNode, ComponentsLibrary.Position)
+	ECS.add_component(heroNode, ComponentsLibrary.Movement)
+	ECS.add_component(heroNode, ComponentsLibrary.Collision)
+	ECS.add_component(enemyNode, ComponentsLibrary.Position)
+	ECS.add_component(enemyNode, ComponentsLibrary.Movement)
+	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
 	
 func load_hud() :
 
@@ -86,7 +92,7 @@ func _on_Button_pressed():
 	dict ["health_max"] = GLOBAL.pv_hero_max
 	dict["xp"] = GLOBAL.xp
 	dict["treasure"] = GLOBAL.treasure
-	save_ressources()
+#	save_ressources()
 	get_tree().change_scene("res://map/Start.tscn")
 
 func treasure_spawn() :
@@ -158,8 +164,9 @@ func _load_ressources():
 	
 func save_ressources():
 	file.open("res://log_in/pseudo.json", File.WRITE)
-	var health = to_json(dict)
-	file.store_string(health)
+	var value = to_json(dict)
+#	dict["treasure"] = GLOBAL.treasure
+#	file.store_var(dict["treasure"])
 #	var treasure = to_json(dict)
 #	file.store_string(treasure)
 	file.close()

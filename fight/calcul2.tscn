@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprite.gd" type="Script" id=1]
+[ext_resource path="res://fight/Sprite2.gd" type="Script" id=2]
+
+[node name="calcul2" type="Sprite"]
+position = Vector2( 300, 300 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="question" type="Button" parent="Sprite"]
+margin_left = -21.2119
+margin_top = -10.0426
+margin_right = 22.7881
+margin_bottom = 9.9574
+text = "1 + 1"
+
+[node name="Sprite2" type="Sprite" parent="Sprite/question"]
+position = Vector2( 20.05, 50 )
+script = ExtResource( 2 )
+
+[node name="answer_1" type="Button" parent="Sprite/question/Sprite2"]
+margin_left = -11.0455
+margin_top = -9.39438
+margin_right = 8.95447
+margin_bottom = 10.6056
+text = "1"
+
+[node name="Sprite3" type="Sprite" parent="Sprite/question"]
+position = Vector2( 75, 10 )
+
+[node name="answer_2" type="Button" parent="Sprite/question/Sprite3"]
+margin_left = -9.89893
+margin_top = -9.32065
+margin_right = 10.1011
+margin_bottom = 10.6794
+text = "2"

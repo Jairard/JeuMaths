@@ -1,13 +1,19 @@
 extends Component
 
 class_name MovementComponent
+enum dir {left, right, none}
 
-var move = false
+var direction = dir.none
+var jump = false
 
-func is_moving() -> bool :
-	return move
-
-func set_is_moving(value : bool) -> void :
-	move = value
-
+func get_direction() :		# -> dir
+	return direction	
 	
+func set_direction(dir) -> void :	# dir : dir
+	direction = dir
+
+func is_jumping() -> bool :
+	return jump
+	
+func set_is_jumping(value : bool) -> void :
+	jump = value
