@@ -1,5 +1,6 @@
 extends Component
 
+# TODO: see HealthEnemyComponent
 class_name HealthHeroComponent
 
 var health_hero = 100
