@@ -28,8 +28,9 @@ Priorities:
 
 ---------------------------------------
 
-projectile feu horizontal / oeil
-
+animation idle / get_node("animation_player")
+system monster : move/animation/patrol
+component patrol : (min,max)
 ----------------------------------------
 
 	harder better faster stronger tamer

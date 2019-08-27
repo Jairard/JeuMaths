@@ -2,15 +2,18 @@ extends Component
 
 class_name AnimationComponent
 
-enum animation {left, right, jump, none}
+enum anim {left, right, jump, idle}
 
-enum anim_name {anim_left, anim_right, anim_jump}
+var animation_names : Dictionary = {}
+var animation_player : AnimationPlayer = null
 
-var init_anim = anim_name.anim_jump
-
-func init_animation_Node(anim_name) -> void :
-	init_anim = anim_name
-	pass
+func init(_anim_name : Dictionary, _animation_player : AnimationPlayer) -> void :
+	animation_names = _anim_name
+	animation_player = _animation_player
 	
-func get_anim() -> bool :
-	return init_anim
+func play(key) -> void : 
+	if animation_player != null and animation_names.has(key) :
+		var anim_to_play = animation_names[key]
+		animation_player.play(anim_to_play)
+		
+	

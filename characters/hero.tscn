@@ -96,19 +96,19 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="hero_spr" type="Sprite" parent="."]
-modulate = Color( 0.878431, 0.878431, 0.878431, 1 )
-texture = ExtResource( 2 )
-vframes = 8
-hframes = 8
-frame = 24
-
 [node name="animation_hero" type="AnimationPlayer" parent="."]
 anims/anim_jump = SubResource( 1 )
 anims/anim_left = SubResource( 2 )
 anims/anim_right = SubResource( 3 )
 anims/anim_up = SubResource( 4 )
 anims/hero_down = SubResource( 5 )
+
+[node name="hero_spr" type="Sprite" parent="."]
+modulate = Color( 0.878431, 0.878431, 0.878431, 1 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 24
 
 [node name="RayCast_bas" type="RayCast2D" parent="."]
 enabled = true

@@ -63,7 +63,6 @@ func move():
 		moving = true
 		velocite.y = - 600
 		print (velocite.y)
-		print ("STOP")
 #		$"animation hero".play("mouvement haut")
 
 	if moving == false : 

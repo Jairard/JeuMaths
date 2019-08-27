@@ -14,7 +14,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	var velocity = Vector2(0,0)
 	velocity.x = 0
-	velocity.y = gravity * dt
+	velocity.y += gravity * dt
 
 	if move_comp.get_direction() == move_comp.dir.right :
 		velocity.x += 250
@@ -24,9 +24,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		
 	if move_comp.is_jumping() == true :
 		velocity.y = -600 
-
+#		move_comp.get_node().move_and_slide(velocity,Vector2(0,-1))
 		
 	var dp = dt * velocity
 	pos_comp.set_position(pos_comp.get_position() + dp)
+	
 	
 	
