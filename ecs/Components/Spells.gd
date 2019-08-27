@@ -2,9 +2,7 @@ extends Component
 
 class_name SpellComponent
 
-# spell_1 & spell_2 are not really explicit names
-# TODO: rename spell_1 & spell_2 with comething like "Fireball" or "avada_kedavra"
-enum spells {spell_1, spell_2, none}
+enum spells {fireball, arrow, sword, none}
 
 var init_spell = spells.none 
 

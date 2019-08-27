@@ -11,10 +11,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var spl = components[ComponentsLibrary.Spells] as SpellComponent
 	
 	if  answ.get_answer() == answ.answer.true : 
-		spl.get_spell() == spl.spells.spell_1 
+		spl.get_spell() == spl.spells.fireball
 
 	if answ.get_answer() == answ.answer.false :
-		spl.get_spell() == spl.spells.spell_2 
+		spl.get_spell() == spl.spells.arrow
 
 	else :
 		spl.get_spell() == spl.spells.none 

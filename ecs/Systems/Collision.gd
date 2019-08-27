@@ -16,15 +16,15 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var hero_pos = hero_Node.get_position()
 	
 
-	var enemy_Node = comp.get_node()
-	var enemy_Node_coll = enemy_Node.get_node("CollisionShape2D")
-	var enemy_pos = enemy_Node.get_position()
+#	var enemy_Node = comp.get_node()
+#	var enemy_Node_coll = enemy_Node.get_node("CollisionShape2D")
+#	var enemy_pos = enemy_Node.get_position()
 	
-	print (hero_Node)
-	print (enemy_Node)
-	
-	if hero_pos.move_and_collide() :
-		print ("collision") 
+#	print (hero_Node)
+#	print (enemy_Node)
+	pass
+#	if hero_pos.move_and_collide() :
+#		print ("collision") 
 #
 ##	var test = hero_Node_coll.
 #		print ("test")

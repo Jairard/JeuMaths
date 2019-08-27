@@ -26,6 +26,10 @@ Priorities:
 
 	visual effects for damage taken
 
+---------------------------------------
+
+projectile feu horizontal / oeil
+
 ----------------------------------------
 
 	harder better faster stronger tamer

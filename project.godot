@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Component",
+"class": "AnimationComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Animation.gd"
+}, {
 "base": "System",
 "class": "AnimationSystem",
 "language": "GDScript",
@@ -45,14 +50,9 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Library.gd"
 }, {
 "base": "Component",
-"class": "HealthEnemyComponent",
+"class": "HealthComponent",
 "language": "GDScript",
-"path": "res://ecs/Components/Health_enemy.gd"
-}, {
-"base": "Component",
-"class": "HealthHeroComponent",
-"language": "GDScript",
-"path": "res://ecs/Components/Health_hero.gd"
+"path": "res://ecs/Components/Health.gd"
 }, {
 "base": "System",
 "class": "HealthSystem",
@@ -105,6 +105,7 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Xp.gd"
 } ]
 _global_script_class_icons={
+"AnimationComponent": "",
 "AnimationSystem": "",
 "AnswerComponent": "",
 "AnswerSystem": "",
@@ -112,8 +113,7 @@ _global_script_class_icons={
 "CollisionSystem": "",
 "Component": "",
 "ComponentsLibrary": "",
-"HealthEnemyComponent": "",
-"HealthHeroComponent": "",
+"HealthComponent": "",
 "HealthSystem": "",
 "InputSystem": "",
 "MoveSystem": "",

@@ -5,7 +5,6 @@ onready var hero = preload("res://characters/hero.tscn")
 onready var hud = preload("res://hud/hud_hero.tscn")
 onready var spawn_rain = preload("res://characters/rain.tscn")
 onready var rains = preload("res://characters/rain.tscn")
-onready var _eye = preload("res://characters/eye.tscn")
 onready var monster = preload("res://characters/monsters.tscn")
 onready var treasure = preload("res://characters/treasure.tscn")
 onready var smoke_spawn = preload("res://particules_2D/smoke_2.tscn")
@@ -40,7 +39,7 @@ func load_characters() :
 	add_child(enemy.instance())
 	enemyNode.set_name("enemy")
 	
-	add_child(_eye.instance())
+#	add_child(_eye.instance())
 	add_child(enemy.instance())
 	
 	var heroNode = hero.instance()
@@ -53,9 +52,10 @@ func load_characters() :
 	monsterNode.set_name("monster")
 	
 	particules_spawn_monster()
-	particules_spawn_hero()	
+	fire_spawn()	
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
+	ECS.add_component(heroNode, ComponentsLibrary.Animation)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(enemyNode, ComponentsLibrary.Position)
@@ -114,18 +114,20 @@ func particules_spawn_monster():
 	add_child(sparkle_Node)
 	sparkle_Node.set_position(sparkle_pos) 
 	
-func particules_spawn_hero():
+func fire_spawn():
 	
-	var smoke_pos = get_node("hero").get_position()
+#	var smoke_pos = get_node("hero").get_position()
+#	smoke_pos.y += 50
 #	var smoke_Node = smoke_spawn.instance()
 	var fire_Node = spawn_fire.instance()
+	fire_Node.set_position(Vector2(800,400)) 
 	add_child(fire_Node)
-	fire_Node.set_position(smoke_pos) 
 	
-	var sparkle_pos = get_node("hero").get_position()
-	var fireNode = spawn_fire.instance()
-	add_child(fireNode)
-	fireNode.set_position(sparkle_pos) 
+	
+#	var sparkle_pos = get_node("hero").get_position()
+#	var fireNode = spawn_fire.instance()
+#	add_child(fireNode)
+#	fireNode.set_position(sparkle_pos) 
  
 func rain_spawn():
 	randomize()
@@ -173,4 +175,5 @@ func save_ressources():
 	
 func _on_Timer_timeout():
 
-	add_child(_eye.instance())
+#	add_child(_eye.instance())
+	fire_spawn()

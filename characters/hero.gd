@@ -20,6 +20,7 @@ signal spawn_treasure()
 
 func _ready():
 	
+	self.position = Vector2(100, 560)
 	self.connect("comb", get_parent(), 'combat')
 	connect("spell_ready", get_parent(), "ready_spell")	
 	connect("spawn_treasure", get_parent(), "treasure_spawn")
@@ -46,7 +47,7 @@ func move():
 		moving = true
 		if !$RayCast_gauche.is_colliding(): 
 			velocite.x -= vitesse
-			$"animation hero".play("mouvement gauche")
+#			$"animation hero".play("mouvement gauche")
 		else : 
 			emit_signal('comb', 0)
 
@@ -54,18 +55,22 @@ func move():
 		moving = true
 		if $RayCast_droite.is_colliding() == false :
 			velocite.x += vitesse
-			$"animation hero".play("mouvement droite")
+#			$"animation hero".play("mouvement droite")
 		else : 
 			emit_signal('comb', 0)
-
+	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		moving = true
 		velocite.y = - 600
-		$"animation hero".play("mouvement haut")
+		print (velocite.y)
+		print ("STOP")
+#		$"animation hero".play("mouvement haut")
 
 	if moving == false : 
 		velocite.x += 0
-		$"animation hero".play("saut")
+#		$"animation hero".play("saut")
+
+	print (velocite.y)
 
 func detect_monster():
 	if $RayCast_bas.is_colliding() :
@@ -115,7 +120,6 @@ func malus_health():
 func bonus_or():
 	GLOBAL.treasure += 1
 	GLOBAL.emit_signal("treasure", GLOBAL.treasure)
-	print ("test")
 	
 
 func add_spell(spellRoot, type):
