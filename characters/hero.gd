@@ -33,7 +33,6 @@ func _physics_process(delta):				# 60 ticks / sec whatever fps
 	velocite.y += gravity * delta 
 	
 #	move()
-	move_and_slide(velocite,Vector2(0,-1))
 	
 	detect_monster()
 	
