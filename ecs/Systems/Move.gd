@@ -11,7 +11,6 @@ func _get_used_components() -> Array:
 	return [ComponentsLibrary.Position,ComponentsLibrary.Movement]
 
 func _process_node(dt : float, components : Dictionary) -> void:
-	
 	var move_comp = components[ComponentsLibrary.Movement] as MovementComponent
 	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
 	
@@ -29,7 +28,5 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		move_comp.set_is_jumping(false)
 		
 	var dp = dt * velocity
-	
-	
-	
+	print("dt=" + str(dt) + ", currentPos=" + str(pos_comp.get_position()) + ", dp=" + str(dp), ", velocity=" + str(velocity))
 	pos_comp.move_and_slide(velocity)
