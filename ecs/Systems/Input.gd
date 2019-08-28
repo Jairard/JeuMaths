@@ -18,8 +18,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	elif Input.is_action_pressed("ui_left") :
 		comp.set_direction(comp.dir.left)
 		
-	elif Input.is_action_pressed("ui_accept") :
-		comp.set_is_jumping(true)
 	
 	else : 
 		comp.set_direction(comp.dir.none)
+
+	if Input.is_action_just_pressed("ui_accept"):
+		comp.set_is_jumping(true)
