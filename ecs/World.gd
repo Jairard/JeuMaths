@@ -40,10 +40,10 @@ func unregister_system(systemResource : Resource) -> bool:
 func __instanciate_system(systemResource : Resource):
 	return systemResource.new()
 
-func add_component(node : Node, componentResource : Resource) -> bool:
+func add_component(node : Node, componentResource : Resource) -> Component:
 	if (node == null):
 		print("ECS.add_component: node is null")
-		return false
+		return null
 
 	if (!components.has(componentResource)):
 		components[componentResource] = {}
@@ -52,15 +52,15 @@ func add_component(node : Node, componentResource : Resource) -> bool:
 	var typedComponents = components[componentResource]
 	if (typedComponents.has(id)):
 		print("ECS.add_component: node " + str(node) + " already has a component " + componentResource.resource_path)
-		return false
+		return null
 
 	var component = __instanciate_component(id, componentResource)
 	if (component == null):
 		print("ECS.add_component: couldn't create component " + componentResource.resource_path)
-		return false
+		return null
 	
 	typedComponents[id] = component
-	return true
+	return component
 
 func remove_component(node : Node, componentResource : Resource, mustExist : bool = true) -> bool:
 	if (node == null):
