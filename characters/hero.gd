@@ -20,7 +20,7 @@ extends KinematicBody2D
 
 func _ready():
 	
-	self.position = Vector2(100, 370)
+	self.position = Vector2(100, 540)
 #	self.connect("comb", get_parent(), 'combat')
 #	connect("spell_ready", get_parent(), "ready_spell")	
 #	connect("spawn_treasure", get_parent(), "treasure_spawn")
