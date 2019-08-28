@@ -4,7 +4,23 @@
 [ext_resource path="res://hud/spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "anim_jump"
+resource_name = "anim_idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("hero_spr:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 24 ]
+}
+
+[sub_resource type="Animation" id=2]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("hero_spr:frame")
@@ -17,23 +33,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 24, 25 ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "anim_left"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("hero_spr:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 22, 23 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -49,11 +48,26 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 20, 21 ]
+"values": [ 22, 23 ]
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "anim_up"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("hero_spr:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 20, 21 ]
+}
+
+[sub_resource type="Animation" id=5]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -69,39 +83,22 @@ tracks/0/keys = {
 "values": [ 24, 26 ]
 }
 
-[sub_resource type="Animation" id=5]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("hero_spr:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 16, 17 ]
-}
-
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 28.0717, 32.6612 )
 
 [node name="hero" type="KinematicBody2D"]
-position = Vector2( 88.9474, 501.339 )
-collision_mask = 116
+collision_mask = 118
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="animation_hero" type="AnimationPlayer" parent="."]
-anims/anim_jump = SubResource( 1 )
-anims/anim_left = SubResource( 2 )
-anims/anim_right = SubResource( 3 )
-anims/anim_up = SubResource( 4 )
-anims/hero_down = SubResource( 5 )
+anims/anim_idle = SubResource( 1 )
+anims/anim_jump = SubResource( 2 )
+anims/anim_left = SubResource( 3 )
+anims/anim_right = SubResource( 4 )
+anims/anim_up = SubResource( 5 )
 
 [node name="hero_spr" type="Sprite" parent="."]
 modulate = Color( 0.878431, 0.878431, 0.878431, 1 )

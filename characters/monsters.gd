@@ -4,17 +4,18 @@ onready var right_move = true
 onready var left_move = false
 
 func _ready():
-	self.position.x = 725
-	self.position.y =  425
-	GLOBAL.connect("death", self, "death_monster")
+#	self.position.x = 725
+#	self.position.y =  425
+#	GLOBAL.connect("death", self, "death_monster")
+	pass
 	
 func _process(delta):
-	
-	if right_move == true :
-		move_right()
-	if left_move == true : 
-		move_left()	
 
+#	if right_move == true :
+#		move_right()
+#	if left_move == true : 
+#		move_left()	
+	pass
 
 func move_right():
 	if self.position.x <= 1000 :	
@@ -23,7 +24,7 @@ func move_right():
 	else : 
 		right_move = false
 		left_move = true		
-	
+
 
 func move_left():
 	if self.position.x >= 740 :	
@@ -37,6 +38,6 @@ func _on_monster_body_entered(body):
 	GLOBAL.pv_hero -= 10
 	GLOBAL.emit_signal("pv_hero",GLOBAL.pv_hero)
 	queue_free()
-	
+
 func death_monster():
 	queue_free()

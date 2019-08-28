@@ -7,7 +7,7 @@
 extents = Vector2( 22.2805, 24.5861 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "anim_monster_left"
+resource_name = "anim_left"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -22,7 +22,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "anim_monster_right"
+resource_name = "anim_right"
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -50,9 +50,9 @@ frame = 2
 position = Vector2( 0.407814, 1.22344 )
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/anim_monster_left = SubResource( 2 )
-anims/anim_monster_right = SubResource( 3 )
+[node name="animation_monster" type="AnimationPlayer" parent="."]
+anims/anim_left = SubResource( 2 )
+anims/anim_right = SubResource( 3 )
 
 [node name="head" type="StaticBody2D" parent="."]
 position = Vector2( 0, 1.90735e-006 )

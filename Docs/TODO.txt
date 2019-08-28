@@ -27,8 +27,6 @@ Priorities:
 	visual effects for damage taken
 
 ---------------------------------------
-
-animation idle / get_node("animation_player")
 system monster : move/animation/patrol
 component patrol : (min,max)
 ----------------------------------------

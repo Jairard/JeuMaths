@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://map/map_level.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
@@ -11,19 +11,31 @@
 size = 35
 font_data = ExtResource( 2 )
 
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "spritesheet2.png 0"
 0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 64, 64 )
+0/region = Rect2( 64, 0, 64, 64 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/shapes = [  ]
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 0/z_index = 0
 1/name = "spritesheet2.png 1"
 1/texture = ExtResource( 6 )
@@ -41,6 +53,22 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
+2/name = "spritesheet2.png 2"
+2/texture = ExtResource( 6 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 64, 0, 32, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
 
 [node name="map 0" type="Node2D"]
 light_mask = 0
@@ -69,18 +97,17 @@ scale = Vector2( 4.07134, 1.79139 )
 texture = ExtResource( 3 )
 
 [node name="volcano_right" type="Sprite" parent="."]
-position = Vector2( 2479.82, 345.119 )
+position = Vector2( 2488.59, 349.503 )
 scale = Vector2( 1.13747, 0.561681 )
 texture = ExtResource( 4 )
 
 [node name="volcano" type="Sprite" parent="."]
 show_behind_parent = true
-position = Vector2( 785.494, 339.787 )
+position = Vector2( 793.293, 344.171 )
 scale = Vector2( 1.54709, 1.05595 )
 texture = ExtResource( 5 )
 
 [node name="sol" type="TileMap" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 tile_set = SubResource( 3 )
 collision_layer = 2
 format = 1

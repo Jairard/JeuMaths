@@ -75,6 +75,16 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Movement.gd"
 }, {
 "base": "Component",
+"class": "PatrolComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Patrol.gd"
+}, {
+"base": "System",
+"class": "PatrolSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Patrol.gd"
+}, {
+"base": "Component",
 "class": "PositionComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Position.gd"
@@ -118,6 +128,8 @@ _global_script_class_icons={
 "InputSystem": "",
 "MoveSystem": "",
 "MovementComponent": "",
+"PatrolComponent": "",
+"PatrolSystem": "",
 "PositionComponent": "",
 "SpellComponent": "",
 "System": "",

@@ -19,6 +19,8 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
+	ECS.register_system(SystemsLibrary.Patrol)
+	
 	ECS.register_system(SystemsLibrary.Collision)
 #	_load_ressources()
 	charger_intro()
@@ -56,12 +58,28 @@ func load_characters() :
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
 	ECS.add_component(heroNode, ComponentsLibrary.Animation)
-	var comp = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Animation) as AnimationComponent
-	var anim_name = {comp.anim.left : "anim_left", comp.anim.right : "anim_right", comp.anim.jump : "anim_jump", comp.anim.idle : "anim_idle"}
-	var animation_player = heroNode.get_node("animation_hero")
-	comp.init(anim_name, animation_player)
+	var comp_anim_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Animation) as AnimationComponent
+	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
+	var animation_player_hero = heroNode.get_node("animation_hero")
+	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
+	
+	
+	
+	ECS.add_component(monsterNode, ComponentsLibrary.Position)
+	ECS.add_component(monsterNode, ComponentsLibrary.Animation)
+	
+	var comp_anim_monster = ECS.__get_component(monsterNode.get_instance_id(), ComponentsLibrary.Animation) as AnimationComponent
+	var anim_name_monster = {comp_anim_monster.anim.left : "anim_left", comp_anim_monster.anim.right : "anim_right"}
+	var animation_player_monster = monsterNode.get_node("animation_monster")
+	comp_anim_monster.init(anim_name_monster, animation_player_monster)
+	ECS.add_component(monsterNode, ComponentsLibrary.Collision)
+	ECS.add_component(monsterNode, ComponentsLibrary.Patrol)
+	var comp_patrol = ECS.__get_component(monsterNode.get_instance_id(), ComponentsLibrary.Patrol) as PatrolComponent
+	comp_patrol.init(725,1000)	
+	
+	
 	ECS.add_component(enemyNode, ComponentsLibrary.Position)
 	ECS.add_component(enemyNode, ComponentsLibrary.Movement)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
