@@ -55,8 +55,7 @@ func load_characters() :
 	fire_spawn()	
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
-	ECS.add_component(heroNode, ComponentsLibrary.Animation)
-	var comp = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Animation) as AnimationComponent
+	var comp = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name = {comp.anim.left : "anim_left", comp.anim.right : "anim_right", comp.anim.jump : "anim_jump", comp.anim.idle : "anim_idle"}
 	var animation_player = heroNode.get_node("animation_hero")
 	comp.init(anim_name, animation_player)
