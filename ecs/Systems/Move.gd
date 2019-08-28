@@ -34,7 +34,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	var dp = dt * velocity
 
-	pos_comp.set_position(pos_comp.get_position() + dp)
 	
 #	move_comp.get_node().move_and_slide(velocity, Vector2(0,-1))	
 	
