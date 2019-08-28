@@ -3,6 +3,8 @@ extends System
 class_name MoveSystem
 
 const gravity = 1300
+const jump_impulse = -600
+const lateral_velocity = 250
 var velocity : Vector2 = Vector2(0, 0)
 
 func _get_used_components() -> Array:
@@ -17,13 +19,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	velocity.y += gravity * dt
 
 	if move_comp.get_direction() == move_comp.dir.right :
-		velocity.x += 250
+		velocity.x = lateral_velocity
 		
 	if move_comp.get_direction() == move_comp.dir.left :
-		velocity.x -= 250
+		velocity.x = -lateral_velocity
 		
 	if move_comp.is_jumping() == true:
-		velocity.y = -600
+		velocity.y = jump_impulse
 		move_comp.set_is_jumping(false)
 		
 	var dp = dt * velocity
