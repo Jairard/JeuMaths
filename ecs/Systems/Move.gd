@@ -28,17 +28,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		velocity.y = jump_impulse
 		move_comp.set_is_jumping(false)
 
-		
-#	move_comp.set_is_jumping(false)		
-
-	
 	var dp = dt * velocity
-
-	
-#	move_comp.get_node().move_and_slide(velocity, Vector2(0,-1))	
-	
-	
-
-#	print("dt=" + str(dt) + ", currentPos=" + str(pos_comp.get_position()) + ", dp=" + str(dp), ", velocity=" + str(velocity))
 	pos_comp.move_and_slide(velocity)
 

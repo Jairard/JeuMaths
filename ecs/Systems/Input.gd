@@ -14,8 +14,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		comp.set_direction(comp.dir.right)
 	elif Input.is_action_pressed("ui_left") :
 		comp.set_direction(comp.dir.left)
-
-
 	else : 
 		comp.set_direction(comp.dir.none)
 
