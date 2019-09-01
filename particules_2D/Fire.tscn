@@ -39,7 +39,7 @@ extents = Vector2( 53.3923, 25.7147 )
 rotation = -3.14159
 amount = 100
 lifetime = 2.0
-speed_scale = 2.0
+speed_scale = 6.0
 process_material = SubResource( 5 )
 script = ExtResource( 1 )
 

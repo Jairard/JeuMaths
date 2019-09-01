@@ -16,4 +16,3 @@ func play(key) -> void :
 		var anim_to_play = animation_names[key]
 		animation_player.play(anim_to_play)
 		
-	

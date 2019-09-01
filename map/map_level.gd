@@ -21,8 +21,8 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
-	ECS.register_system(SystemsLibrary.Patrol)
 	ECS.register_system(SystemsLibrary.Collision)
+	ECS.register_system(SystemsLibrary.Patrol)
 	
 	_load_ressources()
 	charger_intro()
@@ -64,30 +64,19 @@ func load_characters() :
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	
 	
-#	ECS.add_component(monsterNode, ComponentsLibrary.Position)
-#	ECS.add_component(monsterNode, ComponentsLibrary.Animation)
-	
-#	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
-#	var anim_name_monster = {comp_anim_monster.anim.left : "anim_left", comp_anim_monster.anim.right : "anim_right"}
-#	var animation_player_monster = monsterNode.get_node("animation_monster")
-#	comp_anim_monster.init(anim_name_monster, animation_player_monster)
-#	ECS.add_component(monsterNode, ComponentsLibrary.Collision)
-#	ECS.add_component(monsterNode, ComponentsLibrary.Patrol)
-#	var comp_patrol = ECS.add_component(heroNode, ComponentsLibrary.patrol) as PatrolComponent
-#	comp_patrol.init(725,1000)	
-	
-	
-#	ECS.add_component(enemyNode, ComponentsLibrary.Position)
-#	ECS.add_component(enemyNode, ComponentsLibrary.Movement)
-#	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
-	
+	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
+	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
+	var animation_player_monster = monsterNode.get_node("animation_monster")
+	comp_anim_monster.init(anim_name_monster, animation_player_monster)
+
+	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
+	comp_patrol.init(700,900) 
 	
 func load_hud() :
 
 	var hudd = hud.instance()
 
 	add_child(hudd)
-	
 	
 	hudd.set_xp(GLOBAL.xp)						# Maj global
 	

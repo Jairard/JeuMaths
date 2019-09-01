@@ -4,13 +4,13 @@ onready var right_move = true
 onready var left_move = false
 
 func _ready():
-#	self.position.x = 725
-#	self.position.y =  425
+	self.position.x = 725
+	self.position.y =  425
 #	GLOBAL.connect("death", self, "death_monster")
 	pass
 	
 func _process(delta):
-
+#	self.position.x += 1
 #	if right_move == true :
 #		move_right()
 #	if left_move == true : 

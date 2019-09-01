@@ -10,3 +10,4 @@ func set_position(pos : Vector2) -> void :
 
 func move_and_slide(velocity : Vector2) -> void:
 	get_node().move_and_slide(velocity, Vector2(0, -1))
+

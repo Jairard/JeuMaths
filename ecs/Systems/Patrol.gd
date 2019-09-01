@@ -2,24 +2,52 @@ extends System
 
 class_name PatrolSystem
 
+var right_move = true
+var left_move = false
+var velocity = Vector2(0,0)
+
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Movement, ComponentsLibrary.Position, ComponentsLibrary.Animation, ComponentsLibrary.Patrol]
+	return [ComponentsLibrary.Animation, ComponentsLibrary.Patrol]
 
 func _process_node(dt : float, components : Dictionary) -> void:
 	
-#	var comp_mov = components[ComponentsLibrary.Movement] as MovementComponent
-	var comp_pos = components[ComponentsLibrary.Position] as PositionComponent
-	var comp_patrol = components[ComponentsLibrary.Patrol] as PatrolComponent
-	var comp_anim = components[ComponentsLibrary.Animation] as AnimationComponent
+	var comp_patrol  = 	components[ComponentsLibrary.Patrol] as PatrolComponent
+	var comp_anim	 = 	components[ComponentsLibrary.Animation] as AnimationComponent
 	
-	print (comp_patrol.right_move)
+	var dp = velocity * dt
+#	print (comp_anim.animation_names)
 	
-	if comp_patrol.right_move() == true :
-#		comp_pos.set_position(comp_pos.get_position(Vector2(comp_patrol.x_min,425)))
+#	comp_patrol.set_pattern(true)
+
+	if comp_patrol.patrol == true :
 		comp_anim.play(comp_anim.anim.right)
-		
-	if comp_patrol.right_move() == false :
-		comp_anim.play(comp_anim.anim.left)
-		
-		
+
+		if right_move == true :
+			
+			if comp_patrol.x_min < comp_patrol.x_max :
+				comp_patrol.x_min += 1 
+				velocity.x += 1
+				comp_patrol.set_position(comp_patrol.get_position() + dp)
+				print (comp_patrol.x_min, comp_patrol.x_max)
+
+			else :
+				right_move = false
+				left_move = true
+
+		if left_move == true : 
+
+			if comp_patrol.x_min > comp_patrol.x_min_ref :
+				print ("left")
+				comp_patrol.x_min -= 1
+				velocity.x -= 1
+				comp_patrol.set_position(comp_patrol.get_position() - dp)
+				print (comp_patrol.x_min, comp_patrol.x_max)
+				
+			else : 
+				right_move = true
+				left_move = false
+	
+
+
+
 		

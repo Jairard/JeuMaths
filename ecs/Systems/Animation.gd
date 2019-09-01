@@ -7,8 +7,10 @@ func _get_used_components() -> Array:
 
 func _process_node(dt : float, components : Dictionary) -> void:
 	
-	var comp = components[ComponentsLibrary.Movement] as MovementComponent
-	var comp_anim = components[ComponentsLibrary.Animation] as AnimationComponent
+	var comp		 = 	components[ComponentsLibrary.Movement] as MovementComponent
+	var comp_anim	 = 	components[ComponentsLibrary.Animation] as AnimationComponent
+	
+#	print (comp_anim.animation_names)
 	
 	if comp.get_direction() == comp.dir.right :
 		comp_anim.play(comp_anim.anim.right)
