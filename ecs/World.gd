@@ -4,6 +4,12 @@ var active_systems = {}
 var components = {}
 var is_processing = false
 
+# TODO:
+# - mecanism to get components from another node
+# - mecanism to auto-unregister systems (on scene change for example)
+# - init syntactic sugar ?
+# - system-to-system dependency
+# - optional component dependency
 func _ready():
 	var res = get_tree().connect("node_removed", self, "__on_node_removed")
 
