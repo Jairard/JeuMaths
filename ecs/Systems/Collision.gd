@@ -10,10 +10,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	var comp = components[ComponentsLibrary.Collision] as CollisionComponent
 	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
-#
-#	var hero_Node  = comp.get_node()
-#	var hero_Node_coll = hero_Node.get_node("hero_coll")
-#	var hero_pos = hero_Node.get_position()
+
+	var hero_Node  = comp.get_node()
+	var hero_Node_coll = hero_Node.get_node("hero_coll")
+	var hero_pos = hero_Node_coll.get_position()
+	print (hero_pos)
 	
 
 #	var enemy_Node = comp.get_node()
@@ -23,12 +24,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 #	print (hero_Node)
 #	print (enemy_Node)
 	pass
-#	if hero_pos.move_and_collide() :
+#	if pos_comp.move_and_slide(pos_comp.get_position()) :
 #		print ("collision") 
-#
-##	var test = hero_Node_coll.
-#		print ("test")
-#	pass
-
 	
 #	pos_comp.set_position(pos_comp.get_position() + dp)

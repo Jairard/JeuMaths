@@ -134,5 +134,5 @@ offset_v = -1.0
 offset_h = 1.0
 drag_margin_bottom = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="hero_coll" type="CollisionShape2D" parent="."]
 shape = SubResource( 6 )

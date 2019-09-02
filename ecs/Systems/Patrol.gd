@@ -28,26 +28,28 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				comp_patrol.x_min += 1 
 				velocity.x += 1
 				comp_patrol.set_position(comp_patrol.get_position() + dp)
-				print (comp_patrol.x_min, comp_patrol.x_max)
+#				print (comp_patrol.x_min, comp_patrol.x_max)
+		
 
 			else :
 				right_move = false
 				left_move = true
+		
+
 
 		if left_move == true : 
 
 			if comp_patrol.x_min > comp_patrol.x_min_ref :
-				print ("left")
+#				print ("left")
 				comp_patrol.x_min -= 1
 				velocity.x -= 1
 				comp_patrol.set_position(comp_patrol.get_position() - dp)
-				print (comp_patrol.x_min, comp_patrol.x_max)
+#				print (comp_patrol.x_min, comp_patrol.x_max)
 				
 			else : 
 				right_move = true
 				left_move = false
 	
-
 
 
 		
