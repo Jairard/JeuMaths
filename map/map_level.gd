@@ -80,7 +80,7 @@ func load_characters() :
 	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Missile) as MissileComponent
 #	comp_missile.init(heroNode)
-	var start = enemyNode.get_position()
+	var start = enemyNode.get_position()															# init missile position
 	comp_missile.get_node().set_position(start)
 	
 func load_hud() :

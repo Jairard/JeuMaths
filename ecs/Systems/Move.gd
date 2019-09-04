@@ -29,6 +29,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		velocity.y = jump_impulse
 		move_comp.set_is_jumping(false)
 	
+	print (velocity)
 	pos_comp.move_and_slide(velocity)
 
 	# Collision detection

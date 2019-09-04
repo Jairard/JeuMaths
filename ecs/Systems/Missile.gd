@@ -3,7 +3,7 @@ extends System
 class_name MissileSystem
 
 var velocity : Vector2
-var speed : int = 100
+var speed : int = 150
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Movement, ComponentsLibrary.Missile, ComponentsLibrary.Position]
@@ -22,10 +22,25 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		
 		var shooter = misl_comp.get_node()										# Shooter position 
 		var shooter_pos = shooter.position
-		print (shooter_pos)
-					
-		velocity = target_pos - shooter_pos 
-#		print (velocity)
+#		print (shooter_pos)
+
+		var navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")
+		var path : PoolVector2Array = navigation.get_simple_path(shooter_pos, target_pos, false)
 		
+		var direction =  target_pos - shooter_pos 
+		var angle = direction.angle() * dt
+#		print ("angle : " + str(angle))
+
+		
+		if velocity.x < 0 :
+#			misl_comp.get_node().get_node("Sprite").flip_h = false
+			misl_comp.get_node().rotate(-angle)
+
+		if velocity.x >= 0 : 
+#			misl_comp.get_node().get_node("Sprite").flip_h = true
+			misl_comp.get_node().rotate(angle)
+			
+		if path.size() != 0 : 
+			velocity = path[1] - shooter_pos
 #		pos_comp.set_position(pos_comp.get_position() + dp / 5)
 		pos_comp.move_and_slide(velocity.normalized() * speed)
