@@ -4,7 +4,7 @@ class_name PatrolSystem
 
 var right_move = true
 var left_move = false
-var velocity = Vector2(0,0)
+var velocity = Vector2(150,0)
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Animation, ComponentsLibrary.Patrol]
@@ -26,25 +26,18 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 			if comp_patrol.x_min < comp_patrol.x_max :
 				comp_patrol.x_min += 1 
-				velocity.x += 1
 				comp_patrol.set_position(comp_patrol.get_position() + dp)
-#				print (comp_patrol.x_min, comp_patrol.x_max)
-		
 
 			else :
 				right_move = false
 				left_move = true
-		
-
+	
 
 		if left_move == true : 
 
 			if comp_patrol.x_min > comp_patrol.x_min_ref :
-#				print ("left")
 				comp_patrol.x_min -= 1
-				velocity.x -= 1
 				comp_patrol.set_position(comp_patrol.get_position() - dp)
-#				print (comp_patrol.x_min, comp_patrol.x_max)
 				
 			else : 
 				right_move = true

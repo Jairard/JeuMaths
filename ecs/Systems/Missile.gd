@@ -31,7 +31,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 #		var angle = direction.angle() * dt
 #		print ("angle : " + str(angle))
 		var test = target_pos.angle_to(shooter_pos)
-		print (rad2deg(test))
+#		print (rad2deg(test))
 		if direction.x < 0 :
 #			misl_comp.get_node().get_node("Sprite").flip_h = false
 			misl_comp.get_node().rotate( test)
