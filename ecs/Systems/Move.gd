@@ -5,7 +5,7 @@ class_name MoveSystem
 const gravity = 1500
 var velocity = Vector2(0,0)
 var lateral_velocity = 250
-var jump_impulse = -600
+var jump_impulse = -700
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Movement, ComponentsLibrary.Collision]
@@ -19,8 +19,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	if move_comp.get_direction() == move_comp.dir.right :
 		velocity.x += lateral_velocity
-		if pos_comp.move_and_slide(velocity) : 
-			print ("collision")			
 		
 	if move_comp.get_direction() == move_comp.dir.left :
 		velocity.x = -lateral_velocity
@@ -29,7 +27,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		velocity.y = jump_impulse
 		move_comp.set_is_jumping(false)
 	
-	print (velocity)
 	pos_comp.move_and_slide(velocity)
 
 	# Collision detection
