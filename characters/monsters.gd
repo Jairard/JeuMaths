@@ -1,38 +1,8 @@
 extends Area2D
 
-onready var right_move = true
-onready var left_move = false
-
 func _ready():
 	self.position.x = 725
-	self.position.y =  425
-#	GLOBAL.connect("death", self, "death_monster")
-	pass
-	
-func _process(delta):
-#	self.position.x += 1
-#	if right_move == true :
-#		move_right()
-#	if left_move == true : 
-#		move_left()	
-	pass
-
-func move_right():
-	if self.position.x <= 1000 :	
-		self.position.x += 1
-		$AnimationPlayer.play("anim_monster_right")
-	else : 
-		right_move = false
-		left_move = true		
-
-
-func move_left():
-	if self.position.x >= 740 :	
-		self.position.x -= 1
-	else : 
-		left_move = false 
-		right_move = true
-
+	self.position.y =  425	
 
 func _on_monster_body_entered(body):
 	GLOBAL.pv_hero -= 10

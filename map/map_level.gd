@@ -5,7 +5,7 @@ onready var hero = preload("res://characters/hero.tscn")
 onready var hud = preload("res://hud/hud_hero.tscn")
 onready var spawn_rain = preload("res://characters/rain.tscn")
 onready var rains = preload("res://characters/rain.tscn")
-onready var _eye = preload("res://characters/eye.tscn")
+onready var eye = preload("res://characters/eye.tscn")
 onready var monster = preload("res://characters/monsters.tscn")
 onready var treasure = preload("res://characters/treasure.tscn")
 onready var smoke_spawn = preload("res://particules_2D/smoke_2.tscn")
@@ -22,7 +22,9 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Collision)
+	ECS.register_system(SystemsLibrary.Collision_Area)
 	ECS.register_system(SystemsLibrary.Patrol)
+	ECS.register_system(SystemsLibrary.Missile)
 	
 	_load_ressources()
 	charger_intro()
@@ -46,13 +48,15 @@ func load_characters() :
 	var heroNode = hero.instance()
 	add_child(heroNode)
 	heroNode.set_name("hero")
-
 	
 	var monsterNode = monster.instance()
 	add_child(monsterNode)
 	monsterNode.set_name("monster")
 	
-
+	var EyeNode = eye.instance()
+	add_child(EyeNode)
+	EyeNode.set_name("eye")
+	
 	fire_spawn()	
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
@@ -71,6 +75,13 @@ func load_characters() :
 
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
 	comp_patrol.init(700,900) 
+	
+	ECS.add_component(EyeNode, ComponentsLibrary.Position)
+	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
+	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Missile) as MissileComponent
+#	comp_missile.init(heroNode)
+	var start = enemyNode.get_position()
+	comp_missile.get_node().set_position(start)
 	
 func load_hud() :
 
