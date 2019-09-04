@@ -27,18 +27,18 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")
 		var path : PoolVector2Array = navigation.get_simple_path(shooter_pos, target_pos, false)
 		
-		var direction =  target_pos - shooter_pos 
-		var angle = direction.angle() * dt
+		var direction =   shooter_pos - target_pos 
+#		var angle = direction.angle() * dt
 #		print ("angle : " + str(angle))
-
-		
-		if velocity.x < 0 :
+		var test = target_pos.angle_to(shooter_pos)
+		print (rad2deg(test))
+		if direction.x < 0 :
 #			misl_comp.get_node().get_node("Sprite").flip_h = false
-			misl_comp.get_node().rotate(-angle)
+			misl_comp.get_node().rotate( test)
 
-		if velocity.x >= 0 : 
+		if direction.x >= 0 : 
 #			misl_comp.get_node().get_node("Sprite").flip_h = true
-			misl_comp.get_node().rotate(angle)
+			misl_comp.get_node().rotate(- test)
 			
 		if path.size() != 0 : 
 			velocity = path[1] - shooter_pos
