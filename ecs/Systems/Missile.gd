@@ -29,23 +29,12 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		
 		var direction = target_pos - shooter_pos 
 		
-		var angle = direction.angle() * dt
-#		print ("angle : " + str(angle))
-#		var test = target_pos.angle_to(shooter_pos)
-		
-		var test = acos(target_pos.dot(shooter_pos))	
-		var test2 = rad2deg(test)
-		print (test2)			
-#		misl_comp.get_node().rotate( test2)
-		if direction.x < 0 :
-			misl_comp.get_node().get_node("Sprite").flip_h = true
-			pass
-			
-		if direction.x >= 0 : 
-			misl_comp.get_node().get_node("Sprite").flip_h = false
-			pass
+		var angle = direction.angle() 
+		var angl = rad2deg(angle)
+
+		misl_comp.get_node().set_rotation_degrees( angl)
 			
 		if path.size() != 0 : 
 			velocity = path[1] - shooter_pos
-#		pos_comp.set_position(pos_comp.get_position() + dp / 5)
+
 		pos_comp.move_and_slide(velocity.normalized() * speed)

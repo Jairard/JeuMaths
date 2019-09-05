@@ -16,10 +16,6 @@ Priorities:
 	All 3x level player can choice between +pv or +damage
 			show it instantly on the hud  in map_fight
 
-	little monsters spawning randomly
-			Hero lose life if colliding
-				before fight
-
 	transition effect between scenes
 
 	sound effect for spells
@@ -27,8 +23,11 @@ Priorities:
 	visual effects for damage taken
 
 ---------------------------------------
-system monster : move/animation/patrol
-component patrol : (min,max)
+collision area2d 
+
+system hud
+
+composant stock noeud hud
 ----------------------------------------
 
 	harder better faster stronger tamer
