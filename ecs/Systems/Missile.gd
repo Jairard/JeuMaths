@@ -6,10 +6,9 @@ var velocity : Vector2
 var speed : int = 150
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Movement, ComponentsLibrary.Missile, ComponentsLibrary.Position]
+	return [ComponentsLibrary.Missile, ComponentsLibrary.Position]
 
 func _process_node(dt : float, components : Dictionary) -> void:
-	var move_comp		 = 	components[ComponentsLibrary.Movement] as MovementComponent
 	var pos_comp		 = 	components[ComponentsLibrary.Position] as PositionComponent
 	var misl_comp		 = 	components[ComponentsLibrary.Missile]  as  MissileComponent
 
