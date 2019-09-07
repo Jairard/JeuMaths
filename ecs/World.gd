@@ -5,6 +5,7 @@ var components = {}
 var is_processing = false
 
 # TODO:
+# - keep a list of entitites (e.g node with components) to not iterate on the whole hierarchy
 # - mecanism to auto-unregister systems (on scene change for example)
 # - init syntactic sugar ?
 # - system-to-system dependency
