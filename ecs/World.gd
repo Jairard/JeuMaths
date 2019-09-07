@@ -2,10 +2,10 @@ extends Node
 
 var active_systems = {}
 var components = {}
+var active_entities = {} # Stores the active entites and the count of components attached to them
 var is_processing = false
 
 # TODO:
-# - keep a list of entitites (e.g node with components) to not iterate on the whole hierarchy
 # - mecanism to auto-unregister systems (on scene change for example)
 # - init syntactic sugar ?
 # - system-to-system dependency
@@ -66,6 +66,11 @@ func add_component(node : Node, componentResource : Resource) -> Component:
 		return null
 	
 	typedComponents[id] = component
+
+	if (!active_entities.has(id)):
+		active_entities[id] = 0
+	active_entities[id] += 1
+
 	return component
 
 func remove_component(node : Node, componentResource : Resource, mustExist : bool = true) -> bool:
@@ -86,6 +91,17 @@ func remove_component(node : Node, componentResource : Resource, mustExist : boo
 
 	typedComponents[id].free()
 	typedComponents.erase(id)
+
+	if (!active_entities.has(id)):
+		print("ECS.remove_component: unknown entity " + str(node))
+	elif (active_entities[id] <= 0):
+		print("ECS.remove_component: invalid entity component count: " + str(active_entities[id]))
+		active_entities.erase(id)
+	else:
+		active_entities[id] -= 1
+		if (active_entities[id] == 0):
+			active_entities.erase(id)
+
 	return true
 
 func __get_component(id : int, componentResource : Resource) -> Component:
@@ -106,29 +122,20 @@ func __instanciate_component(id : int, componentResource : Resource) -> Componen
 func _process(dt : float) -> void:
 	is_processing = true
 
-	var root = __get_root_node()
-	if (root == null):
-		return
-
 	for systemType in active_systems:
-		__process_system(active_systems[systemType], root, dt)
+		__process_system(active_systems[systemType], dt)
 
 	is_processing = false
 
-func __get_root_node() -> Node:
-	return get_tree().get_current_scene()
+func __process_system(system : System, dt : float):
+	for entityId in active_entities:
+		var node = instance_from_id(entityId)
+		if (node == null):
+			continue
 
-func __process_system(system : System, node : Node, dt : float):
-	if (node == null):
-		return
-
-	var id = node.get_instance_id()
-	var components = __get_components_for_system(system, id)
-	if (components != null):
-		system._process_node(dt, components)
-
-	for child in node.get_children():
-		__process_system(system, child, dt)
+		var components = __get_components_for_system(system, entityId)
+		if (components != null):
+			system._process_node(dt, components)
 
 # Gets all the components that the system needs
 func __get_components_for_system(system : System, id : int):
