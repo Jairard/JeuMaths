@@ -58,6 +58,8 @@ func load_characters() :
 	EyeNode.set_name("eye")
 	
 	fire_spawn()	
+
+	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
@@ -76,12 +78,11 @@ func load_characters() :
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
 	comp_patrol.init(700,900) 
 	
-	ECS.add_component(EyeNode, ComponentsLibrary.Position)
 	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
+	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
+	eye_pos_comp.set_position(enemy_pos_comp.get_position())
 	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Missile) as MissileComponent
-#	comp_missile.init(heroNode)
-	var start = enemyNode.get_position()															# init missile position
-	comp_missile.get_node().set_position(start)
+	comp_missile.init(heroNode)
 	
 func load_hud() :
 
