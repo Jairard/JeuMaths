@@ -1,9 +1,9 @@
 extends Node
 
-var active_systems = {}
-var components = {}
-var active_entities = {} # Stores the active entites and the count of components attached to them
-var is_processing = false
+var active_systems : Dictionary = {}
+var components : Dictionary = {}
+var active_entities : Dictionary = {} # Stores the active entites and the count of components attached to them
+var is_processing : bool  = false
 
 # TODO:
 # - mecanism to auto-unregister systems (on scene change for example)
