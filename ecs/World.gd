@@ -1,17 +1,22 @@
 extends Node
 
 var active_systems : Dictionary = {}
+var system_scopes : Dictionary = {}
 var components : Dictionary = {}
 var active_entities : Dictionary = {} # Stores the active entites and the count of components attached to them
 var is_processing : bool  = false
 
+enum SystemScope { Scene, Manual }
+
 # TODO:
-# - mecanism to auto-unregister systems (on scene change for example)
 # - init syntactic sugar ?
 # - system-to-system dependency
 # - optional component dependency
 func _ready():
-	var res = get_tree().connect("node_removed", self, "__on_node_removed")
+	system_scopes[SystemScope.Scene] = []
+	system_scopes[SystemScope.Manual] = []
+	get_tree().connect("node_removed", self, "__on_node_removed")
+	get_tree().connect("node_added", self, "__on_node_added")
 
 func __on_node_removed(node : Node) -> void:
 	if (is_processing == true):
@@ -21,7 +26,16 @@ func __on_node_removed(node : Node) -> void:
 	for componentType in components:
 		remove_component(node, componentType, false)
 
-func register_system(systemResource : Resource) -> bool:
+func __on_node_added(node : Node) -> void:
+	var isSceneChanging = (node == get_tree().get_current_scene())
+
+	# If the scene changes, we unregister all the systems with the scope "Scene"
+	if (isSceneChanging):
+		var systems = system_scopes[SystemScope.Scene]
+		while (!systems.empty()):
+			unregister_system(systems.back())
+
+func register_system(systemResource : Resource, scope = SystemScope.Scene) -> bool:
 	if (active_systems.has(systemResource)):
 		print("ECS.register_system: system " + systemResource.resource_path + " is already registered")
 		return false
@@ -32,6 +46,7 @@ func register_system(systemResource : Resource) -> bool:
 		return false
 
 	active_systems[systemResource] = system
+	system_scopes[scope].push_back(systemResource)
 	return true
 
 func unregister_system(systemResource : Resource) -> bool:
@@ -41,6 +56,13 @@ func unregister_system(systemResource : Resource) -> bool:
 
 	active_systems[systemResource].free()
 	active_systems.erase(systemResource)
+
+	for scope in system_scopes:
+		var idx = system_scopes[scope].find(systemResource)
+		if (idx != -1):
+			system_scopes[scope].remove(idx)
+			break
+
 	return true
 
 func __instanciate_system(systemResource : Resource):
