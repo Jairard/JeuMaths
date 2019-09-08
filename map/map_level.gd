@@ -25,6 +25,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision_Area)
 	ECS.register_system(SystemsLibrary.Patrol)
 	ECS.register_system(SystemsLibrary.Missile)
+	ECS.register_system(SystemsLibrary.Hud)
 	
 	_load_ressources()
 	charger_intro()
@@ -57,6 +58,10 @@ func load_characters() :
 	add_child(EyeNode)
 	EyeNode.set_name("eye")
 	
+	var HudNode = hud.instance()
+	add_child(HudNode)
+	HudNode.set_name("Hud")
+	
 	fire_spawn()
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
@@ -81,6 +86,14 @@ func load_characters() :
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
 	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Missile) as MissileComponent
 	comp_missile.init(heroNode)
+	ECS.add_component(EyeNode, ComponentsLibrary._Path)
+	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
+	
+	var comp_health = ECS.add_component(HudNode, ComponentsLibrary.Health) as HealthComponent
+	var comp_hud = ECS.add_component(HudNode, ComponentsLibrary.Hud) as HudComponent
+#	var hud_data = {comp_hud.data_names[0] : comp_health.get_health()}
+#	var hud_node = HudNode
+#	comp_hud.init(hud_data, hud_node)
 	
 func load_hud() :
 

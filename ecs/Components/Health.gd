@@ -9,7 +9,7 @@ func init(current_health : int, max_health : int) -> void :
 	health = current_health
 	health_max = max_health
 
-func get_health_hero(value : int) -> int :
+func get_health(value : int) -> int :
 	return health
 
 func get_health_max(value : int) -> int :
