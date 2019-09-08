@@ -100,11 +100,6 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Movement.gd"
 }, {
 "base": "Component",
-"class": "PathComponent",
-"language": "GDScript",
-"path": "res://ecs/Components/_Path.gd"
-}, {
-"base": "Component",
 "class": "PatrolComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Patrol.gd"
@@ -163,7 +158,6 @@ _global_script_class_icons={
 "MissileSystem": "",
 "MoveSystem": "",
 "MovementComponent": "",
-"PathComponent": "",
 "PatrolComponent": "",
 "PatrolSystem": "",
 "PositionComponent": "",

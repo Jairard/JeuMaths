@@ -19,4 +19,3 @@ func transform(target_pos : Vector2, shooter_pos : Vector2)  :
 	var direction = target_pos - shooter_pos
 	var angle_rad = direction.angle()
 	angle_deg = rad2deg(angle_rad)
-	print (angle_deg)

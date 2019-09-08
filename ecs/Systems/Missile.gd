@@ -6,13 +6,12 @@ var velocity : Vector2
 var speed : int = 150
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Missile, ComponentsLibrary.Position , ComponentsLibrary._Path]
+	return [ComponentsLibrary.Missile, ComponentsLibrary.Position , ComponentsLibrary.Movement]
 
 func _process_node(dt : float, components : Dictionary) -> void:
 	var pos_comp		 = 	components[ComponentsLibrary.Position] 	 as  PositionComponent
 	var misl_comp		 = 	components[ComponentsLibrary.Missile] 	 as  MissileComponent
-	var path_comp		 = 	components[ComponentsLibrary._Path] 	 as  PathComponent
-#	var move_comp		 = 	components[ComponentsLibrary.Movement] 	 as  MovementComponent
+	var move_comp		 = 	components[ComponentsLibrary.Movement] 	 as  MovementComponent
 	
 	var dp = velocity * dt 
 	
@@ -22,21 +21,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var shooter_pos = pos_comp.get_position()       # Shooter position
 
 		# Compute path and move
-		# TODO: we should have a component for that (maybe in the Move component ?)
-		var node_navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")
-		
-		var path : PoolVector2Array = node_navigation.get_simple_path(shooter_pos, target_pos, false)
-	
-		if path.size() != 0 :
-			velocity = path[1] - shooter_pos 
-		
-#		path_comp.init(target_pos : Vector2, shooter_pos : Vector2, node_navigation : Node2D) 		
-#		velocity = path_comp.velocity
-		
-#		move_comp._path(target_pos, shooter_pos, node_navigation)
-
-#		velocity = move_comp.velocity
-		print (velocity)
+		var node_navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")		
+		move_comp.path(target_pos, shooter_pos, node_navigation) 		
+		velocity = move_comp.velocity
 		pos_comp.move_and_slide(velocity.normalized() * speed)
 
 		# Compute orientation

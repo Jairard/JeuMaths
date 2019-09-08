@@ -86,7 +86,6 @@ func load_characters() :
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
 	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Missile) as MissileComponent
 	comp_missile.init(heroNode)
-	ECS.add_component(EyeNode, ComponentsLibrary._Path)
 	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	
 	var comp_health = ECS.add_component(HudNode, ComponentsLibrary.Health) as HealthComponent
