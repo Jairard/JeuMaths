@@ -138,6 +138,11 @@ _global_script_classes=[ {
 "class": "XpComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Xp.gd"
+}, {
+"base": "System",
+"class": "bulletSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Bullet.gd"
 } ]
 _global_script_class_icons={
 "AnimationComponent": "",
@@ -165,7 +170,8 @@ _global_script_class_icons={
 "System": "",
 "SystemsLibrary": "",
 "TreasureComponent": "",
-"XpComponent": ""
+"XpComponent": "",
+"bulletSystem": ""
 }
 
 [application]

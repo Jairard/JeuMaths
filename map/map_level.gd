@@ -26,6 +26,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Patrol)
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Hud)
+#	ECS.register_system(SystemsLibrary.Bullet)
 	
 	_load_ressources()
 	charger_intro()
@@ -62,6 +63,10 @@ func load_characters() :
 	add_child(HudNode)
 	HudNode.set_name("Hud")
 	
+	var FireNode = spawn_fire.instance()
+	add_child(FireNode)
+	FireNode.set_name("fire")
+	
 	fire_spawn()
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
@@ -82,17 +87,17 @@ func load_characters() :
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
 	comp_patrol.init(700,900) 
 	
+	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
 	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Missile) as MissileComponent
 	comp_missile.init(heroNode)
-	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	
-	var comp_health = ECS.add_component(HudNode, ComponentsLibrary.Health) as HealthComponent
-	var comp_hud = ECS.add_component(HudNode, ComponentsLibrary.Hud) as HudComponent
-#	var hud_data = {comp_hud.data_names[0] : comp_health.get_health()}
-#	var hud_node = HudNode
-#	comp_hud.init(hud_data, hud_node)
+#	ECS.add_component(FireNode, ComponentsLibrary.Movement)
+#	var comp_move = ECS.add_component(FireNode, ComponentsLibrary.Movement) as MovementComponent
+#	comp_move.line(Vector2)
+	
+	
 	
 func load_hud() :
 
@@ -191,10 +196,8 @@ func _load_ressources():
 	pass
 func save_ressources():
 #	file.open("res://log_in/pseudo.json", File.WRITE)
-#	var health = to_json(dict)
-#	file.store_string(health)
-##	var health = to_json(dict)
-#	file.store_string(health)
+#	var dict = to_json(dict)
+#	file.store_string(dict)
 #	file.close()
 	pass
 func _on_Timer_timeout():

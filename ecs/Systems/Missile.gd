@@ -22,6 +22,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 		# Compute path and move
 		var node_navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")		
+#		var node_navigation = _getComponentOfEntity(
 		move_comp.path(target_pos, shooter_pos, node_navigation) 		
 		velocity = move_comp.velocity
 		pos_comp.move_and_slide(velocity.normalized() * speed)
