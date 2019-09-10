@@ -10,6 +10,9 @@ var jump_impulse = -700
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Movement, ComponentsLibrary.Collision]
 
+func _get_system_dependencies() -> Array:
+	return [SystemsLibrary.Input]
+
 func _process_node(dt : float, components : Dictionary) -> void:
 	var move_comp = components[ComponentsLibrary.Movement] as MovementComponent
 	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent

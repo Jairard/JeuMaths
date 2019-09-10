@@ -2,6 +2,7 @@ extends Node
 
 var active_systems : Dictionary = {}
 var system_scopes : Dictionary = {}
+var ordered_systems :  Array = []
 var components : Dictionary = {}
 var active_entities : Dictionary = {} # Stores the active entites and the count of components attached to them
 var is_processing : bool  = false
@@ -45,8 +46,17 @@ func register_system(systemResource : Resource, scope = SystemScope.Scene) -> bo
 		print("ECS.register_system: couldn't create system " + systemResource.resource_path)
 		return false
 
+	var dependencies = system._get_system_dependencies()
+	for dep in dependencies:
+		if not dep in ordered_systems:
+			push_error("ECS.register_system: system " + systemResource.resource_path + " has dependecy on system " + dep.resource_path + " but it's not registered yet")
+			system.free()
+			return false
+
+	ordered_systems.push_back(systemResource)
 	active_systems[systemResource] = system
 	system_scopes[scope].push_back(systemResource)
+
 	return true
 
 func unregister_system(systemResource : Resource) -> bool:
@@ -62,6 +72,10 @@ func unregister_system(systemResource : Resource) -> bool:
 		if (idx != -1):
 			system_scopes[scope].remove(idx)
 			break
+
+	var idxInOrdered = ordered_systems.find(systemResource)
+	if (idxInOrdered != -1):
+		ordered_systems.remove(idxInOrdered)
 
 	return true
 
@@ -144,7 +158,7 @@ func __instanciate_component(id : int, componentResource : Resource) -> Componen
 func _process(dt : float) -> void:
 	is_processing = true
 
-	for systemType in active_systems:
+	for systemType in ordered_systems:
 		__process_system(active_systems[systemType], dt)
 
 	is_processing = false

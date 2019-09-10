@@ -5,6 +5,9 @@ class_name AnimationSystem
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Movement, ComponentsLibrary.Animation]
 
+func _get_system_dependencies() -> Array:
+	return [SystemsLibrary.Move, SystemsLibrary.Patrol]
+
 func _process_node(dt : float, components : Dictionary) -> void:
 	
 	var comp		 = 	components[ComponentsLibrary.Movement] as MovementComponent
