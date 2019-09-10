@@ -13,23 +13,22 @@ func _ready():
 	pass
 
 func get_life_hero() -> TextureProgress :
-	return $CanvasLayer/pv_hero/MarginContainer/life_hero as TextureProgress
+	return $CanvasLayer/pv_hero/MarginContainer/life_hero 			as TextureProgress
 	
 func get_life_hero_label() -> Label :
-	return $CanvasLayer/HBoxContainer4/MarginContainer/Label as Label	
-	
-	
-func set_pv_hero_max(value) :	
-	$CanvasLayer/pv_hero/MarginContainer/life_hero.max_value = value
+		return $CanvasLayer/HBoxContainer4/MarginContainer/Label 	as Label		
 
-func set_degats(value) :
-	$CanvasLayer/valeur_degats/MarginContainer/valeur_degat.text = str(value)
+func get_life_hero_max(value) :	
+	return $CanvasLayer/pv_hero/MarginContainer/life_hero 			as TextureProgress
+
+func get_damage(value) :
+	return $CanvasLayer/valeur_degats/MarginContainer/valeur_degat 	as Label
 		
-func set_xp(value) :
-	$CanvasLayer/HBoxContainer/MarginContainer/xp.value = value
+func get_xp(value) :
+	return $CanvasLayer/HBoxContainer/MarginContainer/xp 			as TextureProgress
 	
-func set_level(value) :
-	$CanvasLayer/HBoxContainer2/MarginContainer/level.text = str(value)
+func get_level(value) :
+	return $CanvasLayer/HBoxContainer2/MarginContainer/level 		as Label
 		
-func set_treasure(value) :
-	$CanvasLayer/HBoxContainer6/MarginContainer/Label.text = str(value)
+func get_treasure(value) :
+	return $CanvasLayer/HBoxContainer6/MarginContainer/Label 		as Label
