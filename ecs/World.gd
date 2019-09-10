@@ -68,15 +68,10 @@ func unregister_system(systemResource : Resource) -> bool:
 	active_systems.erase(systemResource)
 
 	for scope in system_scopes:
-		var idx = system_scopes[scope].find(systemResource)
-		if (idx != -1):
-			system_scopes[scope].remove(idx)
+		if (ArrayUtils.remove_IFP(system_scopes[scope], systemResource)):
 			break
 
-	var idxInOrdered = ordered_systems.find(systemResource)
-	if (idxInOrdered != -1):
-		ordered_systems.remove(idxInOrdered)
-
+	ArrayUtils.remove_IFP(ordered_systems, systemResource)
 	return true
 
 func __instanciate_system(systemResource : Resource):
