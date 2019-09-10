@@ -8,11 +8,9 @@ func _get_used_components() -> Array:
 func _process_node(dt : float, components : Dictionary) -> void:
 	
 	var comp_health		 = 	components[ComponentsLibrary.Health] as HealthComponent
-	var comp_hud	 = 	components[ComponentsLibrary.Hud] as HudComponent
+	var comp_hud		 = 	components[ComponentsLibrary.Hud] as HudComponent
 	
-#	comp_health.set_health(comp_hud.data_names["health"])
+	var current_health = comp_health.get_health()
+	comp_hud.set_health(current_health)
 	
 	
-	comp_hud.data_names["health"] = comp_health.health
-
-#	print (comp_hud.data_names["health"])

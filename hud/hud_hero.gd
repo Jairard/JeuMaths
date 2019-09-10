@@ -3,18 +3,21 @@ extends Node2D
 onready var gold = preload("res://characters/Gold.tscn")
 
 func _ready():
-	add_child(gold.instance())
-	GLOBAL.connect("xp", self, "set_xp")
-	GLOBAL.connect("treasure", self, "set_treasure")
-	GLOBAL.connect("level", self, "set_level")
-	GLOBAL.connect("pv_hero", self, "set_pv_hero")
-	GLOBAL.connect("pv_hero_max", self, "set_pv_hero_max")
-	GLOBAL.connect("degats", self, "set_degats")
+#	add_child(gold.instance())
+#	GLOBAL.connect("xp", self, "set_xp")
+#	GLOBAL.connect("treasure", self, "set_treasure")
+#	GLOBAL.connect("level", self, "set_level")
+#	GLOBAL.connect("pv_hero", self, "set_pv_hero")
+#	GLOBAL.connect("pv_hero_max", self, "set_pv_hero_max")
+#	GLOBAL.connect("degats", self, "set_degats")
+	pass
 
+func get_life_hero() -> TextureProgress :
+	return $CanvasLayer/pv_hero/MarginContainer/life_hero as TextureProgress
 	
-func set_pv_hero(value) :		
-	$CanvasLayer/pv_hero/MarginContainer/life_hero.value = value
-	$CanvasLayer/HBoxContainer4/MarginContainer/Label.text = str(value)
+func get_life_hero_label() -> Label :
+	return $CanvasLayer/HBoxContainer4/MarginContainer/Label as Label	
+	
 	
 func set_pv_hero_max(value) :	
 	$CanvasLayer/pv_hero/MarginContainer/life_hero.max_value = value

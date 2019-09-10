@@ -26,16 +26,11 @@ func is_jumping() -> bool :
 	
 func set_is_jumping(value : bool) -> void :
 	jump = value
-
-func path(target_pos : Vector2, shooter_pos : Vector2, node_navigation : Node2D):
-	var path : PoolVector2Array = node_navigation.get_simple_path(shooter_pos, target_pos, false)
-	if path.size() != 0 :
-		velocity = path[1] - shooter_pos
 		
-func line(_fire_spawn : Vector2) :
-	fire_spawn = _fire_spawn
+func line(_fire_spawn : Vector2) : # global
+	fire_spawn = _fire_spawn		
 	fire_stop = _fire_spawn
-	fire_stop.x -= 1000
+	fire_stop.x -= 1000 			# map level
 	line = fire_spawn - fire_stop
 	
 	

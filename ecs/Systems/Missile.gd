@@ -21,12 +21,12 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var shooter_pos = pos_comp.get_position()       # Shooter position
 
 		# Compute path and move
-		var node_navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")		
+		var node_navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")
 #		var node_navigation = _getComponentOfEntity(
-		move_comp.path(target_pos, shooter_pos, node_navigation) 		
-		velocity = move_comp.velocity
-		pos_comp.move_and_slide(velocity.normalized() * speed)
+		var dir = MoveUtilsDirection.get_direction_to(target_pos, shooter_pos, node_navigation)
+		pos_comp.move_and_slide(dir * speed)
 
 		# Compute orientation
-		pos_comp.transform(target_pos, shooter_pos)
-		misl_comp.get_node().set_rotation_degrees(pos_comp.angle_deg)
+		var get_direction = MoveUtilsAngle.set_direction(target_pos, shooter_pos)
+		var get_angle = MoveUtilsAngle.dir_to_angle(MoveUtilsAngle.get_direction())
+		misl_comp.get_node().set_rotation_degrees(get_angle)

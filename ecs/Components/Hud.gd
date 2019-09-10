@@ -2,13 +2,15 @@ extends Component
 
 class_name HudComponent
 
-var data_names : Dictionary 
-var data_node : Node2D = null
+var test  : TextureProgress = null
+var test2 : Label = null
 
-func init(_data_names : Dictionary, _data_node : Node2D) -> void :
-	data_names = _data_names
-	data_node = _data_node
-#	print (data_names, data_node)
- 	
+func init(health_hero : TextureProgress, label_hero : Label) -> void : #init node on map level
+	test = health_hero
+	test2 = label_hero
 	
+ 	
+func set_health(value : int) -> void :		
+	test.value = value
+	test2.text = str(value)
 

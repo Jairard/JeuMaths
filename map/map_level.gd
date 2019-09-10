@@ -39,7 +39,7 @@ func _process(delta):
 func charger_intro() :
 	
 	load_characters()
-	load_hud()
+#	load_hud()
 
 func load_characters() :
 	
@@ -66,7 +66,7 @@ func load_characters() :
 	var FireNode = spawn_fire.instance()
 	add_child(FireNode)
 	FireNode.set_name("fire")
-	
+			
 	fire_spawn()
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
@@ -79,11 +79,11 @@ func load_characters() :
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	
+	ECS.add_component(monsterNode, ComponentsLibrary.Position)
 	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
 	var animation_player_monster = monsterNode.get_node("animation_monster")
 	comp_anim_monster.init(anim_name_monster, animation_player_monster)
-
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
 	comp_patrol.init(700,900) 
 	
@@ -97,6 +97,11 @@ func load_characters() :
 #	var comp_move = ECS.add_component(FireNode, ComponentsLibrary.Movement) as MovementComponent
 #	comp_move.line(Vector2)
 	
+	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
+	hud_comp.init(HudNode.get_life_hero(), HudNode.get_life_hero_label())
+	
+	var health_comp = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
+	health_comp.init(100,100)
 	
 	
 func load_hud() :
