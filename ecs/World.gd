@@ -3,6 +3,7 @@ extends Node
 var active_systems : Dictionary = {}
 var system_scopes : Dictionary = {}
 var ordered_systems :  Array = []
+var needs_systems_ordering = false
 var components : Dictionary = {}
 var active_entities : Dictionary = {} # Stores the active entites and the count of components attached to them
 var is_processing : bool  = false
@@ -46,16 +47,10 @@ func register_system(systemResource : Resource, scope = SystemScope.Scene) -> bo
 		print("ECS.register_system: couldn't create system " + systemResource.resource_path)
 		return false
 
-	var dependencies = system._get_system_dependencies()
-	for dep in dependencies:
-		if not dep in ordered_systems:
-			push_error("ECS.register_system: system " + systemResource.resource_path + " has dependecy on system " + dep.resource_path + " but it's not registered yet")
-			system.free()
-			return false
-
 	ordered_systems.push_back(systemResource)
 	active_systems[systemResource] = system
 	system_scopes[scope].push_back(systemResource)
+	needs_systems_ordering = true
 
 	return true
 
@@ -66,6 +61,7 @@ func unregister_system(systemResource : Resource) -> bool:
 
 	active_systems[systemResource].free()
 	active_systems.erase(systemResource)
+	needs_systems_ordering = true
 
 	for scope in system_scopes:
 		if (ArrayUtils.remove_IFP(system_scopes[scope], systemResource)):
@@ -153,6 +149,9 @@ func __instanciate_component(id : int, componentResource : Resource) -> Componen
 func _process(dt : float) -> void:
 	is_processing = true
 
+	if (__order_systems_IFN() == false):
+		return
+
 	for systemType in ordered_systems:
 		__process_system(active_systems[systemType], dt)
 
@@ -183,3 +182,49 @@ func __get_components_for_system(system : System, id : int):
 		components[componentType] = component
 		
 	return components
+
+# This is probably very suboptimal but it's not on a critical path and the system count should not get very high
+func __order_systems_IFN() -> bool:
+	if (!needs_systems_ordering):
+		return true
+
+	ordered_systems.clear()
+
+	# For each system
+	for systemResource in active_systems:
+		# If it's already in the ordered list, skip it.
+		# It means that it is a dependency of a previously visited system
+		if (ArrayUtils.contains(ordered_systems, systemResource)):
+			print(systemResource.resource_path + " is already ordered")
+			continue
+
+		# Else we compute all the dependencies (recursively)
+		var dependencies = __resolve_dependencies(systemResource)
+		# This will get us the dependencies that are not ordered yet
+		var missing_dependencies = ArrayUtils.get_diff(dependencies, ordered_systems)
+
+		# For each one of them, we check that they are registered and add them to the ordered list
+		for dep in missing_dependencies:
+			if (not active_systems.has(dep)):
+				push_error("ECS.__order_systems_IFN: system " + systemResource.resource_path + " has dependecy on system " + dep.resource_path + " but it's not registered")
+				return false
+			ordered_systems.push_back(dep)
+		# And finally we push the current system
+		ordered_systems.push_back(systemResource)
+
+	needs_systems_ordering = false
+	return true
+
+func __resolve_dependencies(systemResource : Resource) -> Array:
+	if (not active_systems.has(systemResource)):
+		return []
+
+	var dependencies = active_systems[systemResource]._get_system_dependencies()
+	for dep in dependencies:
+		if (ArrayUtils.contains(dependencies, dep)):
+			push_error("ECS.__resolve_dependencies: there is a cyclid dependency on " + systemResource.resource_path)
+			return []
+		# We put the current dependencies at the end (they come after their own dependencies)
+		dependencies = __resolve_dependencies(dep) + dependencies
+
+	return dependencies
