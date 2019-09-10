@@ -12,7 +12,6 @@ enum SystemScope { Scene, Manual }
 
 # TODO:
 # - init syntactic sugar ?
-# - system-to-system dependency
 # - optional component dependency
 func _ready():
 	system_scopes[SystemScope.Scene] = []
