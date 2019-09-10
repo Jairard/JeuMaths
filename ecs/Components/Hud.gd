@@ -2,15 +2,50 @@ extends Component
 
 class_name HudComponent
 
-var test  : TextureProgress = null
-var test2 : Label = null
+var _health_value  	: 	TextureProgress = null
+var _health_label 	: 	Label = null
+var _health_max 	: 	TextureProgress = null
+var _damage			: 	Label = null
+var _xp_value 		: 	TextureProgress = null
+var _xp_label 		:	Label = null
+var _level 			:	Label = null
+var _treasure 		:	Label = null
 
-func init(health_hero : TextureProgress, label_hero : Label) -> void : #init node on map level
-	test = health_hero
-	test2 = label_hero
-	
+func init_hero(health_value : TextureProgress, health_label : Label,
+			   health_max : TextureProgress, damage : Label, xp_value : TextureProgress, 
+			   xp_label : Label, level : Label, treasure : Label) -> void : #init node on map level
+			
+	_health_value = health_value
+	_health_label = health_label
+	_health_max = health_max
+	_damage = damage
+	_xp_value = xp_value
+	_xp_label = xp_label
+	_level = level
+	_treasure= treasure
  	
 func set_health(value : int) -> void :		
-	test.value = value
-	test2.text = str(value)
+	_health_value.value = value
+	_health_label.text = str(value)
+	
+func set_damage(value : int) -> void :
+	_damage.text = str(value)
+	
+func set_xp(value : int) -> void :
+	_xp_value.value = value
+	_xp_label.text = str(value)
+	
+func set_level(value : int) -> void :
+	_level.text =str(value)
+	
+func set_treasure(value : int) -> void :
+	_treasure.value = value
+	
+	
+	
+	
+	
+	
+	
+	
 
