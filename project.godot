@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Library.gd"
 }, {
 "base": "Component",
+"class": "DamageComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Damage.gd"
+}, {
+"base": "Component",
 "class": "HealthComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Health.gd"
@@ -154,6 +159,7 @@ _global_script_class_icons={
 "CollisionSystem": "",
 "Component": "",
 "ComponentsLibrary": "",
+"DamageComponent": "",
 "HealthComponent": "",
 "HealthSystem": "",
 "HudComponent": "",

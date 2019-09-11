@@ -27,9 +27,6 @@ func get_damage() -> Label :
 func get_xp() -> TextureProgress :
 	return $CanvasLayer/HBoxContainer/MarginContainer/xp 			as TextureProgress
 	
-func get_xp_label() -> Label :
-	return $CanvasLayer/HBoxContainer/MarginContainer/xp 			as Label
-	
 func get_level() -> Label :
 	return $CanvasLayer/HBoxContainer2/MarginContainer/level 		as Label
 		

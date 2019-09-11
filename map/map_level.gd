@@ -11,6 +11,7 @@ onready var treasure = preload("res://characters/treasure.tscn")
 onready var smoke_spawn = preload("res://particules_2D/smoke_2.tscn")
 onready var sparkle_spawn =preload("res://particules_2D/sparkle.tscn")
 onready var spawn_fire = preload("res://particules_2D/Fire.tscn")
+onready var rotated_gold = preload("res://characters/Gold.tscn")
 
 var unique = []
 var file = File.new()
@@ -39,6 +40,8 @@ func _process(delta):
 func charger_intro() :
 	
 	load_characters()
+	var rot_gold = rotated_gold.instance()
+	add_child(rot_gold)
 #	load_hud()
 
 func load_characters() :
@@ -101,11 +104,19 @@ func load_characters() :
 	
 	hud_comp.init_hero(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
 	HudNode.get_life_hero_max(), HudNode.get_damage(), 
-	HudNode.get_xp(), HudNode.get_xp_label(),
-	HudNode.get_level(), HudNode.get_treasure())
+	HudNode.get_xp(), HudNode.get_level(), HudNode.get_treasure())
 	
 	var health_comp = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp.init(100,100)
+	
+	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
+	treasure_comp.init(0)
+	
+	var xp_comp = ECS.add_component(heroNode, ComponentsLibrary.Xp) as XpComponent
+	xp_comp.init(0)
+	
+	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
+	damage_comp.init(10)
 	
 	
 func load_hud() :

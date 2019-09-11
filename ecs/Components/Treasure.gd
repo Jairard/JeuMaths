@@ -4,7 +4,10 @@ class_name TreasureComponent
 
 var treasure = 0 
 
-func get_treasure(value : int) -> int :
+func init(current_treasure : int) -> void :
+	treasure = current_treasure
+
+func get_treasure() -> int :
 	return treasure
 
 func set_treasure(value : int) -> void :
