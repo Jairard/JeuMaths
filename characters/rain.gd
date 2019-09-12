@@ -22,15 +22,9 @@ func start(pos, type):
 	self.position = pos
 	rain_type = type
 	if rain_type == 0 :
-		$Area2D/Sprite.modulate = Color (0,0,1)
+		$Sprite.modulate = Color (0,0,1)
 	if rain_type == 1 :
-		$Area2D/Sprite.modulate = Color (1,0,0)
+		$Sprite.modulate = Color (1,0,0)
 	if rain_type == 2 :
-		$Area2D/Sprite.modulate = Color (255,215,0)
+		$Sprite.modulate = Color (255,215,0)
 
-func _on_Area2D_body_entered(body):
-#	self.emit_signal("loot", rain_type)
-	var treasure_comp = ECS.__get_component(body.get_instance_id(), ComponentsLibrary.Treasure) as TreasureComponent # in collision system
-	if treasure_comp != null : 
-		treasure_comp.set_treasure(treasure_comp.get_treasure() + 1)
-	queue_free()
