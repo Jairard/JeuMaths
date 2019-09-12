@@ -15,7 +15,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var comp_pos	 = 	components[ComponentsLibrary.Position] as PositionComponent
 	
 	var dp = velocity * dt
-#	print (comp_anim.animation_names)
 	
 #	comp_patrol.set_pattern(true)
 
