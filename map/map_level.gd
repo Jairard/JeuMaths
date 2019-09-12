@@ -86,6 +86,7 @@ func load_characters() :
 	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
 	var animation_player_monster = monsterNode.get_node("animation_monster")
+	print (animation_player_monster)
 	comp_anim_monster.init(anim_name_monster, animation_player_monster)
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
 	comp_patrol.init(700,900) 

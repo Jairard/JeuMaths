@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://characters/monsters.gd" type="Script" id=1]
+[ext_resource path="res://characters/monster.gd" type="Script" id=1]
 [ext_resource path="res://grousk.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -8,6 +8,7 @@ extents = Vector2( 22.2805, 24.5861 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "anim_right"
+length = 0.6
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -16,13 +17,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 2, 3 ]
+"values": [ 3, 2 ]
 }
 
-[node name="monster" type="Area2D"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 collision_layer = 64
 script = ExtResource( 1 )
 
@@ -46,4 +47,3 @@ collision_layer = 64
 position = Vector2( -7.36932, -25.9946 )
 scale = Vector2( 1.18515, 0.161995 )
 polygon = PoolVector2Array( -12.275, 16.6539, 7.85504, 7.84288, 18.6226, 7.1665, 22.9956, 14.1365, 10.062, -5.74731, 6.99479, -8.52054, -2.48785, -4.51758 )
-[connection signal="body_entered" from="." to="." method="_on_monster_body_entered"]

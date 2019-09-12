@@ -1,14 +1,14 @@
 extends Node2D
 
 func _ready():
-	GLOBAL.connect("pv_ennemy", self, "set_pv_ennemy")
+#	GLOBAL.connect("pv_ennemy", self, "set_pv_ennemy")
+	pass
 	
-
-func set_pv_ennemy(value) :
-	$CanvasLayer/HBoxContainer/MarginContainer/life_ennemy.value = value
-	$CanvasLayer/HBoxContainer3/MarginContainer/Label.text = str(value)
+func get_life_enemy() -> TextureProgress:
+	return $CanvasLayer/HBoxContainer/MarginContainer/life_ennemy	as TextureProgress
 	
-func set_pv_ennemy_max(value) :
-	$CanvasLayer/HBoxContainer/MarginContainer/life_ennemy.max_value = value
-	$CanvasLayer/HBoxContainer/MarginContainer/life_ennemy.value = value
-	$CanvasLayer/HBoxContainer3/MarginContainer/Label.text = str(value)
+func get_life_enemy_label() -> Label:
+	return $CanvasLayer/HBoxContainer3/MarginContainer/Label		as Label
+	
+func get_life_ennemy_max(value) :
+	$CanvasLayer/HBoxContainer/MarginContainer/life_ennemy			as TextureProgress

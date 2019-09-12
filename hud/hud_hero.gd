@@ -16,7 +16,7 @@ func get_life_hero() -> TextureProgress :
 	return $CanvasLayer/pv_hero/MarginContainer/life_hero 			as TextureProgress
 	
 func get_life_hero_label() -> Label :
-		return $CanvasLayer/HBoxContainer4/MarginContainer/Label 	as Label		
+	return $CanvasLayer/HBoxContainer4/MarginContainer/Label 		as Label		
 
 func get_life_hero_max() -> TextureProgress  :	
 	return $CanvasLayer/pv_hero/MarginContainer/life_hero 			as TextureProgress
