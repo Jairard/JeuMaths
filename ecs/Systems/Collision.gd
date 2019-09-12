@@ -32,12 +32,38 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	#instance_from_id
 	for col in collisions:
 		var collider = col.get_collider() as PhysicsBody2D
-		if ((collider != null)                                                 # If the collider is valid
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      # AND we are the hero
-			and (collider.get_collision_layer_bit(monster_layer_bit) == true)):  # AND the collider is an enemy
+		if ((collider != null)                                                 # ENEMY
+		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
+			and (collider.get_collision_layer_bit(enemy_layer_bit) == true)):  
 
-			print("Enemy collision !") # Do something
+			print("Enemy collision !") 
 			
-		
+		if ((collider != null)                                          		# MONSTER       
+		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
+			and (collider.get_collision_layer_bit(monster_layer_bit) == true)):  
 
+			print("Monster collision !")
+			
+		if ((collider != null)                                                 	# SPELL
+		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
+			and (collider.get_collision_layer_bit(spell_layer_bit) == true)):  
 
+			print("Spell collision !")
+			
+		if ((collider != null)                                                 	# COIN
+		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
+			and (collider.get_collision_layer_bit(coin_layer_bit) == true)):  
+
+			print("Coin collision !")
+
+		if ((collider != null)                                                 	# LOOT
+		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
+			and (collider.get_collision_layer_bit(loot_layer_bit) == true)):  
+
+			print("Loot collision !")
+
+		if ((collider != null)                                                 	# MISSILE
+		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
+			and (collider.get_collision_layer_bit(missile_layer_bit) == true)):  
+
+			print("Missile collision !")
