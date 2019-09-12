@@ -3,8 +3,14 @@ extends System
 class_name CollisionSystem
 
 # There must be a cleaner way to do this
-const hero_layer_bit : int = 0
-const enemy_layer_bit : int = 2
+const hero_layer_bit 		: int = 0
+const wall_layer_bit 		: int = 1
+const enemy_layer_bit 		: int = 2
+const spell_layer_bit 		: int = 3
+const coin_layer_bit 		: int = 4
+const loot_layer_bit 		: int = 5
+const monster_layer_bit 	: int = 6
+const missile_layer_bit 	: int = 7
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Collision, ComponentsLibrary.Position]
@@ -28,8 +34,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider = col.get_collider() as PhysicsBody2D
 		if ((collider != null)                                                 # If the collider is valid
 		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      # AND we are the hero
-			and (collider.get_collision_layer_bit(enemy_layer_bit) == true)):  # AND the collider is an enemy
+			and (collider.get_collision_layer_bit(monster_layer_bit) == true)):  # AND the collider is an enemy
 
 			print("Enemy collision !") # Do something
+			
+		
 
 
