@@ -158,7 +158,6 @@ func treasure_spawn() :
 	add_child(treasure.instance())
 	treasure.instance().set_position(treasure_pos) 
 	var test = treasure.instance().get_position()
-	print (test)
 	
 	var smoke_pos = get_node("monster").get_position()
 	var smoke_Node = smoke_spawn.instance()
