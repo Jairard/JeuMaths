@@ -29,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/Answer_system.gd"
 }, {
-"base": "System",
-"class": "CollisionAreaSystem",
-"language": "GDScript",
-"path": "res://ecs/Systems/Collision_Area.gd"
-}, {
 "base": "Component",
 "class": "CollisionComponent",
 "language": "GDScript",
@@ -154,7 +149,6 @@ _global_script_class_icons={
 "AnimationSystem": "",
 "AnswerComponent": "",
 "AnswerSystem": "",
-"CollisionAreaSystem": "",
 "CollisionComponent": "",
 "CollisionSystem": "",
 "Component": "",
