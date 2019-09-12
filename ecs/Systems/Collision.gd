@@ -11,6 +11,7 @@ const coin_layer_bit 		: int = 4
 const loot_layer_bit 		: int = 5
 const monster_layer_bit 	: int = 6
 const missile_layer_bit 	: int = 7
+const fire_layer_bit 		: int = 8
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Collision, ComponentsLibrary.Position]
@@ -67,3 +68,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and (collider.get_collision_layer_bit(missile_layer_bit) == true)):  
 
 			print("Missile collision !")
+			
+		if ((collider != null)                                                 	# FIRE
+		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
+			and (collider.get_collision_layer_bit(fire_layer_bit) == true)):  
+
+			print("Fire collision !")
