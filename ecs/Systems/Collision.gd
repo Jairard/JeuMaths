@@ -14,7 +14,7 @@ const missile_layer_bit 	: int = 7
 const fire_layer_bit 		: int = 8
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Collision, ComponentsLibrary.Position]
+	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
@@ -22,6 +22,7 @@ func _get_system_dependencies() -> Array:
 func _process_node(dt : float, components : Dictionary) -> void:
 	var col_comp = components[ComponentsLibrary.Collision] as CollisionComponent
 	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
+	var health_comp = components[ComponentsLibrary.Health] as HealthComponent
 
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -46,6 +47,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			print("Monster collision !")
 			collider.queue_free()
+			health_comp.set_health(health_comp.get_health() - 10)
 			
 		if ((collider != null)                                                 	# SPELL
 		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
@@ -71,9 +73,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if ((collider != null)                                                 	# MISSILE
 		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
 			and (collider.get_collision_layer_bit(missile_layer_bit) == true)):  
-
+	
 			print("Missile collision !")
 			collider.queue_free()
+			health_comp.set_health(health_comp.get_health() - 10)
 			
 		if ((collider != null)                                                 	# FIRE
 		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
@@ -81,3 +84,4 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			print("Fire collision !")
 			collider.queue_free()
+			health_comp.set_health(health_comp.get_health() - 10)

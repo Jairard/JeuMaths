@@ -24,15 +24,13 @@ Loot :
 	set degats 2 : 	peu de degats + chance de critiques
 	set tank :		un peu de degats + hp
 	
-	le loot spawn et est recup par le hero
 
 
 Combat : 
 	
 	entrée en combat le hero ne peut plus se déplacer
 	la vitesse de réponse influe sur les dégats 
-	chance de degats critiques
-	fin du combat le hero peut récupérer le loot si gagné ou recommencer le combat si perdu
+	
 
 
 Combat solo : 	
