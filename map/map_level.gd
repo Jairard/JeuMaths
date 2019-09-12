@@ -113,7 +113,7 @@ func load_characters() :
 	treasure_comp.init(0)
 	
 	var xp_comp = ECS.add_component(heroNode, ComponentsLibrary.Xp) as XpComponent
-	xp_comp.init(0)
+	xp_comp.init(0,1)
 	
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp.init(10)
