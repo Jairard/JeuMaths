@@ -69,7 +69,7 @@ func load_characters() :
 	add_child(FireNode)
 	FireNode.set_name("fire")
 			
-	fire_spawn()
+#	fire_spawn()
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	
@@ -113,7 +113,7 @@ func load_characters() :
 	treasure_comp.init(0)
 	
 	var xp_comp = ECS.add_component(heroNode, ComponentsLibrary.Xp) as XpComponent
-	xp_comp.init(0)
+	xp_comp.init(0,1)
 	
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp.init(10)
@@ -152,22 +152,12 @@ func _on_Button_pressed():
 
 func treasure_spawn() :
 	
-	var hero_pos = hero.instance()
-	var treasure_pos = hero_pos.get_position()
-	print (treasure_pos)
-	add_child(treasure.instance())
-	treasure.instance().set_position(treasure_pos) 
-	var test = treasure.instance().get_position()
-	
-	var smoke_pos = get_node("monster").get_position()
-	var smoke_Node = smoke_spawn.instance()
-	add_child(smoke_Node)
-	smoke_Node.set_position(smoke_pos) 
-	
-	var sparkle_pos = get_node("monster").get_position()
-	var sparkle_Node = sparkle_spawn.instance()
-	add_child(sparkle_Node)
-	sparkle_Node.set_position(sparkle_pos) 
+#	var treasure_pos = monsterNode.get_position()
+#	print (treasure_pos)
+#	add_child(treasure.instance())
+#	treasure.instance().set_position(treasure_pos) 
+#	var test = treasure.instance().get_position()
+	pass
 	
 func fire_spawn():
 	
