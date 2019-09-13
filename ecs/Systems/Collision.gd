@@ -12,7 +12,6 @@ const loot_layer_bit 		: int = 5
 const monster_layer_bit 	: int = 6
 const missile_layer_bit 	: int = 7
 const fire_layer_bit 		: int = 8
-const gold_layer_bit 		: int = 9
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health]
@@ -41,7 +40,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 			print("Enemy collision !") 
 			collider.queue_free()
-#			get_tree().change_scene("res://map/map_fight.tscn")
 			
 		if ((collider != null)                                          		# MONSTER       
 		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
@@ -87,11 +85,3 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Fire collision !")
 			collider.queue_free()
 			health_comp.set_health(health_comp.get_health() - 10)
-			
-		if ((collider != null)                                                 	# GOLD
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(gold_layer_bit) == true)):  
-
-			print("Gold collision !")
-			collider.queue_free()
-			
