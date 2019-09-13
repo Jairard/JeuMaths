@@ -7,6 +7,7 @@ func get_direction() :		# -> dir
 	
 func set_direction(target : Vector2, shooter : Vector2) -> void :	# dir : dir
 	direction = target - shooter
+	print ("direction :" + str(direction))
 	
 func dir_to_angle(dir : Vector2) -> int :
 	var angle_rad = direction.angle()								

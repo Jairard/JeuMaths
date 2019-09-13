@@ -27,9 +27,16 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var node_navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")
 #		var node_navigation = _getComponentOfEntity(
 		var dir = MoveUtilsDirection.get_direction_to(target_pos, shooter_pos, node_navigation)
-		pos_comp.move_and_slide(dir * speed)
+
+#		pos_comp.move_and_slide(dir * speed)
 
 		# Compute orientation
 		var get_direction = MoveUtilsAngle.set_direction(target_pos, shooter_pos)
-		var get_angle = MoveUtilsAngle.dir_to_angle(MoveUtilsAngle.get_direction())
-		misl_comp.get_node().set_rotation_degrees(get_angle)
+		
+		if MoveUtilsAngle.direction.x >= -1500 :
+			pos_comp.move_and_slide(dir * speed)
+			var get_angle = MoveUtilsAngle.dir_to_angle(MoveUtilsAngle.get_direction())
+			misl_comp.get_node().set_rotation_degrees(get_angle)
+		
+		else :
+			pass

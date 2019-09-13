@@ -14,6 +14,8 @@ const missile_layer_bit 	: int = 7
 const fire_layer_bit 		: int = 8
 const gold_layer_bit 		: int = 9
 
+onready var treasure = preload("res://characters/treasure.tscn")
+
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health]
 
@@ -50,6 +52,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			collider.queue_free()
 			health_comp.set_health(health_comp.get_health() - 10)
 			
+			
 		if ((collider != null)                                                 	# SPELL
 		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
 			and (collider.get_collision_layer_bit(spell_layer_bit) == true)):  
@@ -61,7 +64,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
 			and (collider.get_collision_layer_bit(coin_layer_bit) == true)):  
 
-			print("Coin collision !")
+			print("Rain collision !")
 			collider.queue_free()
 
 		if ((collider != null)                                                 	# LOOT
