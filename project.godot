@@ -206,6 +206,7 @@ window/size/height=640
 2d_physics/layer_8="missile"
 2d_physics/layer_9="fire"
 2d_physics/layer_10="gold"
+2d_physics/layer_11="answer"
 
 [rendering]
 

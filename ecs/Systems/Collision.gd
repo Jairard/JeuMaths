@@ -13,6 +13,7 @@ const monster_layer_bit 	: int = 6
 const missile_layer_bit 	: int = 7
 const fire_layer_bit 		: int = 8
 const gold_layer_bit 		: int = 9
+const answer_layer_bit 		: int = 10
 
 onready var treasure = preload("res://characters/treasure.tscn")
 
@@ -95,4 +96,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and (collider.get_collision_layer_bit(gold_layer_bit) == true)):  
 
 			print("Gold collision !")
+			collider.queue_free()
+			
+		if ((collider != null)                                                 	# ANSWER
+		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
+			and (collider.get_collision_layer_bit(answer_layer_bit) == true)):  
+
+			print("Answer collision !")
 			collider.queue_free()
