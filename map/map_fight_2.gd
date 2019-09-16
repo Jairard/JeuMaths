@@ -45,10 +45,8 @@ func _ready():
 	
 #	var enemy_pos = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 #	enemy_pos.set_position(Vector2(400,300))
-	
-	
+
 	var answer_pos = ECS.add_component(answerNode, ComponentsLibrary.Position) as PositionComponent
 	answer_pos.set_position(Vector2(350,500))
-	
 	
 	

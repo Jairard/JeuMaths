@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/Answer_system.gd"
 }, {
+"base": "System",
+"class": "BounceSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Bounce_collision.gd"
+}, {
 "base": "Component",
 "class": "CollisionComponent",
 "language": "GDScript",
@@ -149,6 +154,7 @@ _global_script_class_icons={
 "AnimationSystem": "",
 "AnswerComponent": "",
 "AnswerSystem": "",
+"BounceSystem": "",
 "CollisionComponent": "",
 "CollisionSystem": "",
 "Component": "",
@@ -177,7 +183,7 @@ _global_script_class_icons={
 [application]
 
 config/name="jeu"
-run/main_scene="res://map/mapf_fight_2.tscn"
+run/main_scene="res://map/map_fight_2.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -189,6 +195,7 @@ SystemsLibrary="*res://ecs/Systems/Library.gd"
 ArrayUtils="*res://Utils/Array_Utils.gd"
 MoveUtilsDirection="*res://Utils/Move_direction.gd"
 MoveUtilsAngle="*res://Utils/Move_rotation.gd"
+MoveUtilsRspawn="*res://Utils/Random_spawn.gd"
 
 [display]
 

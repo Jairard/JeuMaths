@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://map/map_fight.gd" type="Script" id=1]
+[ext_resource path="res://map/map_fight_1.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://hud/spritesheet2.png" type="Texture" id=3]
 
