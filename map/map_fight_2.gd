@@ -13,6 +13,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Hud)
+	ECS.register_system(SystemsLibrary.Bounce)
 	
 	
 	var enemyNode = enemy.instance()
@@ -41,12 +42,17 @@ func _ready():
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	hero_pos.set_position(Vector2(300,300))	
+
+	var health_comp = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
+	health_comp.init(100,100)
 	
 	
 #	var enemy_pos = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 #	enemy_pos.set_position(Vector2(400,300))
 
 	var answer_pos = ECS.add_component(answerNode, ComponentsLibrary.Position) as PositionComponent
-	answer_pos.set_position(Vector2(350,500))
+	MoveUtilsRspawn.init(150,750,280,480)
+	answer_pos.set_position(MoveUtilsRspawn.pos)
+	
 	
 	

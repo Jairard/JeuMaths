@@ -31,7 +31,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		move_comp.set_is_jumping(false)
 	
 	pos_comp.move_and_slide(velocity)
-
+	
 	# Collision detection
 	var col_comp = components[ComponentsLibrary.Collision] as CollisionComponent
 	var body = pos_comp.get_node() as KinematicBody2D # Try to get the node as a kinematic body

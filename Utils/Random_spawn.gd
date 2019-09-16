@@ -1,14 +1,8 @@
 extends Node
 
 var pos : Vector2
-
-func get_position() -> Vector2:
-	return pos
 	
-func set_position(_pos : Vector2) -> void:
-	pos = _pos
-	
-func init(start : Vector2) -> void:
+func init(x_min, x_max, y_min, y_max) -> void:
 	randomize()
-	pos = Vector2(rand_range(100,500), rand_range(200,400))
-	
+	pos = Vector2(rand_range(x_min, x_max), rand_range(y_min, y_max))
+	print (pos)
