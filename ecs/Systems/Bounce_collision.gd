@@ -12,5 +12,9 @@ func _get_used_components() -> Array:
 #	return [SystemsLibrary.Position]
 
 func _process_node(dt : float, components : Dictionary) -> void:
-	var col_comp = components[ComponentsLibrary.Position] as PositionComponent
+	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
 	
+#	var _pos_comp = _getComponentOfEntity(pos_comp.get_target_id(), ComponentsLibrary.Position)
+	velocity = Vector2(50,0)
+#	print (_pos)	
+	pos_comp.move_and_slide(velocity)
