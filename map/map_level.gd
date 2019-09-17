@@ -89,11 +89,13 @@ func load_characters() :
 	comp_anim_monster.init(anim_name_monster, animation_player_monster)
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
 	comp_patrol.init(700,900) 
+	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
+	health_comp_monster.init(1,1)
 	
 	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
-	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Missile) as MissileComponent
+	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
 	comp_missile.init(heroNode)
 	
 #	ECS.add_component(FireNode, ComponentsLibrary.Movement)
@@ -106,8 +108,8 @@ func load_characters() :
 	HudNode.get_life_hero_max(), HudNode.get_damage(), 
 	HudNode.get_xp(), HudNode.get_level(), HudNode.get_treasure())
 	
-	var health_comp = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp.init(100,100)
+	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
+	health_comp_hero.init(100,100)
 	
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
 	treasure_comp.init(0)

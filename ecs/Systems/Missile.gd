@@ -6,14 +6,14 @@ var velocity : Vector2
 var speed : int = 150
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Missile, ComponentsLibrary.Position , ComponentsLibrary.Movement]
+	return [ComponentsLibrary.Nodegetid, ComponentsLibrary.Position , ComponentsLibrary.Movement]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
 
 func _process_node(dt : float, components : Dictionary) -> void:
 	var pos_comp		 = 	components[ComponentsLibrary.Position] 	 	 as  PositionComponent
-	var misl_comp		 = 	components[ComponentsLibrary.Node_get_id] 	 as  NodegetidComponent
+	var misl_comp		 = 	components[ComponentsLibrary.Nodegetid] 	 as  NodegetidComponent
 	var move_comp		 = 	components[ComponentsLibrary.Movement] 		 as  MovementComponent
 	
 	var dp = velocity * dt 

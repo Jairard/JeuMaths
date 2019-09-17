@@ -84,6 +84,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/Input.gd"
 }, {
+"base": "Component",
+"class": "LootComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Loot.gd"
+}, {
+"base": "System",
+"class": "LootSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Loot.gd"
+}, {
 "base": "System",
 "class": "MissileSystem",
 "language": "GDScript",
@@ -165,6 +175,8 @@ _global_script_class_icons={
 "HudComponent": "",
 "HudSystem": "",
 "InputSystem": "",
+"LootComponent": "",
+"LootSystem": "",
 "MissileSystem": "",
 "MoveSystem": "",
 "MovementComponent": "",
@@ -183,7 +195,7 @@ _global_script_class_icons={
 [application]
 
 config/name="jeu"
-run/main_scene="res://map/map_fight_2.tscn"
+run/main_scene="res://map/map_level.tscn"
 config/icon="res://icon.png"
 
 [autoload]
