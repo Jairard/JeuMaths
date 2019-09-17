@@ -1,6 +1,6 @@
 extends Component
 
-class_name MissileComponent
+class_name NodegetidComponent
 
 var target_id : int = -1
 

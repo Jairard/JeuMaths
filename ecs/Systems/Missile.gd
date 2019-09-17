@@ -12,9 +12,9 @@ func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
 
 func _process_node(dt : float, components : Dictionary) -> void:
-	var pos_comp		 = 	components[ComponentsLibrary.Position] 	 as  PositionComponent
-	var misl_comp		 = 	components[ComponentsLibrary.Missile] 	 as  MissileComponent
-	var move_comp		 = 	components[ComponentsLibrary.Movement] 	 as  MovementComponent
+	var pos_comp		 = 	components[ComponentsLibrary.Position] 	 	 as  PositionComponent
+	var misl_comp		 = 	components[ComponentsLibrary.Node_get_id] 	 as  NodegetidComponent
+	var move_comp		 = 	components[ComponentsLibrary.Movement] 		 as  MovementComponent
 	
 	var dp = velocity * dt 
 	

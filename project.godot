@@ -84,11 +84,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/Input.gd"
 }, {
-"base": "Component",
-"class": "MissileComponent",
-"language": "GDScript",
-"path": "res://ecs/Components/Missile.gd"
-}, {
 "base": "System",
 "class": "MissileSystem",
 "language": "GDScript",
@@ -103,6 +98,11 @@ _global_script_classes=[ {
 "class": "MovementComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Movement.gd"
+}, {
+"base": "Component",
+"class": "NodegetidComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Node_get_id.gd"
 }, {
 "base": "Component",
 "class": "PatrolComponent",
@@ -165,10 +165,10 @@ _global_script_class_icons={
 "HudComponent": "",
 "HudSystem": "",
 "InputSystem": "",
-"MissileComponent": "",
 "MissileSystem": "",
 "MoveSystem": "",
 "MovementComponent": "",
+"NodegetidComponent": "",
 "PatrolComponent": "",
 "PatrolSystem": "",
 "PositionComponent": "",
