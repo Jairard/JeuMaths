@@ -27,7 +27,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var col_comp = components[ComponentsLibrary.Collision] as CollisionComponent
 	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
 	var health_comp = components[ComponentsLibrary.Health] as HealthComponent
-
+	
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
@@ -103,4 +103,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and (collider.get_collision_layer_bit(answer_layer_bit) == true)):  
 
 			print("Answer collision !")
+			collider.queue_free()
+			
+		if ((collider != null)                                                 	# Bounce answer / wall
+		    and (my_body.get_collision_layer_bit(wall_layer_bit) == true)      
+			and (collider.get_collision_layer_bit(answer_layer_bit) == true)):  
+
+			print("BOUNCE !")
 			collider.queue_free()

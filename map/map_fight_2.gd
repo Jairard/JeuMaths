@@ -49,7 +49,10 @@ func _ready():
 	
 #	var enemy_pos = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 #	enemy_pos.set_position(Vector2(400,300))
-
+	
+	ECS.add_component(answerNode, ComponentsLibrary.Collision)
+	var comp_ans = ECS.add_component(answerNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
+	comp_ans.init(answerNode)
 	var answer_pos = ECS.add_component(answerNode, ComponentsLibrary.Position) as PositionComponent
 	MoveUtilsRspawn.init(150,750,280,480)
 	answer_pos.set_position(MoveUtilsRspawn.pos)
