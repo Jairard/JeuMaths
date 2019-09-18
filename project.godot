@@ -195,7 +195,7 @@ _global_script_class_icons={
 [application]
 
 config/name="jeu"
-run/main_scene="res://map/map_level.tscn"
+run/main_scene="res://map/map_fight_2.tscn"
 config/icon="res://icon.png"
 
 [autoload]

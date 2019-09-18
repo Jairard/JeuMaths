@@ -107,7 +107,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 		if ((collider != null)                                                 	# Bounce answer / wall
 		    and (my_body.get_collision_layer_bit(answer_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(hero_layer_bit) == true)):  
+			and (collider.get_collision_layer_bit(wall_layer_bit) == true)):  
 
 			print("BOUNCE !")
+			#use bounce_collision system
 			collider.queue_free()

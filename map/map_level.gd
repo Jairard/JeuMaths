@@ -27,6 +27,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Hud)
 #	ECS.register_system(SystemsLibrary.Bullet)
+	ECS.register_system(SystemsLibrary.Loot)
 	
 	_load_ressources()
 	charger_intro()
@@ -82,15 +83,16 @@ func load_characters() :
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	
 	ECS.add_component(monsterNode, ComponentsLibrary.Position)
+	ECS.add_component(monsterNode, ComponentsLibrary.Loot)
+	ECS.add_component(monsterNode, ComponentsLibrary.Nodegetid)
 	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
 	var animation_player_monster = monsterNode.get_node("animation_monster")
-	print (animation_player_monster)
 	comp_anim_monster.init(anim_name_monster, animation_player_monster)
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_monster.init(1,1)
+	health_comp_monster.init(1,1)	
 	
 	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
