@@ -23,6 +23,17 @@ func _get_used_components() -> Array:
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
 
+func has_collision_layer(collider : Object, layer : int) -> bool:
+	var physicBody = collider as PhysicsBody2D	
+	if (physicBody != null):
+		return physicBody.get_collision_layer_bit(layer) == true
+		
+	var tileMap = collider as TileMap
+	if (tileMap != null):
+		return tileMap.get_collision_layer_bit(layer) == true
+		
+	return false
+
 func _process_node(dt : float, components : Dictionary) -> void:
 	var col_comp = components[ComponentsLibrary.Collision] as CollisionComponent
 	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
@@ -33,15 +44,26 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if (my_body == null):
 		return
 
-	var collisions = col_comp.get_collisions()
+	# Collision detection
+	var body = pos_comp.get_node() as KinematicBody2D # Try to get the node as a kinematic body
+	var collisions : Array = [] # The array in which we'll store the collisions
+
+	if body != null: # If it succeeds, we can proceed
+		var collision_count : int = body.get_slide_count() # get the collision count
+		for i in range(collision_count):
+			var current_collision = body.get_slide_collision(i) # For each collision,
+			collisions.append(current_collision)                # we append it to the array
+
+	# Give the information to the collision component.
+	# If the node is not a kinematic body, the collisions are reset to an empty array
+
 
 	#instance_from_id
 	for col in collisions:
-		var collider = col.get_collider() as PhysicsBody2D
-		if ((collider != null)                                                 # ENEMY
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(enemy_layer_bit) == true)):  
-			
+		var collider = col.get_collider() 		
+		
+		if (has_collision_layer(collider,enemy_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    	# ENEMY
 			print("Enemy collision !") 
 			collider.queue_free()
 			
@@ -105,10 +127,14 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Answer collision !")
 			collider.queue_free()
 			
-		if ((collider != null)                                                 	# Bounce answer / wall
-		    and (my_body.get_collision_layer_bit(answer_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(wall_layer_bit) == true)):  
-
-			print("BOUNCE !")
-			#use bounce_collision system
-			collider.queue_free()
+		if (has_collision_layer(collider,wall_layer_bit) == true 
+			and my_body.get_collision_layer_bit(answer_layer_bit) == true): 
+				print ("Bounce !")
+				
+#		if ((collider != null)                                                 	# Bounce answer / wall
+#		    and (my_body.get_collision_layer_bit(answer_layer_bit) == true)      
+#			and (collider.get_collision_layer_bit(wall_layer_bit) == true)):  
+#
+#			print("BOUNCE !")
+#			#use bounce_collision system
+#			collider.queue_free()

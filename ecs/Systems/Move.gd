@@ -8,7 +8,7 @@ var lateral_velocity = 250
 var jump_impulse = -700
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Position, ComponentsLibrary.Movement, ComponentsLibrary.Collision]
+	return [ComponentsLibrary.Position, ComponentsLibrary.Movement]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Input]
@@ -32,17 +32,4 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	pos_comp.move_and_slide(velocity)
 	
-	# Collision detection
-	var col_comp = components[ComponentsLibrary.Collision] as CollisionComponent
-	var body = pos_comp.get_node() as KinematicBody2D # Try to get the node as a kinematic body
-	var collisions : Array = [] # The array in which we'll store the collisions
-
-	if body != null: # If it succeeds, we can proceed
-		var collision_count : int = body.get_slide_count() # get the collision count
-		for i in range(collision_count):
-			var current_collision = body.get_slide_collision(i) # For each collision,
-			collisions.append(current_collision)                # we append it to the array
-
-	# Give the information to the collision component.
-	# If the node is not a kinematic body, the collisions are reset to an empty array
-	col_comp.set_collisions(collisions)
+	

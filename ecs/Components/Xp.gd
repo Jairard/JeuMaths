@@ -23,7 +23,9 @@ func get_lvl() -> int :
 func set_lvl(value : int) -> void :
 	lvl = value
 	
-func is_max_xp():
-	if current_xp >= max_xp :
-		current_xp = 0
-		lvl += 1
+#func is_max_xp():							#system Xp
+#	return current_xp >= max_xp 
+#
+#func lvl_up()
+#		current_xp = 0
+#		lvl += 1

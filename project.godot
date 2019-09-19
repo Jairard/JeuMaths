@@ -207,7 +207,7 @@ SystemsLibrary="*res://ecs/Systems/Library.gd"
 ArrayUtils="*res://Utils/Array_Utils.gd"
 MoveUtilsDirection="*res://Utils/Move_direction.gd"
 MoveUtilsAngle="*res://Utils/Move_rotation.gd"
-MoveUtilsRspawn="*res://Utils/Random_spawn.gd"
+RandomUtils="*res://Utils/Random.gd"
 
 [display]
 
