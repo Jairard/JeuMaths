@@ -205,9 +205,8 @@ ECS="*res://ecs/World.gd"
 ComponentsLibrary="*res://ecs/Components/Library.gd"
 SystemsLibrary="*res://ecs/Systems/Library.gd"
 ArrayUtils="*res://Utils/Array_Utils.gd"
-MoveUtilsDirection="*res://Utils/Move_direction.gd"
-MoveUtilsAngle="*res://Utils/Move_rotation.gd"
-RandomUtils="*res://Utils/Random.gd"
+MoveUtils="*res://Utils/MoveUtils.gd"
+RandomUtils="*res://Utils/RandomUtils.gd"
 
 [display]
 
