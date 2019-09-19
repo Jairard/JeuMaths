@@ -81,27 +81,20 @@ margin_top = 613.632
 margin_right = 460.855
 margin_bottom = 633.632
 
-[node name="Map" type="VBoxContainer" parent="."]
-margin_left = -2.99994
-margin_right = 543.0
-margin_bottom = 635.0
-
-[node name="Map" type="Label" parent="Map"]
-margin_right = 546.0
-margin_bottom = 48.0
+[node name="Map2" type="Label" parent="."]
+margin_left = -2.09747
+margin_top = -0.902496
+margin_right = 542.903
+margin_bottom = 47.0975
 custom_fonts/font = SubResource( 1 )
 text = "Map"
 align = 1
 
-[node name="Init" type="VBoxContainer" parent="."]
+[node name="Init2" type="Label" parent="."]
 margin_left = 551.0
 margin_top = 3.0
 margin_right = 1027.0
-margin_bottom = 632.0
-
-[node name="Init" type="Label" parent="Init"]
-margin_right = 476.0
-margin_bottom = 48.0
+margin_bottom = 51.0
 custom_fonts/font = SubResource( 2 )
 text = "Init"
 align = 1

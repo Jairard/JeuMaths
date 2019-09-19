@@ -14,7 +14,7 @@ var type : int
 #	r = randi() % 100							#utils randi
 #	return r
 #
-#func set_percent() -> void:			#get_loot()
+#func get_loot() -> void:			
 #	if r >=0 && r<33:				#call randiUtils
 #		type = type_loot[0]			# init() dict (preload entity on map, weight) dans map
 #
