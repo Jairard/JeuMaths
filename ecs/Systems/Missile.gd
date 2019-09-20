@@ -32,7 +32,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 		# Compute orientation
 		var get_direction = MoveUtils.set_direction(target_pos, shooter_pos)
-		
+#		print (MoveUtils.direction.x)
 		if MoveUtils.direction.x >= -1500 :
 			pos_comp.move_and_slide(dir * speed)
 			var get_angle = MoveUtils.dir_to_angle(MoveUtils.get_direction())

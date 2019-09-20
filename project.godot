@@ -150,6 +150,11 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Treasure.gd"
 }, {
 "base": "Component",
+"class": "VelocityComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Velocity.gd"
+}, {
+"base": "Component",
 "class": "XpComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Xp.gd"
@@ -188,6 +193,7 @@ _global_script_class_icons={
 "System": "",
 "SystemsLibrary": "",
 "TreasureComponent": "",
+"VelocityComponent": "",
 "XpComponent": "",
 "bulletSystem": ""
 }
