@@ -10,17 +10,14 @@ enum type_loot  {
 
 var type : int 
 
-#func get_percent() -> int:
-#	r = randi() % 100							#utils randi
-#	return r
-#
-#func get_loot() -> void:			
-#	if r >=0 && r<33:				#call randiUtils
-#		type = type_loot[0]			# init() dict (preload entity on map, weight) dans map
-#
-#	if r>=33 && r<66:
-#		type = type_loot[1]
-#
-#	if r>=66 && r<101:
-#		type = type_loot[2]
+
+func get_loot() -> void:			
+#	RandomUtils.randi_to(3)						#	if r >=0 && r<33:				#call randiUtils
+	pass						#		type = type_loot[0]			# init() dict (preload entity on map, weight) dans map
+							#
+							#	if r>=33 && r<66:
+							#		type = type_loot[1]
+							#
+							#	if r>=66 && r<101:
+							#		type = type_loot[2]
 	

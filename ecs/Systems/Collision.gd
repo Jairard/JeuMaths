@@ -18,7 +18,7 @@ const answer_layer_bit 		: int = 10
 onready var treasure = preload("res://characters/treasure.tscn")
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health]
+	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
@@ -38,6 +38,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var col_comp = components[ComponentsLibrary.Collision] as CollisionComponent
 	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
 	var health_comp = components[ComponentsLibrary.Health] as HealthComponent
+	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	 	 as  BounceComponent
 	
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -127,14 +128,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Answer collision !")
 			collider.queue_free()
 			
-		if (has_collision_layer(collider,wall_layer_bit) == true 
+		if (has_collision_layer(collider,wall_layer_bit) == true 				# Bounce answer / wall
 			and my_body.get_collision_layer_bit(answer_layer_bit) == true): 
 				print ("Bounce !")
-				
-#		if ((collider != null)                                                 	# Bounce answer / wall
-#		    and (my_body.get_collision_layer_bit(answer_layer_bit) == true)      
-#			and (collider.get_collision_layer_bit(wall_layer_bit) == true)):  
-#
-#			print("BOUNCE !")
-#			#use bounce_collision system
-#			collider.queue_free()
+				bounce_comp.set_is_bouncing(true)
