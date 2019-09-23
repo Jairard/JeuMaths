@@ -3,7 +3,6 @@ extends System
 class_name BounceSystem
 
 var velocity : Vector2 = Vector2(50,50)
-#var rebound  : Vector2 = Vector2(-50,50)
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Nodegetid, ComponentsLibrary.Collision, ComponentsLibrary.Bounce]
@@ -16,16 +15,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var ans_comp	= 	components[ComponentsLibrary.Nodegetid] 	 as  NodegetidComponent
 	var col_comp	= 	components[ComponentsLibrary.Collision] 	 as  CollisionComponent
 	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	 	 as  BounceComponent
-	
-	
-	var answer_pos_comp = _getComponentOfEntity(ans_comp.get_target_id(), ComponentsLibrary.Position)	# Entity : Answer
-	
-	if bounce_comp.is_bouncing() == true :
-		var test = answer_pos_comp.move_and_slide(velocity)
-#		print (test)
-#		velocity = velocity.bounce(RandomUtils.velocity().normal)
 
-	answer_pos_comp.move_and_slide(velocity)
+	if bounce_comp.is_bouncing() == true :
+		velocity = velocity.bounce(pos_comp.move_and_slide(velocity).normal)
+
+	pos_comp.move_and_slide(velocity)
 
 	
 	
