@@ -22,8 +22,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	if bounce_comp.is_bouncing() == true :
 		var test = answer_pos_comp.move_and_slide(velocity)
-		print (test)
-#		velocity = velocity.bounce(test.normal)
+#		print (test)
+#		velocity = velocity.bounce(RandomUtils.velocity().normal)
 
 	answer_pos_comp.move_and_slide(velocity)
 

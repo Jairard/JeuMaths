@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 27.9781
 
-[node name="Answer" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 collision_layer = 1024
 collision_mask = 3
 script = ExtResource( 1 )

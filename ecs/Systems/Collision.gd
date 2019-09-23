@@ -35,10 +35,10 @@ func has_collision_layer(collider : Object, layer : int) -> bool:
 	return false
 
 func _process_node(dt : float, components : Dictionary) -> void:
-	var col_comp = components[ComponentsLibrary.Collision] as CollisionComponent
-	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
-	var health_comp = components[ComponentsLibrary.Health] as HealthComponent
-	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	 	 as  BounceComponent
+	var col_comp 	= 	components[ComponentsLibrary.Collision] as 	CollisionComponent
+	var pos_comp	= 	components[ComponentsLibrary.Position] 	as 	PositionComponent
+	var health_comp = 	components[ComponentsLibrary.Health] 	as 	HealthComponent
+	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent
 	
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -68,62 +68,53 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Enemy collision !") 
 			collider.queue_free()
 			
-		if ((collider != null)                                          		# MONSTER       
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(monster_layer_bit) == true)):  
+		if (has_collision_layer(collider,monster_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# MONSTER
 
 			print("Monster collision !")
 			collider.queue_free()
-			health_comp.set_health(health_comp.get_health() - 10)
+			health_comp.set_health(health_comp.get_health() - 10)			
 			
-			
-		if ((collider != null)                                                 	# SPELL
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(spell_layer_bit) == true)):  
+		if (has_collision_layer(collider,spell_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		 # SPELL
 
 			print("Spell collision !")
 			collider.queue_free()
 			
-		if ((collider != null)                                                 	# COIN
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(coin_layer_bit) == true)):  
+		if (has_collision_layer(collider,coin_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# COIN
 
 			print("Rain collision !")
 			collider.queue_free()
 
-		if ((collider != null)                                                 	# LOOT
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(loot_layer_bit) == true)):  
+		if (has_collision_layer(collider,loot_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# LOOT
 
 			print("Loot collision !")
 			collider.queue_free()
 
-		if ((collider != null)                                                 	# MISSILE
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(missile_layer_bit) == true)):  
+		if (has_collision_layer(collider,missile_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# MISSILE
 	
 			print("Missile collision !")
 			collider.queue_free()
 			health_comp.set_health(health_comp.get_health() - 10)
 			
-		if ((collider != null)                                                 	# FIRE
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(fire_layer_bit) == true)):  
+		if (has_collision_layer(collider,fire_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE
 
 			print("Fire collision !")
 			collider.queue_free()
 			health_comp.set_health(health_comp.get_health() - 10)
 			
-		if ((collider != null)                                                 	# GOLD
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(gold_layer_bit) == true)):  
+		if (has_collision_layer(collider,gold_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD
 
 			print("Gold collision !")
 			collider.queue_free()
 			
-		if ((collider != null)                                                 	# ANSWER
-		    and (my_body.get_collision_layer_bit(hero_layer_bit) == true)      
-			and (collider.get_collision_layer_bit(answer_layer_bit) == true)):  
+		if (has_collision_layer(collider,answer_layer_bit) == true 				# Answer
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true): 
 
 			print("Answer collision !")
 			collider.queue_free()
