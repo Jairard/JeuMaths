@@ -11,7 +11,7 @@ func _get_used_components() -> Array:
 func _process_node(dt : float, components : Dictionary) -> void:
 	var loot_comp 	= 	components[ComponentsLibrary.Movement]			as  MovementComponent
 	var node_comp 	= 	components[ComponentsLibrary.Position]		 	as  PositionComponent
-	var node_comp 	= 	components[ComponentsLibrary.Velocity]		 	as  VelocityComponent
+
 	
 	
 	

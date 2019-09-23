@@ -55,7 +55,7 @@ func _ready():
 	ECS.add_component(answerNode, ComponentsLibrary.Health)
 	ECS.add_component(answerNode, ComponentsLibrary.Collision)
 	ECS.add_component(answerNode, ComponentsLibrary.Bounce)
-	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
+	ECS.add_component(answerNode, ComponentsLibrary.Velocity)
 	var comp_ans = ECS.add_component(answerNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
 	comp_ans.init(answerNode)
 	var answer_pos = ECS.add_component(answerNode, ComponentsLibrary.Position) as PositionComponent

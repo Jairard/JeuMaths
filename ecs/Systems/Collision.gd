@@ -18,7 +18,7 @@ const answer_layer_bit 		: int = 10
 onready var treasure = preload("res://characters/treasure.tscn")
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce, ComponentsLibrary.Velocity]
+	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
@@ -121,5 +121,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 		if (has_collision_layer(collider,wall_layer_bit) == true 				# Bounce answer / wall
 			and my_body.get_collision_layer_bit(answer_layer_bit) == true): 
-				print ("Bounce !")
-				bounce_comp.set_is_bouncing(true)
+				
+			print ("Bounce !")
+			
+			bounce_comp.set_is_bouncing(true)
