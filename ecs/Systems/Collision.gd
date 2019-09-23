@@ -18,7 +18,7 @@ const answer_layer_bit 		: int = 10
 onready var treasure = preload("res://characters/treasure.tscn")
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce]
+	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce, ComponentsLibrary.Velocity]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]

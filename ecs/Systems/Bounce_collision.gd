@@ -17,8 +17,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	 	 as  BounceComponent
 
 	if bounce_comp.is_bouncing() == true :
-		velocity = velocity.bounce(pos_comp.move_and_slide(velocity).normal)
-
+#		velocity = velocity.bounce(pos_comp.move_and_slide(RandomUtils.velocity()))
+		pass
 	pos_comp.move_and_slide(velocity)
 
 	
