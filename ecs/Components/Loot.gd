@@ -11,13 +11,15 @@ enum type_loot  {
 var type : int 
 
 
-func get_loot() -> void:			
-#	RandomUtils.randi_to(3)						#	if r >=0 && r<33:				#call randiUtils
-	pass						#		type = type_loot[0]			# init() dict (preload entity on map, weight) dans map
-							#
-							#	if r>=33 && r<66:
-							#		type = type_loot[1]
-							#
-							#	if r>=66 && r<101:
-							#		type = type_loot[2]
-	
+func get_loot() -> int:			
+	var r = RandomUtils.randi_to(3)		
+				
+	if r >=0 && r<33:				#call randiUtils
+		pass			# init() dict (preload entity on map, weight) dans map
+							
+	if r>=33 && r<66:
+		pass
+
+	if r>=66 && r<101:
+		pass
+	return r	

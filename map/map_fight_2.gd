@@ -14,6 +14,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bounce)
+	ECS.register_system(SystemsLibrary.Loot)
 	
 	
 	var enemyNode = enemy.instance()
@@ -56,6 +57,7 @@ func _ready():
 	ECS.add_component(answerNode, ComponentsLibrary.Collision)
 	ECS.add_component(answerNode, ComponentsLibrary.Bounce)
 	ECS.add_component(answerNode, ComponentsLibrary.Velocity)
+	ECS.add_component(answerNode, ComponentsLibrary.Loot)
 	var comp_ans = ECS.add_component(answerNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
 	comp_ans.init(answerNode)
 	var answer_pos = ECS.add_component(answerNode, ComponentsLibrary.Position) as PositionComponent

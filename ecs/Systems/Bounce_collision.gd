@@ -2,7 +2,7 @@ extends System
 
 class_name BounceSystem
 
-var velocity : Vector2 = Vector2(50,50)
+var velocity : Vector2 = Vector2(100,100)
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Nodegetid, ComponentsLibrary.Collision, ComponentsLibrary.Bounce, ComponentsLibrary.Velocity]
