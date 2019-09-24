@@ -13,4 +13,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var node_comp 	= 	components[ComponentsLibrary.Nodegetid]		 as  NodegetidComponent
 	
 
-	loot_comp.get_loot()
+	if loot_comp.get_loot() == 1:
+		print (1)
+	
+	if loot_comp.get_loot() == 2:
+		print (2)
+		
+	if loot_comp.get_loot() == 3:
+		print (3)

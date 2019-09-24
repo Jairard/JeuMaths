@@ -14,6 +14,7 @@ var name 	: Node2D
 var health 	: int
 var gold 	: int
 var xp 		: int
+var loot 	: int = 0
 
 func init(_name : Node2D, _health : int, _gold : int, _xp : int) -> void:
 	name 	= _name
@@ -28,14 +29,12 @@ func get_loot() -> int:
 	var r = RandomUtils.randi_to(100)		
 
 	if r >=0 && r< health:				#call randiUtils
-		print ("health")
-		pass			# init() dict (preload entity on map, weight) dans map
+		loot = 1
 							
 	if r>= health && r< health + gold:
-		print ("gold")
-		pass
+		loot = 2
 
 	if r>= health + gold && r< 100:
-		print ("xp")
-		pass
-	return r	
+		loot = 3 
+	
+	return loot	
