@@ -34,7 +34,7 @@ func get_loot() -> int:
 	if r>= health && r< health + gold:
 		loot = 2
 
-	if r>= health + gold && r< 100:
+	if r>= health + gold && r< health + gold + xp:
 		loot = 3 
 	
 	return loot	
