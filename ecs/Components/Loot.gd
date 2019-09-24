@@ -10,21 +10,32 @@ enum type_loot  {
 
 var type : int 
 var dict : Dictionary
+var name : Node2D
+var health : int
+var gold : int
+var xp : int
 
-func init(_Name : Node2D, _health : int, _gold : int, _xp : int) -> void:
-	dict = {Name = _Name, health = _health, gold = _gold, xp = _xp}
+func init(_name : Node2D, _health : int, _gold : int, _xp : int) -> void:
+	name 	= _name
+	health 	= _health
+	gold 	= _gold
+	xp 		=_xp
 
 func get_loot() -> int:			
                                                        
-
-	
-	var r = RandomUtils.randi_to(3)		
-	if r >=0 && r<33:				#call randiUtils
+#	if dict.size() != null : 
+	dict = {Name = name, Health = health, Gold = gold, Xp = xp}
+	var r = RandomUtils.randi_to(100)		
+	print (r)
+	if r >=0 && r< health:				#call randiUtils
+		print ("health")
 		pass			# init() dict (preload entity on map, weight) dans map
 							
-	if r>=33 && r<66:
+	if r>= health && r< health + gold:
+		print ("gold")
 		pass
 
-	if r>=66 && r<101:
+	if r>= health + gold && r< 100:
+		print ("xp")
 		pass
 	return r	

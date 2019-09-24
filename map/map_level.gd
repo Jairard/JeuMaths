@@ -94,7 +94,7 @@ func load_characters() :
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
 	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
-	loot_comp_monster.init(monsterNode, 10,20,30)
+	loot_comp_monster.init(monsterNode, 50,30,20)
 	
 	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
