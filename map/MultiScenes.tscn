@@ -15,17 +15,17 @@ font_data = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="create_hero" type="Button" parent="."]
-margin_left = 737.999
-margin_top = 343.0
-margin_right = 862.999
-margin_bottom = 397.0
+margin_left = 718.999
+margin_top = 341.0
+margin_right = 843.999
+margin_bottom = 395.0
 text = "Create Hero"
 
 [node name="Log In" type="Button" parent="."]
-margin_left = 750.0
-margin_top = 456.0
-margin_right = 873.0
-margin_bottom = 517.0
+margin_left = 722.0
+margin_top = 453.0
+margin_right = 845.0
+margin_bottom = 514.0
 text = "Log In"
 
 [node name="Map_fight_1" type="Button" parent="."]
@@ -50,16 +50,16 @@ margin_bottom = 198.0
 text = "Map Level"
 
 [node name="Sign In" type="Button" parent="."]
-margin_left = 724.0
-margin_top = 228.0
-margin_right = 862.0
-margin_bottom = 279.0
+margin_left = 712.0
+margin_top = 232.0
+margin_right = 850.0
+margin_bottom = 283.0
 text = "Sign In"
 
 [node name="Start" type="Button" parent="."]
-margin_left = 719.0
+margin_left = 712.0
 margin_top = 101.0
-margin_right = 851.0
+margin_right = 844.0
 margin_bottom = 165.0
 text = "Start"
 

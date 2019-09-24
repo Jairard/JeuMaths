@@ -83,7 +83,7 @@ func load_characters() :
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	
 	ECS.add_component(monsterNode, ComponentsLibrary.Position)
-	ECS.add_component(monsterNode, ComponentsLibrary.Loot)
+#	ECS.add_component(monsterNode, ComponentsLibrary.Loot)
 	ECS.add_component(monsterNode, ComponentsLibrary.Nodegetid)
 	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
@@ -93,6 +93,8 @@ func load_characters() :
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
+	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
+	loot_comp_monster.init(monsterNode, 10,20,30)
 	
 	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
