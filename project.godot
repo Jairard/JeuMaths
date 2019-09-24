@@ -115,11 +115,6 @@ _global_script_classes=[ {
 "path": "res://ecs/Systems/Missile.gd"
 }, {
 "base": "System",
-"class": "MoveAnswerSystem",
-"language": "GDScript",
-"path": "res://ecs/Systems/Move_Answer.gd"
-}, {
-"base": "System",
 "class": "MoveSystem",
 "language": "GDScript",
 "path": "res://ecs/Systems/Move.gd"
@@ -206,7 +201,6 @@ _global_script_class_icons={
 "LootComponent": "",
 "LootSystem": "",
 "MissileSystem": "",
-"MoveAnswerSystem": "",
 "MoveSystem": "",
 "MovementComponent": "",
 "NodegetidComponent": "",
