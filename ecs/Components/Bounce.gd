@@ -9,3 +9,4 @@ func is_bouncing() -> bool :
 	
 func set_is_bouncing(value : bool) -> void :
 	bounce = value
+	print (bounce)

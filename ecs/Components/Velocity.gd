@@ -8,6 +8,4 @@ func get_velocity() -> Vector2:
 	return vel
 	
 func set_velocity(_vel : Vector2) -> void:
-	vel.x = _vel.x
-	vel.y = -_vel.y
-	print (vel)
+	vel = _vel

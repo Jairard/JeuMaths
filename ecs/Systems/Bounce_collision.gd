@@ -18,9 +18,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var vel_comp	= 	components[ComponentsLibrary.Velocity] 	 	 as  VelocityComponent
 
 	if bounce_comp.is_bouncing() == true :
-#		velocity = velocity.bounce(pos_comp.move_and_slide(RandomUtils.velocity()))
-		velocity = vel_comp.set_velocity(RandomUtils.velocity())
-		pass
+#		velocity = RandomUtils.velocity()
+		velocity = RandomUtils.vector(-100, 100, -100, 100)
+		bounce_comp.set_is_bouncing(false)
+		
 	pos_comp.move_and_slide(velocity)
 
 	
