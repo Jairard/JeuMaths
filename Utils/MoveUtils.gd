@@ -24,22 +24,11 @@ func get_direction_to(target_pos : Vector2, shooter_pos : Vector2, node_navigati
 		
 
 func vector_orthogonal(_vector : Vector2) -> Vector2:
-	if (_vector.x >= 0 and _vector.y >= 0): 					
-		vector.x =  _vector.x
-		vector.y = - _vector.y
 	
-	if (_vector.x <= 0 and _vector.y >= 0):
-		vector.x =  _vector.x
-		vector.y = - _vector.y
-		
-	if (_vector.x <= 0 and _vector.y <= 0):						
-		vector.x = - _vector.x
-		vector.y =  _vector.y
+	var test = vector.dot(velocity)
+	print (test)
 	
-	if (_vector.x >= 0 and _vector.y <= 0):
-		vector.x = - _vector.x
-		vector.y =  _vector.y
-	
+	vector = _vector
 	return vector
 	
 	
