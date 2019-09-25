@@ -2,7 +2,8 @@ extends System
 
 class_name BounceSystem
 
-var velocity : Vector2 = Vector2(100,100)
+var current_velocity	: Vector2 #= Vector2(100,100)
+var new_velocity 		: Vector2 = RandomUtils.velocity()
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Nodegetid, ComponentsLibrary.Collision, ComponentsLibrary.Bounce, ComponentsLibrary.Velocity]
@@ -19,10 +20,15 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	if bounce_comp.is_bouncing() == true :
 #		velocity = RandomUtils.velocity()
-		velocity = RandomUtils.vector(-100, 100, -100, 100)
+#		velocity = RandomUtils.vector(-100, 100, -100, 100)
+
+		current_velocity = vel_comp.get_velocity()
+		new_velocity = MoveUtils.vector_orthogonal(current_velocity)
+		vel_comp.set_velocity(new_velocity)
+		print ("new_velocity : " + str(new_velocity))
 		bounce_comp.set_is_bouncing(false)
 		
-	pos_comp.move_and_slide(velocity)
+	pos_comp.move_and_slide(new_velocity)
 
 	
 	

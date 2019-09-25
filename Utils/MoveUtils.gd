@@ -1,6 +1,8 @@
 extends Node
 
-var direction : Vector2
+var direction 	: Vector2
+var vector 		: Vector2
+var velocity 	: Vector2
 
 func get_direction() :		# -> dir
 	return direction	
@@ -19,3 +21,30 @@ func get_direction_to(target_pos : Vector2, shooter_pos : Vector2, node_navigati
 		return (path[1] - shooter_pos).normalized()
 	else : 
 		return (target_pos - shooter_pos).normalized()
+		
+
+func vector_orthogonal(_vector : Vector2) -> Vector2:
+	if (_vector.x >= 0 and _vector.y >= 0): 					
+		vector.x =  _vector.x
+		vector.y = - _vector.y
+	
+	if (_vector.x <= 0 and _vector.y >= 0):
+		vector.x =  _vector.x
+		vector.y = - _vector.y
+		
+	if (_vector.x <= 0 and _vector.y <= 0):						
+		vector.x = - _vector.x
+		vector.y =  _vector.y
+	
+	if (_vector.x >= 0 and _vector.y <= 0):
+		vector.x = - _vector.x
+		vector.y =  _vector.y
+	
+	return vector
+	
+	
+	
+	
+	
+	
+		
