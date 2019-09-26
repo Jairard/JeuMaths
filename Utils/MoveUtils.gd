@@ -24,8 +24,16 @@ func get_direction_to(target_pos : Vector2, shooter_pos : Vector2, node_navigati
 		
 
 func vector_orthogonal(_vector : Vector2) -> Vector2:
-	
-	vector = _vector
+	if ((_vector.x >= 0 and _vector.y <= 0) or (_vector.x >= 0 and _vector.y >= 0)
+		or (_vector.x <= 0 and _vector.y >= 0) or (_vector.x <= 0 and _vector.y <= 0)):
+		var r = randi() %2
+		if r == 1 :
+			vector.x = _vector.x
+			vector.y = - _vector.y
+		else : 
+			vector.x = - _vector.x
+			vector.y =  _vector.y
+			
 	return vector
 	
 	
