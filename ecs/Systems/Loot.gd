@@ -16,11 +16,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 
 	if loot_comp.get_loot() == 1:
-		print (1) 
-		#add_child(treasure.instance())
-	
+		loot_comp.get_node().add_child(treasure)
+
 	if loot_comp.get_loot() == 2:
-		print (2)
-		
+		loot_comp.get_node().add_child(treasure)
+
 	if loot_comp.get_loot() == 3:
-		print (3)
+		loot_comp.get_node().add_child(treasure)

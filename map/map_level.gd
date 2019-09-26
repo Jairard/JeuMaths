@@ -28,6 +28,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 #	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Loot)
+	ECS.register_system(SystemsLibrary.Bounce)
 	
 	_load_ressources()
 	charger_intro()
@@ -74,6 +75,7 @@ func load_characters() :
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	
+	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
@@ -83,7 +85,6 @@ func load_characters() :
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	
 	ECS.add_component(monsterNode, ComponentsLibrary.Position)
-#	ECS.add_component(monsterNode, ComponentsLibrary.Loot)
 	ECS.add_component(monsterNode, ComponentsLibrary.Nodegetid)
 	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}

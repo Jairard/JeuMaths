@@ -5,7 +5,7 @@ class_name MoveSystem
 const gravity = 1500
 var velocity = Vector2(0,0)
 var lateral_velocity = 250
-var jump_impulse = -700
+var jump_impulse = -900
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Movement]

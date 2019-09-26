@@ -73,7 +73,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			print("Monster collision !")
 			collider.queue_free()
-			health_comp.set_health(health_comp.get_health() - 10)			
+			health_comp.set_health(health_comp.get_health() - 10)		
+
+#			pos_comp.get_node().add_child(treasure)	
 			
 		if (has_collision_layer(collider,spell_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		 # SPELL
@@ -123,5 +125,4 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(answer_layer_bit) == true): 
 				
 			print ("Bounce !")
-			
 			bounce_comp.set_is_bouncing(true)

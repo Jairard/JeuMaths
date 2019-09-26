@@ -44,7 +44,7 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	hero_pos.set_position(Vector2(300,300))	
+	hero_pos.set_position(RandomUtils.vector(150,750,500))	
 
 	var health_comp = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp.init(100,100)
@@ -60,7 +60,7 @@ func _ready():
 	var comp_ans = ECS.add_component(answerNode, ComponentsLibrary.Nodegetid) 	as NodegetidComponent
 	comp_ans.init(answerNode)
 	var answer_pos = ECS.add_component(answerNode, ComponentsLibrary.Position) 	as PositionComponent
-	answer_pos.set_position(RandomUtils.vector(150,750,280,480))
+	answer_pos.set_position(RandomUtils.vector(150,750,300))
 	var comp_vel = ECS.add_component(answerNode, ComponentsLibrary.Velocity) 	as VelocityComponent
 	comp_vel.set_velocity(Vector2(100,100))
 	
