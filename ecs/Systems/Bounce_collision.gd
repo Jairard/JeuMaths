@@ -25,7 +25,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		current_velocity = vel_comp.get_velocity()
 		new_velocity = MoveUtils.vector_orthogonal(current_velocity)
 		vel_comp.set_velocity(new_velocity)
-		print ("new_velocity : " + str(new_velocity))
 		bounce_comp.set_is_bouncing(false)
 		
 	pos_comp.move_and_slide(new_velocity)

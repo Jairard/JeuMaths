@@ -22,6 +22,8 @@ Priorities:
 
 	visual effects for damage taken
 
+	with gold players can buy xp/health/damage bonus on shop
+
 ---------------------------------------
 collision area2d 
 

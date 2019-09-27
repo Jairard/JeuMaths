@@ -2,39 +2,24 @@ extends Component
 
 class_name LootComponent
 
-enum type_loot  {
-	health = 0
-	gold = 1
-	xp = 2
-	}
-
 var type 	: int 
-var dict 	: Dictionary
+var loots	: Dictionary
 var name 	: Node2D
-var health 	: int
-var gold 	: int
-var xp 		: int
-var loot 	: int = 0
 
-func init(_name : Node2D, _health : int, _gold : int, _xp : int) -> void:
-	name 	= _name
-	health 	= _health
-	gold 	= _gold
-	xp 		=_xp
+func init(_loots : Dictionary) -> void:
+	loots = _loots
 
-func get_loot() -> int:			
-                                                       
-#	if dict.size() != null : 
-	dict = {Name = name, Health = health, Gold = gold, Xp = xp}
-	var r = RandomUtils.randi_to(100)		
-
-	if r >=0 && r< health:				#call randiUtils
-		loot = 1
-							
-	if r>= health && r< health + gold:
-		loot = 2
-
-	if r>= health + gold && r< health + gold + xp:
-		loot = 3 
+func get_loot() : #-> Node2D:			
+#	var ressource : Node2D
 	
-	return loot	
+	var Sum : int
+	for s in loots:
+		Sum += loots[s]
+	var r = RandomUtils.randi_to(Sum - 1)	
+
+	var sum_weight : int
+	for clue in loots:
+		sum_weight += loots[clue]
+		if r <= sum_weight :
+			return clue
+	

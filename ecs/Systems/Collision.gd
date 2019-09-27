@@ -126,3 +126,4 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				
 			print ("Bounce !")
 			bounce_comp.set_is_bouncing(true)
+		

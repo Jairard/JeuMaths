@@ -7,11 +7,13 @@ onready var spawn_rain 		= 	preload("res://characters/rain.tscn")
 onready var rains			= 	preload("res://characters/rain.tscn")
 onready var eye 			= 	preload("res://characters/eye.tscn")
 onready var monster 		= 	preload("res://characters/monsters.tscn")
-onready var treasure 		= 	preload("res://characters/treasure.tscn")
 onready var smoke_spawn		= 	preload("res://particules_2D/smoke_2.tscn")
 onready var sparkle_spawn 	=	preload("res://particules_2D/sparkle.tscn")
 onready var spawn_fire 		= 	preload("res://particules_2D/Fire.tscn")
-onready var rotated_gold 	= 	preload("res://characters/Gold.tscn")
+onready var treasure 		= 	preload("res://characters/Gold.tscn")
+onready var gold			= 	preload("res://characters/treasure.tscn")
+#onready var xp			= 	preload("res://characters/xp.tscn")
+#onready var health			= 	preload("res://characters/health.tscn")
 
 var unique = []
 var file = File.new()
@@ -41,7 +43,7 @@ func _process(delta):
 func charger_intro() :
 	
 	load_characters()
-	var rot_gold = rotated_gold.instance()
+	var rot_gold = treasure.instance()
 	add_child(rot_gold)
 #	load_hud()
 
@@ -94,8 +96,9 @@ func load_characters() :
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
+	var lootDict_monster = {'gold' : 5, 'xp' : 2, 'health' : 3}
 	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
-	loot_comp_monster.init(monsterNode, 50,30,20)
+	loot_comp_monster.init(lootDict_monster)
 	
 	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
