@@ -22,17 +22,14 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if target_pos_comp != null :
 		var target_pos = target_pos_comp.get_position() # Target Position
 		var shooter_pos = pos_comp.get_position()       # Shooter position
-
+		print (shooter_pos)
+		MoveUtils.set_direction(target_pos, shooter_pos)
 		# Compute path and move
 		var node_navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")
-#		var node_navigation = _getComponentOfEntity(
 		var dir = MoveUtils.get_direction_to(target_pos, shooter_pos, node_navigation)
 
-#		pos_comp.move_and_slide(dir * speed)
-
 		# Compute orientation
-		var get_direction = MoveUtils.set_direction(target_pos, shooter_pos)
-#		print (MoveUtils.direction.x)
+
 		if MoveUtils.direction.x >= -1500 :
 			pos_comp.move_and_slide(dir * speed)
 			var get_angle = MoveUtils.dir_to_angle(MoveUtils.get_direction())

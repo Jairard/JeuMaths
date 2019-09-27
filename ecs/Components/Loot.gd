@@ -9,8 +9,8 @@ var name 	: Node2D
 func init(_loots : Dictionary) -> void:
 	loots = _loots
 
-func get_loot() : #-> Node2D:			
-#	var ressource : Node2D
+func get_loot() : # -> Node2D:			
+	var ressource : Node2D
 	
 	var Sum : int
 	for s in loots:
@@ -22,4 +22,5 @@ func get_loot() : #-> Node2D:
 		sum_weight += loots[clue]
 		if r <= sum_weight :
 			return clue
+			
 	

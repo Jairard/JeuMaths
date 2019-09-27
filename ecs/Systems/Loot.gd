@@ -15,4 +15,3 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var node_comp 	= 	components[ComponentsLibrary.Nodegetid]		 as  NodegetidComponent
 	
 	loot_comp.get_loot()
-#	return loot_comp.get_loot().instance()

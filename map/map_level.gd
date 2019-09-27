@@ -29,7 +29,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Hud)
 #	ECS.register_system(SystemsLibrary.Bullet)
-	ECS.register_system(SystemsLibrary.Loot)
+#	ECS.register_system(SystemsLibrary.Loot)
 	ECS.register_system(SystemsLibrary.Bounce)
 	
 	_load_ressources()

@@ -10,7 +10,7 @@ extents = Vector2( 38.8985, 42.8537 )
 modulate = Color( 0.92549, 0.898039, 0.898039, 1 )
 position = Vector2( 3235.71, 463.666 )
 collision_layer = 4
-collision_mask = 9
+collision_mask = 137
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
