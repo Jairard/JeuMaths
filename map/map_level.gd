@@ -76,7 +76,7 @@ func load_characters() :
 #	fire_spawn()
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-#	enemy_pos_comp.set_position(Vector2(2320,400))														#Appears at (0,0)
+#	enemy_pos_comp.set_position(Vector2(100,100))														#Appears at (0,0)
 #	print ("enemy :" + str(enemy_pos_comp.get_position()))
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
