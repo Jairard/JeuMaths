@@ -7,7 +7,7 @@ onready var lot   = preload("res://fight/loot_monstre.tscn")
 enum spellType {ballfire}
 var spells = {}
 
-func _ready():
+func _ready():	
 	GLOBAL.connect("win", self, "death")
 	connect("spell_enemy_ready", get_parent(), "ready_spell")	
 		
