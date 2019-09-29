@@ -22,7 +22,10 @@ Priorities:
 
 	visual effects for damage taken
 
-	with gold players can buy xp/health/damage bonus on shop
+	with gold, players can buy xp/health/damage bonus on shop
+	==> when every monster die, drop gold + xp (90%)
+		==>  drop gold + xp + health (5%)
+		==>  drop gold + xp + damage (5%)
 
 ---------------------------------------
 collision area2d 
