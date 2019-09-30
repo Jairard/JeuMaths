@@ -18,7 +18,8 @@ const answer_layer_bit 		: int = 10
 onready var treasure = preload("res://characters/treasure.tscn")
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce]
+	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, 
+			ComponentsLibrary.Bounce, ComponentsLibrary.Loot]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
@@ -39,6 +40,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var pos_comp	= 	components[ComponentsLibrary.Position] 	as 	PositionComponent
 	var health_comp = 	components[ComponentsLibrary.Health] 	as 	HealthComponent
 	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent
+	var loot_comp   =   components[ComponentsLibrary.Loot]		as  LootComponent      
 	
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -74,6 +76,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Monster collision !")
 			collider.queue_free()
 			health_comp.set_health(health_comp.get_health() - 10)	
+			print (loot_comp.loots)
 			
 		if (has_collision_layer(collider,spell_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		 # SPELL

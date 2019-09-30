@@ -23,3 +23,7 @@ func _on_Map_fight_1_pressed():
 
 func _on_Map_fight_2_pressed():
 	get_tree().change_scene("res://map/map_fight_2.tscn")
+
+
+func _on_Shop_pressed():
+	get_tree().change_scene("res://map/Map_Shop.tscn")

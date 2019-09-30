@@ -63,11 +63,12 @@ margin_right = 844.0
 margin_bottom = 165.0
 text = "Start"
 
-[node name="Button3" type="Button" parent="."]
-margin_left = 401.031
-margin_top = 613.559
-margin_right = 413.031
-margin_bottom = 633.559
+[node name="Shop" type="Button" parent="."]
+margin_left = 180.0
+margin_top = 526.0
+margin_right = 357.0
+margin_bottom = 580.0
+text = "Shop"
 
 [node name="Button2" type="Button" parent="."]
 margin_left = 494.0
@@ -105,3 +106,4 @@ align = 1
 [connection signal="pressed" from="map_level" to="." method="_on_map_level_pressed"]
 [connection signal="pressed" from="Sign In" to="." method="_on_Sign_In_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Shop" to="." method="_on_Shop_pressed"]

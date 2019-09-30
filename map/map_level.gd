@@ -29,7 +29,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Hud)
 #	ECS.register_system(SystemsLibrary.Bullet)
-#	ECS.register_system(SystemsLibrary.Loot)
+	ECS.register_system(SystemsLibrary.Loot)
 	ECS.register_system(SystemsLibrary.Bounce)
 	
 	_load_ressources()
@@ -80,6 +80,7 @@ func load_characters() :
 #	print ("enemy :" + str(enemy_pos_comp.get_position()))
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
+	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
