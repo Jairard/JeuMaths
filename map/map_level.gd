@@ -50,7 +50,7 @@ func charger_intro() :
 func load_characters() :
 	
 	var enemyNode = enemy.instance()
-	add_child(enemy.instance())
+	add_child(enemyNode)
 	enemyNode.set_name("enemy")
 	
 	var heroNode = hero.instance()
@@ -76,7 +76,7 @@ func load_characters() :
 #	fire_spawn()
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-#	enemy_pos_comp.set_position(Vector2(100,100))														#Appears at (0,0)
+	enemy_pos_comp.set_position(Vector2(300,300))														#Appears at (0,0)
 #	print ("enemy :" + str(enemy_pos_comp.get_position()))
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
@@ -99,14 +99,12 @@ func load_characters() :
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
-	var lootDict_monster = {'gold' : 5, 'xp' : 2, 'health' : 3}
+	var lootDict_monster = {gold : 5}#, xp : 2, health : 3}
 	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp_monster.init(lootDict_monster)
 	
-	ECS.add_component(EyeNode, ComponentsLibrary.Movement)
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
-#	eye_pos_comp.set_position(Vector2(300,300))
 	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
 	comp_missile.init(heroNode)
 	
