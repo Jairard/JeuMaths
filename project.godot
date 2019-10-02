@@ -94,6 +94,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/Hud.gd"
 }, {
+"base": "Component",
+"class": "InputListenerComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Input_Listener.gd"
+}, {
 "base": "System",
 "class": "InputSystem",
 "language": "GDScript",
@@ -207,6 +212,7 @@ _global_script_class_icons={
 "HudEnemyComponent": "",
 "HudEnemySystem": "",
 "HudSystem": "",
+"InputListenerComponent": "",
 "InputSystem": "",
 "LootComponent": "",
 "LootSystem": "",

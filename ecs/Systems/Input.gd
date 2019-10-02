@@ -3,7 +3,7 @@ extends System
 class_name InputSystem
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Movement]
+	return [ComponentsLibrary.Movement, ComponentsLibrary.InputListener]
 
 func _process_node(dt : float, components : Dictionary) -> void:
 	var comp = components[ComponentsLibrary.Movement] as MovementComponent

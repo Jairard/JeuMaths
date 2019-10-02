@@ -4,7 +4,7 @@ onready var enemy 			= 	preload("res://characters/Ennemy.tscn")
 onready var hero 			= 	preload("res://characters/hero.tscn")
 onready var hud 			= 	preload("res://hud/hud_hero.tscn")
 onready var spawn_rain 		= 	preload("res://characters/rain.tscn")
-onready var rains			= 	preload("res://characters/rain.tscn")
+onready var rain			= 	preload("res://characters/rain.tscn")
 onready var eye 			= 	preload("res://characters/eye.tscn")
 onready var monster 		= 	preload("res://characters/monsters.tscn")
 onready var smoke_spawn		= 	preload("res://particules_2D/smoke_2.tscn")
@@ -72,6 +72,10 @@ func load_characters() :
 	var FireNode = spawn_fire.instance()
 	add_child(FireNode)
 	FireNode.set_name("fire")
+	
+	var rainNode = rain.instance()
+	add_child(rainNode)
+	rainNode.set_name("fire")
 			
 #	fire_spawn()
 
@@ -79,6 +83,10 @@ func load_characters() :
 	enemy_pos_comp.set_position(Vector2(300,300))														#Appears at (0,0)
 #	print ("enemy :" + str(enemy_pos_comp.get_position()))
 	
+	ECS.add_component(rainNode, ComponentsLibrary.Movement)
+	ECS.add_component(rainNode, ComponentsLibrary.Position)
+	
+	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
