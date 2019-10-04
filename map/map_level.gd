@@ -3,7 +3,6 @@ extends Node2D
 onready var enemy 			= 	preload("res://characters/Ennemy.tscn")
 onready var hero 			= 	preload("res://characters/hero.tscn")
 onready var hud 			= 	preload("res://hud/hud_hero.tscn")
-onready var spawn_rain 		= 	preload("res://characters/rain.tscn")
 onready var rain			= 	preload("res://characters/rain.tscn")
 onready var eye 			= 	preload("res://characters/eye.tscn")
 onready var monster 		= 	preload("res://characters/monsters.tscn")
@@ -15,7 +14,7 @@ onready var gold			= 	preload("res://characters/treasure.tscn")
 #onready var xp			= 	preload("res://characters/xp.tscn")
 #onready var health			= 	preload("res://characters/health.tscn")
 
-var unique = []
+#var unique = []
 var file = File.new()
 var dict = {}
 	
@@ -31,10 +30,10 @@ func _ready():
 #	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Loot)
 	ECS.register_system(SystemsLibrary.Bounce)
+#	ECS.register_system(SystemsLibrary.Rain)
 	
 	_load_ressources()
 	charger_intro()
-	rain_spawn()
 
 func _process(delta):
 	pass
@@ -45,6 +44,7 @@ func charger_intro() :
 	load_characters()
 	var rot_gold = treasure.instance()
 	add_child(rot_gold)
+#	rain_spawn()		
 #	load_hud()
 
 func load_characters() :
@@ -75,8 +75,8 @@ func load_characters() :
 	
 	var rainNode = rain.instance()
 	add_child(rainNode)
-	rainNode.set_name("fire")
-			
+	rainNode.set_name("rain")
+	
 #	fire_spawn()
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
@@ -85,6 +85,7 @@ func load_characters() :
 	
 	ECS.add_component(rainNode, ComponentsLibrary.Movement)
 	ECS.add_component(rainNode, ComponentsLibrary.Position)
+#	var rain_spawn = ECS.add_component(rainNode, ComponentsLibrary.Rain) as RainComponent
 	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
@@ -191,30 +192,29 @@ func fire_spawn():
 	
 	
 
-func rain_spawn():
-	randomize()
-	var screen_size = get_viewport().size
-	var screen_tile = Vector2(screen_size.x, screen_size.y) / Vector2(64,64)
-	
-	_unique()
-	
-	for x in 10 :
-		if unique[x] == [1] :
-			var x_pos = x
-			var i = spawn_rain.instance()
-			i.start(Vector2(x_pos * 64 , 0), randi() % 3)
-			self.add_child(i)	
-	return unique
+#func rain_spawn():
+#	randomize()
+#	var screen_size = get_viewport().size
+#	var screen_tile = Vector2(screen_size.x, screen_size.y) / Vector2(64,64)
+#
+#	_unique()
+#	for x in 10 :
+#		if unique[x] == [1] :
+#			var x_pos = x
+#			var i = rain.instance()
+#			i.start(Vector2(x_pos * 64 , 0), randi() % 3)
+#			self.add_child(i)	
+#	return unique
 
 
-func _unique():
-	for x in 10 :
-		unique.append([])
-		if randi() % 2 == 1 :
-			unique[x].append(1)
-		else :
-			unique[x].append(0)
-	return unique
+#func _unique():
+#	for x in 10 :
+#		unique.append([])
+#		if randi() % 2 == 1 :
+#			unique[x].append(1)
+#		else :
+#			unique[x].append(0)
+#	return unique
 
 func _load_ressources():
 	

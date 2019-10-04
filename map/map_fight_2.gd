@@ -34,7 +34,7 @@ func _ready():
 	answerNode.set_name("answer")
 	
 	
-
+	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)

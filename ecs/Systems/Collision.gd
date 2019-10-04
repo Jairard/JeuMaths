@@ -78,7 +78,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			health_comp.set_health(health_comp.get_health() - 10)	
 			var colliderNode = collider as Node2D
 			if collider != null :
-				var loot = loot_comp.get_loot()
+				var loot = loot_comp.get_loots()
 				var colliderParent = collider.get_parent()
 				colliderParent.add_child(loot)
 				loot.set_position(collider.get_position())
@@ -121,7 +121,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Gold collision !")
 			collider.queue_free()
 			
-		if (has_collision_layer(collider,answer_layer_bit) == true 				# Answer
+		if (has_collision_layer(collider,answer_layer_bit) == true 				# ANSWER
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true): 
 
 			print("Answer collision !")

@@ -14,7 +14,8 @@ func velocity() -> Vector2:
 func randi_to(numb : int) -> int:
 	return randi() % numb
 
-
+func array(_lenght : int):
+	pass
 
 
 

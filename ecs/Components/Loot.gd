@@ -2,13 +2,13 @@ extends Component
 
 class_name LootComponent
 
-var loots	: Dictionary
+var loots	: Array
 var name 	: Node2D
 
-func init(_loots : Dictionary) -> void:
+func init(_loots : Array) -> void:
 	loots = _loots
 	
-func __get_random_resource(loots : Dictionary) -> Resource: 			
+func __get_random_resource(loots : Array) -> Resource: 			
 	var Sum : int
 	for s in loots:
 		Sum += loots[s]
@@ -26,7 +26,7 @@ func get_loots() -> Node2D:
 	if resource == null:
 		return null
 	return resource.instance()
-	
+
 	
 	
 	
