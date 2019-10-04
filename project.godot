@@ -40,6 +40,11 @@ _global_script_classes=[ {
 "path": "res://ecs/Systems/Bounce_collision.gd"
 }, {
 "base": "Component",
+"class": "BulletComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Bullet.gd"
+}, {
+"base": "Component",
 "class": "CollisionComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Collision.gd"
@@ -211,6 +216,7 @@ _global_script_class_icons={
 "AnswerSystem": "",
 "BounceComponent": "",
 "BounceSystem": "",
+"BulletComponent": "",
 "CollisionComponent": "",
 "CollisionSystem": "",
 "Component": "",

@@ -27,11 +27,7 @@ func is_jumping() -> bool :
 func set_is_jumping(value : bool) -> void :
 	jump = value
 		
-#func line(_fire_spawn : Vector2) : # global
-#	fire_spawn = _fire_spawn		
-#	fire_stop = _fire_spawn
-#	fire_stop.x -= 1000 			# map level
-#	line = fire_spawn - fire_stop
+
 	
 	
 	

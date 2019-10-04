@@ -27,7 +27,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Patrol)
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Hud)
-#	ECS.register_system(SystemsLibrary.Bullet)
+	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Loot)
 	ECS.register_system(SystemsLibrary.Bounce)
 #	ECS.register_system(SystemsLibrary.Rain)
@@ -108,18 +108,19 @@ func load_characters() :
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
-	var lootDict_monster = {gold : 5}#, xp : 2, health : 3}
-	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
-	loot_comp_monster.init(lootDict_monster)
+#	var lootDict_monster = { {gold : 10}, {xp : 10}, {health : 5, damage : 5, null : 90} }
+#	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
+#	loot_comp_monster.init(lootDict_monster)
 	
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
 	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
 	comp_missile.init(heroNode)
 	
-#	ECS.add_component(FireNode, ComponentsLibrary.Movement)
-#	var comp_move = ECS.add_component(FireNode, ComponentsLibrary.Movement) as MovementComponent
-#	comp_move.line(Vector2)
+	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
+	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
+	fire_pos_comp.set_position(Vector2(1000,540))
+	
 	
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 	

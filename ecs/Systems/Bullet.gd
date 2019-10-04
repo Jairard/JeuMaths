@@ -3,14 +3,15 @@ extends System
 class_name bulletSystem
 
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Movement]
+	return [ComponentsLibrary.Position, ComponentsLibrary.Bullet]
 
 func _process_node(dt : float, components : Dictionary) -> void:
-	var move_comp = components[ComponentsLibrary.Movement] as MovementComponent
+	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
+	var vect = pos_comp.get_position()
+	if MoveUtils.line(vect) >= 0: 
+		vect.x -= 400 * dt
+		pos_comp.set_position(vect) 
 
-	if move_comp.line >= 0 :
-		move_comp.velocity.x -= 200 * dt
-		
 	else : 
-		move_comp.get_node().queue_free()
+		pos_comp.get_node().queue_free()
 	
