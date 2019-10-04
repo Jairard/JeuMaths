@@ -45,7 +45,7 @@ func charger_intro() :
 	var rot_gold = treasure.instance()
 	add_child(rot_gold)
 #	rain_spawn()		
-#	load_hud()
+
 
 func load_characters() :
 	
@@ -139,25 +139,7 @@ func load_characters() :
 	
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp.init(10)
-	
-	
-func load_hud() :
 
-	var hudd = hud.instance()
-
-	add_child(hudd)
-	
-	hudd.set_xp(GLOBAL.xp)						# Maj global
-	
-				#hud Hero
-	hudd.set_pv_hero_max(GLOBAL.pv_hero_max)
-	hudd.set_pv_hero(GLOBAL.pv_hero)
-	
-	hudd.set_degats(GLOBAL.degats)
-	hudd.set_level(GLOBAL.level)
-	hudd.set_treasure(GLOBAL.treasure)
-	
-	hudd.set_name("hud_hero")
 	
 func combat(valeur) :
 	if valeur == 0 :
