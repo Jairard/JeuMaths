@@ -82,8 +82,8 @@ func load_characters() :
 	enemy_pos_comp.set_position(Vector2(300,300))														#Appears at (0,0)
 #	print ("enemy :" + str(enemy_pos_comp.get_position()))
 	
-	ECS.add_component(rainNode, ComponentsLibrary.Movement)
-	ECS.add_component(rainNode, ComponentsLibrary.Position)
+#	ECS.add_component(rainNode, ComponentsLibrary.Movement)
+#	ECS.add_component(rainNode, ComponentsLibrary.Position)
 #	var rain_spawn = ECS.add_component(rainNode, ComponentsLibrary.Rain) as RainComponent
 	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
