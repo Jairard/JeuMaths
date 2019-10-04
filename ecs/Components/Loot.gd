@@ -27,6 +27,7 @@ func get_loots() -> Node2D:
 		if resource == null:
 			return null
 		return resource.instance()
+		print (resource)
 
 	
 	

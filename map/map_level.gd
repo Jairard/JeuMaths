@@ -77,7 +77,6 @@ func load_characters() :
 	add_child(rainNode)
 	rainNode.set_name("rain")
 	
-#	fire_spawn()
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	enemy_pos_comp.set_position(Vector2(300,300))														#Appears at (0,0)
@@ -108,9 +107,9 @@ func load_characters() :
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
-#	var lootDict_monster = { {gold : 10}, {xp : 10}, {health : 5, damage : 5, null : 90} }
-#	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
-#	loot_comp_monster.init(lootDict_monster)
+	var lootDict_monster = [ {gold : 10}]#, {xp : 10}, {health : 5, damage : 5, null : 90} ]
+	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
+	loot_comp_monster.init(lootDict_monster)
 	
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
@@ -172,26 +171,6 @@ func _on_Button_pressed():
 	dict["xp"] = GLOBAL.xp
 	save_ressources()
 	get_tree().change_scene("res://map/Start.tscn")
-
-func treasure_spawn() :
-	
-#	var treasure_pos = monsterNode.get_position()
-#	print (treasure_pos)
-#	add_child(treasure.instance())
-#	treasure.instance().set_position(treasure_pos) 
-#	var test = treasure.instance().get_position()
-	pass
-	
-func fire_spawn():
-	
-#	var smoke_pos = get_node("hero").get_position()
-#	smoke_pos.y += 50
-#	var smoke_Node = smoke_spawn.instance()
-	var fire_Node = spawn_fire.instance()
-	fire_Node.set_position(Vector2(800,400)) 
-	add_child(fire_Node)
-	
-	
 
 #func rain_spawn():
 #	randomize()

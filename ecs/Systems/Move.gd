@@ -29,6 +29,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if move_comp.is_jumping() == true and move_comp.get_node().is_on_floor():
 		velocity.y = jump_impulse
 		move_comp.set_is_jumping(false)
+	print (move_comp.jump)
 	
 	pos_comp.move_and_slide(velocity)
 	
