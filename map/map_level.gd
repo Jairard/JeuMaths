@@ -232,5 +232,12 @@ func save_ressources():
 #	file.close()
 	pass
 func _on_Timer_timeout():
-
-	add_child(spawn_fire.instance())
+	ECS.register_system(SystemsLibrary.Bullet)
+	
+	var FireNode = spawn_fire.instance()
+	add_child(FireNode)
+	FireNode.set_name("fire")
+	
+	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
+	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
+	fire_pos_comp.set_position(Vector2(1000,540))
