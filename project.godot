@@ -115,11 +115,6 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Loot.gd"
 }, {
 "base": "System",
-"class": "LootSystem",
-"language": "GDScript",
-"path": "res://ecs/Systems/Loot.gd"
-}, {
-"base": "System",
 "class": "MissileSystem",
 "language": "GDScript",
 "path": "res://ecs/Systems/Missile.gd"
@@ -231,7 +226,6 @@ _global_script_class_icons={
 "InputListenerComponent": "",
 "InputSystem": "",
 "LootComponent": "",
-"LootSystem": "",
 "MissileSystem": "",
 "MoveSystem": "",
 "MovementComponent": "",
