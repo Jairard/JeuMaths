@@ -79,6 +79,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			var colliderNode = collider as Node2D
 			if collider != null :
 				var loot = loot_comp.get_loots()
+				print (loot)
 				var colliderParent = collider.get_parent()
 				colliderParent.add_child(loot)
 				loot.set_position(collider.get_position())

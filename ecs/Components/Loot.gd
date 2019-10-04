@@ -23,7 +23,7 @@ func __get_random_resource(loots : Array) -> Resource:
 			
 func get_loots() -> Node2D:
 	for x in loots.size()-1:
-		var resource : Resource = __get_random_resource(loots)
+		var resource : Resource = __get_random_resource(loots[x])
 		if resource == null:
 			return null
 		return resource.instance()
