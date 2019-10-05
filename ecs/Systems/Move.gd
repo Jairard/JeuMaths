@@ -2,7 +2,7 @@ extends System
 
 class_name MoveSystem
 
-const gravity = 100
+const gravity = 1500
 var velocity = Vector2(0,0)
 var lateral_velocity = 250
 var jump_impulse = -900
