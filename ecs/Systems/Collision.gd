@@ -15,8 +15,6 @@ const fire_layer_bit 		: int = 8
 const gold_layer_bit 		: int = 9
 const answer_layer_bit 		: int = 10
 
-onready var treasure = preload("res://characters/treasure.tscn")
-
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, 
 			ComponentsLibrary.Bounce, ComponentsLibrary.Loot]

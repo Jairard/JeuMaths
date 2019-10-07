@@ -9,8 +9,8 @@ onready var monster 		= 	preload("res://characters/monsters.tscn")
 onready var smoke_spawn		= 	preload("res://particules_2D/smoke_2.tscn")
 onready var sparkle_spawn 	=	preload("res://particules_2D/sparkle.tscn")
 onready var spawn_fire 		= 	preload("res://particules_2D/Fire.tscn")
-onready var treasure 		= 	preload("res://characters/Gold.tscn")
-onready var gold			= 	preload("res://characters/treasure.tscn")
+onready var gold 			= 	preload("res://characters/Gold.tscn")
+onready var treasure		= 	preload("res://characters/treasure.tscn")
 #onready var xp			= 	preload("res://characters/xp.tscn")
 #onready var health			= 	preload("res://characters/health.tscn")
 
@@ -41,7 +41,7 @@ func _process(delta):
 func charger_intro() :
 	
 	load_characters()
-	var rot_gold = treasure.instance()
+	var rot_gold = gold.instance()
 	add_child(rot_gold)
 #	rain_spawn()		
 
@@ -87,13 +87,13 @@ func load_characters() :
 	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
-	ECS.add_component(heroNode, ComponentsLibrary.Loot)
+#	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
-#	var lootDict_hero = [ {gold : 5}]#, {xp : 10}, {health : 5, damage : 5, null : 90} ]
-#	var loot_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Loot) as LootComponent
-#	loot_comp_hero.init(lootDict_hero)
+	var lootDict_hero = [ {treasure : 5}]#, {xp : 10}, {health : 5, damage : 5, null : 90} ]
+	var loot_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Loot) as LootComponent
+	loot_comp_hero.init(lootDict_hero)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
