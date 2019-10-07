@@ -19,7 +19,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	velocity.x = 0
 	velocity.y += gravity * dt 
-	print (velocity.y)
 	if move_comp.get_direction() == move_comp.dir.right :
 		velocity.x += lateral_velocity
 		

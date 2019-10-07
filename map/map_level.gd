@@ -28,7 +28,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Hud)
 #	ECS.register_system(SystemsLibrary.Bullet)
-#	ECS.register_system(SystemsLibrary.Loot)
 	ECS.register_system(SystemsLibrary.Bounce)
 #	ECS.register_system(SystemsLibrary.Rain)
 	
@@ -92,13 +91,15 @@ func load_characters() :
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
+	var lootDict_hero = [ {gold : 5}]#, {xp : 10}, {health : 5, damage : 5, null : 90} ]
+	var loot_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Loot) as LootComponent
+	loot_comp_hero.init(lootDict_hero)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	
 	ECS.add_component(monsterNode, ComponentsLibrary.Position)
-	ECS.add_component(monsterNode, ComponentsLibrary.Nodegetid)
 	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
 	var animation_player_monster = monsterNode.get_node("animation_monster")

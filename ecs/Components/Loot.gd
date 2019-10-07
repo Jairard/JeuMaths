@@ -7,8 +7,9 @@ var name 	: Node2D
 
 func init(_loots : Array) -> void:
 	loots = _loots
+	print (loots)
 	
-func __get_random_resource(loots : Array) -> Resource: 			
+func __get_random_resource(loots : Dictionary) -> Resource: 			
 	var Sum : int
 	for s in loots:
 		Sum += loots[s]
@@ -22,12 +23,13 @@ func __get_random_resource(loots : Array) -> Resource:
 	return null
 			
 func get_loots() -> Node2D:
-	for x in loots.size()-1:
+	print ('loots :', loots)
+	for x in loots.size():
 		var resource : Resource = __get_random_resource(loots[x])
 		if resource == null:
 			return null
 		return resource.instance()
-		print (resource)
+		print ("1 : ",resource)
 
 	
 	

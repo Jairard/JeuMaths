@@ -41,7 +41,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var health_comp = 	components[ComponentsLibrary.Health] 	as 	HealthComponent
 	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent
 	var loot_comp   =   components[ComponentsLibrary.Loot]		as  LootComponent      
-	
+
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
@@ -79,7 +79,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			var colliderNode = collider as Node2D
 			if collider != null :
 				var loot = loot_comp.get_loots()
-				print (loot)
+				loot
+				print ("2 : ", loot)
 				var colliderParent = collider.get_parent()
 				colliderParent.add_child(loot)
 				loot.set_position(collider.get_position())
