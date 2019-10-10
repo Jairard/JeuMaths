@@ -106,7 +106,7 @@ func load_characters() :
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
-	var lootDict_monster = [ {gold : 10}, {xp : 10}, {health : 5, damage : 5, null : 90} ]
+	var lootDict_monster = [ {treasure : 10}, {xp : 10}, {health : 5, damage : 5, null : 90} ]
 	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
 	
