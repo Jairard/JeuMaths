@@ -9,7 +9,7 @@ onready var monster 		= 	preload("res://characters/monsters.tscn")
 onready var smoke_spawn		= 	preload("res://particules_2D/smoke_2.tscn")
 onready var sparkle_spawn 	=	preload("res://particules_2D/sparkle.tscn")
 onready var spawn_fire 		= 	preload("res://particules_2D/Fire.tscn")
-onready var treasure 		= 	preload("res://characters/treasure.tscn")
+#onready var treasure 		= 	preload("res://characters/treasure.tscn")
 onready var gold			= 	preload("res://characters/gold.tscn")
 onready var xp				= 	preload("res://characters/Xp.tscn")
 onready var damage			= 	preload("res://characters/Damage.tscn")
@@ -42,8 +42,8 @@ func _process(delta):
 func charger_intro() :
 	
 	load_characters()
-	var rot_gold = gold.instance()
-	add_child(rot_gold)
+#	var rot_gold = treasure.instance()
+#	add_child(rot_gold)
 #	rain_spawn()		
 
 

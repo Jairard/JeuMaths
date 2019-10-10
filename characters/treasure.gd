@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Node2D
 
 func _ready():
-	$AnimationPlayer.play("gold")
+	$CanvasLayer/KinematicBody2D/AnimationPlayer.play("anim_gold")

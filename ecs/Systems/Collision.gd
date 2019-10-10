@@ -7,13 +7,15 @@ const hero_layer_bit 		: int = 0
 const wall_layer_bit 		: int = 1
 const enemy_layer_bit 		: int = 2
 const spell_layer_bit 		: int = 3
-const coin_layer_bit 		: int = 4
-const loot_layer_bit 		: int = 5
+const rain_layer_bit 		: int = 4
+const xp_layer_bit 			: int = 5
 const monster_layer_bit 	: int = 6
 const missile_layer_bit 	: int = 7
 const fire_layer_bit 		: int = 8
 const gold_layer_bit 		: int = 9
 const answer_layer_bit 		: int = 10
+const damage_layer_bit 		: int = 11
+const health_layer_bit 		: int = 12
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, 
@@ -101,16 +103,16 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Spell collision !")
 			collider.queue_free()
 			
-		if (has_collision_layer(collider,coin_layer_bit) == true 
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# COIN
+		if (has_collision_layer(collider,rain_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# RAIN
 
 			print("Rain collision !")
 			collider.queue_free()
 
-		if (has_collision_layer(collider,loot_layer_bit) == true 
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# LOOT
+		if (has_collision_layer(collider,xp_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# XP
 
-			print("Loot collision !")
+			print("Xp collision !")
 			collider.queue_free()
 
 		if (has_collision_layer(collider,missile_layer_bit) == true 
@@ -131,6 +133,18 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD
 
 			print("Gold collision !")
+			collider.queue_free()
+		
+		if (has_collision_layer(collider,damage_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# DAMAGE
+
+			print("Damage collision !")
+			collider.queue_free()
+		
+		if (has_collision_layer(collider,health_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# HEALTH
+
+			print("Health collision !")
 			collider.queue_free()
 			
 		if (has_collision_layer(collider,answer_layer_bit) == true 				# ANSWER
