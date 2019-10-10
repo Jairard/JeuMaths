@@ -9,8 +9,8 @@ onready var monster 		= 	preload("res://characters/monsters.tscn")
 onready var smoke_spawn		= 	preload("res://particules_2D/smoke_2.tscn")
 onready var sparkle_spawn 	=	preload("res://particules_2D/sparkle.tscn")
 onready var spawn_fire 		= 	preload("res://particules_2D/Fire.tscn")
-onready var gold 			= 	preload("res://characters/Gold.tscn")
-onready var treasure		= 	preload("res://characters/treasure.tscn")
+onready var treasure 		= 	preload("res://characters/treasure.tscn")
+onready var gold			= 	preload("res://characters/gold.tscn")
 onready var xp				= 	preload("res://characters/Xp.tscn")
 onready var damage			= 	preload("res://characters/Damage.tscn")
 onready var health			= 	preload("res://characters/Health.tscn")
@@ -106,7 +106,7 @@ func load_characters() :
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
-	var lootDict_monster = [ {treasure : 10}, {xp : 10}, {health : 5, damage : 5, null : 90} ]
+	var lootDict_monster = [ {gold : 10}, {xp : 10}, {health : 5, damage : 5, null : 90} ]
 	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
 	

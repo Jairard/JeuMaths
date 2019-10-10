@@ -43,12 +43,9 @@ func spawn_loot(colliderNode : Node2D) -> bool:
 			var loot_node 		: Node2D 	= loot_comp.get_node() 
 			var loot_pos 		: Vector2 	= loot_node.get_position()
 			var loot_root		: Node2D 	= loot_node.get_parent()
-			print ("spawn",test_loot)
 			for x in test_loot:
 				loot_root.add_child(x)
 				x.set_position(loot_pos + dp)
-				print ("pooooooooooos : ", loot_pos)
-				print ("looooooooooot : ", x.get_position())
 				dp += Vector2(100,0)
 			loot_node.queue_free()
 			return true

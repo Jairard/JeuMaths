@@ -1,9 +1,9 @@
 extends Node2D
 
-onready var gold = preload("res://characters/Gold.tscn")
+onready var treasure = preload("res://characters/treasure.tscn")
 
 func _ready():
-#	add_child(gold.instance())
+	add_child(treasure.instance())
 #	GLOBAL.connect("xp", self, "set_xp")
 #	GLOBAL.connect("treasure", self, "set_treasure")
 #	GLOBAL.connect("level", self, "set_level")

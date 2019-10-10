@@ -274,12 +274,14 @@ window/size/height=640
 2d_physics/layer_3="ennemy"
 2d_physics/layer_4="spell"
 2d_physics/layer_5="rain"
-2d_physics/layer_6="loot"
+2d_physics/layer_6="xp"
 2d_physics/layer_7="monster"
 2d_physics/layer_8="missile"
 2d_physics/layer_9="fire"
 2d_physics/layer_10="gold"
 2d_physics/layer_11="answer"
+2d_physics/layer_12="damage"
+2d_physics/layer_13="health"
 
 [rendering]
 
