@@ -33,12 +33,31 @@ func has_collision_layer(collider : Object, layer : int) -> bool:
 		
 	return false
 
+func spawn_loot(colliderNode : Node2D) -> bool:
+	if colliderNode != null :
+		var colliderId = colliderNode.get_instance_id()
+		var loot_comp = EcsUtils.get_first_component_in_parent(colliderNode, ComponentsLibrary.Loot, self) as LootComponent
+		if loot_comp != null and loot_comp.get_loot_generator() == colliderNode:
+			var test_loot 		: Array		= loot_comp.get_loots()							 			
+			var dp 				: Vector2 	= Vector2(150,-50)
+			var loot_node 		: Node2D 	= loot_comp.get_node() 
+			var loot_pos 		: Vector2 	= loot_node.get_position()
+			var loot_root		: Node2D 	= loot_node.get_parent()
+			print ("spawn",test_loot)
+			for x in test_loot: 
+				loot_root.add_child(x)
+				x.set_position(loot_pos + dp)
+				print (dp)
+				dp += Vector2(100,0)
+			loot_node.queue_free()
+			return true
+	return false
+
 func _process_node(dt : float, components : Dictionary) -> void:
 	var col_comp 	= 	components[ComponentsLibrary.Collision] as 	CollisionComponent
 	var pos_comp	= 	components[ComponentsLibrary.Position] 	as 	PositionComponent
 	var health_comp = 	components[ComponentsLibrary.Health] 	as 	HealthComponent
-	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent
-	var loot_comp   =   components[ComponentsLibrary.Loot]		as  LootComponent      
+	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent  
 
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -63,6 +82,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	for col in collisions:
 		var collider = col.get_collider() 		
 		
+		
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    	# ENEMY
 			print("Enemy collision !") 
@@ -72,16 +92,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# MONSTER
 
 			print("Monster collision !")
-			collider.queue_free()
-			health_comp.set_health(health_comp.get_health() - 10)	
-			var colliderNode = collider as Node2D
-			if collider != null :
-				var loot = loot_comp.get_loots()
-				loot
-				print ("2 : ", loot)
-				var colliderParent = collider.get_parent()
-				colliderParent.add_child(loot)
-				loot.set_position(collider.get_position())
+			if spawn_loot(collider as Node2D) == false:
+				health_comp.set_health(health_comp.get_health() - 10)	
+				collider.queue_free()
+			
 			
 		if (has_collision_layer(collider,spell_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		 # SPELL
@@ -132,5 +146,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				
 			print ("Bounce !")
 			bounce_comp.set_is_bouncing(true)
-			#bounce_comp.set_normal
+#			var test = collider.get_normal()
+#			MoveUtils.vector_orthogonal(test)
 		

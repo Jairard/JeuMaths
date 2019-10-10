@@ -261,6 +261,7 @@ SystemsLibrary="*res://ecs/Systems/Library.gd"
 ArrayUtils="*res://Utils/Array_Utils.gd"
 MoveUtils="*res://Utils/MoveUtils.gd"
 RandomUtils="*res://Utils/RandomUtils.gd"
+EcsUtils="*res://Utils/EcsUtils.gd"
 
 [display]
 

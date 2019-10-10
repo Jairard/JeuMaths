@@ -14,7 +14,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bounce)
-	ECS.register_system(SystemsLibrary.Loot)
 	
 	
 	var enemyNode = enemy.instance()

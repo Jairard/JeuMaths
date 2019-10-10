@@ -11,8 +11,9 @@ onready var sparkle_spawn 	=	preload("res://particules_2D/sparkle.tscn")
 onready var spawn_fire 		= 	preload("res://particules_2D/Fire.tscn")
 onready var gold 			= 	preload("res://characters/Gold.tscn")
 onready var treasure		= 	preload("res://characters/treasure.tscn")
-#onready var xp			= 	preload("res://characters/xp.tscn")
-#onready var health			= 	preload("res://characters/health.tscn")
+onready var xp				= 	preload("res://characters/Xp.tscn")
+onready var damage			= 	preload("res://characters/Damage.tscn")
+onready var health			= 	preload("res://characters/Health.tscn")
 
 #var unique = []
 var file = File.new()
@@ -27,7 +28,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Patrol)
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Hud)
-#	ECS.register_system(SystemsLibrary.Bullet)
+	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
 #	ECS.register_system(SystemsLibrary.Rain)
 	
@@ -87,13 +88,10 @@ func load_characters() :
 	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
-#	ECS.add_component(heroNode, ComponentsLibrary.Loot)
+	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 	ECS.add_component(heroNode, ComponentsLibrary.Position)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
-	var lootDict_hero = [ {treasure : 5}]#, {xp : 10}, {health : 5, damage : 5, null : 90} ]
-	var loot_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Loot) as LootComponent
-	loot_comp_hero.init(lootDict_hero)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
@@ -108,9 +106,9 @@ func load_characters() :
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
-	var lootDict_monster = [ {gold : 10}]#, {xp : 10}, {health : 5, damage : 5, null : 90} ]
+	var lootDict_monster = [ {gold : 10}, {xp : 10}, {health : 5, damage : 5, null : 90} ]
 	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
-	loot_comp_monster.init(lootDict_monster)
+	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
 	
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
@@ -194,7 +192,6 @@ func save_ressources():
 #	file.close()
 	pass
 func _on_Timer_timeout():
-	ECS.register_system(SystemsLibrary.Bullet)
 	
 	var FireNode = spawn_fire.instance()
 	add_child(FireNode)

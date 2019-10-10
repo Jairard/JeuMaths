@@ -44,6 +44,6 @@ position = Vector2( 0, 1.90735e-006 )
 collision_layer = 64
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="head"]
-position = Vector2( -7.36932, -25.9946 )
+position = Vector2( -4.58499, -25.2985 )
 scale = Vector2( 1.18515, 0.161995 )
-polygon = PoolVector2Array( -12.275, 16.6539, 7.85504, 7.84288, 18.6226, 7.1665, 22.9956, 14.1365, 10.062, -5.74731, 6.99479, -8.52054, -2.48785, -4.51758 )
+polygon = PoolVector2Array( -12.1605, 22.0487, 7.85504, 7.84288, 18.6226, 7.1665, 22.9956, 14.1365, 10.062, -5.74731, 6.99479, -8.52054, -2.48785, -4.51758 )

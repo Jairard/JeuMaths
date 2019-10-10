@@ -2,12 +2,16 @@ extends Component
 
 class_name LootComponent
 
-var loots	: Array
-var name 	: Node2D
+var loots			: Array
+var loot_generator 	: Node2D
 
-func init(_loots : Array) -> void:
+func get_loot_generator() -> Node2D:
+	return loot_generator
+
+func init(_loots : Array, _loot_generator : Node2D) -> void:
 	loots = _loots
-	print (loots)
+	loot_generator = _loot_generator
+	print ("loot stocké : ",loots)
 	
 func __get_random_resource(loots : Dictionary) -> Resource: 			
 	var Sum : int
@@ -22,14 +26,13 @@ func __get_random_resource(loots : Dictionary) -> Resource:
 			return key
 	return null
 			
-func get_loots() -> Node2D:
-	print ('loots :', loots)
-	for x in loots.size():
-		var resource : Resource = __get_random_resource(loots[x])
-		if resource == null:
-			return null
-		return resource.instance()
-		print ("1 : ",resource)
+func get_loots() -> Array:
+	var loots_Array = []
+	for x in loots:
+		var resource : Resource = __get_random_resource(x)
+		if resource != null: 
+			loots_Array.append(resource.instance())
+	return loots_Array
 
 	
 	
