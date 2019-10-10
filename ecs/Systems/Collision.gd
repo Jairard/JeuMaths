@@ -19,7 +19,8 @@ const health_layer_bit 		: int = 12
 
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, 
-			ComponentsLibrary.Bounce, ComponentsLibrary.Loot]
+			ComponentsLibrary.Bounce, ComponentsLibrary.Loot, ComponentsLibrary.Xp, 
+			ComponentsLibrary.Treasure, ComponentsLibrary.Damage]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
@@ -54,10 +55,13 @@ func spawn_loot(colliderNode : Node2D) -> bool:
 	return false
 
 func _process_node(dt : float, components : Dictionary) -> void:
-	var col_comp 	= 	components[ComponentsLibrary.Collision] as 	CollisionComponent
-	var pos_comp	= 	components[ComponentsLibrary.Position] 	as 	PositionComponent
-	var health_comp = 	components[ComponentsLibrary.Health] 	as 	HealthComponent
-	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent  
+	var col_comp 		= 	components[ComponentsLibrary.Collision] as 	CollisionComponent
+	var pos_comp		= 	components[ComponentsLibrary.Position] 	as 	PositionComponent
+	var health_comp 	= 	components[ComponentsLibrary.Health] 	as 	HealthComponent
+	var bounce_comp		= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent
+	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as XpComponent
+	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
+	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
 
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -113,6 +117,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# XP
 
 			print("Xp collision !")
+			xp_comp.set_xp(xp_comp.get_xp() + 10)
 			collider.queue_free()
 
 		if (has_collision_layer(collider,missile_layer_bit) == true 
@@ -133,18 +138,21 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD
 
 			print("Gold collision !")
+			treasure_comp.set_treasure(treasure_comp.get_treasure() + 10)
 			collider.queue_free()
 		
 		if (has_collision_layer(collider,damage_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# DAMAGE
 
 			print("Damage collision !")
+			damage_comp.set_damage(damage_comp.get_damage() + 10)
 			collider.queue_free()
 		
 		if (has_collision_layer(collider,health_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# HEALTH
 
 			print("Health collision !")
+			health_comp.set_health(health_comp.get_health() + 10)
 			collider.queue_free()
 			
 		if (has_collision_layer(collider,answer_layer_bit) == true 				# ANSWER
