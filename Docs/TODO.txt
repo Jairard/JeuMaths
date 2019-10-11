@@ -21,6 +21,9 @@ Priorities:
 
 	with gold, players can buy xp/health/damage bonus on shop
 
+	optional component on node
+	
+	change scene like we used to call "get_tree()"
 ---------------------------------------
 ----------------------------------------
 

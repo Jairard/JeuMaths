@@ -174,7 +174,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(answer_layer_bit) == true): 
 				
 			print ("Bounce !")
-			bounce_comp.set_is_bouncing(true)
-#			var test = collider.get_normal()
+			var normal = collider.get_normal()
+			print ("normal : ", normal)
+			bounce_comp.set_is_bouncing(true, normal)
 #			MoveUtils.vector_orthogonal(test)
 		
