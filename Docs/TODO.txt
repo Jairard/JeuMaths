@@ -13,9 +13,6 @@ Priorities:
 
 	speedest is the answer ==> biggest are the damages	
 
-	All 3x level player can choice between +pv or +damage
-			show it instantly on the hud  in map_fight
-
 	transition effect between scenes
 
 	sound effect for spells
@@ -23,16 +20,8 @@ Priorities:
 	visual effects for damage taken
 
 	with gold, players can buy xp/health/damage bonus on shop
-	==> when every monster die, drop gold + xp (90%)
-		==>  drop gold + xp + health (5%)
-		==>  drop gold + xp + damage (5%)
 
 ---------------------------------------
-collision area2d 
-
-system hud
-
-composant stock noeud hud
 ----------------------------------------
 
 	harder better faster stronger tamer
