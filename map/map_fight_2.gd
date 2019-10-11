@@ -37,6 +37,9 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
+	ECS.add_component(answerNode, ComponentsLibrary.Xp)
+	ECS.add_component(answerNode, ComponentsLibrary.Treasure)
+	ECS.add_component(answerNode, ComponentsLibrary.Damage)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
@@ -54,7 +57,10 @@ func _ready():
 	
 	ECS.add_component(answerNode, ComponentsLibrary.Health)
 	ECS.add_component(answerNode, ComponentsLibrary.Collision)
-	ECS.add_component(answerNode, ComponentsLibrary.Bounce)									
+	ECS.add_component(answerNode, ComponentsLibrary.Bounce)	
+	ECS.add_component(answerNode, ComponentsLibrary.Xp)
+	ECS.add_component(answerNode, ComponentsLibrary.Treasure)
+	ECS.add_component(answerNode, ComponentsLibrary.Damage)										
 	ECS.add_component(answerNode, ComponentsLibrary.Loot)
 	var comp_ans = ECS.add_component(answerNode, ComponentsLibrary.Nodegetid) 	as NodegetidComponent
 	comp_ans.init(answerNode)

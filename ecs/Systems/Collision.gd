@@ -20,7 +20,7 @@ const health_layer_bit 		: int = 12
 func _get_used_components() -> Array:
 	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, 
 			ComponentsLibrary.Bounce, ComponentsLibrary.Loot, ComponentsLibrary.Xp, 
-			ComponentsLibrary.Treasure, ComponentsLibrary.Damage]
+			ComponentsLibrary.Treasure, ComponentsLibrary.Damage, ComponentsLibrary.Velocity]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
@@ -62,6 +62,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as XpComponent
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
+	var velocity_comp 	= 	components[ComponentsLibrary.Velocity] 	as 	VelocityComponent  
 				
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -174,8 +175,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(answer_layer_bit) == true): 
 				
 			print ("Bounce !")
-			var normal = collider.get_normal()
-			print ("normal : ", normal)
-			bounce_comp.set_is_bouncing(true, normal)
+			var normal = velocity_comp.get_velocity()
+			print (normal)
+			var test = normal.get_normal()
+			print ("normal : ", test)
+			bounce_comp.set_is_bouncing(true, test)
 #			MoveUtils.vector_orthogonal(test)
 		
