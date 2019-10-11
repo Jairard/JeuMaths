@@ -62,9 +62,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as XpComponent
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
-	
-	print ("health : ", health_comp.health)
-	print ("health max : ", health_comp.health_max)
 				
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -119,16 +116,20 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,xp_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# XP + 10
 
-			print("Xp collision !")
-			xp_comp.set_xp(xp_comp.get_xp() + 10)
+			xp_comp.set_xp(xp_comp.get_xp() + 110)
+			if xp_comp.get_xp() >= 100:
+				xp_comp.set_lvl(xp_comp.get_lvl() + 1)
+				var new_xp = xp_comp.get_xp() - 100
+				xp_comp.set_xp(new_xp)
 			collider.queue_free()
 
 		if (has_collision_layer(collider,missile_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# MISSILE health - 10
-	
+			
 			print("Missile collision !")
 			collider.queue_free()
 			health_comp.set_health(health_comp.get_health() - 10)
+			
 			
 		if (has_collision_layer(collider,fire_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
@@ -155,13 +156,12 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# HEALTH +10
 
 			print("Health collision !")
-#			has_collision_layer(collider, health_layer_bit) == false
+			
 			if health_comp.get_health() >= health_comp.get_health_max():
 				health_comp.set_health_max(health_comp.get_health_max() + 10)
 				health_comp.set_health(health_comp.get_health_max())
 			else :
 				health_comp.set_health(health_comp.get_health() + 10)
-#			has_collision_layer(collider,health_layer_bit) == false
 			collider.queue_free()
 			
 		if (has_collision_layer(collider,answer_layer_bit) == true 				# ANSWER
