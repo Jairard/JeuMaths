@@ -145,11 +145,8 @@ func combat(valeur) :
 
 
 func _on_Button_pressed():
-	dict ["health"] = GLOBAL.pv_hero
-	dict ["health_max"] = GLOBAL.pv_hero_max
-	dict["xp"] = GLOBAL.xp
 	save_ressources()
-	get_tree().change_scene("res://map/Start.tscn")
+	get_tree().change_scene("res://map/Multiscenes.tscn")
 
 #func rain_spawn():
 #	randomize()
