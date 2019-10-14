@@ -174,11 +174,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,wall_layer_bit) == true 				# Bounce answer / wall
 			and my_body.get_collision_layer_bit(answer_layer_bit) == true): 
 				
-			print ("Bounce !")
-			var normal = velocity_comp.get_velocity()
-			print (normal)
-			var test = normal.get_normal()
-			print ("normal : ", test)
-			bounce_comp.set_is_bouncing(true, test)
-#			MoveUtils.vector_orthogonal(test)
+			var normal = col.get_normal()
+			bounce_comp.set_is_bouncing(true, normal)
 		

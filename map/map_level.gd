@@ -30,7 +30,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
-#	ECS.register_system(SystemsLibrary.Rain)
+	ECS.register_system(SystemsLibrary.Rain)
 	
 	_load_ressources()
 	charger_intro()
@@ -41,11 +41,7 @@ func _process(delta):
 	
 func charger_intro() :
 	
-	load_characters()
-#	var rot_gold = treasure.instance()
-#	add_child(rot_gold)
-#	rain_spawn()		
-
+	load_characters()		
 
 func load_characters() :
 	
@@ -74,8 +70,8 @@ func load_characters() :
 	FireNode.set_name("fire")
 	
 	var rainNode = rain.instance()
-	add_child(rainNode)
-	rainNode.set_name("rain")
+#	add_child(rainNode)
+#	rainNode.set_name("rain")
 	
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
@@ -84,7 +80,8 @@ func load_characters() :
 	
 	ECS.add_component(rainNode, ComponentsLibrary.Movement)
 	ECS.add_component(rainNode, ComponentsLibrary.Position)
-#	var rain_spawn = ECS.add_component(rainNode, ComponentsLibrary.Rain) as RainComponent
+	var rain_spawn = ECS.add_component(rainNode, ComponentsLibrary.Rain) as RainComponent
+	rain_spawn.init_interval(100,400,rainNode)
 	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
