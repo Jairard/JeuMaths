@@ -220,10 +220,11 @@ func __resolve_dependencies(systemResource : Resource) -> Array:
 
 	var dependencies = active_systems[systemResource]._get_system_dependencies()
 	for dep in dependencies:
-		if (ArrayUtils.contains(dependencies, dep)):
+		var indirectDependenciesependencies = __resolve_dependencies(dep)
+		if (ArrayUtils.contains(indirectDependenciesependencies, dep)):
 			push_error("ECS.__resolve_dependencies: there is a cyclid dependency on " + systemResource.resource_path)
 			return []
 		# We put the current dependencies at the end (they come after their own dependencies)
-		dependencies = __resolve_dependencies(dep) + dependencies
+		dependencies = indirectDependenciesependencies + dependencies
 
 	return dependencies
