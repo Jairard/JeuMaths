@@ -161,6 +161,9 @@ func __process_system(system : System, dt : float):
 		var node = instance_from_id(entityId)
 		if (node == null):
 			continue
+		if (!node.is_inside_tree()):
+			push_warning("ECS.__process_system: entity " + str(entityId) + " is not inside tree")
+			continue
 
 		var components = __get_components_for_system(system, entityId)
 		if (components != null):
