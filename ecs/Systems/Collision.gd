@@ -87,6 +87,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	for col in collisions:
 		var collider = col.get_collider() 		
 		
+		if (collider.is_queued_for_deletion() == true):
+			continue
 		
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    	# ENEMY
