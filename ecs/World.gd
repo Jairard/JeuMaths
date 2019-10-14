@@ -26,6 +26,7 @@ func __on_node_removed(node : Node) -> void:
 	# Delete all the associated components
 	for componentType in components:
 		remove_component(node, componentType, false)
+	active_entities.erase(node.get_instance_id())
 
 func __on_node_added(node : Node) -> void:
 	var isSceneChanging = (node == get_tree().get_current_scene())
