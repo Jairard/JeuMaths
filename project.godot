@@ -149,16 +149,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Components/Position.gd"
 }, {
-"base": "Component",
-"class": "RainComponent",
-"language": "GDScript",
-"path": "res://ecs/Components/Rain.gd"
-}, {
-"base": "System",
-"class": "RainSystem",
-"language": "GDScript",
-"path": "res://ecs/Systems/Rain.gd"
-}, {
 "base": "System",
 "class": "ShopSystem",
 "language": "GDScript",
@@ -233,8 +223,6 @@ _global_script_class_icons={
 "PatrolComponent": "",
 "PatrolSystem": "",
 "PositionComponent": "",
-"RainComponent": "",
-"RainSystem": "",
 "ShopSystem": "",
 "SpellComponent": "",
 "System": "",
@@ -262,6 +250,7 @@ ArrayUtils="*res://Utils/Array_Utils.gd"
 MoveUtils="*res://Utils/MoveUtils.gd"
 RandomUtils="*res://Utils/RandomUtils.gd"
 EcsUtils="*res://Utils/EcsUtils.gd"
+RainUtils="*res://Utils/RainUtils.gd"
 
 [display]
 

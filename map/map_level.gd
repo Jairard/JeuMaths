@@ -30,7 +30,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
-	ECS.register_system(SystemsLibrary.Rain)
 	
 	_load_ressources()
 	charger_intro()
@@ -77,11 +76,7 @@ func load_characters() :
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	enemy_pos_comp.set_position(Vector2(300,300))														#Appears at (0,0)
 #	print ("enemy :" + str(enemy_pos_comp.get_position()))
-	
-	ECS.add_component(rainNode, ComponentsLibrary.Movement)
-	ECS.add_component(rainNode, ComponentsLibrary.Position)
-	var rain_spawn = ECS.add_component(rainNode, ComponentsLibrary.Rain) as RainComponent
-	rain_spawn.init_interval(100,400,rainNode)
+
 	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
