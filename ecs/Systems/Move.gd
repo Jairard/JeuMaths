@@ -2,13 +2,8 @@ extends System
 
 class_name MoveSystem
 
-const gravity = 1500
-var velocity = Vector2(0,0)
-var lateral_velocity = 250
-var jump_impulse = -900
-
 func _get_used_components() -> Array:
-	return [ComponentsLibrary.Position, ComponentsLibrary.Movement]
+	return [ComponentsLibrary.Position, ComponentsLibrary.Movement, ComponentsLibrary.Gravity, ComponentsLibrary.Velocity]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Input]
@@ -16,19 +11,28 @@ func _get_system_dependencies() -> Array:
 func _process_node(dt : float, components : Dictionary) -> void:
 	var move_comp = components[ComponentsLibrary.Movement] as MovementComponent
 	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
-
-	velocity.x = 0
-	velocity.y += gravity * dt 
-	if move_comp.get_direction() == move_comp.dir.right :
-		velocity.x += lateral_velocity
-		
-	if move_comp.get_direction() == move_comp.dir.left :
-		velocity.x = -lateral_velocity
-
-	if move_comp.is_jumping() == true and move_comp.get_node().is_on_floor():
-		velocity.y = jump_impulse
-		move_comp.set_is_jumping(false)
+	var gravity_comp = components[ComponentsLibrary.Gravity] as GravityComponent
+	var velocity_comp = components[ComponentsLibrary.Velocity] as VelocityComponent
+	var node = pos_comp.get_node()
+	var velocity = velocity_comp.get_velocity()
 	
+	velocity.y += gravity_comp.get_gravity() 
+	if move_comp.get_direction() == move_comp.dir.right :
+		velocity.x = move_comp.get_lateral_velocity()
+		
+	elif move_comp.get_direction() == move_comp.dir.left :
+		velocity.x = -move_comp.get_lateral_velocity()
+
+	else :
+		velocity.x = 0
+		
+	if move_comp.is_jumping() == true :#and move_comp.get_node().is_on_floor():
+		velocity.y = -move_comp.get_jump_impulse()
+		move_comp.set_is_jumping(false)
+
+	var pos_start = pos_comp.get_position()
 	pos_comp.move_and_slide(velocity)
+	var pos_end = pos_comp.get_position()
+	velocity_comp.set_velocity((pos_end - pos_start) / dt)
 	
 	

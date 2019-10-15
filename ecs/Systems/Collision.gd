@@ -105,7 +105,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 		if (has_collision_layer(collider,rain_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# RAIN
-
+			print (collider.get_path())
 			print("Rain collision !")
 			collider.queue_free()
 

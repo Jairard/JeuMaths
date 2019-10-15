@@ -11,7 +11,6 @@ func get_loot_generator() -> Node2D:
 func init(_loots : Array, _loot_generator : Node2D) -> void:
 	loots = _loots
 	loot_generator = _loot_generator
-	print ("loot stocké : ",loots)
 	
 func __get_random_resource(loots : Dictionary) -> Resource: 			
 	var Sum : int

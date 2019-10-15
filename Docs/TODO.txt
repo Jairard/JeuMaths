@@ -25,7 +25,7 @@ Priorities:
 	
 	change scene like we used to call "get_tree()"
 ---------------------------------------
-----------------------------------------
+---------------------------------------
 
 	harder better faster stronger tamer
 
