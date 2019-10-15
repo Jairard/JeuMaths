@@ -10,12 +10,11 @@ onready var smoke_spawn		= 	preload("res://particules_2D/smoke_2.tscn")
 onready var sparkle_spawn 	=	preload("res://particules_2D/sparkle.tscn")
 onready var spawn_fire 		= 	preload("res://particules_2D/Fire.tscn")
 #onready var treasure 		= 	preload("res://characters/treasure.tscn")
-onready var gold			= 	preload("res://characters/Gold.tscn")
+onready var gold			= 	preload("res://characters/gold.tscn")
 onready var xp				= 	preload("res://characters/Xp.tscn")
 onready var damage			= 	preload("res://characters/Damage.tscn")
 onready var health			= 	preload("res://characters/Health.tscn")
 
-#var unique = []
 var file = File.new()
 var dict = {}
 	
@@ -33,10 +32,13 @@ func _ready():
 	
 	_load_ressources()
 	charger_intro()
+	spawn_rain()
 
 func _process(delta):
 	pass
 
+func spawn_rain():
+	RainUtils.spawn_at(0,200,20,100,self,rain)
 	
 func charger_intro() :
 	
@@ -67,10 +69,7 @@ func load_characters() :
 	var FireNode = spawn_fire.instance()
 	add_child(FireNode)
 	FireNode.set_name("fire")
-	
-	var rainNode = rain.instance()
-#	add_child(rainNode)
-#	rainNode.set_name("rain")
+
 	
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
