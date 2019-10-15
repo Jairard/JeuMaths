@@ -2,9 +2,10 @@ extends Component
 
 class_name RainComponent
 
-var x_min : int = 0
-var x_max : int = 0
-var node : Node2D
+var x_min	: int 		= 0
+var x_max 	: int 		= 0
+var array 	: Array 	= []
+var node 	: Node2D
 
 enum type_rain  {
 	health_bonus = 0
@@ -24,3 +25,17 @@ func init_interval(_x_min : int, _x_max : int, _node : Node2D) -> void:
 	
 func node() -> Node2D:
 	return node
+
+func spawn_rain(_array : Array) -> Object:
+	array = _array
+	for x in array:
+		if array[x] != null:
+			return node.add_child(x)
+		else :
+			return null
+	
+		
+	
+	
+	
+	
