@@ -15,30 +15,33 @@ onready var xp				= 	preload("res://characters/Xp.tscn")
 onready var damage			= 	preload("res://characters/Damage.tscn")
 onready var health			= 	preload("res://characters/Health.tscn")
 
+var wait_frame : int = 5
+
 var file = File.new()
 var dict = {}
 	
 func _ready():
 	
-	ECS.register_system(SystemsLibrary.Move)
-	ECS.register_system(SystemsLibrary.Input)
-	ECS.register_system(SystemsLibrary.Animation)
-	ECS.register_system(SystemsLibrary.Collision)
-	ECS.register_system(SystemsLibrary.Patrol)
-	ECS.register_system(SystemsLibrary.Missile)
-	ECS.register_system(SystemsLibrary.Hud)
-	ECS.register_system(SystemsLibrary.Bullet)
-	ECS.register_system(SystemsLibrary.Bounce)
-	print(get_node("CanvasLayer").get_viewport().get_visible_rect())
 	_load_ressources()
 	charger_intro()
-	spawn_rain()
+	
 
 func _process(delta):
+	wait_frame -= 1
+	if wait_frame == 0 :
+		ECS.register_system(SystemsLibrary.Move)
+		ECS.register_system(SystemsLibrary.Input)
+		ECS.register_system(SystemsLibrary.Animation)
+		ECS.register_system(SystemsLibrary.Collision)
+		ECS.register_system(SystemsLibrary.Patrol)
+		ECS.register_system(SystemsLibrary.Missile)
+		ECS.register_system(SystemsLibrary.Hud)
+		ECS.register_system(SystemsLibrary.Bullet)
+		ECS.register_system(SystemsLibrary.Bounce)
 	pass
 
 func spawn_rain():
-	RainUtils.spawn_at(0,200,20,100,self,rain)
+	RainUtils.spawn_at(2100,2200,20,100,self,rain)
 	
 func charger_intro() :
 	
@@ -193,3 +196,7 @@ func _on_Timer_timeout():
 	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
 	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
 	fire_pos_comp.set_position(Vector2(1000,540))
+
+
+func _on_Area2D_body_entered(body):
+	spawn_rain()
