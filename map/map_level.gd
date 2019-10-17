@@ -76,7 +76,7 @@ func load_characters() :
 	
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-	enemy_pos_comp.set_position(Vector2(300,300))														#Appears at (0,0)
+	enemy_pos_comp.set_position(Vector2(3500,300))														#Appears at (0,0)
 #	print ("enemy :" + str(enemy_pos_comp.get_position()))
 
 	
@@ -199,5 +199,5 @@ func _on_Timer_timeout():
 	fire_pos_comp.set_position(Vector2(1000,540))
 
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(body):  
 	spawn_rain()

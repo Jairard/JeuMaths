@@ -6,7 +6,7 @@ func dir_to_angle(dir : Vector2) -> int :
 	return angle_deg
 
 func get_direction(target_pos : Vector2, shooter_pos : Vector2) -> Vector2:
-	return (target_pos - shooter_pos).normalized()
+	return (target_pos - shooter_pos) #.normalized()
 	
 
 func get_direction_to(target_pos : Vector2, shooter_pos : Vector2, node_navigation : Node2D) -> Vector2 :
