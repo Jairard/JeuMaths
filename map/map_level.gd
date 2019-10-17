@@ -83,7 +83,8 @@ func load_characters() :
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
-	ECS.add_component(heroNode, ComponentsLibrary.Position)
+	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
+	pos_comp.set_position(Vector2(100,400))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
