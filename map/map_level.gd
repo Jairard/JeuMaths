@@ -15,30 +15,22 @@ onready var xp				= 	preload("res://characters/Xp.tscn")
 onready var damage			= 	preload("res://characters/Damage.tscn")
 onready var health			= 	preload("res://characters/Health.tscn")
 
-var wait_frame : int = 5
 
 var file = File.new()
 var dict = {}
 	
 func _ready():
-	
+	ECS.register_system(SystemsLibrary.Move)
+	ECS.register_system(SystemsLibrary.Input)
+	ECS.register_system(SystemsLibrary.Animation)
+	ECS.register_system(SystemsLibrary.Collision)
+	ECS.register_system(SystemsLibrary.Patrol)
+	ECS.register_system(SystemsLibrary.Missile)
+	ECS.register_system(SystemsLibrary.Hud)
+	ECS.register_system(SystemsLibrary.Bullet)
+	ECS.register_system(SystemsLibrary.Bounce)
 	_load_ressources()
 	charger_intro()
-	
-
-func _process(delta):
-	wait_frame -= 1
-	if wait_frame == 0 :
-		ECS.register_system(SystemsLibrary.Move)
-		ECS.register_system(SystemsLibrary.Input)
-		ECS.register_system(SystemsLibrary.Animation)
-		ECS.register_system(SystemsLibrary.Collision)
-		ECS.register_system(SystemsLibrary.Patrol)
-		ECS.register_system(SystemsLibrary.Missile)
-		ECS.register_system(SystemsLibrary.Hud)
-		ECS.register_system(SystemsLibrary.Bullet)
-		ECS.register_system(SystemsLibrary.Bounce)
-	pass
 
 func spawn_rain():
 	RainUtils.spawn_at(2100,2200,20,100,self,rain)

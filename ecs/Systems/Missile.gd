@@ -23,7 +23,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		# Compute path and move
 		var node_navigation = misl_comp.get_node().get_parent().get_node("Navigation2D")
 		var dir_to = MoveUtils.get_direction_to(target_pos, shooter_pos, node_navigation)
-		var dir = MoveUtils.get_direction(target_pos, shooter_pos)
+		var dir = target_pos - shooter_pos
 		# Compute orientation
 		if  dir.x >= -1500 :
 			pos_comp.move_and_slide(dir_to * speed)

@@ -33,6 +33,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var pos_start = pos_comp.get_position()
 	pos_comp.move_and_slide(velocity)
 	var pos_end = pos_comp.get_position()
-	velocity_comp.set_velocity((pos_end - pos_start) / dt)
+	if dt != 0 :
+		velocity_comp.set_velocity((pos_end - pos_start) / dt)
+		
 	
 	
