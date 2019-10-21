@@ -29,12 +29,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if move_comp.is_jumping() == true and move_comp.get_node().is_on_floor():
 		velocity.y = -move_comp.get_jump_impulse()
 		move_comp.set_is_jumping(false)
-
-	var pos_start = pos_comp.get_position()
-	pos_comp.move_and_slide(velocity)
-	var pos_end = pos_comp.get_position()
-	if dt != 0 :
-		velocity_comp.set_velocity((pos_end - pos_start) / dt)
+	velocity_comp.set_velocity(velocity)
+	MoveUtils.move_and_slide(pos_comp, velocity_comp, dt)
 		
 	
 	

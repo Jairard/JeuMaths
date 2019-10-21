@@ -170,4 +170,4 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(answer_layer_bit) == true): 
 
 			var normal = col.get_normal()
-			bounce_comp.set_is_bouncing(true, normal)
+			bounce_comp.set_is_bouncing(normal)

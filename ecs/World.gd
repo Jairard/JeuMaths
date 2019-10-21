@@ -209,8 +209,7 @@ func __order_systems_IFN() -> bool:
 		# For each one of them, we check that they are registered and add them to the ordered list
 		for dep in missing_dependencies:
 			if (not active_systems.has(dep)):
-				push_error("ECS.__order_systems_IFN: system " + systemResource.resource_path + " has dependecy on system " + dep.resource_path + " but it's not registered")
-				return false
+				continue
 			ordered_systems.push_back(dep)
 		# And finally we push the current system
 		ordered_systems.push_back(systemResource)

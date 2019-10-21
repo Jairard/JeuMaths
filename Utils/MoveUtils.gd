@@ -34,7 +34,14 @@ func line(_fire_spawn : Vector2) -> float:
 	var fire_spawn 	: Vector2 	= _fire_spawn		
 	var stop		: int 		= _fire_spawn.x - 1000
 	return fire_spawn.x - stop
+
+func move_and_slide(pos : PositionComponent, vel : VelocityComponent, dt : float) -> void:
+	var pos_start = pos.get_position()
+	var velocity = vel.get_velocity()
+	var slide = pos.move_and_slide(velocity)
+	var pos_end = pos.get_position()
+	if dt != 0 :
+		var actual_velocity = ((pos_end - pos_start).length()) / dt
+		print ((pos_end - pos_start).length() , "    " , slide.length())
+		vel.set_velocity(actual_velocity * slide.normalized())	
 	
-	
-	
-		

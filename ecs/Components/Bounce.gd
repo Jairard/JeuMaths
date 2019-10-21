@@ -11,6 +11,9 @@ func is_bouncing() -> bool :
 func get_normal() -> Vector2:
 	return normal
 
-func set_is_bouncing(value : bool, _normal : Vector2) -> void :			
-	bounce = value
+func set_is_bouncing(_normal : Vector2) -> void :			
+	bounce = true
 	normal = _normal
+	
+func stop_bouncing() -> void:
+	bounce = false

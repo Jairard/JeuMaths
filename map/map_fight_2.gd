@@ -34,12 +34,16 @@ func _ready():
 	
 	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
-	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
 	ECS.add_component(heroNode, ComponentsLibrary.Damage)
+	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
+	gravity_comp.set_gravity(20)
+	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
+	move_comp.set_jump_impulse(650)
+	move_comp.set_lateral_velocity(300)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
