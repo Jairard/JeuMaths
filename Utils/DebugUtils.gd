@@ -106,6 +106,9 @@ func _process(delta : float) -> void:
 		shapes.remove(i)
 		counters.remove(i)
 
+	if (len(shapesToRemove) > 0):
+		update()
+
 func _draw():
 	for shape in shapes:
 		shape.draw(self)
