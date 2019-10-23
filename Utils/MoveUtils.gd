@@ -42,6 +42,5 @@ func move_and_slide(pos : PositionComponent, vel : VelocityComponent, dt : float
 	var pos_end = pos.get_position()
 	if dt != 0 :
 		var actual_velocity = ((pos_end - pos_start).length()) / dt
-		print ((pos_end - pos_start).length() , "    " , slide.length())
 		vel.set_velocity(actual_velocity * slide.normalized())	
 	

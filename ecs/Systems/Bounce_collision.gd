@@ -15,7 +15,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	var current_velocity = vel_comp.get_velocity()
 	if bounce_comp.is_bouncing() == true :
-		print (current_velocity)				
 		var normal : Vector2 = bounce_comp.get_normal()
 		if normal.x == -1 or normal.x == 1:
 			current_velocity.x *= (-1)
@@ -23,7 +22,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			current_velocity.y *= (-1)
 		vel_comp.set_velocity(current_velocity)
 		bounce_comp.stop_bouncing()
-		print (current_velocity)	
 	pos_comp.move_and_slide(current_velocity)
 	
 	

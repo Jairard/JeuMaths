@@ -201,7 +201,6 @@ func __order_systems_IFN() -> bool:
 		# If it's already in the ordered list, skip it.
 		# It means that it is a dependency of a previously visited system
 		if (ArrayUtils.contains(ordered_systems, systemResource)):
-			print(systemResource.resource_path + " is already ordered")
 			continue
 
 		# Else we compute all the dependencies (recursively)
