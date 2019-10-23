@@ -1,5 +1,6 @@
 extends Node2D
 
+#### Shapes ####
 class DebugShape:
 	var id : int = 0
 
@@ -43,6 +44,7 @@ class Rect extends DebugShape:
 				renderer.draw_rect(area, insideColor, true)
 			renderer.draw_rect(area, outlineColor, false)
 
+#### DebugRenderer methods ####
 var shapes : Array = []
 var counters : Array = []
 var last_id : int = 0
