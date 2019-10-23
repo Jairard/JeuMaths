@@ -2,8 +2,6 @@ extends Component
 
 class_name PositionComponent
 
-var angle_deg = 0
-
 func get_position() -> Vector2:
 	return get_node().get_position()
 

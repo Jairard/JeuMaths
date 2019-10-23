@@ -2,7 +2,6 @@ extends System
 
 class_name MissileSystem
 
-var velocity : Vector2
 var speed : int = 150
 
 func _get_used_components() -> Array:

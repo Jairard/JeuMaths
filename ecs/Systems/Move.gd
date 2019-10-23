@@ -13,7 +13,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var pos_comp = components[ComponentsLibrary.Position] as PositionComponent
 	var gravity_comp = components[ComponentsLibrary.Gravity] as GravityComponent
 	var velocity_comp = components[ComponentsLibrary.Velocity] as VelocityComponent
-	var node = pos_comp.get_node()
 	var velocity = velocity_comp.get_velocity()
 	
 	velocity.y += gravity_comp.get_gravity() 

@@ -3,7 +3,6 @@ extends Component
 class_name XpComponent
 
 var current_xp	: int = 0
-var max_xp 		: int = 100
 var lvl 		: int = 0
  
 

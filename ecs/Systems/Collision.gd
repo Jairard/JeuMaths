@@ -38,7 +38,6 @@ func has_collision_layer(collider : Object, layer : int) -> bool:
 
 func spawn_loot(colliderNode : Node2D) -> bool:
 	if colliderNode != null :
-		var colliderId = colliderNode.get_instance_id()
 		var loot_comp = EcsUtils.get_first_component_in_parent(colliderNode, ComponentsLibrary.Loot, self) as LootComponent
 		if loot_comp != null and loot_comp.get_loot_generator() == colliderNode:
 			var test_loot 		: Array		= loot_comp.get_loots()
@@ -62,7 +61,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as XpComponent
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
-	var velocity_comp 	= 	components[ComponentsLibrary.Velocity] 	as 	VelocityComponent  
 
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
