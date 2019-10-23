@@ -46,6 +46,7 @@ class Rect extends DebugShape:
 var shapes : Array = []
 var counters : Array = []
 var last_id : int = 0
+var is_enabled : bool = false
 
 func __get_id() -> int:
 	var id = last_id
@@ -59,6 +60,11 @@ func __add_shape(shape : DebugShape,  frameCount : int) -> void:
 
 func _ready() -> void:
 	set_z_index(4096) # To be rendered on top of everything
+
+func set_is_enabled(status : bool) -> void:
+	if (is_enabled != status and !status):
+		clear()
+	is_enabled = status
 
 func add_line(from : Vector2, to : Vector2, color : Color = Color.black, frameCount : int = 1) -> int:
 	var id = __get_id()
@@ -91,8 +97,10 @@ func remove_shape(id : int) -> bool:
 	return false
 
 func _process(delta : float) -> void:
-	var shapesToRemove : Array = []
+	if (!is_enabled):
+		return
 
+	var shapesToRemove : Array = []
 	for i in range(len(shapes)):
 		var shape : DebugShape = shapes[i]
 		var remainingFrameCount : int = counters[i]
@@ -110,6 +118,7 @@ func _process(delta : float) -> void:
 		update()
 
 func _draw():
-	for shape in shapes:
-		shape.draw(self)
+	if (is_enabled):
+		for shape in shapes:
+			shape.draw(self)
 

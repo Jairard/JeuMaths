@@ -19,6 +19,7 @@ func _ready():
 	system_scopes[SystemScope.Manual] = []
 	get_tree().connect("node_removed", self, "__on_node_removed")
 	get_tree().connect("node_added", self, "__on_node_added")
+	DebugUtils.set_is_enabled(true)
 
 func __on_node_removed(node : Node) -> void:
 	if (is_processing == true):
