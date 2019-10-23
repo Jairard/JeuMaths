@@ -257,6 +257,7 @@ MoveUtils="*res://Utils/MoveUtils.gd"
 RandomUtils="*res://Utils/RandomUtils.gd"
 EcsUtils="*res://Utils/EcsUtils.gd"
 RainUtils="*res://Utils/RainUtils.gd"
+DebugUtils="*res://Utils/DebugUtils.gd"
 
 [display]
 

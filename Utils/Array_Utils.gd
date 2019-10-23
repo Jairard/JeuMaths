@@ -12,6 +12,17 @@ func contains(array: Array, elem : Object) -> bool:
 	var idx = array.find(elem)
 	return (idx != -1)
 
+func copy(array : Array) -> Array:
+	var res : Array = []
+	for elem in array:
+		res.append(elem)
+	return res
+
+func inverted(array : Array) -> Array:
+	var res = copy(array)
+	res.invert()
+	return res
+
 # Return true is all the elements of `src` are also in `dst`
 func is_included_in(src: Array, dst : Array) -> bool:
 	for elem in src:
