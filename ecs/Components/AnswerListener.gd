@@ -1,6 +1,6 @@
 extends Component
 
-class_name AnswerComponent
+class_name AnswerListenerComponent
 
 enum answer {true, false, none}
 var answr = answer.none

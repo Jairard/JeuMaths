@@ -2,13 +2,13 @@ extends Component
 
 class_name SpellComponent
 
-enum spells {fireball, arrow, sword, none}
+var spells : Dictionary = {}
 
-var init_spell = spells.none 
+func init(_spells : Dictionary) -> void:
+	spells = _spells
 
-func get_spell() -> bool :
-	return init_spell
-	
-func set_spell(spells) -> void : 	# dir : dir 
-		init_spell = spells
+func get_spell(name : String) -> Node2D :				
+	if spells.has(name):
+		return spells[name].instance()
+	return null
 

@@ -12,7 +12,8 @@ onready var game_timer = get_node("game_timer")
 
 onready var heroNode = hero.instance()
 onready var enemyNode = enemy.instance()
-onready var spellNode = spell.instance()
+
+var answer_listener = []
 
 func _ready():
 	
@@ -20,12 +21,13 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Hud)
-	ECS.register_system(SystemsLibrary.Spell)
+	ECS.register_system(SystemsLibrary.Answer)
 	
 	spawn()
 	
-	ECS.add_component(spellNode, ComponentsLibrary.Spell)
-
+	var comp_spell = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
+	comp_spell.init({"spell" : spell})
+	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.AnswerListener))
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
@@ -45,7 +47,6 @@ func spawn() :
 		
 	add_child(heroNode)
 	add_child(enemyNode)
-	add_child(spellNode)
 	enemyNode.set_position(Vector2(750,350))	
 	var sprite = $Ennemy/Sprite 
 	sprite.apply_scale(Vector2(4, 4)) 
@@ -55,8 +56,10 @@ func spawn() :
 func _on_game_timer_timeout():
 
 	time_label.hide()
-	add_child(calcul.instance())
-
+	var calcul_instance = calcul.instance()
+	calcul_instance.set_answer_listener(answer_listener)
+	add_child(calcul_instance)
+	
 
 	
 
