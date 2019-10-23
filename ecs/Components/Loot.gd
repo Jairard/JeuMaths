@@ -13,12 +13,12 @@ func init(_loots : Array, _loot_generator : Node2D) -> void:
 	loot_generator = _loot_generator
 	
 func __get_random_resource(loots : Dictionary) -> Resource: 			
-	var Sum : int
+	var Sum : int = 0
 	for s in loots:
 		Sum += loots[s]
 	var r = RandomUtils.randi_to(Sum - 1)	
 
-	var sum_weight : int
+	var sum_weight : int = 0
 	for key in loots:
 		sum_weight += loots[key]
 		if r <= sum_weight :
