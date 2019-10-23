@@ -79,11 +79,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Components/Health.gd"
 }, {
-"base": "System",
-"class": "HealthSystem",
-"language": "GDScript",
-"path": "res://ecs/Systems/Spell.gd"
-}, {
 "base": "Component",
 "class": "HudComponent",
 "language": "GDScript",
@@ -162,7 +157,12 @@ _global_script_classes=[ {
 "base": "Component",
 "class": "SpellComponent",
 "language": "GDScript",
-"path": "res://ecs/Components/Spells.gd"
+"path": "res://ecs/Components/Spell.gd"
+}, {
+"base": "System",
+"class": "SpellSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Spell.gd"
 }, {
 "base": "Object",
 "class": "System",
@@ -214,7 +214,6 @@ _global_script_class_icons={
 "DamageComponent": "",
 "GravityComponent": "",
 "HealthComponent": "",
-"HealthSystem": "",
 "HudComponent": "",
 "HudEnemyComponent": "",
 "HudEnemySystem": "",
@@ -231,6 +230,7 @@ _global_script_class_icons={
 "PositionComponent": "",
 "ShopSystem": "",
 "SpellComponent": "",
+"SpellSystem": "",
 "System": "",
 "SystemsLibrary": "",
 "TreasureComponent": "",

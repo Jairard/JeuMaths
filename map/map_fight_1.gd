@@ -4,15 +4,15 @@ onready var hero   		= preload("res://characters/hero.tscn")
 onready var enemy 		= preload("res://characters/Ennemy.tscn")
 onready var hud    		= preload("res://hud/hud_hero.tscn")
 onready var hud_pro    	= preload("res://hud/hud_enemy.tscn")
-onready var spell 		= preload("res://fight/test_spell.tscn")
-onready var spell_enemy = preload("res://fight/spell_enemy.tscn")
 onready var calcul 		= preload("res://fight/calcul.tscn")
+onready var spell		= preload("res://characters/Spell.tscn")
 
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")
 
 onready var heroNode = hero.instance()
 onready var enemyNode = enemy.instance()
+onready var spellNode = spell.instance()
 
 func _ready():
 	
@@ -20,8 +20,11 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Hud)
+	ECS.register_system(SystemsLibrary.Spell)
 	
 	spawn()
+	
+	ECS.add_component(spellNode, ComponentsLibrary.Spell)
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
@@ -42,7 +45,7 @@ func spawn() :
 		
 	add_child(heroNode)
 	add_child(enemyNode)
-	
+	add_child(spellNode)
 	enemyNode.set_position(Vector2(750,350))	
 	var sprite = $Ennemy/Sprite 
 	sprite.apply_scale(Vector2(4, 4)) 
@@ -56,5 +59,4 @@ func _on_game_timer_timeout():
 
 
 	
-
 
