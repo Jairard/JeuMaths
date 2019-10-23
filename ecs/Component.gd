@@ -9,3 +9,6 @@ func get_node() -> Node:
 
 func __set_object_id(newId : int) -> void:
 	id = newId
+
+func _on_destroyed() -> void:
+	pass

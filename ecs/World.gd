@@ -117,7 +117,9 @@ func remove_component(node : Node, componentResource : Resource, mustExist : boo
 			print("ECS.remove_component: node " + str(node) + " doesn't have a component " + componentResource.resource_path)
 		return false
 
-	typedComponents[id].free()
+	var comp = typedComponents[id]
+	comp._on_destroyed()
+	comp.free()
 	typedComponents.erase(id)
 
 	if (!active_entities.has(id)):
