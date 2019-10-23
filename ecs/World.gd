@@ -37,6 +37,7 @@ func __on_node_added(node : Node) -> void:
 		var systems = system_scopes[SystemScope.Scene]
 		while (!systems.empty()):
 			unregister_system(systems.back())
+		DebugUtils.clear()
 
 func register_system(systemResource : Resource, scope = SystemScope.Scene) -> bool:
 	if (active_systems.has(systemResource)):
