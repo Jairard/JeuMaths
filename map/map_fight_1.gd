@@ -5,7 +5,8 @@ onready var enemy 		= preload("res://characters/Ennemy.tscn")
 onready var hud    		= preload("res://hud/hud_hero.tscn")
 onready var hud_pro    	= preload("res://hud/hud_enemy.tscn")
 onready var calcul 		= preload("res://fight/calcul.tscn")
-onready var spell		= preload("res://characters/Spell.tscn")
+onready var spell_hero		= preload("res://fight/spell_hero.tscn")
+onready var spell_enemy		= preload("res://fight/spell_enemy.tscn")
 
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")
@@ -26,7 +27,7 @@ func _ready():
 	spawn()
 	
 	var comp_spell = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
-	comp_spell.init({"spell" : spell})
+	comp_spell.init({"spell_hero" : spell_hero, "spell_enemy" : spell_enemy})
 	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.AnswerListener))
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)

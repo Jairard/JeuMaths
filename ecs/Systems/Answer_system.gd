@@ -7,7 +7,9 @@ func _get_used_components() -> Array:
 
 func getspellname(answer) -> String:
 	if answer == AnswerListenerComponent.answer.true :
-		return "spell"
+		return "spell_hero"
+	if answer == AnswerListenerComponent.answer.false :
+		return "spell_enemy"
 	else :
 		return ""
 

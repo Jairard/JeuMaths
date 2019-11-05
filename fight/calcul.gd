@@ -10,11 +10,10 @@ func _ready():
 	pass
 
 func _process(delta):
-#	count += 1
-#
-#	$Sprite.rotation = count * delta
-#	$Sprite/question/MarginContainer/calcul/Sprite2.rotation = count * delta
-#	$Sprite/question/MarginContainer/calcul/Sprite3.rotation = count * delta
+	count += 1
+
+	$ans_1.rotation = count * delta
+	$ans_2.rotation = count * delta
 	pass
 	
 	
