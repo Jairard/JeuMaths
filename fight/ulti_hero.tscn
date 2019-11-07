@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://fight/spell_enemy.gd" type="Script" id=1]
+[ext_resource path="res://fight/ulti_hero.gd" type="Script" id=1]
 [ext_resource path="res://hud/spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]

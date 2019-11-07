@@ -70,6 +70,16 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Damage.gd"
 }, {
 "base": "Component",
+"class": "EmitParticulesComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Emit_particules.gd"
+}, {
+"base": "System",
+"class": "EmitParticulesSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Emit_particules.gd"
+}, {
+"base": "Component",
 "class": "GravityComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Gravity.gd"
@@ -207,6 +217,8 @@ _global_script_class_icons={
 "Component": "",
 "ComponentsLibrary": "",
 "DamageComponent": "",
+"EmitParticulesComponent": "",
+"EmitParticulesSystem": "",
 "GravityComponent": "",
 "HealthComponent": "",
 "HudComponent": "",

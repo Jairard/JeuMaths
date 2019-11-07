@@ -6,7 +6,7 @@ onready var hud    		= preload("res://hud/hud_hero.tscn")
 onready var hud_pro    	= preload("res://hud/hud_enemy.tscn")
 onready var calcul 		= preload("res://fight/calcul.tscn")
 onready var spell_hero		= preload("res://fight/spell_hero.tscn")
-onready var spell_enemy		= preload("res://fight/spell_enemy.tscn")
+onready var ulti_hero		= preload("res://fight/ulti_hero.tscn")
 
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")
@@ -14,7 +14,8 @@ onready var game_timer = get_node("game_timer")
 onready var heroNode = hero.instance()
 onready var enemyNode = enemy.instance()
 
-var answer_listener = []
+var answer_listener_hero = []
+var answer_listener_enemy = []
 
 func _ready():
 	
@@ -23,12 +24,17 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Answer)
+	ECS.register_system(SystemsLibrary.EmitPArticules)
 	
 	spawn()
 	
+	answer_listener_enemy.append(ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener))
+	answer_listener_enemy.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
+	
 	var comp_spell = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
-	comp_spell.init({"spell_hero" : spell_hero, "spell_enemy" : spell_enemy})
-	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.AnswerListener))
+	comp_spell.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})
+	answer_listener_hero.append(ECS.add_component(heroNode, ComponentsLibrary.AnswerListener))
+	answer_listener_hero.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
@@ -58,7 +64,7 @@ func _on_game_timer_timeout():
 
 	time_label.hide()
 	var calcul_instance = calcul.instance()
-	calcul_instance.set_answer_listener(answer_listener)
+	calcul_instance.set_answer_listener(answer_listener_hero, answer_listener_enemy)
 	add_child(calcul_instance)
 	
 
