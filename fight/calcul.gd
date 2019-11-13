@@ -1,12 +1,11 @@
 extends Node2D
 
 var count = 0
-var answer_listeners_hero  : Array = []
-var answer_listeners_enemy : Array = []
+var answer_listeners  : Array = []
 
-func set_answer_listener(listeners_hero : Array, listeners_enemy : Array) -> void:
-	answer_listeners_hero  = listeners_hero
-	answer_listeners_enemy = listeners_enemy
+
+func set_answer_listener(listeners : Array) -> void:
+	answer_listeners  = listeners
 	
 func _ready():
 	pass
@@ -21,29 +20,24 @@ func _process(delta):
 	
 func _on_answer_1_pressed():
 	print("lose")
-	for listener in answer_listeners_hero:
+	for listener in answer_listeners:
 		var component : AnswerListenerComponent = listener as AnswerListenerComponent
 		if component != null:	
-			component.set_answer(AnswerListenerComponent.answer.false)			
-	for listener in answer_listeners_hero:
-		var emit_component : EmitParticulesComponent = listener as EmitParticulesComponent   
-		if emit_component != null:
-			emit_component.set_emit(true)
+			component.set_answer(AnswerListenerComponent.answer.false)	
+#			print (component.get_answer())	
+
 #	clean_up()
 
 
 func _on_answer_2_pressed():
 	print("win")
-	for listener in answer_listeners_enemy:
+	for listener in answer_listeners:
 		var component : AnswerListenerComponent = listener as AnswerListenerComponent 	# object which is AnswerListenercomponent 
 		if component != null:
 			component.set_answer(AnswerListenerComponent.answer.true)
-	for listener in answer_listeners_enemy:
-		var emit_component : EmitParticulesComponent = listener as EmitParticulesComponent   
-		if emit_component != null:
-			emit_component.set_emit(true)
+#			print (component.get_answer())	
+
 			
-	# component particules2D emit = true
 #	clean_up()
 
 func clean_up():

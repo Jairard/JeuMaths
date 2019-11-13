@@ -159,6 +159,7 @@ cast_to = Vector2( 50, 0 )
 collision_mask = 36
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 offset = Vector2( 300, 0 )
 current = true
 offset_v = -1.0

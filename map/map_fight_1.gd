@@ -7,6 +7,7 @@ onready var hud_pro    	= preload("res://hud/hud_enemy.tscn")
 onready var calcul 		= preload("res://fight/calcul.tscn")
 onready var spell_hero		= preload("res://fight/spell_hero.tscn")
 onready var ulti_hero		= preload("res://fight/ulti_hero.tscn")
+onready var spell_enemy		= preload("res://fight/spell_enemy.tscn")
 
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")
@@ -14,8 +15,7 @@ onready var game_timer = get_node("game_timer")
 onready var heroNode = hero.instance()
 onready var enemyNode = enemy.instance()
 
-var answer_listener_hero = []
-var answer_listener_enemy = []
+var answer_listener = []
 
 func _ready():
 	
@@ -28,13 +28,20 @@ func _ready():
 	
 	spawn()
 	
-	answer_listener_enemy.append(ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener))
-	answer_listener_enemy.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
+	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener))
+	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
+	var answerToSpell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.AnswertoSpell)
+	answerToSpell_enemy.init({AnswerListenerComponent.answer.false : "spell_enemy"})
+	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
+	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	
-	var comp_spell = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
-	comp_spell.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})
-	answer_listener_hero.append(ECS.add_component(heroNode, ComponentsLibrary.AnswerListener))
-	answer_listener_hero.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
+	
+	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
+	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
+	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.AnswerListener))
+	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
+	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell)
+	answerToSpell_hero.init({AnswerListenerComponent.answer.true : "spell_hero"})
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
@@ -64,7 +71,7 @@ func _on_game_timer_timeout():
 
 	time_label.hide()
 	var calcul_instance = calcul.instance()
-	calcul_instance.set_answer_listener(answer_listener_hero, answer_listener_enemy)
+	calcul_instance.set_answer_listener(answer_listener)
 	add_child(calcul_instance)
 	
 

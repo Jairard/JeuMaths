@@ -10,4 +10,3 @@ func get_answer() :
 	
 func set_answer(answer) -> void :
 	answr = answer
-	

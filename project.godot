@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://ecs/Systems/Answer_system.gd"
 }, {
 "base": "Component",
+"class": "AnswertoSpellComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/AnswertoSpell.gd"
+}, {
+"base": "Component",
 "class": "BounceComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Bounce.gd"
@@ -209,6 +214,7 @@ _global_script_class_icons={
 "AnimationSystem": "",
 "AnswerListenerComponent": "",
 "AnswerSystem": "",
+"AnswertoSpellComponent": "",
 "BounceComponent": "",
 "BounceSystem": "",
 "BulletComponent": "",
