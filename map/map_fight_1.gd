@@ -25,13 +25,17 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Answer)
 	ECS.register_system(SystemsLibrary.EmitPArticules)
+	ECS.register_system(SystemsLibrary.Missile)
 	
 	spawn()
 	
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener))
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
-	var answerToSpell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.AnswertoSpell)
-	answerToSpell_enemy.init({AnswerListenerComponent.answer.false : "spell_enemy"})
+	var answerToSpell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
+	answerToSpell_enemy.init({AnswerListenerComponent.answer.false : 
+																	{AnswertoSpellComponent.property.name :"spell_enemy",
+																	 AnswertoSpellComponent.property.target : heroNode}
+																	})
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	
@@ -40,8 +44,11 @@ func _ready():
 	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
 	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.AnswerListener))
 	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
-	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell)
-	answerToSpell_hero.init({AnswerListenerComponent.answer.true : "spell_hero"})
+	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
+	answerToSpell_hero.init({AnswerListenerComponent.answer.true : 
+																	{AnswertoSpellComponent.property.name :"spell_hero",
+																	 AnswertoSpellComponent.property.target : enemyNode}
+																	})
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)

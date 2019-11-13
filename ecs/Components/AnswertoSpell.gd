@@ -2,12 +2,25 @@ extends Component
 
 class_name AnswertoSpellComponent
 
-var spells : Dictionary = 	{}
+enum property {name, target}
+var spell_properties : Dictionary = {}
 
-func get_spell_name(key) -> String: 
-	if spells.has(key):
-		return spells[key]
-	return ""
+func get_spell_properties(key) -> Dictionary: 
+	if spell_properties.has(key):
+		return spell_properties[key]
+	return {}
 	
+func get_spell_name(key) -> String:
+	var spell_properties = get_spell_properties(key)								
+	if spell_properties.has(property.name):
+		return spell_properties[property.name]
+	return ""
+
+func get_spell_target(key) -> Node2D:
+	var spell_properties = get_spell_properties(key)								
+	if spell_properties.has(property.target):
+		return spell_properties[property.target]
+	return null
+
 func init(spell_name : Dictionary) -> void :
-	spells = spell_name
+	spell_properties = spell_name
