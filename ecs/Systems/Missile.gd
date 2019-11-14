@@ -18,8 +18,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	if target_pos_comp != null :
 		
-		var target_pos = target_pos_comp.get_node().to_global(target_pos_comp.get_position()) # Hero Position
-		var missile_pos = node.to_global(pos_comp.get_position())       # Missile position
+		var target_pos = EcsUtils.get_absolute_position(target_pos_comp) # Hero Position
+		var missile_pos = EcsUtils.get_absolute_position(pos_comp)       # Missile position
 		DebugUtils.add_line(target_pos, missile_pos, Color.orange,1)
 		
 		# Compute path and move
