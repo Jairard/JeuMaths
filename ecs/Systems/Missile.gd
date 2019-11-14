@@ -13,7 +13,6 @@ func _get_system_dependencies() -> Array:
 func _process_node(dt : float, components : Dictionary) -> void:
 	var pos_comp		 = 	components[ComponentsLibrary.Position] 	 	 as  PositionComponent
 	var misl_comp		 = 	components[ComponentsLibrary.Nodegetid] 	 as  NodegetidComponent
-	var node : Node2D = pos_comp.get_node() as Node2D
 	var target_pos_comp = _getComponentOfEntity(misl_comp.get_target_id(), ComponentsLibrary.Position)
 
 	if target_pos_comp != null :
