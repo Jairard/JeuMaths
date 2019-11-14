@@ -31,6 +31,7 @@ func _ready():
 	
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener))
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
+	ECS.add_component(enemyNode, ComponentsLibrary.Position)
 	var answerToSpell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
 	answerToSpell_enemy.init({AnswerListenerComponent.answer.false : 
 																	{AnswertoSpellComponent.property.name :"spell_enemy",
