@@ -12,7 +12,6 @@ enum SystemScope { Scene, Manual }
 
 # TODO:
 # - init syntactic sugar ?
-# - optional component dependency
 # - add a feature to keep components between scenes
 func _ready():
 	system_scopes[SystemScope.Scene] = []
@@ -177,18 +176,29 @@ func __process_system(system : System, dt : float):
 
 # Gets all the components that the system needs
 func __get_components_for_system(system : System, id : int):
+	if (system == null):
+		return null
+
+	var mandatoryComponents = __get_components_from_types(system._get_mandatory_components(), id, true)
+	var optionalComponents = __get_components_from_types(system._get_optional_components(), id, false)
+
+	if (mandatoryComponents == null or optionalComponents == null):
+		return null
+
+	# Merge mandatory and optional components
+	var components = mandatoryComponents.duplicate()
+	for comp in optionalComponents:
+		components[comp] = optionalComponents[comp]
+	return components
+
+func __get_components_from_types(componentTypes : Array, id : int, mandatory : bool):
 	var components = {}
-	for componentType in system._get_mandatory_components():
-		if (components.has(componentType)):
-			print("ECS.__get_components_for_system: system " + system.resource_path + " uses several times the component of type " + componentType.resource_path)
-			return null
-
+	for componentType in componentTypes:
 		var component = __get_component(id, componentType)
-		if (component == null):
+		if (component == null and mandatory):
 			return null
-
 		components[componentType] = component
-		
+
 	return components
 
 # This is probably very suboptimal but it's not on a critical path and the system count should not get very high
