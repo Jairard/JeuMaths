@@ -49,7 +49,7 @@ func register_system(systemResource : Resource, scope = SystemScope.Scene) -> bo
 		EcsUtils.log_and_push_error("ECS.register_system: couldn't create system " + systemResource.resource_path)
 		return false
 
-	if (not __check_system(system)):
+	if (not __check_system(system, systemResource.resource_path)):
 		return false
 
 	ordered_systems.push_back(systemResource)
@@ -59,22 +59,18 @@ func register_system(systemResource : Resource, scope = SystemScope.Scene) -> bo
 
 	return true
 
-func __check_system(system : System) -> bool:
+func __check_system(system : System, resPath : String) -> bool:
 	# Check for doublons in mandatory components
 	var mandatoryComps = system._get_mandatory_components()
 	var mandatoryDoublons = ArrayUtils.get_doublon_indices(mandatoryComps)
 	for i in mandatoryDoublons:
-		EcsUtils.log_and_push_error("ECS.__check_system: component " + mandatoryComps[i].resource_path + " is listed several times in mandatory components")
-	if (not mandatoryDoublons.empty()):
-		return false
+		EcsUtils.log_and_push_error("ECS.__check_system: " + resPath + ": component " + mandatoryComps[i].resource_path + " is listed several times in mandatory components")
 
 	# Check for doublons in optional components
 	var optionalComps = system._get_optional_components()
 	var optionalDoublons = ArrayUtils.get_doublon_indices(optionalComps)
 	for i in optionalDoublons:
-		EcsUtils.log_and_push_error("ECS.__check_system: component " + optionalComps[i].resource_path + " is listed several times in optional components")
-	if (not optionalDoublons.empty()):
-		return false
+		EcsUtils.log_and_push_error("ECS.__check_system: " + resPath + ": component " + optionalComps[i].resource_path + " is listed several times in optional components")
 
 	# Check for components that are both in mandatory and optional components
 	ArrayUtils.remove_doublons(mandatoryComps)
@@ -82,11 +78,9 @@ func __check_system(system : System) -> bool:
 	var comps = mandatoryComps + optionalComps
 	var compDoublons = ArrayUtils.get_doublon_indices(comps)
 	for i in compDoublons:
-		EcsUtils.log_and_push_error("ECS.__check_system: component " + comps[i].resource_path + " is listed in mandatory and optional components")
-	if (not compDoublons.empty()):
-		return false
+		EcsUtils.log_and_push_error("ECS.__check_system: " + resPath + ": component " + comps[i].resource_path + " is listed in mandatory and optional components")
 
-	return true
+	return (mandatoryDoublons.empty() and optionalDoublons.empty() and compDoublons.empty())
 
 func unregister_system(systemResource : Resource) -> bool:
 	if (!active_systems.has(systemResource)):
