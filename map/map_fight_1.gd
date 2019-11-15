@@ -26,6 +26,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Answer)
 	ECS.register_system(SystemsLibrary.EmitPArticules)
 	ECS.register_system(SystemsLibrary.Missile)
+	ECS.register_system(SystemsLibrary.Collision)
 	
 	spawn()
 	
