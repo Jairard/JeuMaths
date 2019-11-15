@@ -26,3 +26,11 @@ func get_absolute_position(pos_comp : PositionComponent) -> Vector2:
 
 	# Else we are at the root of the scene so our position is already global
 	return local_pos
+
+func log_and_push_warning(msg : String):
+	print("WARNING: " + msg)
+	push_error(msg)
+
+func log_and_push_error(msg : String):
+	print("ERROR: " + msg)
+	push_error(msg)
