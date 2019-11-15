@@ -22,7 +22,7 @@ func _ready():
 
 func __on_node_removed(node : Node) -> void:
 	if (is_processing == true):
-		push_error("ECS.__on_node_removed: removing the node " + str(node) + " while processing !")
+		EcsUtils.log_and_push_error("ECS.__on_node_removed: removing the node " + str(node) + " while processing !")
 
 	# Delete all the associated components
 	for componentType in components:
@@ -41,12 +41,12 @@ func __on_node_added(node : Node) -> void:
 
 func register_system(systemResource : Resource, scope = SystemScope.Scene) -> bool:
 	if (active_systems.has(systemResource)):
-		print("ECS.register_system: system " + systemResource.resource_path + " is already registered")
+		EcsUtils.log_and_push_warning("ECS.register_system: system " + systemResource.resource_path + " is already registered")
 		return false
 
 	var system = __instanciate_system(systemResource)
 	if (system == null):
-		print("ECS.register_system: couldn't create system " + systemResource.resource_path)
+		EcsUtils.log_and_push_error("ECS.register_system: couldn't create system " + systemResource.resource_path)
 		return false
 
 	if (not __check_system(system)):
@@ -64,7 +64,7 @@ func __check_system(system : System) -> bool:
 	var mandatoryComps = system._get_mandatory_components()
 	var mandatoryDoublons = ArrayUtils.get_doublon_indices(mandatoryComps)
 	for i in mandatoryDoublons:
-		push_error("ECS.__check_system : component " + mandatoryComps[i].resource_path + " is listed several times in mandatory components")
+		EcsUtils.log_and_push_error("ECS.__check_system: component " + mandatoryComps[i].resource_path + " is listed several times in mandatory components")
 	if (not mandatoryDoublons.empty()):
 		return false
 
@@ -72,7 +72,7 @@ func __check_system(system : System) -> bool:
 	var optionalComps = system._get_optional_components()
 	var optionalDoublons = ArrayUtils.get_doublon_indices(optionalComps)
 	for i in optionalDoublons:
-		push_error("ECS.__check_system : component " + optionalComps[i].resource_path + " is listed several times in optional components")
+		EcsUtils.log_and_push_error("ECS.__check_system: component " + optionalComps[i].resource_path + " is listed several times in optional components")
 	if (not optionalDoublons.empty()):
 		return false
 
@@ -82,7 +82,7 @@ func __check_system(system : System) -> bool:
 	var comps = mandatoryComps + optionalComps
 	var compDoublons = ArrayUtils.get_doublon_indices(comps)
 	for i in compDoublons:
-		push_error("ECS.__check_system : component " + comps[i].resource_path + " is listed in mandatory and optional components")
+		EcsUtils.log_and_push_error("ECS.__check_system: component " + comps[i].resource_path + " is listed in mandatory and optional components")
 	if (not compDoublons.empty()):
 		return false
 
@@ -90,7 +90,7 @@ func __check_system(system : System) -> bool:
 
 func unregister_system(systemResource : Resource) -> bool:
 	if (!active_systems.has(systemResource)):
-		print("ECS.unregister_system: system " + systemResource.resource_path + " is not registered")
+		EcsUtils.log_and_push_warning("ECS.unregister_system: system " + systemResource.resource_path + " is not registered")
 		return false
 
 	active_systems[systemResource].free()
@@ -109,7 +109,7 @@ func __instanciate_system(systemResource : Resource) -> System:
 
 func add_component(node : Node, componentResource : Resource) -> Component:
 	if (node == null):
-		print("ECS.add_component: node is null")
+		EcsUtils.log_and_push_error("ECS.add_component: node is null")
 		return null
 
 	if (!components.has(componentResource)):
@@ -118,12 +118,12 @@ func add_component(node : Node, componentResource : Resource) -> Component:
 	var id = node.get_instance_id()
 	var typedComponents = components[componentResource]
 	if (typedComponents.has(id)):
-		print("ECS.add_component: node " + str(node) + " already has a component " + componentResource.resource_path)
+		EcsUtils.log_and_push_error("ECS.add_component: node " + str(node) + " already has a component " + componentResource.resource_path)
 		return null
 
 	var component = __instanciate_component(id, componentResource)
 	if (component == null):
-		print("ECS.add_component: couldn't create component " + componentResource.resource_path)
+		EcsUtils.log_and_push_error("ECS.add_component: couldn't create component " + componentResource.resource_path)
 		return null
 	
 	typedComponents[id] = component
@@ -136,18 +136,18 @@ func add_component(node : Node, componentResource : Resource) -> Component:
 
 func remove_component(node : Node, componentResource : Resource, mustExist : bool = true) -> bool:
 	if (node == null):
-		print("ECS.remove_component: node is null")
+		EcsUtils.log_and_push_error("ECS.remove_component: node is null")
 		return false
 
 	if (!components.has(componentResource)):
-		print("ECS.remove_component: unknown component " + componentResource.resource_path)
+		EcsUtils.log_and_push_error("ECS.remove_component: unknown component " + componentResource.resource_path)
 		return false
 
 	var id = node.get_instance_id()
 	var typedComponents = components[componentResource]
 	if (!typedComponents.has(id)):
 		if (mustExist):
-			print("ECS.remove_component: node " + str(node) + " doesn't have a component " + componentResource.resource_path)
+			EcsUtils.log_and_push_warning("ECS.remove_component: node " + str(node) + " doesn't have a component " + componentResource.resource_path)
 		return false
 
 	var comp = typedComponents[id]
@@ -156,9 +156,9 @@ func remove_component(node : Node, componentResource : Resource, mustExist : boo
 	typedComponents.erase(id)
 
 	if (!active_entities.has(id)):
-		print("ECS.remove_component: unknown entity " + str(node))
+		EcsUtils.log_and_push_error("ECS.remove_component: unknown entity " + str(node))
 	elif (active_entities[id] <= 0):
-		print("ECS.remove_component: invalid entity component count: " + str(active_entities[id]))
+		EcsUtils.log_and_push_error("ECS.remove_component: invalid entity component count: " + str(active_entities[id]))
 		active_entities.erase(id)
 	else:
 		active_entities[id] -= 1
@@ -199,7 +199,7 @@ func __process_system(system : System, dt : float):
 		if (node == null):
 			continue
 		if (!node.is_inside_tree()):
-			push_warning("ECS.__process_system: entity " + str(entityId) + " is not inside tree")
+			EcsUtils.log_and_push_warning("ECS.__process_system: entity " + str(entityId) + " is not inside tree")
 			continue
 
 		var components = __get_components_for_system(system, entityId)
@@ -271,7 +271,7 @@ func __resolve_dependencies(systemResource : Resource) -> Array:
 	for dep in dependencies:
 		var indirectDependenciesependencies = __resolve_dependencies(dep)
 		if (ArrayUtils.contains(indirectDependenciesependencies, dep)):
-			push_error("ECS.__resolve_dependencies: there is a cyclid dependency on " + systemResource.resource_path)
+			EcsUtils.log_and_push_error("ECS.__resolve_dependencies: there is a cyclid dependency on " + systemResource.resource_path)
 			return []
 		# We put the current dependencies at the end (they come after their own dependencies)
 		dependencies = indirectDependenciesependencies + dependencies
