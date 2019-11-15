@@ -178,7 +178,7 @@ func __process_system(system : System, dt : float):
 # Gets all the components that the system needs
 func __get_components_for_system(system : System, id : int):
 	var components = {}
-	for componentType in system._get_used_components():
+	for componentType in system._get_mandatory_components():
 		if (components.has(componentType)):
 			print("ECS.__get_components_for_system: system " + system.resource_path + " uses several times the component of type " + componentType.resource_path)
 			return null

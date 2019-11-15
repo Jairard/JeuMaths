@@ -2,7 +2,7 @@ extends System
 
 class_name bulletSystem
 
-func _get_used_components() -> Array:
+func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Bullet]
 
 func _process_node(dt : float, components : Dictionary) -> void:

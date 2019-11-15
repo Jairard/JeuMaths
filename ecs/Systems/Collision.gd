@@ -17,7 +17,7 @@ const answer_layer_bit 		: int = 10
 const damage_layer_bit 		: int = 11
 const health_layer_bit 		: int = 12
 
-func _get_used_components() -> Array:
+func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, 
 			ComponentsLibrary.Bounce, ComponentsLibrary.Loot, ComponentsLibrary.Xp, 
 			ComponentsLibrary.Treasure, ComponentsLibrary.Damage, ComponentsLibrary.Velocity]

@@ -2,7 +2,7 @@ extends System
 
 class_name AnswerSystem
 
-func _get_used_components() -> Array:
+func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.AnswerListener,ComponentsLibrary.Spell, ComponentsLibrary.AnswertoSpell]
 
 func init_spell(node : Node2D, target : Node2D) -> void:

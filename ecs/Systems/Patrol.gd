@@ -6,7 +6,7 @@ var right_move = true
 var left_move = false
 var velocity = Vector2(150,0)
 
-func _get_used_components() -> Array:
+func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Animation, ComponentsLibrary.Patrol, ComponentsLibrary.Position]
 
 func _process_node(dt : float, components : Dictionary) -> void:
