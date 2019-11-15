@@ -104,8 +104,8 @@ func unregister_system(systemResource : Resource) -> bool:
 	ArrayUtils.remove_IFP(ordered_systems, systemResource)
 	return true
 
-func __instanciate_system(systemResource : Resource):
-	return systemResource.new()
+func __instanciate_system(systemResource : Resource) -> System:
+	return systemResource.new() as System
 
 func add_component(node : Node, componentResource : Resource) -> Component:
 	if (node == null):
@@ -178,7 +178,7 @@ func __get_component(id : int, componentResource : Resource) -> Component:
 	return typedComponents[id]
 
 func __instanciate_component(id : int, componentResource : Resource) -> Component:
-	var component = componentResource.new()
+	var component = componentResource.new() as Component
 	component.__set_object_id(id)
 	return component
 
