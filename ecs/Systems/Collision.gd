@@ -18,10 +18,12 @@ const damage_layer_bit 		: int = 11
 const health_layer_bit 		: int = 12
 
 func _get_mandatory_components() -> Array:
+
 	return [ComponentsLibrary.Collision] 
 
 func _get_optional_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Health, 
+	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, 
 			ComponentsLibrary.Bounce, ComponentsLibrary.Loot, ComponentsLibrary.Xp, 
 			ComponentsLibrary.Treasure, ComponentsLibrary.Damage, ComponentsLibrary.Velocity]
 

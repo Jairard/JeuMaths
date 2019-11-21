@@ -2,7 +2,7 @@ extends System
 
 class_name InputSystem
 
-func _get_used_components() -> Array:
+func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Movement, ComponentsLibrary.InputListener]
 
 func _process_node(dt : float, components : Dictionary) -> void:

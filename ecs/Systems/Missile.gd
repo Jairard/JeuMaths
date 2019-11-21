@@ -4,7 +4,7 @@ class_name MissileSystem
 
 var speed : int = 150
 
-func _get_used_components() -> Array:
+func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Nodegetid, ComponentsLibrary.Position]
 
 func _get_system_dependencies() -> Array:

@@ -2,7 +2,7 @@ extends System
 
 class_name AnimationSystem
 
-func _get_used_components() -> Array:
+func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Movement, ComponentsLibrary.Animation]
 
 func _get_system_dependencies() -> Array:
