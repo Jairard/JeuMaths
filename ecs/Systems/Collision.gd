@@ -22,10 +22,9 @@ func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Collision] 
 
 func _get_optional_components() -> Array:
-	return [ComponentsLibrary.Position, ComponentsLibrary.Health, 
-	return [ComponentsLibrary.Collision, ComponentsLibrary.Position, ComponentsLibrary.Health, 
-			ComponentsLibrary.Bounce, ComponentsLibrary.Loot, ComponentsLibrary.Xp, 
-			ComponentsLibrary.Treasure, ComponentsLibrary.Damage, ComponentsLibrary.Velocity]
+	return [ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce, 
+			ComponentsLibrary.Loot, ComponentsLibrary.Xp, ComponentsLibrary.Treasure, 
+			ComponentsLibrary.Damage, ComponentsLibrary.Velocity]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
@@ -79,7 +78,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	if body != null: # If it succeeds, we can proceed
 		var collision_count : int = body.get_slide_count() # get the collision count
-		print (collision_count)
+#		print (collision_count)
 		for i in range(collision_count):
 			var current_collision = body.get_slide_collision(i) # For each collision,
 			collisions.append(current_collision)                # we append it to the array
@@ -88,7 +87,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider = col.get_collider()
 		if (collider.is_queued_for_deletion() == true):
 			continue
-		print ("collisions : ", collisions)
+#		print ("collisions : ", collisions)
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    	# ENEMY
 			print("Enemy collision !") 

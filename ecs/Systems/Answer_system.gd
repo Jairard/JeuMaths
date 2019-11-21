@@ -3,7 +3,7 @@ extends System
 class_name AnswerSystem
 
 func _get_mandatory_components() -> Array:
-	return [ComponentsLibrary.AnswerListener,ComponentsLibrary.Spell, ComponentsLibrary.AnswertoSpell]
+	return [ComponentsLibrary.AnswerListener,ComponentsLibrary.Spell, ComponentsLibrary.AnswertoSpell, ComponentsLibrary.Collision]
 
 func init_spell(node : Node2D, target : Node2D) -> void:
 	ECS.add_component(node, ComponentsLibrary.Position)
@@ -15,6 +15,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var answ 		= components[ComponentsLibrary.AnswerListener] as AnswerListenerComponent
 	var answtospell = components[ComponentsLibrary.AnswertoSpell] as AnswertoSpellComponent
 	var spl 		= components[ComponentsLibrary.Spell] as SpellComponent
+	var col_comp	= components[ComponentsLibrary.Collision] as CollisionComponent
 	
 	var answer = answ.get_answer()																#true / false / none
 	
@@ -24,5 +25,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		answtospell.get_node().add_child(spell)	
 		var target : Node2D = answtospell.get_spell_target(answer)
 		init_spell(spell,target)
-	
+		ECS.add_component(spell, ComponentsLibrary.Collision)
+		
 	answ.set_answer(AnswerListenerComponent.answer.none)

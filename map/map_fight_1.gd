@@ -41,14 +41,7 @@ func _ready():
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
-	ECS.add_component(enemyNode, ComponentsLibrary.Health)
-	ECS.add_component(enemyNode, ComponentsLibrary.Bounce)
-	ECS.add_component(enemyNode, ComponentsLibrary.Loot)
-	ECS.add_component(enemyNode, ComponentsLibrary.Xp)
-	ECS.add_component(enemyNode, ComponentsLibrary.Treasure)
 	ECS.add_component(enemyNode, ComponentsLibrary.Damage)
-	ECS.add_component(enemyNode, ComponentsLibrary.Velocity)
-	
 	
 	
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
@@ -71,8 +64,6 @@ func _ready():
 	hero_pos.set_position(Vector2(100,500))	
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Health)
-	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
-	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
 	ECS.add_component(heroNode, ComponentsLibrary.Damage)
