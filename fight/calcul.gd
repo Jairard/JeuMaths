@@ -19,7 +19,6 @@ func _process(delta):
 	
 	
 func _on_answer_1_pressed():
-	print("lose")
 	for listener in answer_listeners:
 		var component : AnswerListenerComponent = listener as AnswerListenerComponent
 		if component != null:	
@@ -30,7 +29,6 @@ func _on_answer_1_pressed():
 
 
 func _on_answer_2_pressed():
-	print("win")
 	for listener in answer_listeners:
 		var component : AnswerListenerComponent = listener as AnswerListenerComponent 	# object which is AnswerListenercomponent 
 		if component != null:

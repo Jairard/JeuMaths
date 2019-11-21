@@ -12,5 +12,5 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var emit_comp		 = 	components[ComponentsLibrary.EmitPArticules] 	 	 as  EmitParticulesComponent
 	
 	if emit_comp.get_emit() == true:
-		var test = emit_comp.get_node()
-		test.get_node("Particles2D").emitting = true
+		var test_emit = emit_comp.get_node()
+		test_emit.get_node("Particles2D").emitting = true
