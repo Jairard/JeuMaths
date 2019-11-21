@@ -18,7 +18,6 @@ const damage_layer_bit 		: int = 11
 const health_layer_bit 		: int = 12
 
 func _get_mandatory_components() -> Array:
-
 	return [ComponentsLibrary.Collision] 
 
 func _get_optional_components() -> Array:
@@ -101,11 +100,17 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				health_comp.set_health(health_comp.get_health() - 10)	
 				collider.queue_free()
 
-		if (has_collision_layer(collider,spell_layer_bit) == true 
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		 # SPELL
+		if (has_collision_layer(collider,hero_layer_bit) == true 
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true):  		 # SPELL from Enemy to Hero
 
-			print("Spell collision !")
-			collider.queue_free()
+			print("Spell collision to Hero!")
+			my_body.queue_free()
+		
+		if (has_collision_layer(collider,enemy_layer_bit) == true 
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true):  		 # SPELL from Hero to Enemy
+
+			print("Spell collision to Enemy !")
+			my_body.queue_free()
 
 		if (has_collision_layer(collider,rain_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# RAIN
