@@ -28,6 +28,7 @@ margin_bottom = 53.0
 [node name="life_ennemy" type="TextureProgress" parent="CanvasLayer/HBoxContainer/MarginContainer"]
 margin_right = 396.0
 margin_bottom = 53.0
+value = 100.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 
