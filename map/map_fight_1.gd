@@ -1,10 +1,10 @@
 extends Node2D
 
-onready var hero   		= preload("res://characters/hero.tscn")
-onready var enemy 		= preload("res://characters/Ennemy.tscn")
-onready var hud    		= preload("res://hud/hud_hero.tscn")
-onready var hud_pro    	= preload("res://hud/hud_enemy.tscn")
-onready var calcul 		= preload("res://fight/calcul.tscn")
+onready var hero   			= preload("res://characters/hero.tscn")
+onready var enemy 			= preload("res://characters/Ennemy.tscn")
+onready var hud_hero    	= preload("res://hud/hud_hero.tscn")
+onready var hud_enemy    	= preload("res://hud/hud_enemy.tscn")
+onready var calcul 			= preload("res://fight/calcul.tscn")
 onready var spell_hero		= preload("res://fight/spell_hero.tscn")
 onready var ulti_hero		= preload("res://fight/ulti_hero.tscn")
 onready var spell_enemy		= preload("res://fight/spell_enemy.tscn")
@@ -29,6 +29,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	
 	spawn()
+	load_hud()
 	
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener))
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
@@ -83,6 +84,16 @@ func spawn() :
 	var sprite = $Ennemy/Sprite 
 	sprite.apply_scale(Vector2(4, 4)) 
 	$Ennemy/CollisionShape2D.scale = Vector2(4, 4)
+	
+func load_hud():
+	var Hud_heroNode = hud_hero.instance()
+	add_child(Hud_heroNode)
+	Hud_heroNode.set_name("Hud_hero")
+	
+	var Hud_enemyNode = hud_enemy.instance()
+	add_child(Hud_enemyNode)
+	Hud_enemyNode.set_name("Hud_enemy")
+	
 	
 
 func _on_game_timer_timeout():
