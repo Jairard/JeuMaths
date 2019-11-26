@@ -70,7 +70,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
 		return
-
+#	print(col_comp.get_node())
+#	print (health_comp.get_health())
 	# Collision detection
 	var body = pos_comp.get_node() as KinematicBody2D # Try to get the node as a kinematic body
 	var collisions : Array = [] # The array in which we'll store the collisions
@@ -109,7 +110,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 		
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
-			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (health_comp != null):  		 # SPELL from Hero to Enemy
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (health_comp.get_node() != null):  		 # SPELL from Hero to Enemy
 
 			print("Spell collision to Enemy !")
 			health_comp.set_health(health_comp.get_health() - 10)
