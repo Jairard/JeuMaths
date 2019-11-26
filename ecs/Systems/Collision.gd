@@ -62,7 +62,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var pos_comp		= 	components[ComponentsLibrary.Position] 	as 	PositionComponent
 	var health_comp 	= 	components[ComponentsLibrary.Health] 	as 	HealthComponent
 	var bounce_comp		= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent
-	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as XpComponent
+	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as  XpComponent
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
 
@@ -77,16 +77,16 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	if body != null: # If it succeeds, we can proceed
 		var collision_count : int = body.get_slide_count() # get the collision count
-#		print (collision_count)
+
 		for i in range(collision_count):
 			var current_collision = body.get_slide_collision(i) # For each collision,
 			collisions.append(current_collision)                # we append it to the array
-#	print ("collisions : ", collisions)
+
 	for col in collisions:
 		var collider = col.get_collider()
 		if (collider.is_queued_for_deletion() == true):
 			continue
-#		print ("collisions : ", collisions)
+
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# ENEMY
 			print("Enemy collision !") 
