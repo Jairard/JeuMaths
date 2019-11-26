@@ -67,7 +67,6 @@ func _ready():
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_hero.init(100,100)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
-	ECS.add_component(heroNode, ComponentsLibrary.Health)
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
 	ECS.add_component(heroNode, ComponentsLibrary.Damage)
