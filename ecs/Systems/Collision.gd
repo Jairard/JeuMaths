@@ -65,7 +65,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as XpComponent
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
-	
+
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
@@ -88,7 +88,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			continue
 #		print ("collisions : ", collisions)
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    	# ENEMY
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# ENEMY
 			print("Enemy collision !") 
 			collider.queue_free()
 			
@@ -101,19 +101,22 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				collider.queue_free()
 
 		if (has_collision_layer(collider,hero_layer_bit) == true 
-			and my_body.get_collision_layer_bit(spell_layer_bit) == true):  		 # SPELL from Enemy to Hero
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true) and (health_comp != null):  		 # SPELL from Enemy to Hero
 
 			print("Spell collision to Hero!")
+			health_comp.set_health(health_comp.get_health() - 10)
 			my_body.queue_free()
+			
 		
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
-			and my_body.get_collision_layer_bit(spell_layer_bit) == true):  		 # SPELL from Hero to Enemy
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (health_comp != null):  		 # SPELL from Hero to Enemy
 
 			print("Spell collision to Enemy !")
+			health_comp.set_health(health_comp.get_health() - 10)
 			my_body.queue_free()
 
 		if (has_collision_layer(collider,rain_layer_bit) == true 
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# RAIN
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):			# RAIN
 			print (collider.get_path())
 			print("Rain collision !")
 			collider.call_deferred("free")
