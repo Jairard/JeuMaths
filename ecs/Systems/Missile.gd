@@ -41,4 +41,4 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			pos_comp.get_node().set_rotation_degrees(get_angle)
 		
 		else :
-			pos_comp.move_and_slide(dir_to * speed)
+			pos_comp.move_and_slide(dir_to * speed * 10)
