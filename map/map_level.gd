@@ -104,6 +104,8 @@ func load_characters() :
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
 	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
 	comp_missile.init(heroNode)
+	var comp_rotation = ECS.add_component(EyeNode, ComponentsLibrary.Rotation) as RotationComponent
+	comp_rotation.set_rotation(true)
 	
 	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
 	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
