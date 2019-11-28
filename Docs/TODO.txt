@@ -6,7 +6,8 @@ Priorities:
 							spell from Hero to Enemy
 			when answer is wrong ==> damage to Hero	---	
 							spell from Enemy to Hero
-		
+	
+	clear code with optionnal component	
 -----------------------------------------
 
 	circular xp gauge   
