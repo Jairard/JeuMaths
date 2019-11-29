@@ -266,7 +266,6 @@ config/icon="res://Assets/Textures/Characters/icon.png"
 
 [autoload]
 
-GLOBAL="*res://global.gd"
 ECS="*res://ecs/World.gd"
 ComponentsLibrary="*res://ecs/Components/Library.gd"
 SystemsLibrary="*res://ecs/Systems/Library.gd"
