@@ -4,13 +4,6 @@ onready var treasure = preload("res://Src/Ingame/characters/treasure.tscn")
 
 func _ready():
 	add_child(treasure.instance())
-#	GLOBAL.connect("xp", self, "set_xp")
-#	GLOBAL.connect("treasure", self, "set_treasure")
-#	GLOBAL.connect("level", self, "set_level")
-#	GLOBAL.connect("pv_hero", self, "set_pv_hero")
-#	GLOBAL.connect("pv_hero_max", self, "set_pv_hero_max")
-#	GLOBAL.connect("degats", self, "set_degats")
-	pass
 
 func get_life_hero() -> TextureProgress :
 	return $CanvasLayer/pv_hero/MarginContainer/life_hero 			as TextureProgress
