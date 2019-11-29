@@ -16,7 +16,7 @@ func _on_Log_In_pressed():
 	get_tree().change_scene("res://Src/Outgame/Login.tscn")
 
 func _on_map_level_pressed():
-	get_tree().change_scene("res://Src/Outgame/map_level.gd")
+	get_tree().change_scene("res://Src/Outgame/map_level.tscn")
 	
 func _on_Map_fight_1_pressed():
 	get_tree().change_scene("res://Src/Outgame/map_fight_1.tscn")

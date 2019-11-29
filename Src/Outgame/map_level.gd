@@ -130,13 +130,13 @@ func load_characters() :
 	
 func combat(valeur) :
 	if valeur == 0 :
-		get_tree().change_scene("res://map/map_fight.tscn")
+		get_tree().change_scene("res://Src/Outgame/map_fight_1.tscn")
 		
 
 
 func _on_Button_pressed():
 	save_ressources()
-	get_tree().change_scene("res://map/Multiscenes.tscn")
+	get_tree().change_scene("res://Src/Outgame/Multiscenes.tscn")
 
 #func rain_spawn():
 #	randomize()
