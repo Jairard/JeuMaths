@@ -261,8 +261,8 @@ _global_script_class_icons={
 [application]
 
 config/name="jeu"
-run/main_scene="res://map/Multiscenes.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Src/Outgame/Multiscenes.tscn"
+config/icon="res://Assets/Textures/Characters/icon.png"
 
 [autoload]
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Src/Ingame/characters/Ennemy.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 38.8985, 42.8537 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.577957, 1 )
+colors = PoolColorArray( 0.00585938, 0.75, 0.104691, 1, 0.828796, 1, 0.00390625, 1, 0.949219, 0.93543, 0.923264, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.570194, 0.4868 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.00279999 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 100.0
+angular_velocity = 4.63044e+027
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+scale_random = 1.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[node name="Ennemy" type="KinematicBody2D"]
+modulate = Color( 0.92549, 0.898039, 0.898039, 1 )
+collision_layer = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.666667, 0.0823529, 0.0823529, 1 )
+scale = Vector2( 1.27929, 1.37239 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 26
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 2.5, 2.5 )
+emitting = false
+amount = 500
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.26
+process_material = SubResource( 6 )

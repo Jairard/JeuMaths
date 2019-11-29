@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Src/Ingame/FX/smoke_2.gd" type="Script" id=1]
+
+
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.440585, 1 )
+colors = PoolColorArray( 0.894531, 0.146759, 0, 1, 0.300781, 0.0630972, 0.016449, 1, 0.109375, 0.0670776, 0.0670776, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.0013276, 0.0424 ), 0.0, 0.0, 0, 0, Vector2( 0.491158, 0.632 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.016 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 25.0
+angular_velocity = 59.629
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 25.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D"]
+rotation = -1.5708
+emitting = false
+amount = 100
+lifetime = 2.0
+one_shot = true
+process_material = SubResource( 5 )
+script = ExtResource( 1 )

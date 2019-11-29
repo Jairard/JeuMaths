@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Src/Ingame/FX/Fire.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 68.1068, 25.7147 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.00735294, 0.477941, 1 )
+colors = PoolColorArray( 1, 1, 0, 1, 0.847059, 0.517647, 0.054902, 0.721569, 0.956863, 0.0352941, 0.0352941, 0.482353 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.000513881, 0.7211 ), 0.0, 0.0, 0, 0, Vector2( 0.994807, 0.3251 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 18, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 25.0
+angular_velocity = 350.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 25.0
+angle = 45.0
+scale = 25.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+collision_layer = 256
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -42.6924, 1.32038 )
+rotation = -3.14159
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+rotation = -3.14159
+amount = 100
+lifetime = 2.0
+speed_scale = 6.0
+process_material = SubResource( 6 )

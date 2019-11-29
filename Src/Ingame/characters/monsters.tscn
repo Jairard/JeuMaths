@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Src/Ingame/characters/monster.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Textures/Characters/grousk.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.2805, 24.5861 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim_right"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 2 ]
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+collision_layer = 64
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.407814, 1.22344 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 5
+frame = 3
+
+[node name="animation_monster" type="AnimationPlayer" parent="."]
+anims/anim_right = SubResource( 2 )
+
+[node name="head" type="StaticBody2D" parent="."]
+position = Vector2( 0, 1.90735e-006 )
+collision_layer = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="head"]
+position = Vector2( -4.58499, -25.2985 )
+scale = Vector2( 1.18515, 0.161995 )
+polygon = PoolVector2Array( -12.1605, 22.0487, 7.85504, 7.84288, 18.6226, 7.1665, 22.9956, 14.1365, 10.062, -5.74731, 6.99479, -8.52054, -2.48785, -4.51758 )
