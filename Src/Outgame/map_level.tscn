@@ -7,11 +7,6 @@
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_png/fond droite.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_bmp/fond_volcan_bitap.bmp" type="Texture" id=6]
 
-
-
-
-
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 

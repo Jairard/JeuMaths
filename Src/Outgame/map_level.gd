@@ -28,14 +28,10 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
 	_load_ressources()
-	charger_intro()
+	load_characters()
 
 func spawn_rain():
-	RainUtils.spawn_at(2100,2200,20,100,self,rain)
-	
-func charger_intro() :
-	
-	load_characters()		
+	RainUtils.spawn_at(2100,2200,20,100,self,rain)		
 
 func load_characters() :
 	
