@@ -87,6 +87,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider = col.get_collider()
 		if (collider.is_queued_for_deletion() == true):
 			continue
+		var collider_ID : int = collider.get_instance_id() 
+		var collider_health_component : HealthComponent = _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
 
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# ENEMY
@@ -102,18 +104,20 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				collider.queue_free()
 
 		if (has_collision_layer(collider,hero_layer_bit) == true 
-			and my_body.get_collision_layer_bit(spell_layer_bit) == true) and (collider.health_comp.get_health() != null):  		 # SPELL from Enemy to Hero
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true) and (collider_health_component != null):  		 # SPELL from Enemy to Hero
 
 			print("Spell collision to Hero!")
-			health_comp.set_health(health_comp.get_health() - 10)
+			collider_health_component.set_health(collider_health_component.get_health() - 10)
+			print (collider_health_component.get_health())
 			my_body.queue_free()
 			
 		
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
-			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (health_comp.get_health() != null):  		 # SPELL from Hero to Enemy
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (collider_health_component != null):  		 # SPELL from Hero to Enemy
 
 			print("Spell collision to Enemy !")
-			health_comp.set_health(health_comp.get_health() - 10)
+			collider_health_component.set_health(collider_health_component.get_health() - 10)
+			print(collider_health_component.get_health())
 			my_body.queue_free()
 
 		if (has_collision_layer(collider,rain_layer_bit) == true 
