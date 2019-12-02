@@ -83,10 +83,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			var current_collision = body.get_slide_collision(i) # For each collision,
 			collisions.append(current_collision)                # we append it to the array
 
+	var processed_collider : Array = []
 	for col in collisions:
 		var collider = col.get_collider()
-		if (collider.is_queued_for_deletion() == true):
-			continue
+		if ArrayUtils.contains(processed_collider,collider):
+			continue											#pass to the next iteration
+		processed_collider.append(collider)
+														
 		var collider_ID : int = collider.get_instance_id() 
 		var collider_health_component : HealthComponent = _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
 
@@ -119,6 +122,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			collider_health_component.set_health(collider_health_component.get_health() - 10)
 			print(collider_health_component.get_health())
 			my_body.queue_free()
+			
 
 		if (has_collision_layer(collider,rain_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):			# RAIN
