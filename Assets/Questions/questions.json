@@ -14,7 +14,9 @@
 											"text" : "2",
 											"is_good_answer" : true
 										}
-									],
+									]
+						},
+						{
 						"question2" : "2 + 2",
 						"answers2" : 
 									[
@@ -46,7 +48,9 @@
 											"text" : "4",
 											"is_good_answer" : true
 										}
-									],
+									]
+						},
+						{
 						"question2" : "un carré a ses côtés de même ....",
 						"answers2" : 
 									[
