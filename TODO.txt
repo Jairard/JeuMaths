@@ -1,0 +1,32 @@
+@@ -1,32 +0,0 @@
+Priorities: 
+
+	send calcul --- 
+		answer	---
+			when answer is true ==> damage to Ennemy ---	
+							spell from Hero to Enemy
+			when answer is wrong ==> damage to Hero	---	
+							spell from Enemy to Hero
+	
+	clear code with optionnal component	
+-----------------------------------------
+
+	circular xp gauge   
+
+	speedest is the answer ==> biggest are the damages	
+
+	transition effect between scenes
+
+	sound effect for spells
+
+	visual effects for damage taken
+
+	with gold, players can buy xp/health/damage bonus on shop
+
+	optional component on node
+	
+	change scene like we used to call "get_tree()"
+---------------------------------------
+---------------------------------------
+
+	harder better faster stronger tamer
