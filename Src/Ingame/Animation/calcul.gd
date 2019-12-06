@@ -11,8 +11,6 @@ func load_c(path : String) -> Dictionary:
 	var file = File.new()
 	file.open(path, File.READ)
 	var text = file.get_as_text()
-#	print (file.get_as_text())
-#	var text = "{\"question\" : \"1 + 1\", \"answers\" : [{\"text\" : \"1\",\"is_good_answer\" : false},{\"text\" : \"2\",\"is_good_answer\" : true}] }"
 	var dict = parse_json(text)
 	file.close()
 	return dict
@@ -20,7 +18,7 @@ func load_c(path : String) -> Dictionary:
 func setup_question(dict : Array) -> void:
 	randomize()
 	var rq = randi() % 2
-	var ra = randi() % 2
+	var ra = randi() % 10
 	$question/MarginContainer/calcul.text = dict[rq]["questions"][ra]["question"]
 	var answers : Array = dict[rq]["questions"][ra]["answers"]
 	var ans_position : Vector2 = Vector2(0,100) 
