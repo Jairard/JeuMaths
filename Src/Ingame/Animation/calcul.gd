@@ -18,7 +18,6 @@ func load_c(path : String) -> Dictionary:
 	return dict
 	
 func setup_question(dict : Array) -> void:
-
 	randomize()
 	var rq = randi() % 2
 	var ra = randi() % 2
@@ -28,7 +27,7 @@ func setup_question(dict : Array) -> void:
 	for ans in answers:
 		var button : Button = Button.new() 
 		button.text = ans["text"]
-		ans_position.x += 50
+		ans_position.x += 100
 		button.set_position(ans_position)
 		add_child(button)
 		button.connect("pressed", self, "on_answer_pressed", [ans["is_good_answer"]])
@@ -54,10 +53,5 @@ func on_answer_pressed(is_good_answer : bool):
 		if component != null:
 			component.set_answer(answer)		
 	setup_question(load_calcul)
-#	clean_up()
-
-
-func clean_up():
-	queue_free()
 
 
