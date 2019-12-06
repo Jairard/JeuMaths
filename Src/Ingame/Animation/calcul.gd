@@ -2,8 +2,7 @@ extends Node2D
 
 var count = 0
 var answer_listeners  : Array = []
-var load_calcul = load_c("res://Assets/Questions/questions.json")
-var dict = []
+var load_calcul1 = load_c("res://Assets/Questions/questions.json")
 
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
@@ -12,17 +11,17 @@ func load_c(path : String) -> Dictionary:
 	var file = File.new()
 	file.open(path, File.READ)
 	var text = file.get_as_text()
+#	print (file.get_as_text())
+#	var text = "{\"question\" : \"1 + 1\", \"answers\" : [{\"text\" : \"1\",\"is_good_answer\" : false},{\"text\" : \"2\",\"is_good_answer\" : true}] }"
 	var dict = parse_json(text)
 	file.close()
 	return dict
 	
 func setup_question(dict : Array) -> void:
-	randomize()
-	var rq = randi() % 2
-	var ra = randi() % 2
+	print (dict[0]["questions"][0]["question1"])
 
-	$question/MarginContainer/calcul.text = dict[rq]["questions"][ra]["question"]
-	var answers : Array = dict[rq]["questions"][ra]["answers"]
+	$question/MarginContainer/calcul.text = dict[0]["questions"][0]["question1"]
+	var answers : Array = dict[0]["questions"][0]["answers1"]
 	var ans_position : Vector2 = Vector2(0,100) 
 	for ans in answers:
 		var button : Button = Button.new() 
@@ -35,7 +34,7 @@ func setup_question(dict : Array) -> void:
 
 func _ready():
 	
-	setup_question(load_calcul)
+	setup_question(load_calcul1)
 
 func _process(delta):
 	count += 1
@@ -51,10 +50,8 @@ func on_answer_pressed(is_good_answer : bool):
 	for listener in answer_listeners:
 		var component : AnswerListenerComponent = listener as AnswerListenerComponent
 		if component != null:
-			component.set_answer(answer)	
-	
-	setup_question(load_calcul)
-#	queue_free()	
+			component.set_answer(answer)		
+
 #	clean_up()
 
 

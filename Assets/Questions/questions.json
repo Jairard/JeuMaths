@@ -4,8 +4,8 @@
 		"questions" :
 					[
 						{
-						"question" : "1 + 1",
-						"answers" : [
+						"question1" : "1 + 1",
+						"answers1" : [
 										{
 											"text" : "1",
 											"is_good_answer" : false
@@ -15,10 +15,8 @@
 											"is_good_answer" : true
 										}
 									],
-						},
-						{
-						"question" : "2 + 2",
-						"answers" : 
+						"question2" : "2 + 2",
+						"answers2" : 
 									[
 										{
 											"text" : "3",
@@ -38,8 +36,8 @@
 		"questions" :
 					[
 						{
-						"question" : "un carré a .... angles droits",
-						"answers" : [
+						"question1" : "un carré a .... angles droits",
+						"answers1" : [
 										{
 											"text" : "2",
 											"is_good_answer" : false
@@ -49,10 +47,8 @@
 											"is_good_answer" : true
 										}
 									],
-						},
-						{
-						"question" : "un carré a ses côtés de même ....",
-						"answers" : 
+						"question2" : "un carré a ses côtés de même ....",
+						"answers2" : 
 									[
 										{
 											"text" : "longueur",
@@ -60,7 +56,7 @@
 										},
 										{
 											"text" : "sens",
-											"is_good_answer" : false
+											"is_good_answer" : true
 										}
 									]	
 						}				
