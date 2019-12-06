@@ -1,0 +1,65 @@
+[
+	{
+		"calculmental" : "1",
+		"questions" :
+					[
+						{
+						"question1" : "1 + 1",
+						"answers1" : [
+										{
+											"text" : "1",
+											"is_good_answer" : false
+										},
+										{
+											"text" : "2",
+											"is_good_answer" : true
+										}
+									],
+						"question2" : "2 + 2",
+						"answers2" : 
+									[
+										{
+											"text" : "3",
+											"is_good_answer" : false
+										},
+										{
+											"text" : "4",
+											"is_good_answer" : true
+										}
+									]
+						}
+					]
+	}
+	,
+	{
+		"cours" : "2",
+		"questions" :
+					[
+						{
+						"question1" : "un carré a .... angles droits",
+						"answers1" : [
+										{
+											"text" : "2",
+											"is_good_answer" : false
+										},
+										{
+											"text" : "4",
+											"is_good_answer" : true
+										}
+									],
+						"question2" : "un carré a ses côtés de même ....",
+						"answers2" : 
+									[
+										{
+											"text" : "longueur",
+											"is_good_answer" : true
+										},
+										{
+											"text" : "sens",
+											"is_good_answer" : true
+										}
+									]	
+						}				
+					]
+	}
+]
