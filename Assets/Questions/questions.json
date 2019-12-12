@@ -85,15 +85,15 @@
 							"question" : "23 - 3",
 							"answers" : [
 											{
-												"text" : "19",
+												"text" : "20",
 												"is_good_answer" : true
 											},
 											{
-												"text" : "18",
+												"text" : "19",
 												"is_good_answer" : false
 											},
 											{
-												"text" : "17",
+												"text" : "1",
 												"is_good_answer" : false
 											}
 										]
@@ -198,7 +198,7 @@
 										},
 										{
 											"text" : "sens",
-											"is_good_answer" : true
+											"is_good_answer" : false
 										}
 									]	
 						},
@@ -225,7 +225,7 @@
 											},
 											{
 												"text" : "sens",
-												"is_good_answer" : true
+												"is_good_answer" : false
 											}
 										]	
 						},
@@ -239,7 +239,7 @@
 												},
 												{
 													"text" : "sens",
-													"is_good_answer" : true
+													"is_good_answer" : false
 												}
 											]	
 						},
@@ -266,7 +266,7 @@
 										},
 										{
 											"text" : "sens",
-											"is_good_answer" : true
+											"is_good_answer" : false
 										}
 									]	
 						},
@@ -293,7 +293,7 @@
 											},
 											{
 												"text" : "sens",
-												"is_good_answer" : true
+												"is_good_answer" : false
 											}
 										]	
 						},
@@ -307,7 +307,7 @@
 												},
 												{
 													"text" : "sens",
-													"is_good_answer" : true
+													"is_good_answer" : false
 												}
 											]	
 						}				
