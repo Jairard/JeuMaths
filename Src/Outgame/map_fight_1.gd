@@ -41,9 +41,10 @@ func _ready():
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_enemy.init(50,50)
+	health_comp_enemy.init(100,100)
+	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
+	damage_comp_enemy.init(10)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
-	ECS.add_component(enemyNode, ComponentsLibrary.Damage)
 	
 	
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
@@ -69,7 +70,8 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
-	ECS.add_component(heroNode, ComponentsLibrary.Damage)
+	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
+	damage_comp_hero.init(10)
 
 	load_hud()
 	
@@ -92,7 +94,7 @@ func load_hud():
 	add_child(Hud_heroNode)
 	Hud_heroNode.set_name("Hud_hero")
 	
-	var hud_hero_comp = ECS.add_component(Hud_heroNode, ComponentsLibrary.Hud) as HudComponent
+	var hud_hero_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 	hud_hero_comp.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(), 
 	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage(), 
 	Hud_heroNode.get_xp(), Hud_heroNode.get_level(), Hud_heroNode.get_treasure())
@@ -100,6 +102,10 @@ func load_hud():
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)
 	Hud_enemyNode.set_name("Hud_enemy")
+	
+	var hud_enemy_comp = ECS.add_component(enemyNode, ComponentsLibrary.Hud) as HudComponent
+	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(), 
+	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage())
 	
 
 func _on_game_timer_timeout():
