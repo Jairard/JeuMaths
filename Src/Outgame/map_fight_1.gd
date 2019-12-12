@@ -41,7 +41,7 @@ func _ready():
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_enemy.init(100,100)
+	health_comp_enemy.init(200,200)
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp_enemy.init(10)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
@@ -104,8 +104,8 @@ func load_hud():
 	Hud_enemyNode.set_name("Hud_enemy")
 	
 	var hud_enemy_comp = ECS.add_component(enemyNode, ComponentsLibrary.Hud) as HudComponent
-	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(), 
-	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage())
+	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_ennemy_max(), 
+	Hud_enemyNode.get_life_enemy_label() ,Hud_enemyNode.get_damage())
 	
 
 func _on_game_timer_timeout():
