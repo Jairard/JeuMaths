@@ -15,9 +15,11 @@ onready var game_timer = get_node("game_timer")
 onready var heroNode = hero.instance()
 onready var enemyNode = enemy.instance()
 
-var answer_listener = []
+var calcul_instance = null
 
 func _ready():
+	
+	var answer_listener : Array = []
 	
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
@@ -30,7 +32,12 @@ func _ready():
 	
 	spawn()
 	
-	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener))
+	var listener_enemy : Component = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
+	listener_enemy.init(calcul_instance, calcul)
+	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
+	listener_hero.init(calcul_instance, calcul)
+	
+	answer_listener.append(listener_enemy)
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
 	ECS.add_component(enemyNode, ComponentsLibrary.Position)
 	var answerToSpell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
@@ -49,7 +56,7 @@ func _ready():
 	
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
-	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.AnswerListener))
+	answer_listener.append(listener_hero)
 	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
 	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
 	answerToSpell_hero.init({AnswerListenerComponent.answer.true : 
@@ -72,6 +79,8 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
 	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp_hero.init(10)
+	
+	calcul_instance.set_answer_listener(answer_listener)
 
 	load_hud()
 	
@@ -88,6 +97,9 @@ func spawn() :
 	var sprite = $Ennemy/Sprite 
 	sprite.apply_scale(Vector2(4, 4)) 
 	$Ennemy/CollisionShape2D.scale = Vector2(4, 4)
+	calcul_instance = calcul.instance()
+	calcul_instance.hide()
+	add_child(calcul_instance)
 	
 func load_hud():
 	var Hud_heroNode = hud_hero.instance()
@@ -111,9 +123,8 @@ func load_hud():
 func _on_game_timer_timeout():
 
 	time_label.hide()
-	var calcul_instance = calcul.instance()
-	calcul_instance.set_answer_listener(answer_listener)
-	add_child(calcul_instance)
+	calcul_instance.show()
+	
 	
 
 	
