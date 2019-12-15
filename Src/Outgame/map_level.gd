@@ -104,6 +104,7 @@ func load_characters() :
 	comp_rotation.set_rotation(true)
 	
 	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
+	ECS.add_component(FireNode, ComponentsLibrary.Collision)
 	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
 	fire_pos_comp.set_position(Vector2(1000,540))
 	
