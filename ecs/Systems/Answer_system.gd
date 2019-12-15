@@ -9,7 +9,8 @@ func init_spell(node : Node2D, target : Node2D) -> void:
 	ECS.add_component(node, ComponentsLibrary.Position)
 	var target_comp = ECS.add_component(node, ComponentsLibrary.Nodegetid) as NodegetidComponent
 	target_comp.init(target)	 
-
+	ECS.add_component(node, ComponentsLibrary.Collision)
+	
 func _process_node(dt : float, components : Dictionary) -> void:
 	
 	var answ 		= components[ComponentsLibrary.AnswerListener] as AnswerListenerComponent
@@ -25,6 +26,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		answtospell.get_node().add_child(spell)	
 		var target : Node2D = answtospell.get_spell_target(answer)
 		init_spell(spell,target)
-		ECS.add_component(spell, ComponentsLibrary.Collision)
+		answ.reset()
+		
 		
 	answ.set_answer(AnswerListenerComponent.answer.none)
