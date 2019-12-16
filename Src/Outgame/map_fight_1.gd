@@ -29,6 +29,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.EmitPArticules)
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Collision)
+	ECS.register_system(SystemsLibrary.Endfight)
 	
 	spawn()
 	
@@ -48,7 +49,7 @@ func _ready():
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_enemy.init(200,200)
+	health_comp_enemy.init(10,10)
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp_enemy.init(10)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
@@ -73,7 +74,7 @@ func _ready():
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	hero_pos.set_position(Vector2(100,500))	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_hero.init(100,100)
+	health_comp_hero.init(10,10)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
