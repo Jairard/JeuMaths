@@ -22,7 +22,7 @@ func init_hero(health_value : TextureProgress, health_label : Label,
 	_level = level
 	_treasure= treasure
 
-func init_enemy(health_value : TextureProgress, health_max : TextureProgress, health_label : Label, damage : Label) -> void:
+func init_enemy(health_value : TextureProgress, health_label : Label, health_max : TextureProgress, damage : Label) -> void:
 	_health_value = health_value
 	_health_label = health_label
 	_health_max = health_max
@@ -32,6 +32,9 @@ func set_health(value : int) -> void :
 	_health_value.value = value
 #	print ("value : ", value)
 	_health_label.text = str(value)
+	
+func set_health_max(value : int) -> void:
+	_health_max.max_value = value
 	
 func set_damage(value : int) -> void :
 	_damage.text = str(value)

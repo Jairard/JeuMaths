@@ -116,8 +116,8 @@ func load_hud():
 	Hud_enemyNode.set_name("Hud_enemy")
 	
 	var hud_enemy_comp = ECS.add_component(enemyNode, ComponentsLibrary.Hud) as HudComponent
-	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_ennemy_max(), 
-	Hud_enemyNode.get_life_enemy_label() ,Hud_enemyNode.get_damage())
+	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
+	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage())
 	
 
 func _on_game_timer_timeout():
