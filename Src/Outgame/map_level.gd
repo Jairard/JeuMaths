@@ -27,6 +27,8 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
+	ECS.register_system(SystemsLibrary.Stats)
+	
 	_load_ressources()
 	load_characters()
 
@@ -65,7 +67,7 @@ func load_characters() :
 	enemy_pos_comp.set_position(Vector2(3500,300))														#Appears at (0,0)
 #	print ("enemy :" + str(enemy_pos_comp.get_position()))
 
-	
+	ECS.add_component(heroNode, ComponentsLibrary.Stats)
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
