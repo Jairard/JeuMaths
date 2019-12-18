@@ -50,6 +50,16 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Bullet.gd"
 }, {
 "base": "Component",
+"class": "CharacterstatsComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Character_stats.gd"
+}, {
+"base": "System",
+"class": "CharacterstatsSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Character_stats.gd"
+}, {
+"base": "Component",
 "class": "CollisionComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Collision.gd"
@@ -228,6 +238,8 @@ _global_script_class_icons={
 "BounceComponent": "",
 "BounceSystem": "",
 "BulletComponent": "",
+"CharacterstatsComponent": "",
+"CharacterstatsSystem": "",
 "CollisionComponent": "",
 "CollisionSystem": "",
 "Component": "",

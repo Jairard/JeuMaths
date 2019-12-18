@@ -30,13 +30,42 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Endfight)
+	ECS.register_system(SystemsLibrary.Stats)
 	
 	spawn()
 	
-	var listener_enemy : Component = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
-	listener_enemy.init(calcul_instance, calcul)
 	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
 	listener_hero.init(calcul_instance, calcul)
+	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
+	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
+	answer_listener.append(listener_hero)
+	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
+	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
+	answerToSpell_hero.init({AnswerListenerComponent.answer.true : 
+																	{AnswertoSpellComponent.property.name :"spell_hero",
+																	 AnswertoSpellComponent.property.target : enemyNode}
+																	})
+	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
+	ECS.add_component(heroNode, ComponentsLibrary.Stats)
+	ECS.add_component(heroNode, ComponentsLibrary.Movement)
+	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
+	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
+	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
+	var animation_player_hero = heroNode.get_node("animation_hero")
+	comp_anim_hero.init(anim_name_hero, animation_player_hero)
+	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
+	hero_pos.set_position(Vector2(100,500))	
+	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
+#	health_comp_hero.init(100,100)
+	ECS.add_component(heroNode, ComponentsLibrary.Collision)
+	ECS.add_component(heroNode, ComponentsLibrary.Xp)
+	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
+	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
+	damage_comp_hero.init(10)
+	
+	var listener_enemy : Component = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
+	listener_enemy.init(calcul_instance, calcul)
+	
 	
 	answer_listener.append(listener_enemy)
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
@@ -49,37 +78,10 @@ func _ready():
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_enemy.init(10,10)
+	health_comp_enemy.init(health_comp_hero.health * 2,health_comp_hero.health * 2)
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp_enemy.init(10)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
-	
-	
-	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
-	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
-	answer_listener.append(listener_hero)
-	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
-	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
-	answerToSpell_hero.init({AnswerListenerComponent.answer.true : 
-																	{AnswertoSpellComponent.property.name :"spell_hero",
-																	 AnswertoSpellComponent.property.target : enemyNode}
-																	})
-	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
-	ECS.add_component(heroNode, ComponentsLibrary.Movement)
-	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
-	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
-	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
-	var animation_player_hero = heroNode.get_node("animation_hero")
-	comp_anim_hero.init(anim_name_hero, animation_player_hero)
-	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	hero_pos.set_position(Vector2(100,500))	
-	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_hero.init(10,10)
-	ECS.add_component(heroNode, ComponentsLibrary.Collision)
-	ECS.add_component(heroNode, ComponentsLibrary.Xp)
-	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
-	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
-	damage_comp_hero.init(10)
 	
 	calcul_instance.set_answer_listener(answer_listener)
 
