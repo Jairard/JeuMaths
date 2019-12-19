@@ -70,8 +70,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
 		return
-#	print(col_comp.get_node())
-#	print (health_comp.get_health())
+
 	# Collision detection
 	var body = pos_comp.get_node() as KinematicBody2D # Try to get the node as a kinematic body
 	var collisions : Array = [] # The array in which we'll store the collisions
