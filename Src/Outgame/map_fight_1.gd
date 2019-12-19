@@ -30,7 +30,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Endfight)
-	ECS.register_system(SystemsLibrary.Stats)
 	
 	spawn()
 	
@@ -46,9 +45,10 @@ func _ready():
 																	 AnswertoSpellComponent.property.target : enemyNode}
 																	})
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
-	ECS.add_component(heroNode, ComponentsLibrary.Stats)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
+	var comp_stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
+	comp_stats_hero.init_stats()
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
@@ -56,7 +56,7 @@ func _ready():
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	hero_pos.set_position(Vector2(100,500))	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
-#	health_comp_hero.init(100,100)
+	health_comp_hero.init(comp_stats_hero.health,comp_stats_hero.health)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)

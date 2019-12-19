@@ -27,7 +27,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
-	ECS.register_system(SystemsLibrary.Stats)
 	
 	_load_ressources()
 	load_characters()
@@ -67,10 +66,11 @@ func load_characters() :
 	enemy_pos_comp.set_position(Vector2(3500,300))														#Appears at (0,0)
 #	print ("enemy :" + str(enemy_pos_comp.get_position()))
 
-	ECS.add_component(heroNode, ComponentsLibrary.Stats)
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
+	var comp_stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
+	comp_stats_hero.init_stats()
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(100,400))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
@@ -119,7 +119,7 @@ func load_characters() :
 
 	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_hero.init(100,100)
+	health_comp_hero.init(comp_stats_hero.health,comp_stats_hero.health)
 	
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
 	treasure_comp.init(0)
