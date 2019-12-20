@@ -65,8 +65,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as  XpComponent
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
-	var stats_comp	 	= 	components[ComponentsLibrary.Stats] 	as 	CharacterstatsComponent  
-
+	var stats_comp	 	= 	components[ComponentsLibrary.Stats] 	as 	CharacterstatsComponent
+	
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
@@ -111,9 +111,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true) and (collider_health_component != null) and (collider_damage_component.damage != null):  		 # SPELL from Enemy to Hero
 
 			print("Spell collision to Hero!")
-			print ("damage : ", collider_damage_component.damage * 0.8)
 			collider_health_component.set_health(collider_health_component.get_health() - (collider_damage_component.damage * 0.8))
-			print (collider_health_component.get_health())
 			my_body.queue_free()
 			
 		
@@ -121,9 +119,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (collider_health_component != null) and (collider_damage_component.damage != null):  		 # SPELL from Hero to Enemy
 
 			print("Spell collision to Enemy !")
-			print ("damage : ", collider_damage_component.damage)
 			collider_health_component.set_health(collider_health_component.get_health() - collider_damage_component.damage)
-			print(collider_health_component.get_health())
 			my_body.queue_free()
 			
 
