@@ -61,7 +61,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
 	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
-	damage_comp_hero.init(10)
+	damage_comp_hero.init(comp_stats_hero.damage)
 	
 	var listener_enemy : Component = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
 	listener_enemy.init(calcul_instance, calcul)
@@ -78,9 +78,9 @@ func _ready():
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_enemy.init(health_comp_hero.health * 2,health_comp_hero.health * 2)
+	health_comp_enemy.init(health_comp_hero.health * 1.5,health_comp_hero.health * 1.5)
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
-	damage_comp_enemy.init(10)
+	damage_comp_enemy.init(comp_stats_hero.damage * 0.8)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
 	
 	calcul_instance.set_answer_listener(answer_listener)

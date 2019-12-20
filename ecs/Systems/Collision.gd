@@ -23,7 +23,7 @@ func _get_mandatory_components() -> Array:
 func _get_optional_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce, 
 			ComponentsLibrary.Loot, ComponentsLibrary.Xp, ComponentsLibrary.Treasure, 
-			ComponentsLibrary.Damage, ComponentsLibrary.Velocity]
+			ComponentsLibrary.Damage, ComponentsLibrary.Velocity, ComponentsLibrary.Stats]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move]
@@ -65,6 +65,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as  XpComponent
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
+	var stats_comp	 	= 	components[ComponentsLibrary.Stats] 	as 	CharacterstatsComponent  
 
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -90,7 +91,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		processed_collider.append(collider)
 														
 		var collider_ID : int = collider.get_instance_id() 
-		var collider_health_component : HealthComponent = _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
+		var collider_health_component 	: HealthComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
+		var collider_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
 
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# ENEMY
@@ -106,19 +108,21 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				collider.queue_free()
 
 		if (has_collision_layer(collider,hero_layer_bit) == true 
-			and my_body.get_collision_layer_bit(spell_layer_bit) == true) and (collider_health_component != null):  		 # SPELL from Enemy to Hero
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true) and (collider_health_component != null) and (collider_damage_component.damage != null):  		 # SPELL from Enemy to Hero
 
 			print("Spell collision to Hero!")
-			collider_health_component.set_health(collider_health_component.get_health() - 10)
+			print ("damage : ", collider_damage_component.damage * 0.8)
+			collider_health_component.set_health(collider_health_component.get_health() - (collider_damage_component.damage * 0.8))
 			print (collider_health_component.get_health())
 			my_body.queue_free()
 			
 		
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
-			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (collider_health_component != null):  		 # SPELL from Hero to Enemy
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (collider_health_component != null) and (collider_damage_component.damage != null):  		 # SPELL from Hero to Enemy
 
 			print("Spell collision to Enemy !")
-			collider_health_component.set_health(collider_health_component.get_health() - 10)
+			print ("damage : ", collider_damage_component.damage)
+			collider_health_component.set_health(collider_health_component.get_health() - collider_damage_component.damage)
 			print(collider_health_component.get_health())
 			my_body.queue_free()
 			

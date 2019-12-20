@@ -24,6 +24,7 @@ func load_c(path : String) -> Dictionary:
 	return stats
 
 func init_stats() -> void:
-	health = stats["health"]
-	damage = stats["damage"]
-	xp = stats["xp"]
+	health 	= stats["health"]
+	damage 	= stats["damage"]
+	xp 		= stats["xp"]
+	level 	= stats["level"]
