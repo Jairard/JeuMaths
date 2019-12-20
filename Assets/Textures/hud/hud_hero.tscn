@@ -140,6 +140,7 @@ margin_bottom = 35.0
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer4/MarginContainer"]
 margin_top = 10.0
 margin_bottom = 24.0
+custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer"]
 margin_left = 85.8278
