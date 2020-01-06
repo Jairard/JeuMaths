@@ -8,7 +8,11 @@ Priorities:
 			when answer is wrong ==> damage to Hero	---	
 							spell from Enemy to Hero
 	
-	clear code with optionnal component	
+clear code with optionnal component	
+
+Kill monsters counter
+
+Score  : kill monsters x 1000 x (good answer : bad answer)
 -----------------------------------------
 
 	circular xp gauge   
