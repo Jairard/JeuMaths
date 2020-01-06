@@ -86,6 +86,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var processed_collider : Array = []
 	for col in collisions:
 		var collider = col.get_collider()
+#		print ("collider : ",collider)
 		if ArrayUtils.contains(processed_collider,collider):
 			continue											#pass to the next iteration
 		processed_collider.append(collider)
@@ -150,7 +151,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			health_comp.set_health(health_comp.get_health() - 10)
 
 		if (has_collision_layer(collider,fire_layer_bit) == true 
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (collider_health_component != null):		# FIRE health - 10
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (health_comp != null):		# FIRE health - 10
 
 			print("Fire collision !")
 			collider.queue_free()
