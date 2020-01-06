@@ -70,7 +70,7 @@ func load_characters() :
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 	var comp_stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
-	comp_stats_hero.init_stats()
+	comp_stats_hero.init_stats(FileBankUtils.loaded_hero_stats)
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(100,400))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
