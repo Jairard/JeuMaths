@@ -4,7 +4,7 @@ class_name AnswerSystem
 
 func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.AnswerListener,ComponentsLibrary.Spell, ComponentsLibrary.AnswertoSpell, 
-			ComponentsLibrary.Collision, ComponentsLibrary.EndFight]
+			ComponentsLibrary.Collision]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Endfight]
@@ -21,7 +21,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var answtospell 	= components[ComponentsLibrary.AnswertoSpell]	as AnswertoSpellComponent
 	var spl 			= components[ComponentsLibrary.Spell] 			as SpellComponent
 	var col_comp		= components[ComponentsLibrary.Collision] 		as CollisionComponent
-	var end_fight_comp	= components[ComponentsLibrary.EndFight] 		as EndfightComponent
 	
 	var answer = answ.get_answer()																#true / false / none
 	
@@ -31,11 +30,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		answtospell.get_node().add_child(spell)	
 		var target : Node2D = answtospell.get_spell_target(answer)
 		init_spell(spell,target)
-		if end_fight_comp.get_end() == false:
-			answ.reset()
-		else :
-			print ("end fight")
-			answ.scene.queue_free()
-		
+		answ.reset()
 		
 	answ.set_answer(AnswerListenerComponent.answer.none)

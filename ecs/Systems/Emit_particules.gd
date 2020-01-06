@@ -10,7 +10,7 @@ func _get_system_dependencies() -> Array:
 
 func _process_node(dt : float, components : Dictionary) -> void:
 	var emit_comp		 = 	components[ComponentsLibrary.EmitPArticules] 	 	 as  EmitParticulesComponent
-	print ("emit comp : ", emit_comp.emit)
+#	print ("emit comp : ", emit_comp.emit)
 	if emit_comp.get_emit() == true:
 		print ("2")
 		var test_emit = emit_comp.get_node()
