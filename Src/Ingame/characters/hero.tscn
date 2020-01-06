@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Src/Ingame/characters/hero.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Characters/TEST_punk_Vetements_utilisable.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_idle"
@@ -84,7 +84,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 28.0717, 32.6612 )
+extents = Vector2( 99.4259, 143.9 )
 
 [sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0, 0.525157, 1 )
@@ -113,7 +113,6 @@ scale_curve = SubResource( 10 )
 color_ramp = SubResource( 8 )
 
 [node name="hero" type="KinematicBody2D"]
-scale = Vector2( 0.9, 0.9 )
 collision_mask = 2038
 script = ExtResource( 1 )
 __meta__ = {
@@ -128,11 +127,7 @@ anims/anim_right = SubResource( 4 )
 anims/anim_up = SubResource( 5 )
 
 [node name="hero_spr" type="Sprite" parent="."]
-modulate = Color( 0.878431, 0.878431, 0.878431, 1 )
 texture = ExtResource( 2 )
-vframes = 8
-hframes = 8
-frame = 24
 
 [node name="RayCast_bas" type="RayCast2D" parent="."]
 visible = false
