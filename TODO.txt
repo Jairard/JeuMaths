@@ -13,6 +13,10 @@ clear code with optionnal component
 Kill monsters counter
 
 Score  : kill monsters x 1000 x (good answer : bad answer)
+
+Save pseudos + stats
+
+file where are stocked path of scenes
 -----------------------------------------
 
 	circular xp gauge   
