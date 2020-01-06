@@ -1,0 +1,11 @@
+{
+    "map_fire"      : "res://Src/Outgame/map_fire.tscn",
+    "map_water"     : "res://Src/Outgame/map_water.tscn",
+    "map_fight_1"   : "res://Src/Outgame/map_fight_1.tscn",
+    "map_fight_2"   : "res://Src/Outgame/map_fight_2.tscn",
+    "shop"          : "res://Src/Outgame/shop.tscn",
+    "start"         : "res://Src/Outgame/Map_shop.tscn",
+    "sign_in"       : "res://Src/Outgame/Signin.tscn",
+    "create_hero"   : "res://Src/Outgame/create_hero.tscn",
+    "log_in"        : "res://Src/Outgame/Login.tscn"
+}
