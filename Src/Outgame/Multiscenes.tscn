@@ -30,23 +30,23 @@ text = "Log In"
 
 [node name="Map_fight_1" type="Button" parent="."]
 margin_left = 176.0
-margin_top = 260.0
+margin_top = 304.427
 margin_right = 355.0
-margin_bottom = 333.0
+margin_bottom = 377.427
 text = "Map Fight 1"
 
 [node name="Map_fight_2" type="Button" parent="."]
-margin_left = 174.0
-margin_top = 403.0
-margin_right = 360.0
-margin_bottom = 478.0
+margin_left = 175.587
+margin_top = 409.347
+margin_right = 361.587
+margin_bottom = 484.347
 text = "Map Fight 2"
 
 [node name="map_level" type="Button" parent="."]
 margin_left = 180.0
-margin_top = 112.0
+margin_top = 73.9198
 margin_right = 346.0
-margin_bottom = 198.0
+margin_bottom = 159.92
 text = "Map Level"
 
 [node name="Sign In" type="Button" parent="."]
@@ -76,11 +76,12 @@ margin_top = 611.0
 margin_right = 506.0
 margin_bottom = 631.0
 
-[node name="Button" type="Button" parent="."]
-margin_left = 448.855
-margin_top = 613.632
-margin_right = 460.855
-margin_bottom = 633.632
+[node name="Map_water" type="Button" parent="."]
+margin_left = 180.0
+margin_top = 198.0
+margin_right = 347.0
+margin_bottom = 271.0
+text = "Map Water"
 
 [node name="Map2" type="Label" parent="."]
 margin_left = -2.09747
@@ -107,3 +108,4 @@ align = 1
 [connection signal="pressed" from="Sign In" to="." method="_on_Sign_In_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Shop" to="." method="_on_Shop_pressed"]
+[connection signal="pressed" from="Map_water" to="." method="_on_Map_water_pressed"]

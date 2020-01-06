@@ -27,3 +27,8 @@ func _on_Map_fight_2_pressed():
 
 func _on_Shop_pressed():
 	get_tree().change_scene("res://Src/Outgame/Map_Shop.tscn")
+
+
+func _on_Map_water_pressed():
+	get_tree().change_scene("res://Src/Outgame/Map_Water.tscn")
+	pass # Replace with function body.
