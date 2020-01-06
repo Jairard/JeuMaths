@@ -10,4 +10,4 @@ func get_life_ennemy_max() -> TextureProgress:
 	return $CanvasLayer/HBoxContainer/MarginContainer/life_ennemy	as TextureProgress
 
 func get_damage() -> Label :
-	return $CanvasLayer/damage/MarginContainer/damage 				as Label
+	return $CanvasLayer/HBoxContainer4/MarginContainer/damage 	as Label

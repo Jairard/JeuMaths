@@ -79,9 +79,11 @@ func _ready():
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_enemy.init(health_comp_hero.health * 1.5,health_comp_hero.health * 1.5)
+	health_comp_enemy.init(health_comp_hero.health + (comp_stats_hero.damage * 6),health_comp_hero.health + (comp_stats_hero.damage * 6))
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
-	damage_comp_enemy.init(comp_stats_hero.damage * 0.8)
+	var damage_enemy = int(damage_comp_hero.damage * 0.3)
+	damage_comp_enemy.damage = damage_enemy
+	damage_comp_enemy.init(comp_stats_hero.damage)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
 	ECS.add_component(enemyNode, ComponentsLibrary.EndFight)
 	
