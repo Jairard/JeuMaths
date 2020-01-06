@@ -26,7 +26,7 @@ func _get_optional_components() -> Array:
 			ComponentsLibrary.Damage, ComponentsLibrary.Velocity, ComponentsLibrary.Stats]
 
 func _get_system_dependencies() -> Array:
-	return [SystemsLibrary.Move]
+	return [SystemsLibrary.Move, SystemsLibrary.Answer]
 
 func has_collision_layer(collider : Object, layer : int) -> bool:
 	var physicBody = collider as PhysicsBody2D	
@@ -111,7 +111,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true) and (collider_health_component != null) and (collider_damage_component.damage != null):  		 # SPELL from Enemy to Hero
 
 			print("Spell collision to Hero!")
-			collider_health_component.set_health(collider_health_component.get_health() - (collider_damage_component.damage * 0.8))
+			print ("enemy : ",collider_damage_component.damage)
+			collider_health_component.set_health(collider_health_component.get_health() - collider_damage_component.damage)
 			my_body.queue_free()
 			
 		
@@ -119,6 +120,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (collider_health_component != null) and (collider_damage_component.damage != null):  		 # SPELL from Hero to Enemy
 
 			print("Spell collision to Enemy !")
+			print ("hero : ", collider_damage_component.damage)
 			collider_health_component.set_health(collider_health_component.get_health() - collider_damage_component.damage)
 			my_body.queue_free()
 			

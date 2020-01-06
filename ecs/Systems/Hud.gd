@@ -34,9 +34,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 		var current_lvl = comp_xp.get_lvl()
 		comp_hud.set_level(current_lvl)
-
-	var current_damage = comp_damage.get_damage()
-	comp_hud.set_damage(current_damage)
+		
+	if comp_damage != null:
+		var current_damage = comp_damage.get_damage()
+		comp_hud.set_damage(current_damage)
 	
 	
 	
