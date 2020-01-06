@@ -4,7 +4,6 @@ var file = File.new()
 var dict : Dictionary = {}
 
 func load_c(path : String) -> Dictionary:
-	var file = File.new()
 	file.open(path, File.READ)
 	var text = file.get_as_text()
 	dict = parse_json(text)
@@ -15,6 +14,7 @@ func save_ressources():
 	print (dict)
 	file.open("res://Assets/Stats_Characters/Hero_Stats.json", File.WRITE)
 	var dict = to_json(dict)
+	print ("dict : ", dict)
 	file.store_string(dict)
 	file.close()
 	print (dict)
