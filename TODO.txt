@@ -1,22 +1,14 @@
 @@ -1,32 +0,0 @@
 Priorities: 
-
-	send calcul --- 
-		answer	---
-			when answer is true ==> damage to Ennemy ---	
-							spell from Hero to Enemy
-			when answer is wrong ==> damage to Hero	---	
-							spell from Enemy to Hero
 	
 clear code with optionnal component	
 
 Kill monsters counter
 
-Score  : kill monsters x 1000 x (good answer : bad answer)
+Réputation => Score  : kill monsters x 1000 x (good answer : bad answer)
 
 Save pseudos + stats
 
-file where are stocked path of scenes
 -----------------------------------------
 
 	circular xp gauge   
