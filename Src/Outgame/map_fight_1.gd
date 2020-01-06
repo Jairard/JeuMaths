@@ -47,9 +47,8 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
-	ECS.add_component(heroNode, ComponentsLibrary.EndFight)
 	var comp_stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
-	comp_stats_hero.init_stats()
+	comp_stats_hero.init_stats(FileBankUtils.loaded_hero_stats)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
@@ -85,7 +84,6 @@ func _ready():
 	damage_comp_enemy.damage = damage_enemy
 	damage_comp_enemy.init(comp_stats_hero.damage)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
-	ECS.add_component(enemyNode, ComponentsLibrary.EndFight)
 	
 	calcul_instance.set_answer_listener(answer_listener)
 
