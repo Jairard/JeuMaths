@@ -47,7 +47,7 @@ margin_left = 180.0
 margin_top = 73.9198
 margin_right = 346.0
 margin_bottom = 159.92
-text = "Map Level"
+text = "Map Fire"
 
 [node name="Sign In" type="Button" parent="."]
 margin_left = 712.0

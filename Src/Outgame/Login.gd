@@ -21,7 +21,7 @@ func _load() :
 	
 func verif_pseudo():
 	if dict["pseudo"] == $TileMap/LineEdit.get_text():
-		get_tree().change_scene("res://Src/Outgame/map_level.tscn")
+		get_tree().change_scene("res://Src/Outgame/map_fire.tscn")
 	else :
 		get_tree().change_scene("res://Src/Outgame/Signin.tscn")
 		

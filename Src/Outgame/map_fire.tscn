@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Src/Outgame/map_level.gd" type="Script" id=1]
+[ext_resource path="res://Src/Outgame/map_fire.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_png/test_lave.png" type="Texture" id=4]
