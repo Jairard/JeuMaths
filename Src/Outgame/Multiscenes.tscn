@@ -29,24 +29,24 @@ margin_bottom = 514.0
 text = "Log In"
 
 [node name="Map_fight_1" type="Button" parent="."]
-margin_left = 176.0
-margin_top = 304.427
-margin_right = 355.0
-margin_bottom = 377.427
+margin_left = 29.0795
+margin_top = 292.184
+margin_right = 208.079
+margin_bottom = 365.184
 text = "Map Fight 1"
 
 [node name="Map_fight_2" type="Button" parent="."]
-margin_left = 175.587
-margin_top = 409.347
-margin_right = 361.587
-margin_bottom = 484.347
+margin_left = 250.408
+margin_top = 295.075
+margin_right = 436.408
+margin_bottom = 370.075
 text = "Map Fight 2"
 
 [node name="map_level" type="Button" parent="."]
-margin_left = 180.0
-margin_top = 73.9198
-margin_right = 346.0
-margin_bottom = 159.92
+margin_left = 23.5568
+margin_top = 113.371
+margin_right = 189.557
+margin_bottom = 199.371
 text = "Map Fire"
 
 [node name="Sign In" type="Button" parent="."]
@@ -64,23 +64,24 @@ margin_bottom = 165.0
 text = "Start"
 
 [node name="Shop" type="Button" parent="."]
-margin_left = 180.0
-margin_top = 526.0
-margin_right = 357.0
-margin_bottom = 580.0
+margin_left = 28.9983
+margin_top = 513.757
+margin_right = 205.998
+margin_bottom = 567.757
 text = "Shop"
 
-[node name="Button2" type="Button" parent="."]
-margin_left = 494.0
-margin_top = 611.0
-margin_right = 506.0
-margin_bottom = 631.0
+[node name="Rewards" type="Button" parent="."]
+margin_left = 282.0
+margin_top = 513.0
+margin_right = 446.0
+margin_bottom = 568.0
+text = "Rewards"
 
 [node name="Map_water" type="Button" parent="."]
-margin_left = 180.0
-margin_top = 198.0
-margin_right = 347.0
-margin_bottom = 271.0
+margin_left = 253.46
+margin_top = 120.459
+margin_right = 420.46
+margin_bottom = 193.459
 text = "Map Water"
 
 [node name="Map2" type="Label" parent="."]
@@ -108,4 +109,5 @@ align = 1
 [connection signal="pressed" from="Sign In" to="." method="_on_Sign_In_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Shop" to="." method="_on_Shop_pressed"]
+[connection signal="pressed" from="Rewards" to="." method="_on_Rewards_pressed"]
 [connection signal="pressed" from="Map_water" to="." method="_on_Map_water_pressed"]
