@@ -31,4 +31,8 @@ func _on_Shop_pressed():
 
 func _on_Map_water_pressed():
 	get_tree().change_scene("res://Src/Outgame/Map_Water.tscn")
-	pass # Replace with function body.
+	
+
+
+func _on_Rewards_pressed():
+	get_tree().change_scene("res://Src/Outgame/Rewards.tscn")

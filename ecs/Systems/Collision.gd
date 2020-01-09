@@ -96,8 +96,12 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
 
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# ENEMY
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (health_comp != null):    			# ENEMY
 			print("Enemy collision !") 
+			print ("health hero 1 : ", health_comp.get_health())
+			var new_scene = FileBankUtils.loaded_scenes["map_fight_1"]
+			var node = health_comp.get_node()
+			node.get_tree().change_scene(new_scene)
 			collider.queue_free()
 			
 		if (has_collision_layer(collider,monster_layer_bit) == true 
@@ -121,7 +125,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (collider_health_component != null) and (collider_damage_component.damage != null):  		 # SPELL from Hero to Enemy
 
 			print("Spell collision to Enemy !")
-			print ("hero : ", collider_damage_component.damage)
+			print ("enemy : ", collider_damage_component.damage)
 			collider_health_component.set_health(collider_health_component.get_health() - collider_damage_component.damage)
 			my_body.queue_free()
 			
@@ -146,7 +150,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,missile_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (health_comp != null):  		# MISSILE health - 10
 			
-			print("Missile collision with " + collider.get_path() + " id=" + str(collider.get_instance_id()))
+			print("Missile collision !")
+#			print("Missile collision with " + collider.get_path() + " id=" + str(collider.get_instance_id()))
 			collider.queue_free()
 			health_comp.set_health(health_comp.get_health() - 10)
 

@@ -33,6 +33,7 @@ func _ready():
 	
 	spawn()
 	
+	FileBankUtils.init_stats(FileBankUtils.loaded_hero_stats)
 	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
 	listener_hero.init(calcul_instance, calcul)
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
@@ -47,21 +48,27 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
-	var comp_stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
-	comp_stats_hero.init_stats(FileBankUtils.loaded_hero_stats)
+#	var stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
+#	comp_stats_hero.init_stats(FileBankUtils.loaded_hero_stats)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	hero_pos.set_position(Vector2(100,500))	
+	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_hero.init(comp_stats_hero.health,comp_stats_hero.health)
+#	health_comp_hero.init(health_comp_hero.get_health(),health_comp_hero.get_health())
+#	print ("health hero : ", health_comp_hero.get_health())
+	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
+	
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
 	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
-	damage_comp_hero.init(comp_stats_hero.damage)
+#	damage_comp_hero.init(damage_comp_hero.damage)
+	damage_comp_hero.init(FileBankUtils.damage)
+	print ("damage hero : ", damage_comp_hero.get_damage())
 	
 	var listener_enemy : Component = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
 	listener_enemy.init(calcul_instance, calcul)
@@ -78,11 +85,13 @@ func _ready():
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_enemy.init(health_comp_hero.health + (comp_stats_hero.damage * 6),health_comp_hero.health + (comp_stats_hero.damage * 6))
+	health_comp_enemy.init(health_comp_hero.health + (damage_comp_hero.damage * 6),health_comp_hero.health + (damage_comp_hero.damage * 6))
+	print ("enemy : ", health_comp_enemy.health)
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
 	var damage_enemy = int(damage_comp_hero.damage * 0.3)
+	print ("damage enemy : ", damage_enemy)
 	damage_comp_enemy.damage = damage_enemy
-	damage_comp_enemy.init(comp_stats_hero.damage)
+	damage_comp_enemy.init(damage_enemy)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
 	
 	calcul_instance.set_answer_listener(answer_listener)

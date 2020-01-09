@@ -69,8 +69,10 @@ func load_characters() :
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
-	var comp_stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
-	comp_stats_hero.init_stats(FileBankUtils.loaded_hero_stats)
+	
+	FileBankUtils.init_stats(FileBankUtils.loaded_hero_stats)
+#	var comp_stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
+#	comp_stats_hero.init_stats(FileBankUtils.loaded_hero_stats)
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(100,400))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
@@ -119,16 +121,18 @@ func load_characters() :
 
 	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_hero.init(comp_stats_hero.health,comp_stats_hero.health)
+	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
+	print ("file : ", FileBankUtils.health)
+	print ("life : ", health_comp_hero.get_health())
 	
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
 	treasure_comp.init(0)
 	
 	var xp_comp = ECS.add_component(heroNode, ComponentsLibrary.Xp) as XpComponent
-	xp_comp.init(comp_stats_hero.xp,comp_stats_hero.level)
+	xp_comp.init(0,0)
 	
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
-	damage_comp.init(comp_stats_hero.damage)
+	damage_comp.init(FileBankUtils.damage)
 
 	
 func combat(valeur) :
