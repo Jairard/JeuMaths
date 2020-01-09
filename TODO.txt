@@ -21,11 +21,8 @@ Save pseudos + stats
 
 	visual effects for damage taken
 
-	with gold, players can buy xp/health/damage bonus on shop
+	with gold, players can buy health/damage bonus on shop
 
-	optional component on node
-	
-	change scene like we used to call "get_tree()"
 ---------------------------------------
 ---------------------------------------
 
