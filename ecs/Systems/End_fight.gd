@@ -14,6 +14,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if current_health <= 0:
 		var new_scene = FileBankUtils.loaded_scenes["map_fire"]
 		var node = comp_health.get_node()
-		node.get_tree().change_scene(new_scene)
-		emit_comp.emit == true
+		emit_comp.set_emit(true)
+#		node.get_tree().change_scene(new_scene)
+		
 

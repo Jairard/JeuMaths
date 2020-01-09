@@ -10,10 +10,10 @@ func _get_system_dependencies() -> Array:
 
 func _process_node(dt : float, components : Dictionary) -> void:
 	var emit_comp		 = 	components[ComponentsLibrary.EmitPArticules] 	 	 as  EmitParticulesComponent
-#	print ("emit comp : ", emit_comp.emit)
+
 	if emit_comp.get_emit() == true:
-		print ("2")
 		var test_emit = emit_comp.get_node()
-		if emit_comp.get_node("Particules2D") != null:
-			print ("3")
+		var parent = test_emit.get_parent()
+		if parent.has_node("Particules2D") != null:
 			test_emit.get_node("Particles2D").emitting = true
+			emit_comp.set_emit(false)
