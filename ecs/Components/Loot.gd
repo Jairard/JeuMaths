@@ -31,6 +31,7 @@ func get_loots() -> Array:
 		var resource : Resource = __get_random_resource(x)
 		if resource != null: 
 			loots_Array.append(resource.instance())
+			print ("ressource : ", loots_Array)
 	return loots_Array
 
 	

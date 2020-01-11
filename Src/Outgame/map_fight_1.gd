@@ -90,7 +90,6 @@ func _ready():
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
 	var damage_enemy = int(damage_comp_hero.damage * 0.3)
 	print ("damage enemy : ", damage_enemy)
-	damage_comp_enemy.damage = damage_enemy
 	damage_comp_enemy.init(damage_enemy)
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
 	

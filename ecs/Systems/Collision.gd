@@ -31,7 +31,6 @@ func _get_system_dependencies() -> Array:
 func has_collision_layer(collider : Object, layer : int) -> bool:
 	var physicBody = collider as PhysicsBody2D	
 	if (physicBody != null):
-#		print (physicBody)
 		return physicBody.get_collision_layer_bit(layer) == true
 
 	var tileMap = collider as TileMap
@@ -161,7 +160,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Fire collision !")
 			collider.queue_free()
 			health_comp.set_health(health_comp.get_health() - 10)
-
+		print ("collider : ", collider)
 		if (has_collision_layer(collider,gold_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (treasure_comp != null):  		# GOLD	treasure + 10
 

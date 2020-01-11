@@ -7,5 +7,6 @@
     "start"         : "res://Src/Outgame/Map_shop.tscn",
     "sign_in"       : "res://Src/Outgame/Signin.tscn",
     "create_hero"   : "res://Src/Outgame/create_hero.tscn",
-    "log_in"        : "res://Src/Outgame/Login.tscn"
+    "log_in"        : "res://Src/Outgame/Login.tscn",
+    "rewards"       : "res://Src/Outgame/Rewards.tscn"
 }
