@@ -9,6 +9,7 @@ Réputation => Score  : kill monsters x 1000 x (good answer : bad answer)
 
 Save pseudos + stats
 
+keep stats trhough the differents scenes
 -----------------------------------------
 
 	circular xp gauge   
