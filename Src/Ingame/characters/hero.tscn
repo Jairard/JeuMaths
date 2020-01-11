@@ -113,7 +113,7 @@ scale_curve = SubResource( 10 )
 color_ramp = SubResource( 8 )
 
 [node name="hero" type="KinematicBody2D"]
-collision_mask = 2038
+collision_mask = 8182
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -168,7 +168,5 @@ shape = SubResource( 6 )
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false
 amount = 500
-lifetime = 0.6
-one_shot = true
 explosiveness = 0.26
 process_material = SubResource( 11 )
