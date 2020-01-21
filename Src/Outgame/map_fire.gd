@@ -117,23 +117,22 @@ func load_characters() :
 	
 	hud_comp.init_hero(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
 	HudNode.get_life_hero_max(), HudNode.get_damage(), 
-	HudNode.get_xp(), HudNode.get_level(), HudNode.get_treasure())
+	HudNode.get_xp(), HudNode.get_level(), HudNode.get_treasure(), HudNode.get_score())
 
 	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
-	print ("file : ", FileBankUtils.health)
-	print ("life : ", health_comp_hero.get_health())
+#	print ("file : ", FileBankUtils.health)
+#	print ("life : ", health_comp_hero.get_health())
 	
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
-	treasure_comp.init(0)
+	treasure_comp.init(FileBankUtils.treasure)
 	
 	var xp_comp = ECS.add_component(heroNode, ComponentsLibrary.Xp) as XpComponent
 	xp_comp.init(0,0)
 	
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp.init(FileBankUtils.damage)
-
 	
 func combat(valeur) :
 	if valeur == 0 :

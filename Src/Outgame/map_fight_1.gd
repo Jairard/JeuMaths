@@ -40,11 +40,14 @@ func _ready():
 	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
 	answer_listener.append(listener_hero)
 	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
-	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
-	answerToSpell_hero.init({AnswerListenerComponent.answer.true : 
-																	{AnswertoSpellComponent.property.name :"spell_hero",
-																	 AnswertoSpellComponent.property.target : enemyNode}
-																	})
+	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
+#	damage_comp_hero.init(damage_comp_hero.damage)
+	damage_comp_hero.init(FileBankUtils.damage)
+	
+	var treasure_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
+	treasure_comp_hero.init(FileBankUtils.treasure)
+	print ("treasure hero : ", treasure_comp_hero.get_treasure())
+	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
@@ -64,11 +67,8 @@ func _ready():
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
-	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
-	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
-#	damage_comp_hero.init(damage_comp_hero.damage)
-	damage_comp_hero.init(FileBankUtils.damage)
-	print ("damage hero : ", damage_comp_hero.get_damage())
+	ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal)
+	
 	
 	var listener_enemy : Component = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
 	listener_enemy.init(calcul_instance, calcul)
@@ -77,21 +77,34 @@ func _ready():
 	answer_listener.append(listener_enemy)
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
 	ECS.add_component(enemyNode, ComponentsLibrary.Position)
+	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
+	health_comp_enemy.init(health_comp_hero.health + (damage_comp_hero.damage * 6),health_comp_hero.health + (damage_comp_hero.damage * 6))
+#	print ("enemy : ", health_comp_enemy.health)
+	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
+	var damage_enemy = int(damage_comp_hero.damage * 0.3)
+#	print ("damage enemy 1: ", damage_enemy)
+	damage_comp_enemy.init(damage_enemy)
+	
+#	print ("damage hero 1: ", damage_comp_hero.get_damage())
+	
+	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
+	answerToSpell_hero.init({AnswerListenerComponent.answer.true : 
+																	{AnswertoSpellComponent.property.name :"spell_hero",
+																	 AnswertoSpellComponent.property.target : enemyNode,
+																	 AnswertoSpellComponent.property.damage : damage_comp_hero.get_damage()}
+																	})
+	
 	var answerToSpell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
 	answerToSpell_enemy.init({AnswerListenerComponent.answer.false : 
 																	{AnswertoSpellComponent.property.name :"spell_enemy",
-																	 AnswertoSpellComponent.property.target : heroNode}
+																	 AnswertoSpellComponent.property.target : heroNode,
+																	 AnswertoSpellComponent.property.damage : damage_enemy}
 																	})
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
-	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_enemy.init(health_comp_hero.health + (damage_comp_hero.damage * 6),health_comp_hero.health + (damage_comp_hero.damage * 6))
-	print ("enemy : ", health_comp_enemy.health)
-	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
-	var damage_enemy = int(damage_comp_hero.damage * 0.3)
-	print ("damage enemy : ", damage_enemy)
-	damage_comp_enemy.init(damage_enemy)
+	
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
+	ECS.add_component(enemyNode, ComponentsLibrary.Scoregolbal)
 	
 	calcul_instance.set_answer_listener(answer_listener)
 
@@ -122,7 +135,8 @@ func load_hud():
 	var hud_hero_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 	hud_hero_comp.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(), 
 	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage(), 
-	Hud_heroNode.get_xp(), Hud_heroNode.get_level(), Hud_heroNode.get_treasure())
+	Hud_heroNode.get_xp(), Hud_heroNode.get_level(), 
+	Hud_heroNode.get_treasure(), Hud_heroNode.get_score())
 	
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)

@@ -4,6 +4,7 @@ var health 	: int = 0
 var xp 		: int = 0
 var level = 0
 var damage 	: int = 0
+var treasure : int = 0
 
 var loaded_scenes = load_json("res://Assets/Scenes.json")
 var loaded_hero_stats = load_json("res://Assets/Stats_Characters/Hero_Stats.json")
@@ -28,3 +29,4 @@ func init_stats(loaded_hero_stats) -> void:
 	damage 	= loaded_hero_stats["damage"]
 	xp 		= loaded_hero_stats["xp"]
 	level 	= loaded_hero_stats["level"]
+	treasure= loaded_hero_stats["treasure"]
