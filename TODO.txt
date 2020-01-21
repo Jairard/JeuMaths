@@ -11,6 +11,7 @@ Save pseudos + stats
 
 keep stats trhough the differents scenes
 -----------------------------------------
+	player can see the score increment
 
 	circular xp gauge   
 
