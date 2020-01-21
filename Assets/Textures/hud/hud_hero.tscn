@@ -137,21 +137,38 @@ margin_bottom = 60.2427
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer4"]
 margin_bottom = 35.0
 
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer4/MarginContainer"]
+[node name="treasure" type="Label" parent="CanvasLayer/HBoxContainer4/MarginContainer"]
 margin_top = 10.0
 margin_bottom = 24.0
 custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer"]
+[node name="treasure" type="HBoxContainer" parent="CanvasLayer"]
 margin_left = 85.8278
 margin_top = 173.416
 margin_right = 125.828
 margin_bottom = 213.416
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer6"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/treasure"]
 margin_bottom = 40.0
 
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer6/MarginContainer"]
+[node name="gold" type="Label" parent="CanvasLayer/treasure/MarginContainer"]
 margin_top = 1.0
 margin_bottom = 39.0
 custom_fonts/font = SubResource( 3 )
+
+[node name="score_hero" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 803.0
+margin_top = 8.117
+margin_right = 964.0
+margin_bottom = 70.117
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/score_hero"]
+margin_right = 17.0
+margin_bottom = 61.0
+
+[node name="score_hero" type="Label" parent="CanvasLayer/score_hero/MarginContainer"]
+margin_top = 11.0
+margin_right = 17.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 3 )
+text = "1"

@@ -24,4 +24,9 @@ func get_level() -> Label :
 	return $CanvasLayer/HBoxContainer2/MarginContainer/level 		as Label
 		
 func get_treasure() -> Label :
-	return $CanvasLayer/HBoxContainer6/MarginContainer/Label 		as Label
+	return $CanvasLayer/HBoxContainer4/MarginContainer/treasure 	as Label
+	
+func get_score() -> Label:
+	return $CanvasLayer/score_hero/MarginContainer/score_hero		as Label
+
+

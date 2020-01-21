@@ -9,10 +9,11 @@ var _damage			: 	Label = null
 var _xp_value 		: 	TextureProgress = null
 var _level 			:	Label = null
 var _treasure 		:	Label = null
+var _score_label	:   Label = null
 
 func init_hero(health_value : TextureProgress, health_label : Label,
 			   health_max : TextureProgress, damage : Label, xp_value : TextureProgress, 
-			   level : Label, treasure : Label) -> void : #init node on map level
+			   level : Label, treasure : Label, score_label : Label) -> void : #init node on map level
 			
 	_health_value = health_value
 	_health_label = health_label
@@ -21,6 +22,7 @@ func init_hero(health_value : TextureProgress, health_label : Label,
 	_xp_value = xp_value
 	_level = level
 	_treasure= treasure
+	_score_label = score_label
 
 func init_enemy(health_value : TextureProgress, health_label : Label, health_max : TextureProgress, damage : Label) -> void:
 	_health_value = health_value
@@ -47,6 +49,9 @@ func set_level(value : int) -> void :
 	
 func set_treasure(value : int) -> void :
 	_treasure.text = str(value)
+	
+func set_score(value : int) -> void :
+	_score_label.text = str(value)
 	
 	
 	
