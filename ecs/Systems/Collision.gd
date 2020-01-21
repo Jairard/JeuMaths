@@ -16,6 +16,7 @@ const gold_layer_bit 		: int = 9
 const answer_layer_bit 		: int = 10
 const damage_layer_bit 		: int = 11
 const health_layer_bit 		: int = 12
+const portal_layer_bit 		: int = 13
 
 func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Collision] 
@@ -23,7 +24,8 @@ func _get_mandatory_components() -> Array:
 func _get_optional_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce, 
 			ComponentsLibrary.Loot, ComponentsLibrary.Xp, ComponentsLibrary.Treasure, 
-			ComponentsLibrary.Damage, ComponentsLibrary.Velocity, ComponentsLibrary.Stats]
+			ComponentsLibrary.Damage, ComponentsLibrary.Velocity, ComponentsLibrary.Stats,
+			ComponentsLibrary.AnswertoSpell]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move, SystemsLibrary.Answer]
@@ -65,6 +67,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
 	var stats_comp	 	= 	components[ComponentsLibrary.Stats] 	as 	CharacterstatsComponent
+	var answer_comp 	=   components[ComponentsLibrary.AnswertoSpell] as AnswerListenerComponent
+	
 	
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -93,11 +97,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider_ID : int = collider.get_instance_id() 
 		var collider_health_component 	: HealthComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
 		var collider_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
-
+#		var my_body_damage_component 	: AnswertoSpellComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.AnswertoSpell)
+		var my_body_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
+		
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (health_comp != null):    			# ENEMY
 			print("Enemy collision !") 
-			print ("health hero 1 : ", health_comp.get_health())
+#			print ("health hero 1 : ", health_comp.get_health())
 			var new_scene = FileBankUtils.loaded_scenes["map_fight_1"]
 			var node = health_comp.get_node()
 			node.get_tree().change_scene(new_scene)
@@ -112,26 +118,29 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				collider.queue_free()
 
 		if (has_collision_layer(collider,hero_layer_bit) == true 
-			and my_body.get_collision_layer_bit(spell_layer_bit) == true) and (collider_health_component != null) and (collider_damage_component.damage != null):  		 # SPELL from Enemy to Hero
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true) and (collider_health_component != null) and (my_body_damage_component.get_damage() != null):  		 # SPELL from Enemy to Hero
 
 			print("Spell collision to Hero!")
-			print ("enemy : ",collider_damage_component.damage)
-			collider_health_component.set_health(collider_health_component.get_health() - collider_damage_component.damage)
+			print ("enemy collision: ",my_body_damage_component.get_damage())
+#			collider_health_component.set_health(collider_health_component.get_health() - collider_damage_component.damage)
+#			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.spell_properties[my_body_damage_component.property.damage])
+			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
 			my_body.queue_free()
 			
 		
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
-			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (collider_health_component != null) and (collider_damage_component.damage != null):  		 # SPELL from Hero to Enemy
+			and my_body.get_collision_layer_bit(spell_layer_bit) == true)  and (collider_health_component != null) and (my_body_damage_component.get_damage() != null):  		 # SPELL from Hero to Enemy
 
 			print("Spell collision to Enemy !")
-			print ("enemy : ", collider_damage_component.damage)
-			collider_health_component.set_health(collider_health_component.get_health() - collider_damage_component.damage)
+			print ("hero collision : ", my_body_damage_component.get_damage())
+#			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.spell_properties[my_body_damage_component.property.damage])
+			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
 			my_body.queue_free()
 			
 
 		if (has_collision_layer(collider,rain_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):			# RAIN
-			print (collider.get_path())
+#			print (collider.get_path())
 			print("Rain collision !")
 			collider.call_deferred("free")
 #			collider.queue_free()
@@ -160,7 +169,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Fire collision !")
 			collider.queue_free()
 			health_comp.set_health(health_comp.get_health() - 10)
-		print ("collider : ", collider)
+#		print ("collider : ", collider)
 		if (has_collision_layer(collider,gold_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (treasure_comp != null):  		# GOLD	treasure + 10
 
@@ -198,3 +207,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			var normal = col.get_normal()
 			bounce_comp.set_is_bouncing(normal)
+			
+		if (has_collision_layer(collider,portal_layer_bit) == true 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (health_comp != null):    			# PORTAL
+			
+			print("Portal collision !") 
+			var new_scene = FileBankUtils.loaded_scenes["map_fire"]
+			var node = health_comp.get_node()
+#			yield(node.get_parent().get_tree().create_timer(1.0), "timeout")
+			node.get_tree().change_scene(new_scene)
+			collider.queue_free()

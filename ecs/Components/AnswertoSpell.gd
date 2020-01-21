@@ -2,7 +2,7 @@ extends Component
 
 class_name AnswertoSpellComponent
 
-enum property {name, target}
+enum property {name, target, damage}
 var spell_properties : Dictionary = {}
 
 func get_spell_properties(key) -> Dictionary: 
@@ -21,6 +21,13 @@ func get_spell_target(key) -> Node2D:
 	if spell_properties.has(property.target):
 		return spell_properties[property.target]
 	return null
+	
+func get_spell_damage(key) -> int:
+	var spell_properties = get_spell_properties(key)
+	if spell_properties.has(property.damage):
+		print ("property damage : ",spell_properties[property.damage])
+		return spell_properties[property.damage]
+	return 0
 
 func init(spell_name : Dictionary) -> void :
 	spell_properties = spell_name
