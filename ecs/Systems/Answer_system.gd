@@ -4,8 +4,12 @@ class_name AnswerSystem
 
 func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.AnswerListener,ComponentsLibrary.Spell, ComponentsLibrary.AnswertoSpell, 
-			ComponentsLibrary.Collision, ComponentsLibrary.Damage, ComponentsLibrary.Scoregolbal]
+			ComponentsLibrary.Collision, ComponentsLibrary.Damage]
 
+func _get_optional_components() -> Array:
+	return [ComponentsLibrary.Scoregolbal]
+	
+	
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Endfight]
 
@@ -31,14 +35,16 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	var spell_name = answtospell.get_spell_name(answer)
 	var spell : Node2D = spl.get_spell(spell_name)  											# return node to instance
+	print ("spell name: ", spell_name)
+	
+	if score_comp != null:
+		if answer == AnswerListenerComponent.answer.true:															# COUNTER GOOD ANSWERS
+			score_comp.set_good_answer(score_comp.get_good_answer() + 1)
+		if answer == AnswerListenerComponent.answer.false:															# COUNTER WRONG ANSWERS
+			score_comp.set_wrong_answer(score_comp.get_wrong_answer() + 1)
 	
 	if spell != null:
-		
-		if spell_name == "spell_hero":															# COUNTER GOOD ANSWERS
-			score_comp.set_good_answer(score_comp.get_good_answer() + 1)
-		if spell_name == "spell_enemy":															# COUNTER WRONG ANSWERS
-			score_comp.set_wrong_answer(score_comp.get_wrong_answer() + 1)
-			
+
 		answtospell.get_node().add_child(spell)	
 		var target : Node2D = answtospell.get_spell_target(answer)
 		var damage : int = answtospell.get_spell_damage(answer)

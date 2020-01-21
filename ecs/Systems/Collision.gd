@@ -98,7 +98,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider_health_component 	: HealthComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
 		var collider_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
 #		var my_body_damage_component 	: AnswertoSpellComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.AnswertoSpell)
-		var my_body_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
+		var my_body_damage_component 	: DamageComponent 	= _getComponentOfEntity(my_body.get_instance_id(), ComponentsLibrary.Damage)
 		
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (health_comp != null):    			# ENEMY
@@ -123,8 +123,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Spell collision to Hero!")
 			print ("enemy collision: ",my_body_damage_component.get_damage())
 #			collider_health_component.set_health(collider_health_component.get_health() - collider_damage_component.damage)
-#			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.spell_properties[my_body_damage_component.property.damage])
 			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
+#			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
 			my_body.queue_free()
 			
 		
@@ -133,8 +133,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			print("Spell collision to Enemy !")
 			print ("hero collision : ", my_body_damage_component.get_damage())
-#			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.spell_properties[my_body_damage_component.property.damage])
 			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
+#			collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
 			my_body.queue_free()
 			
 
@@ -171,11 +171,14 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			health_comp.set_health(health_comp.get_health() - 10)
 #		print ("collider : ", collider)
 		if (has_collision_layer(collider,gold_layer_bit) == true 
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (treasure_comp != null):  		# GOLD	treasure + 10
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 10
 
 			print("Gold collision !")
-			treasure_comp.set_treasure(treasure_comp.get_treasure() + 10)
 			collider.queue_free()
+			
+			if treasure_comp != null:
+				treasure_comp.set_treasure(treasure_comp.get_treasure() + 10)
+			
 
 		if (has_collision_layer(collider,damage_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (damage_comp != null):  		# DAMAGE +10
