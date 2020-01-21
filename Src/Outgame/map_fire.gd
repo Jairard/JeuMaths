@@ -68,7 +68,6 @@ func load_characters() :
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
-	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 	
 	FileBankUtils.init_stats(FileBankUtils.loaded_hero_stats)
 #	var comp_stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent

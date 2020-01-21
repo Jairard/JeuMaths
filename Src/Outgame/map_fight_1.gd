@@ -104,7 +104,6 @@ func _ready():
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
 	
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
-	ECS.add_component(enemyNode, ComponentsLibrary.Scoregolbal)
 	
 	calcul_instance.set_answer_listener(answer_listener)
 

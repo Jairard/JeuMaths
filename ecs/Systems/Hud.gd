@@ -9,7 +9,7 @@ func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Health, ComponentsLibrary.Hud, ComponentsLibrary.Damage]
 
 func _get_optional_components() -> Array:
-	return [ ComponentsLibrary.Treasure, ComponentsLibrary.Xp, ComponentsLibrary.Scoregolbal, ComponentsLibrary.Treasure]
+	return [ ComponentsLibrary.Treasure, ComponentsLibrary.Xp, ComponentsLibrary.Scoregolbal]
 			
 func _process_node(dt : float, components : Dictionary) -> void:
 
