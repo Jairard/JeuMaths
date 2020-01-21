@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/hud_hero.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/bombs_icon.png" type="Texture" id=2]
@@ -15,6 +15,9 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -112,27 +115,45 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.866667, 0.0666667, 0.0666667, 1 )
 text = "1"
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 69.0
+margin_bottom = 56.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer5"]
+margin_right = 35.0
+margin_bottom = 40.0
+
+[node name="health" type="Label" parent="CanvasLayer/HBoxContainer5/MarginContainer"]
+margin_top = 11.0
+margin_right = 35.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.890196, 0.862745, 0.862745, 1 )
+text = "1000"
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer"]
 margin_left = 9.73978
 margin_top = 7.91326
-margin_right = 29.7398
-margin_bottom = 24.9133
-rect_scale = Vector2( 4, 4 )
+margin_right = 26.7398
+margin_bottom = 47.9133
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer3"]
 margin_right = 17.0
-margin_bottom = 17.0
+margin_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer3/MarginContainer"]
+show_behind_parent = true
 margin_right = 17.0
-margin_bottom = 17.0
+margin_bottom = 40.0
 texture = ExtResource( 8 )
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 30.9368
-margin_top = 25.2427
-margin_right = 70.9368
-margin_bottom = 60.2427
+margin_left = 109.431
+margin_top = 201.571
+margin_right = 149.431
+margin_bottom = 236.571
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer4"]
 margin_bottom = 35.0
