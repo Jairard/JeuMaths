@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/Ingame/FX/smoke_2.gd" type="Script" id=1]
-
-
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.440585, 1 )
@@ -31,11 +29,20 @@ scale = 25.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 28.5479, 19.33 )
+
 [node name="Particles2D" type="Particles2D"]
 rotation = -1.5708
-emitting = false
+scale = Vector2( 6, 6 )
 amount = 100
 lifetime = 2.0
-one_shot = true
 process_material = SubResource( 5 )
 script = ExtResource( 1 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 28.1125, 2.09796 )
+shape = SubResource( 6 )

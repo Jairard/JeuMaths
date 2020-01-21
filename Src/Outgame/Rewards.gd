@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
+onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_2.tscn")
 onready var loot 			= 	preload("res://Src/Ingame/characters/Null.tscn")
 
 onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
@@ -44,25 +45,28 @@ func _ready():
 	var lootNode = loot.instance()						
 	add_child(lootNode)
 	lootNode.set_name("loot")
-	
+
 	ECS.add_component(lootNode, ComponentsLibrary.Collision)
 	var pos_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp_loot.set_position(Vector2(100,400))
-	
+
 	var health_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_loot.init(1,1)	
 	var lootdict = [ {gold : 10}, {damage : 5, health : 5, null : 90}]#, damage : 50}]#, null : 90} ]
 	var loot_comp = ECS.add_component(lootNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp.init(lootdict, lootNode)#.get_parent().get_node("CollisionShape2D"))
 	
+	############################################ PORTAL ############################################################
+	
+	var portalNode = portal.instance()
+	add_child(portalNode)
+	portalNode.set_name("portal")
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	ECS.add_component(portalNode, ComponentsLibrary.Collision)
+	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
+	pos_comp_portal.set_position(Vector2(600,530))
+
+
+
+
+

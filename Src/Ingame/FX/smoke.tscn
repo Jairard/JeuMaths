@@ -3,8 +3,6 @@
 [ext_resource path="res://smoke.png" type="Texture" id=1]
 [ext_resource path="res://Src/Ingame/FX/smoke.gd" type="Script" id=2]
 
-
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.29375, 0.825 )
 colors = PoolColorArray( 1, 0, 1, 0.843137, 1, 0.980392, 0, 1, 1, 0.951426, 0.222816, 0.878788 )
