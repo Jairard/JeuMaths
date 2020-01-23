@@ -3,22 +3,22 @@ extends Node2D
 onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_2.tscn")
 onready var loot 			= 	preload("res://Src/Ingame/characters/Null.tscn")
+onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 
 onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var xp				= 	preload("res://Src/Ingame/characters/Xp.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 
+onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
+
 func _ready():
-	
-	############################################ SYSTEM ############################################################
 	
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Collision)
 	
-	############################################ HERO ############################################################
 	var heroNode = hero.instance()						
 	add_child(heroNode)
 	heroNode.set_name("hero")
@@ -43,7 +43,6 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	
-	############################################ LOOT ############################################################
 	var lootNode = loot.instance()						
 	add_child(lootNode)
 	lootNode.set_name("loot")
@@ -58,7 +57,6 @@ func _ready():
 	var loot_comp = ECS.add_component(lootNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp.init(lootdict, lootNode)#.get_parent().get_node("CollisionShape2D"))
 	
-	############################################ PORTAL ############################################################
 	
 	var portalNode = portal.instance()
 	add_child(portalNode)
@@ -68,7 +66,17 @@ func _ready():
 	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp_portal.set_position(Vector2(600,530))
 
+	var HudNode = hud.instance()
+	add_child(HudNode)
 
-
+	var ScoreNode = score.instance()
+	add_child(ScoreNode)
+	ScoreNode.set_name("Score")
+	
+	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
+	
+	hud_comp.init_hero(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
+	HudNode.get_life_hero_max(), HudNode.get_damage(), 
+	HudNode.get_xp(), HudNode.get_level(), HudNode.get_treasure(), ScoreNode.get_score())
 
 

@@ -9,6 +9,8 @@ onready var spell_hero		= preload("res://Src/Ingame/Animation/spell_hero.tscn")
 onready var ulti_hero		= preload("res://Src/Ingame/Animation/ulti_hero.tscn")
 onready var spell_enemy		= preload("res://Src/Ingame/Animation/spell_enemy.tscn")
 
+onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
+
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")
 
@@ -131,11 +133,15 @@ func load_hud():
 	add_child(Hud_heroNode)
 	Hud_heroNode.set_name("Hud_hero")
 	
+	var ScoreNode = score.instance()
+	add_child(ScoreNode)
+	ScoreNode.set_name("Score")
+		
 	var hud_hero_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 	hud_hero_comp.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(), 
 	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage(), 
 	Hud_heroNode.get_xp(), Hud_heroNode.get_level(), 
-	Hud_heroNode.get_treasure(), Hud_heroNode.get_score())
+	Hud_heroNode.get_treasure(), ScoreNode.get_score())
 	
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)

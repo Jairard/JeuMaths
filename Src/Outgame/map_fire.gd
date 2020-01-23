@@ -7,11 +7,13 @@ onready var rain			= 	preload("res://Src/Ingame/characters/rain.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
 onready var monster 		= 	preload("res://Src/Ingame/characters/monsters.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
-#onready var treasure 		= 	preload("res://characters/treasure.tscn")
+
 onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var xp				= 	preload("res://Src/Ingame/characters/Xp.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
+
+onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
 
 var file = File.new()
@@ -55,6 +57,10 @@ func load_characters() :
 	var HudNode = hud.instance()
 	add_child(HudNode)
 	HudNode.set_name("Hud")
+	
+	var ScoreNode = score.instance()
+	add_child(ScoreNode)
+	ScoreNode.set_name("Score")
 	
 	var FireNode = spawn_fire.instance()
 	add_child(FireNode)
@@ -116,7 +122,7 @@ func load_characters() :
 	
 	hud_comp.init_hero(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
 	HudNode.get_life_hero_max(), HudNode.get_damage(), 
-	HudNode.get_xp(), HudNode.get_level(), HudNode.get_treasure(), HudNode.get_score())
+	HudNode.get_xp(), HudNode.get_level(), HudNode.get_treasure(), ScoreNode.get_score())
 
 	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
@@ -132,6 +138,12 @@ func load_characters() :
 	
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp.init(FileBankUtils.damage)
+	
+	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal) as ScoreglobalcounterComponent
+	score_comp.set_good_answer(FileBankUtils.good_answer)
+	score_comp.set_wrong_answer(FileBankUtils.wrong_answer)
+	score_comp.set_boss_killed(FileBankUtils.boss_killed)
+#	comp_score.get_boss_killed() * (float(comp_score.get_good_answer()) / comp_score.get_wrong_answer()) * 1000
 	
 func combat(valeur) :
 	if valeur == 0 :

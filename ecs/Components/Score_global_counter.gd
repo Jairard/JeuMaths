@@ -2,9 +2,12 @@ extends Component
 
 class_name ScoreglobalcounterComponent
 
-var good_answer : int = 1
-var wrong_answer : int = 1
-var boss_killed : int = 0
+var good_answer 	: int = 0
+var wrong_answer 	: int = 0
+var boss_killed 	: int = 0
+
+func init_score() -> float:
+	return (get_boss_killed() * (float(get_good_answer()) / get_wrong_answer()) * 1000)
 
 func get_good_answer() -> int:
 	return good_answer

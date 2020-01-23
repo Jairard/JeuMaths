@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Map_Water.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Textures/Levels/scene_eau/fond_marin_base_ok_png.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/Levels/scene_eau/fond_marin_base_pr_P_22.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -19,15 +19,16 @@ format = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 1548.28
-margin_top = 3.58472
-margin_right = 1747.28
-margin_bottom = 84.5847
+margin_left = 1399.88
+margin_top = 6.23474
+margin_right = 1598.88
+margin_bottom = 87.2347
 custom_fonts/font = SubResource( 1 )
 text = "Retour"
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1300.63, 325.912 )
-scale = Vector2( 6.48867, 7.43757 )
+show_behind_parent = true
+position = Vector2( 2439.61, 458.406 )
+scale = Vector2( 1.58445, 1.40534 )
 texture = ExtResource( 3 )
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
