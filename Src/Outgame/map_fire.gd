@@ -122,7 +122,7 @@ func load_characters() :
 	
 	hud_comp.init_hero(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
 	HudNode.get_life_hero_max(), HudNode.get_damage(), 
-	HudNode.get_xp(), HudNode.get_level(), HudNode.get_treasure(), ScoreNode.get_score())
+	HudNode.get_xp(), HudNode.get_level(), ScoreNode.get_treasure(), ScoreNode.get_score())
 
 	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent

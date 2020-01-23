@@ -82,6 +82,7 @@ custom_colors/font_color = Color( 0.933333, 0.917647, 0.917647, 1 )
 text = "0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 margin_left = 159.742
 margin_top = 101.113
 margin_right = 419.742
@@ -98,6 +99,7 @@ texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 margin_left = 188.029
 margin_top = 102.139
 margin_right = 228.029
@@ -150,6 +152,7 @@ margin_bottom = 40.0
 texture = ExtResource( 8 )
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 margin_left = 109.431
 margin_top = 201.571
 margin_right = 149.431
@@ -164,6 +167,7 @@ margin_bottom = 24.0
 custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
 
 [node name="treasure" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 margin_left = 85.8278
 margin_top = 173.416
 margin_right = 125.828

@@ -141,7 +141,7 @@ func load_hud():
 	hud_hero_comp.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(), 
 	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage(), 
 	Hud_heroNode.get_xp(), Hud_heroNode.get_level(), 
-	Hud_heroNode.get_treasure(), ScoreNode.get_score())
+	ScoreNode.get_treasure(), ScoreNode.get_score())
 	
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)
