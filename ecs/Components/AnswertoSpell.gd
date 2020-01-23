@@ -25,7 +25,6 @@ func get_spell_target(key) -> Node2D:
 func get_spell_damage(key) -> int:
 	var spell_properties = get_spell_properties(key)
 	if spell_properties.has(property.damage):
-		print ("property damage : ",spell_properties[property.damage])
 		return spell_properties[property.damage]
 	return 0
 
