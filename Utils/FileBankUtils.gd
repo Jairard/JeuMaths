@@ -1,10 +1,13 @@
 extends Node
 
-var health 	: int = 0
-var xp 		: int = 0
-var level = 0
-var damage 	: int = 0
-var treasure : int = 0
+var health 			: int = 0
+var xp 				: int = 0
+var level 			: int = 0
+var damage 			: int = 0
+var treasure 		: int = 0
+var good_answer 	: int = 1
+var wrong_answer 	: int = 1
+var boss_killed 	: int = 1
 
 var loaded_scenes = load_json("res://Assets/Scenes.json")
 var loaded_hero_stats = load_json("res://Assets/Stats_Characters/Hero_Stats.json")
@@ -25,8 +28,11 @@ func save_json(dict : Object,path : String) -> void:
 	file.close()
 
 func init_stats(loaded_hero_stats) -> void:
-	health 	= loaded_hero_stats["health"]
-	damage 	= loaded_hero_stats["damage"]
-	xp 		= loaded_hero_stats["xp"]
-	level 	= loaded_hero_stats["level"]
-	treasure= loaded_hero_stats["treasure"]
+	health 			= loaded_hero_stats["health"]
+	damage 			= loaded_hero_stats["damage"]
+	xp 				= loaded_hero_stats["xp"]
+	level 			= loaded_hero_stats["level"]
+	treasure		= loaded_hero_stats["treasure"]
+	good_answer 	= loaded_hero_stats["good_answer"]
+	wrong_answer 	= loaded_hero_stats["wrong_answer"]
+	boss_killed 	= loaded_hero_stats["boss_killed"]
