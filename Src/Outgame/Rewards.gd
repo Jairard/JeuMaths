@@ -75,8 +75,9 @@ func _ready():
 	
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 	
-	hud_comp.init_hero(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
-	HudNode.get_life_hero_max(), HudNode.get_damage(), 
-	HudNode.get_xp(), HudNode.get_level(), ScoreNode.get_treasure(), ScoreNode.get_score())
+	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
+	HudNode.get_life_hero_max(), HudNode.get_damage())
+	
+	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
 

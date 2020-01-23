@@ -9,7 +9,6 @@ onready var spell_hero		= preload("res://Src/Ingame/Animation/spell_hero.tscn")
 onready var ulti_hero		= preload("res://Src/Ingame/Animation/ulti_hero.tscn")
 onready var spell_enemy		= preload("res://Src/Ingame/Animation/spell_enemy.tscn")
 
-onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")
@@ -46,15 +45,11 @@ func _ready():
 #	damage_comp_hero.init(damage_comp_hero.damage)
 	damage_comp_hero.init(FileBankUtils.damage)
 	
-	var treasure_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
-	treasure_comp_hero.init(FileBankUtils.treasure)
-	print ("treasure hero : ", treasure_comp_hero.get_treasure())
 	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
-#	var stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
-#	comp_stats_hero.init_stats(FileBankUtils.loaded_hero_stats)
+
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
@@ -63,13 +58,12 @@ func _ready():
 	hero_pos.set_position(Vector2(100,500))	
 	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
-#	health_comp_hero.init(health_comp_hero.get_health(),health_comp_hero.get_health())
-#	print ("health hero : ", health_comp_hero.get_health())
+
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Xp)
-	ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal)
+
 	
 	
 	var listener_enemy : Component = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
@@ -81,13 +75,12 @@ func _ready():
 	ECS.add_component(enemyNode, ComponentsLibrary.Position)
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_enemy.init(health_comp_hero.health + (damage_comp_hero.damage * 6),health_comp_hero.health + (damage_comp_hero.damage * 6))
-#	print ("enemy : ", health_comp_enemy.health)
+
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
 	var damage_enemy = int(damage_comp_hero.damage * 0.3)
-#	print ("damage enemy 1: ", damage_enemy)
+
 	damage_comp_enemy.init(damage_enemy)
 	
-#	print ("damage hero 1: ", damage_comp_hero.get_damage())
 	
 	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
 	answerToSpell_hero.init({AnswerListenerComponent.answer.true : 
@@ -132,16 +125,10 @@ func load_hud():
 	var Hud_heroNode = hud_hero.instance()
 	add_child(Hud_heroNode)
 	Hud_heroNode.set_name("Hud_hero")
-	
-	var ScoreNode = score.instance()
-	add_child(ScoreNode)
-	ScoreNode.set_name("Score")
 		
 	var hud_hero_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
-	hud_hero_comp.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(), 
-	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage(), 
-	Hud_heroNode.get_xp(), Hud_heroNode.get_level(), 
-	ScoreNode.get_treasure(), ScoreNode.get_score())
+	hud_hero_comp.init_hero_map(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(), 				
+	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage())							
 	
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)

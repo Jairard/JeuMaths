@@ -70,14 +70,14 @@ func load_characters() :
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	enemy_pos_comp.set_position(Vector2(3500,300))														#Appears at (0,0)
-#	print ("enemy :" + str(enemy_pos_comp.get_position()))
+
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	
 	FileBankUtils.init_stats(FileBankUtils.loaded_hero_stats)
-#	var comp_stats_hero = ECS.add_component(heroNode, ComponentsLibrary.Stats) as CharacterstatsComponent
-#	comp_stats_hero.init_stats(FileBankUtils.loaded_hero_stats)
+
+
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(100,400))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
@@ -120,15 +120,15 @@ func load_characters() :
 	
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 	
-	hud_comp.init_hero(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
-	HudNode.get_life_hero_max(), HudNode.get_damage(), 
-	HudNode.get_xp(), HudNode.get_level(), ScoreNode.get_treasure(), ScoreNode.get_score())
+	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
+	HudNode.get_life_hero_max(), HudNode.get_damage())
+	
+	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
 	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
-#	print ("file : ", FileBankUtils.health)
-#	print ("life : ", health_comp_hero.get_health())
+
 	
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
@@ -143,7 +143,6 @@ func load_characters() :
 	score_comp.set_good_answer(FileBankUtils.good_answer)
 	score_comp.set_wrong_answer(FileBankUtils.wrong_answer)
 	score_comp.set_boss_killed(FileBankUtils.boss_killed)
-#	comp_score.get_boss_killed() * (float(comp_score.get_good_answer()) / comp_score.get_wrong_answer()) * 1000
 	
 func combat(valeur) :
 	if valeur == 0 :
@@ -155,29 +154,7 @@ func _on_Button_pressed():
 	save_ressources()
 	get_tree().change_scene("res://Src/Outgame/Multiscenes.tscn")
 
-#func rain_spawn():
-#	randomize()
-#	var screen_size = get_viewport().size
-#	var screen_tile = Vector2(screen_size.x, screen_size.y) / Vector2(64,64)
-#
-#	_unique()
-#	for x in 10 :
-#		if unique[x] == [1] :
-#			var x_pos = x
-#			var i = rain.instance()
-#			i.start(Vector2(x_pos * 64 , 0), randi() % 3)
-#			self.add_child(i)	
-#	return unique
 
-
-#func _unique():
-#	for x in 10 :
-#		unique.append([])
-#		if randi() % 2 == 1 :
-#			unique[x].append(1)
-#		else :
-#			unique[x].append(0)
-#	return unique
 
 func _load_ressources():
 	
