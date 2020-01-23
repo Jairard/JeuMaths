@@ -14,10 +14,10 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 496.448
-margin_top = 1.52982
-margin_right = 563.448
-margin_bottom = 51.5298
+margin_left = 595.685
+margin_top = 2.26491
+margin_right = 662.685
+margin_bottom = 52.2649
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
@@ -33,20 +33,26 @@ custom_fonts/font = SubResource( 1 )
 text = "2000"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 29.2187
-margin_top = 143.137
-margin_right = 114.219
-margin_bottom = 212.137
+margin_left = 485.377
+margin_top = 6.50349
+margin_right = 519.377
+margin_bottom = 51.5035
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer2"]
-margin_left = 30.0
-margin_right = 55.0
-margin_bottom = 69.0
+margin_left = 4.0
+margin_right = 29.0
+margin_bottom = 45.0
 
 [node name="treasure" type="Label" parent="CanvasLayer/HBoxContainer2/MarginContainer"]
-margin_top = 21.0
+margin_top = 9.0
 margin_right = 25.0
-margin_bottom = 48.0
+margin_bottom = 36.0
 custom_fonts/font = SubResource( 1 )
 text = "10"
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer2/MarginContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 25.0
+margin_bottom = 45.0
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/MarginContainer/Button" to="." method="_on_Button_pressed"]

@@ -10,3 +10,8 @@ func get_score() -> Label:
 	
 func get_treasure() -> Label :
 	return $CanvasLayer/HBoxContainer2/MarginContainer/treasure 	as Label
+
+func _on_Button_pressed():
+#	var new_scene = FileBankUtils.loaded_scenes["shop"]
+#	get_tree().change_scene("new_scene")
+	get_tree().change_scene("res://Src/Outgame/Map_Shop.tscn")
