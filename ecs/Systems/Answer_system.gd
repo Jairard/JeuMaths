@@ -35,7 +35,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	
 	var spell_name = answtospell.get_spell_name(answer)
 	var spell : Node2D = spl.get_spell(spell_name)  											# return node to instance
-	print ("spell name: ", spell_name)
 	
 	if score_comp != null:
 		if answer == AnswerListenerComponent.answer.true:															# COUNTER GOOD ANSWERS
