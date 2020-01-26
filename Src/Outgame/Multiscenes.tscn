@@ -42,7 +42,7 @@ margin_right = 436.408
 margin_bottom = 370.075
 text = "Map Fight 2"
 
-[node name="map_level" type="Button" parent="."]
+[node name="map_fire" type="Button" parent="."]
 margin_left = 23.5568
 margin_top = 113.371
 margin_right = 189.557
@@ -105,7 +105,7 @@ align = 1
 [connection signal="pressed" from="Log In" to="." method="_on_Log_In_pressed"]
 [connection signal="pressed" from="Map_fight_1" to="." method="_on_Map_fight_1_pressed"]
 [connection signal="pressed" from="Map_fight_2" to="." method="_on_Map_fight_2_pressed"]
-[connection signal="pressed" from="map_level" to="." method="_on_map_level_pressed"]
+[connection signal="pressed" from="map_fire" to="." method="_on_map_level_pressed"]
 [connection signal="pressed" from="Sign In" to="." method="_on_Sign_In_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Shop" to="." method="_on_Shop_pressed"]
