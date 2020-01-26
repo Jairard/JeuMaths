@@ -6,8 +6,7 @@ func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Collision]
 	
 func _get_mandatory_components() -> Array:
-	return [ComponentsLibrary.Health, ComponentsLibrary.Hud, ComponentsLibrary.Treasure,
-		  	 ComponentsLibrary.Xp, ComponentsLibrary.Damage]
+	return [ComponentsLibrary.Health, ComponentsLibrary.Hud, ComponentsLibrary.Treasure, ComponentsLibrary.Damage]
 
 func _process_node(dt : float, components : Dictionary) -> void:
 	

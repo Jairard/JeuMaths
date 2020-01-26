@@ -6,8 +6,6 @@ var _health_value  	: 	TextureProgress = null
 var _health_label 	: 	Label = null
 var _health_max 	: 	TextureProgress = null
 var _damage			: 	Label = null
-var _xp_value 		: 	TextureProgress = null
-var _level 			:	Label = null
 var _treasure 		:	Label = null
 var _score_label	:   Label = null
 

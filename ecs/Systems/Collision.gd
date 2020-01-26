@@ -8,7 +8,7 @@ const wall_layer_bit 		: int = 1
 const enemy_layer_bit 		: int = 2
 const spell_layer_bit 		: int = 3
 const rain_layer_bit 		: int = 4
-const xp_layer_bit 			: int = 5
+
 const monster_layer_bit 	: int = 6
 const missile_layer_bit 	: int = 7
 const fire_layer_bit 		: int = 8
@@ -23,9 +23,8 @@ func _get_mandatory_components() -> Array:
 
 func _get_optional_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce, 
-			ComponentsLibrary.Loot, ComponentsLibrary.Xp, ComponentsLibrary.Treasure, 
-			ComponentsLibrary.Damage, ComponentsLibrary.Velocity, ComponentsLibrary.Stats,
-			ComponentsLibrary.AnswertoSpell]
+			ComponentsLibrary.Loot, ComponentsLibrary.Treasure, ComponentsLibrary.Damage, 
+			ComponentsLibrary.Velocity, ComponentsLibrary.Stats, ComponentsLibrary.AnswertoSpell]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move, SystemsLibrary.Answer]
@@ -63,7 +62,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var pos_comp		= 	components[ComponentsLibrary.Position] 	as 	PositionComponent
 	var health_comp 	= 	components[ComponentsLibrary.Health] 	as 	HealthComponent
 	var bounce_comp		= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent
-	var xp_comp 		= 	components[ComponentsLibrary.Xp] 		as  XpComponent
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
 	var stats_comp	 	= 	components[ComponentsLibrary.Stats] 	as 	CharacterstatsComponent
@@ -146,16 +144,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 			collider.call_deferred("free")
 
-
-		if (has_collision_layer(collider,xp_layer_bit) == true 
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true) and (xp_comp != null):  		# XP + 10
-
-			xp_comp.set_xp(xp_comp.get_xp() + 110)
-			if xp_comp.get_xp() >= 100:
-				xp_comp.set_lvl(xp_comp.get_lvl() + 1)
-				var new_xp = xp_comp.get_xp() - 100
-				xp_comp.set_xp(new_xp)
-			collider.queue_free()
 
 		if (has_collision_layer(collider,missile_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true): 		# MISSILE health - 10

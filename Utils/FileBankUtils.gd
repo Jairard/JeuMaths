@@ -1,8 +1,6 @@
 extends Node
 
 var health 			: int = 0
-var xp 				: int = 0
-var level 			: int = 0
 var damage 			: int = 0
 var treasure 		: int = 0
 var good_answer 	: int = 1
@@ -30,8 +28,6 @@ func save_json(dict : Object,path : String) -> void:
 func init_stats(loaded_hero_stats) -> void:
 	health 			= loaded_hero_stats["health"]
 	damage 			= loaded_hero_stats["damage"]
-	xp 				= loaded_hero_stats["xp"]
-	level 			= loaded_hero_stats["level"]
 	treasure		= loaded_hero_stats["treasure"]
 	good_answer 	= loaded_hero_stats["good_answer"]
 	wrong_answer 	= loaded_hero_stats["wrong_answer"]

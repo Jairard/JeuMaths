@@ -6,7 +6,6 @@ onready var loot 			= 	preload("res://Src/Ingame/characters/Null.tscn")
 onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 
 onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
-onready var xp				= 	preload("res://Src/Ingame/characters/Xp.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 
