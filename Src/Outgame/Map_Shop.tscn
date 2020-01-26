@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/Outgame/Map_Shop.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/bombs_icon.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/hud/icons1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Textures/hud/energy_bar_fill.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/Characters/perle_de_vie_png.png" type="Texture" id=4]
+[ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+outline_color = Color( 0.423529, 0.0352941, 0.513726, 1 )
+font_data = ExtResource( 5 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -39,21 +45,34 @@ margin_right = 107.0
 margin_bottom = 20.0
 text = "+ 10 Vie"
 
-[node name="Xp" type="VBoxContainer" parent="."]
-margin_left = 761.0
+[node name="regen_health" type="VBoxContainer" parent="."]
+margin_left = 693.0
 margin_top = 164.0
-margin_right = 868.0
+margin_right = 800.0
 margin_bottom = 441.0
 
-[node name="Sprite" type="Sprite" parent="Xp"]
-position = Vector2( 51, 119 )
-scale = Vector2( 0.33871, 1 )
+[node name="Sprite" type="Sprite" parent="regen_health"]
+position = Vector2( 47.5, 123.5 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
 
-[node name="Xp" type="Button" parent="Xp"]
+[node name="regen_health" type="Button" parent="regen_health"]
 margin_right = 107.0
 margin_bottom = 20.0
-text = "+ 10 Xp"
+text = "Full Vie"
+
+[node name="Shop" type="VBoxContainer" parent="."]
+margin_left = 451.446
+margin_top = 33.4827
+margin_right = 558.446
+margin_bottom = 310.483
+
+[node name="Label" type="Label" parent="Shop"]
+margin_right = 107.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.701961, 0.603922, 0.764706, 1 )
+text = "SHOP"
 [connection signal="pressed" from="Damages/Damages" to="." method="_on_Damages_pressed"]
 [connection signal="pressed" from="Health/Health" to="." method="_on_Health_pressed"]
-[connection signal="pressed" from="Xp/Xp" to="." method="_on_Xp_pressed"]
+[connection signal="pressed" from="regen_health/regen_health" to="." method="_on_regen_health_pressed"]
