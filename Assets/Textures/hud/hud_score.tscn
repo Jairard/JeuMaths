@@ -14,10 +14,10 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 595.685
-margin_top = 2.26491
-margin_right = 662.685
-margin_bottom = 52.2649
+margin_left = 715.505
+margin_top = 6.67545
+margin_right = 782.505
+margin_bottom = 56.6754
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
@@ -33,10 +33,10 @@ custom_fonts/font = SubResource( 1 )
 text = "2000"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 485.377
-margin_top = 6.50349
-margin_right = 519.377
-margin_bottom = 51.5035
+margin_left = 592.7
+margin_top = 7.23859
+margin_right = 626.7
+margin_bottom = 52.2386
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer2"]

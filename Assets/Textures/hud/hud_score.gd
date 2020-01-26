@@ -3,7 +3,12 @@ extends Node2D
 onready var treasure = preload("res://Src/Ingame/characters/treasure.tscn")
 
 func _ready():
-	add_child(treasure.instance())
+	var treasureNode = treasure.instance()
+	add_child(treasureNode)
+
+#	var treasure_pos_comp = ECS.add_component(treasureNode, ComponentsLibrary.Position) as PositionComponent
+#	treasure_pos_comp.set_position(Vector2(600,20))
+#	print ("treasure position : ", treasure_pos_comp.get_position())
 	
 func get_score() -> Label:
 	return $CanvasLayer/HBoxContainer/MarginContainer/Score		as Label
