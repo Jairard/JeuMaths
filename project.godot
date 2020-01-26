@@ -219,16 +219,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Components/Velocity.gd"
 }, {
-"base": "Component",
-"class": "XpComponent",
-"language": "GDScript",
-"path": "res://ecs/Components/Xp.gd"
-}, {
-"base": "System",
-"class": "XpSystem",
-"language": "GDScript",
-"path": "res://ecs/Systems/Xp.gd"
-}, {
 "base": "System",
 "class": "bulletSystem",
 "language": "GDScript",
@@ -277,8 +267,6 @@ _global_script_class_icons={
 "SystemsLibrary": "",
 "TreasureComponent": "",
 "VelocityComponent": "",
-"XpComponent": "",
-"XpSystem": "",
 "bulletSystem": ""
 }
 

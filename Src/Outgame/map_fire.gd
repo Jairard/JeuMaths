@@ -9,7 +9,6 @@ onready var monster 		= 	preload("res://Src/Ingame/characters/monsters.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 
 onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
-onready var xp				= 	preload("res://Src/Ingame/characters/Xp.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 
@@ -101,7 +100,7 @@ func load_characters() :
 	comp_patrol.init(700,900) 
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)	
-	var lootDict_monster = [ {gold : 10}, {xp : 10}, {health : 10}]#, damage : 50}]#, null : 90} ]
+	var lootDict_monster = [ {gold : 10}, {health : 10, damage : 5, null : 90}]
 	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
 	
@@ -132,9 +131,7 @@ func load_characters() :
 	
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
-	
-	var xp_comp = ECS.add_component(heroNode, ComponentsLibrary.Xp) as XpComponent
-	xp_comp.init(0,0)
+
 	
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp.init(FileBankUtils.damage)

@@ -62,7 +62,6 @@ func _ready():
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
-	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 
 	
 	

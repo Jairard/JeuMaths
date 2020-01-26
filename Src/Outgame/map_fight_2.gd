@@ -36,7 +36,6 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
-	ECS.add_component(heroNode, ComponentsLibrary.Xp)
 	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
 	ECS.add_component(heroNode, ComponentsLibrary.Damage)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -62,7 +61,6 @@ func _ready():
 	ECS.add_component(answerNode, ComponentsLibrary.Health)
 	ECS.add_component(answerNode, ComponentsLibrary.Collision)
 	ECS.add_component(answerNode, ComponentsLibrary.Bounce)	
-	ECS.add_component(answerNode, ComponentsLibrary.Xp)
 	ECS.add_component(answerNode, ComponentsLibrary.Treasure)
 	ECS.add_component(answerNode, ComponentsLibrary.Damage)										
 	ECS.add_component(answerNode, ComponentsLibrary.Loot)
