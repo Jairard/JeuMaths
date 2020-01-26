@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Src/Ingame/characters/hero.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Textures/Characters/TEST_punk_Vetements_utilisable.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Characters/TEST_punk_pour_P.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_idle"
@@ -127,6 +127,7 @@ anims/anim_right = SubResource( 4 )
 anims/anim_up = SubResource( 5 )
 
 [node name="hero_spr" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="RayCast_bas" type="RayCast2D" parent="."]
