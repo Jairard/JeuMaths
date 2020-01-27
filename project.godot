@@ -160,6 +160,16 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Movement.gd"
 }, {
 "base": "Component",
+"class": "NodeEnemyComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/node_enemy.gd"
+}, {
+"base": "Component",
+"class": "NodeHeroComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/node_hero.gd"
+}, {
+"base": "Component",
 "class": "NodegetidComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Node_get_id.gd"
@@ -255,6 +265,8 @@ _global_script_class_icons={
 "MissileSystem": "",
 "MoveSystem": "",
 "MovementComponent": "",
+"NodeEnemyComponent": "",
+"NodeHeroComponent": "",
 "NodegetidComponent": "",
 "PatrolComponent": "",
 "PatrolSystem": "",

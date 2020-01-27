@@ -49,6 +49,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
+	ECS.add_component(heroNode, ComponentsLibrary.Node_Hero)
 
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
@@ -71,6 +72,7 @@ func _ready():
 	
 	answer_listener.append(listener_enemy)
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
+	ECS.add_component(enemyNode, ComponentsLibrary.Node_Enemy)
 	ECS.add_component(enemyNode, ComponentsLibrary.Position)
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_enemy.init(health_comp_hero.health + (damage_comp_hero.damage * 6),health_comp_hero.health + (damage_comp_hero.damage * 6))
