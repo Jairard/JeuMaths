@@ -1,11 +1,7 @@
-@@ -1,32 +0,0 @@
+
 Priorities: 
 	
 clear code with optionnal component	
-
-Kill monsters counter
-
-Réputation => Score  : kill monsters x 1000 x (good answer : bad answer)
 
 Save pseudos + stats
 
