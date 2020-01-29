@@ -119,7 +119,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,hero_layer_bit) == true 
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true) :  		 # SPELL from Enemy to Hero
 
-			print("Spell collision to Hero!")
+#			print("Spell collision to Hero!")
 			
 			if (collider_health_component != null) and (my_body_damage_component.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
@@ -130,7 +130,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,enemy_layer_bit) == true 
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true):  		 # SPELL from Hero to Enemy
 
-			print("Spell collision to Enemy !")
+#			print("Spell collision to Enemy !")
 
 			if (collider_health_component != null and my_body_damage_component.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())

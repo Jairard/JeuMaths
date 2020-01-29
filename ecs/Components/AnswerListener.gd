@@ -33,3 +33,6 @@ func reset() -> void:
 		var comp : Component = lis as AnswerListenerComponent
 		if comp != null:
 			comp.set_scene(new_instance)
+
+func delete() -> void:
+	scene.queue_free()
