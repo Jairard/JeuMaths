@@ -3,9 +3,7 @@ Priorities:
 	
 clear code with optionnal component	
 
-Save pseudos + stats
-
-keep stats trhough the differents scenes
+Save pseudos + stats trhough the differents scenes
 -----------------------------------------
 	player can see the score increment
 
