@@ -2,7 +2,8 @@ extends Node2D
 
 var count = 0
 var answer_listeners  : Array = []
-var load_calcul = load_c("res://Assets/Questions/questions.json")
+#var load_calcul = load_c("res://Assets/Questions/questions.json")
+var load_calcul = load_c("res://Assets/Questions/test.tres")
 
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
