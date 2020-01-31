@@ -26,19 +26,19 @@ margin_right = 220.0
 margin_bottom = 38.0
 
 [node name="cost" type="Label" parent="Damage/damage_cost"]
-margin_right = 34.0
+margin_right = 54.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.815686, 0.819608, 0.0313726, 1 )
-text = "10"
+text = "- 10"
 
 [node name="damage" type="Label" parent="Damage/damage_cost"]
-margin_left = 38.0
-margin_right = 177.0
+margin_left = 58.0
+margin_right = 181.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.811765, 0.811765, 0.776471, 1 )
-text = "     ==> 10"
+text = "       + 10"
 
 [node name="Sprite" type="Sprite" parent="Damage/damage_cost"]
 position = Vector2( 202.188, 12.2214 )
@@ -63,19 +63,19 @@ margin_right = 226.0
 margin_bottom = 38.0
 
 [node name="cost" type="Label" parent="Health/health_cost"]
-margin_right = 34.0
+margin_right = 54.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.815686, 0.819608, 0.0313726, 1 )
-text = "10"
+text = "- 10"
 
 [node name="health" type="Label" parent="Health/health_cost"]
-margin_left = 38.0
-margin_right = 177.0
+margin_left = 58.0
+margin_right = 181.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.811765, 0.811765, 0.776471, 1 )
-text = "     ==> 10"
+text = "       + 10"
 
 [node name="Sprite" type="Sprite" parent="Health/health_cost"]
 position = Vector2( 206.288, 18.0783 )
@@ -90,38 +90,38 @@ text = "Payer"
 
 [node name="regen_health" type="VBoxContainer" parent="."]
 editor/display_folded = true
-margin_left = 739.195
+margin_left = 739.0
 margin_top = 200.0
-margin_right = 967.195
+margin_right = 929.0
 margin_bottom = 477.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="regen_health"]
-margin_right = 228.0
+margin_right = 190.0
 margin_bottom = 38.0
 
 [node name="life_cost" type="Label" parent="regen_health/HBoxContainer"]
-margin_right = 34.0
+margin_right = 54.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.815686, 0.819608, 0.0313726, 1 )
-text = "20"
+text = "- 20"
 
 [node name="life" type="Label" parent="regen_health/HBoxContainer"]
-margin_left = 38.0
-margin_right = 177.0
+margin_left = 58.0
+margin_right = 94.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.811765, 0.811765, 0.776471, 1 )
-text = "     ==> 10"
+text = "    "
 
 [node name="Sprite" type="Sprite" parent="regen_health/HBoxContainer"]
-position = Vector2( 210.997, 20.1844 )
+position = Vector2( 173.102, 17.0265 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 5 )
 
 [node name="regen_health2" type="Button" parent="regen_health"]
 margin_top = 42.0
-margin_right = 228.0
+margin_right = 190.0
 margin_bottom = 62.0
 text = "Payer"
 

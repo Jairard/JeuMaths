@@ -7,25 +7,24 @@ onready var treasure_life	= 	preload("res://Src/Ingame/characters/gold.tscn")
 func _ready():
 	var treasureNode_damage = treasure_damage.instance()
 	add_child(treasureNode_damage)
+	treasureNode_damage.apply_scale(Vector2(1.8,1.8))
 
 	var treasure_damage_pos_comp = ECS.add_component(treasureNode_damage, ComponentsLibrary.Position) as PositionComponent
-	treasure_damage_pos_comp.set_position(Vector2(70,215))
-	print ("treasure position : ", treasure_damage_pos_comp.get_position())
+	treasure_damage_pos_comp.set_position(Vector2(85,218))
 	
 	var treasureNode_health = treasure_health.instance()
 	add_child(treasureNode_health)
+	treasureNode_health.apply_scale(Vector2(1.8,1.8))
 
 	var treasure_health_pos_comp = ECS.add_component(treasureNode_health, ComponentsLibrary.Position) as PositionComponent
-	treasure_health_pos_comp.set_position(Vector2(440,215))
-	print ("treasure position : ", treasure_health_pos_comp.get_position())
+	treasure_health_pos_comp.set_position(Vector2(455,218))
 	
 	var treasureNode_life = treasure_life.instance()
 	add_child(treasureNode_life)
+	treasureNode_life.apply_scale(Vector2(1.8,1.8))
 
 	var treasure_life_pos_comp = ECS.add_component(treasureNode_life, ComponentsLibrary.Position) as PositionComponent
-	treasure_life_pos_comp.set_position(Vector2(795,215))
-	print ("treasure position : ", treasure_life_pos_comp.get_position())
-	
+	treasure_life_pos_comp.set_position(Vector2(810,218))	
 	
 
 func _on_Damages_pressed():
