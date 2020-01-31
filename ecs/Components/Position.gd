@@ -9,8 +9,8 @@ func get_position() -> Vector2:
 
 func set_position(pos : Vector2) -> void :
 	get_node().set_position(pos)
-	DebugUtils.remove_shape(debug_rect_id)
-	debug_rect_id = draw_debug_rect(Rect2(Vector2(-25,-25),Vector2(50,50)), Color.aqua, -1, true)
+#	DebugUtils.remove_shape(debug_rect_id)
+#	debug_rect_id = draw_debug_rect(Rect2(Vector2(-25,-25),Vector2(50,50)), Color.aqua, -1, true)
 
 func move_and_slide(velocity : Vector2) -> Vector2:
 	var slide : Vector2 = get_node().move_and_slide(velocity, Vector2(0, -1))
