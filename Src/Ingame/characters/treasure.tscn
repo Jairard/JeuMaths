@@ -35,7 +35,6 @@ collision_layer = 0
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/KinematicBody2D"]
-position = Vector2( 567.678, 28.2076 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 8
