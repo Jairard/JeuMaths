@@ -3,9 +3,6 @@
 [ext_resource path="res://Src/Outgame/Signin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
 
-
-
-
 [sub_resource type="TileSet" id=1]
 0/name = "sol0"
 0/texture = ExtResource( 2 )

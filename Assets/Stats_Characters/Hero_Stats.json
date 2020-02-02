@@ -1,1 +1,1 @@
-{"damage":15,"health":70,"level":0,"pseudo":"","xp":0,"treasure":0,"good_answer":1,"wrong_answer":1,"boss_killed":1}
+{"pseudo":"test","stats":[{"boss_killed":1,"damage":15,"good_answer":1,"health":70,"level":0,"treasure":0,"wrong_answer":1,"xp":0}]}
