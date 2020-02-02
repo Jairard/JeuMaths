@@ -1,11 +1,11 @@
 extends Node
 
-var active_systems : Dictionary = {}
-var system_scopes : Dictionary = {}
-var ordered_systems :  Array = []
+var active_systems : Dictionary = {}   # Dictionary(Resource -> System)
+var system_scopes : Dictionary = {}    # Dictionary(SystemScope -> Array[Resource])
+var ordered_systems :  Array = []      # Array[Resource]
 var needs_systems_ordering = false
-var components : Dictionary = {}
-var active_entities : Dictionary = {} # Stores the active entites and the count of components attached to them
+var components : Dictionary = {}       # Dictionary(Resource -> Dictionary(Id -> Component))
+var active_entities : Dictionary = {}  # Dictionary(Id -> int) / Stores the active entites and the count of components attached to them
 var is_processing : bool  = false
 var ghosts : GhostsHandler = preload("res://ecs/Internal/GhostsHandler.gd").new()
 
