@@ -7,12 +7,12 @@ var needs_systems_ordering = false
 var components : Dictionary = {}
 var active_entities : Dictionary = {} # Stores the active entites and the count of components attached to them
 var is_processing : bool  = false
+var ghosts : GhostsHandler = preload("res://ecs/Internal/GhostsHandler.gd").new()
 
 enum SystemScope { Scene, Manual }
 
 # TODO:
 # - init syntactic sugar ?
-# - add a feature to keep components between scenes
 func _ready():
 	system_scopes[SystemScope.Scene] = []
 	system_scopes[SystemScope.Manual] = []
@@ -101,7 +101,7 @@ func unregister_system(systemResource : Resource) -> bool:
 func __instanciate_system(systemResource : Resource) -> System:
 	return systemResource.new() as System
 
-func add_component(node : Node, componentResource : Resource) -> Component:
+func add_component(node : Node, componentResource : Resource, tag : String = "") -> Component:
 	if (node == null):
 		EcsUtils.log_and_push_error("ECS.add_component: node is null")
 		return null
@@ -115,7 +115,12 @@ func add_component(node : Node, componentResource : Resource) -> Component:
 		EcsUtils.log_and_push_error("ECS.add_component: node " + str(node) + " already has a component " + componentResource.resource_path)
 		return null
 
-	var component = __instanciate_component(id, componentResource)
+	# First check if there is a ghost to get the component from
+	var component = ghosts.steal_ghost(id, componentResource, tag)
+	# If it's nto the case, instanciate the component
+	if (component == null):
+		component = __instanciate_component(id, componentResource, tag)
+
 	if (component == null):
 		EcsUtils.log_and_push_error("ECS.add_component: couldn't create component " + componentResource.resource_path)
 		return null
@@ -145,8 +150,13 @@ func remove_component(node : Node, componentResource : Resource, mustExist : boo
 		return false
 
 	var comp = typedComponents[id]
+
+	# Ghost management and _on_destroyed call
+	var is_ghost = ghosts.create_ghost_IFN(comp, componentResource)
 	comp._on_destroyed()
-	comp.free()
+	if (!is_ghost):
+		comp.free()
+
 	typedComponents.erase(id)
 
 	if (!active_entities.has(id)):
@@ -171,9 +181,10 @@ func __get_component(id : int, componentResource : Resource) -> Component:
 
 	return typedComponents[id]
 
-func __instanciate_component(id : int, componentResource : Resource) -> Component:
+func __instanciate_component(id : int, componentResource : Resource, tag : String) -> Component:
 	var component = componentResource.new() as Component
 	component.__set_object_id(id)
+	component.__set_tag(tag)
 	return component
 
 func _process(dt : float) -> void:
@@ -271,3 +282,6 @@ func __resolve_dependencies(systemResource : Resource) -> Array:
 		dependencies = indirectDependenciesependencies + dependencies
 
 	return dependencies
+
+func clear_ghosts() -> void:
+	ghosts.clear()

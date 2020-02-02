@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/End_fight.gd"
 }, {
+"base": "Reference",
+"class": "GhostsHandler",
+"language": "GDScript",
+"path": "res://ecs/Internal/GhostsHandler.gd"
+}, {
 "base": "Component",
 "class": "GravityComponent",
 "language": "GDScript",
@@ -253,6 +258,7 @@ _global_script_class_icons={
 "EmitParticulesSystem": "",
 "EndfightComponent": "",
 "EndfightSystem": "",
+"GhostsHandler": "",
 "GravityComponent": "",
 "HealthComponent": "",
 "HudComponent": "",

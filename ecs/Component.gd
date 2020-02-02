@@ -3,12 +3,32 @@ extends Object
 class_name Component
 
 var id : int
+var tag : String = ""
+var was_ghost = false
 
 func get_node() -> Node:
 	return instance_from_id(id) as Node
 
 func __set_object_id(newId : int) -> void:
 	id = newId
+
+func get_id() -> int:
+	return id
+
+func get_tag() -> String:
+	return tag;
+
+func has_tag() -> bool:
+	return !tag.empty()
+
+func was_ghost() -> bool:
+	return was_ghost
+
+func __mark_as_ghost() -> void:
+	was_ghost = true
+
+func __set_tag(_tag : String) -> void:
+	tag = _tag
 
 func _on_destroyed() -> void:
 	pass
