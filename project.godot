@@ -224,6 +224,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/Library.gd"
 }, {
+"base": "Node",
+"class": "TagsLibrary",
+"language": "GDScript",
+"path": "res://ecs/TagsLibrary.gd"
+}, {
 "base": "Component",
 "class": "TreasureComponent",
 "language": "GDScript",
@@ -283,6 +288,7 @@ _global_script_class_icons={
 "SpellComponent": "",
 "System": "",
 "SystemsLibrary": "",
+"TagsLibrary": "",
 "TreasureComponent": "",
 "VelocityComponent": "",
 "bulletSystem": ""
@@ -306,6 +312,7 @@ EcsUtils="*res://Utils/EcsUtils.gd"
 RainUtils="*res://Utils/RainUtils.gd"
 DebugUtils="*res://Utils/DebugUtils.gd"
 FileBankUtils="*res://Utils/FileBankUtils.gd"
+TagsLibrary="*res://ecs/TagsLibrary.gd"
 
 [display]
 
