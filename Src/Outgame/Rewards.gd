@@ -50,7 +50,7 @@ func _ready():
 	var pos_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp_loot.set_position(Vector2(100,400))
 
-	var health_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Health) as HealthComponent
+	var health_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_loot.init(1,1)	
 	var lootdict = [ {gold : 10}, {damage : 5, health : 5, null : 90}]#, damage : 50}]#, null : 90} ]
 	var loot_comp = ECS.add_component(lootNode, ComponentsLibrary.Loot) as LootComponent
@@ -79,4 +79,4 @@ func _ready():
 	
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
-
+	ECS.clear_ghosts()

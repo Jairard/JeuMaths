@@ -58,7 +58,7 @@ func _ready():
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	hero_pos.set_position(Vector2(100,500))	
 	
-	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
+	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
 	
@@ -105,6 +105,8 @@ func _ready():
 
 	load_hud()
 	
+	ECS.clear_ghosts()
+
 func _process(delta):
 	time_label.set_text(str(int(game_timer.get_time_left())))
 		

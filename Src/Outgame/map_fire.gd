@@ -31,6 +31,7 @@ func _ready():
 	
 	_load_ressources()
 	load_characters()
+	ECS.clear_ghosts()
 
 func spawn_rain():
 	RainUtils.spawn_at(2100,2200,20,100,self,rain)		
@@ -125,7 +126,7 @@ func load_characters() :
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
 	
-	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
+	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
 
 	

@@ -6,8 +6,9 @@ var health = 0
 var health_max = 0
 
 func init(current_health : int, max_health : int) -> void :
-	health = current_health
-	health_max = max_health
+	if (!was_ghost()):
+		health = current_health
+		health_max = max_health
 
 func get_health() -> int :
 	return health
