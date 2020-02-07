@@ -7,7 +7,7 @@ var debug_line_id : int = -1
 
 func get_velocity() -> Vector2:
 	return vel
-	
+
 func set_velocity(_vel : Vector2) -> void:
 	vel = _vel
 	DebugUtils.remove_shape(debug_line_id)

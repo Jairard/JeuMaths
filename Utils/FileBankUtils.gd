@@ -20,7 +20,7 @@ func load_json(path : String):
 	var content = parse_json(text)
 	file.close()
 	return content
-	
+
 func save_json(dict,path : String) -> void:
 	var file = File.new()
 	file.open(path, File.WRITE)

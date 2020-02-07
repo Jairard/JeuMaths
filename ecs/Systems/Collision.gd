@@ -19,18 +19,18 @@ const health_layer_bit 		: int = 12
 const portal_layer_bit 		: int = 13
 
 func _get_mandatory_components() -> Array:
-	return [ComponentsLibrary.Collision] 
+	return [ComponentsLibrary.Collision]
 
 func _get_optional_components() -> Array:
-	return [ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce, 
-			ComponentsLibrary.Loot, ComponentsLibrary.Treasure, ComponentsLibrary.Damage, 
+	return [ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce,
+			ComponentsLibrary.Loot, ComponentsLibrary.Treasure, ComponentsLibrary.Damage,
 			ComponentsLibrary.Velocity, ComponentsLibrary.Stats, ComponentsLibrary.AnswertoSpell]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move, SystemsLibrary.Answer]
 
 func has_collision_layer(collider : Object, layer : int) -> bool:
-	var physicBody = collider as PhysicsBody2D	
+	var physicBody = collider as PhysicsBody2D
 	if (physicBody != null):
 		return physicBody.get_collision_layer_bit(layer) == true
 
@@ -46,7 +46,7 @@ func spawn_loot(colliderNode : Node2D) -> bool:
 		if loot_comp != null and loot_comp.get_loot_generator() == colliderNode:
 			var test_loot 		: Array		= loot_comp.get_loots()
 			var dp 				: Vector2 	= Vector2(150,-50)
-			var loot_node 		: Node2D 	= loot_comp.get_node() 
+			var loot_node 		: Node2D 	= loot_comp.get_node()
 			var loot_pos 		: Vector2 	= loot_node.get_position()
 			var loot_root		: Node2D 	= loot_node.get_parent()
 			for x in test_loot:
@@ -63,11 +63,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var health_comp 	= 	components[ComponentsLibrary.Health] 	as 	HealthComponent
 	var bounce_comp		= 	components[ComponentsLibrary.Bounce] 	as  BounceComponent
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
-	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent  
+	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent
 	var stats_comp	 	= 	components[ComponentsLibrary.Stats] 	as 	CharacterstatsComponent
 	var answer_comp 	=   components[ComponentsLibrary.AnswertoSpell] as AnswerListenerComponent
-	
-	
+
+
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
@@ -76,7 +76,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	# Collision detection
 	var body = pos_comp.get_node() as KinematicBody2D # Try to get the node as a kinematic body
 	var collisions : Array = [] # The array in which we'll store the collisions
-	
+
 	if body != null: # If it succeeds, we can proceed
 		var collision_count : int = body.get_slide_count() # get the collision count
 
@@ -90,45 +90,45 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if ArrayUtils.contains(processed_collider,collider):
 			continue											#pass to the next iteration
 		processed_collider.append(collider)
-														
-		var collider_ID : int = collider.get_instance_id() 
+
+		var collider_ID : int = collider.get_instance_id()
 		var collider_health_component 	: HealthComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
 		var collider_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
 		var my_body_damage_component 	: DamageComponent 	= _getComponentOfEntity(my_body.get_instance_id(), ComponentsLibrary.Damage)
-		
-		if (has_collision_layer(collider,enemy_layer_bit) == true 
+
+		if (has_collision_layer(collider,enemy_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :    			# ENEMY
-			
-			print("Enemy collision !") 
-			
+
+			print("Enemy collision !")
+
 			if health_comp != null:
 				var new_scene = FileBankUtils.loaded_scenes["map_fight_1"]
 				var node = health_comp.get_node()
 				node.get_tree().change_scene(new_scene)
 			collider.queue_free()
-			
-		if (has_collision_layer(collider,monster_layer_bit) == true 
+
+		if (has_collision_layer(collider,monster_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :  		# MONSTER
 
 			print("Monster collision !")
-			
+
 			if (spawn_loot(collider as Node2D) == false and health_comp != null):
-				health_comp.set_health(health_comp.get_health() - 10)	
+				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
 				collider.queue_free()
 
-		if (has_collision_layer(collider,hero_layer_bit) == true 
+		if (has_collision_layer(collider,hero_layer_bit) == true
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true) :  		 # SPELL from Enemy to Hero
 
 #			print("Spell collision to Hero!")
-			
+
 			if (collider_health_component != null) and (my_body_damage_component.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
 				FileBankUtils.health -= my_body_damage_component.get_damage()
 			my_body.queue_free()
-			
-		
-		if (has_collision_layer(collider,enemy_layer_bit) == true 
+
+
+		if (has_collision_layer(collider,enemy_layer_bit) == true
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true):  		 # SPELL from Hero to Enemy
 
 #			print("Spell collision to Enemy !")
@@ -137,9 +137,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
 				FileBankUtils.health -= my_body_damage_component.get_damage()
 			my_body.queue_free()
-			
 
-		if (has_collision_layer(collider,rain_layer_bit) == true 
+
+		if (has_collision_layer(collider,rain_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):			# RAIN
 
 			print("Rain collision !")
@@ -147,48 +147,48 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			collider.call_deferred("free")
 
 
-		if (has_collision_layer(collider,missile_layer_bit) == true 
+		if (has_collision_layer(collider,missile_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true): 		# MISSILE health - 10
-			
+
 			print("Missile collision !")
 			collider.queue_free()
-			
+
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
 
-		if (has_collision_layer(collider,fire_layer_bit) == true 
+		if (has_collision_layer(collider,fire_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
 
 			print("Fire collision !")
 			collider.queue_free()
-			
+
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
-			
-		if (has_collision_layer(collider,gold_layer_bit) == true 
+
+		if (has_collision_layer(collider,gold_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 10
 
 			print("Gold collision !")
 			collider.queue_free()
-			
+
 			if treasure_comp != null:
 				treasure_comp.set_treasure(treasure_comp.get_treasure() + 10)
 				FileBankUtils.treasure += 10
-			
 
-		if (has_collision_layer(collider,damage_layer_bit) == true 
+
+		if (has_collision_layer(collider,damage_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# DAMAGE +10
 
 			print("Damage collision !")
-			
+
 			if damage_comp != null:
 				damage_comp.set_damage(damage_comp.get_damage() + 10)
 				FileBankUtils.damage += 10
 			collider.queue_free()
 
-		if (has_collision_layer(collider,health_layer_bit) == true 
+		if (has_collision_layer(collider,health_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# HEALTH +10
 
 			print("Health collision !")
@@ -203,23 +203,23 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			collider.queue_free()
 
 		if (has_collision_layer(collider,answer_layer_bit) == true 				# ANSWER
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true): 
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):
 
 			print("Answer collision !")
 			collider.queue_free()
 
 		if (has_collision_layer(collider,wall_layer_bit) == true 				# Bounce answer / wall
-			and my_body.get_collision_layer_bit(answer_layer_bit) == true): 
+			and my_body.get_collision_layer_bit(answer_layer_bit) == true):
 
 			if bounce_comp != null:
 				var normal = col.get_normal()
 				bounce_comp.set_is_bouncing(normal)
-			
-		if (has_collision_layer(collider,portal_layer_bit) == true 
+
+		if (has_collision_layer(collider,portal_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL
-			
-			print("Portal collision !") 
-			
+
+			print("Portal collision !")
+
 			if health_comp != null:
 				var new_scene = FileBankUtils.loaded_scenes["map_fire"]
 				var node = health_comp.get_node()

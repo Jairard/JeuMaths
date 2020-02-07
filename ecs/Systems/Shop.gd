@@ -14,8 +14,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	#if button_health pressed :
 #	health_comp.set_health(health_comp.get_health() + 10)
-	
+
 	#if button_damage pressed :
 #	dmg_comp.set_damage(dmg_comp.get_damage() + 10)
-	
+
 	pass

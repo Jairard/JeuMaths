@@ -17,7 +17,7 @@ func move_and_slide(velocity : Vector2) -> Vector2:
 	DebugUtils.remove_shape(debug_rect_id)
 	debug_rect_id = draw_debug_rect(Rect2(Vector2(-25,-25),Vector2(50,50)), Color.aqua, -1, true)
 	return slide
-	
+
 func _on_destroyed() -> void:
 	DebugUtils.remove_shape(debug_rect_id)
-	
+

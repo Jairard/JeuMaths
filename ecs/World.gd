@@ -124,7 +124,7 @@ func add_component(node : Node, componentResource : Resource, tag : String = "")
 	if (component == null):
 		EcsUtils.log_and_push_error("ECS.add_component: couldn't create component " + componentResource.resource_path)
 		return null
-	
+
 	typedComponents[id] = component
 
 	if (!active_entities.has(id)):

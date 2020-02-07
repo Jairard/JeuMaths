@@ -17,7 +17,7 @@ onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
 var file = File.new()
 var dict = {}
-	
+
 func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
@@ -28,45 +28,45 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
-	
+
 	_load_ressources()
 	load_characters()
 	ECS.clear_ghosts()
 
 func spawn_rain():
-	RainUtils.spawn_at(2100,2200,20,100,self,rain)		
+	RainUtils.spawn_at(2100,2200,20,100,self,rain)
 
 func load_characters() :
-	
+
 	var enemyNode = enemy.instance()
 	add_child(enemyNode)
 	enemyNode.set_name("enemy")
-	
+
 	var heroNode = hero.instance()
 	add_child(heroNode)
 	heroNode.set_name("hero")
-	
+
 	var monsterNode = monster.instance()
 	add_child(monsterNode)
 	monsterNode.set_name("monster")
-	
+
 	var EyeNode = eye.instance()
 	add_child(EyeNode)
 	EyeNode.set_name("eye")
-	
+
 	var HudNode = hud.instance()
 	add_child(HudNode)
 	HudNode.set_name("Hud")
-	
+
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
 	ScoreNode.set_name("Score")
-	
+
 	var FireNode = spawn_fire.instance()
 	add_child(FireNode)
 	FireNode.set_name("fire")
 
-	
+
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	enemy_pos_comp.set_position(Vector2(3500,300))														#Appears at (0,0)
@@ -89,61 +89,61 @@ func load_characters() :
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
-	
+
 	ECS.add_component(monsterNode, ComponentsLibrary.Position)
 	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
 	var animation_player_monster = monsterNode.get_node("animation_monster")
 	comp_anim_monster.init(anim_name_monster, animation_player_monster)
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
-	comp_patrol.init(700,900) 
+	comp_patrol.init(700,900)
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_monster.init(1,1)	
+	health_comp_monster.init(1,1)
 	var lootDict_monster = [ {gold : 10}, {health : 10, damage : 5, null : 90}]
 	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
-	
+
 	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
 	eye_pos_comp.set_position(enemy_pos_comp.get_position())
 	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
 	comp_missile.init(heroNode)
 	var comp_rotation = ECS.add_component(EyeNode, ComponentsLibrary.Rotation) as RotationComponent
 	comp_rotation.set_rotation(true)
-	
+
 	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
 	ECS.add_component(FireNode, ComponentsLibrary.Collision)
 	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
 	fire_pos_comp.set_position(Vector2(1000,540))
-	
-	
+
+
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
-	
-	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
+
+	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(),
 	HudNode.get_life_hero_max(), HudNode.get_damage())
-	
+
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
-	
+
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health_max)
 
-	
+
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
 
-	
+
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
 	damage_comp.init(FileBankUtils.damage)
-	
+
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal) as ScoreglobalcounterComponent
 	score_comp.set_good_answer(FileBankUtils.good_answer)
 	score_comp.set_wrong_answer(FileBankUtils.wrong_answer)
 	score_comp.set_boss_killed(FileBankUtils.boss_killed)
-	
+
 func combat(valeur) :
 	if valeur == 0 :
 		get_tree().change_scene("res://Src/Outgame/map_fight_1.tscn")
-		
+
 
 
 func _on_Button_pressed():
@@ -153,7 +153,7 @@ func _on_Button_pressed():
 
 
 func _load_ressources():
-	
+
 #	file.open("res://log_in/pseudo.json", File.READ)
 #	dict = parse_json(file.get_as_text())
 #	GLOBAL.pv_hero_max = dict["health_max"]
@@ -167,15 +167,15 @@ func save_ressources():
 #	file.close()
 	pass
 func _on_Timer_timeout():
-	
+
 	var FireNode = spawn_fire.instance()
 	add_child(FireNode)
 	FireNode.set_name("fire")
-	
+
 	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
 	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
 	fire_pos_comp.set_position(Vector2(1000,540))
 
 
-func _on_Area2D_body_entered(body):  
+func _on_Area2D_body_entered(body):
 	spawn_rain()

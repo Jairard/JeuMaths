@@ -6,14 +6,14 @@ onready var lot   = preload("res://Src/Ingame/Animation/loot_monstre.tscn")
 
 enum spellType {ballfire}
 var spells = {}
-		
+
 func death(valeur):
 	var pos = self.position
 	var i = lot.instance()
 	i.start(pos)
 #	if boo :
 	get_parent().add_child(i)
-		
+
 	queue_free()
 
 

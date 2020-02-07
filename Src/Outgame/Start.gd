@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	pass 
+	pass
 
 
 #func _process(delta):
@@ -10,7 +10,7 @@ func _ready():
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://Src/Outgame/Signin.tscn")
-	print("sign") 
+	print("sign")
 
 
 

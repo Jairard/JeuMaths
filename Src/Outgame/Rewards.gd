@@ -12,16 +12,16 @@ onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
 func _ready():
-	
+
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Collision)
-	
-	var heroNode = hero.instance()						
+
+	var heroNode = hero.instance()
 	add_child(heroNode)
 	heroNode.set_name("hero")
-	
+
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 
@@ -41,8 +41,8 @@ func _ready():
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
-	
-	var lootNode = loot.instance()						
+
+	var lootNode = loot.instance()
 	add_child(lootNode)
 	lootNode.set_name("loot")
 
@@ -51,12 +51,12 @@ func _ready():
 	pos_comp_loot.set_position(Vector2(100,400))
 
 	var health_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_loot.init(1,1)	
+	health_comp_loot.init(1,1)
 	var lootdict = [ {gold : 10}, {damage : 5, health : 5, null : 90}]#, damage : 50}]#, null : 90} ]
 	var loot_comp = ECS.add_component(lootNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp.init(lootdict, lootNode)#.get_parent().get_node("CollisionShape2D"))
-	
-	
+
+
 	var portalNode = portal.instance()
 	add_child(portalNode)
 	portalNode.set_name("portal")
@@ -71,12 +71,12 @@ func _ready():
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
 	ScoreNode.set_name("Score")
-	
+
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
-	
-	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
+
+	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(),
 	HudNode.get_life_hero_max(), HudNode.get_damage())
-	
+
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
 	ECS.clear_ghosts()

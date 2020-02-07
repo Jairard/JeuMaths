@@ -9,7 +9,7 @@ func init(current_damage : int) -> void:
 
 func get_damage() -> int:
 	return damage
-	
+
 func set_damage(value : int) -> void:
 	damage = value
 

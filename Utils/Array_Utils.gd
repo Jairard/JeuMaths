@@ -43,18 +43,18 @@ func get_diff(src : Array, dst : Array) -> Array:
 	return res
 
 func contains_doublon(array : Array) -> bool:
-    for i in range(0, array.size()):
-        for j in range(i+1, array.size()):
-            if (array[j] == array[i]):
-                return true
-    return false
+	for i in range(0, array.size()):
+		for j in range(i+1, array.size()):
+			if (array[j] == array[i]):
+				return true
+	return false
 
 func get_doublon_indices(array : Array) -> Array:
 	var indices: Array = []
 	for i in range(0, array.size()):
-	    for j in range(i+1, array.size()):
-	        if (array[j] == array[i]):
-	            indices.append(j)
+		for j in range(i+1, array.size()):
+			if (array[j] == array[i]):
+				indices.append(j)
 	return indices
 
 func remove_doublons(array : Array) -> void:

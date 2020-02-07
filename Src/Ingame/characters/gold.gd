@@ -1,4 +1,4 @@
 extends KinematicBody2D
 
-func _ready(): 
+func _ready():
 	$AnimationPlayer.play("gold")

@@ -2,7 +2,7 @@ extends Component
 
 class_name TreasureComponent
 
-var treasure = 0 
+var treasure = 0
 
 func init(current_treasure : int) -> void :
 	treasure = current_treasure

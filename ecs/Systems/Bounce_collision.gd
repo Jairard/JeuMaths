@@ -12,7 +12,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var pos_comp 	= 	components[ComponentsLibrary.Position]		 as  PositionComponent
 	var bounce_comp	= 	components[ComponentsLibrary.Bounce] 	 	 as  BounceComponent
 	var vel_comp	= 	components[ComponentsLibrary.Velocity] 	 	 as  VelocityComponent
-	
+
 	var current_velocity = vel_comp.get_velocity()
 	if bounce_comp.is_bouncing() == true :
 		var normal : Vector2 = bounce_comp.get_normal()
@@ -23,7 +23,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		vel_comp.set_velocity(current_velocity)
 		bounce_comp.stop_bouncing()
 	pos_comp.move_and_slide(current_velocity)
-	
-	
-	
-	
+
+
+
+

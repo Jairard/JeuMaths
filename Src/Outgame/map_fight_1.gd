@@ -19,9 +19,9 @@ onready var enemyNode = enemy.instance()
 var calcul_instance = null
 
 func _ready():
-	
+
 	var answer_listener : Array = []
-	
+
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
@@ -31,9 +31,9 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Endfight)
-	
+
 	spawn()
-	
+
 	FileBankUtils.init_stats(FileBankUtils.loaded_hero_stats)
 	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
 	listener_hero.init(calcul_instance, calcul)
@@ -44,8 +44,8 @@ func _ready():
 	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
 #	damage_comp_hero.init(damage_comp_hero.damage)
 	damage_comp_hero.init(FileBankUtils.damage)
-	
-	
+
+
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
@@ -56,20 +56,20 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	hero_pos.set_position(Vector2(100,500))	
-	
+	hero_pos.set_position(Vector2(100,500))
+
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
-	
+
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 
-	
-	
+
+
 	var listener_enemy : Component = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
 	listener_enemy.init(calcul_instance, calcul)
-	
-	
+
+
 	answer_listener.append(listener_enemy)
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
 	ECS.add_component(enemyNode, ComponentsLibrary.Node_Enemy)
@@ -81,73 +81,73 @@ func _ready():
 	var damage_enemy = int(damage_comp_hero.damage * 0.3)
 
 	damage_comp_enemy.init(damage_enemy)
-	
-	
+
+
 	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
-	answerToSpell_hero.init({AnswerListenerComponent.answer.true : 
+	answerToSpell_hero.init({AnswerListenerComponent.answer.true :
 																	{AnswertoSpellComponent.property.name :"spell_hero",
 																	 AnswertoSpellComponent.property.target : enemyNode,
 																	 AnswertoSpellComponent.property.damage : damage_comp_hero.get_damage()}
 																	})
-	
+
 	var answerToSpell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
-	answerToSpell_enemy.init({AnswerListenerComponent.answer.false : 
+	answerToSpell_enemy.init({AnswerListenerComponent.answer.false :
 																	{AnswertoSpellComponent.property.name :"spell_enemy",
 																	 AnswertoSpellComponent.property.target : heroNode,
 																	 AnswertoSpellComponent.property.damage : damage_enemy}
 																	})
 	var comp_spell_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_enemy.init({"spell_enemy" : spell_enemy})
-	
+
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
-	
+
 	calcul_instance.set_answer_listener(answer_listener)
 
 	load_hud()
-	
+
 	ECS.clear_ghosts()
 
 func _process(delta):
 	time_label.set_text(str(int(game_timer.get_time_left())))
-		
+
 
 
 func spawn() :
-		
+
 	add_child(heroNode)
 	add_child(enemyNode)
-	enemyNode.set_position(Vector2(750,350))	
-	var sprite = $Ennemy/Sprite 
-	sprite.apply_scale(Vector2(4, 4)) 
+	enemyNode.set_position(Vector2(750,350))
+	var sprite = $Ennemy/Sprite
+	sprite.apply_scale(Vector2(4, 4))
 	$Ennemy/CollisionShape2D.scale = Vector2(4, 4)
 	calcul_instance = calcul.instance()
 	calcul_instance.hide()
 	add_child(calcul_instance)
-	
+
 func load_hud():
 	var Hud_heroNode = hud_hero.instance()
 	add_child(Hud_heroNode)
 	Hud_heroNode.set_name("Hud_hero")
-		
+
 	var hud_hero_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
-	hud_hero_comp.init_hero_map(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(), 				
-	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage())							
-	
+	hud_hero_comp.init_hero_map(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
+	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage())
+
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)
 	Hud_enemyNode.set_name("Hud_enemy")
-	
+
 	var hud_enemy_comp = ECS.add_component(enemyNode, ComponentsLibrary.Hud) as HudComponent
 	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
 	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage())
-	
+
 
 func _on_game_timer_timeout():
 
 	time_label.hide()
 	calcul_instance.show()
-	
-	
 
-	
+
+
+
 

@@ -11,21 +11,21 @@ func _ready():
 
 	var treasure_damage_pos_comp = ECS.add_component(treasureNode_damage, ComponentsLibrary.Position) as PositionComponent
 	treasure_damage_pos_comp.set_position(Vector2(85,218))
-	
+
 	var treasureNode_health = treasure_health.instance()
 	add_child(treasureNode_health)
 	treasureNode_health.apply_scale(Vector2(1.8,1.8))
 
 	var treasure_health_pos_comp = ECS.add_component(treasureNode_health, ComponentsLibrary.Position) as PositionComponent
 	treasure_health_pos_comp.set_position(Vector2(455,218))
-	
+
 	var treasureNode_life = treasure_life.instance()
 	add_child(treasureNode_life)
 	treasureNode_life.apply_scale(Vector2(1.8,1.8))
 
 	var treasure_life_pos_comp = ECS.add_component(treasureNode_life, ComponentsLibrary.Position) as PositionComponent
-	treasure_life_pos_comp.set_position(Vector2(810,218))	
-	
+	treasure_life_pos_comp.set_position(Vector2(810,218))
+
 
 func _on_Damages_pressed():
 	FileBankUtils.loaded_heroes_stats["treasure"] -= 10

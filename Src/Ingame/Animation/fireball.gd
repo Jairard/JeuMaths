@@ -13,7 +13,7 @@ func _process(delta):
 	# Check if the spell has hit an enemy
 	if $Fireball/oeil_droit.is_colliding() == true:
 		# TODO emit signal or do something
-		# We have to  clean up to avoid multiple signals to be sent 
+		# We have to  clean up to avoid multiple signals to be sent
 		clean_up()
 
 func clean_up():

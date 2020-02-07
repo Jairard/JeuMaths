@@ -21,6 +21,6 @@ func set_health(value : int) -> void :
 
 func set_health_max(value :int) -> void :
 	health_max = value
-	
+
 func is_health_max() -> bool :
 	return health == health_max

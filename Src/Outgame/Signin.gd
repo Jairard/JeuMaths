@@ -27,14 +27,14 @@ func get_stats(pseudo : String) -> Dictionary:
 	return {"new_hero" : true, "stats" : new_stats}
 
 func _on_Button_pressed():
-	
+
 	var pseudo : String = $TileMap/pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 	var new_scene :	String =  ("create_hero" if stats_hero["new_hero"] == true else "map_fire")
 	get_tree().change_scene(FileBankUtils.loaded_scenes[new_scene])
 
-		
 
 
-	
+
+

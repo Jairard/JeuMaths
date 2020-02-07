@@ -14,13 +14,13 @@ func get_good_answer() -> int:
 
 func set_good_answer(_good_answer) -> void:
 	good_answer = _good_answer
-	
+
 func get_wrong_answer() -> int:
 	return wrong_answer
 
 func set_wrong_answer(_wrong_answer) -> void:
 	wrong_answer = _wrong_answer
-	
+
 func get_boss_killed() -> int:
 	return boss_killed
 

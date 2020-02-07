@@ -7,23 +7,23 @@ onready var hud 	= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 
 
 func _ready():
-	
+
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bounce)
-	
-	
+
+
 	var enemyNode = enemy.instance()
 	add_child(enemy.instance())
 	enemyNode.set_name("enemy")
-	
+
 	var heroNode = hero.instance()
 	add_child(heroNode)
 	heroNode.set_name("hero")
-	
+
 	var HudNode = hud.instance()
 	add_child(HudNode)
 	HudNode.set_name("Hud")
@@ -31,8 +31,8 @@ func _ready():
 	var answerNode = answer.instance()
 	add_child(answerNode)
 	answerNode.set_name("answer")
-	
-	
+
+
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
@@ -49,20 +49,20 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	hero_pos.set_position(RandomUtils.vector(150,750,500))	
+	hero_pos.set_position(RandomUtils.vector(150,750,500))
 
 	var health_comp = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp.init(100,100)
-	
-	
+
+
 #	var enemy_pos = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 #	enemy_pos.set_position(Vector2(400,300))
-	
+
 	ECS.add_component(answerNode, ComponentsLibrary.Health)
 	ECS.add_component(answerNode, ComponentsLibrary.Collision)
-	ECS.add_component(answerNode, ComponentsLibrary.Bounce)	
+	ECS.add_component(answerNode, ComponentsLibrary.Bounce)
 	ECS.add_component(answerNode, ComponentsLibrary.Treasure)
-	ECS.add_component(answerNode, ComponentsLibrary.Damage)										
+	ECS.add_component(answerNode, ComponentsLibrary.Damage)
 	ECS.add_component(answerNode, ComponentsLibrary.Loot)
 	var comp_ans = ECS.add_component(answerNode, ComponentsLibrary.Nodegetid) 	as NodegetidComponent
 	comp_ans.init(answerNode)
@@ -70,5 +70,5 @@ func _ready():
 	answer_pos.set_position(RandomUtils.vector(150,750,300))
 	var comp_vel = ECS.add_component(answerNode, ComponentsLibrary.Velocity) 	as VelocityComponent
 	comp_vel.set_velocity(Vector2(100,100))
-	
-	
+
+
