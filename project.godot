@@ -214,11 +214,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/System.gd"
 }, {
-"base": "Node",
-"class": "TagsLibrary",
-"language": "GDScript",
-"path": "res://ecs/TagsLibrary.gd"
-}, {
 "base": "Component",
 "class": "TreasureComponent",
 "language": "GDScript",
@@ -276,7 +271,6 @@ _global_script_class_icons={
 "ShopSystem": "",
 "SpellComponent": "",
 "System": "",
-"TagsLibrary": "",
 "TreasureComponent": "",
 "VelocityComponent": "",
 "bulletSystem": ""
