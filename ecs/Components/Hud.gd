@@ -14,7 +14,7 @@ func init_hero_fight(treasure : Label, score_label : Label):				#init node on ma
 	_score_label = score_label
 
 func init_hero_map(health_value : TextureProgress, health_label : Label,
-			   	   health_max : TextureProgress, damage : Label) -> void : 		#init node on map fire/water		
+				   health_max : TextureProgress, damage : Label) -> void : 		#init node on map fire/water		
 	_health_value = health_value
 	_health_label = health_label
 	_health_max = health_max
@@ -26,7 +26,7 @@ func init_enemy(health_value : TextureProgress, health_label : Label, health_max
 	_health_label = health_label
 	_health_max = health_max
 	_damage = damage
- 	
+	
 func set_health(value : int) -> void :		
 	_health_value.value = value
 #	print ("value : ", value)

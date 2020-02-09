@@ -69,11 +69,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Component.gd"
 }, {
-"base": "Node",
-"class": "ComponentsLibrary",
-"language": "GDScript",
-"path": "res://ecs/Components/Library.gd"
-}, {
 "base": "Component",
 "class": "DamageComponent",
 "language": "GDScript",
@@ -220,11 +215,6 @@ _global_script_classes=[ {
 "path": "res://ecs/System.gd"
 }, {
 "base": "Node",
-"class": "SystemsLibrary",
-"language": "GDScript",
-"path": "res://ecs/Systems/Library.gd"
-}, {
-"base": "Node",
 "class": "TagsLibrary",
 "language": "GDScript",
 "path": "res://ecs/TagsLibrary.gd"
@@ -257,7 +247,6 @@ _global_script_class_icons={
 "CollisionComponent": "",
 "CollisionSystem": "",
 "Component": "",
-"ComponentsLibrary": "",
 "DamageComponent": "",
 "EmitParticulesComponent": "",
 "EmitParticulesSystem": "",
@@ -287,7 +276,6 @@ _global_script_class_icons={
 "ShopSystem": "",
 "SpellComponent": "",
 "System": "",
-"SystemsLibrary": "",
 "TagsLibrary": "",
 "TreasureComponent": "",
 "VelocityComponent": "",

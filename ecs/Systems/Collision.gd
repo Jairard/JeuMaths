@@ -114,6 +114,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 			if (spawn_loot(collider as Node2D) == false and health_comp != null):
 				health_comp.set_health(health_comp.get_health() - 10)	
+				FileBankUtils.health -= 10
 				collider.queue_free()
 
 		if (has_collision_layer(collider,hero_layer_bit) == true 
@@ -123,7 +124,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 			if (collider_health_component != null) and (my_body_damage_component.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
-
+				FileBankUtils.health -= my_body_damage_component.get_damage()
 			my_body.queue_free()
 			
 		
@@ -134,6 +135,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if (collider_health_component != null and my_body_damage_component.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
+				FileBankUtils.health -= my_body_damage_component.get_damage()
 			my_body.queue_free()
 			
 
@@ -141,7 +143,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):			# RAIN
 
 			print("Rain collision !")
-			
+			FileBankUtils.health -= 5
 			collider.call_deferred("free")
 
 
@@ -153,6 +155,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)
+				FileBankUtils.health -= 10
 
 		if (has_collision_layer(collider,fire_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
@@ -162,6 +165,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)
+				FileBankUtils.health -= 10
 			
 		if (has_collision_layer(collider,gold_layer_bit) == true 
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 10
@@ -171,6 +175,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 			if treasure_comp != null:
 				treasure_comp.set_treasure(treasure_comp.get_treasure() + 10)
+				FileBankUtils.treasure += 10
 			
 
 		if (has_collision_layer(collider,damage_layer_bit) == true 
@@ -180,6 +185,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			
 			if damage_comp != null:
 				damage_comp.set_damage(damage_comp.get_damage() + 10)
+				FileBankUtils.damage += 10
 			collider.queue_free()
 
 		if (has_collision_layer(collider,health_layer_bit) == true 
@@ -193,6 +199,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 					health_comp.set_health(health_comp.get_health_max())
 				else :
 					health_comp.set_health(health_comp.get_health() + 10)
+				FileBankUtils.health += 10
 			collider.queue_free()
 
 		if (has_collision_layer(collider,answer_layer_bit) == true 				# ANSWER
