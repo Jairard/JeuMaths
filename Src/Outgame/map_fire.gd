@@ -74,8 +74,6 @@ func load_characters() :
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
-	
-	FileBankUtils.init_stats(FileBankUtils.loaded_hero_stats)
 
 
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
@@ -127,7 +125,7 @@ func load_characters() :
 
 	
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
+	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health_max)
 
 	
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
