@@ -1,55 +1,40 @@
 extends Node2D
 
-var stats : Array = []
-var dict = {}
-var file = File.new()
-var init_stats : Dictionary = {
-							"pseudo" : "",
-							"stats" : [
-										{
-										"damage":15,"health":70,"level":0,
-										"xp":0,"treasure":0,"good_answer":1,
-										"wrong_answer":1,"boss_killed":1
-										}
-									  ]
-						}
+var stats : Dictionary = {}
+const init_stats : Dictionary =  {
+									"damage":15,"health":70,
+									"treasure":0,"good_answer":0,
+									"wrong_answer":0,"boss_killed":0,
+									"health_max":70
+									} 
+							
 
-func _ready():
-	pass
+func _ready(): 
+	if FileBankUtils.loaded_heroes_stats != null:
+		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
+
 
 #func _process(delta):
 #	pass
 
-func if_pseudo():
-	for i in len(stats):
-		print (stats[i]["pseudo"])
-		if stats[i]["pseudo"] == $TileMap/pseudo.get_text():
-			print ("load")
-			_load()
-		else :
-			print ("save")
-			stats.append(init_stats)
-			save()
+func get_stats(pseudo : String) -> Dictionary:
+	for _pseudo in stats.keys():
+		if _pseudo == pseudo:
+			return { "new_hero" : false, "stats" : stats[_pseudo]}
+	
+	var new_stats = init_stats.duplicate(true)
+	stats[pseudo] = new_stats
+	return {"new_hero" : true, "stats" : new_stats}
 
 func _on_Button_pressed():
 	
 	var pseudo : String = $TileMap/pseudo.get_text()
-	if_pseudo()
+	var stats_hero = get_stats(pseudo)
+	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
+	var new_scene :	String =  ("create_hero" if stats_hero["new_hero"] == true else "map_fire")
+	get_tree().change_scene(FileBankUtils.loaded_scenes[new_scene])
 
-	get_tree().change_scene("res://Src/Outgame/create_hero.tscn")
-
-func _load():
-	
-	file.open("res://log_in/pseudo.json", File.READ)
-	dict = parse_json(file.get_as_text())
-	file.close()
 		
-func save():
-	
-	file.open("res://Assets/Stats_Characters/Hero_Stats.json", File.WRITE)
-	var text = to_json(init_stats)
-	file.store_string(text)
-	file.close()
-	
-	
+
+
 	
