@@ -81,13 +81,15 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
 
 [node name="Score" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 715.486
-margin_top = 10.3899
-margin_right = 763.486
-margin_bottom = 29.3899
+margin_left = 717.0
+margin_top = 17.0
+margin_right = 761.0
+margin_bottom = 34.0
 rect_scale = Vector2( 2, 2 )
+size_flags_stretch_ratio = 0.0
 bbcode_enabled = true
-bbcode_text = "[wave][rainbow]"
+bbcode_text = "[wave][rainbow]1000"
+text = "1000"
 __meta__ = {
 "_edit_use_anchors_": false
 }
