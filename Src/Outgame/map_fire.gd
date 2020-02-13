@@ -135,10 +135,8 @@ func load_characters() :
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
 	damage_comp.init(FileBankUtils.damage)
 
-	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal) as ScoreglobalcounterComponent
-	score_comp.set_good_answer(FileBankUtils.good_answer)
-	score_comp.set_wrong_answer(FileBankUtils.wrong_answer)
-	score_comp.set_boss_killed(FileBankUtils.boss_killed)
+	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
+	score_comp.init(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.boss_killed)
 
 func combat(valeur) :
 	if valeur == 0 :
