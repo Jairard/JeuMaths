@@ -8,6 +8,7 @@ var _health_max 	: 	TextureProgress = null
 var _damage			: 	Label = null
 var _treasure 		:	Label = null
 var _score_label	:   RichTextLabel = null
+var _score 			: int = 0
 
 func init_hero_fight(treasure : Label, score_label : RichTextLabel):				#init node on map fight 1
 	_treasure= treasure
@@ -42,7 +43,9 @@ func set_treasure(value : int) -> void :
 	_treasure.text = str(value)
 
 func set_score(value : int) -> void :
-	_score_label.append_bbcode(str(value))
+	if value != _score:
+		_score_label.set_bbcode("[wave][rainbow]"+str(value))
+		_score = value
 
 
 
