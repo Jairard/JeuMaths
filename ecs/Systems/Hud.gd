@@ -34,7 +34,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		comp_hud.set_damage(current_damage)
 
 	if comp_score != null:
-		var current_score = comp_score.init_score()
+		var current_score = comp_score.compute_score()
 #		var current_score = comp_score.get_boss_killed() * (float(comp_score.get_good_answer()) / comp_score.get_wrong_answer()) * 1000
 		comp_hud.set_score(current_score)
 
