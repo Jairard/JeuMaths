@@ -34,14 +34,13 @@ func _ready():
 
 	spawn()
 
-	FileBankUtils.init_stats(FileBankUtils.loaded_hero_stats)
 	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
 	listener_hero.init(calcul_instance, calcul)
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
 	answer_listener.append(listener_hero)
 	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
-	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
+	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
 #	damage_comp_hero.init(damage_comp_hero.damage)
 	damage_comp_hero.init(FileBankUtils.damage)
 
@@ -59,7 +58,6 @@ func _ready():
 	hero_pos.set_position(Vector2(100,500))
 
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
 
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)

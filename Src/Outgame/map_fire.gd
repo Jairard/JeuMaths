@@ -128,11 +128,11 @@ func load_characters() :
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health_max)
 
 
-	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure) as TreasureComponent
+	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
 
 
-	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage) as DamageComponent
+	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
 	damage_comp.init(FileBankUtils.damage)
 
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal) as ScoreglobalcounterComponent

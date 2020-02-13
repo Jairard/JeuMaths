@@ -84,6 +84,16 @@ margin_right = 420.46
 margin_bottom = 193.459
 text = "Map Water"
 
+[node name="Stats" type="Button" parent="."]
+margin_left = 707.078
+margin_top = 535.306
+margin_right = 874.078
+margin_bottom = 608.306
+text = "Stats"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Map2" type="Label" parent="."]
 margin_left = -2.09747
 margin_top = -0.902496
@@ -92,6 +102,9 @@ margin_bottom = 47.0975
 custom_fonts/font = SubResource( 1 )
 text = "Map"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Init2" type="Label" parent="."]
 margin_left = 551.0
@@ -101,6 +114,9 @@ margin_bottom = 51.0
 custom_fonts/font = SubResource( 2 )
 text = "Init"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="create_hero" to="." method="_on_create_hero_pressed"]
 [connection signal="pressed" from="Log In" to="." method="_on_Log_In_pressed"]
 [connection signal="pressed" from="Map_fight_1" to="." method="_on_Map_fight_1_pressed"]
@@ -111,3 +127,4 @@ align = 1
 [connection signal="pressed" from="Shop" to="." method="_on_Shop_pressed"]
 [connection signal="pressed" from="Rewards" to="." method="_on_Rewards_pressed"]
 [connection signal="pressed" from="Map_water" to="." method="_on_Map_water_pressed"]
+[connection signal="pressed" from="Stats" to="." method="_on_Stats_pressed"]

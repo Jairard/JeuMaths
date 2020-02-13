@@ -36,3 +36,7 @@ func _on_Map_water_pressed():
 
 func _on_Rewards_pressed():
 	get_tree().change_scene("res://Src/Outgame/Rewards.tscn")
+
+
+func _on_Stats_pressed():
+	get_tree().change_scene("res://Src/Outgame/Stats.tscn")

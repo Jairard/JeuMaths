@@ -4,6 +4,12 @@ onready var treasure_damage	= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var treasure_health	= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var treasure_life	= 	preload("res://Src/Ingame/characters/gold.tscn")
 
+onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
+onready var heroNode = hero.instance()
+onready var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
+onready var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
+onready var treasure_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
+
 func _ready():
 	var treasureNode_damage = treasure_damage.instance()
 	add_child(treasureNode_damage)
@@ -25,22 +31,23 @@ func _ready():
 
 	var treasure_life_pos_comp = ECS.add_component(treasureNode_life, ComponentsLibrary.Position) as PositionComponent
 	treasure_life_pos_comp.set_position(Vector2(810,218))
-
-
+	
 func _on_Damages_pressed():
-	FileBankUtils.loaded_heroes_stats["treasure"] -= 10
-	FileBankUtils.loaded_heroes_stats["damage"] += 10
-	get_tree().change_scene("res://Src/Outgame/map_fire.tscn")
+
+	damage_comp_hero.set_damage(damage_comp_hero.get_damage() + 10)
+	treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 10)
+	get_tree().change_scene("res://Src/Outgame/Stats.tscn")
 
 
 func _on_Health_pressed():
-	FileBankUtils.loaded_heroes_stats["treasure"] -= 10
-	FileBankUtils.loaded_heroes_stats["health"] += 10
-#	FileBankUtils.save_json(FileBankUtils.loaded_hero_stats,"res://Assets/Stats_Characters/Hero_Stats.json")
-	get_tree().change_scene("res://Src/Outgame/map_fire.tscn")
+
+	health_comp_hero.set_health(health_comp_hero.get_health() + 10)
+	treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 10)
+	get_tree().change_scene("res://Src/Outgame/Stats.tscn")
 
 func _on_regen_health_pressed():
-	FileBankUtils.loaded_heroes_stats["treasure"] -= 20
-	FileBankUtils.loaded_heroes_stats["health"] += 10
-	get_tree().change_scene("res://Src/Outgame/map_fire.tscn")
+	
+	health_comp_hero.set_health(FileBankUtils.health_max)
+	treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 20)
+	get_tree().change_scene("res://Src/Outgame/Stats.tscn")
 
