@@ -2,8 +2,15 @@ extends Node2D
 
 var count = 0
 var answer_listeners  : Array = []
-#var load_calcul = load_c("res://Assets/Questions/questions.json")
-var load_calcul = load_c("res://Assets/Questions/questions.txt")
+#var load_calcul_6 = load_c("res://Assets/Questions/questions_6.json")
+#var load_calcul_5 = load_c("res://Assets/Questions/questions_5.json")
+#var load_calcul_4 = load_c("res://Assets/Questions/questions_4.json")
+#var load_calcul_3 = load_c("res://Assets/Questions/questions_3.json")
+var load_calcul = load_c("res://Assets/Questions/questions.json")
+
+
+var button_answer : Button = null
+var button_question : Button = null
 
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
@@ -17,12 +24,17 @@ func load_c(path : String) -> Dictionary:
 	var text = file.get_as_text()
 	var dict = parse_json(text)
 	file.close()
-	print (dict)
+#	print (dict)
 	return dict
 
 func setup_question(dict : Array) -> void:
-	var button_question : Button = Button.new()
+#	var container : Node2D = Node2D.new()
+#	add_child(container)
+	
+	button_question = Button.new()
 	add_child(button_question)
+#	container.add_child(button_question)
+#	button_question.rect_scale(button_question.rect_size / 2)
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
@@ -34,7 +46,7 @@ func setup_question(dict : Array) -> void:
 
 	var ans_position : Vector2 = Vector2(0,100)
 	for ans in answers:
-		var button_answer : Button = Button.new()
+		button_answer = Button.new()
 		button_answer.text = ans["text"]
 		ans_position.x += 100
 		button_answer.set_position(ans_position)
@@ -47,12 +59,21 @@ func setup_question(dict : Array) -> void:
 
 
 func _ready():
-
+	
+#	if FileBankUtils.classroom == 6:
+#		setup_question(load_calcul_6)
+#	if FileBankUtils.classroom == 5:
+#		setup_question(load_calcul_5)
+#	if FileBankUtils.classroom == 4:
+#		setup_question(load_calcul_4)
+#	if FileBankUtils.classroom == 3:
+#		setup_question(load_calcul_3)
 	setup_question(load_calcul)
+	
 
 func _process(delta):
 	count += 1
-
+#	button_answer.set_rotation(count*delta)
 #	$ans_1.rotation = count * delta
 #	$ans_2.rotation = count * delta
 	pass
