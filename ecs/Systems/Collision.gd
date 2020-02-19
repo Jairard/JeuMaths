@@ -164,7 +164,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			collider.queue_free()
 
 			if health_comp != null:
-				health_comp.set_health(health_comp.get_health() - 10)
+				health_comp.set_health(health_comp.get_health() - 10)# lerp(0, 10, 0))
 				FileBankUtils.health -= 10
 
 		if (has_collision_layer(collider,gold_layer_bit) == true
@@ -221,7 +221,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Portal collision !")
 
 			if health_comp != null:
-				var new_scene = FileBankUtils.loaded_scenes["map_fire"]
+				var new_scene = FileBankUtils.loaded_scenes["next_level"]
 				var node = health_comp.get_node()
 				yield(node.get_parent().get_tree().create_timer(1.0), "timeout")
 				node.get_tree().change_scene(new_scene)
