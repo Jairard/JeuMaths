@@ -5,7 +5,7 @@ const init_stats : Dictionary =  {
 									"damage":15,"health":70,
 									"treasure":0,"good_answer":0,
 									"wrong_answer":0,"boss_killed":0,
-									"health_max":70
+									"health_max":70, "scene_counter":0
 									} 
 							
 
@@ -31,10 +31,42 @@ func _on_Button_pressed():
 	var pseudo : String = $TileMap/pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
-	var new_scene :	String =  ("create_hero" if stats_hero["new_hero"] == true else "map_fire")
-	get_tree().change_scene(FileBankUtils.loaded_scenes[new_scene])
+	print ("File : ", FileBankUtils.scene_counter)
+#	var new_scene :	String =  ("create_hero" if stats_hero["new_hero"] == true else "playing_map"[FileBankUtils.scene_counter])
+	
+	if stats_hero["new_hero"] == true:
+		get_tree().change_scene(FileBankUtils.loaded_scenes["create_hero"])
+	
+	else: 
+		if FileBankUtils.scene_counter == 0:
+			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"]["map_tuto"])
+		
+		else: 
+			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"]["map_fire"])
+	
 
 
+func _on_6eme_pressed():
+	$_5eme.pressed = false
+	$_4eme.pressed = false
+	$_3eme.pressed = false
+	FileBankUtils.classroom = 6
+
+func _on_5eme_pressed():
+	$_6eme.pressed = false
+	$_4eme.pressed = false
+	$_3eme.pressed = false
+	FileBankUtils.classroom = 5
 
 
+func _on_4eme_pressed():
+	$_6eme.pressed = false
+	$_5eme.pressed = false
+	$_3eme.pressed = false
+	FileBankUtils.classroom = 4
 
+func _on_3eme_pressed():
+	$_6eme.pressed = false
+	$_5eme.pressed = false
+	$_4eme.pressed = false
+	FileBankUtils.classroom = 3
