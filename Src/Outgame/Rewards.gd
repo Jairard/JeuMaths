@@ -17,6 +17,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Collision)
+	ECS.register_system(SystemsLibrary.Hud)
 
 	var heroNode = hero.instance()
 	add_child(heroNode)
@@ -25,14 +26,16 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 
-	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
+	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
+	print ("health : ", health_comp_hero.get_health())
+	print ("health_max : ", health_comp_hero.get_health_max())
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(100,400))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
-	ECS.add_component(heroNode, ComponentsLibrary.Treasure)
-	ECS.add_component(heroNode, ComponentsLibrary.Damage)
+	var treasure_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent	
+	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
@@ -48,13 +51,13 @@ func _ready():
 
 	ECS.add_component(lootNode, ComponentsLibrary.Collision)
 	var pos_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp_loot.set_position(Vector2(100,400))
+	pos_comp_loot.set_position(Vector2(100,500))
 
-	var health_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
+	var health_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_loot.init(1,1)
 	var lootdict = [ {gold : 10}, {damage : 5, health : 5, null : 90}]#, damage : 50}]#, null : 90} ]
 	var loot_comp = ECS.add_component(lootNode, ComponentsLibrary.Loot) as LootComponent
-	loot_comp.init(lootdict, lootNode)#.get_parent().get_node("CollisionShape2D"))
+	loot_comp.init(lootdict, lootNode)
 
 
 	var portalNode = portal.instance()
@@ -78,5 +81,7 @@ func _ready():
 	HudNode.get_life_hero_max(), HudNode.get_damage())
 
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
+	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
+	score_comp.init(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.boss_killed)
 
 	ECS.clear_ghosts()
