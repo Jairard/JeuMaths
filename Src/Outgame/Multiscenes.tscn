@@ -104,6 +104,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Next_level" type="Button" parent="."]
+margin_left = 497.716
+margin_top = 403.485
+margin_right = 664.716
+margin_bottom = 476.485
+text = "Next_level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Map2" type="Label" parent="."]
 margin_left = -2.09747
 margin_top = -0.902496
@@ -139,3 +149,4 @@ __meta__ = {
 [connection signal="pressed" from="Map_water" to="." method="_on_Map_water_pressed"]
 [connection signal="pressed" from="Stats" to="." method="_on_Stats_pressed"]
 [connection signal="pressed" from="Death" to="." method="_on_Death_pressed"]
+[connection signal="pressed" from="Next_level" to="." method="_on_Next_level_pressed"]

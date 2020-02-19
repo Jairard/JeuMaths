@@ -1,5 +1,5 @@
 {
-    "map_fire"      : "res://Src/Outgame/map_fire.tscn",
+    "playing_map" : [{"map_tuto" : "res://Src/Outgame/Tuto.tscn"}, {"map_fire": "res://Src/Outgame/map_fire.tscn"}],
     "map_water"     : "res://Src/Outgame/map_water.tscn",
     "map_fight_1"   : "res://Src/Outgame/map_fight_1.tscn",
     "map_fight_2"   : "res://Src/Outgame/map_fight_2.tscn",
@@ -8,5 +8,7 @@
     "sign_in"       : "res://Src/Outgame/Signin.tscn",
     "create_hero"   : "res://Src/Outgame/create_hero.tscn",
     "log_in"        : "res://Src/Outgame/Login.tscn",
-    "rewards"       : "res://Src/Outgame/Rewards.tscn"
+    "rewards"       : "res://Src/Outgame/Rewards.tscn",
+    "next_level"    : "res://Src/Outgame/Next_level.tscn",
+    "death"         : "res://Src/Outgame/Death.tscn" 
 }

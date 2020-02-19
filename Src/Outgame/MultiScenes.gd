@@ -44,3 +44,8 @@ func _on_Stats_pressed():
 
 func _on_Death_pressed():
 	get_tree().change_scene("res://Src/Outgame/Death.tscn")
+
+
+func _on_Next_level_pressed():
+	get_tree().change_scene("res://Src/Outgame/Next_level.tscn")
+
