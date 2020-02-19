@@ -40,3 +40,7 @@ func _on_Rewards_pressed():
 
 func _on_Stats_pressed():
 	get_tree().change_scene("res://Src/Outgame/Stats.tscn")
+
+
+func _on_Death_pressed():
+	get_tree().change_scene("res://Src/Outgame/Death.tscn")

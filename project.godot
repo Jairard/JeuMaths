@@ -195,6 +195,11 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Rotation.gd"
 }, {
 "base": "Component",
+"class": "SceneCounterComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Scene_counter.gd"
+}, {
+"base": "Component",
 "class": "ScoreglobalcounterComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Score_global_counter.gd"
@@ -267,6 +272,7 @@ _global_script_class_icons={
 "PatrolSystem": "",
 "PositionComponent": "",
 "RotationComponent": "",
+"SceneCounterComponent": "",
 "ScoreglobalcounterComponent": "",
 "ShopSystem": "",
 "SpellComponent": "",
@@ -279,7 +285,7 @@ _global_script_class_icons={
 [application]
 
 config/name="jeu"
-run/main_scene="res://Src/Outgame/Signin.tscn"
+run/main_scene="res://Src/Outgame/Multiscenes.tscn"
 config/icon="res://Assets/Textures/Characters/icon.png"
 
 [autoload]

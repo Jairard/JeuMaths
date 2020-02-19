@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Death.gd" type="Script" id=1]
+
+[node name="Death" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="hero_disapear" type="RichTextLabel" parent="."]
+margin_left = 197.231
+margin_top = 178.394
+margin_right = 398.231
+margin_bottom = 218.394
+rect_scale = Vector2( 3, 3 )
+bbcode_enabled = true
+bbcode_text = "[tornado][center][color=fuchsia]ton hero a disparu"
+text = "ton hero a disparu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reset_text" type="RichTextLabel" parent="."]
+margin_left = 412.19
+margin_top = 468.7
+margin_right = 559.19
+margin_bottom = 508.7
+rect_scale = Vector2( 2, 2 )
+bbcode_enabled = true
+bbcode_text = "[wave amp=50 freq=8][center][color=yellow][shake rate=50 level=5][fade start=0 length=25]Rappelle le ! "
+text = "Rappelle le ! "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reset_button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 466.842
+margin_top = 488.105
+margin_right = 646.842
+margin_bottom = 536.105
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="reset_button" to="." method="_on_reset_button_pressed"]
