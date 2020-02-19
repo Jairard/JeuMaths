@@ -10,7 +10,10 @@ var _treasure 		:	Label = null
 var _score_label	:   RichTextLabel = null
 var _score 			: int = 0
 
-func init_hero_fight(treasure : Label, score_label : RichTextLabel):				#init node on map fight 1
+func init_hero_treasure(treasure : Label) -> void:
+	_treasure = treasure
+
+func init_hero_fight(treasure : Label, score_label : RichTextLabel) -> void:				#init node on map fight 1
 	_treasure= treasure
 	_score_label = score_label
 
