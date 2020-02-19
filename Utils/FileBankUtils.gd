@@ -7,8 +7,10 @@ var treasure 		: int = 0
 var good_answer 	: int = 0
 var wrong_answer 	: int = 0
 var boss_killed 	: int = 0
+var scene_counter	: int = 0
+var classroom		: int = 0
 var pseudo			: String = ""
-
+	
 var loaded_scenes = load_json("res://Assets/Scenes.json")
 var stats_File_Name : String = "res://Assets/Stats_Characters/Hero_Stats.json"
 var loaded_heroes_stats = load_json(stats_File_Name)
@@ -37,17 +39,15 @@ func init_stats(stats : Dictionary, _pseudo : String) -> void:
 	boss_killed 	= stats["boss_killed"]
 	health_max		= stats["health_max"]
 	pseudo			= _pseudo
+	scene_counter	= stats["scene_counter"]
 	
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		print ("health_max : ", health_max)
-		print ("health : ", health)
-		print ("damage : ", damage)
 		var stats : Dictionary = {
 									"damage":damage,"health":health,
 									"treasure":treasure,"good_answer":good_answer,
 									"wrong_answer":wrong_answer,"boss_killed":boss_killed,
-									"health_max":health_max	  
+									"health_max":health_max, "scene_counter":scene_counter	  
 								}
 		if loaded_heroes_stats == null:
 			loaded_heroes_stats = {}
