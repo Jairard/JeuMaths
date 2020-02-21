@@ -17,12 +17,10 @@ func _on_Button_pressed():
 	
 
 func _on_Stats_pressed():
-	print ("pause")
-	get_tree().paused = true
 	var stats = stats_popup.instance()
 	add_child(stats)
-	stats_timer.start()
-
-func _on_Timer_timeout():
+	get_tree().paused = true	
+#	Physics2DServer.set_active(true)
+	yield(get_tree().create_timer(2), 'timeout')
 	get_tree().paused = false
 	
