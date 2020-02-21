@@ -4,7 +4,7 @@ var stats : Dictionary = {}
 const init_stats : Dictionary =  {
 									"damage":15,"health":70,
 									"treasure":0,"good_answer":0,
-									"wrong_answer":0,"boss_killed":0,
+									"wrong_answer":0,"victories":0,"defeats":0,
 									"health_max":70, "scene_counter":0
 									} 
 							
@@ -30,7 +30,6 @@ func _on_Button_pressed():
 	var pseudo : String = $TileMap/pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
-	print ("File : ", FileBankUtils.scene_counter)
 #	var new_scene :	String =  ("create_hero" if stats_hero["new_hero"] == true else "playing_map"[FileBankUtils.scene_counter])
 	
 	if stats_hero["new_hero"] == true:
