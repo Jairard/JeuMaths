@@ -83,10 +83,10 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
 
 [node name="Score" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 702.152
-margin_top = 17.2948
-margin_right = 748.152
-margin_bottom = 51.2948
+margin_left = 715.0
+margin_top = 16.0
+margin_right = 748.0
+margin_bottom = 31.0
 rect_scale = Vector2( 2, 2 )
 size_flags_stretch_ratio = 0.0
 bbcode_enabled = true
@@ -95,4 +95,20 @@ text = "1000"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Stats" type="Button" parent="CanvasLayer/Score"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -1.0
+margin_top = -1.13236
+margin_right = 70.0
+margin_bottom = 29.8676
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Score"]
+wait_time = 2.0
+one_shot = true
 [connection signal="pressed" from="CanvasLayer/HBoxContainer2/MarginContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Score/Stats" to="." method="_on_Stats_pressed"]
+[connection signal="timeout" from="CanvasLayer/Score/Timer" to="." method="_on_Timer_timeout"]

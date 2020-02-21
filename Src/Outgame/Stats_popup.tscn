@@ -1,0 +1,138 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Src/Outgame/Stats_popup.gd" type="Script" id=1]
+
+[node name="Stats_popup" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 395.681
+margin_top = 128.191
+margin_right = 435.681
+margin_bottom = 168.191
+rect_scale = Vector2( 5, 5 )
+bbcode_enabled = true
+bbcode_text = "[wave][rainbow]stats"
+text = "stats"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.0117647, 0.164706, 0.133333, 1 )
+show_behind_parent = true
+margin_left = 242.449
+margin_top = 107.544
+margin_right = 744.449
+margin_bottom = 626.544
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="good_answer" type="HBoxContainer" parent="."]
+margin_left = 555.227
+margin_top = 300.321
+margin_right = 694.227
+margin_bottom = 340.321
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="good_answer"]
+margin_top = 13.0
+margin_right = 24.0
+margin_bottom = 27.0
+text = "100"
+
+[node name="sprite" type="Sprite" parent="good_answer"]
+position = Vector2( 40.0951, 17.785 )
+scale = Vector2( 1.31466, 1.29358 )
+hframes = 8
+
+[node name="good" type="Label" parent="good_answer"]
+margin_left = 28.0
+margin_top = 13.0
+margin_right = 139.0
+margin_bottom = 27.0
+text = "Bonnes réponses"
+
+[node name="wrong_answer" type="HBoxContainer" parent="."]
+margin_left = 275.036
+margin_top = 297.877
+margin_right = 433.036
+margin_bottom = 337.877
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="wrong_answer"]
+margin_top = 13.0
+margin_right = 24.0
+margin_bottom = 27.0
+text = "100"
+
+[node name="sprite" type="Sprite" parent="wrong_answer"]
+position = Vector2( 40.0951, 17.785 )
+scale = Vector2( 1.31466, 1.29358 )
+hframes = 8
+
+[node name="wrong" type="Label" parent="wrong_answer"]
+margin_left = 28.0
+margin_top = 13.0
+margin_right = 158.0
+margin_bottom = 27.0
+text = "Mauvaises réponses"
+
+[node name="victories" type="HBoxContainer" parent="."]
+margin_left = 274.222
+margin_top = 411.094
+margin_right = 432.222
+margin_bottom = 451.094
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="victories"]
+margin_top = 13.0
+margin_right = 24.0
+margin_bottom = 27.0
+text = "100"
+
+[node name="sprite" type="Sprite" parent="victories"]
+position = Vector2( 40.0951, 17.785 )
+scale = Vector2( 1.31466, 1.29358 )
+hframes = 8
+
+[node name="victories" type="Label" parent="victories"]
+margin_left = 28.0
+margin_top = 13.0
+margin_right = 132.0
+margin_bottom = 27.0
+text = "Combats gagnés"
+
+[node name="defeats" type="HBoxContainer" parent="."]
+margin_left = 552.783
+margin_top = 411.908
+margin_right = 710.783
+margin_bottom = 451.908
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="defeats"]
+margin_top = 13.0
+margin_right = 24.0
+margin_bottom = 27.0
+text = "100"
+
+[node name="sprite" type="Sprite" parent="defeats"]
+position = Vector2( 40.0951, 17.785 )
+scale = Vector2( 1.31466, 1.29358 )
+hframes = 8
+
+[node name="defeats" type="Label" parent="defeats"]
+margin_left = 28.0
+margin_top = 13.0
+margin_right = 132.0
+margin_bottom = 27.0
+text = "Combats perdus"
