@@ -36,4 +36,4 @@ func _on_Move_body_entered(body):
 
 
 func _on_Button_pressed():
-	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"]["map_fire"])
+	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])

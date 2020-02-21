@@ -14,10 +14,11 @@ onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
+var health_comp_hero : Component = null
 
 var file = File.new()
 var dict = {}
-
+	
 func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
@@ -124,7 +125,7 @@ func load_characters() :
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
 
-	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
+	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health_max)
 
 
@@ -140,7 +141,7 @@ func load_characters() :
 
 func combat(valeur) :
 	if valeur == 0 :
-		get_tree().change_scene("res://Src/Outgame/map_fight_1.tscn")
+		get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 
 
@@ -177,3 +178,8 @@ func _on_Timer_timeout():
 
 func _on_Area2D_body_entered(body):
 	spawn_rain()
+
+func _process(delta):
+	if health_comp_hero.get_health() <= 0:
+		get_tree().change_scene(FileBankUtils.loaded_scenes["Death"])
+	

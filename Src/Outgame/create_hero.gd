@@ -13,7 +13,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Src/Outgame/map_fire.tscn")
+	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 
 
