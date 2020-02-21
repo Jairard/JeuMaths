@@ -3,12 +3,11 @@
     "map_water"     : "res://Src/Outgame/map_water.tscn",
     "map_fight_1"   : "res://Src/Outgame/map_fight_1.tscn",
     "map_fight_2"   : "res://Src/Outgame/map_fight_2.tscn",
-    "shop"          : "res://Src/Outgame/shop.tscn",
-    "start"         : "res://Src/Outgame/Map_shop.tscn",
+    "shop"          : "res://Src/Outgame/Map_Shop.tscn",
     "sign_in"       : "res://Src/Outgame/Signin.tscn",
     "create_hero"   : "res://Src/Outgame/create_hero.tscn",
-    "log_in"        : "res://Src/Outgame/Login.tscn",
     "rewards"       : "res://Src/Outgame/Rewards.tscn",
     "next_level"    : "res://Src/Outgame/Next_level.tscn",
-    "death"         : "res://Src/Outgame/Death.tscn" 
+    "death"         : "res://Src/Outgame/Death.tscn",
+    "stats"         : "res://Src/Outgame/Stats.tscn" 
 }
