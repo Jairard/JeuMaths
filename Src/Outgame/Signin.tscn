@@ -31,7 +31,6 @@ script = ExtResource( 1 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
 format = 1
-tile_data = PoolIntArray( 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 131074, 0, 0, 131084, 0, 0, 196610, 0, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196620, 0, 0, 262146, 0, 0, 262156, 0, 0, 327682, 0, 0, 327692, 0, 0, 393218, 0, 0, 393228, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0 )
 
 [node name="pseudo_text" type="Label" parent="TileMap"]
 modulate = Color( 0.701961, 0.133333, 0.0745098, 1 )
@@ -59,13 +58,23 @@ __meta__ = {
 }
 
 [node name="pseudo" type="LineEdit" parent="TileMap"]
-modulate = Color( 0.556863, 0.572549, 0.0588235, 0.196078 )
-self_modulate = Color( 0.580392, 0.0509804, 0.0509804, 1 )
+modulate = Color( 0.964706, 0.964706, 0.941176, 1 )
 margin_left = 253.0
 margin_top = 195.0
 margin_right = 384.0
 margin_bottom = 257.0
 custom_colors/selection_color = Color( 0.819608, 0.0196078, 0.0196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TileMap"]
+visible = false
+modulate = Color( 0.270588, 0.67451, 1, 1 )
+show_behind_parent = true
+margin_top = -0.735107
+margin_right = 1031.0
+margin_bottom = 641.265
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -80,6 +89,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="_6eme"]
+visible = false
+modulate = Color( 0.188235, 0.6, 1, 1 )
+show_behind_parent = true
+margin_left = -23.788
+margin_top = 28.7026
+margin_right = 61.212
+margin_bottom = 134.703
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="questions_6" type="VBoxContainer" parent="_6eme"]
+visible = false
+margin_left = -23.6005
+margin_top = 27.7573
+margin_right = 61.3995
+margin_bottom = 135.757
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="_6eme/questions_6"]
+margin_right = 85.0
+margin_bottom = 24.0
+text = "notion 1 "
+
+[node name="CheckBox2" type="CheckBox" parent="_6eme/questions_6"]
+margin_top = 28.0
+margin_right = 85.0
+margin_bottom = 52.0
+text = "notion 2"
+
+[node name="CheckBox3" type="CheckBox" parent="_6eme/questions_6"]
+margin_top = 56.0
+margin_right = 85.0
+margin_bottom = 80.0
+text = "notion 3"
+
+[node name="CheckBox4" type="CheckBox" parent="_6eme/questions_6"]
+margin_top = 84.0
+margin_right = 85.0
+margin_bottom = 108.0
+text = "notion 4"
+
 [node name="_5eme" type="CheckBox" parent="."]
 margin_left = 296.021
 margin_top = 348.366
@@ -89,6 +143,51 @@ text = "5ème"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorRect" type="ColorRect" parent="_5eme"]
+visible = false
+modulate = Color( 0.207843, 0.945098, 0, 0.0901961 )
+show_behind_parent = true
+margin_left = -22.2581
+margin_top = 27.4642
+margin_right = 65.7419
+margin_bottom = 135.464
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="question_5" type="VBoxContainer" parent="_5eme"]
+visible = false
+margin_left = -18.5215
+margin_top = 25.9522
+margin_right = 66.4785
+margin_bottom = 133.952
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="_5eme/question_5"]
+margin_right = 85.0
+margin_bottom = 24.0
+text = "notion 1 "
+
+[node name="CheckBox2" type="CheckBox" parent="_5eme/question_5"]
+margin_top = 28.0
+margin_right = 85.0
+margin_bottom = 52.0
+text = "notion 2"
+
+[node name="CheckBox3" type="CheckBox" parent="_5eme/question_5"]
+margin_top = 56.0
+margin_right = 85.0
+margin_bottom = 80.0
+text = "notion 3"
+
+[node name="CheckBox4" type="CheckBox" parent="_5eme/question_5"]
+margin_top = 84.0
+margin_right = 85.0
+margin_bottom = 108.0
+text = "notion 4"
 
 [node name="_4eme" type="CheckBox" parent="."]
 margin_left = 388.076
@@ -100,6 +199,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="_4eme"]
+visible = false
+modulate = Color( 0.945098, 0.278431, 1, 1 )
+show_behind_parent = true
+margin_left = -14.4038
+margin_top = 26.7887
+margin_right = 65.5962
+margin_bottom = 128.789
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="questions_4" type="VBoxContainer" parent="_4eme"]
+visible = false
+margin_left = -15.7494
+margin_top = 25.7854
+margin_right = 69.2506
+margin_bottom = 133.785
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="_4eme/questions_4"]
+margin_right = 85.0
+margin_bottom = 24.0
+text = "notion 1 "
+
+[node name="CheckBox2" type="CheckBox" parent="_4eme/questions_4"]
+margin_top = 28.0
+margin_right = 85.0
+margin_bottom = 52.0
+text = "notion 2"
+
+[node name="CheckBox3" type="CheckBox" parent="_4eme/questions_4"]
+margin_top = 56.0
+margin_right = 85.0
+margin_bottom = 80.0
+text = "notion 3"
+
+[node name="CheckBox4" type="CheckBox" parent="_4eme/questions_4"]
+margin_top = 84.0
+margin_right = 85.0
+margin_bottom = 108.0
+text = "notion 4"
+
 [node name="_3eme" type="CheckBox" parent="."]
 margin_left = 482.839
 margin_top = 350.171
@@ -109,6 +253,51 @@ text = "3ème"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorRect" type="ColorRect" parent="_3eme"]
+visible = false
+modulate = Color( 1, 0.239216, 0.184314, 1 )
+show_behind_parent = true
+margin_left = -17.397
+margin_top = 23.8483
+margin_right = 68.603
+margin_bottom = 128.848
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="questions_3" type="VBoxContainer" parent="_3eme"]
+visible = false
+margin_left = -18.6038
+margin_top = 22.3185
+margin_right = 102.396
+margin_bottom = 158.319
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="_3eme/questions_3"]
+margin_right = 121.0
+margin_bottom = 24.0
+text = "notion 1 "
+
+[node name="CheckBox2" type="CheckBox" parent="_3eme/questions_3"]
+margin_top = 28.0
+margin_right = 121.0
+margin_bottom = 52.0
+text = "notion 2"
+
+[node name="CheckBox3" type="CheckBox" parent="_3eme/questions_3"]
+margin_top = 56.0
+margin_right = 121.0
+margin_bottom = 80.0
+text = "notion 3"
+
+[node name="CheckBox4" type="CheckBox" parent="_3eme/questions_3"]
+margin_top = 84.0
+margin_right = 121.0
+margin_bottom = 108.0
+text = "notion 4"
 [connection signal="pressed" from="TileMap/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="_6eme" to="." method="_on_6eme_pressed"]
 [connection signal="pressed" from="_5eme" to="." method="_on_5eme_pressed"]

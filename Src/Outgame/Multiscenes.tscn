@@ -21,13 +21,6 @@ margin_right = 843.999
 margin_bottom = 395.0
 text = "Create Hero"
 
-[node name="Log In" type="Button" parent="."]
-margin_left = 722.0
-margin_top = 453.0
-margin_right = 845.0
-margin_bottom = 514.0
-text = "Log In"
-
 [node name="Map_fight_1" type="Button" parent="."]
 margin_left = 29.0795
 margin_top = 292.184
@@ -55,13 +48,6 @@ margin_top = 232.0
 margin_right = 850.0
 margin_bottom = 283.0
 text = "Sign In"
-
-[node name="Start" type="Button" parent="."]
-margin_left = 712.0
-margin_top = 101.0
-margin_right = 844.0
-margin_bottom = 165.0
-text = "Start"
 
 [node name="Shop" type="Button" parent="."]
 margin_left = 28.9983
@@ -114,6 +100,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Map_tuto" type="Button" parent="."]
+margin_left = 497.716
+margin_top = 300.096
+margin_right = 664.716
+margin_bottom = 373.096
+text = "Map Tuto"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Map2" type="Label" parent="."]
 margin_left = -2.09747
 margin_top = -0.902496
@@ -138,15 +134,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="create_hero" to="." method="_on_create_hero_pressed"]
-[connection signal="pressed" from="Log In" to="." method="_on_Log_In_pressed"]
 [connection signal="pressed" from="Map_fight_1" to="." method="_on_Map_fight_1_pressed"]
 [connection signal="pressed" from="Map_fight_2" to="." method="_on_Map_fight_2_pressed"]
 [connection signal="pressed" from="map_fire" to="." method="_on_map_level_pressed"]
 [connection signal="pressed" from="Sign In" to="." method="_on_Sign_In_pressed"]
-[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Shop" to="." method="_on_Shop_pressed"]
 [connection signal="pressed" from="Rewards" to="." method="_on_Rewards_pressed"]
 [connection signal="pressed" from="Map_water" to="." method="_on_Map_water_pressed"]
 [connection signal="pressed" from="Stats" to="." method="_on_Stats_pressed"]
 [connection signal="pressed" from="Death" to="." method="_on_Death_pressed"]
 [connection signal="pressed" from="Next_level" to="." method="_on_Next_level_pressed"]
+[connection signal="pressed" from="Map_tuto" to="." method="_on_Map_tuto_pressed"]
