@@ -6,7 +6,8 @@ var damage 			: int = 0
 var treasure 		: int = 0
 var good_answer 	: int = 0
 var wrong_answer 	: int = 0
-var boss_killed 	: int = 0
+var victories	 	: int = 0
+var defeats 		: int = 0
 var scene_counter	: int = 0
 var classroom		: int = 0
 var pseudo			: String = ""
@@ -36,7 +37,8 @@ func init_stats(stats : Dictionary, _pseudo : String) -> void:
 	treasure		= stats["treasure"]
 	good_answer 	= stats["good_answer"]
 	wrong_answer 	= stats["wrong_answer"]
-	boss_killed 	= stats["boss_killed"]
+	victories	 	= stats["victories"]
+	defeats			= stats["defeats"]
 	health_max		= stats["health_max"]
 	pseudo			= _pseudo
 	scene_counter	= stats["scene_counter"]
@@ -44,9 +46,9 @@ func init_stats(stats : Dictionary, _pseudo : String) -> void:
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		var stats : Dictionary = {
-									"damage":damage,"health":health,
-									"treasure":treasure,"good_answer":good_answer,
-									"wrong_answer":wrong_answer,"boss_killed":boss_killed,
+									"damage":damage,"health":health,"treasure":treasure,
+									"good_answer":good_answer,"wrong_answer":wrong_answer,
+									"victories":victories, "defeats":defeats,
 									"health_max":health_max, "scene_counter":scene_counter	  
 								}
 		if loaded_heroes_stats == null:
