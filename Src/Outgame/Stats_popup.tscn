@@ -40,9 +40,7 @@ __meta__ = {
 
 [node name="value" type="Label" parent="good_answer"]
 margin_top = 13.0
-margin_right = 24.0
 margin_bottom = 27.0
-text = "100"
 
 [node name="sprite" type="Sprite" parent="good_answer"]
 position = Vector2( 40.0951, 17.785 )
@@ -50,9 +48,9 @@ scale = Vector2( 1.31466, 1.29358 )
 hframes = 8
 
 [node name="good" type="Label" parent="good_answer"]
-margin_left = 28.0
+margin_left = 4.0
 margin_top = 13.0
-margin_right = 139.0
+margin_right = 115.0
 margin_bottom = 27.0
 text = "Bonnes réponses"
 
@@ -67,9 +65,7 @@ __meta__ = {
 
 [node name="value" type="Label" parent="wrong_answer"]
 margin_top = 13.0
-margin_right = 24.0
 margin_bottom = 27.0
-text = "100"
 
 [node name="sprite" type="Sprite" parent="wrong_answer"]
 position = Vector2( 40.0951, 17.785 )
@@ -77,9 +73,9 @@ scale = Vector2( 1.31466, 1.29358 )
 hframes = 8
 
 [node name="wrong" type="Label" parent="wrong_answer"]
-margin_left = 28.0
+margin_left = 4.0
 margin_top = 13.0
-margin_right = 158.0
+margin_right = 134.0
 margin_bottom = 27.0
 text = "Mauvaises réponses"
 
@@ -94,9 +90,7 @@ __meta__ = {
 
 [node name="value" type="Label" parent="victories"]
 margin_top = 13.0
-margin_right = 24.0
 margin_bottom = 27.0
-text = "100"
 
 [node name="sprite" type="Sprite" parent="victories"]
 position = Vector2( 40.0951, 17.785 )
@@ -104,9 +98,9 @@ scale = Vector2( 1.31466, 1.29358 )
 hframes = 8
 
 [node name="victories" type="Label" parent="victories"]
-margin_left = 28.0
+margin_left = 4.0
 margin_top = 13.0
-margin_right = 132.0
+margin_right = 108.0
 margin_bottom = 27.0
 text = "Combats gagnés"
 
@@ -121,9 +115,7 @@ __meta__ = {
 
 [node name="value" type="Label" parent="defeats"]
 margin_top = 13.0
-margin_right = 24.0
 margin_bottom = 27.0
-text = "100"
 
 [node name="sprite" type="Sprite" parent="defeats"]
 position = Vector2( 40.0951, 17.785 )
@@ -131,8 +123,8 @@ scale = Vector2( 1.31466, 1.29358 )
 hframes = 8
 
 [node name="defeats" type="Label" parent="defeats"]
-margin_left = 28.0
+margin_left = 4.0
 margin_top = 13.0
-margin_right = 132.0
+margin_right = 108.0
 margin_bottom = 27.0
 text = "Combats perdus"

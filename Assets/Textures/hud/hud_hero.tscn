@@ -124,12 +124,12 @@ margin_right = 69.0
 margin_bottom = 56.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer5"]
-margin_right = 35.0
+margin_right = 32.0
 margin_bottom = 40.0
 
 [node name="health" type="Label" parent="CanvasLayer/HBoxContainer5/MarginContainer"]
 margin_top = 11.0
-margin_right = 35.0
+margin_right = 32.0
 margin_bottom = 29.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.890196, 0.862745, 0.862745, 1 )
