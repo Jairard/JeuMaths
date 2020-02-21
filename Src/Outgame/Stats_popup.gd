@@ -7,6 +7,7 @@ func _ready():
 	var heroNode = hero.instance()
 	heroNode.deactivate()
 	add_child(heroNode)
+	ECS.add_component(heroNode, ComponentsLibrary.Personal_stats) as PersonnalStatsComponent
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 	hud_comp.init_stats(get_good_answer(), get_wrong_answer(), get_victories(),get_defeats())
 	
