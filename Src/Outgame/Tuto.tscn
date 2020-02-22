@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=1]
 [ext_resource path="res://Src/Outgame/Tuto.gd" type="Script" id=2]
@@ -43,11 +43,17 @@ extents = Vector2( 508.75, 82.6567 )
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 447.753, 235.252 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 384.987, 161.026 )
 
 [sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 120.455, 164.479 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 62.7512, 126.2 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -56,18 +62,24 @@ script = ExtResource( 2 )
 tile_set = SubResource( 2 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0 )
+tile_data = PoolIntArray( 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 1, 0, 589853, 1, 0, 589854, 1, 0, 589855, 1, 0, 589856, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 0, 589860, 1, 0, 589861, 1, 0, 589862, 1, 0, 589863, 1, 0, 589864, 1, 0, 589865, 1, 0, 589866, 1, 0, 589867, 1, 0, 589868, 1, 0, 589869, 1, 0, 589870, 1, 0, 589871, 1, 0, 589872, 1, 0, 589873, 1, 0, 589874, 1, 0, 589875, 1, 0, 589876, 1, 0, 589877, 1, 0, 589878, 1, 0, 589879, 1, 0, 589880, 1, 0, 589881, 1, 0, 589882, 1, 0, 589883, 1, 0, 589884, 1, 0, 589885, 1, 0, 589886, 1, 0, 589887, 1, 0, 589888, 1, 0, 589889, 1, 0, 589890, 1, 0, 589891, 1, 0, 589892, 1, 0, 589893, 1, 0, 589894, 1, 0, 589895, 1, 0, 589896, 1, 0, 589897, 1, 0, 589898, 1, 0, 589899, 1, 0, 589900, 1, 0, 589901, 1, 0, 589902, 1, 0, 589903, 1, 0, 589904, 1, 0, 589905, 1, 0, 589906, 1, 0, 589907, 1, 0, 589908, 1, 0, 589909, 1, 0, 589910, 1, 0, 589911, 1, 0, 589912, 1, 0, 589913, 1, 0, 589914, 1, 0, 589915, 1, 0, 589916, 1, 0, 589917, 1, 0, 589918, 1, 0, 589919, 1, 0, 589920, 1, 0, 589921, 1, 0, 589922, 1, 0, 589923, 1, 0, 589924, 1, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0 )
 
 [node name="Move" type="Area2D" parent="."]
 
 [node name="move" type="CollisionShape2D" parent="Move"]
 position = Vector2( 186.731, 494.05 )
 shape = SubResource( 3 )
+
+[node name="Control_move" type="Control" parent="."]
+visible = false
+margin_top = 1.0
+margin_right = 439.0
+margin_bottom = 337.0
 __meta__ = {
-"_edit_group_": true
+"_edit_use_anchors_": false
 }
 
-[node name="move_text" type="Label" parent="."]
+[node name="move_text" type="Label" parent="Control_move"]
 margin_left = 127.063
 margin_top = 242.723
 margin_right = 234.063
@@ -78,7 +90,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="left_arrow" type="RichTextLabel" parent="."]
+[node name="left_arrow" type="RichTextLabel" parent="Control_move"]
 margin_left = 6.60516
 margin_top = 271.25
 margin_right = 121.605
@@ -90,7 +102,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="right_arrow" type="RichTextLabel" parent="."]
+[node name="right_arrow" type="RichTextLabel" parent="Control_move"]
 margin_left = 250.958
 margin_top = 272.879
 margin_right = 365.958
@@ -102,33 +114,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lft_arrow" type="Sprite" parent="."]
+[node name="lft_arrow" type="Sprite" parent="Control_move"]
 position = Vector2( 48.3582, 301.469 )
 texture = ExtResource( 4 )
 
-[node name="rigt_arrow" type="Sprite" parent="."]
+[node name="rigt_arrow" type="Sprite" parent="Control_move"]
 position = Vector2( 276.184, 305.542 )
 texture = ExtResource( 5 )
-
-[node name="Jump" type="Area2D" parent="."]
-
-[node name="jump" type="CollisionShape2D" parent="Jump"]
-position = Vector2( 1343.73, 343.608 )
-shape = SubResource( 5 )
-
-[node name="jump" type="RichTextLabel" parent="."]
-margin_left = 1104.0
-margin_top = 312.0
-margin_right = 1253.0
-margin_bottom = 365.0
-custom_fonts/bold_font = SubResource( 6 )
-bbcode_enabled = true
-bbcode_text = "Pour [b]sauter[/b] appuyer sur [shake rate=5
- level=5]  [color=yellow]\"espace\""
-text = "Pour sauter appuyer sur   \"espace\""
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button" type="Button" parent="."]
 margin_left = 265.966
@@ -139,5 +131,153 @@ text = "map_fire"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Jump" type="Area2D" parent="."]
+
+[node name="jump" type="CollisionShape2D" parent="Jump"]
+position = Vector2( 1403.94, 414.953 )
+shape = SubResource( 7 )
+
+[node name="jump" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 1102.24
+margin_top = 319.032
+margin_right = 1251.24
+margin_bottom = 372.032
+custom_fonts/bold_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "Pour [b]sauter[/b] appuyer sur [shake rate=5
+ level=5]  [color=yellow]\"espace\""
+text = "Pour sauter appuyer sur   \"espace\""
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Monster" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monster"]
+position = Vector2( 2102.35, 412.195 )
+shape = SubResource( 8 )
+
+[node name="Control_monster" type="Control" parent="."]
+visible = false
+margin_left = 2087.39
+margin_top = 248.887
+margin_right = 2398.39
+margin_bottom = 375.887
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attention" type="Label" parent="Control_monster"]
+margin_left = 70.5046
+margin_top = -44.7986
+margin_right = 142.505
+margin_bottom = -30.7986
+text = "Attention ! "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="patrol" type="RichTextLabel" parent="Control_monster"]
+margin_left = 29.3442
+margin_top = 2.09439
+margin_right = 177.344
+margin_bottom = 19.0944
+bbcode_enabled = true
+bbcode_text = " Voici une [shake rate=5
+ level=5]  [color=yellow]sentinelle"
+text = " Voici une   sentinelle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dodge" type="RichTextLabel" parent="Control_monster"]
+margin_left = -21.094
+margin_top = 35.0
+margin_right = 48.906
+margin_bottom = 67.0
+bbcode_enabled = true
+bbcode_text = "[u]Esquive la[/u] "
+text = "Esquive la "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="choice" type="Label" parent="Control_monster"]
+margin_left = 70.0
+margin_top = 35.0
+margin_right = 110.0
+margin_bottom = 49.0
+text = "ou"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="kill" type="RichTextLabel" parent="Control_monster"]
+margin_left = 112.339
+margin_top = 35.0
+margin_right = 262.339
+margin_bottom = 53.0
+bbcode_enabled = true
+bbcode_text = "[u]saute[/u] sur sa tête "
+text = "saute sur sa tête "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bullet" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
+position = Vector2( 3200.56, 448.401 )
+shape = SubResource( 9 )
+
+[node name="Control_bullet" type="Control" parent="."]
+visible = false
+margin_left = 3218.65
+margin_top = 272.996
+margin_right = 3529.65
+margin_bottom = 399.996
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attention" type="Label" parent="Control_bullet"]
+margin_left = 70.5046
+margin_top = -44.7986
+margin_right = 142.505
+margin_bottom = -30.7986
+text = "Attention ! "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="patrol" type="RichTextLabel" parent="Control_bullet"]
+margin_left = 41.3188
+margin_top = -2.09677
+margin_right = 189.319
+margin_bottom = 14.9032
+bbcode_enabled = true
+bbcode_text = " Voici une [shake rate=5
+ level=5]  [color=yellow]balle"
+text = " Voici une   balle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dodge" type="RichTextLabel" parent="Control_bullet"]
+margin_left = 1.15356
+margin_top = 35.5988
+margin_right = 247.154
+margin_bottom = 67.5988
+bbcode_enabled = true
+bbcode_text = "[u]Esquive la[/u], tu n'as pas le choix !"
+text = "Esquive la, tu n'as pas le choix !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Move" to="." method="_on_Move_body_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="body_entered" from="Jump" to="." method="_on_Jump_body_entered"]
+[connection signal="body_entered" from="Monster" to="." method="_on_Monster_body_entered"]
+[connection signal="body_entered" from="Bullet" to="." method="_on_Bullet_body_entered"]
