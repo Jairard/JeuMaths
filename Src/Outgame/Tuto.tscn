@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=1]
 [ext_resource path="res://Src/Outgame/Tuto.gd" type="Script" id=2]
@@ -43,17 +43,20 @@ extents = Vector2( 508.75, 82.6567 )
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 384.987, 161.026 )
 
 [sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 120.455, 164.479 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 2.19385, 126.2 )
+
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 62.7512, 126.2 )
+extents = Vector2( 6.41455, 169.023 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -71,7 +74,6 @@ position = Vector2( 186.731, 494.05 )
 shape = SubResource( 3 )
 
 [node name="Control_move" type="Control" parent="."]
-visible = false
 margin_top = 1.0
 margin_right = 439.0
 margin_bottom = 337.0
@@ -122,7 +124,7 @@ texture = ExtResource( 4 )
 position = Vector2( 276.184, 305.542 )
 texture = ExtResource( 5 )
 
-[node name="Button" type="Button" parent="."]
+[node name="Return" type="Button" parent="."]
 margin_left = 265.966
 margin_top = 90.7563
 margin_right = 369.966
@@ -136,7 +138,7 @@ __meta__ = {
 
 [node name="jump" type="CollisionShape2D" parent="Jump"]
 position = Vector2( 1403.94, 414.953 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="jump" type="RichTextLabel" parent="."]
 visible = false
@@ -157,7 +159,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monster"]
 position = Vector2( 2102.35, 412.195 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Control_monster" type="Control" parent="."]
 visible = false
@@ -229,8 +231,8 @@ __meta__ = {
 [node name="Bullet" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
-position = Vector2( 3200.56, 448.401 )
-shape = SubResource( 9 )
+position = Vector2( 2882.1, 448.401 )
+shape = SubResource( 8 )
 
 [node name="Control_bullet" type="Control" parent="."]
 visible = false
@@ -276,8 +278,104 @@ text = "Esquive la, tu n'as pas le choix !"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ready" type="Label" parent="Control_bullet"]
+margin_left = 316.006
+margin_top = -4.05173
+margin_right = 396.006
+margin_bottom = 9.94827
+text = "Es-tu prêt ?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GO_bullet" type="Button" parent="Control_bullet"]
+modulate = Color( 0.854902, 0.835294, 1, 0.713726 )
+margin_left = 330.28
+margin_top = 20.9216
+margin_right = 375.28
+margin_bottom = 40.9216
+text = "GO ! "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Missile" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Missile"]
+position = Vector2( 4586.3, 405.47 )
+shape = SubResource( 9 )
+
+[node name="Control_missile" type="Control" parent="."]
+visible = false
+margin_left = 4626.47
+margin_top = 244.288
+margin_right = 4937.47
+margin_bottom = 371.288
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attention" type="Label" parent="Control_missile"]
+margin_left = 20.2087
+margin_top = -39.3821
+margin_right = 188.209
+margin_bottom = -25.3821
+text = "Pour finir, un dernier défi !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="patrol" type="RichTextLabel" parent="Control_missile"]
+margin_left = -0.0102539
+margin_top = -3.54758
+margin_right = 232.99
+margin_bottom = 13.4524
+bbcode_enabled = true
+bbcode_text = " Voici un [shake rate=5
+ level=5]  [color=yellow]missile, il va te suivre "
+text = " Voici un   missile, il va te suivre "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dodge" type="RichTextLabel" parent="Control_missile"]
+margin_left = 1.15356
+margin_top = 35.5988
+margin_right = 247.154
+margin_bottom = 67.5988
+bbcode_enabled = true
+bbcode_text = "[u]Esquive le[/u], tu n'as pas le choix !"
+text = "Esquive le, tu n'as pas le choix !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ready" type="Label" parent="Control_missile"]
+margin_left = 310.02
+margin_top = -8.22278
+margin_right = 382.02
+margin_bottom = 5.77722
+text = "Es-tu prêt ?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GO_missile" type="Button" parent="Control_missile"]
+modulate = Color( 0.933333, 0.858824, 0.972549, 0.694118 )
+margin_left = 318.02
+margin_top = 23.7772
+margin_right = 371.02
+margin_bottom = 48.7772
+text = "GO !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Move" to="." method="_on_Move_body_entered"]
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Return" to="." method="_on_Button_pressed"]
 [connection signal="body_entered" from="Jump" to="." method="_on_Jump_body_entered"]
 [connection signal="body_entered" from="Monster" to="." method="_on_Monster_body_entered"]
 [connection signal="body_entered" from="Bullet" to="." method="_on_Bullet_body_entered"]
+[connection signal="pressed" from="Control_bullet/GO_bullet" to="." method="_on_GO_bullet_pressed"]
+[connection signal="body_entered" from="Missile" to="." method="_on_Missile_body_entered"]
+[connection signal="pressed" from="Control_missile/GO_missile" to="." method="_on_GO_missile_pressed"]

@@ -129,6 +129,9 @@ margin_right = 1022.75
 margin_bottom = 63.706
 custom_fonts/font = SubResource( 8 )
 text = "retour"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
