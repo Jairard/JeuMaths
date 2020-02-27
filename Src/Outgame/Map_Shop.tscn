@@ -24,7 +24,7 @@ __meta__ = {
 }
 
 [node name="damage_cost" type="HBoxContainer" parent="Damage"]
-margin_right = 240.0
+margin_right = 239.0
 margin_bottom = 38.0
 
 [node name="cost" type="Label" parent="Damage/damage_cost"]
@@ -49,7 +49,7 @@ texture = ExtResource( 3 )
 
 [node name="buy_damage" type="Button" parent="Damage"]
 margin_top = 42.0
-margin_right = 240.0
+margin_right = 239.0
 margin_bottom = 62.0
 text = "Payer"
 

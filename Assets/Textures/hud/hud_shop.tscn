@@ -60,10 +60,10 @@ shape = SubResource( 1 )
 anims/anim_gold = SubResource( 2 )
 
 [node name="treasure_value" type="Label" parent="CanvasLayer"]
-margin_left = 111.826
-margin_top = 68.3889
-margin_right = 151.826
-margin_bottom = 82.3889
+margin_left = 115.068
+margin_top = 65.6871
+margin_right = 155.068
+margin_bottom = 83.6871
 custom_fonts/font = SubResource( 3 )
 text = "10"
 __meta__ = {
