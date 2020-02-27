@@ -1,7 +1,7 @@
 extends Component
 
 class_name MovementComponent
-enum dir {left, right, none}
+enum dir {left, right, none, colliding}
 
 var direction = dir.none
 var jump 	: bool 	= false

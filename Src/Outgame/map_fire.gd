@@ -87,7 +87,9 @@ func load_characters() :
 	move_comp.set_jump_impulse(650)
 	move_comp.set_lateral_velocity(300)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
-	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
+	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", 
+						  comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle",
+						  comp_anim_hero.anim.colliding : "anim_colliding"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 

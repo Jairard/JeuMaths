@@ -23,7 +23,7 @@ func _get_mandatory_components() -> Array:
 
 func _get_optional_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce,
-			ComponentsLibrary.Loot, ComponentsLibrary.Treasure, ComponentsLibrary.Damage,
+			ComponentsLibrary.Loot, ComponentsLibrary.Treasure, ComponentsLibrary.Damage, ComponentsLibrary.Movement,
 			ComponentsLibrary.Velocity, ComponentsLibrary.Stats, ComponentsLibrary.AnswertoSpell]
 
 func _get_system_dependencies() -> Array:
@@ -66,6 +66,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent
 	var stats_comp	 	= 	components[ComponentsLibrary.Stats] 	as 	CharacterstatsComponent
 	var answer_comp 	=   components[ComponentsLibrary.AnswertoSpell] as AnswerListenerComponent
+	var comp_move		= 	components[ComponentsLibrary.Movement] 	as MovementComponent
 
 
 	# Check if the node is a PhysicsBody2D
@@ -111,11 +112,14 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :  		# MONSTER
 
 			print("Monster collision !")
-
+			comp_move.set_direction(comp_move.dir.colliding)
+			collider.queue_free()
+			my_body.get_node("hero_spr").modulate = Color(10,10,10,10)
+			yield(my_body.get_parent().get_tree().create_timer(0.5), "timeout")
+			my_body.get_node("hero_spr").modulate = Color(1,1,1,1)
 			if (spawn_loot(collider as Node2D) == false and health_comp != null):
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
-				collider.queue_free()
 
 		if (has_collision_layer(collider,hero_layer_bit) == true
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true) :  		 # SPELL from Enemy to Hero
@@ -143,6 +147,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):			# RAIN
 
 			print("Rain collision !")
+			comp_move.set_direction(comp_move.dir.colliding)			
 			FileBankUtils.health -= 5
 			collider.call_deferred("free")
 
@@ -151,8 +156,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true): 		# MISSILE health - 10
 
 			print("Missile collision !")
+			comp_move.set_direction(comp_move.dir.colliding)
 			collider.queue_free()
-
+			
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10

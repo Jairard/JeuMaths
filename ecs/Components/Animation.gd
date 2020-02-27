@@ -2,7 +2,7 @@ extends Component
 
 class_name AnimationComponent
 
-enum anim {left, right, jump, idle}
+enum anim {left, right, jump, idle, colliding}
 
 var animation_names : Dictionary = {}
 var animation_player : AnimationPlayer = null
