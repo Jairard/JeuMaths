@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Src/Ingame/characters/hero.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Characters/TEST_punk_pour_P.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "anim_idle"
+resource_name = "anim_colliding"
+length = 0.2
+
+[sub_resource type="Animation" id=2]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -20,7 +23,7 @@ tracks/0/keys = {
 "values": [ 24 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("hero_spr:frame")
@@ -33,22 +36,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 24, 25 ]
-}
-
-[sub_resource type="Animation" id=3]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("hero_spr:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 22, 23 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -64,10 +51,26 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 20, 21 ]
+"values": [ 22, 23 ]
 }
 
 [sub_resource type="Animation" id=5]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("hero_spr:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 20, 21 ]
+}
+
+[sub_resource type="Animation" id=6]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -83,23 +86,23 @@ tracks/0/keys = {
 "values": [ 24, 26 ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 99.4259, 107.804 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 52.4107, 107.804 )
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0, 0.525157, 1 )
 colors = PoolColorArray( 0.945313, 0.924715, 0.790222, 1, 0.972656, 0.964464, 0.448334, 1, 1, 0.984619, 0.015625, 1 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=10]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.498522, 0.4912 ), 0.0, 0.0, 0, 0, Vector2( 0.997975, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=10]
-curve = SubResource( 9 )
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=12]
 flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 98, 0 )
@@ -109,8 +112,8 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 4.0
 scale_random = 1.0
-scale_curve = SubResource( 10 )
-color_ramp = SubResource( 8 )
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 9 )
 
 [node name="hero" type="KinematicBody2D"]
 collision_mask = 16374
@@ -120,11 +123,12 @@ __meta__ = {
 }
 
 [node name="animation_hero" type="AnimationPlayer" parent="."]
-anims/anim_idle = SubResource( 1 )
-anims/anim_jump = SubResource( 2 )
-anims/anim_left = SubResource( 3 )
-anims/anim_right = SubResource( 4 )
-anims/anim_up = SubResource( 5 )
+anims/anim_colliding = SubResource( 1 )
+anims/anim_idle = SubResource( 2 )
+anims/anim_jump = SubResource( 3 )
+anims/anim_left = SubResource( 4 )
+anims/anim_right = SubResource( 5 )
+anims/anim_up = SubResource( 6 )
 
 [node name="hero_spr" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -164,10 +168,10 @@ drag_margin_bottom = 1.0
 
 [node name="hero_coll" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false
 amount = 500
 explosiveness = 0.26
-process_material = SubResource( 11 )
+process_material = SubResource( 12 )
