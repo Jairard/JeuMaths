@@ -64,23 +64,28 @@ func _on_Damages_pressed():
 
 	if treasure_comp_hero.get_treasure() >= 10:
 		damage_comp_hero.set_damage(damage_comp_hero.get_damage() + 10)
+		FileBankUtils.damage += 10
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 10)
+		FileBankUtils.treasure = 10
 		get_tree().change_scene("res://Src/Outgame/Stats.tscn")
 
 
 func _on_Health_pressed():
 	
-	if treasure_comp_hero.get_treasure() >= 10:
+	if treasure_comp_hero.get_treasure() >= 10 and !health_comp_hero.is_health_max():
 		health_comp_hero.set_health(health_comp_hero.get_health() + 10)
+		FileBankUtils.health += 10
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 10)
+		FileBankUtils.treasure -= 10
 		get_tree().change_scene("res://Src/Outgame/Stats.tscn")
 
 func _on_regen_health_pressed():
 	
-	if treasure_comp_hero.get_treasure() >= 20:
+	if treasure_comp_hero.get_treasure() >= 20 and !health_comp_hero.is_health_max():
 		health_comp_hero.set_health(FileBankUtils.health_max)
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 20)
 		get_tree().change_scene("res://Src/Outgame/Stats.tscn")
+
 
 	
 	
