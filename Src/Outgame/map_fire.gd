@@ -183,5 +183,5 @@ func _on_Area2D_body_entered(body):
 
 func _process(delta):
 	if health_comp_hero.get_health() <= 0:
-		get_tree().change_scene(FileBankUtils.loaded_scenes["Death"])
+		get_tree().change_scene(FileBankUtils.loaded_scenes["death"])
 	
