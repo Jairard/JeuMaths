@@ -127,8 +127,8 @@ func load_characters() :
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
 
-	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health_max)
+	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
+	health_comp_hero.init(FileBankUtils.health_max,FileBankUtils.health_max)
 
 
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
