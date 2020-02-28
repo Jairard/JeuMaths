@@ -105,10 +105,5 @@ margin_bottom = 29.8676
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Timer" type="Timer" parent="CanvasLayer/Score"]
-wait_time = 2.0
-one_shot = true
 [connection signal="pressed" from="CanvasLayer/HBoxContainer2/MarginContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Score/Stats" to="." method="_on_Stats_pressed"]
-[connection signal="timeout" from="CanvasLayer/Score/Timer" to="." method="_on_Timer_timeout"]
