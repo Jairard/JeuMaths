@@ -1,25 +1,49 @@
+                                |   Components  |
 
-Priorities: 
-	
-clear code with optionnal component	
+*********   vie qui revient au max après un combat : enlever le tag hero du health component ne résout pas le pb : dans les scenes suivantes la vie max est au niveau de la vie courante
+*********   dans map_fire si vie hero < 0 => le niveau est relancé mais probleme de stats qui sont nulles, trouver un moyen de les recharger : malus dans le calcul du score 
+*********   system bullet : position de départ, longueur déplacement
+---------   plus rapide est la réponse plus les dégats sont grands
+---------   mettre composant de dégats sur missile, monstre...
+---------   2ème collision avec le feu pousse le hero                  
+---------   vector orthogonal : collider.get_normal angle entre vecteur et la normale : -angle pour le rebond
+---------
 
-Save pseudos + stats trhough the differents scenes
------------------------------------------
-	player can see the score increment
 
-	circular xp gauge   
+                                |   Positioning  |
 
-	speedest is the answer ==> biggest are the damages	
+*********   dans shop : placer hud de vie + trésor
+---------   placer à la bonne position le trésor / gold dans le code : dans score_hud on ajoute le composant position au treasure.instance()
+---------   
 
-	transition effect between scenes
 
-	sound effect for spells
+                                |   Features  |
 
-	visual effects for damage taken
+---------   Le joureur peut voir le score s'incrémenter et pas prendr diret 102 de dégats par exemple
+---------   le loot récupéré "s'envole" vers les hud : animation pour les dégats/perte de vie : tween dans la scene gold, tween.interpolate dans les collisions avec gold
+---------   jauge circulaire
+---------   Parallax background : calques d'images, Motion/Mirrorring : répéter tous les x pixels l'image
+---------   transition entre les scenes
+---------   AnimationNode  : pour organiser l'ordre des animations
+---------   effets sonores
+---------   animation du hero quand il est touché par un monstre : plusieurs frames dans le sprite du hero
+---------   faire un effecteur : colonne de vent
+---------   faire un laser
 
-	with gold, players can buy health/damage bonus on shop
 
----------------------------------------
----------------------------------------
+                                |   Add_on  |
 
-	harder better faster stronger tamer
+---------   stocker position hero après le shop : pile de scene / mettre en pause une scene : push scene  : 
+---------   voir les stats dans une fenêtre : dans le system hud on set les good_answer, wrong_answer... mais elles sont nulles quand jeu en pause car le system hud est en pause => un unpaused ecs
+---------   relier les notions cochées au code : liste de notions 
+
+
+
+            ------------------------
+            scene tuto : 
+            _ tuer monstre patrol		+ collision avec le tileset
+            _ projectile                + revoir bullet system / un clic on "go" puis le saut active également le bouton
+            _ missile                   + heronode instancié a null donc le missile ne bouge pas 
+            ------------------------
+
+node popup 
