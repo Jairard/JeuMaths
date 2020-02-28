@@ -50,7 +50,7 @@ extents = Vector2( 16.5361, 161.026 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 3.98047, 153.912 )
+extents = Vector2( 8.79639, 153.912 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 2.19385, 126.2 )
@@ -159,7 +159,7 @@ __meta__ = {
 [node name="Monster" type="Area2D" parent="."]
 
 [node name="monster" type="CollisionShape2D" parent="Monster"]
-position = Vector2( 1924.87, 422.163 )
+position = Vector2( 1985.26, 420.215 )
 shape = SubResource( 7 )
 
 [node name="Control_monster" type="Control" parent="."]
