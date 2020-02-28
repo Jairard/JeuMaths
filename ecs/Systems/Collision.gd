@@ -112,11 +112,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :  		# MONSTER
 
 			print("Monster collision !")
-			comp_move.set_direction(comp_move.dir.colliding)
+#			comp_move.set_direction(comp_move.dir.colliding)
 			collider.queue_free()
-			my_body.get_node("hero_spr").modulate = Color(10,10,10,10)
-			yield(my_body.get_parent().get_tree().create_timer(0.5), "timeout")
-			my_body.get_node("hero_spr").modulate = Color(1,1,1,1)
+#			my_body.get_node("hero_spr").modulate = Color(10,10,10,10)
+#			yield(my_body.get_parent().get_tree().create_timer(0.5), "timeout")
+#			my_body.get_node("hero_spr").modulate = Color(1,1,1,1)
 			if (spawn_loot(collider as Node2D) == false and health_comp != null):
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
@@ -176,7 +176,38 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,gold_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 10
 
-			print("Gold collision !")
+#			print("Gold collision !")
+			var area = collider.get_node("Area2D")
+			var tween = area.get_node("Tween")
+			tween.interpolate_property(
+					collider,
+					"position",
+					collider.position,
+					Vector2(collider.position.x, collider.position.y - 500),
+					1.5,
+					Tween.TRANS_BACK,
+					Tween.EASE_IN_OUT)
+					
+			tween.interpolate_property(
+					collider,
+					"scale",
+					Vector2(1,1),
+					Vector2(2, 2),
+					1.5,
+					Tween.TRANS_BACK,
+					Tween.EASE_IN_OUT)
+			
+			tween.interpolate_property(
+					collider,
+					"modulate",
+					Color(1.0,1.0,1.0,1.0),
+					Color(1.0,1.0,1.0,0.0),
+					0.5,
+					Tween.TRANS_BACK,
+					Tween.EASE_IN_OUT,1)
+					
+			tween.start()
+			yield(tween, "tween_completed")
 			collider.queue_free()
 
 			if treasure_comp != null:
