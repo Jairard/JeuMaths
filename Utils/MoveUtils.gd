@@ -31,10 +31,6 @@ func vector_orthogonal(_vector : Vector2) -> Vector2:
 
 	return vector
 
-func line(_fire_spawn : Vector2) -> float:
-	var fire_spawn 	: Vector2 	= _fire_spawn
-	var stop		: int 		= _fire_spawn.x - 1000
-	return fire_spawn.x - stop
 
 func move_and_slide(pos : PositionComponent, vel : VelocityComponent, dt : float) -> void:
 	var pos_start = pos.get_position()
