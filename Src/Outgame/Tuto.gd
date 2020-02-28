@@ -22,7 +22,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	
 
-	var heroNode = hero.instance()
+	heroNode = hero.instance()
 	add_child(heroNode)
 	
 	var monsterNode = monster.instance()
@@ -64,6 +64,7 @@ func _on_Jump_body_entered(body):
 	$jump.show()
 	
 func _on_Monster_body_entered(body):
+	print("monster")
 	$Control_monster.show()
 
 func _on_Bullet_body_entered(body):
