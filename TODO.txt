@@ -1,8 +1,11 @@
                                 |   Components  |
 
-*********   vie qui revient au max après un combat : enlever le tag hero du health component ne résout pas le pb : dans les scenes suivantes la vie max est au niveau de la vie courante
-*********   dans map_fire si vie hero < 0 => le niveau est relancé mais probleme de stats qui sont nulles, trouver un moyen de les recharger : malus dans le calcul du score 
+*********   vie qui revient pas au max après un combat : enlever le tag hero du health component ne résout pas le pb dans map_fire
+*********   dans map_fire si vie hero < 0 => le niveau est relancé mais probleme de stats qui sont nulles, trouver un moyen de les recharger
+
 *********   system bullet : position de départ, longueur déplacement
+test de vie dans shop
+composant bullet
 ---------   plus rapide est la réponse plus les dégats sont grands
 ---------   mettre composant de dégats sur missile, monstre...
 ---------   2ème collision avec le feu pousse le hero                  
@@ -19,8 +22,8 @@
 
                                 |   Features  |
 
+*********   c'est pas bau les datadriven des notions
 ---------   Le joureur peut voir le score s'incrémenter et pas prendr diret 102 de dégats par exemple
----------   le loot récupéré "s'envole" vers les hud : animation pour les dégats/perte de vie : tween dans la scene gold, tween.interpolate dans les collisions avec gold
 ---------   jauge circulaire
 ---------   Parallax background : calques d'images, Motion/Mirrorring : répéter tous les x pixels l'image
 ---------   transition entre les scenes
@@ -34,7 +37,7 @@
                                 |   Add_on  |
 
 ---------   stocker position hero après le shop : pile de scene / mettre en pause une scene : push scene  : 
----------   voir les stats dans une fenêtre : dans le system hud on set les good_answer, wrong_answer... mais elles sont nulles quand jeu en pause car le system hud est en pause => un unpaused ecs
+*********   voir les stats dans une fenêtre : dans le system hud on set les good_answer, wrong_answer... mais elles sont nulles quand jeu en pause car le system hud est en pause => un unpaused ecs
 ---------   relier les notions cochées au code : liste de notions 
 
 
@@ -43,7 +46,8 @@
             scene tuto : 
             _ tuer monstre patrol		+ collision avec le tileset
             _ projectile                + revoir bullet system / un clic on "go" puis le saut active également le bouton
-            _ missile                   + heronode instancié a null donc le missile ne bouge pas 
+            _ missile     
+            zone pour déclencher les monstres             
             ------------------------
 
 node popup 
