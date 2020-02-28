@@ -142,6 +142,7 @@ position = Vector2( 1043.18, 411.613 )
 shape = SubResource( 5 )
 
 [node name="jump" type="RichTextLabel" parent="."]
+visible = false
 margin_left = 1389.51
 margin_top = 347.425
 margin_right = 1538.51
