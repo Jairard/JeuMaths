@@ -82,6 +82,6 @@ func _ready():
 
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
-	score_comp.init(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.boss_killed)
+	score_comp.init(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 
 	ECS.clear_ghosts()
