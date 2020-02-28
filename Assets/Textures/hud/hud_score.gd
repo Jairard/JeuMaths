@@ -1,6 +1,5 @@
 extends Node2D
 
-onready var stats_timer = $CanvasLayer/Score/Timer
 onready var stats_popup = preload("res://Src/Outgame/Stats_popup.tscn")
 
 func _ready():
@@ -19,8 +18,9 @@ func _on_Button_pressed():
 func _on_Stats_pressed():
 	var stats = stats_popup.instance()
 	add_child(stats)
+	stats.show()
 	get_tree().paused = true	
-#	Physics2DServer.set_active(true)
 	yield(get_tree().create_timer(2), 'timeout')
+	stats.hide()
 	get_tree().paused = false
 	
