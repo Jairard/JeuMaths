@@ -27,7 +27,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				FileBankUtils.defeats += 1
 				node.get_tree().change_scene(scene_reset)
 			if node_enemy != null:
-				FileBankUtils.boss_killed += 1
 				FileBankUtils.victories += 1
 				FileBankUtils.scene_counter += 1
 				node.get_tree().change_scene(scene_rewards)
