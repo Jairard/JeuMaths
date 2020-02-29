@@ -25,9 +25,6 @@ func _ready():
 	heroNode = hero.instance()
 	add_child(heroNode)
 	
-	var monsterNode = monster.instance()
-	add_child(monsterNode)
-	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_lateral_velocity(300)
@@ -40,6 +37,19 @@ func _ready():
 	gravity_comp.set_gravity(20)
 	move_comp.set_jump_impulse(500)
 	
+func _on_Move_body_entered(body):
+	$Control_move.show()
+
+
+func _on_Jump_body_entered(body):
+	$jump.show()
+
+func _on_Monster_body_entered(body):
+	print("monster")
+
+	var monsterNode = monster.instance()
+	add_child(monsterNode)
+
 	var comp_position_monster = ECS.add_component(monsterNode, ComponentsLibrary.Position) as PositionComponent
 	comp_position_monster.set_position(Vector2(2100,550))
 	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
@@ -55,16 +65,7 @@ func _ready():
 	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
 	
 	
-	
-func _on_Move_body_entered(body):
-	$Control_move.show()
 
-
-func _on_Jump_body_entered(body):
-	$jump.show()
-	
-func _on_Monster_body_entered(body):
-	print("monster")
 	$Control_monster.show()
 
 func _on_Bullet_body_entered(body):
