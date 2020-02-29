@@ -52,7 +52,6 @@ func _ready():
 
 	var treasure_life_pos_comp = ECS.add_component(treasureNode_life, ComponentsLibrary.Position) as PositionComponent
 	treasure_life_pos_comp.set_position(Vector2(810,418))
-#	treasureNode_life.
 	
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 	hud_comp.init_hero_treasure(ShopNode.get_treasure())
