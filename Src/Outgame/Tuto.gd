@@ -20,7 +20,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Missile)
-	
 
 	heroNode = hero.instance()
 	add_child(heroNode)
@@ -63,21 +62,17 @@ func _on_Monster_body_entered(body):
 	var lootDict_monster = [ {gold : 10}, {health : 10, damage : 5, null : 90}]
 	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
-	
-	
 
 	$Control_monster.show()
 
 func _on_Bullet_body_entered(body):
 	$Control_bullet.show()
-	
+
 func _on_Missile_body_entered(body):
 	$Control_missile.show()
-	
-		
+
 func _on_Return_pressed():
 	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
-
 
 func _on_GO_bullet_pressed():
 	var FireNode = spawn_fire.instance()
@@ -86,7 +81,6 @@ func _on_GO_bullet_pressed():
 	ECS.add_component(FireNode, ComponentsLibrary.Collision)
 	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
 	fire_pos_comp.set_position(Vector2(4500,520))
-
 
 func _on_GO_missile_pressed():
 	var EyeNode = eye.instance()
@@ -97,9 +91,3 @@ func _on_GO_missile_pressed():
 	comp_missile.init(heroNode)
 	var comp_rotation = ECS.add_component(EyeNode, ComponentsLibrary.Rotation) as RotationComponent
 	comp_rotation.set_rotation(true)
-
-
-
-
-
-	
