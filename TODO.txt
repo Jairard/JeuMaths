@@ -1,8 +1,5 @@
                                 |   Components  |
 
-*********   vie qui revient pas au max après un combat : enlever le tag hero du health component ne résout pas le pb dans map_fire
-*********   dans map_fire si vie hero < 0 => le niveau est relancé mais probleme de stats qui sont nulles, trouver un moyen de les recharger
-
 *********   system bullet : position de départ, longueur déplacement
 test de vie dans shop
 composant bullet
