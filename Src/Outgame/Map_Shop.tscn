@@ -132,10 +132,10 @@ margin_bottom = 62.0
 text = "Payer"
 
 [node name="shop" type="VBoxContainer" parent="."]
-margin_left = 454.567
-margin_top = 29.3136
-margin_right = 561.567
-margin_bottom = 306.314
+margin_left = 671.624
+margin_top = 27.8062
+margin_right = 778.624
+margin_bottom = 304.807
 __meta__ = {
 "_edit_use_anchors_": false
 }
