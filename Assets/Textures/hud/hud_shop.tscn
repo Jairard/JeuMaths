@@ -32,10 +32,11 @@ script = ExtResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="treasure_text" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = -1.08072
+margin_left = -17.2916
 margin_top = 52.9548
-margin_right = 113.919
+margin_right = 97.7081
 margin_bottom = 92.9548
+rect_scale = Vector2( 2, 2 )
 bbcode_enabled = true
 bbcode_text = "[wave][center][color=yellow]Trésor"
 text = "Trésor"
@@ -44,7 +45,8 @@ __meta__ = {
 }
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="CanvasLayer"]
-position = Vector2( 157.997, 73.411 )
+position = Vector2( 260.125, 92.8641 )
+scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -60,10 +62,11 @@ shape = SubResource( 1 )
 anims/anim_gold = SubResource( 2 )
 
 [node name="treasure_value" type="Label" parent="CanvasLayer"]
-margin_left = 115.068
-margin_top = 65.6871
-margin_right = 155.068
-margin_bottom = 83.6871
+margin_left = 178.831
+margin_top = 78.1154
+margin_right = 218.831
+margin_bottom = 96.1154
+rect_scale = Vector2( 2, 2 )
 custom_fonts/font = SubResource( 3 )
 text = "10"
 __meta__ = {
