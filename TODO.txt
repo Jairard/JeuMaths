@@ -15,7 +15,7 @@ composant bullet
 
                                 |   Positioning  |
 
-*********   dans shop : placer hud de vie + trésor
+---------   dans shop : placer hud de vie + trésor
 ---------   placer à la bonne position le trésor / gold dans le code : dans score_hud on ajoute le composant position au treasure.instance()
 ---------   
 

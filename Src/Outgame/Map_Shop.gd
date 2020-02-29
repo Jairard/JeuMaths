@@ -25,7 +25,8 @@ func _ready():
 
 	var ShopNode = shop.instance()
 	add_child(ShopNode)
-	ShopNode.set_position(Vector2(400,20))
+	var canvas = ShopNode.get_node("CanvasLayer") as CanvasLayer
+	canvas.set_offset(Vector2(400,20))
 	
 	var HudHeroNode = hud_hero.instance()
 	add_child(HudHeroNode)
