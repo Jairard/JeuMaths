@@ -8,6 +8,7 @@ var components : Dictionary = {}       # Dictionary(Resource -> Dictionary(Id ->
 var active_entities : Dictionary = {}  # Dictionary(Id -> int) / Stores the active entites and the count of components attached to them
 var is_processing : bool  = false
 var ghosts : GhostsHandler = preload("res://ecs/Internal/GhostsHandler.gd").new()
+var is_world_paused : bool = false
 
 enum SystemScope { Scene, Manual }
 
@@ -19,6 +20,13 @@ func _ready():
 	get_tree().connect("node_removed", self, "__on_node_removed")
 	get_tree().connect("node_added", self, "__on_node_added")
 	DebugUtils.set_is_enabled(true)
+	set_pause_mode(Node.PAUSE_MODE_PROCESS)
+
+func _notification(what):
+	if what == Node.NOTIFICATION_PAUSED:
+		is_world_paused = true
+	elif what == Node.NOTIFICATION_UNPAUSED:
+		is_world_paused = false
 
 func __on_node_removed(node : Node) -> void:
 	if (is_processing == true):
@@ -194,7 +202,9 @@ func _process(dt : float) -> void:
 		return
 
 	for systemType in ordered_systems:
-		__process_system(active_systems[systemType], dt)
+		var system : System = active_systems[systemType]
+		if (__can_process_system(system)):
+			__process_system(system, dt)
 
 	is_processing = false
 
@@ -282,6 +292,19 @@ func __resolve_dependencies(systemResource : Resource) -> Array:
 		dependencies = indirectDependenciesependencies + dependencies
 
 	return dependencies
+
+func __can_process_system(system : System) -> bool:
+	return (!is_world_paused || (system._get_pause_mode() != Node.PAUSE_MODE_STOP))
+
+func set_system_pause_mode(systemResource : Resource, mode):
+	if (active_systems.has(systemResource)):
+		var system : System = active_systems[systemResource]
+		var prev_mode : bool = system._get_pause_mode()
+		system.set_pause_mode(mode)
+		return prev_mode
+	else:
+		EcsUtils.log_and_push_error("ECS.set_system_pause_mode: the system " + systemResource.resource_path + " is not registered")
+		return Node.PAUSE_MODE_PROCESS
 
 func clear_ghosts() -> void:
 	ghosts.clear()

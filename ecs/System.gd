@@ -2,6 +2,8 @@ extends Object
 
 class_name System
 
+var pause_mode = Node.PAUSE_MODE_STOP
+
 func _get_mandatory_components() -> Array:
 	return []
 
@@ -13,6 +15,12 @@ func _get_used_components() -> Array:
 
 func _get_system_dependencies() -> Array:
 	return []
+
+func _get_pause_mode():
+	return pause_mode
+
+func set_pause_mode(mode):
+	pause_mode = mode
 
 func _process_node(dt : float, components : Dictionary) -> void:
 	pass
