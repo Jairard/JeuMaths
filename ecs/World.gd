@@ -47,25 +47,25 @@ func __on_node_added(node : Node) -> void:
 			unregister_system(systems.back())
 		DebugUtils.clear()
 
-func register_system(systemResource : Resource, scope = SystemScope.Scene) -> bool:
+func register_system(systemResource : Resource, scope = SystemScope.Scene) -> System:
 	if (active_systems.has(systemResource)):
 		EcsUtils.log_and_push_warning("ECS.register_system: system " + systemResource.resource_path + " is already registered")
-		return false
+		return null
 
 	var system = __instanciate_system(systemResource)
 	if (system == null):
 		EcsUtils.log_and_push_error("ECS.register_system: couldn't create system " + systemResource.resource_path)
-		return false
+		return null
 
 	if (not __check_system(system, systemResource.resource_path)):
-		return false
+		return null
 
 	ordered_systems.push_back(systemResource)
 	active_systems[systemResource] = system
 	system_scopes[scope].push_back(systemResource)
 	needs_systems_ordering = true
 
-	return true
+	return system
 
 func __check_system(system : System, resPath : String) -> bool:
 	# Check for doublons in mandatory components
