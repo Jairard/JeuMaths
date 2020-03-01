@@ -1,9 +1,11 @@
 extends Node2D
 
 onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
+var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
 
 func _ready():
-	ECS.register_system(SystemsLibrary.Hud)
+	prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
+
 	var heroNode = hero.instance()
 	heroNode.deactivate()
 	add_child(heroNode)
@@ -23,3 +25,6 @@ func get_victories() -> Label :
 
 func get_defeats() -> Label :
 	return $defeats/value 	as Label
+
+func _exit_tree():
+	ECS.set_system_pause_mode(SystemsLibrary.Hud, prev_hud_pause_mode)
