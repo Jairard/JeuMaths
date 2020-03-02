@@ -13,8 +13,8 @@ var move_comp : Component = null
 var gravity_comp : Component = null
 var pos_comp : Component = null
 
-func _process(delta):
-	print ("pos :", pos_comp.get_position())
+#func _process(delta):
+#	print ("pos :", pos_comp.get_position())
 func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
@@ -33,7 +33,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(17000,500))
+	pos_comp.set_position(Vector2(140,500))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
