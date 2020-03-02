@@ -3,6 +3,8 @@
 *********   system bullet : position de départ, longueur déplacement
 test de vie dans shop
 composant bullet
+mettre en pause les systems pour stats_popup
+collision : uils pour les twwens
 ---------   plus rapide est la réponse plus les dégats sont grands
 ---------   mettre composant de dégats sur missile, monstre...
 ---------   2ème collision avec le feu pousse le hero                  
@@ -19,13 +21,13 @@ composant bullet
                                 |   Features  |
 
 *********   c'est pas bau les datadriven des notions
----------   Le joureur peut voir le score s'incrémenter et pas prendr diret 102 de dégats par exemple
+---------   Le joureur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple
 ---------   jauge circulaire
 ---------   Parallax background : calques d'images, Motion/Mirrorring : répéter tous les x pixels l'image
 ---------   transition entre les scenes
 ---------   AnimationNode  : pour organiser l'ordre des animations
 ---------   effets sonores
----------   animation du hero quand il est touché par un monstre : plusieurs frames dans le sprite du hero
+---------   animation du hero quand il est touché par un monstre : animation on position , anim_colliding 
 ---------   faire un effecteur : colonne de vent
 ---------   faire un laser
 
@@ -40,10 +42,8 @@ composant bullet
 
             ------------------------
             scene tuto : 
-            _ tuer monstre patrol		+ collision avec le tileset
-            _ projectile                + revoir bullet system / un clic on "go" puis le saut active également le bouton
-            _ missile     
-            zone pour déclencher les monstres             
+            _ projectile                + revoir bullet system
+            _ missile                   + faire une collision avec les murs pour le faire disparaitre
             ------------------------
 
 node popup 
