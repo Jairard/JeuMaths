@@ -11,7 +11,10 @@ onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
 var heroNode : Node2D = null
 var move_comp : Component = null
 var gravity_comp : Component = null
+var pos_comp : Component = null
 
+func _process(delta):
+	print ("pos :", pos_comp.get_position())
 func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
@@ -29,12 +32,12 @@ func _ready():
 	move_comp.set_lateral_velocity(300)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
-	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(100,530))
+	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
+	pos_comp.set_position(Vector2(17000,500))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
-	move_comp.set_jump_impulse(500)
+	move_comp.set_jump_impulse(560)
 	
 func _on_Move_body_entered(body):
 	$Control_move.show()
@@ -44,50 +47,59 @@ func _on_Jump_body_entered(body):
 	$jump.show()
 
 func _on_Monster_body_entered(body):
-	print("monster")
-
-	var monsterNode = monster.instance()
-	add_child(monsterNode)
-
-	var comp_position_monster = ECS.add_component(monsterNode, ComponentsLibrary.Position) as PositionComponent
-	comp_position_monster.set_position(Vector2(2100,550))
-	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
-	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
-	var animation_player_monster = monsterNode.get_node("animation_monster")
-	comp_anim_monster.init(anim_name_monster, animation_player_monster)
-	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
-	comp_patrol.init(700,900)
-	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_monster.init(1,1)
-	var lootDict_monster = [ {gold : 10}, {health : 10, damage : 5, null : 90}]
-	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
-	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
-
 	$Control_monster.show()
+	$Monster_spawn.show()
 
+func _on_Monster_spawn_body_entered(body):
+	EntitiesUtils.create_monster(self, monster, Vector2(3500, 550), gold, health, damage)
+	
+
+func _on_Monster_2_body_entered(body):
+	EntitiesUtils.create_monster(self, monster, Vector2(5300, 1190), gold, health, damage)
+
+func _on_Monster_3_body_entered(body):
+	EntitiesUtils.create_monster(self, monster, Vector2(7650, 225), gold, health, damage)
+
+func _on_Monster_4_body_entered(body):
+	EntitiesUtils.create_monster(self, monster, Vector2(12450, 356), gold, health, damage)	
+	
+func _on_Monster_5_body_entered(body):
+	EntitiesUtils.create_monster(self, monster, Vector2(14600, 356), gold, health, damage)
+	
 func _on_Bullet_body_entered(body):
 	$Control_bullet.show()
+	$Bullet_spawn.show()
 
+func _on_Bullet_spawn_body_entered(body):
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(10300,490))
+	
+func _on_Bullet_2_body_entered(body):
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(14200,500))
+	
 func _on_Missile_body_entered(body):
 	$Control_missile.show()
+	$Missile_spawn.show()
 
+func _on_Missile_spawn_body_entered(body):
+	EntitiesUtils.create_missile(self, eye, Vector2(12100,100), heroNode)
+	
+func _on_Missile_2_body_entered(body):
+	EntitiesUtils.create_missile(self, eye, Vector2(17000,100), heroNode)
+	
+func _on_Missile_3_body_entered(body):
+	EntitiesUtils.create_missile(self, eye, Vector2(18000,150), heroNode)
+
+func _on_Missile_4_body_entered(body):
+	EntitiesUtils.create_missile(self, eye, Vector2(19000,150), heroNode)
+	pass # Replace with function body.
+	
 func _on_Return_pressed():
 	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
-func _on_GO_bullet_pressed():
-	var FireNode = spawn_fire.instance()
-	add_child(FireNode)
-	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
-	ECS.add_component(FireNode, ComponentsLibrary.Collision)
-	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
-	fire_pos_comp.set_position(Vector2(4500,520))
 
-func _on_GO_missile_pressed():
-	var EyeNode = eye.instance()
-	add_child(EyeNode)
-	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
-	eye_pos_comp.set_position(Vector2(5500,300))
-	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
-	comp_missile.init(heroNode)
-	var comp_rotation = ECS.add_component(EyeNode, ComponentsLibrary.Rotation) as RotationComponent
-	comp_rotation.set_rotation(true)
+
+
+
+
+
+

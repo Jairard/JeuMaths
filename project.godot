@@ -307,6 +307,7 @@ RainUtils="*res://Utils/RainUtils.gd"
 DebugUtils="*res://Utils/DebugUtils.gd"
 FileBankUtils="*res://Utils/FileBankUtils.gd"
 TagsLibrary="*res://ecs/TagsLibrary.gd"
+EntitiesUtils="*res://Utils/EntitiesUtils.gd"
 
 [display]
 
