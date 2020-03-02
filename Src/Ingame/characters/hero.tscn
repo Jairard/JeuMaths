@@ -5,7 +5,19 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_colliding"
-length = 0.2
+length = 0.21
+tracks/0/type = "value"
+tracks/0/path = NodePath("hero_spr:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.4
