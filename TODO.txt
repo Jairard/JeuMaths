@@ -2,7 +2,6 @@
 
 *********   system bullet : position de départ, longueur déplacement
 test de vie dans shop
-composant bullet
 mettre en pause les systems pour stats_popup
 collision : uils pour les twwens
 ---------   plus rapide est la réponse plus les dégats sont grands
@@ -42,7 +41,6 @@ collision : uils pour les twwens
 
             ------------------------
             scene tuto : 
-            _ projectile                + revoir bullet system
             _ missile                   + faire une collision avec les murs pour le faire disparaitre
             ------------------------
 
