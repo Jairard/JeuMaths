@@ -63,11 +63,6 @@ func load_characters() :
 	add_child(ScoreNode)
 	ScoreNode.set_name("Score")
 
-	var FireNode = spawn_fire.instance()
-	add_child(FireNode)
-	FireNode.set_name("fire")
-
-
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	enemy_pos_comp.set_position(Vector2(3500,300))														#Appears at (0,0)
@@ -113,10 +108,11 @@ func load_characters() :
 	var comp_rotation = ECS.add_component(EyeNode, ComponentsLibrary.Rotation) as RotationComponent
 	comp_rotation.set_rotation(true)
 
-	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
-	ECS.add_component(FireNode, ComponentsLibrary.Collision)
-	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
-	fire_pos_comp.set_position(Vector2(1000,540))
+#	ECS.add_component(FireNode, ComponentsLibrary.Collision)
+#	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
+#	fire_pos_comp.set_position(Vector2(1000,540))
+#	var bullet_position = ECS.add_component(FireNode, ComponentsLibrary.Bullet)
+#	bullet_position.set_position(fire_pos_comp.get_position())
 
 
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
@@ -170,15 +166,9 @@ func save_ressources():
 #	file.close()
 	pass
 func _on_Timer_timeout():
-
-	var FireNode = spawn_fire.instance()
-	add_child(FireNode)
-	FireNode.set_name("fire")
-
-	ECS.add_component(FireNode, ComponentsLibrary.Bullet)
-	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
-	fire_pos_comp.set_position(Vector2(1000,540))
-
+	print ("go")
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(1000,540))
+	
 
 func _on_Area2D_body_entered(body):
 	spawn_rain()

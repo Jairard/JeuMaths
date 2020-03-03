@@ -7,6 +7,7 @@ onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
+onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_2.tscn")
 
 var heroNode : Node2D = null
 var move_comp : Component = null
@@ -39,16 +40,20 @@ func _ready():
 	gravity_comp.set_gravity(20)
 	move_comp.set_jump_impulse(560)
 	
+	var portalNode = portal.instance()
+	add_child(portalNode)
+	portalNode.set_position(Vector2(29600,1000))
+	
 func _on_Move_body_entered(body):
-	$Control_move.show()
+	$First_Spawn/Move/Control_move.show()
 
 
 func _on_Jump_body_entered(body):
-	$jump.show()
+	$First_Spawn/Jump/jump.show()
 
 func _on_Monster_body_entered(body):
-	$Control_monster.show()
-	$Monster_spawn.show()
+	$First_Spawn/Monster/Control_monster.show()
+	$First_Spawn/Monster/Monster_spawn.show()
 
 func _on_Monster_spawn_body_entered(body):
 	EntitiesUtils.create_monster(self, monster, Vector2(3500, 550), gold, health, damage)
@@ -67,8 +72,8 @@ func _on_Monster_5_body_entered(body):
 	EntitiesUtils.create_monster(self, monster, Vector2(14600, 356), gold, health, damage)
 	
 func _on_Bullet_body_entered(body):
-	$Control_bullet.show()
-	$Bullet_spawn.show()
+	$First_Spawn/Bullet/Control_bullet.show()
+	$First_Spawn/Bullet/Bullet_spawn.show()
 
 func _on_Bullet_spawn_body_entered(body):
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(10300,490))
@@ -77,8 +82,8 @@ func _on_Bullet_2_body_entered(body):
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(14200,500))
 	
 func _on_Missile_body_entered(body):
-	$Control_missile.show()
-	$Missile_spawn.show()
+	$First_Spawn/Missile/Control_missile.show()
+	$First_Spawn/Missile/Missile_spawn.show()
 
 func _on_Missile_spawn_body_entered(body):
 	EntitiesUtils.create_missile(self, eye, Vector2(12100,100), heroNode)
