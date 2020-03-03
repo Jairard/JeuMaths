@@ -14,8 +14,13 @@ var move_comp : Component = null
 var gravity_comp : Component = null
 var pos_comp : Component = null
 
-#func _process(delta):
+export var color_game = Color("#ffffff")
+export var color_tumble = Color("#3a1c6b")
+
+func _process(delta):
 #	print ("pos :", pos_comp.get_position())
+	tumble()
+	
 func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
@@ -34,7 +39,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(140,500))
+	pos_comp.set_position(Vector2(22000,1300))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -101,8 +106,24 @@ func _on_Missile_4_body_entered(body):
 func _on_Return_pressed():
 	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
-
-
+func tumble():
+	if pos_comp.get_position().y > 1550:
+		var tween = Tween.new()
+		add_child(tween)
+		tween.interpolate_property($CanvasModulate, "color", color_tumble, color_game, 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.start()
+		yield(tween, "tween_completed")
+		remove_child(tween)
+		pos_comp.set_position(Vector2(22000,1300))
+	else:
+		var tween = Tween.new()
+		add_child(tween)
+		tween.interpolate_property($CanvasModulate, "color", color_game, color_tumble, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.start()
+		yield(tween, "tween_completed")
+		remove_child(tween)
+		
+		
 
 
 
