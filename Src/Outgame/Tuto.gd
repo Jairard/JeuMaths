@@ -14,8 +14,8 @@ var move_comp : Component = null
 var gravity_comp : Component = null
 var pos_comp : Component = null
 
-export var color_game = Color("#ffffff")
-export var color_tumble = Color("#3a1c6b")
+export var color_game = Color("#00000000")
+export var color_tumble = Color("#000000")
 
 func _process(delta):
 #	print ("pos :", pos_comp.get_position())
@@ -111,18 +111,22 @@ func tumble():
 	if pos_comp.get_position().y > 1550:
 		var tween = Tween.new()
 		add_child(tween)
-		tween.interpolate_property($CanvasModulate, "color", color_tumble, color_game, 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		$CanvasModulate.show()
+		tween.interpolate_property($CanvasModulate, "color", color_tumble, color_game, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()
 		yield(tween, "tween_completed")
 		remove_child(tween)
+		
+		$Control/ColorRect.show()
+		$Control/AnimationPlayer.play("test")
+		yield($Control/AnimationPlayer, "animation_finished")
+
 		pos_comp.set_position(Vector2(22000,1300))
+		
 	else:
-		var tween = Tween.new()
-		add_child(tween)
-		tween.interpolate_property($CanvasModulate, "color", color_game, color_tumble, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
-		yield(tween, "tween_completed")
-		remove_child(tween)
+		$Control/ColorRect.hide()
+		$CanvasModulate.hide()
+		
 		
 		
 
