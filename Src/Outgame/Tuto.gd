@@ -33,13 +33,14 @@ func _ready():
 	heroNode = hero.instance()
 	add_child(heroNode)
 	
+	ECS.add_component(heroNode, ComponentsLibrary.Health)	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_lateral_velocity(300)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(22000,1300))
+	pos_comp.set_position(Vector2(140,500))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
