@@ -104,8 +104,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if health_comp != null:
 				var new_scene = FileBankUtils.loaded_scenes["map_fight_1"]
-				var node = health_comp.get_node()
-				node.get_tree().change_scene(new_scene)
+				Scene_changer.change_scene(new_scene)
 			collider.queue_free()
 
 		if (has_collision_layer(collider,monster_layer_bit) == true
@@ -258,8 +257,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Portal collision !")
 
 			if health_comp != null:
-				var new_scene = FileBankUtils.loaded_scenes["next_level"]
-				var node = health_comp.get_node()
-				yield(node.get_parent().get_tree().create_timer(1.0), "timeout")
-				node.get_tree().change_scene(new_scene)
+#				var new_scene = FileBankUtils.loaded_scenes["next_level"]
+#				var node = health_comp.get_node()
+#				yield(node.get_parent().get_tree().create_timer(1.0), "timeout")
+#				node.get_tree().change_scene(new_scene)
+				Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 			collider.queue_free()
+			

@@ -49,4 +49,4 @@ func _ready():
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Src/Outgame/Multiscenes.tscn")
+	Scene_changer.change_scene("res://Src/Outgame/Multiscenes.tscn")

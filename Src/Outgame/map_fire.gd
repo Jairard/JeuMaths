@@ -141,13 +141,13 @@ func load_characters() :
 
 func combat(valeur) :
 	if valeur == 0 :
-		get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 
 
 func _on_Button_pressed():
 	save_ressources()
-	get_tree().change_scene("res://Src/Outgame/Multiscenes.tscn")
+	Scene_changer.change_scene("res://Src/Outgame/Multiscenes.tscn")
 
 
 
@@ -175,5 +175,5 @@ func _on_Area2D_body_entered(body):
 
 func _process(delta):
 	if health_comp_hero.get_health() <= 0:
-		get_tree().change_scene(FileBankUtils.loaded_scenes["death"])
+		Scene_changer.change_scene(FileBankUtils.loaded_scenes["death"])
 	

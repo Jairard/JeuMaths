@@ -33,14 +33,14 @@ func _on_Button_pressed():
 #	var new_scene :	String =  ("create_hero" if stats_hero["new_hero"] == true else "playing_map"[FileBankUtils.scene_counter])
 	
 	if stats_hero["new_hero"] == true:
-		get_tree().change_scene(FileBankUtils.loaded_scenes["create_hero"])
+		Scene_changer.change_scene(FileBankUtils.loaded_scenes["create_hero"])
 	
 	else: 
 		if FileBankUtils.scene_counter == 0:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
 		
 		else: 
-			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 	
 
 

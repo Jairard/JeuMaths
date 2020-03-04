@@ -25,11 +25,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			yield(node.get_parent().get_tree().create_timer(3.0), "timeout")
 			if node_hero != null:
 				FileBankUtils.defeats += 1
-				node.get_tree().change_scene(scene_reset)
+				Scene_changer.change_scene(scene_reset)
 			if node_enemy != null:
 				FileBankUtils.victories += 1
 				FileBankUtils.scene_counter += 1
-				node.get_tree().change_scene(scene_rewards)
+				Scene_changer.change_scene(scene_rewards)
 
 
 

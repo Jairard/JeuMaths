@@ -105,7 +105,7 @@ func _on_Missile_4_body_entered(body):
 	pass # Replace with function body.
 	
 func _on_Return_pressed():
-	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+	Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 func tumble():
 	if pos_comp.get_position().y > 1550:
