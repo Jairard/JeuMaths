@@ -7,5 +7,5 @@ func change_scene(path):
 	assert(get_tree().change_scene(path) == OK)
 	$AnimationPlayer.play_backwards("scene_changer")
 	yield($AnimationPlayer, "animation_finished")
-	$Control.show()
+	$Control.hide()
 	
