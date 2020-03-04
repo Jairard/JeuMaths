@@ -20,6 +20,9 @@ margin_top = 341.0
 margin_right = 843.999
 margin_bottom = 395.0
 text = "Create Hero"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Map_fight_1" type="Button" parent="."]
 margin_left = 29.0795
