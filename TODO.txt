@@ -1,9 +1,8 @@
                                 |   Components  |
 
-*********   system bullet : position de départ, longueur déplacement
 test de vie dans shop
 mettre en pause les systems pour stats_popup
-collision : uils pour les twwens
+collision : utils pour les twwens
 ---------   plus rapide est la réponse plus les dégats sont grands
 ---------   mettre composant de dégats sur missile, monstre...
 ---------   2ème collision avec le feu pousse le hero                  
@@ -19,14 +18,14 @@ collision : uils pour les twwens
 
                                 |   Features  |
 
+*********   animation du hero quand il est touché par un monstre : animation on position , anim_colliding
 *********   c'est pas bau les datadriven des notions
----------   Le joureur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple
----------   jauge circulaire
 ---------   Parallax background : calques d'images, Motion/Mirrorring : répéter tous les x pixels l'image
----------   transition entre les scenes
+---------   Le joueur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple
+---------   jauge circulaire
+---------   transition entre les scenes : erreur pour la scene next_level puis scene map_fire : double execution de l'animation
 ---------   AnimationNode  : pour organiser l'ordre des animations
 ---------   effets sonores
----------   animation du hero quand il est touché par un monstre : animation on position , anim_colliding 
 ---------   faire un effecteur : colonne de vent
 ---------   faire un laser
 
