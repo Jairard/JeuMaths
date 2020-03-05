@@ -1,8 +1,9 @@
                                 |   Components  |
 
-test de vie dans shop
-mettre en pause les systems pour stats_popup
-collision : utils pour les twwens
+
+*********   mettre en pause les systems pour stats_popup
+*********   collision : utils pour les tweens : pour l'animation du loot, marche dans les collisiosn, ne marche plus dans le Utils
+*********   hud score : donnéees fausses 
 ---------   plus rapide est la réponse plus les dégats sont grands
 ---------   mettre composant de dégats sur missile, monstre...
 ---------   2ème collision avec le feu pousse le hero                  
@@ -18,12 +19,9 @@ collision : utils pour les twwens
 
                                 |   Features  |
 
-*********   animation du hero quand il est touché par un monstre : animation on position , anim_colliding
 *********   c'est pas bau les datadriven des notions
----------   Parallax background : calques d'images, Motion/Mirrorring : répéter tous les x pixels l'image
----------   Le joueur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple
+---------   Le joueur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple : tween sur les dégats pris (health_bar, "value", health_bar.value, health, 0.4, Tween...)
 ---------   jauge circulaire
----------   transition entre les scenes : erreur pour la scene next_level puis scene map_fire : double execution de l'animation
 ---------   AnimationNode  : pour organiser l'ordre des animations
 ---------   effets sonores
 ---------   faire un effecteur : colonne de vent
@@ -40,7 +38,7 @@ collision : utils pour les twwens
 
             ------------------------
             scene tuto : 
-            _ missile                   + faire une collision avec les murs pour le faire disparaitre
+            _ missile                  ********* + faire une collision avec les murs pour le faire disparaitre
             ------------------------
 
 node popup 
