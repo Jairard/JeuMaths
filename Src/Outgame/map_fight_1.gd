@@ -9,6 +9,7 @@ onready var spell_hero		= preload("res://Src/Ingame/Animation/spell_hero.tscn")
 onready var ulti_hero		= preload("res://Src/Ingame/Animation/ulti_hero.tscn")
 onready var spell_enemy		= preload("res://Src/Ingame/Animation/spell_enemy.tscn")
 
+onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
 onready var time_label = get_node("sol/time_label")
 onready var game_timer = get_node("game_timer")
@@ -127,10 +128,11 @@ func load_hud():
 	add_child(Hud_heroNode)
 	Hud_heroNode.set_name("Hud_hero")
 
-	var hud_hero_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
-	hud_hero_comp.init_hero_map(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
-	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage())
+	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 
+	hud_comp.init_hero_map(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
+	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage())
+	
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)
 	Hud_enemyNode.set_name("Hud_enemy")
@@ -139,7 +141,12 @@ func load_hud():
 	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
 	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage())
 
-
+	var ScoreNode = score.instance()
+	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
+	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
+	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
+	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
+	
 func _on_game_timer_timeout():
 
 	time_label.hide()
