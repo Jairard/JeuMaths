@@ -73,6 +73,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
 		return
+	
+#	var tilemap = col_comp.get_node() as TileMap
+#	if tilemap == null:
+#		return
 
 	# Collision detection
 	var body = pos_comp.get_node() as KinematicBody2D # Try to get the node as a kinematic body
@@ -96,6 +100,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider_health_component 	: HealthComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
 		var collider_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
 		var my_body_damage_component 	: DamageComponent 	= _getComponentOfEntity(my_body.get_instance_id(), ComponentsLibrary.Damage)
+		var my_body_move_component 	: MovementComponent	= _getComponentOfEntity(my_body.get_instance_id(), ComponentsLibrary.Movement)
+		
 
 		if (has_collision_layer(collider,enemy_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :    			# ENEMY
@@ -112,14 +118,18 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			print("Monster collision !")
 #			comp_move.set_direction(comp_move.dir.colliding)
+#			yield(my_body.get_parent().get_tree().create_timer(1.5), 'timeout')
 			collider.queue_free()
 #			my_body.get_node("hero_spr").modulate = Color(10,10,10,10)
 #			yield(my_body.get_parent().get_tree().create_timer(0.5), "timeout")
 #			my_body.get_node("hero_spr").modulate = Color(1,1,1,1)
-			if (spawn_loot(collider as Node2D) == false and health_comp != null):
+			if (spawn_loot(collider as Node2D) == false and health_comp != null):			
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
-
+				TweenAnimationUtils.tween_hero_collision(my_body)			
+				
+					
+				
 		if (has_collision_layer(collider,hero_layer_bit) == true
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true) :  		 # SPELL from Enemy to Hero
 
@@ -161,57 +171,59 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
+				TweenAnimationUtils.tween_hero_collision(my_body)			
+				
+		
+#		if (has_collision_layer(collider,missile_layer_bit) == true
+#			and tilemap.get_collision_layer_bit(wall_layer_bit) == true): 		# MISSILE vs wall
+#
+#			print("Missile destruction")
+#			collider.queue_free()
 
 		if (has_collision_layer(collider,fire_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
 
 			print("Fire collision !")
 			collider.queue_free()
-
+#			my_body_move_component.set_direction(my_body_move_component.dir.colliding)
+#			print ("dir : ", my_body_move_component.dir.colliding)
+#			yield(my_body_move_component.get_node().get_parent().get_tree().create_timer(10), "timeout")
+			
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)# lerp(0, 10, 0))
 				FileBankUtils.health -= 10
+				TweenAnimationUtils.tween_hero_collision(my_body)			
+		
 
 		if (has_collision_layer(collider,gold_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 10
 
-#			print("Gold collision !")
-			var area = collider.get_node("Area2D")
-			var tween = area.get_node("Tween")
-			tween.interpolate_property(
-					collider,
-					"position",
-					collider.position,
-					Vector2(collider.position.x, collider.position.y - 500),
-					1.5,
-					Tween.TRANS_BACK,
-					Tween.EASE_IN_OUT)
-					
-			tween.interpolate_property(
-					collider,
-					"scale",
-					Vector2(1,1),
-					Vector2(2, 2),
-					1.5,
-					Tween.TRANS_BACK,
-					Tween.EASE_IN_OUT)
+			print("Gold collision !")
+#			var node = collider.get_node("Sprite")
+#			var tween = node.get_node("Tween")
+#			tween.interpolate_property(
+#			node, "position", node.position,
+#			Vector2(node.position.x, node.position.y - 500),
+#			1.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+#
+#			tween.interpolate_property(
+#			node, "scale", Vector2(1,1), Vector2(2, 2),
+#			1.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+#
+#			tween.interpolate_property(
+#			node, "modulate", Color(1.0,1.0,1.0,1.0), Color(1.0,1.0,1.0,0.0),
+#			0.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT,1)
+#
+#			tween.start()
+#			yield(tween, "tween_completed")
 			
-			tween.interpolate_property(
-					collider,
-					"modulate",
-					Color(1.0,1.0,1.0,1.0),
-					Color(1.0,1.0,1.0,0.0),
-					0.5,
-					Tween.TRANS_BACK,
-					Tween.EASE_IN_OUT,1)
-					
-			tween.start()
-			yield(tween, "tween_completed")
+			TweenAnimationUtils.tween_hero_loot(collider)
 			collider.queue_free()
 
 			if treasure_comp != null:
 				treasure_comp.set_treasure(treasure_comp.get_treasure() + 10)
 				FileBankUtils.treasure += 10
+				
 
 
 		if (has_collision_layer(collider,damage_layer_bit) == true
@@ -222,6 +234,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			if damage_comp != null:
 				damage_comp.set_damage(damage_comp.get_damage() + 10)
 				FileBankUtils.damage += 10
+				TweenAnimationUtils.tween_hero_loot(collider)
+				
 			collider.queue_free()
 
 		if (has_collision_layer(collider,health_layer_bit) == true
@@ -236,6 +250,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				else :
 					health_comp.set_health(health_comp.get_health() + 10)
 				FileBankUtils.health += 10
+				TweenAnimationUtils.tween_hero_loot(collider)
+				
 			collider.queue_free()
 
 		if (has_collision_layer(collider,answer_layer_bit) == true 				# ANSWER
