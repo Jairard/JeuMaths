@@ -26,7 +26,7 @@ func _ready():
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
 	damage_comp.init(FileBankUtils.damage)
 
-	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
+	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 
 	var ScoreNode = score.instance()

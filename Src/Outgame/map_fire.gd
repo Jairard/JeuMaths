@@ -136,8 +136,9 @@ func load_characters() :
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
 	damage_comp.init(FileBankUtils.damage)
 
-	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
-	score_comp.init(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
+	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
+	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
+	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
 
 func combat(valeur) :
 	if valeur == 0 :
@@ -166,7 +167,6 @@ func save_ressources():
 #	file.close()
 	pass
 func _on_Timer_timeout():
-	print ("go")
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(1000,540))
 	
 

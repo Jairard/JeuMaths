@@ -185,11 +185,6 @@ _global_script_classes=[ {
 "path": "res://ecs/Systems/Patrol.gd"
 }, {
 "base": "Component",
-"class": "PersonnalStatsComponent",
-"language": "GDScript",
-"path": "res://ecs/Components/Personal_stats.gd"
-}, {
-"base": "Component",
 "class": "PositionComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Position.gd"
@@ -275,7 +270,6 @@ _global_script_class_icons={
 "NodegetidComponent": "",
 "PatrolComponent": "",
 "PatrolSystem": "",
-"PersonnalStatsComponent": "",
 "PositionComponent": "",
 "RotationComponent": "",
 "SceneCounterComponent": "",
