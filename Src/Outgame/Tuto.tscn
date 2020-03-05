@@ -287,6 +287,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Monster" type="Area2D" parent="First_Spawn/Monster"]
+collision_layer = 16384
 
 [node name="monster" type="CollisionShape2D" parent="First_Spawn/Monster/Monster"]
 position = Vector2( 2632.49, 420.466 )
@@ -362,7 +363,7 @@ __meta__ = {
 [node name="Monster_spawn" type="Area2D" parent="First_Spawn/Monster"]
 visible = false
 position = Vector2( 1012, 0.517456 )
-collision_layer = 2
+collision_layer = 16384
 __meta__ = {
 "_edit_group_": true
 }
@@ -383,6 +384,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Move" type="Area2D" parent="First_Spawn/Move"]
+collision_layer = 16384
 
 [node name="move" type="CollisionShape2D" parent="First_Spawn/Move/Move"]
 position = Vector2( 159.757, 492.463 )
@@ -445,6 +447,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Jump" type="Area2D" parent="First_Spawn/Jump"]
+collision_layer = 16384
 
 [node name="jump" type="CollisionShape2D" parent="First_Spawn/Jump/Jump"]
 position = Vector2( 973.822, 411.613 )
@@ -470,6 +473,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Bullet" type="Area2D" parent="First_Spawn/Bullet"]
+collision_layer = 16384
 
 [node name="bullet" type="CollisionShape2D" parent="First_Spawn/Bullet/Bullet"]
 position = Vector2( 8776.24, 445.567 )
@@ -523,7 +527,7 @@ __meta__ = {
 [node name="Bullet_spawn" type="Area2D" parent="First_Spawn/Bullet"]
 visible = false
 position = Vector2( 7031.72, -9.27438 )
-collision_layer = 2
+collision_layer = 16384
 __meta__ = {
 "_edit_group_": true
 }
@@ -544,7 +548,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Missile" type="Area2D" parent="First_Spawn/Missile"]
-collision_layer = 2
+collision_layer = 16384
 
 [node name="missile" type="CollisionShape2D" parent="First_Spawn/Missile/Missile"]
 position = Vector2( 10548, 413.285 )
@@ -598,7 +602,7 @@ __meta__ = {
 [node name="Missile_spawn" type="Area2D" parent="First_Spawn/Missile"]
 visible = false
 position = Vector2( 5982.3, -2.07662 )
-collision_layer = 2
+collision_layer = 16384
 __meta__ = {
 "_edit_group_": true
 }
@@ -622,27 +626,28 @@ __meta__ = {
 }
 
 [node name="Monster_2" type="Area2D" parent="Add_Monsters"]
-collision_layer = 2
+collision_layer = 16384
 
 [node name="monster_2" type="CollisionShape2D" parent="Add_Monsters/Monster_2"]
 position = Vector2( 4304.81, 301.825 )
 shape = SubResource( 21 )
 
 [node name="Monster_3" type="Area2D" parent="Add_Monsters"]
+collision_mask = 16385
 
 [node name="monster_3" type="CollisionShape2D" parent="Add_Monsters/Monster_3"]
 position = Vector2( 6946.33, 413.51 )
 shape = SubResource( 22 )
 
 [node name="Monster_4" type="Area2D" parent="Add_Monsters"]
-collision_layer = 2
+collision_layer = 16384
 
 [node name="monster_4" type="CollisionShape2D" parent="Add_Monsters/Monster_4"]
 position = Vector2( 11797.9, 439.546 )
 shape = SubResource( 23 )
 
 [node name="Monster_5" type="Area2D" parent="Add_Monsters"]
-collision_layer = 2
+collision_layer = 16384
 
 [node name="monster_5" type="CollisionShape2D" parent="Add_Monsters/Monster_5"]
 position = Vector2( 13085.4, 330.971 )
@@ -656,7 +661,7 @@ __meta__ = {
 }
 
 [node name="Bullet_2" type="Area2D" parent="Add_Bullets"]
-collision_layer = 2
+collision_layer = 16384
 
 [node name="bullet_2" type="CollisionShape2D" parent="Add_Bullets/Bullet_2"]
 position = Vector2( 13208.9, 439.555 )
@@ -670,21 +675,21 @@ __meta__ = {
 }
 
 [node name="Missile_2" type="Area2D" parent="Add_Missiles"]
-collision_layer = 2
+collision_layer = 16384
 
 [node name="missile_2" type="CollisionShape2D" parent="Add_Missiles/Missile_2"]
 position = Vector2( 15906.5, 792.024 )
 shape = SubResource( 26 )
 
 [node name="Missile_3" type="Area2D" parent="Add_Missiles"]
-collision_layer = 2
+collision_layer = 16384
 
 [node name="missile_3" type="CollisionShape2D" parent="Add_Missiles/Missile_3"]
 position = Vector2( 17297.7, 785.618 )
 shape = SubResource( 27 )
 
 [node name="Missile_4" type="Area2D" parent="Add_Missiles"]
-collision_layer = 2
+collision_layer = 16384
 
 [node name="missile_4" type="CollisionShape2D" parent="Add_Missiles/Missile_4"]
 position = Vector2( 17039.4, 779.175 )
