@@ -78,15 +78,16 @@ hframes = 8
 anims/anim_gold = SubResource( 3 )
 
 [node name="champion" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 798.533, 26.1467 )
+position = Vector2( 865.591, 29.7391 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
 
 [node name="Score" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 715.0
+anchor_bottom = 0.07
+margin_left = 746.0
 margin_top = 16.0
-margin_right = 748.0
-margin_bottom = 31.0
+margin_right = 808.0
+margin_bottom = -11.8
 rect_scale = Vector2( 2, 2 )
 size_flags_stretch_ratio = 0.0
 bbcode_enabled = true
@@ -98,10 +99,10 @@ __meta__ = {
 
 [node name="Stats" type="Button" parent="CanvasLayer/Score"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = -1.0
-margin_top = -1.13236
-margin_right = 70.0
-margin_bottom = 29.8676
+margin_left = 0.0892639
+margin_top = -3.49683
+margin_right = 64.0893
+margin_bottom = 16.5032
 focus_mode = 0
 enabled_focus_mode = 0
 __meta__ = {
