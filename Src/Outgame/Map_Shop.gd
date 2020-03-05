@@ -67,24 +67,30 @@ func _on_Damages_pressed():
 		FileBankUtils.damage += 10
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 10)
 		FileBankUtils.treasure = 10
-		Scene_changer.change_scene("res://Src/Outgame/Stats.tscn")
+		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 
 func _on_Health_pressed():
 	
-	if treasure_comp_hero.get_treasure() >= 10 and !health_comp_hero.is_health_max():
-		health_comp_hero.set_health(health_comp_hero.get_health() + 10)
-		FileBankUtils.health += 10
+	if treasure_comp_hero.get_treasure() >= 10:
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 10)
 		FileBankUtils.treasure -= 10
-		Scene_changer.change_scene("res://Src/Outgame/Stats.tscn")
+		
+		if health_comp_hero.is_health_max():
+			health_comp_hero.set_health_max(health_comp_hero.get_health_max() + 10)
+			FileBankUtils.health_max += 10
+			
+		health_comp_hero.set_health(health_comp_hero.get_health() + 10)
+		FileBankUtils.health += 10
+
+		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])		
 
 func _on_regen_health_pressed():
 	
 	if treasure_comp_hero.get_treasure() >= 20 and !health_comp_hero.is_health_max():
 		health_comp_hero.set_health(FileBankUtils.health_max)
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 20)
-		Scene_changer.change_scene("res://Src/Outgame/Stats.tscn")
+		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 
 	
