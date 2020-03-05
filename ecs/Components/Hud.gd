@@ -60,10 +60,10 @@ func set_score(value : int) -> void :
 		_score_label.set_bbcode("[wave][rainbow]"+str(value))
 		_score = value
 
-func set_good_anser(value : int) -> void:
+func set_good_answer(value : int) -> void:
 	_good_answer.text = str(value)
 
-func set_wrong_anser(value : int) -> void:
+func set_wrong_answer(value : int) -> void:
 	_wrong_answer.text = str(value)
 
 func set_victories(value : int) -> void:
