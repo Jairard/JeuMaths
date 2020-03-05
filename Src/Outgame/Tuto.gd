@@ -40,7 +40,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(10500,500))
+	pos_comp.set_position(Vector2(10000,500))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -88,7 +88,7 @@ func _on_Bullet_body_entered(body):
 	$First_Spawn/Bullet/Bullet_spawn.show()
 
 func _on_Bullet_spawn_body_entered(body):
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(10300,490))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(10300,520))
 	
 func _on_Bullet_2_body_entered(body):
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(14200,500))
