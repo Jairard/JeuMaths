@@ -19,8 +19,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Hud)
 
-	FileBankUtils.victories += 1
-	FileBankUtils.scene_counter += 1
+
 				
 	var heroNode = hero.instance()
 	add_child(heroNode)
@@ -30,8 +29,8 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	print ("health : ", health_comp_hero.get_health())
-	print ("health_max : ", health_comp_hero.get_health_max())
+#	print ("health : ", health_comp_hero.get_health())
+#	print ("health_max : ", health_comp_hero.get_health_max())
 	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(100,400))
@@ -84,7 +83,7 @@ func _ready():
 	HudNode.get_life_hero_max(), HudNode.get_damage())
 
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
-	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoregolbal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
+	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 
 	ECS.clear_ghosts()

@@ -9,8 +9,8 @@ func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Hud]
 
 func _get_optional_components() -> Array:
-	return [ ComponentsLibrary.Treasure, ComponentsLibrary.Scoregolbal, ComponentsLibrary.Health, 
-			ComponentsLibrary.Damage, ComponentsLibrary.Personal_stats]
+	return [ ComponentsLibrary.Treasure, ComponentsLibrary.Scoreglobal, ComponentsLibrary.Health, 
+			ComponentsLibrary.Damage]
 
 func _process_node(dt : float, components : Dictionary) -> void:
 
@@ -18,8 +18,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var comp_treasure		= 	components[ComponentsLibrary.Treasure] 		as 	TreasureComponent
 	var comp_damage		 	= 	components[ComponentsLibrary.Damage] 		as	DamageComponent
 	var comp_hud		 	= 	components[ComponentsLibrary.Hud] 			as	HudComponent
-	var comp_score		 	= 	components[ComponentsLibrary.Scoregolbal] 	as	ScoreglobalcounterComponent
-	var comp_stats			= 	components[ComponentsLibrary.Personal_stats]as 	PersonnalStatsComponent
+	var comp_score		 	= 	components[ComponentsLibrary.Scoreglobal] 	as	ScoreglobalcounterComponent
 
 	if comp_health != null:
 		var current_health = comp_health.get_health()
@@ -36,16 +35,15 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		comp_hud.set_damage(current_damage)
 
 	if comp_score != null:
+		comp_hud.set_good_answer(FileBankUtils.good_answer)
+		comp_hud.set_wrong_answer(FileBankUtils.wrong_answer)		
+		comp_hud.set_victories(FileBankUtils.victories)
+		comp_hud.set_defeats(FileBankUtils.defeats)		
 		var current_score = comp_score.compute_score()
-#		var current_score = comp_score.get_boss_killed() * (float(comp_score.get_good_answer()) / comp_score.get_wrong_answer()) * 1000
 		comp_hud.set_score(current_score)
 
-	if comp_stats != null:
-		comp_hud.set_good_answer(FileBankUtils.good_answer)
-		print ("good : ",FileBankUtils.good_answer)
-		comp_hud.set_wrong_answer(FileBankUtils.wrong_answer)
-		comp_hud.set_victories(FileBankUtils.victories)
-		comp_hud.set_defeats(FileBankUtils.defeats)
+
+		
 
 
 

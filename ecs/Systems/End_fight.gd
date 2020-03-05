@@ -6,7 +6,7 @@ func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Health, ComponentsLibrary.EmitPArticules]
 
 func _get_optional_components() -> Array:
-	return [ ComponentsLibrary.Node_Enemy, ComponentsLibrary.Node_Hero]
+	return [ ComponentsLibrary.Node_Enemy, ComponentsLibrary.Node_Hero, ComponentsLibrary.Scoreglobal]
 
 func _process_node(dt : float, components : Dictionary) -> void:
 
@@ -14,6 +14,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var emit_comp		 	= components[ComponentsLibrary.EmitPArticules] 	 	as EmitParticulesComponent
 	var node_hero			= components[ComponentsLibrary.Node_Hero]			as NodeHeroComponent
 	var node_enemy			= components[ComponentsLibrary.Node_Enemy]			as NodeEnemyComponent
+	var score_comp			= components[ComponentsLibrary.Scoreglobal] 		as ScoreglobalcounterComponent
 
 	var current_health = comp_health.get_health()
 
@@ -26,7 +27,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			if node_hero != null:
 				FileBankUtils.defeats += 1
 				Scene_changer.change_scene(scene_reset)
-			if node_enemy != null:
+			if node_enemy != null:			
+				FileBankUtils.victories += 1
+				FileBankUtils.scene_counter += 1
 				Scene_changer.change_scene(scene_rewards)
 
 

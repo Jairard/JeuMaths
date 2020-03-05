@@ -7,7 +7,7 @@ func _get_mandatory_components() -> Array:
 			ComponentsLibrary.Collision, ComponentsLibrary.Damage, ComponentsLibrary.Health]
 
 func _get_optional_components() -> Array:
-	return [ComponentsLibrary.Scoregolbal,
+	return [ComponentsLibrary.Scoreglobal,
 		   ComponentsLibrary.Node_Enemy, ComponentsLibrary.Node_Hero]
 
 
@@ -29,7 +29,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var answtospell 	= components[ComponentsLibrary.AnswertoSpell]	as AnswertoSpellComponent
 	var spl 			= components[ComponentsLibrary.Spell] 			as SpellComponent
 	var col_comp		= components[ComponentsLibrary.Collision] 		as CollisionComponent
-	var score_comp		= components[ComponentsLibrary.Scoregolbal] 	as ScoreglobalcounterComponent
+	var score_comp		= components[ComponentsLibrary.Scoreglobal] 	as ScoreglobalcounterComponent
 	var health_comp		= components[ComponentsLibrary.Health]			as HealthComponent
 	var node_hero		= components[ComponentsLibrary.Node_Hero]		as NodeHeroComponent
 	var node_enemy		= components[ComponentsLibrary.Node_Enemy]		as NodeEnemyComponent
@@ -44,8 +44,12 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if answer == AnswerListenerComponent.answer.true:															# COUNTER GOOD ANSWERS
 			score_comp.set_good_answer(score_comp.get_good_answer() + 1)
 			FileBankUtils.good_answer += 1
+			print ("+2")
+			print("true : ", FileBankUtils.good_answer)
 		if answer == AnswerListenerComponent.answer.false:															# COUNTER WRONG ANSWERS
 			score_comp.set_wrong_answer(score_comp.get_wrong_answer() + 1)
+			print ("+1")
+			print("wrong : ", FileBankUtils.wrong_answer)
 			FileBankUtils.wrong_answer += 1
 
 	if spell != null and health_comp != null:
@@ -57,7 +61,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			var target_health : int = target_health_component.get_health()
 
 			if target_health - damage >= 0:
-				print ("target : ", target_health - damage)
+#				print ("target : ", target_health - damage)
 				answtospell.get_node().add_child(spell)
 				init_spell(spell,target,damage)
 				answ.reset()
