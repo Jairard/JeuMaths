@@ -43,8 +43,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if score_comp != null:
 		if answer == AnswerListenerComponent.answer.true:															# COUNTER GOOD ANSWERS
 			score_comp.set_good_answer(score_comp.get_good_answer() + 1)
+			FileBankUtils.good_answer += 1
 		if answer == AnswerListenerComponent.answer.false:															# COUNTER WRONG ANSWERS
 			score_comp.set_wrong_answer(score_comp.get_wrong_answer() + 1)
+			FileBankUtils.wrong_answer += 1
 
 	if spell != null and health_comp != null:
 

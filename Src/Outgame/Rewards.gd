@@ -19,6 +19,9 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Hud)
 
+	FileBankUtils.victories += 1
+	FileBankUtils.scene_counter += 1
+				
 	var heroNode = hero.instance()
 	add_child(heroNode)
 	heroNode.set_name("hero")

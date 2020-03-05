@@ -41,8 +41,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		comp_hud.set_score(current_score)
 
 	if comp_stats != null:
-		comp_hud.set_good_anser(FileBankUtils.good_answer)
-		comp_hud.set_wrong_anser(FileBankUtils.wrong_answer)
+		comp_hud.set_good_answer(FileBankUtils.good_answer)
+		print ("good : ",FileBankUtils.good_answer)
+		comp_hud.set_wrong_answer(FileBankUtils.wrong_answer)
 		comp_hud.set_victories(FileBankUtils.victories)
 		comp_hud.set_defeats(FileBankUtils.defeats)
 

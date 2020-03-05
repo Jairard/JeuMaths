@@ -27,8 +27,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				FileBankUtils.defeats += 1
 				Scene_changer.change_scene(scene_reset)
 			if node_enemy != null:
-				FileBankUtils.victories += 1
-				FileBankUtils.scene_counter += 1
 				Scene_changer.change_scene(scene_rewards)
 
 
