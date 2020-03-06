@@ -40,6 +40,7 @@ func create_missile(root : Node2D, resource : Resource, pos : Vector2, target : 
 	comp_missile.init(target)
 	var comp_rotation = ECS.add_component(EyeNode, ComponentsLibrary.Rotation) as RotationComponent
 	comp_rotation.set_rotation(true)
+	ECS.add_component(EyeNode, ComponentsLibrary.Collision)
 
 
 
