@@ -3,7 +3,6 @@ extends Node2D
 onready var enemy 			= 	preload("res://Src/Ingame/characters/Ennemy.tscn")
 onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
 onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
-onready var rain			= 	preload("res://Src/Ingame/characters/rain.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
 onready var monster 		= 	preload("res://Src/Ingame/characters/monsters.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
@@ -34,11 +33,7 @@ func _ready():
 	_load_ressources()
 	load_characters()
 	_load_monsters()
-	_load_missiles()
 	ECS.clear_ghosts()
-
-func spawn_rain():
-	RainUtils.spawn_at(2100,2200,20,100,self,rain)
 
 func load_characters() :
 
@@ -46,7 +41,7 @@ func load_characters() :
 #	add_child(enemyNode)
 
 
-	var heroNode = hero.instance()
+	heroNode = hero.instance()
 	add_child(heroNode)
 
 
@@ -68,7 +63,7 @@ func load_characters() :
 
 
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(100,400))
+	pos_comp.set_position(Vector2(23000,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -137,10 +132,6 @@ func save_ressources():
 	pass
 func _on_Timer_timeout():
 	_load_bullets()
-	
-
-func _on_Area2D_body_entered(body):
-	spawn_rain()
 
 func _process(delta):
 	if health_comp_hero.get_health() <= 0:
@@ -148,31 +139,37 @@ func _process(delta):
 	
 
 func _load_monsters():
-	EntitiesUtils.create_monster(self, monster, Vector2(750, 280), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(750, 295), gold, health, damage)
 	EntitiesUtils.create_monster(self, monster, Vector2(1500,165), gold, health, damage)
 	EntitiesUtils.create_monster(self, monster, Vector2(2470,295), gold, health, damage)
-	EntitiesUtils.create_monster(self, monster, Vector2(5000,0), gold, health, damage)
-	EntitiesUtils.create_monster(self, monster, Vector2(7300,530), gold, health, damage)
-	EntitiesUtils.create_monster(self, monster, Vector2(14400,30), gold, health, damage)
-	EntitiesUtils.create_monster(self, monster, Vector2(14400,-400), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(5000,-95), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(14400,40), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(14400,-350), gold, health, damage)
 	EntitiesUtils.create_monster(self, monster, Vector2(14600,-800), gold, health, damage)
-	EntitiesUtils.create_monster(self, monster, Vector2(18500,530), gold, health, damage)
-	EntitiesUtils.create_monster(self, monster, Vector2(18200,150), gold, health, damage)
-	EntitiesUtils.create_monster(self, monster, Vector2(18300,-350), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(18500,575), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(18200,125), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(18300,-335), gold, health, damage)
 	EntitiesUtils.create_monster(self, monster, Vector2(18400,-780), gold, health, damage)
-	EntitiesUtils.create_monster(self, monster, Vector2(18400,-1250), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(18400,-1230), gold, health, damage)
 
 
 func _load_bullets():
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(1550,530))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(2400,530))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(4250,530))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(5300,530))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(6500,530))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(2000,550))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(2900,550))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(4600,550))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(6150,550))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(7400,550))
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(15500,770))
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(17000,770))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(21000,770))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(22000,770))
+		
 	
 func _load_missiles():
 	EntitiesUtils.create_missile(self, eye, Vector2(23500,0), heroNode)
-	EntitiesUtils.create_missile(self, eye, Vector2(24500,0), heroNode)
-	EntitiesUtils.create_missile(self, eye, Vector2(25500,0), heroNode)
+	EntitiesUtils.create_missile(self, eye, Vector2(29000,0), heroNode)
+	EntitiesUtils.create_missile(self, eye, Vector2(33000,0), heroNode)
+
+
+func _on_Missile_spawn_body_entered(body):
+	_load_missiles()
