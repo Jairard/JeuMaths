@@ -73,10 +73,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
 		return
-#	var my_tilemap = col_comp.get_node() as TileMap
-#	if my_tilemap == null:
-#		return
-		
 
 	# Collision detection
 	var body = pos_comp.get_node() as KinematicBody2D # Try to get the node as a kinematic body
