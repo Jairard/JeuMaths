@@ -73,9 +73,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
 		return
-	var my_tilemap = col_comp.get_node() as TileMap
-	if my_tilemap == null:
-		return
+#	var my_tilemap = col_comp.get_node() as TileMap
+#	if my_tilemap == null:
+#		return
 		
 
 	# Collision detection
@@ -170,11 +170,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				TweenAnimationUtils.tween_hero_collision(my_body)			
 				
 		
-		if (has_collision_layer(collider,missile_layer_bit) == true
-			and my_tilemap.get_collision_layer_bit(wall_layer_bit) == true): 		# MISSILE vs wall
-
-			print("Missile destruction")
-			collider.queue_free()
+#		if (has_collision_layer(collider,missile_layer_bit) == true
+#			and my_tilemap.get_collision_layer_bit(wall_layer_bit) == true): 		# MISSILE vs wall
+#
+#			print("Missile destruction")
+#			collider.queue_free()
 
 		if (has_collision_layer(collider,fire_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
