@@ -67,7 +67,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(350,500))
+	pos_comp.set_position(Vector2(22400,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -153,7 +153,7 @@ func tween(pos : Vector2):
 		var tween = Tween.new()
 		add_child(tween)
 		$CanvasModulate.show()
-		tween.interpolate_property($CanvasModulate, "color", color_tumble, color_game, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.interpolate_property($CanvasModulate, "color", color_game, color_tumble, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()
 		yield(tween, "tween_completed")
 		remove_child(tween)
