@@ -2,8 +2,9 @@
 
 
 *********   mettre en pause les systems pour stats_popup
-*********   collision : utils pour les tweens : pour l'animation du loot, marche dans les collisiosn, ne marche plus dans le Utils
+*********   collision : utils pour les tweens : pour l'animation du loot, marche dans les collisiosn (mis en commentaire), ne marche plus dans le Utils
 *********   hud score : donnéees fausses 
+*********   dans TweenUtils : Rajouter un util pour le canvas modulate + colorect lorsque chute dans le tuto ou checkpoint dans les maps
 ---------   plus rapide est la réponse plus les dégats sont grands
 ---------   mettre composant de dégats sur missile, monstre...
 ---------   2ème collision avec le feu pousse le hero                  
@@ -20,7 +21,7 @@
                                 |   Features  |
 
 *********   c'est pas bau les datadriven des notions
-*********   ajouter 2 heckpoint dans map_fire 
+*********   ajouter 2 checkpoint dans map_fire 
 *********   utils pour les checkpoints
 ---------   Le joueur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple : tween sur les dégats pris (health_bar, "value", health_bar.value, health, 0.4, Tween...)
 ---------   jauge circulaire
