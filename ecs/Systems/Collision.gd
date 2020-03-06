@@ -73,10 +73,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var my_body = col_comp.get_node() as PhysicsBody2D
 	if (my_body == null):
 		return
-	
-#	var tilemap = col_comp.get_node() as TileMap
-#	if tilemap == null:
-#		return
+	var my_tilemap = col_comp.get_node() as TileMap
+	if my_tilemap == null:
+		return
+		
 
 	# Collision detection
 	var body = pos_comp.get_node() as KinematicBody2D # Try to get the node as a kinematic body
@@ -117,12 +117,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :  		# MONSTER
 
 			print("Monster collision !")
-#			comp_move.set_direction(comp_move.dir.colliding)
-#			yield(my_body.get_parent().get_tree().create_timer(1.5), 'timeout')
 			collider.queue_free()
-#			my_body.get_node("hero_spr").modulate = Color(10,10,10,10)
-#			yield(my_body.get_parent().get_tree().create_timer(0.5), "timeout")
-#			my_body.get_node("hero_spr").modulate = Color(1,1,1,1)
+
 			if (spawn_loot(collider as Node2D) == false and health_comp != null):			
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
@@ -174,11 +170,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				TweenAnimationUtils.tween_hero_collision(my_body)			
 				
 		
-#		if (has_collision_layer(collider,missile_layer_bit) == true
-#			and tilemap.get_collision_layer_bit(wall_layer_bit) == true): 		# MISSILE vs wall
-#
-#			print("Missile destruction")
-#			collider.queue_free()
+		if (has_collision_layer(collider,missile_layer_bit) == true
+			and my_tilemap.get_collision_layer_bit(wall_layer_bit) == true): 		# MISSILE vs wall
+
+			print("Missile destruction")
+			collider.queue_free()
 
 		if (has_collision_layer(collider,fire_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
