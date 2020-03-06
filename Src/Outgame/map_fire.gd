@@ -15,6 +15,7 @@ onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
 var health_comp_hero : Component = null
+var heroNode = null
 
 var file = File.new()
 var dict = {}
@@ -32,6 +33,8 @@ func _ready():
 
 	_load_ressources()
 	load_characters()
+	_load_monsters()
+	_load_missiles()
 	ECS.clear_ghosts()
 
 func spawn_rain():
@@ -40,20 +43,12 @@ func spawn_rain():
 func load_characters() :
 
 	var enemyNode = enemy.instance()
-	add_child(enemyNode)
-	enemyNode.set_name("enemy")
+#	add_child(enemyNode)
+
 
 	var heroNode = hero.instance()
 	add_child(heroNode)
-	heroNode.set_name("hero")
 
-	var monsterNode = monster.instance()
-	add_child(monsterNode)
-	monsterNode.set_name("monster")
-
-	var EyeNode = eye.instance()
-	add_child(EyeNode)
-	EyeNode.set_name("eye")
 
 	var HudNode = hud.instance()
 	add_child(HudNode)
@@ -64,8 +59,8 @@ func load_characters() :
 	ScoreNode.set_name("Score")
 
 
-	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-	enemy_pos_comp.set_position(Vector2(3500,300))														#Appears at (0,0)
+#	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
+#	enemy_pos_comp.set_position(Vector2(3500,300))														#Appears at (0,0)
 
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
@@ -79,7 +74,7 @@ func load_characters() :
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
-	move_comp.set_jump_impulse(650)
+	move_comp.set_jump_impulse(800)
 	move_comp.set_lateral_velocity(300)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", 
@@ -87,32 +82,6 @@ func load_characters() :
 						  comp_anim_hero.anim.colliding : "anim_colliding"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
-
-	ECS.add_component(monsterNode, ComponentsLibrary.Position)
-	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
-	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
-	var animation_player_monster = monsterNode.get_node("animation_monster")
-	comp_anim_monster.init(anim_name_monster, animation_player_monster)
-	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
-	comp_patrol.init(700,900)
-	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_monster.init(1,1)
-	var lootDict_monster = [ {gold : 10}, {health : 10, damage : 5, null : 90}]
-	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
-	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
-
-	var eye_pos_comp = ECS.add_component(EyeNode, ComponentsLibrary.Position) as PositionComponent
-	eye_pos_comp.set_position(enemy_pos_comp.get_position())
-	var comp_missile = ECS.add_component(EyeNode, ComponentsLibrary.Nodegetid) as NodegetidComponent
-	comp_missile.init(heroNode)
-	var comp_rotation = ECS.add_component(EyeNode, ComponentsLibrary.Rotation) as RotationComponent
-	comp_rotation.set_rotation(true)
-
-#	ECS.add_component(FireNode, ComponentsLibrary.Collision)
-#	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
-#	fire_pos_comp.set_position(Vector2(1000,540))
-#	var bullet_position = ECS.add_component(FireNode, ComponentsLibrary.Bullet)
-#	bullet_position.set_position(fire_pos_comp.get_position())
 
 
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
@@ -167,7 +136,7 @@ func save_ressources():
 #	file.close()
 	pass
 func _on_Timer_timeout():
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(1000,540))
+	_load_bullets()
 	
 
 func _on_Area2D_body_entered(body):
@@ -177,3 +146,33 @@ func _process(delta):
 	if health_comp_hero.get_health() <= 0:
 		Scene_changer.change_scene(FileBankUtils.loaded_scenes["death"])
 	
+
+func _load_monsters():
+	EntitiesUtils.create_monster(self, monster, Vector2(750, 280), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(1500,165), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(2470,295), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(5000,0), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(7300,530), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(14400,30), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(14400,-400), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(14600,-800), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(18500,530), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(18200,150), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(18300,-350), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(18400,-780), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(18400,-1250), gold, health, damage)
+
+
+func _load_bullets():
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(1550,530))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(2400,530))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(4250,530))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(5300,530))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(6500,530))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(15500,770))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(17000,770))
+	
+func _load_missiles():
+	EntitiesUtils.create_missile(self, eye, Vector2(23500,0), heroNode)
+	EntitiesUtils.create_missile(self, eye, Vector2(24500,0), heroNode)
+	EntitiesUtils.create_missile(self, eye, Vector2(25500,0), heroNode)
