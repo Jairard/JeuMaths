@@ -95,9 +95,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider_ID : int = collider.get_instance_id()
 		var collider_health_component 	: HealthComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
 		var collider_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
-		var my_body_damage_component 	: DamageComponent 	= _getComponentOfEntity(my_body.get_instance_id(), ComponentsLibrary.Damage)
-		var my_body_move_component 	: MovementComponent	= _getComponentOfEntity(my_body.get_instance_id(), ComponentsLibrary.Movement)
-		
 
 		if (has_collision_layer(collider,enemy_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :    			# ENEMY
@@ -127,9 +124,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 #			print("Spell collision to Hero!")
 
-			if (collider_health_component != null) and (my_body_damage_component.get_damage() != null):
-				collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
-				FileBankUtils.health -= my_body_damage_component.get_damage()
+			if (collider_health_component != null) and (damage_comp.get_damage() != null):
+				collider_health_component.set_health(collider_health_component.get_health() - damage_comp.get_damage())
+				FileBankUtils.health -= damage_comp.get_damage()
 			my_body.queue_free()
 
 
@@ -138,9 +135,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 #			print("Spell collision to Enemy !")
 
-			if (collider_health_component != null and my_body_damage_component.get_damage() != null):
-				collider_health_component.set_health(collider_health_component.get_health() - my_body_damage_component.get_damage())
-				FileBankUtils.health -= my_body_damage_component.get_damage()
+			if (collider_health_component != null and damage_comp.get_damage() != null):
+				collider_health_component.set_health(collider_health_component.get_health() - damage_comp.get_damage())
+				FileBankUtils.health -= damage_comp.get_damage()
 			my_body.queue_free()
 
 
@@ -176,9 +173,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			print("Fire collision !")
 			collider.queue_free()
-#			my_body_move_component.set_direction(my_body_move_component.dir.colliding)
-#			print ("dir : ", my_body_move_component.dir.colliding)
-#			yield(my_body_move_component.get_node().get_parent().get_tree().create_timer(10), "timeout")
+#			comp_move.set_direction(comp_move.dir.colliding)
+#			print ("dir : ", comp_move.dir.colliding)
+#			yield(comp_move.get_node().get_parent().get_tree().create_timer(10), "timeout")
 			
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)# lerp(0, 10, 0))
