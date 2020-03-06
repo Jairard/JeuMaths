@@ -61,17 +61,20 @@ func set_score(value : int) -> void :
 		_score = value
 
 func set_good_answer(value : int) -> void:
-	_good_answer.text = str(value)
-
+#	_good_answer.text = str(value)
+	pass
+	
 func set_wrong_answer(value : int) -> void:
-	_wrong_answer.text = str(value)
+#	_wrong_answer.text = str(value)
+	pass
 
 func set_victories(value : int) -> void:
-	_victories.text = str(value)
+#	_victories.text = str(value)
+	pass
 
 func set_defeats(value : int) -> void:
-	_defeats.text = str(value)
-
+#	_defeats.text = str(value)
+	pass
 
 
 
