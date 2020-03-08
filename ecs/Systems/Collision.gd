@@ -187,25 +187,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 10
 
 			print("Gold collision !")
-#			var node = collider.get_node("Sprite")
-#			var tween = node.get_node("Tween")
-#			tween.interpolate_property(
-#			node, "position", node.position,
-#			Vector2(node.position.x, node.position.y - 500),
-#			1.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-#
-#			tween.interpolate_property(
-#			node, "scale", Vector2(1,1), Vector2(2, 2),
-#			1.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-#
-#			tween.interpolate_property(
-#			node, "modulate", Color(1.0,1.0,1.0,1.0), Color(1.0,1.0,1.0,0.0),
-#			0.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT,1)
-#
-#			tween.start()
-#			yield(tween, "tween_completed")
-			
-			TweenAnimationUtils.tween_hero_loot(collider)
+
+			var tween = TweenAnimationUtils.tween_hero_loot(collider)
+			yield(tween, "tween_completed")
 			collider.queue_free()
 
 			if treasure_comp != null:
