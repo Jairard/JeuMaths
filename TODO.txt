@@ -22,6 +22,7 @@
 
 *********   c'est pas bau les datadriven des notions
 *********   utils pour les checkpoints
+*********   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
 ---------   Le joueur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple : tween sur les dégats pris (health_bar, "value", health_bar.value, health, 0.4, Tween...)
 ---------   floating text : dégats reçus
 ---------   jauge circulaire
