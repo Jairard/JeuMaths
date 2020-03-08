@@ -22,7 +22,7 @@ func tween_hero_collision(node_hero : Node2D) -> void:
 	tween.start()
 	yield(tween, "tween_completed")
 
-func tween_hero_loot(node_loot : Node2D) -> void:
+func tween_hero_loot(node_loot : Node2D) -> Tween:
 	var node = node_loot.get_node("Sprite")
 	var tween = node.get_node("Tween")
 	tween.interpolate_property(
@@ -39,5 +39,5 @@ func tween_hero_loot(node_loot : Node2D) -> void:
 	0.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT,1)
 	
 	tween.start()
-	yield(tween, "tween_completed")
+	return tween
 
