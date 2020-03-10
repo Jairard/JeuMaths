@@ -269,6 +269,7 @@ visible = false
 collision_layer = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Missile_spawn"]
+visible = false
 position = Vector2( 22416.5, 378.697 )
 shape = SubResource( 12 )
 
