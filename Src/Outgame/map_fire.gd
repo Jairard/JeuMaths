@@ -67,7 +67,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(200,500))
+	pos_comp.set_position(Vector2(20500,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -182,16 +182,15 @@ func _load_monsters():
 
 
 func _load_bullets():
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(2000,550))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(2900,550))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(4600,550))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(6150,550))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(7400,550))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(13000,770))	
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(15500,770))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(17000,770))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(21000,770))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(22000,770))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(2060,550))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(4670,550))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(6100,550))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(7430,550))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(13000,800))	
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(15500,800))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(17000,800))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(21200,800))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(22410,800))
 		
 	
 func _load_missiles():
