@@ -31,7 +31,9 @@ func _on_Button_pressed():
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 #	var new_scene :	String =  ("create_hero" if stats_hero["new_hero"] == true else "playing_map"[FileBankUtils.scene_counter])
-	Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+#	Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+	Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+	
 	
 #	if stats_hero["new_hero"] == true:
 #		Scene_changer.change_scene(FileBankUtils.loaded_scenes["create_hero"])
