@@ -108,7 +108,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 		if (has_collision_layer(collider,monster_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :  		# MONSTER
-
+			
 			print("Monster collision !")
 			collider.queue_free()
 
@@ -121,7 +121,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				
 		if (has_collision_layer(collider,hero_layer_bit) == true
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true) :  		 # SPELL from Enemy to Hero
-
+			
 #			print("Spell collision to Hero!")
 
 			if (collider_health_component != null) and (damage_comp.get_damage() != null):
@@ -145,6 +145,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):			# RAIN
 
 			print("Rain collision !")
+			
 			comp_move.set_direction(comp_move.dir.colliding)			
 			FileBankUtils.health -= 5
 			collider.call_deferred("free")
@@ -185,7 +186,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 		if (has_collision_layer(collider,gold_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 10
-
+			
+			unique_collision(collider)
 			print("Gold collision !")
 
 			var tween = TweenAnimationUtils.tween_hero_loot(collider)
@@ -201,6 +203,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,damage_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# DAMAGE +10
 
+			unique_collision(collider)
 			print("Damage collision !")
 
 			if damage_comp != null:
@@ -213,6 +216,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,health_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# HEALTH +10
 
+			unique_collision(collider)
 			print("Health collision !")
 
 			if health_comp != null:
@@ -252,3 +256,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 			collider.queue_free()
 			
+func unique_collision(collider):
+		collider.get_node("CollisionShape2D").disabled = true
+	
