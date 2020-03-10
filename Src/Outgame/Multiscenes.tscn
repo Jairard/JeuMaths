@@ -15,99 +15,108 @@ font_data = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="create_hero" type="Button" parent="."]
-margin_left = 718.999
-margin_top = 341.0
-margin_right = 843.999
-margin_bottom = 395.0
+margin_left = 739.87
+margin_top = 196.128
+margin_right = 864.87
+margin_bottom = 250.128
 text = "Create Hero"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Map_fight_1" type="Button" parent="."]
-margin_left = 29.0795
-margin_top = 292.184
-margin_right = 208.079
-margin_bottom = 365.184
+margin_left = 16.8022
+margin_top = 398.997
+margin_right = 195.802
+margin_bottom = 471.997
 text = "Map Fight 1"
 
 [node name="Map_fight_2" type="Button" parent="."]
-margin_left = 250.408
-margin_top = 295.075
-margin_right = 436.408
-margin_bottom = 370.075
+margin_left = 231.992
+margin_top = 393.293
+margin_right = 417.992
+margin_bottom = 468.293
 text = "Map Fight 2"
 
 [node name="map_fire" type="Button" parent="."]
-margin_left = 23.5568
-margin_top = 113.371
-margin_right = 189.557
-margin_bottom = 199.371
+margin_left = 159.772
+margin_top = 96.6336
+margin_right = 269.772
+margin_bottom = 182.634
 text = "Map Fire"
 
 [node name="Sign In" type="Button" parent="."]
-margin_left = 712.0
-margin_top = 232.0
-margin_right = 850.0
-margin_bottom = 283.0
+margin_left = 725.505
+margin_top = 114.138
+margin_right = 863.505
+margin_bottom = 165.138
 text = "Sign In"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shop" type="Button" parent="."]
-margin_left = 28.9983
-margin_top = 513.757
-margin_right = 205.998
-margin_bottom = 567.757
+margin_left = 24.0
+margin_top = 554.0
+margin_right = 142.0
+margin_bottom = 608.0
 text = "Shop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Rewards" type="Button" parent="."]
-margin_left = 282.0
-margin_top = 513.0
-margin_right = 446.0
-margin_bottom = 568.0
+margin_left = 179.0
+margin_top = 555.0
+margin_right = 296.0
+margin_bottom = 610.0
 text = "Rewards"
 
 [node name="Map_water" type="Button" parent="."]
-margin_left = 253.46
-margin_top = 120.459
-margin_right = 420.46
-margin_bottom = 193.459
+margin_left = 16.508
+margin_top = 254.282
+margin_right = 183.508
+margin_bottom = 327.282
 text = "Map Water"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Stats" type="Button" parent="."]
-margin_left = 707.078
-margin_top = 535.306
-margin_right = 874.078
-margin_bottom = 608.306
+margin_left = 844.952
+margin_top = 546.545
+margin_right = 946.952
+margin_bottom = 619.545
 text = "Stats"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Death" type="Button" parent="."]
-margin_left = 496.423
-margin_top = 515.921
-margin_right = 663.423
-margin_bottom = 588.921
+margin_left = 319.911
+margin_top = 549.0
+margin_right = 436.911
+margin_bottom = 622.0
 text = "Death"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Next_level" type="Button" parent="."]
-margin_left = 497.716
-margin_top = 403.485
-margin_right = 664.716
-margin_bottom = 476.485
+margin_left = 697.407
+margin_top = 547.455
+margin_right = 819.407
+margin_bottom = 620.455
 text = "Next_level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Map_tuto" type="Button" parent="."]
-margin_left = 497.716
-margin_top = 300.096
-margin_right = 664.716
-margin_bottom = 373.096
+margin_left = 14.0
+margin_top = 102.0
+margin_right = 129.0
+margin_bottom = 175.0
 text = "Map Tuto"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -136,6 +145,16 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="map_fire_0" type="Button" parent="."]
+margin_left = 302.0
+margin_top = 98.0
+margin_right = 397.0
+margin_bottom = 188.0
+text = "Map Fire 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="create_hero" to="." method="_on_create_hero_pressed"]
 [connection signal="pressed" from="Map_fight_1" to="." method="_on_Map_fight_1_pressed"]
 [connection signal="pressed" from="Map_fight_2" to="." method="_on_Map_fight_2_pressed"]
@@ -148,3 +167,4 @@ __meta__ = {
 [connection signal="pressed" from="Death" to="." method="_on_Death_pressed"]
 [connection signal="pressed" from="Next_level" to="." method="_on_Next_level_pressed"]
 [connection signal="pressed" from="Map_tuto" to="." method="_on_Map_tuto_pressed"]
+[connection signal="pressed" from="map_fire_0" to="." method="_on_map_fire_0_pressed"]

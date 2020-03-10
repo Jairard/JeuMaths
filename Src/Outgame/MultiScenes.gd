@@ -44,3 +44,7 @@ func _on_Next_level_pressed():
 
 func _on_Map_tuto_pressed():
 	Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
+
+
+func _on_map_fire_0_pressed():
+		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])

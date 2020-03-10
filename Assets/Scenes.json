@@ -1,5 +1,5 @@
 {
-    "playing_map" : [{"map_tuto" : "res://Src/Outgame/Tuto.tscn"}, {"map_fire": "res://Src/Outgame/map_fire.tscn"}],
+    "playing_map" : [{"map_tuto" : "res://Src/Outgame/Tuto.tscn"}, {"map_fire": "res://Src/Outgame/map_fire.tscn"}, {"map_fire_0": "res://Src/Outgame/map_fire_0.tscn"}],
     "map_water"     : "res://Src/Outgame/map_water.tscn",
     "map_fight_1"   : "res://Src/Outgame/map_fight_1.tscn",
     "map_fight_2"   : "res://Src/Outgame/map_fight_2.tscn",
