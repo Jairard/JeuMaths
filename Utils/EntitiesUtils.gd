@@ -43,8 +43,13 @@ func create_missile(root : Node2D, resource : Resource, pos : Vector2, target : 
 	ECS.add_component(EyeNode, ComponentsLibrary.Collision)
 
 
-
-
+func create_gold(root : Node2D, resource : Resource, pos : Vector2):
+	var goldNode = resource.instance()
+	root.add_child(goldNode)
+	
+	var goldNode_pos = ECS.add_component(goldNode, ComponentsLibrary.Position) as PositionComponent
+	goldNode_pos.set_position(pos)
+	
 
 
 
