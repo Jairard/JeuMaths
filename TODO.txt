@@ -2,7 +2,6 @@
 
 
 *********   mettre en pause les systems pour stats_popup
-*********   dans TweenUtils : Rajouter un util pour le canvas modulate + colorect lorsque chute dans le tuto ou checkpoint dans les maps
 *********   scene popup
 ---------   hero : touche du bas pour s'accroupir : tween sur le scale
 ---------   plus rapide est la réponse plus les dégats sont grands
@@ -34,8 +33,6 @@
 
                                 |   Add_on  |
 
----------   stocker position hero après le shop : pile de scene / mettre en pause une scene : push scene  : 
+*********   utiliser le compteur de scenes  : tuto / fight / fire_0 / fight / fire / fight 
 *********   voir les stats dans une fenêtre : dans le system hud on set les good_answer, wrong_answer... mais elles sont nulles quand jeu en pause car le system hud est en pause => un unpaused ecs
 ---------   relier les notions cochées au code : liste de notions 
-
-*********   utiliser le compteur de scenes  : tuto / fight / fire_0 / fight / fire / fight 
