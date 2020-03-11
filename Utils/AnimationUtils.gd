@@ -73,6 +73,15 @@ func tween_fade_out(scene : Node2D):
 	tween.start()
 	return tween
 
-
-
+func checkpoint(scene : Node2D, pos : Vector2):
+	var parent = scene.get_parent()
+#	var pos_comp = ECS.add_component(scene, ComponentsLibrary.Position) as PositionComponent
+#	var health_comp = ECS.add_component(scene, ComponentsLibrary.Health) as HealthComponent
+	if pos.x >11500 and pos.x <= 20000:
+		AnimationUtils.tween_fade_in(parent)
+		AnimationUtils.scene_fade_in(parent)
+		scene.set_position(Vector2(11500, 500))
+		AnimationUtils.tween_fade_out(parent)
+		AnimationUtils.scene_fade_out(parent)			
+#		scene.set_health(scene.get_health_max())			
 

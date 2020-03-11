@@ -115,7 +115,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			if (spawn_loot(collider as Node2D) == false and health_comp != null):			
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
-				TweenAnimationUtils.tween_hero_collision(my_body)			
+				AnimationUtils.tween_hero_collision(my_body)			
 				
 					
 				
@@ -161,7 +161,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
-				TweenAnimationUtils.tween_hero_collision(my_body)
+				AnimationUtils.tween_hero_collision(my_body)
 
 		if (has_collision_layer(collider,wall_layer_bit) == true
 			and my_body.get_collision_layer_bit(missile_layer_bit) == true): 		# MISSILE vs wall
@@ -181,7 +181,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)# lerp(0, 10, 0))
 				FileBankUtils.health -= 10
-				TweenAnimationUtils.tween_hero_collision(my_body)			
+				AnimationUtils.tween_hero_collision(my_body)			
 		
 
 		if (has_collision_layer(collider,gold_layer_bit) == true
@@ -190,7 +190,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			unique_collision(collider)
 			print("Gold collision !")
 
-			var tween = TweenAnimationUtils.tween_hero_loot(collider)
+			var tween = AnimationUtils.tween_hero_loot(collider)
 			yield(tween, "tween_completed")
 			collider.queue_free()
 
@@ -206,12 +206,12 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			unique_collision(collider)
 			print("Damage collision !")
 
-			var tween = TweenAnimationUtils.tween_hero_loot(collider)
+			var tween = AnimationUtils.tween_hero_loot(collider)
 			yield(tween, "tween_completed")
 			if damage_comp != null:
 				damage_comp.set_damage(damage_comp.get_damage() + 10)
 				FileBankUtils.damage += 10
-				TweenAnimationUtils.tween_hero_loot(collider)
+				AnimationUtils.tween_hero_loot(collider)
 				
 			collider.queue_free()
 
@@ -221,7 +221,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			unique_collision(collider)
 			print("Health collision !")
 	
-			var tween = TweenAnimationUtils.tween_hero_loot(collider)
+			var tween = AnimationUtils.tween_hero_loot(collider)
 			yield(tween, "tween_completed")
 			if health_comp != null:
 				if health_comp.get_health() >= health_comp.get_health_max():
@@ -230,7 +230,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				else :
 					health_comp.set_health(health_comp.get_health() + 10)
 				FileBankUtils.health += 10
-				TweenAnimationUtils.tween_hero_loot(collider)
+				AnimationUtils.tween_hero_loot(collider)
 				
 			collider.queue_free()
 

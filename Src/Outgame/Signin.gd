@@ -32,9 +32,9 @@ func _on_Button_pressed():
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 #	var new_scene :	String =  ("create_hero" if stats_hero["new_hero"] == true else "playing_map"[FileBankUtils.scene_counter])
 #	Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
-#	var tween = TweenAnimationUtils.tween_fade_in(self)
+#	var tween = AnimationUtils.tween_fade_in(self)
 #	yield(tween, "tween_completed")
-	var anim = TweenAnimationUtils.scene_fade_in(self)
+	var anim = AnimationUtils.scene_fade_in(self)
 	yield(anim, "animation_finished")
 	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 #	if stats_hero["new_hero"] == true:

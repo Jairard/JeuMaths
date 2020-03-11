@@ -35,9 +35,9 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bounce)
 
 	load_characters()
-	var anim = TweenAnimationUtils.scene_fade_out(self)
+	var anim = AnimationUtils.scene_fade_out(self)
 	yield(anim, "animation_finished")
-	var tween = TweenAnimationUtils.tween_fade_out(self)
+	var tween = AnimationUtils.tween_fade_out(self)
 	yield(tween, "tween_completed")
 	$CanvasModulate.hide()	
 	_load_ressources()
@@ -156,9 +156,9 @@ func _process(delta):
 			tween(Vector2(11500, 500))
 			health_comp_hero.set_health(health_comp_hero.get_health_max())			
 		if pos_comp.get_position().x >20000:
-			tween(Vector2(20000, 500))
-			health_comp_hero.set_health(health_comp_hero.get_health_max())
-		
+#			tween(Vector2(20000, 500))
+#			health_comp_hero.set_health(health_comp_hero.get_health_max())
+			AnimationUtils.checkpoint(heroNode, Vector2(20000,500))
 
 func tween(pos : Vector2):
 		var tween = Tween.new()
