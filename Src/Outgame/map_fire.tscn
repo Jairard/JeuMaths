@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Src/Outgame/map_fire.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
@@ -223,8 +223,9 @@ font_data = ExtResource( 3 )
 extents = Vector2( 68.4043, 222.586 )
 
 [sub_resource type="Animation" id=14]
+resource_name = "change_scene"
 tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/path = NodePath("../ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -234,6 +235,21 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 2 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "load_scene"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="map 0" type="Node2D"]
@@ -302,30 +318,25 @@ position = Vector2( 22416.5, 378.697 )
 shape = SubResource( 13 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 show_behind_parent = true
+color = Color( 0, 0, 0, 1 )
 
-[node name="Control" type="Control" parent="."]
-margin_right = 45.0
-margin_bottom = 47.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-modulate = Color( 1, 1, 1, 0 )
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -16.0
 margin_top = -1739.0
 margin_right = 25814.0
 margin_bottom = 1961.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
-anims/test = SubResource( 14 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/change_scene = SubResource( 14 )
+anims/load_scene = SubResource( 15 )
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Missile_spawn" to="." method="_on_Missile_spawn_body_entered"]

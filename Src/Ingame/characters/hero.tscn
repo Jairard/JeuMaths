@@ -128,6 +128,7 @@ scale_curve = SubResource( 11 )
 color_ramp = SubResource( 9 )
 
 [node name="hero" type="KinematicBody2D"]
+modulate = Color( 1, 0.980392, 0.980392, 1 )
 collision_mask = 16374
 script = ExtResource( 1 )
 __meta__ = {

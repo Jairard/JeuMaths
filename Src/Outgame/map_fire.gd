@@ -34,9 +34,20 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
 
-	_load_ressources()
 	load_characters()
+	var anim = TweenAnimationUtils.scene_fade_out(self)
+	yield(anim, "animation_finished")
+	var tween = TweenAnimationUtils.tween_fade_out(self)
+	yield(tween, "tween_completed")
+	$CanvasModulate.hide()	
+	_load_ressources()
 	_load_monsters()
+	
+
+
+
+
+	
 	ECS.clear_ghosts()
 
 func load_characters() :
