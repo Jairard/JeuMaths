@@ -42,13 +42,13 @@ func tween_hero_loot(node_loot : Node2D) -> Tween:
 	return tween
 
 func tween_fade_in(scene : Node2D):
-	var tween = Tween.new()
-	add_child(tween)
-	var canvas = scene.get_node("CanvasModulate")
-	canvas.show()
-	tween.interpolate_property(canvas, "color", Color("#00000000"), Color("#000000"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	tween.start()
-	return tween
+		var tween = Tween.new()
+		add_child(tween)
+		var canvas = scene.get_node("CanvasModulate")
+		canvas.show()
+		tween.interpolate_property(canvas, "color", Color("#00000000"), Color("#000000"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.start()
+		return tween
 
 func scene_fade_in(scene : Node2D):
 	var rect = scene.get_node("ColorRect")
@@ -72,16 +72,53 @@ func tween_fade_out(scene : Node2D):
 	tween.interpolate_property(canvas, "color", Color("#000000"), Color("#00000000"), 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)	
 	tween.start()
 	return tween
+	
+func tween_hero_death(node : Node2D, current_pos : Vector2, final_pos : Vector2):
+	var tween = Tween.new()
+	add_child(tween)
+	tween.interpolate_property(node, "position", current_pos, final_pos, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.start()
+	return tween
+	
 
-func checkpoint(scene : Node2D, pos : Vector2):
-	var parent = scene.get_parent()
-#	var pos_comp = ECS.add_component(scene, ComponentsLibrary.Position) as PositionComponent
-#	var health_comp = ECS.add_component(scene, ComponentsLibrary.Health) as HealthComponent
-	if pos.x >11500 and pos.x <= 20000:
-		AnimationUtils.tween_fade_in(parent)
-		AnimationUtils.scene_fade_in(parent)
-		scene.set_position(Vector2(11500, 500))
-		AnimationUtils.tween_fade_out(parent)
-		AnimationUtils.scene_fade_out(parent)			
-#		scene.set_health(scene.get_health_max())			
+func checkpoint(scene : Node2D, node : Node2D, current_pos : Vector2, final_pos : Vector2):
+	var tween_pos = tween_hero_death(node, current_pos, final_pos)
+	yield(tween_pos, "tween_completed")
+#	AnimationUtils.tween_fade_in(scene)
+#	AnimationUtils.scene_fade_in(scene)
+#	AnimationUtils.scene_fade_out(scene)	
+#	AnimationUtils.tween_fade_out(scene)
+#	AnimationUtils.tween_hero_death(node, current_pos, final_pos)
+	var tween_in = AnimationUtils.tween_fade_in(scene)
+	yield(tween_in, "tween_completed")
+	var anim_in = AnimationUtils.scene_fade_in(scene)
+	yield(anim_in, "animation_finished")
+	
+	var anim_out = AnimationUtils.scene_fade_out(scene)
+	yield(anim_out, "animation_finished")
+	var tween_out = AnimationUtils.tween_fade_out(scene)
+	yield(tween_out, "tween_completed")
+	
+
+func floating_damage(node : Node2D, dmg : int, _bool : bool):
+	if _bool:
+		var label = Label.new()
+	#	label.rect_size(Vector2(200,200))
+		var damage = dmg
+		var parent = node.get_parent()
+		parent.add_child(label)
+		label.text = str(damage)
+		var tween : Tween = Tween.new()
+		label.add_child(tween)
+		tween.interpolate_property(label, "modulate", Color("#00ffffff"), Color("#ffffff"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.interpolate_property(label, "scale", Vector2(0,0), Vector2(1,1), 0.3, Tween.TRANS_QUART, Tween.EASE_OUT)
+		tween.interpolate_property(label, "scale", Vector2(1,1), Vector2(0.4,0.4), 1, Tween.TRANS_LINEAR, Tween.EASE_OUT)				
+		tween.interpolate_callback(label, 1.0, "destroy")	
+		tween.start()
+		label.queue_free()
+		_bool = false
+#		yield(tween, "tween_completed")
+		return tween
+
+
 

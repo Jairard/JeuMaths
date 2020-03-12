@@ -53,7 +53,7 @@ func _ready():
 func load_characters() :
 
 	var enemyNode = enemy.instance()
-#	add_child(enemyNode)
+	add_child(enemyNode)
 
 
 	heroNode = hero.instance()
@@ -69,8 +69,8 @@ func load_characters() :
 	ScoreNode.set_name("Score")
 
 
-#	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-#	enemy_pos_comp.set_position(Vector2(3500,300))														#Appears at (0,0)
+	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
+	enemy_pos_comp.set_position(Vector2(500,300))														
 
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
@@ -78,7 +78,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(20500,500))
+	pos_comp.set_position(Vector2(500,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -151,31 +151,35 @@ func _on_Timer_timeout():
 func _process(delta):
 	if health_comp_hero.get_health() <= 0:
 		if pos_comp.get_position().x <= 11500:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["death"])
+#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["death"])
+			pass
 		if pos_comp.get_position().x >11500 and pos_comp.get_position().x <= 20000:
-			tween(Vector2(11500, 500))
-			health_comp_hero.set_health(health_comp_hero.get_health_max())			
+#			tween(Vector2(11500, 500))
+#			health_comp_hero.set_health(health_comp_hero.get_health_max())		
+			pass	
 		if pos_comp.get_position().x >20000:
-#			tween(Vector2(20000, 500))
-#			health_comp_hero.set_health(health_comp_hero.get_health_max())
-			AnimationUtils.checkpoint(heroNode, Vector2(20000,500))
-
-func tween(pos : Vector2):
-		var tween = Tween.new()
-		add_child(tween)
-		$CanvasModulate.show()
-		tween.interpolate_property($CanvasModulate, "color", color_game, color_tumble, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
-		yield(tween, "tween_completed")
-		remove_child(tween)
-		
-		$Control/ColorRect.show()
-		$Control/AnimationPlayer.play("test")
-		yield($Control/AnimationPlayer, "animation_finished")
-	
-		pos_comp.set_position(pos)
-		$Control/ColorRect.hide()
-		$CanvasModulate.hide()
+			AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(20000,500))
+			health_comp_hero.set_health(health_comp_hero.get_health_max())
+			
+		$ColorRect.hide()
+		$CanvasModulate.hide()	
+			
+#func tween(pos : Vector2):
+#		var tween = Tween.new()
+#		add_child(tween)
+#		$CanvasModulate.show()
+#		tween.interpolate_property($CanvasModulate, "color", color_game, color_tumble, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+#		tween.start()
+#		yield(tween, "tween_completed")
+#		remove_child(tween)
+#
+#		$Control/ColorRect.show()
+#		$Control/AnimationPlayer.play("test")
+#		yield($Control/AnimationPlayer, "animation_finished")
+#
+#		pos_comp.set_position(pos)
+#		$Control/ColorRect.hide()
+#		$CanvasModulate.hide()
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(750, 295), gold, health, damage)
