@@ -123,12 +123,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true) :  		 # SPELL from Enemy to Hero
 			
 #			print("Spell collision to Hero!")
-
+				
 			if (collider_health_component != null) and (damage_comp.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - damage_comp.get_damage())
 				FileBankUtils.health -= damage_comp.get_damage()
+				var dmg = AnimationUtils.floating_damage(collider, damage_comp.get_damage(), true)
+				yield(dmg, "tween_completed")
 			my_body.queue_free()
-
 
 		if (has_collision_layer(collider,enemy_layer_bit) == true
 			and my_body.get_collision_layer_bit(spell_layer_bit) == true):  		 # SPELL from Hero to Enemy
