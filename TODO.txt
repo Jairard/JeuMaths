@@ -3,6 +3,7 @@
 
 *********   mettre en pause les systems pour stats_popup
 *********   scene popup
+*********   utils : checkpoint : on passe bien dans le tween_fade_out mais le perso reste en noir
 ---------   hero : touche du bas pour s'accroupir : tween sur le scale
 ---------   plus rapide est la réponse plus les dégats sont grands
 ---------   mettre composant de dégats sur missile, monstre...
@@ -19,11 +20,10 @@
 
                                 |   Features  |
 
-*********   c'est pas bau les datadriven des notions
-*********   utils pour les checkpoints
-*********   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
+---------   floating text : dégats reçus : dans collision on appelle le Utils mais proc dans dans le process
 ---------   Le joueur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple : tween sur les dégats pris (health_bar, "value", health_bar.value, health, 0.4, Tween...)
----------   floating text : dégats reçus
+---------   c'est pas bau les datadriven des notions
+---------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
 ---------   jauge circulaire
 ---------   AnimationNode  : pour organiser l'ordre des animations
 ---------   effets sonores
@@ -34,5 +34,4 @@
                                 |   Add_on  |
 
 *********   utiliser le compteur de scenes  : tuto / fight / fire_0 / fight / fire / fight 
-*********   voir les stats dans une fenêtre : dans le system hud on set les good_answer, wrong_answer... mais elles sont nulles quand jeu en pause car le system hud est en pause => un unpaused ecs
 ---------   relier les notions cochées au code : liste de notions 
