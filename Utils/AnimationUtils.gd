@@ -104,7 +104,7 @@ func floating_damage(node : Node2D, dmg : int, _bool : bool):
 	if _bool:
 		var label = Label.new()
 #		label.rect_size(Vector2(200,200))
-		label.set_position(Vector2(node.get_position().x + 80, node.get_position().y - 30))
+		label.set_position(Vector2(node.get_position().x + 150, node.get_position().y - 50))
 		label.set_scale(Vector2(10,10))
 		var damage = dmg
 		var parent = node.get_parent()
@@ -113,7 +113,7 @@ func floating_damage(node : Node2D, dmg : int, _bool : bool):
 		var tween : Tween = Tween.new()
 		node.add_child(tween)
 		
-		tween.interpolate_property(label, "modulate", Color("#ff0000"), Color("#00ffffff"), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.interpolate_property(label, "modulate", Color("#f1ff08"), Color("#00ffffff"), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()		
 
 		
