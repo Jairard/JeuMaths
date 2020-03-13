@@ -69,7 +69,7 @@ func tween_fade_out(scene : Node2D):
 	add_child(tween)
 	var canvas = scene.get_node("CanvasModulate")	
 	canvas.show()
-	tween.interpolate_property(canvas, "color", Color("#000000"), Color("#00000000"), 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)	
+	tween.interpolate_property(canvas, "color", Color("#000000"), Color("#00000000"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)	
 	tween.start()
 	return tween
 	
@@ -77,28 +77,28 @@ func tween_hero_death(node : Node2D, current_pos : Vector2, final_pos : Vector2)
 	var tween = Tween.new()
 	add_child(tween)
 	tween.interpolate_property(node, "position", current_pos, final_pos, 0.3, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.interpolate_callback(node, 1.0, "destroy")		
 	tween.start()
 	return tween
 	
 
 func checkpoint(scene : Node2D, node : Node2D, current_pos : Vector2, final_pos : Vector2):
-	var tween_pos = tween_hero_death(node, current_pos, final_pos)
+#	var tween_in = AnimationUtils.tween_fade_in(scene)							#hide hero
+#	yield(tween_in, "tween_completed")
+	var tween_pos = tween_hero_death(node, current_pos, final_pos)				#set new position for hero
 	yield(tween_pos, "tween_completed")
+	var anim_in = AnimationUtils.scene_fade_in(scene)							#hide scene
+	yield(anim_in, "animation_finished")
+	var anim_out = AnimationUtils.scene_fade_out(scene)							#show scene
+	yield(anim_out, "animation_finished")
+#	var tween_out = AnimationUtils.tween_fade_out(scene)						#show hero
+#	yield(tween_out, "tween_completed")
+
 #	AnimationUtils.tween_fade_in(scene)
 #	AnimationUtils.scene_fade_in(scene)
 #	AnimationUtils.scene_fade_out(scene)	
 #	AnimationUtils.tween_fade_out(scene)
 #	AnimationUtils.tween_hero_death(node, current_pos, final_pos)
-	var tween_in = AnimationUtils.tween_fade_in(scene)
-	yield(tween_in, "tween_completed")
-	var anim_in = AnimationUtils.scene_fade_in(scene)
-	yield(anim_in, "animation_finished")
-	
-	var anim_out = AnimationUtils.scene_fade_out(scene)
-	yield(anim_out, "animation_finished")
-	var tween_out = AnimationUtils.tween_fade_out(scene)
-	yield(tween_out, "tween_completed")
-	
 
 func floating_damage(node : Node2D, dmg : int, _bool : bool):
 	if _bool:
@@ -128,6 +128,5 @@ func floating_damage(node : Node2D, dmg : int, _bool : bool):
 		_bool = false
 		yield(tween, "tween_completed")
 		return tween
-
 
 
