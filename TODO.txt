@@ -20,6 +20,7 @@
 
                                 |   Features  |
 
+---------   barre de vie : change de couleur selon les %, mais hud system / set_health() / _health_max = health 
 ---------   Le joueur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple : tween sur les dégats pris (health_bar, "value", health_bar.value, health, 0.4, Tween...)
 ---------   c'est pas bau les datadriven des notions
 ---------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
