@@ -12,7 +12,7 @@ func get_life_hero_max() -> TextureProgress  :
 func get_damage() -> Label :
 	return $CanvasLayer/valeur_degats/MarginContainer/valeur_degat 	as Label
 
-
-
+func get_tween() -> Tween:
+	return $CanvasLayer/HBoxContainer5/Tween as Tween
 
 

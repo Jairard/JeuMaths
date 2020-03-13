@@ -13,6 +13,7 @@ var _good_answer : Label = null
 var _wrong_answer : Label = null
 var _victories : Label = null
 var _defeats : Label = null
+var _tween : Tween = null
 
 func init_hero_treasure(treasure : Label) -> void:
 	_treasure = treasure
@@ -22,11 +23,12 @@ func init_hero_fight(treasure : Label, score_label : RichTextLabel) -> void:				
 	_score_label = score_label
 
 func init_hero_map(health_value : TextureProgress, health_label : Label,
-				   health_max : TextureProgress, damage : Label) -> void : 		#init node on map fire/water		
+				   health_max : TextureProgress, damage : Label, tween : Tween) -> void : 		#init node on map fire/water		
 	_health_value = health_value
 	_health_label = health_label
 	_health_max = health_max
 	_damage = damage
+	_tween = tween
 
 
 func init_enemy(health_value : TextureProgress, health_label : Label, health_max : TextureProgress, damage : Label) -> void:
@@ -42,9 +44,13 @@ func init_stats(good_answer : Label, wrong_answer : Label, victories : Label, de
 	_defeats = defeats
 
 func set_health(value : int) -> void :
+	var current_value = _health_value.value - 10
+	_tween.interpolate_property(_health_value, "value", current_value, value, 0.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	_tween.start()
 	_health_value.value = value
 #	print ("value : ", value)
-	_health_label.text = str(value)
+#	_health_label.text = str(value)
+#	_health_label.text = "%s / %s" % [value, max_value]	
 
 func set_health_max(value : int) -> void:
 	_health_max.max_value = value
