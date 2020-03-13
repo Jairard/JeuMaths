@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Src/Ingame/characters/hero.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Characters/TEST_punk_pour_P.png" type="Texture" id=2]
@@ -98,23 +98,20 @@ tracks/0/keys = {
 "values": [ 24, 26 ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 52.4107, 107.804 )
-
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0, 0.525157, 1 )
 colors = PoolColorArray( 0.945313, 0.924715, 0.790222, 1, 0.972656, 0.964464, 0.448334, 1, 1, 0.984619, 0.015625, 1 )
 
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=9]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.498522, 0.4912 ), 0.0, 0.0, 0, 0, Vector2( 0.997975, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=11]
 flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 98, 0 )
@@ -124,8 +121,8 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 4.0
 scale_random = 1.0
-scale_curve = SubResource( 11 )
-color_ramp = SubResource( 9 )
+scale_curve = SubResource( 10 )
+color_ramp = SubResource( 8 )
 
 [node name="hero" type="KinematicBody2D"]
 modulate = Color( 1, 0.980392, 0.980392, 1 )
@@ -182,12 +179,11 @@ offset_h = 1.0
 offset_v = -1.0
 drag_margin_bottom = 1.0
 
-[node name="hero_coll" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource( 7 )
-
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false
 amount = 500
 explosiveness = 0.26
-process_material = SubResource( 12 )
+process_material = SubResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -44.1394, 107.388, -56.2534, 104.503, -25.3906, 53.6007, -26.065, 38.5656, -23.6817, 23.0742, -24.1612, 22.865, -20.4729, 7.80447, -18.1207, -32.5358, -10.5737, -93.7069, 19.1762, -96.697, 21.0204, -73.6452, 17.6286, -46.4383, 17.9468, -21.7019, 20.4056, -8.79288, 33.0073, 94.4792, 34.7088, 106.092, 18.5615, 108.003, 19.4403, 107.764, -29.4171, 108.161 )
