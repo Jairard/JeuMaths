@@ -34,3 +34,5 @@
 
 *********   utiliser le compteur de scenes  : tuto / fight / fire_0 / fight / fire / fight 
 ---------   relier les notions cochées au code : liste de notions 
+
+#	_health_label.text = "%s / %s" % [value, max_value]	
