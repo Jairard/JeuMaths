@@ -131,7 +131,7 @@ func load_hud():
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 
 	hud_comp.init_hero_map(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
-	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage())
+	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage(), Hud_heroNode.get_tween())
 	
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)
