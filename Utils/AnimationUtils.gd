@@ -76,7 +76,7 @@ func tween_fade_out(scene : Node2D):
 func tween_hero_death(node : Node2D, current_pos : Vector2, final_pos : Vector2):
 	var tween = Tween.new()
 	add_child(tween)
-	tween.interpolate_property(node, "position", current_pos, final_pos, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.interpolate_property(node, "position", current_pos, final_pos, 0.3, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.start()
 	return tween
 	
@@ -103,21 +103,30 @@ func checkpoint(scene : Node2D, node : Node2D, current_pos : Vector2, final_pos 
 func floating_damage(node : Node2D, dmg : int, _bool : bool):
 	if _bool:
 		var label = Label.new()
-	#	label.rect_size(Vector2(200,200))
+#		label.rect_size(Vector2(200,200))
+		label.set_position(Vector2(node.get_position().x + 80, node.get_position().y - 30))
+		label.set_scale(Vector2(10,10))
 		var damage = dmg
 		var parent = node.get_parent()
 		parent.add_child(label)
-		label.text = str(damage)
+		label.text = ("-" + str(damage))
 		var tween : Tween = Tween.new()
-		label.add_child(tween)
-		tween.interpolate_property(label, "modulate", Color("#00ffffff"), Color("#ffffff"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.interpolate_property(label, "scale", Vector2(0,0), Vector2(1,1), 0.3, Tween.TRANS_QUART, Tween.EASE_OUT)
-		tween.interpolate_property(label, "scale", Vector2(1,1), Vector2(0.4,0.4), 1, Tween.TRANS_LINEAR, Tween.EASE_OUT)				
+		node.add_child(tween)
+		
+		tween.interpolate_property(label, "modulate", Color("#ff0000"), Color("#00ffffff"), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.start()		
+
+		
+		tween.interpolate_property(label, "Scale", Vector2(1,1), Vector2(10,10), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.start()
+		yield(tween, "tween_completed")
+				
+		tween.interpolate_property(label, "Scale", Vector2(10,10), Vector2(0.4,0.4), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)				
 		tween.interpolate_callback(label, 1.0, "destroy")	
 		tween.start()
-		label.queue_free()
+#		label.queue_free()
 		_bool = false
-#		yield(tween, "tween_completed")
+		yield(tween, "tween_completed")
 		return tween
 
 

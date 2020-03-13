@@ -82,6 +82,9 @@ custom_colors/font_color = Color( 0.67451, 0.0784314, 0.0784314, 1 )
 text = "Combat"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="time_label" type="Label" parent="sol"]
 margin_left = 314.0
