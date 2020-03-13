@@ -40,7 +40,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(10600,400))
+	pos_comp.set_position(Vector2(22250,1250))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -52,6 +52,12 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	
+	var anim = AnimationUtils.scene_fade_out(self)
+	yield(anim, "animation_finished")
+	var tween = AnimationUtils.tween_fade_out(self)
+	yield(tween, "tween_completed")
+	$CanvasModulate.hide()
+		
 	var portalNode = portal.instance()
 	add_child(portalNode)
 	portalNode.set_position(Vector2(29600,1000))
@@ -115,24 +121,9 @@ func _on_Return_pressed():
 
 func tumble():
 	if pos_comp.get_position().y > 1550:
-		var tween = Tween.new()
-		add_child(tween)
-		$CanvasModulate.show()
-		tween.interpolate_property($CanvasModulate, "color", color_tumble, color_game, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
-		yield(tween, "tween_completed")
-		remove_child(tween)
-		
-		$Control/ColorRect.show()
-		$Control/AnimationPlayer.play("test")
-		yield($Control/AnimationPlayer, "animation_finished")
+		AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(22000,1300))
 
-		pos_comp.set_position(Vector2(22000,1300))
-		
-	else:
-		$Control/ColorRect.hide()
-		$CanvasModulate.hide()
-		
+
 		
 		
 
