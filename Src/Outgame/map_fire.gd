@@ -163,23 +163,7 @@ func _process(delta):
 			
 		$ColorRect.hide()
 		$CanvasModulate.hide()	
-			
-#func tween(pos : Vector2):
-#		var tween = Tween.new()
-#		add_child(tween)
-#		$CanvasModulate.show()
-#		tween.interpolate_property($CanvasModulate, "color", color_game, color_tumble, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-#		tween.start()
-#		yield(tween, "tween_completed")
-#		remove_child(tween)
-#
-#		$Control/ColorRect.show()
-#		$Control/AnimationPlayer.play("test")
-#		yield($Control/AnimationPlayer, "animation_finished")
-#
-#		pos_comp.set_position(pos)
-#		$Control/ColorRect.hide()
-#		$CanvasModulate.hide()
+
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(750, 295), gold, health, damage)
