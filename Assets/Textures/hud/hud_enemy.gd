@@ -11,3 +11,6 @@ func get_life_ennemy_max() -> TextureProgress:
 
 func get_damage() -> Label :
 	return $CanvasLayer/HBoxContainer4/MarginContainer/damage 	as Label
+
+func get_tween() -> Tween:
+	return $CanvasLayer/HBoxContainer2/Tween as Tween
