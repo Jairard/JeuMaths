@@ -139,7 +139,7 @@ func load_hud():
 
 	var hud_enemy_comp = ECS.add_component(enemyNode, ComponentsLibrary.Hud) as HudComponent
 	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
-	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage())
+	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage(), Hud_enemyNode.get_tween())
 
 	var ScoreNode = score.instance()
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
