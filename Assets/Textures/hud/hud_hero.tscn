@@ -49,6 +49,9 @@ margin_left = 88.0
 margin_top = 12.0
 margin_right = 484.0
 margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/pv_hero"]
 margin_right = 396.0
@@ -60,6 +63,7 @@ margin_bottom = 53.0
 value = 100.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
+tint_under = Color( 0.27451, 0.27451, 0.278431, 1 )
 
 [node name="valeur_degats" type="HBoxContainer" parent="CanvasLayer"]
 margin_left = 90.0

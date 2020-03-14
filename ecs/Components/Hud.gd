@@ -31,11 +31,13 @@ func init_hero_map(health_value : TextureProgress, health_label : Label,
 	_tween = tween
 
 
-func init_enemy(health_value : TextureProgress, health_label : Label, health_max : TextureProgress, damage : Label) -> void:
+func init_enemy(health_value : TextureProgress, health_label : Label, health_max : TextureProgress, 
+				damage : Label, tween : Tween) -> void:
 	_health_value = health_value
 	_health_label = health_label
 	_health_max = health_max
 	_damage = damage
+	_tween = tween
 
 func init_stats(good_answer : Label, wrong_answer : Label, victories : Label, defeats : Label) -> void:
 	_good_answer = good_answer
@@ -43,26 +45,31 @@ func init_stats(good_answer : Label, wrong_answer : Label, victories : Label, de
 	_victories = victories
 	_defeats = defeats
 
-func set_health(health : int) -> void :
-#	var current_value = _health_value.value - 10
-#	_tween.interpolate_property(_health_value, "value", current_value, value, 0.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-#	_tween.start()
-	_health_value.value = health
-#	print ("value : ", value)
-#	_health_label.text = str(health)
-	_health_label.text = "%s / %s" % [health,  _health_max.value]	
-	print ("max : ", _health_max.value) 
-	var percent = (health  / _health_max.value) * 100
-#	print ("% : ", percent)		
-	if percent >= 0.8 * _health_max.value:
-		_health_value.set_tint_progress("14e114")
-	elif percent >= 0.5 * _health_max.value and percent < 0.8 * _health_max.value:
-		_health_value.set_tint_progress("f1ff08")		
-	elif percent >= 0.2 * _health_max.value and percent < 0.5 * _health_max.value:
-		_health_value.set_tint_progress("e1be32")		
-	elif percent <  0.2 * _health_max.value:
-		_health_value.set_tint_progress("e11e1e") 
+func set_health(health : int, test : bool) -> void :
 
+	var current_health = _health_value.value
+	_health_value.value = health
+	
+	if _health_value.value > 0:
+		_health_label.text = "%s / %s" % [health,  _health_max.max_value]	
+	if _health_value.value <= 0:
+		_health_label.text = str(0)
+	
+	var ratio = (health  / _health_max.max_value) 	
+	if ratio >= 0.75 :
+		_health_value.set_tint_progress("14e114")
+	elif ratio >= 0.5 and ratio < 0.8 :
+		_health_value.set_tint_progress("f1ff08")		
+	elif ratio >= 0.2 and ratio < 0.5 :
+		_health_value.set_tint_progress("ffad00")		
+	elif ratio <  0.2 :
+		_health_value.set_tint_progress("e11e1e") 
+#	var test  = true
+	if test:
+		_tween.interpolate_property(_health_value, "value" , current_health  , health, 1.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+		_tween.start()
+		yield(_tween, "tween_completed")
+		test = false
 
 func set_health_max(value : int) -> void:
 	_health_max.max_value = value
