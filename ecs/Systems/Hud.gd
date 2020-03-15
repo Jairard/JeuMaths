@@ -22,7 +22,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	if comp_health != null:
 		var current_health = comp_health.get_health()
-		comp_hud.set_health(current_health)
+		comp_hud.set_health(current_health, true)
 		var max_health = comp_health.get_health_max()
 		comp_hud.set_health_max(max_health)
 

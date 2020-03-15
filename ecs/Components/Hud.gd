@@ -45,10 +45,9 @@ func init_stats(good_answer : Label, wrong_answer : Label, victories : Label, de
 	_victories = victories
 	_defeats = defeats
 
-func set_health(health : int) -> void :
+func set_health(health : int, _bool : bool) -> void :
 
 	var current_health = _health_value.value
-	_health_value.value = health
 	
 	if _health_value.value > 0:
 		_health_label.text = "%s / %s" % [health,  _health_max.max_value]	
@@ -64,12 +63,15 @@ func set_health(health : int) -> void :
 		_health_value.set_tint_progress("ffad00")		
 	elif ratio <  0.25 :
 		_health_value.set_tint_progress("e11e1e") 
-	var test  = true
-	if test:
-		_tween.interpolate_property(_health_value, "value" , current_health  , health, 1.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	
+	if _bool:
+		_bool = false
+		_tween.interpolate_property(_health_value, "value", health, current_health, 0.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 		_tween.start()
 		yield(_tween, "tween_completed")
-		test = false
+		_health_value.value = health
+
+
 
 func set_health_max(value : int) -> void:
 	_health_max.max_value = value
