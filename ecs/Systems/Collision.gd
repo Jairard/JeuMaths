@@ -193,13 +193,14 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			unique_collision(collider)
 			print("Gold collision !")
 
+			if treasure_comp != null:
+				treasure_comp.set_treasure(treasure_comp.get_treasure() + 10)
+				FileBankUtils.treasure += 10
 			var tween = AnimationUtils.tween_hero_loot(collider)
 			yield(tween, "tween_completed")
 			collider.queue_free()
 
-			if treasure_comp != null:
-				treasure_comp.set_treasure(treasure_comp.get_treasure() + 10)
-				FileBankUtils.treasure += 10
+			
 				
 
 
