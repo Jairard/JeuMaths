@@ -41,7 +41,7 @@ func tween_hero_loot(node_loot : Node2D) -> Tween:
 	tween.start()
 	return tween
 
-func tween_fade_in(scene : Node2D):
+func canvas_fade_in(scene : Node2D):
 		var tween = Tween.new()
 		add_child(tween)
 		var canvas = scene.get_node("CanvasModulate")
@@ -64,7 +64,7 @@ func scene_fade_out(scene : Node2D):
 	anim.play("load_scene")
 	return anim
 	
-func tween_fade_out(scene : Node2D):
+func canvas_fade_out(scene : Node2D):
 	var tween = Tween.new()
 	add_child(tween)
 	var canvas = scene.get_node("CanvasModulate")	
@@ -83,7 +83,7 @@ func tween_hero_death(node : Node2D, current_pos : Vector2, final_pos : Vector2)
 	
 
 func checkpoint(scene : Node2D, node : Node2D, current_pos : Vector2, final_pos : Vector2):
-	var tween_in = AnimationUtils.tween_fade_in(scene)							#hide hero
+	var tween_in = AnimationUtils.canvas_fade_in(scene)							#hide hero
 	yield(tween_in, "tween_completed")
 	var tween_pos = tween_hero_death(node, current_pos, final_pos)				#set new position for hero
 	yield(tween_pos, "tween_completed")
@@ -91,18 +91,19 @@ func checkpoint(scene : Node2D, node : Node2D, current_pos : Vector2, final_pos 
 	yield(anim_in, "animation_finished")
 	var anim_out = AnimationUtils.scene_fade_out(scene)							#show scene
 	yield(anim_out, "animation_finished")
-	var tween_out = AnimationUtils.tween_fade_out(scene)						#show hero
+	var tween_out = AnimationUtils.canvas_fade_out(scene)						#show hero
 	yield(tween_out, "tween_completed")
 
-#	AnimationUtils.tween_fade_in(scene)
+#	AnimationUtils.canvas_fade_in(scene)
 #	AnimationUtils.scene_fade_in(scene)
 #	AnimationUtils.scene_fade_out(scene)	
-#	AnimationUtils.tween_fade_out(scene)
+#	AnimationUtils.canvas_fade_out(scene)
 #	AnimationUtils.tween_hero_death(node, current_pos, final_pos)
 
 func floating_damage(node : Node2D, dmg : int, _bool : bool):
 	if _bool:
 		var label = Label.new()
+		label.add_font_override("font", load("res://Assets/Font/Blox2.ttf"))
 #		label.rect_size(Vector2(200,200))
 		label.set_position(Vector2(node.get_position().x + 120, node.get_position().y - 40))
 		label.set_scale(Vector2(5,5))

@@ -54,7 +54,7 @@ func _ready():
 	
 	var anim = AnimationUtils.scene_fade_out(self)
 	yield(anim, "animation_finished")
-	var tween = AnimationUtils.tween_fade_out(self)
+	var tween = AnimationUtils.canvas_fade_out(self)
 	yield(tween, "tween_completed")
 	$CanvasModulate.hide()
 		
