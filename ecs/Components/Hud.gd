@@ -55,8 +55,6 @@ func update_displayed_health(dt : float) -> void:
 	if original_health != target_health:
 		health_current_anim_time = min(health_anim_time, health_current_anim_time + dt)
 		_health_value.value = lerp(original_health, target_health, health_current_anim_time/health_anim_time)
-#		print ("health : ", _health_value.value)
-		
 		if health_current_anim_time == health_anim_time :
 			original_health = target_health
 		
