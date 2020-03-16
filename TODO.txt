@@ -3,7 +3,6 @@
 
 *********   mettre en pause les systems pour stats_popup
 *********   scene popup
-*********   utils : checkpoint : pb animation canvaslayer : tween_fade_in et tween_fade_out ne fonctionnent pas 
 ---------   hero : touche du bas pour s'accroupir : tween sur le scale
 ---------   plus rapide est la réponse plus les dégats sont grands
 ---------   mettre composant de dégats sur missile, monstre...
@@ -20,7 +19,7 @@
 
                                 |   Features  |
 
-*********   Le joueur peut voir le score s'incrémenter et pas prendre direct 10 de dégats par exemple : tween sur les dégats pris (health_bar, "value", health_bar.value, health, 0.4, Tween...)
+*********   Le joueur peut voir le score s'incrémenter 
 ---------   c'est pas bau les datadriven des notions
 ---------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
 ---------   jauge circulaire
@@ -36,10 +35,9 @@
 ---------   relier les notions cochées au code : liste de notions 
 
 
-loot or : incrémenter avant l'animationen combat augmenter la police et pas le scale
+loot or : incrémenter avant l'animation
 combat  : police et pas scale des degats
 rename tween_fade_out en canvasfadeout
-system barre de vie : displayed health qui varie entre original_health et target_health / lerp(,,temps écoulé/temps total anim) 
 print dt dans le system hud : regarder les if
 map évolutive : découper scene en plusieurs tilemaps 
 script editeur : sort fichier json d'une config : editor script
