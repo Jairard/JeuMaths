@@ -30,10 +30,7 @@ func _on_Button_pressed():
 	var pseudo : String = $TileMap/pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
-#	var new_scene :	String =  ("create_hero" if stats_hero["new_hero"] == true else "playing_map"[FileBankUtils.scene_counter])
-#	Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
-#	var tween = AnimationUtils.tween_fade_in(self)
-#	yield(tween, "tween_completed")
+
 	var anim = AnimationUtils.scene_fade_in(self)
 	yield(anim, "animation_finished")
 

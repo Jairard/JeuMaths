@@ -69,7 +69,7 @@ func tween_fade_out(scene : Node2D):
 	add_child(tween)
 	var canvas = scene.get_node("CanvasModulate")	
 	canvas.show()
-	tween.interpolate_property(canvas, "color", Color("#000000"), Color("#00000000"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)	
+	tween.interpolate_property(canvas, "color", Color("#000000"), Color("#ffffff"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)	
 	tween.start()
 	return tween
 	
@@ -83,16 +83,16 @@ func tween_hero_death(node : Node2D, current_pos : Vector2, final_pos : Vector2)
 	
 
 func checkpoint(scene : Node2D, node : Node2D, current_pos : Vector2, final_pos : Vector2):
-#	var tween_in = AnimationUtils.tween_fade_in(scene)							#hide hero
-#	yield(tween_in, "tween_completed")
+	var tween_in = AnimationUtils.tween_fade_in(scene)							#hide hero
+	yield(tween_in, "tween_completed")
 	var tween_pos = tween_hero_death(node, current_pos, final_pos)				#set new position for hero
 	yield(tween_pos, "tween_completed")
 	var anim_in = AnimationUtils.scene_fade_in(scene)							#hide scene
 	yield(anim_in, "animation_finished")
 	var anim_out = AnimationUtils.scene_fade_out(scene)							#show scene
 	yield(anim_out, "animation_finished")
-#	var tween_out = AnimationUtils.tween_fade_out(scene)						#show hero
-#	yield(tween_out, "tween_completed")
+	var tween_out = AnimationUtils.tween_fade_out(scene)						#show hero
+	yield(tween_out, "tween_completed")
 
 #	AnimationUtils.tween_fade_in(scene)
 #	AnimationUtils.scene_fade_in(scene)
