@@ -142,8 +142,6 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.890196, 0.862745, 0.862745, 1 )
 text = "1000"
 
-[node name="Tween" type="Tween" parent="CanvasLayer/HBoxContainer5"]
-
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer"]
 margin_left = 9.73978
 margin_top = 7.91326

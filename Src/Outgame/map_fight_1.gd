@@ -115,7 +115,7 @@ func spawn() :
 
 	add_child(heroNode)
 	add_child(enemyNode)
-	enemyNode.set_position(Vector2(750,275))
+	enemyNode.set_position(Vector2(750,300))
 	var sprite = $Ennemy/Sprite
 	sprite.apply_scale(Vector2(3, 3))
 	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
@@ -131,7 +131,7 @@ func load_hud():
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 
 	hud_comp.init_hero_map(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
-	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage(), Hud_heroNode.get_tween())
+	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage())
 	
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)
@@ -139,7 +139,7 @@ func load_hud():
 
 	var hud_enemy_comp = ECS.add_component(enemyNode, ComponentsLibrary.Hud) as HudComponent
 	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
-	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage(), Hud_enemyNode.get_tween())
+	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage())
 
 	var ScoreNode = score.instance()
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent

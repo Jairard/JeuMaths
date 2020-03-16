@@ -13,7 +13,6 @@ var _good_answer : Label = null
 var _wrong_answer : Label = null
 var _victories : Label = null
 var _defeats : Label = null
-var _tween : Tween = null
 var original_health : int = 0
 var target_health : int = 0
 var health_anim_time : float = 5
@@ -27,25 +26,24 @@ func init_hero_fight(treasure : Label, score_label : RichTextLabel) -> void:				
 	_score_label = score_label
 
 func init_hero_map(health_value : TextureProgress, health_label : Label,
-				   health_max : TextureProgress, damage : Label, tween : Tween) -> void : 		#init node on map fire/water		
+				   health_max : TextureProgress, damage : Label) -> void : 		#init node on map fire/water		
 	_health_value = health_value
 	_health_label = health_label
 	_health_max = health_max
 	_damage = damage
-	_tween = tween
 	original_health = health_value.value
 	target_health = original_health
 
 
-func init_enemy(health_value : TextureProgress, health_label : Label, health_max : TextureProgress, 
-				damage : Label, tween : Tween) -> void:
+func init_enemy(health_value : TextureProgress, health_label : Label, 
+				health_max : TextureProgress, damage : Label) -> void:
 	_health_value = health_value
 	_health_label = health_label
 	_health_max = health_max
 	_damage = damage
-	_tween = tween
 	original_health = health_value.value
 	target_health = original_health
+
 
 func init_stats(good_answer : Label, wrong_answer : Label, victories : Label, defeats : Label) -> void:
 	_good_answer = good_answer
@@ -57,6 +55,8 @@ func update_displayed_health(dt : float) -> void:
 	if original_health != target_health:
 		health_current_anim_time = min(health_anim_time, health_current_anim_time + dt)
 		_health_value.value = lerp(original_health, target_health, health_current_anim_time/health_anim_time)
+#		print ("health : ", _health_value.value)
+		
 		if health_current_anim_time == health_anim_time :
 			original_health = target_health
 		
