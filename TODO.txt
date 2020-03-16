@@ -35,9 +35,7 @@
 ---------   relier les notions cochées au code : liste de notions 
 
 
-loot or : incrémenter avant l'animation
 combat  : police et pas scale des degats
-rename tween_fade_out en canvasfadeout
 print dt dans le system hud : regarder les if
 map évolutive : découper scene en plusieurs tilemaps 
 script editeur : sort fichier json d'une config : editor script
