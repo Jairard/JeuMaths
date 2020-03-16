@@ -21,8 +21,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var comp_score		 	= 	components[ComponentsLibrary.Scoreglobal] 	as	ScoreglobalcounterComponent
 
 	if comp_health != null:
+		comp_hud.update_displayed_health(dt)
 		var current_health = comp_health.get_health()
-		comp_hud.set_health(current_health, true)
+		comp_hud.set_health(current_health)
 		var max_health = comp_health.get_health_max()
 		comp_hud.set_health_max(max_health)
 
