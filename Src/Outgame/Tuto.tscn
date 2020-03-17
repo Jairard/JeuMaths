@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=1]
 [ext_resource path="res://Src/Outgame/Tuto.gd" type="Script" id=2]
@@ -19,9 +19,15 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="TileSet" id=7]
 0/name = "spritesheet2.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -72,7 +78,13 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 3/tile_mode = 0
 3/occluder_offset = Vector2( 0, 0 )
 3/navigation_offset = Vector2( 0, 0 )
-3/shapes = [  ]
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 3/z_index = 0
 4/name = "newtile.png 4"
 4/texture = ExtResource( 6 )
@@ -86,7 +98,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
@@ -98,7 +110,13 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 5/tile_mode = 0
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
-5/shapes = [  ]
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 5/z_index = 0
 6/name = "newtile.png 6"
 6/texture = ExtResource( 6 )
@@ -122,7 +140,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -157,26 +175,26 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 10/shapes = [  ]
 10/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8.79639, 153.912 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 25.3181, 137.631 )
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=10]
 offsets = PoolRealArray( 0, 0.203046, 0.370558, 0.51269, 0.71066, 0.913706 )
 colors = PoolColorArray( 0.424872, 0.430176, 0.376404, 1, 0.898926, 0.878708, 0.58992, 1, 0.980957, 0.971003, 0.444496, 1, 0.910645, 0.565029, 0.0818157, 1, 0.977051, 0.333185, 0.0228996, 1, 1, 0.0908203, 0, 1 )
 
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=12]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.995454, 0.00340903 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=14]
 lifetime_randomness = 1.0
 flag_disable_z = true
 spread = 180.0
@@ -188,59 +206,58 @@ orbit_velocity_random = 0.0
 angle = -90.0
 scale = 7.0
 scale_random = 1.0
-scale_curve = SubResource( 11 )
-color_ramp = SubResource( 9 )
-
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 157.757, 82.6567 )
-
-[sub_resource type="DynamicFont" id=14]
-font_data = ExtResource( 3 )
+scale_curve = SubResource( 13 )
+color_ramp = SubResource( 11 )
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 16.5361, 161.026 )
+extents = Vector2( 157.757, 82.6567 )
 
 [sub_resource type="DynamicFont" id=16]
 font_data = ExtResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 8.70947, 126.2 )
+extents = Vector2( 16.5361, 161.026 )
 
-[sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 10, 142.109 )
+[sub_resource type="DynamicFont" id=18]
+font_data = ExtResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 6.41455, 169.023 )
+extents = Vector2( 8.70947, 126.2 )
 
 [sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 21.1592, 125.1 )
+extents = Vector2( 10, 142.109 )
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 14.0503, 147.55 )
+extents = Vector2( 6.41455, 169.023 )
 
 [sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 35.4849, 162.28 )
+extents = Vector2( 21.1592, 125.1 )
 
 [sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 23.5508, 89.4011 )
+extents = Vector2( 14.0503, 147.55 )
 
 [sub_resource type="RectangleShape2D" id=24]
-extents = Vector2( 27.2021, 121.115 )
+extents = Vector2( 35.4849, 162.28 )
 
 [sub_resource type="RectangleShape2D" id=25]
-extents = Vector2( 21.0711, 136.031 )
+extents = Vector2( 23.5508, 89.4011 )
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 35.1406, 167.38 )
+extents = Vector2( 27.2021, 121.115 )
 
 [sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 19.2871, 175.553 )
+extents = Vector2( 21.0711, 136.031 )
 
 [sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 35.1406, 167.38 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 19.2871, 175.553 )
+
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 17.875, 178.568 )
 
-[sub_resource type="Animation" id=29]
-resource_name = "change_scene"
+[sub_resource type="Animation" id=31]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
@@ -254,8 +271,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=30]
-resource_name = "load_scene"
+[sub_resource type="Animation" id=32]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
@@ -274,7 +290,7 @@ script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
-tile_set = SubResource( 5 )
+tile_set = SubResource( 7 )
 collision_layer = 2
 collision_mask = 129
 format = 1
@@ -306,7 +322,7 @@ collision_layer = 16384
 
 [node name="monster" type="CollisionShape2D" parent="First_Spawn/Monster/Monster"]
 position = Vector2( 2632.49, 420.466 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Control_monster" type="Control" parent="First_Spawn/Monster"]
 visible = false
@@ -385,14 +401,14 @@ __meta__ = {
 
 [node name="spawn" type="CollisionShape2D" parent="First_Spawn/Monster/Monster_spawn"]
 position = Vector2( 2088.64, 438.319 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="Particles2D" type="Particles2D" parent="First_Spawn/Monster/Monster_spawn"]
 position = Vector2( 2068.94, 569.274 )
 amount = 30
 lifetime = 2.0
 explosiveness = 0.11
-process_material = SubResource( 12 )
+process_material = SubResource( 14 )
 
 [node name="Move" type="Container" parent="First_Spawn"]
 margin_right = 40.0
@@ -403,7 +419,7 @@ collision_layer = 16384
 
 [node name="move" type="CollisionShape2D" parent="First_Spawn/Move/Move"]
 position = Vector2( 159.757, 492.463 )
-shape = SubResource( 13 )
+shape = SubResource( 15 )
 
 [node name="Control_move" type="Control" parent="First_Spawn/Move"]
 visible = false
@@ -419,7 +435,7 @@ margin_left = 127.063
 margin_top = 242.723
 margin_right = 234.063
 margin_bottom = 260.723
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 16 )
 text = "Pour bouger"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -466,7 +482,7 @@ collision_layer = 16384
 
 [node name="jump" type="CollisionShape2D" parent="First_Spawn/Jump/Jump"]
 position = Vector2( 973.822, 411.613 )
-shape = SubResource( 15 )
+shape = SubResource( 17 )
 
 [node name="jump" type="RichTextLabel" parent="First_Spawn/Jump"]
 visible = false
@@ -474,7 +490,7 @@ margin_left = 1270.61
 margin_top = 282.807
 margin_right = 1419.61
 margin_bottom = 335.807
-custom_fonts/bold_font = SubResource( 16 )
+custom_fonts/bold_font = SubResource( 18 )
 bbcode_enabled = true
 bbcode_text = "Pour [b]sauter[/b] appuyer sur [shake rate=5
  level=5]  [color=yellow]\"espace\""
@@ -492,7 +508,7 @@ collision_layer = 16384
 
 [node name="bullet" type="CollisionShape2D" parent="First_Spawn/Bullet/Bullet"]
 position = Vector2( 8776.24, 445.567 )
-shape = SubResource( 17 )
+shape = SubResource( 19 )
 
 [node name="Control_bullet" type="Control" parent="First_Spawn/Bullet"]
 visible = false
@@ -549,14 +565,14 @@ __meta__ = {
 
 [node name="spawn" type="CollisionShape2D" parent="First_Spawn/Bullet/Bullet_spawn"]
 position = Vector2( 2179.51, 438.783 )
-shape = SubResource( 18 )
+shape = SubResource( 20 )
 
 [node name="Particles2D2" type="Particles2D" parent="First_Spawn/Bullet/Bullet_spawn"]
 position = Vector2( 2180.17, 575.894 )
 amount = 30
 lifetime = 2.0
 explosiveness = 0.11
-process_material = SubResource( 12 )
+process_material = SubResource( 14 )
 
 [node name="Missile" type="Container" parent="First_Spawn"]
 margin_right = 40.0
@@ -567,7 +583,7 @@ collision_layer = 16384
 
 [node name="missile" type="CollisionShape2D" parent="First_Spawn/Missile/Missile"]
 position = Vector2( 10548, 413.285 )
-shape = SubResource( 19 )
+shape = SubResource( 21 )
 
 [node name="Control_missile" type="Control" parent="First_Spawn/Missile"]
 visible = false
@@ -624,14 +640,14 @@ __meta__ = {
 
 [node name="spawn" type="CollisionShape2D" parent="First_Spawn/Missile/Missile_spawn"]
 position = Vector2( 5076.7, 451.874 )
-shape = SubResource( 20 )
+shape = SubResource( 22 )
 
 [node name="Particles2D3" type="Particles2D" parent="First_Spawn/Missile/Missile_spawn"]
 position = Vector2( 5071.53, 569.868 )
 amount = 30
 lifetime = 2.0
 explosiveness = 0.11
-process_material = SubResource( 12 )
+process_material = SubResource( 14 )
 
 [node name="Add_Monsters" type="Container" parent="."]
 margin_right = 40.0
@@ -645,28 +661,28 @@ collision_layer = 16384
 
 [node name="monster_2" type="CollisionShape2D" parent="Add_Monsters/Monster_2"]
 position = Vector2( 4304.81, 301.825 )
-shape = SubResource( 21 )
+shape = SubResource( 23 )
 
 [node name="Monster_3" type="Area2D" parent="Add_Monsters"]
 collision_mask = 16385
 
 [node name="monster_3" type="CollisionShape2D" parent="Add_Monsters/Monster_3"]
 position = Vector2( 6946.33, 413.51 )
-shape = SubResource( 22 )
+shape = SubResource( 24 )
 
 [node name="Monster_4" type="Area2D" parent="Add_Monsters"]
 collision_layer = 16384
 
 [node name="monster_4" type="CollisionShape2D" parent="Add_Monsters/Monster_4"]
 position = Vector2( 12119, 488.628 )
-shape = SubResource( 23 )
+shape = SubResource( 25 )
 
 [node name="Monster_5" type="Area2D" parent="Add_Monsters"]
 collision_layer = 16384
 
 [node name="monster_5" type="CollisionShape2D" parent="Add_Monsters/Monster_5"]
 position = Vector2( 13085.4, 330.971 )
-shape = SubResource( 24 )
+shape = SubResource( 26 )
 
 [node name="Add_Bullets" type="Container" parent="."]
 margin_right = 40.0
@@ -680,7 +696,7 @@ collision_layer = 16384
 
 [node name="bullet_2" type="CollisionShape2D" parent="Add_Bullets/Bullet_2"]
 position = Vector2( 13208.9, 439.555 )
-shape = SubResource( 25 )
+shape = SubResource( 27 )
 
 [node name="Add_Missiles" type="Container" parent="."]
 margin_right = 40.0
@@ -694,21 +710,21 @@ collision_layer = 16384
 
 [node name="missile_2" type="CollisionShape2D" parent="Add_Missiles/Missile_2"]
 position = Vector2( 15906.5, 792.024 )
-shape = SubResource( 26 )
+shape = SubResource( 28 )
 
 [node name="Missile_3" type="Area2D" parent="Add_Missiles"]
 collision_layer = 16384
 
 [node name="missile_3" type="CollisionShape2D" parent="Add_Missiles/Missile_3"]
 position = Vector2( 17297.7, 785.618 )
-shape = SubResource( 27 )
+shape = SubResource( 29 )
 
 [node name="Missile_4" type="Area2D" parent="Add_Missiles"]
 collision_layer = 16384
 
 [node name="missile_4" type="CollisionShape2D" parent="Add_Missiles/Missile_4"]
 position = Vector2( 17039.4, 779.175 )
-shape = SubResource( 28 )
+shape = SubResource( 30 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -733,6 +749,7 @@ texture = ExtResource( 9 )
 centered = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 show_behind_parent = true
 color = Color( 0, 0, 0, 1 )
 
@@ -748,8 +765,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/change_scene = SubResource( 29 )
-anims/load_scene = SubResource( 30 )
+anims/change_scene = SubResource( 31 )
+anims/load_scene = SubResource( 32 )
 [connection signal="pressed" from="Return" to="." method="_on_Button_pressed"]
 [connection signal="body_entered" from="First_Spawn/Monster/Monster" to="." method="_on_Monster_body_entered"]
 [connection signal="body_entered" from="First_Spawn/Monster/Monster_spawn" to="." method="_on_Monster_spawn_body_entered"]
