@@ -36,8 +36,7 @@
 
 
 combat  : police et pas scale des degats
-animatio barre de vie : print dt dans le system hud : regarder les if 
+animation barre de vie : print dt dans le system hud : regarder les if 
 map évolutive : découper scene en plusieurs tilemaps 
 script editeur : sort fichier json d'une config : editor script
 collision dans les maps avec polygoneshape, pas de problmes avec un rectangle
-rotation du collision shape des monsters dans le utils
