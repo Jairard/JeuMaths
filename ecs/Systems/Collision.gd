@@ -45,7 +45,7 @@ func spawn_loot(colliderNode : Node2D) -> bool:
 		var loot_comp = EcsUtils.get_first_component_in_parent(colliderNode, ComponentsLibrary.Loot, self) as LootComponent
 		if loot_comp != null and loot_comp.get_loot_generator() == colliderNode:
 			var test_loot 		: Array		= loot_comp.get_loots()
-			var dp 				: Vector2 	= Vector2(150,-50)
+			var dp 				: Vector2 	= Vector2(150,-20)
 			var loot_node 		: Node2D 	= loot_comp.get_node()
 			var loot_pos 		: Vector2 	= loot_node.get_position()
 			var loot_root		: Node2D 	= loot_node.get_parent()
