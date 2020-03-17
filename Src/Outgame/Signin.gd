@@ -34,8 +34,8 @@ func _on_Button_pressed():
 	var anim = AnimationUtils.scene_fade_in(self)
 	yield(anim, "animation_finished")
 
-	
-	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+	get_tree().change_scene(FileBankUtils.loaded_scenes["upside_down"])
+#	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
 #	if stats_hero["new_hero"] == true:
 #		Scene_changer.change_scene(FileBankUtils.loaded_scenes["create_hero"])
 #
