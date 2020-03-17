@@ -51,6 +51,24 @@ func create_gold(root : Node2D, resource : Resource, pos : Vector2):
 	goldNode_pos.set_position(pos)
 	
 
+func create_flip_monster(root : Node2D, resource : Resource, pos : Vector2, gold : Resource, health : Resource, damage : Resource):
+	var monsterNode = resource.instance()
+	root.add_child(monsterNode)
 
+	var comp_position_monster = ECS.add_component(monsterNode, ComponentsLibrary.Position) as PositionComponent
+	comp_position_monster.set_position(pos)
+	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
+	var anim_name_monster = {comp_anim_monster.anim.right : "anim_right"}
+	var animation_player_monster = monsterNode.get_node("animation_monster")
+	comp_anim_monster.init(anim_name_monster, animation_player_monster)
+	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
+	comp_patrol.init(700,900)
+	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
+	health_comp_monster.init(1,1)
+	var lootDict_monster = [ {gold : 10}, {health : 10, damage : 5, null : 90}]
+	var loot_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Loot) as LootComponent
+	loot_comp_monster.init(lootDict_monster, monsterNode.get_node("head"))
 
-
+	monsterNode.get_node("Sprite").set_rotation_degrees(-180)
+	monsterNode.get_node("head").set_rotation_degrees(-180)
+#	heroNode.get_node("hero_spr").set_flip_h(true)
