@@ -128,9 +128,6 @@ color_ramp = SubResource( 8 )
 modulate = Color( 1, 0.980392, 0.980392, 1 )
 collision_mask = 16374
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="animation_hero" type="AnimationPlayer" parent="."]
 anims/anim_colliding = SubResource( 1 )
@@ -186,4 +183,4 @@ explosiveness = 0.26
 process_material = SubResource( 11 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -44.1394, 107.388, -56.2534, 104.503, -55.8561, 69.9456, -39.5703, 39.7573, -34.4065, 17.9104, -10.5737, -93.7069, 19.1762, -96.697, 21.0204, -73.6452, 17.6286, -46.4383, 17.9468, -21.7019, 20.4056, -8.79288, 33.0073, 94.4792, 34.7088, 106.092, 18.5615, 108.003, 19.4403, 107.764, -29.4171, 108.161 )
+polygon = PoolVector2Array( -55.097, 107.733, -36.6067, 109.998, 51.3167, 106.224, 18.8643, -97.5468, -4.1543, -97.5468, -53.965, 49.9984, -55.8517, 89.2432 )
