@@ -41,7 +41,7 @@ func _ready():
 	yield(tween, "tween_completed")
 	_load_ressources()
 	_load_monsters()
-	
+	load_gold()
 
 
 
@@ -77,7 +77,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(300,500))
+	pos_comp.set_position(Vector2(10000,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -199,3 +199,19 @@ func _load_missiles():
 
 func _on_Missile_spawn_body_entered(body):
 	_load_missiles()
+
+func load_gold():
+	EntitiesUtils.create_gold(self, gold, Vector2(2075,4700))
+	EntitiesUtils.create_gold(self, gold, Vector2(10500,450))
+	EntitiesUtils.create_gold(self, gold, Vector2(10500,0))
+	EntitiesUtils.create_gold(self, gold, Vector2(10500,-450))
+	EntitiesUtils.create_gold(self, gold, Vector2(6875,-500))
+	EntitiesUtils.create_gold(self, gold, Vector2(11300,450))
+	EntitiesUtils.create_gold(self, gold, Vector2(3370,250))
+	EntitiesUtils.create_gold(self, gold, Vector2(4825,250))
+	EntitiesUtils.create_gold(self, gold, Vector2(6235,250))
+	EntitiesUtils.create_gold(self, gold, Vector2(7575,250))
+	EntitiesUtils.create_gold(self, gold, Vector2(12300,750))
+	EntitiesUtils.create_gold(self, gold, Vector2(14750,750))
+	EntitiesUtils.create_gold(self, gold, Vector2(16700,750))
+	EntitiesUtils.create_gold(self, gold, Vector2(20930,750))
