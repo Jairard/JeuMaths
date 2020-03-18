@@ -4,7 +4,7 @@
 *********   animation barre de vie : print dt dans le system hud : regarder les if 
 *********   mettre en pause les systems pour stats_popup
 *********   scene popup
----------   Portals : utils pour envoyer dans la bonne scene en utilisant le compteur de scenes
+
 ---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : jouer le scale
 ---------   plus rapide est la réponse plus les dégats sont grands
@@ -21,7 +21,9 @@
 
                                 |   Features  |
 
-*********   combat  : police et pas scale des degats
+*********   combat  : charger police puis augmenter sa taille / problème de tween sur le scale
+
+---------   map évolutive : découper scene en plusieurs tilemaps 
 ---------   c'est pas bau les datadriven des notions
 ---------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
 ---------   jauge circulaire
@@ -30,13 +32,12 @@
 ---------   faire un effecteur : colonne de vent
 ---------   faire un laser
 ---------   faire des plateformes mouvantes
----------   map évolutive : découper scene en plusieurs tilemaps 
+
 
 
 
                                 |   Add_on  |
 
-*********   utiliser le compteur de scenes : l'augmenter a la fin du tuto
 ---------   relier les notions cochées au code : liste de notions 
 ---------   ajouter portail à la fin des scenes
 
