@@ -1,14 +1,15 @@
                                 |   Components  |
 
 
+*********animation barre de vie : print dt dans le system hud : regarder les if 
 *********   mettre en pause les systems pour stats_popup
 *********   scene popup
+---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : tween sur le scale
 ---------   plus rapide est la réponse plus les dégats sont grands
 ---------   mettre composant de dégats sur missile, monstre...
 ---------   2ème collision avec le feu pousse le hero                  
 ---------   vector orthogonal : collider.get_normal angle entre vecteur et la normale : -angle pour le rebond
----------
 
 
                                 |   Positioning  |
@@ -19,6 +20,7 @@
 
                                 |   Features  |
 
+*********   combat  : police et pas scale des degats
 *********   Le joueur peut voir le score s'incrémenter 
 ---------   c'est pas bau les datadriven des notions
 ---------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
@@ -28,6 +30,8 @@
 ---------   faire un effecteur : colonne de vent
 ---------   faire un laser
 ---------   faire des plateformes mouvantes
+---------   map évolutive : découper scene en plusieurs tilemaps 
+
 
 
                                 |   Add_on  |
@@ -36,8 +40,3 @@
 ---------   relier les notions cochées au code : liste de notions 
 
 
-combat  : police et pas scale des degats
-animation barre de vie : print dt dans le system hud : regarder les if 
-map évolutive : découper scene en plusieurs tilemaps 
-script editeur : sort fichier json d'une config : editor script
-collision dans les maps avec polygoneshape, pas de problmes avec un rectangle
