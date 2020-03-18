@@ -4,6 +4,7 @@
 *********   animation barre de vie : print dt dans le system hud : regarder les if 
 *********   mettre en pause les systems pour stats_popup
 *********   scene popup
+---------   Portals : utils pour envoyer dans la bonne scene en utilisant le compteur de scenes
 ---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : jouer le scale
 ---------   plus rapide est la réponse plus les dégats sont grands
@@ -37,5 +38,5 @@
 
 *********   utiliser le compteur de scenes : l'augmenter a la fin du tuto
 ---------   relier les notions cochées au code : liste de notions 
-
+---------   ajouter portail à la fin des scenes
 
