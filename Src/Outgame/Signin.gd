@@ -35,17 +35,22 @@ func _on_Button_pressed():
 	yield(anim, "animation_finished")
 
 #	get_tree().change_scene(FileBankUtils.loaded_scenes["map_water"])
-	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+	Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
+#	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
+#	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+#	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+
 #	if stats_hero["new_hero"] == true:
-#		Scene_changer.change_scene(FileBankUtils.loaded_scenes["create_hero"])
-#
+#		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
 #	else: 
-#		if FileBankUtils.scene_counter == 0:
-#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
-#
-#		else: 
+#		if FileBankUtils.scene_counter % 4 == 1:
 #			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
-	
+#		elif FileBankUtils.scene_counter % 4 == 2: 
+#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_water"])
+#		elif FileBankUtils.scene_counter % 4 == 3: 
+#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+#		elif FileBankUtils.scene_counter % 4 == 4: 
+#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
 
 
 func _on_6eme_pressed():
