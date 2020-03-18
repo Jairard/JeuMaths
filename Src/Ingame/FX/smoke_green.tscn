@@ -30,7 +30,7 @@ scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 36.3448, 26.1859 )
+extents = Vector2( 27.7809, 20.6223 )
 
 [node name="Particles2D" type="Particles2D"]
 rotation = -1.5708
@@ -45,5 +45,5 @@ script = ExtResource( 1 )
 collision_layer = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 36.0098, 1.57404e-06 )
+position = Vector2( 27.618, 0.441642 )
 shape = SubResource( 6 )

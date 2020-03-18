@@ -259,7 +259,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Portal blue collision !")
 
 			if health_comp != null:
-				Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+				FileBankUtils.scene_counter += 1
+				FileBankUtils.load_right_scene()
 			collider.queue_free()
 			
 		if (has_collision_layer(collider,portal_green_layer_bit) == true
@@ -268,7 +269,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Portal green collision !")
 
 			if health_comp != null:
-				Scene_changer.change_scene(FileBankUtils.load_right_scene())
+				FileBankUtils.load_right_scene()
+#				Scene_changer.change_scene(FileBankUtils.load_right_scene())
 			collider.queue_free()
 		
 		
