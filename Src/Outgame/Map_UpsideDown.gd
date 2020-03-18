@@ -12,6 +12,7 @@ onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
+onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 
 var health_comp_hero : Component = null
 var pos_comp : Component = null
@@ -41,12 +42,13 @@ func _ready():
 #	yield(tween, "tween_completed")
 	_load_ressources()
 	_load_monsters()
-	
+	var portalNode = portal.instance()
+	add_child(portalNode)
+	ECS.add_component(portalNode, ComponentsLibrary.Collision)
+	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
+	pos_comp_portal.set_position(Vector2(600,530))
 
 
-
-
-	
 	ECS.clear_ghosts()
 
 func load_characters() :
@@ -79,7 +81,7 @@ func load_characters() :
 	heroNode.get_node("hero_spr").set_rotation_degrees(-180)
 	heroNode.get_node("hero_spr").set_flip_h(true)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(4500,300))
+	pos_comp.set_position(Vector2(100,300))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent

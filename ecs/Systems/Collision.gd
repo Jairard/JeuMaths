@@ -16,7 +16,9 @@ const gold_layer_bit 		: int = 9
 const answer_layer_bit 		: int = 10
 const damage_layer_bit 		: int = 11
 const health_layer_bit 		: int = 12
-const portal_layer_bit 		: int = 13
+const portal_blue_layer_bit : int = 13
+const portal_green_layer_bit: int = 14
+const portal_red_layer_bit 	: int = 15
 
 func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Collision]
@@ -251,18 +253,33 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				var normal = col.get_normal()
 				bounce_comp.set_is_bouncing(normal)
 
-		if (has_collision_layer(collider,portal_layer_bit) == true
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL
+		if (has_collision_layer(collider,portal_blue_layer_bit) == true
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL BLUE
 
-			print("Portal collision !")
+			print("Portal blue collision !")
 
 			if health_comp != null:
-#				var new_scene = FileBankUtils.loaded_scenes["next_level"]
-#				var node = health_comp.get_node()
-#				yield(node.get_parent().get_tree().create_timer(1.0), "timeout")
-#				node.get_tree().change_scene(new_scene)
 				Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 			collider.queue_free()
+			
+		if (has_collision_layer(collider,portal_green_layer_bit) == true
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL GREEN
+
+			print("Portal green collision !")
+
+			if health_comp != null:
+				Scene_changer.change_scene(FileBankUtils.load_right_scene())
+			collider.queue_free()
+		
+		
+		if (has_collision_layer(collider,portal_red_layer_bit) == true
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL RED
+
+			print("Portal red collision !")
+
+			if health_comp != null:
+				Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+			collider.queue_free()	
 			
 func unique_collision(collider):
 		collider.get_node("CollisionShape2D").disabled = true

@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
-onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_2.tscn")
+onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_green.tscn")
 onready var loot 			= 	preload("res://Src/Ingame/characters/Null.tscn")
 onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 

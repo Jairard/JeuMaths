@@ -6,7 +6,7 @@ onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
 onready var monster 		= 	preload("res://Src/Ingame/characters/monsters.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
-onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_2.tscn")
+onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 
 onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
@@ -46,6 +46,12 @@ func _ready():
 	load_gold()
 	ECS.clear_ghosts()
 
+	var portalNode = portal.instance()
+	add_child(portalNode)
+	ECS.add_component(portalNode, ComponentsLibrary.Collision)
+	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
+	pos_comp_portal.set_position(Vector2(600,530))
+	
 func load_characters() :
 
 	var enemyNode = enemy.instance()

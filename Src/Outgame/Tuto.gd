@@ -7,7 +7,7 @@ onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
-onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_2.tscn")
+onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_blue.tscn")
 
 var heroNode : Node2D = null
 var move_comp : Component = null

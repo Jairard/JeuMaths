@@ -13,6 +13,8 @@ onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
+onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
+
 var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode = null
@@ -42,11 +44,13 @@ func _ready():
 	_load_ressources()
 	_load_monsters()
 	load_gold()
+	var portalNode = portal.instance()
+	add_child(portalNode)
+	ECS.add_component(portalNode, ComponentsLibrary.Collision)
+	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
+	pos_comp_portal.set_position(Vector2(600,530))
 
 
-
-
-	
 	ECS.clear_ghosts()
 
 func load_characters() :

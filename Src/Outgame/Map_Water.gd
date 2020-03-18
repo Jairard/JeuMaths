@@ -10,6 +10,8 @@ onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 
+onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
+
 var health_comp_hero : Component = null
 var hero_pos : Component = null
 var heroNode = null
@@ -26,7 +28,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
 
-
+	
 	heroNode = hero.instance()
 	add_child(heroNode)
 	heroNode.set_name("hero")
@@ -55,7 +57,13 @@ func _ready():
 	_load_monsters()
 	load_gold()
 
-
+	var portalNode = portal.instance()
+	add_child(portalNode)
+	ECS.add_component(portalNode, ComponentsLibrary.Collision)
+	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
+	pos_comp_portal.set_position(Vector2(600,530))
+	
+	
 	var HudNode = hud.instance()
 	add_child(HudNode)
 
