@@ -71,6 +71,7 @@ func load_characters() :
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	enemy_pos_comp.set_position(Vector2(-200,500))														
 
+	load_gold()
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
@@ -78,7 +79,7 @@ func load_characters() :
 	heroNode.get_node("hero_spr").set_rotation_degrees(-180)
 	heroNode.get_node("hero_spr").set_flip_h(true)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(6000,500))
+	pos_comp.set_position(Vector2(4500,300))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -166,11 +167,11 @@ func _process(delta):
 
 func _load_monsters():
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(4750,345), gold, health, damage)
-	EntitiesUtils.create_flip_monster(self, monster, Vector2(5600,345), gold, health, damage)
+	EntitiesUtils.create_flip_monster(self, monster, Vector2(5590,345), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(6405,345), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(7250,345), gold, health, damage)
-	EntitiesUtils.create_flip_monster(self, monster, Vector2(8050,345), gold, health, damage)
-	EntitiesUtils.create_flip_monster(self, monster, Vector2(9505,345), gold, health, damage)
+	EntitiesUtils.create_flip_monster(self, monster, Vector2(8060,345), gold, health, damage)
+	EntitiesUtils.create_flip_monster(self, monster, Vector2(9480,345), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(11750,730), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(14370,603), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(16145,603), gold, health, damage)
@@ -185,3 +186,15 @@ func _load_bullets():
 
 func _on_Timer_timeout():
 		_load_bullets()
+
+func load_gold():
+	EntitiesUtils.create_gold(self, gold, Vector2(1300,50))
+	EntitiesUtils.create_gold(self, gold, Vector2(2070,150))
+	EntitiesUtils.create_gold(self, gold, Vector2(11325,-50))
+	EntitiesUtils.create_gold(self, gold, Vector2(12030,-50))
+	EntitiesUtils.create_gold(self, gold, Vector2(12675,-50))
+	EntitiesUtils.create_gold(self, gold, Vector2(11900,1050))
+	EntitiesUtils.create_gold(self, gold, Vector2(11585,1600))
+	EntitiesUtils.create_gold(self, gold, Vector2(12025,-1800))
+	EntitiesUtils.create_gold(self, gold, Vector2(12415,1800))
+	EntitiesUtils.create_gold(self, gold, Vector2(13175,1250))
