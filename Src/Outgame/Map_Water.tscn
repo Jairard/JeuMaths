@@ -1,12 +1,116 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Src/Outgame/Map_Water.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Textures/Levels/Tiles/sol_tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/test_debut__gd_eau_base_coquillage.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Textures/Levels/tuto/back_land01.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Levels/scene_eau/test_bulle_png.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Characters/grenouille_png_BF_1_couleur.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Levels/scene_eau/un_seul_nenuhar.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/Levels/scene_eau/debut_debut.png" type="Texture" id=8]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 96, 64, 0, 64, 0, 32, 96, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 320, 0, 320, 288, 0, 288 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 0, 0, 704, 0, 704, 608, 0, 608 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "un_seul_nenuhar.png 0"
+0/texture = ExtResource( 7 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 96, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "test_bulle_png.png 1"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 320, 288, 320, 288 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "debut_debut.png 2"
+2/texture = ExtResource( 8 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 96, 128, 704, 608 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="TileSet" id=5]
+0/name = "spritesheet2.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 128, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 672, 608, 128, 608, 128, 96, 672, 96 )
+
+[sub_resource type="TileSet" id=9]
+0/name = "debut_debut.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 64, 128, 736, 608 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="DynamicFont" id=6]
 size = 35
 font_data = ExtResource( 3 )
 
@@ -15,12 +119,31 @@ script = ExtResource( 1 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
-[node name="TileMap" type="TileMap" parent="Navigation2D"]
-modulate = Color( 1, 1, 1, 0 )
-tile_set = ExtResource( 2 )
+[node name="nenuphar" type="TileMap" parent="Navigation2D"]
+scale = Vector2( 0.5, 0.5 )
+tile_set = SubResource( 3 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 1610612736, 0, 720917, 1610612736, 0, 720918, 1610612736, 0, 720919, 1610612736, 0, 720920, 1610612736, 0, 720921, 1610612736, 0, 720922, 0, 0, 720923, 0, 0, 720924, 1610612736, 0, 720925, 1610612736, 0, 720926, 1610612736, 0, 720927, 1610612736, 0, 720928, 1610612736, 0, 720929, 0, 0, 720930, 0, 0, 720931, 0, 0, 720932, 0, 0, 720933, 0, 0, 720934, 0, 0, 720935, 0, 0, 720936, 0, 0, 720937, 0, 0, 720938, 0, 0, 720939, 0, 0, 720940, 0, 0, 720941, 0, 0, 720942, 0, 0, 720943, 0, 0, 720944, 0, 0, 720945, 0, 0, 720946, 0, 0, 720947, 0, 0, 720948, 0, 0, 720949, 0, 0, 720950, 0, 0, 720951, 0, 0, 720952, 0, 0, 720953, 0, 0, 720954, 0, 0, 720955, 0, 0, 720956, 0, 0, 720957, 0, 0, 720958, 0, 0, 720959, 0, 0, 720960, 0, 0, 720961, 0, 0, 720962, 0, 0, 720963, 0, 0, 720964, 0, 0, 720965, 0, 0, 720966, 0, 0, 720967, 0, 0, 720968, 0, 0, 720969, 0, 0, 720970, 0, 0, 720971, 0, 0, 720972, 0, 0, 720973, 0, 0, 720974, 0, 0, 720975, 0, 0, 720976, 0, 0, 720977, 0, 0, 720978, 0, 0, 720979, 0, 0, 720980, 0, 0, 720981, 0, 0, 720982, 0, 0, 720983, 0, 0, 720984, 0, 0, 720985, 0, 0, 720986, 0, 0, 720987, 0, 0, 720988, 0, 0, 720989, 0, 0, 720990, 0, 0, 720991, 0, 0, 720992, 0, 0, 720993, 0, 0, 720994, 0, 0, 720995, 0, 0, 720996, 0, 0, 720997, 0, 0, 720998, 0, 0, 720999, 0, 0, 721000, 0, 0, 721001, 0, 0, 721002, 0, 0, 721003, 0, 0, 721004, 0, 0, 721005, 0, 0, 721006, 0, 0, 721007, 0, 0, 721008, 0, 0, 721009, 0, 0, 721010, 0, 0, 721011, 0, 0, 721012, 0, 0, 721013, 0, 0, 721014, 0, 0, 721015, 0, 0, 721016, 0, 0, 721017, 0, 0, 721018, 0, 0, 721019, 0, 0, 721020, 0, 0, 721021, 0, 0, 721022, 0, 0, 721023, 0, 0, 721024, 0, 0, 721025, 0, 0, 721026, 0, 0, 721027, 0, 0, 721028, 0, 0, 721029, 0, 0, 721030, 0, 0, 721031, 0, 0, 721032, 0, 0, 721033, 0, 0, 721034, 0, 0, 721035, 0, 0, 721036, 0, 0, 721037, 0, 0, 721038, 0, 0, 721039, 0, 0, 721040, 0, 0, 721041, 0, 0, 721042, 0, 0, 721043, 0, 0, 721044, 0, 0, 721045, 0, 0, 721046, 0, 0, 721047, 0, 0, 721048, 0, 0, 721049, 0, 0, 721050, 0, 0, 721051, 0, 0, 721052, 0, 0, 721053, 0, 0, 721054, 0, 0, 721055, 0, 0, 721056, 0, 0, 721057, 0, 0, 721058, 0, 0, 721059, 0, 0, 721060, 0, 0, 721061, 0, 0, 721062, 0, 0, 721063, 0, 0, 721064, 0, 0, 721065, 0, 0, 721066, 0, 0, 721067, 0, 0, 721068, 0, 0, 721069, 0, 0, 721070, 0, 0, 721071, 0, 0, 721072, 0, 0, 721073, 0, 0, 721074, 0, 0, 721075, 0, 0, 721076, 0, 0, 721077, 0, 0, 721078, 0, 0, 721079, 0, 0, 721080, 0, 0, 721081, 0, 0, 721082, 0, 0, 721083, 0, 0 )
+tile_data = PoolIntArray( 327709, 1, 0, 327714, 1, 0, 327718, 1, 0, 655402, 1, 0, 655403, 1, 0, 655406, 1, 0, 655416, 1, 0, 655421, 1, 0, 655428, 1, 0, 655430, 1, 0, 655433, 1, 0, 655436, 1, 0, 655439, 1, 0 )
+
+[node name="ground" type="TileMap" parent="Navigation2D"]
+modulate = Color( 1, 1, 1, 0 )
+tile_set = SubResource( 5 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0, 720923, 0, 0, 720924, 0, 0, 720925, 0, 0, 720926, 0, 0, 720927, 0, 0, 720928, 0, 0, 720929, 0, 0, 720930, 0, 0, 720931, 0, 0, 720932, 0, 0, 720933, 0, 0, 720934, 0, 0, 720935, 0, 0, 720936, 0, 0, 720937, 0, 0, 720938, 0, 0, 720939, 0, 0, 720940, 0, 0, 720941, 0, 0, 720942, 0, 0, 720943, 0, 0, 720944, 0, 0, 720945, 0, 0, 720946, 0, 0, 720947, 0, 0, 720948, 0, 0, 720949, 0, 0, 720950, 0, 0, 720951, 0, 0, 720952, 0, 0, 720953, 0, 0, 720954, 0, 0, 720955, 0, 0, 720956, 0, 0, 720957, 0, 0, 720958, 0, 0, 720959, 0, 0, 720960, 0, 0, 720961, 0, 0, 720962, 0, 0, 720963, 0, 0, 720964, 0, 0, 720965, 0, 0, 720966, 0, 0, 720967, 0, 0, 720968, 0, 0, 720969, 0, 0, 720970, 0, 0, 720971, 0, 0, 720972, 0, 0, 720973, 0, 0, 720974, 0, 0, 720975, 0, 0, 720976, 0, 0, 720977, 0, 0, 720978, 0, 0, 720979, 0, 0, 720980, 0, 0, 720981, 0, 0, 720982, 0, 0, 720983, 0, 0, 720984, 0, 0, 720985, 0, 0, 720986, 0, 0, 720987, 0, 0, 720988, 0, 0, 720989, 0, 0, 720990, 0, 0, 720991, 0, 0, 720992, 0, 0, 720993, 0, 0, 720994, 0, 0, 720995, 0, 0, 720996, 0, 0, 720997, 0, 0, 720998, 0, 0, 720999, 0, 0, 721000, 0, 0, 721001, 0, 0, 721002, 0, 0, 721003, 0, 0, 721004, 0, 0, 721005, 0, 0, 721006, 0, 0, 721007, 0, 0, 721008, 0, 0, 721009, 0, 0, 721010, 0, 0, 721011, 0, 0, 721012, 0, 0, 721013, 0, 0, 721014, 0, 0, 721015, 0, 0, 721016, 0, 0, 721017, 0, 0, 721018, 0, 0, 721019, 0, 0, 721020, 0, 0, 721021, 0, 0, 721022, 0, 0, 721023, 0, 0, 721024, 0, 0, 721025, 0, 0, 721026, 0, 0, 721027, 0, 0, 721028, 0, 0, 721029, 0, 0, 721030, 0, 0, 721031, 0, 0, 721032, 0, 0, 721033, 0, 0, 721034, 0, 0, 721035, 0, 0, 721036, 0, 0, 721037, 0, 0, 721038, 0, 0, 721039, 0, 0, 721040, 0, 0, 721041, 0, 0, 721042, 0, 0, 721043, 0, 0, 721044, 0, 0, 721045, 0, 0, 721046, 0, 0, 721047, 0, 0, 721048, 0, 0, 721049, 0, 0, 721050, 0, 0, 721051, 0, 0, 721052, 0, 0, 721053, 0, 0, 721054, 0, 0, 721055, 0, 0, 721056, 0, 0, 721057, 0, 0, 721058, 0, 0, 721059, 0, 0, 721060, 0, 0, 721061, 0, 0, 721062, 0, 0, 721063, 0, 0, 721064, 0, 0, 721065, 0, 0, 721066, 0, 0, 721067, 0, 0, 721068, 0, 0, 721069, 0, 0, 721070, 0, 0, 721071, 0, 0, 721072, 0, 0, 721073, 0, 0, 721074, 0, 0, 721075, 0, 0, 721076, 0, 0, 721077, 0, 0, 721078, 0, 0, 721079, 0, 0, 721080, 0, 0, 721081, 0, 0, 721082, 0, 0, 721083, 0, 0 )
+
+[node name="lotus" type="TileMap" parent="Navigation2D"]
+scale = Vector2( 0.2, 0.2 )
+tile_set = SubResource( 9 )
+format = 1
+tile_data = PoolIntArray( 327699, 0, 0, 655397, 0, 0, 3211364, 0, 0, 3211372, 0, 0, 3211382, 0, 0 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 9746.57, 453.623 )
+scale = Vector2( 1.58445, 1.40534 )
+texture = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -29,36 +152,16 @@ margin_left = 1399.88
 margin_top = 6.23474
 margin_right = 1598.88
 margin_bottom = 87.2347
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 6 )
 text = "Retour"
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-show_behind_parent = true
-position = Vector2( 0, -500 )
-motion_scale = Vector2( 0.1, 0.1 )
-motion_mirroring = Vector2( 1920, 1080 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-scale = Vector2( 4, 4 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-show_behind_parent = true
-motion_scale = Vector2( 0.2, 0.2 )
-motion_mirroring = Vector2( 12010, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-show_behind_parent = true
-position = Vector2( 9743.23, 453.623 )
-scale = Vector2( 1.58445, 1.40534 )
-texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -73,4 +176,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+
+[node name="Frog" type="Sprite" parent="."]
+position = Vector2( 2619, 297.096 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
