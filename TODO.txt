@@ -27,6 +27,7 @@
 ---------   effets sonores
 ---------   faire un effecteur : colonne de vent
 ---------   faire un laser
+---------   faire des plateformes mouvantes
 
 
                                 |   Add_on  |
