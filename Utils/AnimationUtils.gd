@@ -104,30 +104,27 @@ func floating_damage(node : Node2D, dmg : int, _bool : bool):
 	if _bool:
 		var label = Label.new()
 		label.add_font_override("font", load("res://Assets/Font/Blox2.ttf"))
-#		label.rect_size(Vector2(200,200))
 		label.set_position(Vector2(node.get_position().x + 120, node.get_position().y - 40))
-		label.set_scale(Vector2(5,5))
+#		label.set_scale(Vector2(10,10))
 		var damage = dmg
 		var parent = node.get_parent()
 		parent.add_child(label)
 		label.text = ("-" + str(damage))
 		var tween : Tween = Tween.new()
 		node.add_child(tween)
-		
-		tween.interpolate_property(label, "modulate", Color("#f1ff08"), Color("#00ffffff"), 0.7, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()		
 
+		tween.interpolate_property(label, "modulate", Color("#f1ff08"), Color("#00ffffff"), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)		
+
+		tween.interpolate_property(label, "scale", Vector2(1,1), Vector2(10,10), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		
-		tween.interpolate_property(label, "Scale", Vector2(1,1), Vector2(10,10), 0.7, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
-		yield(tween, "tween_completed")
-				
-		tween.interpolate_property(label, "Scale", Vector2(10,10), Vector2(0.4,0.4), 0.7, Tween.TRANS_SINE, Tween.EASE_IN_OUT)				
-		tween.interpolate_callback(label, 1.0, "destroy")	
-		tween.start()
+		tween.start()	
+		yield(tween, "tween_completed")		
+
+#		tween.interpolate_property(label, "Scale", Vector2(10,10), Vector2(0.4,0.4), 0.3, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.7)				
+#		tween.start()
+#		tween.interpolate_callback(label, 1.0, "destroy")			
 #		label.queue_free()
 		_bool = false
-		yield(tween, "tween_completed")
 		return tween
 
 
