@@ -144,7 +144,7 @@ script = ExtResource( 1 )
 tile_set = SubResource( 6 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 196688, 1, 0, 458783, 1, 0, 458784, 1, 0, 458800, 1, 0, 458801, 1, 0, 524319, 1, 0, 524320, 1, 0, 524327, 1, 0, 524328, 1, 0, 524329, 1, 0, 524336, 1, 0, 524337, 1, 0, 589855, 1, 0, 589856, 1, 0, 589863, 1, 0, 589864, 1, 0, 589865, 1, 0, 589872, 1, 0, 589873, 1, 0, 589994, 2, 0, 590013, 2, 0, 852092, 1, 0, 917628, 1, 0, 983164, 1, 0 )
+tile_data = PoolIntArray( 458783, 1, 0, 458784, 1, 0, 458800, 1, 0, 458801, 1, 0, 524319, 1, 0, 524320, 1, 0, 524327, 1, 0, 524328, 1, 0, 524329, 1, 0, 524336, 1, 0, 524337, 1, 0, 589855, 1, 0, 589856, 1, 0, 589863, 1, 0, 589864, 1, 0, 589865, 1, 0, 589872, 1, 0, 589873, 1, 0, 589994, 2, 0, 590013, 2, 0, 852092, 1, 0, 917628, 1, 0, 983164, 1, 0 )
 
 [node name="lotus" type="TileMap" parent="Navigation2D"]
 scale = Vector2( 0.2, 0.2 )
@@ -184,7 +184,6 @@ visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 visible = false
-position = Vector2( 0, 300 )
 motion_mirroring = Vector2( 7000, 0 )
 
 [node name="background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -209,4 +208,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
