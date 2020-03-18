@@ -50,7 +50,7 @@ func _ready():
 	add_child(portalNode)
 	ECS.add_component(portalNode, ComponentsLibrary.Collision)
 	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp_portal.set_position(Vector2(600,530))
+	pos_comp_portal.set_position(Vector2(16250,500))
 	
 func load_characters() :
 
