@@ -78,7 +78,7 @@ func load_characters() :
 	heroNode.get_node("hero_spr").set_rotation_degrees(-180)
 	heroNode.get_node("hero_spr").set_flip_h(true)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(17600,500))
+	pos_comp.set_position(Vector2(6000,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -167,10 +167,10 @@ func _process(delta):
 func _load_monsters():
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(4750,345), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(5600,345), gold, health, damage)
-	EntitiesUtils.create_flip_monster(self, monster, Vector2(6350,345), gold, health, damage)
+	EntitiesUtils.create_flip_monster(self, monster, Vector2(6405,345), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(7250,345), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(8050,345), gold, health, damage)
-	EntitiesUtils.create_flip_monster(self, monster, Vector2(9500,345), gold, health, damage)
+	EntitiesUtils.create_flip_monster(self, monster, Vector2(9505,345), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(11750,730), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(14370,603), gold, health, damage)
 	EntitiesUtils.create_flip_monster(self, monster, Vector2(16145,603), gold, health, damage)
@@ -182,7 +182,6 @@ func _load_bullets():
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(18760,100))
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(20040,100))
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(21320,100))
-		
 
 func _on_Timer_timeout():
 		_load_bullets()
