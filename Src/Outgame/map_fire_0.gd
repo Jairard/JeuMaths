@@ -7,6 +7,7 @@ onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
 onready var monster 		= 	preload("res://Src/Ingame/characters/monsters.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
+onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.tscn")
 
 onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
@@ -44,6 +45,7 @@ func _ready():
 	_load_ressources()
 	_load_monsters()
 	load_gold()
+	load_platform()
 	ECS.clear_ghosts()
 
 	var portalNode = portal.instance()
@@ -55,7 +57,7 @@ func _ready():
 func load_characters() :
 
 	var enemyNode = enemy.instance()
-	add_child(enemyNode)
+#	add_child(enemyNode)
 
 
 	heroNode = hero.instance()
@@ -74,8 +76,8 @@ func load_characters() :
 	add_child(portalNode)
 	portalNode.set_position(Vector2(16300,550))
 
-	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-	enemy_pos_comp.set_position(Vector2(600,200))														#Appears at (0,0)
+#	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
+#	enemy_pos_comp.set_position(Vector2(600,200))														#Appears at (0,0)
 
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
@@ -83,7 +85,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(250,500))
+	pos_comp.set_position(Vector2(4300,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -243,4 +245,6 @@ func load_gold():
 	EntitiesUtils.create_gold(self, gold, Vector2(9175,-3250))
 	EntitiesUtils.create_gold(self, gold, Vector2(8200,-3700))
 	EntitiesUtils.create_gold(self, gold, Vector2(8300,-3700))
-			
+	
+func load_platform():
+	EntitiesUtils.create_platform(self, platform, Vector2(5100,600))

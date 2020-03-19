@@ -7,8 +7,11 @@ var left_move = false
 var velocity = Vector2(150,0)
 
 func _get_mandatory_components() -> Array:
-	return [ComponentsLibrary.Animation, ComponentsLibrary.Patrol, ComponentsLibrary.Position]
+	return [ComponentsLibrary.Patrol, ComponentsLibrary.Position]
 
+func _get_optional_components() -> Array:
+	return [ComponentsLibrary.Animation]
+	
 func _process_node(dt : float, components : Dictionary) -> void:
 	var comp_patrol  = 	components[ComponentsLibrary.Patrol] as PatrolComponent
 	var comp_anim	 = 	components[ComponentsLibrary.Animation] as AnimationComponent
@@ -17,9 +20,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var dp = velocity * dt
 
 #	comp_patrol.set_pattern(true)
-
-	if comp_patrol.patrol == true :
+	if comp_anim != null: 
 		comp_anim.play(comp_anim.anim.right)
+	
+	if comp_patrol.patrol == true :
 
 		if right_move == true :
 
