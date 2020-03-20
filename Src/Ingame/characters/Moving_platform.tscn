@@ -6,6 +6,7 @@
 extents = Vector2( 32.0085, 20.8607 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
