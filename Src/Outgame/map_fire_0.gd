@@ -57,7 +57,7 @@ func _ready():
 func load_characters() :
 
 	var enemyNode = enemy.instance()
-#	add_child(enemyNode)
+	add_child(enemyNode)
 
 
 	heroNode = hero.instance()
@@ -76,8 +76,8 @@ func load_characters() :
 	add_child(portalNode)
 	portalNode.set_position(Vector2(16300,550))
 
-#	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-#	enemy_pos_comp.set_position(Vector2(600,200))														#Appears at (0,0)
+	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
+	enemy_pos_comp.set_position(Vector2(600,200))														#Appears at (0,0)
 
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
@@ -85,7 +85,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(4300,500))
+	pos_comp.set_position(Vector2(300,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
