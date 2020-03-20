@@ -81,7 +81,7 @@ func set_health(health : int) -> void :
 	var black = Color("000000")
 
 	if global_ratio >= 0.75:
-		print (global_ratio)
+#		print (global_ratio)
 		var local_ratio = 4*global_ratio - 3
 		var color = lerp(yellow, green, local_ratio)
 		_health_value.set_tint_progress(color)
