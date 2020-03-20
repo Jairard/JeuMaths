@@ -34,7 +34,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Endfight)
 
 	spawn()
-	load_hud()
 	
 	
 	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
@@ -60,9 +59,11 @@ func _ready():
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	hero_pos.set_position(Vector2(100,535))
 
+	var hero_health = FileBankUtils.health	
+	var hero_health_max = FileBankUtils.health_max		
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
-
+	health_comp_hero.init(hero_health,hero_health)
+		
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 
 
@@ -76,7 +77,8 @@ func _ready():
 	ECS.add_component(enemyNode, ComponentsLibrary.Node_Enemy)
 	ECS.add_component(enemyNode, ComponentsLibrary.Position)
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_enemy.init(health_comp_hero.health + (damage_comp_hero.damage * 6),health_comp_hero.health + (damage_comp_hero.damage * 6))
+	var enemy_health = health_comp_hero.get_health_max() + (damage_comp_hero.get_damage() * 6)	
+	health_comp_enemy.init(enemy_health, enemy_health)
 
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
 	var damage_enemy = int(damage_comp_hero.damage * 0.3)
@@ -104,7 +106,7 @@ func _ready():
 
 	calcul_instance.set_answer_listener(answer_listener)
 
-	
+	load_hud(hero_health, hero_health_max, enemy_health, enemy_health)	
 	ECS.clear_ghosts()
 
 func _process(delta):
@@ -124,7 +126,7 @@ func spawn() :
 	calcul_instance.hide()
 	add_child(calcul_instance)
 
-func load_hud():
+func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int, _enemy_health_max : int):
 	var Hud_heroNode = hud_hero.instance()
 	add_child(Hud_heroNode)
 	Hud_heroNode.set_name("Hud_hero")
@@ -132,7 +134,7 @@ func load_hud():
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 
 	hud_comp.init_hero_map(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
-	Hud_heroNode.get_life_hero_max(), Hud_heroNode.get_damage())
+						   Hud_heroNode.get_damage(), _hero_health, _hero_health_max)
 	
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)
@@ -140,7 +142,7 @@ func load_hud():
 
 	var hud_enemy_comp = ECS.add_component(enemyNode, ComponentsLibrary.Hud) as HudComponent
 	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
-	Hud_enemyNode.get_life_ennemy_max(),Hud_enemyNode.get_damage())
+							  Hud_enemyNode.get_damage(), _enemy_health, _enemy_health_max)
 
 	var ScoreNode = score.instance()
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
