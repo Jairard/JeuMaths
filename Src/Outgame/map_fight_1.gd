@@ -34,7 +34,9 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Endfight)
 
 	spawn()
-
+	load_hud()
+	
+	
 	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
 	listener_hero.init(calcul_instance, calcul)
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
@@ -102,8 +104,7 @@ func _ready():
 
 	calcul_instance.set_answer_listener(answer_listener)
 
-	load_hud()
-
+	
 	ECS.clear_ghosts()
 
 func _process(delta):

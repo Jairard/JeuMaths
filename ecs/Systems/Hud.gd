@@ -21,11 +21,12 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var comp_score		 	= 	components[ComponentsLibrary.Scoreglobal] 	as	ScoreglobalcounterComponent
 
 	if comp_health != null:
-		comp_hud.update_displayed_health(dt)
+		comp_hud.update_displayed_health(dt)	
+		var max_health = comp_health.get_health_max()
+		comp_hud.set_health_max(max_health)					
 		var current_health = comp_health.get_health()
 		comp_hud.set_health(current_health)
-		var max_health = comp_health.get_health_max()
-		comp_hud.set_health_max(max_health)
+		
 
 	if comp_treasure != null:
 		var current_treasure = comp_treasure.get_treasure()

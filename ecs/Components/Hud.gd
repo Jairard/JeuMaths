@@ -33,7 +33,8 @@ func init_hero_map(health_value : TextureProgress, health_label : Label,
 	_damage = damage
 	original_health = health_value.value
 	target_health = original_health
-
+#	print ("original hero : ", original_health, "  /  target : ", target_health)	
+	
 
 func init_enemy(health_value : TextureProgress, health_label : Label, 
 				health_max : TextureProgress, damage : Label) -> void:
@@ -43,7 +44,8 @@ func init_enemy(health_value : TextureProgress, health_label : Label,
 	_damage = damage
 	original_health = health_value.value
 	target_health = original_health
-
+#	print ("original enemy : ", original_health, "  /  target : ", target_health)
+	
 
 func init_stats(good_answer : Label, wrong_answer : Label, victories : Label, defeats : Label) -> void:
 	_good_answer = good_answer
@@ -62,6 +64,7 @@ func update_displayed_health(dt : float) -> void:
 func set_health(health : int) -> void :
 
 	if health != target_health:
+		print ("health : ", health, "  /  target : ", target_health)		
 		target_health = health
 		health_current_anim_time = 0
 	
