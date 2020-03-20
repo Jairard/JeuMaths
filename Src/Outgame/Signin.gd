@@ -12,7 +12,7 @@ const init_stats : Dictionary =  {
 func _ready(): 
 	if FileBankUtils.loaded_heroes_stats != null:
 		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
-	print ("scenes : ", FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
+		
 #func _process(delta):
 #	pass
 

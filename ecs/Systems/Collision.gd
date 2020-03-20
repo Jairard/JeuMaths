@@ -101,7 +101,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,enemy_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :    			# ENEMY
 
-			print("Enemy collision !")
+#			print("Enemy collision !")
 
 			if health_comp != null:
 				var new_scene = FileBankUtils.loaded_scenes["map_fight_1"]
