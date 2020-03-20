@@ -141,6 +141,7 @@ script = ExtResource( 1 )
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="Control_0" type="Control" parent="Navigation2D"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -165,6 +166,7 @@ tile_set = SubResource( 8 )
 format = 1
 
 [node name="Control_1" type="Control" parent="Navigation2D"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

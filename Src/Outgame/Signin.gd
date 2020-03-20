@@ -36,10 +36,11 @@ func _on_Button_pressed():
 
 #	get_tree().change_scene(FileBankUtils.loaded_scenes["rewards"])
 #	get_tree().change_scene(FileBankUtils.loaded_scenes["map_water"])
+	get_tree().change_scene(FileBankUtils.loaded_scenes["map_water_0"])
 #	Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
 #	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
 #	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
-	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+#	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
 
 #	if stats_hero["new_hero"] == true:
 #		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
