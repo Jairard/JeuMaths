@@ -11,7 +11,7 @@ func create_monster(root : Node2D, resource : Resource, pos : Vector2, gold : Re
 	var animation_player_monster = monsterNode.get_node("animation_monster")
 	comp_anim_monster.init(anim_name_monster, animation_player_monster)
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
-	comp_patrol.init(700,900)
+	comp_patrol.init(pos, Vector2(pos.x + 500, pos.y), 3)
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)
 	var lootDict_monster = [ {gold : 10}, {health : 10, damage : 5, null : 90}]
@@ -62,7 +62,7 @@ func create_flip_monster(root : Node2D, resource : Resource, pos : Vector2, gold
 	var animation_player_monster = monsterNode.get_node("animation_monster")
 	comp_anim_monster.init(anim_name_monster, animation_player_monster)
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
-	comp_patrol.init(700,900)
+	comp_patrol.init(pos, Vector2(pos.x + 500, pos.y), 3)
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)
 	var lootDict_monster = [ {gold : 10}, {health : 10, damage : 5, null : 90}]
@@ -73,10 +73,10 @@ func create_flip_monster(root : Node2D, resource : Resource, pos : Vector2, gold
 	monsterNode.get_node("head").set_rotation_degrees(-180)
 #	heroNode.get_node("hero_spr").set_flip_h(true)
 
-func create_platform(root : Node2D, resource : Resource, pos : Vector2, lengh : int):
+func create_platform(root : Node2D, resource : Resource, pos_start : Vector2, pos_end : Vector2, timer : float):
 	var platformNode = resource.instance()
 	root.add_child(platformNode)
 	var pos_comp_platform = ECS.add_component(platformNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp_platform.set_position(pos)
+	pos_comp_platform.set_position(pos_start)
 	var comp_patrol_platform = ECS.add_component(platformNode, ComponentsLibrary.Patrol) as PatrolComponent
-	comp_patrol_platform.init(0,lengh)
+	comp_patrol_platform.init(pos_start, pos_end, timer)

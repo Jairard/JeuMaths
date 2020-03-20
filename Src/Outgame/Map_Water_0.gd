@@ -89,12 +89,11 @@ func _ready():
 
 
 func _load_monsters():
-#	EntitiesUtils.create_monster(self, monster, Vector2(4000,325), gold, health, damage)
-#	EntitiesUtils.create_monster(self, monster, Vector2(5200,325), gold, health, damage)
-#	EntitiesUtils.create_monster(self, monster, Vector2(8750,1220), gold, health, damage)
-#	EntitiesUtils.create_monster(self, monster, Vector2(10750,265), gold, health, damage)
-#	EntitiesUtils.create_monster(self, monster, Vector2(11900,20), gold, health, damage)
-	pass
+	EntitiesUtils.create_monster(self, monster, Vector2(4000,325), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(5200,325), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(8750,1220), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(10750,265), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(11900,20), gold, health, damage)
 
 
 func _load_bullets():
@@ -122,27 +121,28 @@ func load_gold():
 	EntitiesUtils.create_gold(self, gold, Vector2(9850,-280))
 
 func load_platform():
-	EntitiesUtils.create_platform(self, platform, Vector2(1750,0), 200)
-	EntitiesUtils.create_platform(self, platform, Vector2(2250,0), 100)
-	EntitiesUtils.create_platform(self, platform, Vector2(2650,0), 200)
-	EntitiesUtils.create_platform(self, platform, Vector2(3150,0), 100)
-	EntitiesUtils.create_platform(self, platform, Vector2(3550,0), 200)
-	EntitiesUtils.create_platform(self, platform, Vector2(4050,0), 100)
-	EntitiesUtils.create_platform(self, platform, Vector2(4450,0), 200)
-
-	EntitiesUtils.create_platform(self, platform, Vector2(4950,0), 200)
-	EntitiesUtils.create_platform(self, platform, Vector2(5350,0), 100)
-	EntitiesUtils.create_platform(self, platform, Vector2(5850,0), 200)
-	EntitiesUtils.create_platform(self, platform, Vector2(6250,0), 100)
-	EntitiesUtils.create_platform(self, platform, Vector2(6750,0), 200)
-	EntitiesUtils.create_platform(self, platform, Vector2(7150,0), 100)
-	EntitiesUtils.create_platform(self, platform, Vector2(7650,0), 200)
-
-	EntitiesUtils.create_platform(self, platform, Vector2(8050,0), 200)
-	EntitiesUtils.create_platform(self, platform, Vector2(8550,0), 100)
-	EntitiesUtils.create_platform(self, platform, Vector2(8950,0), 200)
-	EntitiesUtils.create_platform(self, platform, Vector2(9350,0), 100)
-	EntitiesUtils.create_platform(self, platform, Vector2(9750,0), 200)
+#	EntitiesUtils.create_platform(self, platform, Vector2(1750,0), 200) #500
+#	EntitiesUtils.create_platform(self, platform, Vector2(2250,0), 100) #250
+#	EntitiesUtils.create_platform(self, platform, Vector2(2650,0), 200)
+#	EntitiesUtils.create_platform(self, platform, Vector2(3150,0), 100)
+#	EntitiesUtils.create_platform(self, platform, Vector2(3550,0), 200)
+#	EntitiesUtils.create_platform(self, platform, Vector2(4050,0), 100)
+#	EntitiesUtils.create_platform(self, platform, Vector2(4450,0), 200)
+#
+#	EntitiesUtils.create_platform(self, platform, Vector2(4950,0), 200)
+#	EntitiesUtils.create_platform(self, platform, Vector2(5350,0), 100)
+#	EntitiesUtils.create_platform(self, platform, Vector2(5850,0), 200)
+#	EntitiesUtils.create_platform(self, platform, Vector2(6250,0), 100)
+#	EntitiesUtils.create_platform(self, platform, Vector2(6750,0), 200)
+#	EntitiesUtils.create_platform(self, platform, Vector2(7150,0), 100)
+#	EntitiesUtils.create_platform(self, platform, Vector2(7650,0), 200)
+#
+#	EntitiesUtils.create_platform(self, platform, Vector2(8050,0), 200)
+#	EntitiesUtils.create_platform(self, platform, Vector2(8550,0), 100)
+#	EntitiesUtils.create_platform(self, platform, Vector2(8950,0), 200)
+#	EntitiesUtils.create_platform(self, platform, Vector2(9350,0), 100)
+#	EntitiesUtils.create_platform(self, platform, Vector2(9750,0), 200)
+	pass
 
 func _on_Timer_timeout():
 	_load_bullets()

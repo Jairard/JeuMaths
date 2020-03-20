@@ -2,19 +2,32 @@ extends Component
 
 class_name PatrolComponent
 
-var x_min_ref = 0
-var x_min = 0
-var x_max = 0
+var pos_start : Vector2 = Vector2(0,0)
+var pos_end : Vector2 = Vector2(0,0)
+var timer : float = 0
+var ratio : float = 0
 
-var patrol = true
+func init(_pos_start : Vector2, _pos_end  : Vector2, _timer : float) -> void :
+	pos_start = _pos_start
+	pos_end = _pos_end
+	timer = _timer
 
-func init(value_min : int, value_max : int) -> void :
-	x_min = value_min
-	x_max = value_max
-	x_min_ref = value_min
+func get_pos_start() -> Vector2:
+	return pos_start
 
-func get_pattern() -> bool :
-	return patrol
+func get_pos_end() -> Vector2:
+	return pos_end
 
-func set_pattern(value : bool) -> void :
-	patrol = value
+func get_timer() -> float:
+	return timer
+
+func get_ratio() -> float:
+	return ratio
+
+func set_ratio(_ratio : float) -> void:
+	ratio = _ratio
+	if ratio >= 1:
+		var pos = pos_start
+		pos_start = pos_end
+		pos_end = pos
+		ratio = 0

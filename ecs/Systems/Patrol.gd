@@ -2,9 +2,6 @@ extends System
 
 class_name PatrolSystem
 
-var right_move = true
-var left_move = false
-var velocity = Vector2(150,0)
 
 func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Patrol, ComponentsLibrary.Position]
@@ -17,35 +14,15 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var comp_anim	 = 	components[ComponentsLibrary.Animation] as AnimationComponent
 	var comp_pos	 = 	components[ComponentsLibrary.Position] as PositionComponent
 
-	var dp = velocity * dt
 
-#	comp_patrol.set_pattern(true)
 	if comp_anim != null: 
 		comp_anim.play(comp_anim.anim.right)
+
+	var previous_ratio = comp_patrol.get_ratio()
+	var delta_ratio = dt/comp_patrol.get_timer()
+	var current_ratio = previous_ratio + delta_ratio
+	var clamped_ratio = min(1, current_ratio)
+	var new_position = lerp(comp_patrol.get_pos_start(), comp_patrol.get_pos_end(), clamped_ratio)
 	
-	if comp_patrol.patrol == true :
-
-		if right_move == true :
-
-			if comp_patrol.x_min < comp_patrol.x_max :
-				comp_patrol.x_min += 1
-				comp_pos.set_position(comp_pos.get_position() + dp)
-
-			else :
-				right_move = false
-				left_move = true
-
-
-		if left_move == true :
-
-			if comp_patrol.x_min > comp_patrol.x_min_ref :
-				comp_patrol.x_min -= 1
-				comp_pos.set_position(comp_pos.get_position() - dp)
-
-			else :
-				right_move = true
-				left_move = false
-
-
-
-
+	comp_pos.set_position(new_position)
+	comp_patrol.set_ratio(clamped_ratio)
