@@ -4,7 +4,6 @@ class_name HudComponent
 
 var _health_value  	: 	TextureProgress = null
 var _health_label 	: 	Label = null
-var _health_max 	: 	TextureProgress = null
 var _damage			: 	Label = null
 var _treasure 		:	Label = null
 var _score_label	:   RichTextLabel = null
@@ -26,23 +25,25 @@ func init_hero_fight(treasure : Label, score_label : RichTextLabel) -> void:				
 	_score_label = score_label
 
 func init_hero_map(health_value : TextureProgress, health_label : Label,
-				   health_max : TextureProgress, damage : Label) -> void : 		#init node on map fire/water		
+				   damage : Label, initial_health : int, initial_health_max : int) -> void : 		#init node on map fire/water		
 	_health_value = health_value
 	_health_label = health_label
-	_health_max = health_max
 	_damage = damage
-	original_health = health_value.value
+	_health_value.value = initial_health
+	_health_value.max_value = initial_health_max	
+	original_health = initial_health
 	target_health = original_health
 #	print ("original hero : ", original_health, "  /  target : ", target_health)	
 	
 
 func init_enemy(health_value : TextureProgress, health_label : Label, 
-				health_max : TextureProgress, damage : Label) -> void:
+				damage : Label, initial_health : int, initial_health_max : int) -> void:
 	_health_value = health_value
 	_health_label = health_label
-	_health_max = health_max
+	_health_value.value = initial_health
+	_health_value.max_value = initial_health_max
 	_damage = damage
-	original_health = health_value.value
+	original_health = initial_health
 	target_health = original_health
 #	print ("original enemy : ", original_health, "  /  target : ", target_health)
 	
@@ -64,16 +65,16 @@ func update_displayed_health(dt : float) -> void:
 func set_health(health : int) -> void :
 
 	if health != target_health:
-#		print ("health : ", health, "  /  target : ", target_health)		
+		print ("health : ", health, "  /  target : ", target_health)		
 		target_health = health
 		health_current_anim_time = 0
 	
 	if _health_value.value > 0:
-		_health_label.text = "%s / %s" % [health,  _health_max.max_value]	
+		_health_label.text = "%s / %s" % [health,  _health_value.max_value]	
 	if _health_value.value <= 0:
 		_health_label.text = str(0)
 	
-	var global_ratio = (health  / _health_max.max_value) 	
+	var global_ratio = (health  / _health_value.max_value) 	
 	var yellow = Color("f1ff08")
 	var green = Color("14e114")
 	var orange = Color("ffad00")
@@ -105,7 +106,7 @@ func set_health(health : int) -> void :
 
 
 func set_health_max(value : int) -> void:
-	_health_max.max_value = value
+	_health_value.max_value = value
 
 func set_damage(value : int) -> void :
 	_damage.text = str(value)

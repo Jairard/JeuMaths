@@ -6,9 +6,6 @@ func get_life_hero() -> TextureProgress :
 func get_life_hero_label() -> Label :
 	return $CanvasLayer/HBoxContainer5/MarginContainer/health 		as Label
 
-func get_life_hero_max() -> TextureProgress  :
-	return $CanvasLayer/pv_hero/MarginContainer/life_hero 			as TextureProgress
-
 func get_damage() -> Label :
 	return $CanvasLayer/valeur_degats/MarginContainer/valeur_degat 	as Label
 
