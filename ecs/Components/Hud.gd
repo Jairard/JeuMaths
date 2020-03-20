@@ -64,7 +64,7 @@ func update_displayed_health(dt : float) -> void:
 func set_health(health : int) -> void :
 
 	if health != target_health:
-		print ("health : ", health, "  /  target : ", target_health)		
+#		print ("health : ", health, "  /  target : ", target_health)		
 		target_health = health
 		health_current_anim_time = 0
 	
@@ -73,20 +73,33 @@ func set_health(health : int) -> void :
 	if _health_value.value <= 0:
 		_health_label.text = str(0)
 	
-#	var global_ratio = (health  / _health_max.max_value) 	
-#	if global_ratio >= 0.75 :
-#		var yellow = Color("f1ff08")
-#		var green = Color("14e114")
-#		var local_ratio = 4*global_ratio - 3
-#		var color = lerp(yellow, green, local_ratio)
-#		var 
-#		_health_value.set_tint_progress(color)		
-#	elif ratio >= 0.5 and ratio < 0.75 :
-#		_health_value.set_tint_progress("f1ff08")		
-#	elif ratio >= 0.25 and ratio < 0.5 :
-#		_health_value.set_tint_progress("ffad00")		
-#	elif ratio <  0.25 :
-#		_health_value.set_tint_progress("e11e1e") 
+	var global_ratio = (health  / _health_max.max_value) 	
+	var yellow = Color("f1ff08")
+	var green = Color("14e114")
+	var orange = Color("ffad00")
+	var red = Color("e11e1e")
+	var black = Color("000000")
+
+	if global_ratio >= 0.75:
+		print (global_ratio)
+		var local_ratio = 4*global_ratio - 3
+		var color = lerp(yellow, green, local_ratio)
+		_health_value.set_tint_progress(color)
+
+	elif global_ratio >= 0.5 and global_ratio < 0.75 :
+		var local_ratio = 4*global_ratio - 2
+		var color = lerp(orange, yellow, local_ratio)
+		_health_value.set_tint_progress(color)
+
+	elif global_ratio >= 0.25 and global_ratio < 0.5 :
+		var local_ratio = 4*global_ratio - 1
+		var color = lerp(red, orange, local_ratio)
+		_health_value.set_tint_progress(color) 
+			
+	elif global_ratio < 0.25 :
+		var local_ratio = 4*global_ratio 
+		var color = lerp(black, red, local_ratio)
+		_health_value.set_tint_progress(color) 
 
 
 
