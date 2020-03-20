@@ -247,4 +247,4 @@ func load_gold():
 	EntitiesUtils.create_gold(self, gold, Vector2(8300,-3700))
 	
 func load_platform():
-	EntitiesUtils.create_platform(self, platform, Vector2(5100,600))
+	EntitiesUtils.create_platform(self, platform, Vector2(5100,600), 100)

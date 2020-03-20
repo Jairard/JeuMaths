@@ -73,10 +73,10 @@ func create_flip_monster(root : Node2D, resource : Resource, pos : Vector2, gold
 	monsterNode.get_node("head").set_rotation_degrees(-180)
 #	heroNode.get_node("hero_spr").set_flip_h(true)
 
-func create_platform(root : Node2D, resource : Resource, pos : Vector2):
+func create_platform(root : Node2D, resource : Resource, pos : Vector2, lengh : int):
 	var platformNode = resource.instance()
 	root.add_child(platformNode)
 	var pos_comp_platform = ECS.add_component(platformNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp_platform.set_position(pos)
 	var comp_patrol_platform = ECS.add_component(platformNode, ComponentsLibrary.Patrol) as PatrolComponent
-	comp_patrol_platform.init(0,100)
+	comp_patrol_platform.init(0,lengh)
