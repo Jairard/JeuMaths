@@ -2,6 +2,7 @@
 
 *********   mettre en pause les systems pour stats_popup
 *********   scene popup
+---------   collision avec de la vie
 ---------   map évolutive : utiliser la découpe scene en plusieurs tilemaps
 ---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : jouer le scale
@@ -11,9 +12,8 @@
 ---------   vector orthogonal : collider.get_normal angle entre vecteur et la normale : -angle pour le rebond
 
                                 |   Positioning  |
+ 
 
-*********   repositionner les plateformes dans map_water_0 
-*********   implémenter des plateformes dans les maps 
 
                                 |   Features  |
 
@@ -28,5 +28,4 @@
 
                                 |   Add_on  |
 
-*********   menu déroulant dans signin pour choix de map
 ---------   relier les notions cochées au code : liste de notions 
