@@ -97,14 +97,9 @@ func load_characters() :
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 
 
-	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
-
-	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(),
-	HudNode.get_life_hero_max(), HudNode.get_damage())
-
-	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 
 
+	var hero_health = FileBankUtils.health
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_hero.init(FileBankUtils.health_max,FileBankUtils.health_max)
 	# Refill the health
@@ -122,6 +117,14 @@ func load_characters() :
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
 
+
+	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
+
+	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(),
+						   HudNode.get_damage(), hero_health, hero_health)
+
+	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
+	
 func combat(valeur) :
 	if valeur == 0 :
 		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])

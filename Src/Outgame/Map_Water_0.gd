@@ -44,6 +44,7 @@ func _ready():
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_jump_impulse(800)
 	move_comp.set_lateral_velocity(350)
+	var hero_health = FileBankUtils.health
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_hero.init(FileBankUtils.health_max,FileBankUtils.health_max)
 
@@ -76,7 +77,7 @@ func _ready():
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 
 	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(),
-	HudNode.get_life_hero_max(), HudNode.get_damage())
+						   HudNode.get_damage(), hero_health, hero_health)
 
 	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent

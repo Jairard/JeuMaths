@@ -101,7 +101,7 @@ func load_characters() :
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 
 
-	var hero_health = FileBankUtils.health	
+	var hero_health = FileBankUtils.health
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_hero.init(hero_health,hero_health)
 	# Refill the health
