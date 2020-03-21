@@ -29,8 +29,8 @@ func init_hero_map(health_value : TextureProgress, health_label : Label,
 	_health_value = health_value
 	_health_label = health_label
 	_damage = damage
+	_health_value.max_value = initial_health_max
 	_health_value.value = initial_health
-	_health_value.max_value = initial_health_max	
 	original_health = initial_health
 	target_health = original_health
 #	print ("original hero : ", original_health, "  /  target : ", target_health)	
@@ -40,8 +40,8 @@ func init_enemy(health_value : TextureProgress, health_label : Label,
 				damage : Label, initial_health : int, initial_health_max : int) -> void:
 	_health_value = health_value
 	_health_label = health_label
-	_health_value.value = initial_health
 	_health_value.max_value = initial_health_max
+	_health_value.value = initial_health
 	_damage = damage
 	original_health = initial_health
 	target_health = original_health
