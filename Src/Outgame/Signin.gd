@@ -6,15 +6,23 @@ const init_stats : Dictionary =  {
 									"treasure":0,"good_answer":0,
 									"wrong_answer":0,"victories":0,"defeats":0,
 									"health_max":70, "scene_counter":0
-									} 
-							
+									} 	
 
 func _ready(): 
 	if FileBankUtils.loaded_heroes_stats != null:
 		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
-		
-#func _process(delta):
-#	pass
+	add_option_button()
+
+func add_option_button() -> void:
+	$OptionButton.set_text("MAP")	
+	$OptionButton.add_separator()
+	$OptionButton.add_item("tuto")
+	$OptionButton.add_item("fire")
+	$OptionButton.add_item("water")
+	$OptionButton.add_item("fire_0")
+	$OptionButton.add_item("water_0")
+	$OptionButton.add_item("upside_down")
+	$OptionButton.add_item("rewards")	
 
 func get_stats(pseudo : String) -> Dictionary:
 	for _pseudo in stats.keys():
@@ -24,38 +32,6 @@ func get_stats(pseudo : String) -> Dictionary:
 	var new_stats = init_stats.duplicate(true)
 	stats[pseudo] = new_stats
 	return {"new_hero" : true, "stats" : new_stats}
-
-func _on_Button_pressed():
-
-	var pseudo : String = $TileMap/pseudo.get_text()
-	var stats_hero = get_stats(pseudo)
-	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
-
-	var anim = AnimationUtils.scene_fade_in(self)
-	yield(anim, "animation_finished")
-
-#	get_tree().change_scene(FileBankUtils.loaded_scenes["rewards"])
-#	get_tree().change_scene(FileBankUtils.loaded_scenes["map_water"])
-#	get_tree().change_scene(FileBankUtils.loaded_scenes["map_water_0"])
-#	Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
-#	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
-#	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
-	get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
-
-#	if stats_hero["new_hero"] == true:
-#		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
-
-#	match FileBankUtils.scene_counter % 5:		
-#		1:
-#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
-#		2:
-#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_water"])
-#		3:
-#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
-#		4:
-#			get_tree().change_scene(FileBankUtils.loaded_scenes["map_water_0"])
-#		5:
-#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
 
 
 func _on_6eme_pressed():
@@ -115,3 +91,28 @@ func _on_3eme_pressed():
 	FileBankUtils.classroom = 3
 	$_3eme/ColorRect.show()
 	$_3eme/questions_3.show()
+
+
+func _on_OptionButton_item_selected(id):
+	var pseudo : String = $TileMap/pseudo.get_text()
+	var stats_hero = get_stats(pseudo)
+	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
+
+	var anim = AnimationUtils.scene_fade_in(self)
+	yield(anim, "animation_finished")
+	
+	match id:
+		1:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])		
+		2:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+		3:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_water"])
+		4:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+		5:
+			get_tree().change_scene(FileBankUtils.loaded_scenes["map_water_0"])
+		6:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
+		7:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["rewards"])

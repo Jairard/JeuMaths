@@ -61,17 +61,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="TileMap"]
-self_modulate = Color( 0.996078, 1, 0.976471, 1 )
-margin_left = 639.775
-margin_top = 317.661
-margin_right = 768.775
-margin_bottom = 381.661
-text = "Connection"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="pseudo" type="LineEdit" parent="TileMap"]
 modulate = Color( 0.964706, 0.964706, 0.941176, 1 )
 margin_left = 253.0
@@ -327,8 +316,17 @@ anims/change_scene = SubResource( 2 )
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 show_behind_parent = true
-[connection signal="pressed" from="TileMap/Button" to="." method="_on_Button_pressed"]
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 481.682
+margin_top = 198.286
+margin_right = 643.682
+margin_bottom = 252.286
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="_6eme" to="." method="_on_6eme_pressed"]
 [connection signal="pressed" from="_5eme" to="." method="_on_5eme_pressed"]
 [connection signal="pressed" from="_4eme" to="." method="_on_4eme_pressed"]
 [connection signal="pressed" from="_3eme" to="." method="_on_3eme_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
