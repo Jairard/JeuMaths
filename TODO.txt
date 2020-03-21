@@ -1,10 +1,8 @@
                                 |   Components  |
 
-
-*********   animation barre de vie : print dt dans le system hud : regarder les if 
 *********   mettre en pause les systems pour stats_popup
 *********   scene popup
-
+---------   map évolutive : utiliser la découpe scene en plusieurs tilemaps
 ---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : jouer le scale
 ---------   plus rapide est la réponse plus les dégats sont grands
@@ -12,16 +10,14 @@
 ---------   2ème collision avec le feu pousse le hero                  
 ---------   vector orthogonal : collider.get_normal angle entre vecteur et la normale : -angle pour le rebond
 
-
                                 |   Positioning  |
 
----------  
----------   
-
+*********   repositionner les plateformes dans map_water_0 
+*********   implémenter des plateformes dans les maps 
 
                                 |   Features  |
 
----------   map évolutive : découper scene en plusieurs tilemaps 
+*********   Mettre a jour les scenes pour fade in / out
 ---------   c'est pas bau les datadriven des notions
 ---------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
 ---------   jauge circulaire
@@ -29,11 +25,8 @@
 ---------   effets sonores
 ---------   faire un effecteur : colonne de vent
 ---------   faire un laser
----------   faire des plateformes mouvantes
-
-
-
 
                                 |   Add_on  |
 
+*********   menu déroulant dans signin pour choix de map
 ---------   relier les notions cochées au code : liste de notions 
