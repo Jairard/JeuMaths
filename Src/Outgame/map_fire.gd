@@ -12,6 +12,7 @@ onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
+onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.tscn")
 
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 
@@ -44,6 +45,7 @@ func _ready():
 	_load_ressources()
 	_load_monsters()
 	load_gold()
+	load_platform()
 	var portalNode = portal.instance()
 	add_child(portalNode)
 	ECS.add_component(portalNode, ComponentsLibrary.Collision)
@@ -81,7 +83,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(10000,500))
+	pos_comp.set_position(Vector2(11500,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -222,3 +224,6 @@ func load_gold():
 	EntitiesUtils.create_gold(self, gold, Vector2(14750,750))
 	EntitiesUtils.create_gold(self, gold, Vector2(16700,750))
 	EntitiesUtils.create_gold(self, gold, Vector2(20930,750))
+
+func load_platform():
+	EntitiesUtils.create_platform(self, platform, Vector2(12250,550), Vector2(12850,550),  3.5) 
