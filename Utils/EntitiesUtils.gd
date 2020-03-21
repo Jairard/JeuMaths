@@ -11,7 +11,7 @@ func create_monster(root : Node2D, resource : Resource, pos : Vector2, gold : Re
 	var animation_player_monster = monsterNode.get_node("animation_monster")
 	comp_anim_monster.init(anim_name_monster, animation_player_monster)
 	var comp_patrol = ECS.add_component(monsterNode, ComponentsLibrary.Patrol) as PatrolComponent
-	comp_patrol.init(pos, Vector2(pos.x + 500, pos.y), 3)
+	comp_patrol.init(pos, Vector2(pos.x + 500, pos.y), 3.5)
 	var health_comp_monster = ECS.add_component(monsterNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_monster.init(1,1)
 	var lootDict_monster = [ {gold : 10}, {health : 10, damage : 5, null : 90}]
