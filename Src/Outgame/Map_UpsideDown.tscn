@@ -171,6 +171,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 script = ExtResource( 2 )
 
 [node name="Sol_0" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource( 9 )
 collision_layer = 2
 format = 1
