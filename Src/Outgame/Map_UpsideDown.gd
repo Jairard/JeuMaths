@@ -133,7 +133,7 @@ func combat(valeur) :
 
 func _on_Button_pressed():
 	save_ressources()
-	Scene_changer.change_scene("res://Src/Outgame/Multiscenes.tscn")
+	Scene_changer.change_scene("res://Src/Outgame/Signin.tscn")
 
 
 

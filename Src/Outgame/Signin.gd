@@ -12,6 +12,9 @@ func _ready():
 	if FileBankUtils.loaded_heroes_stats != null:
 		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
 	add_option_button()
+	add_secondaries_options()
+	var canvas = $Control.get_node("CanvasModulate")	
+	canvas.hide()
 
 func add_option_button() -> void:
 	$OptionButton.set_text("MAP")	
@@ -22,7 +25,18 @@ func add_option_button() -> void:
 	$OptionButton.add_item("fire_0")
 	$OptionButton.add_item("water_0")
 	$OptionButton.add_item("upside_down")
-	$OptionButton.add_item("rewards")	
+	$OptionButton.add_item("rewards")
+	$OptionButton.add_item("fight_1")
+
+func add_secondaries_options() -> void:
+	$SecondariesOptions.set_text("SCENES")
+	$SecondariesOptions.add_separator()
+	$SecondariesOptions.add_item("shop")
+	$SecondariesOptions.add_item("death")
+	$SecondariesOptions.add_item("nexy_level")
+	$SecondariesOptions.add_item("stats")
+	$SecondariesOptions.add_item("create_hero")	
+
 
 func get_stats(pseudo : String) -> Dictionary:
 	for _pseudo in stats.keys():
@@ -116,3 +130,19 @@ func _on_OptionButton_item_selected(id):
 			Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
 		7:
 			Scene_changer.change_scene(FileBankUtils.loaded_scenes["rewards"])
+		8:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+
+
+func _on_SecondariesOptions_item_selected(id):
+	match id:
+		1:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["shop"])
+		2:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["death"])
+		3:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["next_level"])
+		4:
+			Scene_changer.change_scene(FileBankUtils.loaded_scenes["stats"])
+		5:
+			get_tree().change_scene(FileBankUtils.loaded_scenes["create_hero"])

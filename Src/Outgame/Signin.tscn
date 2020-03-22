@@ -299,8 +299,38 @@ __meta__ = {
 }
 
 [node name="Control" parent="." instance=ExtResource( 3 )]
+
+[node name="SecondariesOptions" type="OptionButton" parent="."]
+margin_left = 854.0
+margin_top = 180.0
+margin_right = 989.0
+margin_bottom = 266.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 383.001
+margin_top = 133.0
+margin_right = 476.001
+margin_bottom = 147.0
+text = "Tests with stats"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 859.002
+margin_top = 138.0
+margin_right = 973.002
+margin_bottom = 152.0
+text = "Secondary scenes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="_6eme" to="." method="_on_6eme_pressed"]
 [connection signal="pressed" from="_5eme" to="." method="_on_5eme_pressed"]
 [connection signal="pressed" from="_4eme" to="." method="_on_4eme_pressed"]
 [connection signal="pressed" from="_3eme" to="." method="_on_3eme_pressed"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="item_selected" from="SecondariesOptions" to="." method="_on_SecondariesOptions_item_selected"]

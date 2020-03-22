@@ -83,7 +83,7 @@ func _ready():
 	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
 
 func _on_Button_pressed():
-	Scene_changer.change_scene("res://Src/Outgame/Multiscenes.tscn")
+	Scene_changer.change_scene("res://Src/Outgame/Signin.tscn")
 
 
 func _on_Timer_timeout():

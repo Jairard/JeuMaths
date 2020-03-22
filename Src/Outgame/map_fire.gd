@@ -50,7 +50,7 @@ func _ready():
 	add_child(portalNode)
 	ECS.add_component(portalNode, ComponentsLibrary.Collision)
 	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp_portal.set_position(Vector2(27500,575))
+	pos_comp_portal.set_position(Vector2(25500,375))
 
 
 	ECS.clear_ghosts()
@@ -83,7 +83,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(11500,500))
+	pos_comp.set_position(Vector2(25200,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -135,7 +135,7 @@ func combat(valeur) :
 
 func _on_Button_pressed():
 	save_ressources()
-	Scene_changer.change_scene("res://Src/Outgame/Multiscenes.tscn")
+	Scene_changer.change_scene("res://Src/Outgame/Signin.tscn")
 
 
 

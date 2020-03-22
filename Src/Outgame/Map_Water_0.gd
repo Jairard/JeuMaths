@@ -84,10 +84,6 @@ func _ready():
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
 
-#func _on_Button_pressed():
-#	Scene_changer.change_scene("res://Src/Outgame/Multiscenes.tscn")
-
-
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(4000,325), gold, health, damage)
