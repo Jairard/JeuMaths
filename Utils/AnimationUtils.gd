@@ -44,26 +44,24 @@ func tween_hero_loot(node_loot : Node2D) -> Tween:
 func canvas_fade_in(scene : Node2D):
 		var tween = Tween.new()
 		add_child(tween)
-		var canvas = scene.get_node("control").get_node("CanvasModulate")
+		var canvas = scene.get_node("Control").get_node("CanvasModulate")	
 		canvas.show()
-		tween.interpolate_property(canvas, "color", Color("#00000000"), Color("#000000"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.interpolate_property(canvas, "color", Color("#ffffff"), Color("#000000"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()
 		return tween
 
 func scene_fade_in(scene : Node2D):
 	var rect = scene.get_node("Control").get_node("ColorRect")
 	var anim = scene.get_node("Control").get_node("AnimationPlayer")
-	rect.show()
 	anim.play("change_scene")
 	return anim
 
 func scene_fade_out(scene : Node2D):
 	var rect = scene.get_node("Control").get_node("ColorRect")
 	var anim = scene.get_node("Control").get_node("AnimationPlayer")
-	rect.show()	
 	anim.play("load_scene")
 	return anim
-	
+#
 func canvas_fade_out(scene : Node2D):
 	var tween = Tween.new()
 	add_child(tween)
@@ -100,15 +98,18 @@ func checkpoint(scene : Node2D, node : Node2D, current_pos : Vector2, final_pos 
 #	AnimationUtils.canvas_fade_out(scene)
 #	AnimationUtils.tween_hero_death(node, current_pos, final_pos)
 
-func floating_damage(node : Node2D, dmg : int, _bool : bool):
+func floating_damage(node : Node2D, dmg : int, _bool : bool, font):
 	if _bool:
 		var dynamic_font = DynamicFont.new()
-		dynamic_font.font_data = load("res://Assets/Font/Comfortaa-Bold.ttf")		
+#		dynamic_font.font_data = load("res://Assets/Font/Comfortaa-Bold.ttf")	
+#		dynamic_font.font_data = load("res://font/Kenney Thick.ttf")
+		dynamic_font.font_data = load(font)
+
 		dynamic_font.size = 120
 		dynamic_font.outline_size = 5
 		dynamic_font.outline_color = Color( 0, 0, 0, 1 )
 		dynamic_font.use_filter = true
-		
+			
 		var label = Label.new()
 		label.set_position(Vector2(node.get_position().x + 100, node.get_position().y - 20))
 
