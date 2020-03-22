@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/Outgame/Map_Shop.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Textures/hud/bombs_icon.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/hud/icons1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Characters/perle_de_vie_png.png" type="Texture" id=5]
+[ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -146,6 +147,8 @@ margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.701961, 0.603922, 0.764706, 1 )
 text = "SHOP"
+
+[node name="Control" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="Damage/buy_damage" to="." method="_on_Damages_pressed"]
 [connection signal="pressed" from="Health/buy_health" to="." method="_on_Health_pressed"]
 [connection signal="pressed" from="regen_health/regen_health2" to="." method="_on_regen_health_pressed"]

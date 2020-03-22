@@ -56,8 +56,7 @@ func _ready():
 	yield(anim, "animation_finished")
 	var tween = AnimationUtils.canvas_fade_out(self)
 	yield(tween, "tween_completed")
-	$CanvasModulate.hide()
-		
+
 	var portalNode = portal.instance()
 	add_child(portalNode)
 	portalNode.set_position(Vector2(29600,1000))
