@@ -27,3 +27,5 @@ const Scoreglobal 	=   preload("res://ecs/Components/Score_global_counter.gd")
 const Node_Hero 	=   preload("res://ecs/Components/node_hero.gd")
 const Node_Enemy 	=   preload("res://ecs/Components/node_enemy.gd")
 const Scene_Counter =   preload("res://ecs/Components/Scene_counter.gd")
+const Font			=   preload("res://ecs/Components/Font.gd")
+
