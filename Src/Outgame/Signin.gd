@@ -33,8 +33,6 @@ func add_secondaries_options() -> void:
 	$SecondariesOptions.add_separator()
 	$SecondariesOptions.add_item("shop")
 	$SecondariesOptions.add_item("death")
-	$SecondariesOptions.add_item("nexy_level")
-	$SecondariesOptions.add_item("stats")
 	$SecondariesOptions.add_item("create_hero")	
 
 
@@ -141,8 +139,4 @@ func _on_SecondariesOptions_item_selected(id):
 		2:
 			Scene_changer.change_scene(FileBankUtils.loaded_scenes["death"])
 		3:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["next_level"])
-		4:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["stats"])
-		5:
 			get_tree().change_scene(FileBankUtils.loaded_scenes["create_hero"])
