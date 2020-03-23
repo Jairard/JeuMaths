@@ -9,31 +9,50 @@ const init_stats : Dictionary =  {
 									} 	
 
 func _ready(): 
+
+	var anim = AnimationUtils.canvas_fade_in(self)
+	yield(anim, "animation_finished")
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
+
+	
 	if FileBankUtils.loaded_heroes_stats != null:
 		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
-	add_option_button()
-	add_secondaries_options()
-	var canvas = $Control.get_node("CanvasModulate")	
-	canvas.hide()
 
-func add_option_button() -> void:
-	$OptionButton.set_text("MAP")	
-	$OptionButton.add_separator()
-	$OptionButton.add_item("tuto")
-	$OptionButton.add_item("fire")
-	$OptionButton.add_item("water")
-	$OptionButton.add_item("fire_0")
-	$OptionButton.add_item("water_0")
-	$OptionButton.add_item("upside_down")
-	$OptionButton.add_item("rewards")
-	$OptionButton.add_item("fight_1")
+	add_map_option_()
+	add_fight_option()
+	add_featured_option()
+	add_unused_option()
+	
+	
 
-func add_secondaries_options() -> void:
-	$SecondariesOptions.set_text("SCENES")
-	$SecondariesOptions.add_separator()
-	$SecondariesOptions.add_item("shop")
-	$SecondariesOptions.add_item("death")
-	$SecondariesOptions.add_item("create_hero")	
+func add_map_option_() -> void:
+	$Option_map.set_text("Maps")	
+	$Option_map.add_separator()
+	$Option_map.add_item("tuto")
+	$Option_map.add_item("fire")
+	$Option_map.add_item("water")
+	$Option_map.add_item("fire_0")
+	$Option_map.add_item("water_0")
+	$Option_map.add_item("upside_down")
+	
+func add_fight_option() -> void:
+	$Option_fight.set_text("Fights")
+	$Option_fight.add_separator()
+	$Option_fight.add_item("fight_1")
+	$Option_fight.add_item("fight_2")	
+
+func add_featured_option() -> void:
+	$Option_featured_scenes.set_text("Featured")
+	$Option_featured_scenes.add_separator()
+	$Option_featured_scenes.add_item("rewards")	
+	$Option_featured_scenes.add_item("shop")
+	$Option_featured_scenes.add_item("death")
+	
+func add_unused_option() -> void:
+	$Option_unused_scenes.set_text("Unused")
+	$Option_unused_scenes.add_separator()
+	$Option_unused_scenes.add_item("create_hero")	
 
 
 func get_stats(pseudo : String) -> Dictionary:
@@ -105,38 +124,57 @@ func _on_3eme_pressed():
 	$_3eme/questions_3.show()
 
 
-func _on_OptionButton_item_selected(id):
+func load_stats():
 	var pseudo : String = $TileMap/pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
+	
+	
 
-	var anim = AnimationUtils.scene_fade_in(self)
+func _on_Option_map_item_selected(id):
+	load_stats()
+	
+	var anim_rect = AnimationUtils.rect_fade_out(self)
+	yield(anim_rect, "animation_finished")
+	var anim = AnimationUtils.canvas_fade_out(self)
 	yield(anim, "animation_finished")
+	
 	
 	match id:
 		1:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])		
+			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
 		2:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+			FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 		3:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_water"])
+			FileBankUtils.loaded_scenes["map_water"]
 		4:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+			FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"]
 		5:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["map_water_0"])
+			FileBankUtils.loaded_scenes["map_water_0"]
 		6:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
-		7:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["rewards"])
-		8:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+			FileBankUtils.loaded_scenes["upside_down"]
 
-
-func _on_SecondariesOptions_item_selected(id):
+func _on_Option_fight_item_selected(id):
+	load_stats()
+	
 	match id:
 		1:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["shop"])
+			FileBankUtils.loaded_scenes["map_fight_1"]
 		2:
-			Scene_changer.change_scene(FileBankUtils.loaded_scenes["death"])
+			FileBankUtils.loaded_scenes["map_fight_2"]
+
+func _on_Option_featured_scenes_item_selected(id):
+	load_stats()	
+	match id:
+		1:
+			FileBankUtils.loaded_scenes["rewards"]
+		2:
+			FileBankUtils.loaded_scenes["shop"]
 		3:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["create_hero"])
+			FileBankUtils.loaded_scenes["death"]
+
+func _on_Option_unused_scenes_item_selected(id):
+	load_stats()	
+	match id:
+		1:
+			FileBankUtils.loaded_scenes["create_hero"]

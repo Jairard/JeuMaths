@@ -34,11 +34,10 @@ tile_set = SubResource( 1 )
 format = 1
 
 [node name="pseudo_text" type="Label" parent="TileMap"]
-modulate = Color( 0.701961, 0.133333, 0.0745098, 1 )
-margin_left = 150.826
-margin_top = 185.31
-margin_right = 297.826
-margin_bottom = 267.31
+margin_left = 50.5196
+margin_top = 184.144
+margin_right = 197.52
+margin_bottom = 266.144
 text = "Pseudo :"
 align = 1
 valign = 1
@@ -48,23 +47,12 @@ __meta__ = {
 }
 
 [node name="pseudo" type="LineEdit" parent="TileMap"]
-modulate = Color( 0.964706, 0.964706, 0.941176, 1 )
-margin_left = 253.0
+modulate = Color( 1, 1, 1, 0.780392 )
+margin_left = 172.522
 margin_top = 195.0
-margin_right = 384.0
+margin_right = 303.522
 margin_bottom = 257.0
 custom_colors/selection_color = Color( 0.819608, 0.0196078, 0.0196078, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="TileMap"]
-visible = false
-modulate = Color( 0.270588, 0.67451, 1, 1 )
-show_behind_parent = true
-margin_top = -0.735107
-margin_right = 1031.0
-margin_bottom = 641.265
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -289,42 +277,40 @@ margin_right = 121.0
 margin_bottom = 108.0
 text = "notion 4"
 
-[node name="OptionButton" type="OptionButton" parent="."]
-margin_left = 481.682
-margin_top = 198.286
-margin_right = 643.682
-margin_bottom = 252.286
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Control" parent="." instance=ExtResource( 3 )]
 
-[node name="SecondariesOptions" type="OptionButton" parent="."]
-margin_left = 854.0
-margin_top = 180.0
-margin_right = 989.0
-margin_bottom = 266.0
+[node name="Option_map" type="OptionButton" parent="."]
+margin_left = 390.0
+margin_top = 210.0
+margin_right = 465.0
+margin_bottom = 250.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 383.001
-margin_top = 133.0
-margin_right = 476.001
-margin_bottom = 147.0
-text = "Tests with stats"
+[node name="Option_fight" type="OptionButton" parent="."]
+margin_left = 520.0
+margin_top = 210.0
+margin_right = 595.0
+margin_bottom = 250.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="."]
-margin_left = 859.002
-margin_top = 138.0
-margin_right = 973.002
-margin_bottom = 152.0
-text = "Secondary scenes"
+[node name="Option_featured_scenes" type="OptionButton" parent="."]
+margin_left = 650.0
+margin_top = 210.0
+margin_right = 725.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option_unused_scenes" type="OptionButton" parent="."]
+margin_left = 780.0
+margin_top = 210.0
+margin_right = 855.0
+margin_bottom = 250.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -332,5 +318,7 @@ __meta__ = {
 [connection signal="pressed" from="_5eme" to="." method="_on_5eme_pressed"]
 [connection signal="pressed" from="_4eme" to="." method="_on_4eme_pressed"]
 [connection signal="pressed" from="_3eme" to="." method="_on_3eme_pressed"]
-[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
-[connection signal="item_selected" from="SecondariesOptions" to="." method="_on_SecondariesOptions_item_selected"]
+[connection signal="item_selected" from="Option_map" to="." method="_on_Option_map_item_selected"]
+[connection signal="item_selected" from="Option_fight" to="." method="_on_Option_fight_item_selected"]
+[connection signal="item_selected" from="Option_featured_scenes" to="." method="_on_Option_featured_scenes_item_selected"]
+[connection signal="item_selected" from="Option_unused_scenes" to="." method="_on_Option_unused_scenes_item_selected"]
