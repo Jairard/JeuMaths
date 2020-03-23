@@ -36,10 +36,10 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bounce)
 
 	load_characters()
-#	var anim = AnimationUtils.scene_fade_out(self)
-#	yield(anim, "animation_finished")
-#	var tween = AnimationUtils.canvas_fade_out(self)
-#	yield(tween, "tween_completed")
+	var anim = AnimationUtils.scene_fade_out(self)
+	yield(anim, "animation_finished")
+	var tween = AnimationUtils.canvas_fade_out(self)
+	yield(tween, "tween_completed")
 	_load_ressources()
 	_load_monsters()
 	var portalNode = portal.instance()
@@ -127,13 +127,12 @@ func load_characters() :
 	
 func combat(valeur) :
 	if valeur == 0 :
-		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
-
+		FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 
 
 func _on_Button_pressed():
 	save_ressources()
-	Scene_changer.change_scene("res://Src/Outgame/Signin.tscn")
+	FileBankUtils.loaded_scenes["sign_in"]
 
 
 
@@ -156,7 +155,7 @@ func save_ressources():
 func _process(delta):
 	if health_comp_hero.get_health() <= 0:
 		if pos_comp.get_position().x <= 11500:
-#			Scene_changer.change_scene(FileBankUtils.loaded_scenes["death"])
+#			FileBankUtils.loaded_scenes["death"]
 			pass
 		if pos_comp.get_position().x >11500 and pos_comp.get_position().x <= 20000:
 #			tween(Vector2(11500, 500))

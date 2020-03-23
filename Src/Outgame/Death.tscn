@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Src/Outgame/Death.gd" type="Script" id=1]
-
+[ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=2]
 
 [node name="Death" type="Node2D"]
 script = ExtResource( 1 )
@@ -41,4 +41,6 @@ margin_bottom = 536.105
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control" parent="." instance=ExtResource( 2 )]
 [connection signal="pressed" from="reset_button" to="." method="_on_reset_button_pressed"]

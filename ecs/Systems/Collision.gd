@@ -105,8 +105,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 #			print("Enemy collision !")
 
 			if health_comp != null:
-				var new_scene = FileBankUtils.loaded_scenes["map_fight_1"]
-				Scene_changer.change_scene(new_scene)
+				FileBankUtils.loaded_scenes["map_fight_1"]
 			collider.queue_free()
 
 		if (has_collision_layer(collider,monster_layer_bit) == true
@@ -271,7 +270,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if health_comp != null:
 				FileBankUtils.load_right_scene()
-#				Scene_changer.change_scene(FileBankUtils.load_right_scene())
 			collider.queue_free()
 		
 		
@@ -285,7 +283,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				yield(tween, "tween_completed")
 				var anim = AnimationUtils.scene_fade_in(my_body.get_parent())
 				yield(anim, "animation_finished")
-				Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+				FileBankUtils.loaded_scenes["map_fight_1"]
 			collider.queue_free()	
 			
 func unique_collision(collider):

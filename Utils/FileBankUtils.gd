@@ -59,12 +59,12 @@ func _notification(what):
 func load_right_scene():
 	match FileBankUtils.scene_counter % 5:
 		1:
-			return Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+			FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 		2:
-			return Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_water"])
+			FileBankUtils.loaded_scenes["map_water"]
 		3:
-			return Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+			FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"]
 		4:
-			return get_tree().change_scene(FileBankUtils.loaded_scenes["map_water_0"])
+			FileBankUtils.loaded_scenes["map_water_0"]
 		5:
-			return Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
+			FileBankUtils.loaded_scenes["upside_down"]

@@ -19,17 +19,14 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var current_health = comp_health.get_health()
 
 	if current_health <= 0:
-			var scene_rewards 	= FileBankUtils.loaded_scenes["rewards"]
-			var scene_reset		= FileBankUtils.loaded_scenes["death"]
 			var node = comp_health.get_node()
 			emit_comp.set_emit(true)
 			yield(node.get_parent().get_tree().create_timer(3.0), "timeout")
 			if node_hero != null:
 				FileBankUtils.defeats += 1
-				Scene_changer.change_scene(scene_reset)
+				FileBankUtils.loaded_scenes["death"]
 			if node_enemy != null:			
-				if (!Scene_changer.is_changing_scene()):
-					FileBankUtils.victories += 1
-					FileBankUtils.scene_counter += 1
-				Scene_changer.change_scene(scene_rewards)
+				FileBankUtils.victories += 1
+				FileBankUtils.scene_counter += 1
+				FileBankUtils.loaded_scenes["rewards"]
 

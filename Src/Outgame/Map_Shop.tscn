@@ -149,6 +149,8 @@ custom_colors/font_color = Color( 0.701961, 0.603922, 0.764706, 1 )
 text = "SHOP"
 
 [node name="Control" parent="." instance=ExtResource( 6 )]
+
+[node name="Control2" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="Damage/buy_damage" to="." method="_on_Damages_pressed"]
 [connection signal="pressed" from="Health/buy_health" to="." method="_on_Health_pressed"]
 [connection signal="pressed" from="regen_health/regen_health2" to="." method="_on_regen_health_pressed"]

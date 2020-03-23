@@ -18,8 +18,10 @@ func _ready():
 	heroNode = hero.instance()
 	heroNode.deactivate()
 	add_child(heroNode)
+	var hero_health = FileBankUtils.health
+	var hero_health_max = FileBankUtils.health_max
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health_max)
+	health_comp_hero.init(hero_health,hero_health_max)
 	damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
 	treasure_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 
@@ -56,7 +58,12 @@ func _ready():
 	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
 	hud_comp.init_hero_treasure(ShopNode.get_treasure())
 	hud_comp.init_hero_map(HudHeroNode.get_life_hero(),HudHeroNode.get_life_hero_label(),
-	HudHeroNode.get_life_hero_max(), HudHeroNode.get_damage())
+						   HudHeroNode.get_damage(), hero_health, hero_health_max)
+	
+	var anim = AnimationUtils.scene_fade_out(self)
+	yield(anim, "animation_finished")
+	var tween = AnimationUtils.canvas_fade_out(self)
+	yield(tween, "tween_completed")
 	
 	ECS.clear_ghosts()
 	
@@ -67,7 +74,7 @@ func _on_Damages_pressed():
 		FileBankUtils.damage += 10
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 10)
 		FileBankUtils.treasure = 10
-		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+		FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 
 
 func _on_Health_pressed():
@@ -83,14 +90,14 @@ func _on_Health_pressed():
 		health_comp_hero.set_health(health_comp_hero.get_health() + 10)
 		FileBankUtils.health += 10
 
-		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])		
+		FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]	
 
 func _on_regen_health_pressed():
 	
 	if treasure_comp_hero.get_treasure() >= 20 and !health_comp_hero.is_health_max():
 		health_comp_hero.set_health(FileBankUtils.health_max)
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 20)
-		Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+		FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 
 
 	

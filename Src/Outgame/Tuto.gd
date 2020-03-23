@@ -17,11 +17,15 @@ var pos_comp : Component = null
 export var color_game = Color("#00000000")
 export var color_tumble = Color("#000000")
 
-func _process(delta):
+#func _process(delta):
 #	print ("pos :", pos_comp.get_position())
-	tumble()
+#	tumble()
 	
 func _ready():
+	var anim = AnimationUtils.canvas_fade_in(self)
+	yield(anim, "animation_finished")
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
@@ -30,6 +34,8 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Missile)
 
+	
+	
 	heroNode = hero.instance()
 	add_child(heroNode)
 	
@@ -52,10 +58,7 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	
-	var anim = AnimationUtils.scene_fade_out(self)
-	yield(anim, "animation_finished")
-	var tween = AnimationUtils.canvas_fade_out(self)
-	yield(tween, "tween_completed")
+	
 
 	var portalNode = portal.instance()
 	add_child(portalNode)
@@ -116,7 +119,7 @@ func _on_Missile_4_body_entered(body):
 	pass # Replace with function body.
 	
 func _on_Return_pressed():
-	Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+	FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 
 func tumble():
 	if pos_comp.get_position().y > 1550:

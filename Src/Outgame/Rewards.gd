@@ -87,4 +87,9 @@ func _ready():
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 
+	var anim = AnimationUtils.scene_fade_out(self)
+	yield(anim, "animation_finished")
+	var tween = AnimationUtils.canvas_fade_out(self)
+	yield(tween, "tween_completed")
+
 	ECS.clear_ghosts()

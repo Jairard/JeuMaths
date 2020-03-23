@@ -5,7 +5,10 @@ export (type_class) var class_type
 
 
 func _ready():
-	pass
+	var anim = AnimationUtils.scene_fade_out(self)
+	yield(anim, "animation_finished")
+	var tween = AnimationUtils.canvas_fade_out(self)
+	yield(tween, "tween_completed")
 
 
 #func _process(delta):
@@ -13,7 +16,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	Scene_changer.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+	FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 
 
 
