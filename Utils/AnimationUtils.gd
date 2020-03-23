@@ -41,36 +41,26 @@ func tween_hero_loot(node_loot : Node2D) -> Tween:
 	tween.start()
 	return tween
 
+func rect_fade_in(scene : Node2D):
+		var anim = scene.get_node("Control").get_node("AnimationPlayer")
+		anim.play("in_rect")
+		return anim
+
+func rect_fade_out(scene : Node2D):
+	var anim = scene.get_node("Control").get_node("AnimationPlayer")
+	anim.play("out_rect")
+	return anim
+
 func canvas_fade_in(scene : Node2D):
-		var tween = Tween.new()
-		add_child(tween)
-		var canvas = scene.get_node("Control").get_node("CanvasModulate")	
-		canvas.show()
-		tween.interpolate_property(canvas, "color", Color("#ffffff"), Color("#000000"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
-		return tween
-
-func scene_fade_in(scene : Node2D):
-	var rect = scene.get_node("Control").get_node("ColorRect")
 	var anim = scene.get_node("Control").get_node("AnimationPlayer")
-	anim.play("change_scene")
+	anim.play("in_scene")
 	return anim
 
-func scene_fade_out(scene : Node2D):
-	var rect = scene.get_node("Control").get_node("ColorRect")
-	var anim = scene.get_node("Control").get_node("AnimationPlayer")
-	anim.play("load_scene")
-	return anim
-#
 func canvas_fade_out(scene : Node2D):
-	var tween = Tween.new()
-	add_child(tween)
-	var canvas = scene.get_node("Control").get_node("CanvasModulate")	
-	canvas.show()
-	tween.interpolate_property(canvas, "color", Color("#000000"), Color("#ffffff"), 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)	
-	tween.start()
-	return tween
-	
+	var anim = scene.get_node("Control").get_node("AnimationPlayer")
+	anim.play("out_scene")
+	return anim
+
 func tween_hero_death(node : Node2D, current_pos : Vector2, final_pos : Vector2):
 	var tween = Tween.new()
 	add_child(tween)
