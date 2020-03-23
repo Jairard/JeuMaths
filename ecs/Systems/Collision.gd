@@ -98,6 +98,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider_health_component 	: HealthComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
 		var collider_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
 
+
 		if (has_collision_layer(collider,enemy_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :    			# ENEMY
 
@@ -129,7 +130,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			if (collider_health_component != null) and (damage_comp.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - damage_comp.get_damage())
 				FileBankUtils.health -= damage_comp.get_damage()
-				AnimationUtils.floating_damage(collider, damage_comp.get_damage(), true)
+				AnimationUtils.floating_damage(collider, damage_comp.get_damage(), true, FontChoice.get_font())
 #				yield(dmg, "tween_completed")
 			my_body.queue_free()
 
@@ -141,7 +142,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			if (collider_health_component != null and damage_comp.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - damage_comp.get_damage())
 				FileBankUtils.health -= damage_comp.get_damage()
-				AnimationUtils.floating_damage(collider, damage_comp.get_damage(), true)
+				AnimationUtils.floating_damage(collider, damage_comp.get_damage(), true, FontChoice.get_font())
 				
 			my_body.queue_free()
 
@@ -280,6 +281,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Portal red collision !")
 
 			if health_comp != null:
+				var tween = AnimationUtils.canvas_fade_in(my_body.get_parent())
+				yield(tween, "tween_completed")
+				var anim = AnimationUtils.scene_fade_in(my_body.get_parent())
+				yield(anim, "animation_finished")
 				Scene_changer.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 			collider.queue_free()	
 			

@@ -20,7 +20,6 @@ onready var enemyNode = enemy.instance()
 var calcul_instance = null
 
 func _ready():
-
 	var answer_listener : Array = []
 
 	ECS.register_system(SystemsLibrary.Move)
@@ -32,10 +31,13 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Endfight)
-
+	
 	spawn()
 	
-	
+#	var anim = AnimationUtils.scene_fade_out(self)
+#	yield(anim, "animation_finished")
+	var tween = AnimationUtils.canvas_fade_out(self)
+	yield(tween, "tween_completed")
 	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
 	listener_hero.init(calcul_instance, calcul)
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
@@ -107,6 +109,9 @@ func _ready():
 	calcul_instance.set_answer_listener(answer_listener)
 
 	load_hud(hero_health, hero_health_max, enemy_health, enemy_health)	
+
+	font_choice()
+
 	ECS.clear_ghosts()
 
 func _process(delta):
@@ -155,7 +160,61 @@ func _on_game_timer_timeout():
 	time_label.hide()
 	calcul_instance.show()
 
+func font_choice():
+	$font_choice.set_text("FONT")	
+	$font_choice.add_separator()
+	$font_choice.add_item("crayon")
+	$font_choice.add_item("pixel_square")
+	$font_choice.add_item("pixel")
+	$font_choice.add_item("thick")
+	$font_choice.add_item("blocks")
+	$font_choice.add_item("future_square")
+	$font_choice.add_item("future")
+	$font_choice.add_item("high")
+	$font_choice.add_item("mini_square")
+	$font_choice.add_item("mini")
+	$font_choice.add_item("nova")
+	$font_choice.add_item("square")
+	$font_choice.add_item("...")
+	$font_choice.add_item("bold")
+	$font_choice.add_item("future_thin_square")
+	$font_choice.add_item("thin")
+	$font_choice.add_item("future_vector")
 
 
-
-
+func _on_font_choice_item_selected(id):
+	match id:
+		1:
+			FontChoice.set_font("res://font/Colored Crayons.ttf")
+		2:
+			FontChoice.set_font("res://font/Kenney Pixel Square.ttf")
+		3:
+			FontChoice.set_font("res://font/Kenney Pixel.ttf")	
+		4:
+			FontChoice.set_font("res://font/Kenney Thick.ttf")
+		5:
+			FontChoice.set_font("res://font/KenPixel Blocks.ttf")
+		6:
+			FontChoice.set_font("res://font/KenPixel Future Square.ttf")
+		7:
+			FontChoice.set_font("res://font/KenPixel Future.ttf")
+		8:
+			FontChoice.set_font("res://font/KenPixel High.ttf")
+		9:
+			FontChoice.set_font("res://font/KenPixel Mini Square.ttf")
+		10:
+			FontChoice.set_font("res://font/KenPixel Mini.ttf")
+		11:
+			FontChoice.set_font("res://font/KenPixel Nova.ttf")
+		12:
+			FontChoice.set_font("res://font/KenPixel Square.ttf")	
+		13:
+			FontChoice.set_font("res://font/KenPixel.ttf")
+		14:
+			FontChoice.set_font("res://font/KenVector Bold.ttf")
+		15:
+			FontChoice.set_font("res://font/KenVector Future Thin Square.ttf")
+		16:
+			FontChoice.set_font("res://font/KenVector Future Thin.ttf")	
+		17:
+			FontChoice.set_font("res://font/KenVector Future.ttf")

@@ -94,11 +94,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/End_fight.gd"
 }, {
-"base": "Component",
-"class": "FontComponent",
-"language": "GDScript",
-"path": "res://ecs/Components/Font.gd"
-}, {
 "base": "Reference",
 "class": "GhostsHandler",
 "language": "GDScript",
@@ -262,7 +257,6 @@ _global_script_class_icons={
 "EmitParticulesSystem": "",
 "EndfightComponent": "",
 "EndfightSystem": "",
-"FontComponent": "",
 "GhostsHandler": "",
 "GravityComponent": "",
 "HealthComponent": "",
@@ -316,6 +310,7 @@ TagsLibrary="*res://ecs/TagsLibrary.gd"
 EntitiesUtils="*res://Utils/EntitiesUtils.gd"
 Scene_changer="*res://Src/Outgame/Scene_changer.tscn"
 AnimationUtils="*res://Utils/AnimationUtils.gd"
+FontChoice="*res://font/FontChoice.gd"
 
 [display]
 
