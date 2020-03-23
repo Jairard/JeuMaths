@@ -2,8 +2,10 @@
 
 *********   mettre en pause les systems pour stats_popup
 *********   scene popup
+*********   map fire : barre de vie du hero 
+*********   ratio de la barre de vie a recalculer à chaque appel
 ---------   collision avec de la vie
----------   map évolutive : utiliser la découpe scene en plusieurs tilemaps
+---------   map évolutive : utiliser la découpe de scene en plusieurs tilemaps
 ---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : jouer le scale
 ---------   plus rapide est la réponse plus les dégats sont grands
@@ -17,7 +19,7 @@
 
                                 |   Features  |
 
-*********   Mettre a jour les scenes pour fade in / out
+*********   Mettre a jour les scenes pour fade in / out : dans le match du signin encore utilisation de scene_changer
 ---------   c'est pas bau les datadriven des notions
 ---------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
 ---------   jauge circulaire
