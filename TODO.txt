@@ -15,7 +15,7 @@
 
                                 |   Positioning  |
  
-
+---------   Placement du personnage après avoir touché un portail
 
                                 |   Features  |
 
