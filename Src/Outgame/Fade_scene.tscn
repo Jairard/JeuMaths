@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "in_rect"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
@@ -12,7 +12,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.1, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -42,11 +42,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.1, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "out_scene"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasModulate:modulate")
 tracks/0/interp = 1
@@ -68,7 +67,6 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-show_behind_parent = true
 margin_top = -20643.0
 margin_right = 66202.0
 margin_bottom = 22473.0
@@ -78,10 +76,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/in_rect = SubResource( 4 )
+anims/in_rect = SubResource( 1 )
 anims/in_scene = SubResource( 2 )
 anims/out_rect = SubResource( 3 )
-anims/out_scene = SubResource( 1 )
+anims/out_scene = SubResource( 4 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 show_behind_parent = true

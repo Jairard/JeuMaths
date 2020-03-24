@@ -17,15 +17,11 @@ var pos_comp : Component = null
 export var color_game = Color("#00000000")
 export var color_tumble = Color("#000000")
 
-#func _process(delta):
-#	print ("pos :", pos_comp.get_position())
-#	tumble()
+func _process(delta):
+	tumble()
 	
 func _ready():
-	var anim = AnimationUtils.canvas_fade_in(self)
-	yield(anim, "animation_finished")
-	var anim_rect = AnimationUtils.rect_fade_in(self)
-	yield(anim_rect, "animation_finished")
+
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
@@ -34,11 +30,9 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Missile)
 
-	
-	
 	heroNode = hero.instance()
-	add_child(heroNode)
-	
+	add_child(heroNode)	
+
 	ECS.add_component(heroNode, ComponentsLibrary.Health)	
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
@@ -57,16 +51,18 @@ func _ready():
 						  comp_anim_hero.anim.colliding : "anim_colliding"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
-	
-	
+
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
+	var anim = AnimationUtils.canvas_fade_in(self)
+	yield(anim, "animation_finished")
 
 	var portalNode = portal.instance()
 	add_child(portalNode)
 	portalNode.set_position(Vector2(29600,1000))
-	
+
 func _on_Move_body_entered(body):
 	$First_Spawn/Move/Control_move.show()
-
 
 func _on_Jump_body_entered(body):
 	$First_Spawn/Jump/jump.show()
@@ -77,7 +73,6 @@ func _on_Monster_body_entered(body):
 
 func _on_Monster_spawn_body_entered(body):
 	EntitiesUtils.create_monster(self, monster, Vector2(3500, 550), gold, health, damage)
-	
 
 func _on_Monster_2_body_entered(body):
 	EntitiesUtils.create_monster(self, monster, Vector2(5300, 1190), gold, health, damage)
@@ -87,47 +82,44 @@ func _on_Monster_3_body_entered(body):
 
 func _on_Monster_4_body_entered(body):
 	EntitiesUtils.create_monster(self, monster, Vector2(12450, 356), gold, health, damage)	
-	
+
 func _on_Monster_5_body_entered(body):
 	EntitiesUtils.create_monster(self, monster, Vector2(14600, 356), gold, health, damage)
-	
+
 func _on_Bullet_body_entered(body):
 	$First_Spawn/Bullet/Control_bullet.show()
 	$First_Spawn/Bullet/Bullet_spawn.show()
 
 func _on_Bullet_spawn_body_entered(body):
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(10300,520))
-	
+
 func _on_Bullet_2_body_entered(body):
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(14200,520))
-	
+
 func _on_Missile_body_entered(body):
 	$First_Spawn/Missile/Control_missile.show()
 	$First_Spawn/Missile/Missile_spawn.show()
 
 func _on_Missile_spawn_body_entered(body):
 	EntitiesUtils.create_missile(self, eye, Vector2(12200,200), heroNode)
-	
+
 func _on_Missile_2_body_entered(body):
 	EntitiesUtils.create_missile(self, eye, Vector2(17000,100), heroNode)
-	
+
 func _on_Missile_3_body_entered(body):
 	EntitiesUtils.create_missile(self, eye, Vector2(18000,150), heroNode)
 
 func _on_Missile_4_body_entered(body):
 	EntitiesUtils.create_missile(self, eye, Vector2(19000,150), heroNode)
-	pass # Replace with function body.
-	
+
 func _on_Return_pressed():
 	FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 
 func tumble():
 	if pos_comp.get_position().y > 1550:
-		AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(22000,1300))
+#		AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(22000,1300))
+		pass
 
-
-		
-		
 
 
 

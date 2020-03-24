@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var rect = $Control/ColorRect
+
 var stats : Dictionary = {}
 const init_stats : Dictionary =  {
 									"damage":15,"health":70,
@@ -10,11 +12,11 @@ const init_stats : Dictionary =  {
 
 func _ready(): 
 
-	var anim = AnimationUtils.canvas_fade_in(self)
-	yield(anim, "animation_finished")
+#	var anim = AnimationUtils.canvas_fade_in(self)
+#	yield(anim, "animation_finished")
 	var anim_rect = AnimationUtils.rect_fade_in(self)
 	yield(anim_rect, "animation_finished")
-
+	rect.hide()
 	
 	if FileBankUtils.loaded_heroes_stats != null:
 		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
@@ -27,32 +29,32 @@ func _ready():
 	
 
 func add_map_option_() -> void:
-	$Option_map.set_text("Maps")	
-	$Option_map.add_separator()
-	$Option_map.add_item("tuto")
-	$Option_map.add_item("fire")
-	$Option_map.add_item("water")
-	$Option_map.add_item("fire_0")
-	$Option_map.add_item("water_0")
-	$Option_map.add_item("upside_down")
+	$Control_Option/Option_map.set_text("Maps")	
+	$Control_Option/Option_map.add_separator()
+	$Control_Option/Option_map.add_item("tuto")
+	$Control_Option/Option_map.add_item("fire")
+	$Control_Option/Option_map.add_item("water")
+	$Control_Option/Option_map.add_item("fire_0")
+	$Control_Option/Option_map.add_item("water_0")
+	$Control_Option/Option_map.add_item("upside_down")
 	
 func add_fight_option() -> void:
-	$Option_fight.set_text("Fights")
-	$Option_fight.add_separator()
-	$Option_fight.add_item("fight_1")
-	$Option_fight.add_item("fight_2")	
+	$Control_Option/Option_fight.set_text("Fights")
+	$Control_Option/Option_fight.add_separator()
+	$Control_Option/Option_fight.add_item("fight_1")
+	$Control_Option/Option_fight.add_item("fight_2")	
 
 func add_featured_option() -> void:
-	$Option_featured_scenes.set_text("Featured")
-	$Option_featured_scenes.add_separator()
-	$Option_featured_scenes.add_item("rewards")	
-	$Option_featured_scenes.add_item("shop")
-	$Option_featured_scenes.add_item("death")
+	$Control_Option/Option_featured_scenes.set_text("Featured")
+	$Control_Option/Option_featured_scenes.add_separator()
+	$Control_Option/Option_featured_scenes.add_item("rewards")	
+	$Control_Option/Option_featured_scenes.add_item("shop")
+	$Control_Option/Option_featured_scenes.add_item("death")
 	
 func add_unused_option() -> void:
-	$Option_unused_scenes.set_text("Unused")
-	$Option_unused_scenes.add_separator()
-	$Option_unused_scenes.add_item("create_hero")	
+	$Control_Option/Option_unused_scenes.set_text("Unused")
+	$Control_Option/Option_unused_scenes.add_separator()
+	$Control_Option/Option_unused_scenes.add_item("create_hero")	
 
 
 func get_stats(pseudo : String) -> Dictionary:
@@ -133,11 +135,12 @@ func load_stats():
 
 func _on_Option_map_item_selected(id):
 	load_stats()
-	
+	rect.show()
 	var anim_rect = AnimationUtils.rect_fade_out(self)
 	yield(anim_rect, "animation_finished")
-	var anim = AnimationUtils.canvas_fade_out(self)
-	yield(anim, "animation_finished")
+#	var anim = AnimationUtils.canvas_fade_out(self)
+#	yield(anim, "animation_finished")
+	$Control_Option.hide()
 	
 	
 	match id:

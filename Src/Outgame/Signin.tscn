@@ -279,16 +279,14 @@ text = "notion 4"
 
 [node name="Control" parent="." instance=ExtResource( 3 )]
 
-[node name="Option_map" type="OptionButton" parent="."]
-margin_left = 390.0
-margin_top = 210.0
-margin_right = 465.0
-margin_bottom = 250.0
+[node name="Control_Option" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_fight" type="OptionButton" parent="."]
+[node name="Option_fight" type="OptionButton" parent="Control_Option"]
 margin_left = 520.0
 margin_top = 210.0
 margin_right = 595.0
@@ -297,7 +295,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_featured_scenes" type="OptionButton" parent="."]
+[node name="Option_featured_scenes" type="OptionButton" parent="Control_Option"]
 margin_left = 650.0
 margin_top = 210.0
 margin_right = 725.0
@@ -306,10 +304,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_unused_scenes" type="OptionButton" parent="."]
+[node name="Option_unused_scenes" type="OptionButton" parent="Control_Option"]
 margin_left = 780.0
 margin_top = 210.0
 margin_right = 855.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option_map" type="OptionButton" parent="Control_Option"]
+margin_left = 390.0
+margin_top = 210.0
+margin_right = 465.0
 margin_bottom = 250.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -318,7 +325,7 @@ __meta__ = {
 [connection signal="pressed" from="_5eme" to="." method="_on_5eme_pressed"]
 [connection signal="pressed" from="_4eme" to="." method="_on_4eme_pressed"]
 [connection signal="pressed" from="_3eme" to="." method="_on_3eme_pressed"]
-[connection signal="item_selected" from="Option_map" to="." method="_on_Option_map_item_selected"]
-[connection signal="item_selected" from="Option_fight" to="." method="_on_Option_fight_item_selected"]
-[connection signal="item_selected" from="Option_featured_scenes" to="." method="_on_Option_featured_scenes_item_selected"]
-[connection signal="item_selected" from="Option_unused_scenes" to="." method="_on_Option_unused_scenes_item_selected"]
+[connection signal="item_selected" from="Control_Option/Option_fight" to="." method="_on_Option_fight_item_selected"]
+[connection signal="item_selected" from="Control_Option/Option_featured_scenes" to="." method="_on_Option_featured_scenes_item_selected"]
+[connection signal="item_selected" from="Control_Option/Option_unused_scenes" to="." method="_on_Option_unused_scenes_item_selected"]
+[connection signal="item_selected" from="Control_Option/Option_map" to="." method="_on_Option_map_item_selected"]
