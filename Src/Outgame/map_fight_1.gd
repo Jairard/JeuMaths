@@ -34,10 +34,10 @@ func _ready():
 	
 	spawn()
 	
-#	var anim = AnimationUtils.scene_fade_out(self)
+#	var anim = AnimationUtils.canvas_fade_in(self)
 #	yield(anim, "animation_finished")
-	var tween = AnimationUtils.canvas_fade_out(self)
-	yield(tween, "tween_completed")
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
 	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
 	listener_hero.init(calcul_instance, calcul)
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
