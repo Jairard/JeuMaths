@@ -1,8 +1,9 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=1]
-[ext_resource path="res://Src/Outgame/Map_UpsideDown.gd" type="Script" id=2]
-[ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ecs/Systems/Outgame/Map_UpsideDown.gd" type="Script" id=2]
+[ext_resource path="res://ecs/Systems/Outgame/Fade_scene.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )

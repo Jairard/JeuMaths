@@ -291,7 +291,7 @@ _global_script_class_icons={
 [application]
 
 config/name="jeu"
-run/main_scene="res://Src/Outgame/Signin.tscn"
+run/main_scene="res://ecs/Systems/Outgame/Signin.tscn"
 config/icon="res://Assets/Textures/Characters/icon.png"
 
 [autoload]
