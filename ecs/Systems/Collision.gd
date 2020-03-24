@@ -277,12 +277,12 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL RED
 
 			print("Portal red collision !")
-
+				
 			if health_comp != null:
-				var tween = AnimationUtils.canvas_fade_in(my_body.get_parent())
-				yield(tween, "tween_completed")
-				var anim = AnimationUtils.scene_fade_in(my_body.get_parent())
-				yield(anim, "animation_finished")
+				var anim_rect = AnimationUtils.rect_fade_out(my_body.get_parent())
+				yield(anim_rect, "animation_finished")
+			#	var anim = AnimationUtils.canvas_fade_out(my_body.get_parent())
+			#	yield(anim, "animation_finished")
 				FileBankUtils.loaded_scenes["map_fight_1"]
 			collider.queue_free()	
 			
