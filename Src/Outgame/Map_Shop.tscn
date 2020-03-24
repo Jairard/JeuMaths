@@ -1,12 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://ecs/Systems/Outgame/Map_Shop.gd" type="Script" id=1]
+[ext_resource path="res://Src/Outgame/Map_Shop.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Textures/hud/bombs_icon.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/hud/icons1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Characters/perle_de_vie_png.png" type="Texture" id=5]
-[ext_resource path="res://ecs/Systems/Outgame/Fade_scene.tscn" type="PackedScene" id=6]
-
+[ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
