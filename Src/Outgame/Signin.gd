@@ -162,22 +162,22 @@ func _on_Option_fight_item_selected(id):
 	
 	match id:
 		1:
-			FileBankUtils.loaded_scenes["map_fight_1"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 		2:
-			FileBankUtils.loaded_scenes["map_fight_2"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["map_fight_2"])
 
 func _on_Option_featured_scenes_item_selected(id):
 	load_stats()	
 	match id:
 		1:
-			FileBankUtils.loaded_scenes["rewards"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["rewards"])
 		2:
-			FileBankUtils.loaded_scenes["shop"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["shop"])
 		3:
-			FileBankUtils.loaded_scenes["death"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["death"])
 
 func _on_Option_unused_scenes_item_selected(id):
 	load_stats()	
 	match id:
 		1:
-			FileBankUtils.loaded_scenes["create_hero"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["create_hero"])
