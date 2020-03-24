@@ -29,7 +29,9 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Missile)
-
+	
+	
+	
 	heroNode = hero.instance()
 	add_child(heroNode)	
 
@@ -52,10 +54,11 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 
-	var anim_rect = AnimationUtils.rect_fade_in(self)
-	yield(anim_rect, "animation_finished")
 	var anim = AnimationUtils.canvas_fade_in(self)
 	yield(anim, "animation_finished")
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
+	
 
 	var portalNode = portal.instance()
 	add_child(portalNode)
@@ -116,7 +119,7 @@ func _on_Return_pressed():
 	FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 
 func tumble():
-	if pos_comp.get_position().y > 1550:
+#	if pos_comp.get_position().y > 1550:
 #		AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(22000,1300))
 		pass
 
