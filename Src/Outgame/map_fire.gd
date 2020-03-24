@@ -27,6 +27,7 @@ var file = File.new()
 var dict = {}
 	
 func _ready():
+	
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
@@ -38,10 +39,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bounce)
 
 	load_characters()
-	var anim = AnimationUtils.scene_fade_out(self)
-	yield(anim, "animation_finished")
-	var tween = AnimationUtils.canvas_fade_out(self)
-	yield(tween, "tween_completed")
 	_load_ressources()
 	_load_monsters()
 	load_gold()
@@ -52,7 +49,10 @@ func _ready():
 	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp_portal.set_position(Vector2(25500,375))
 
-
+	var anim = AnimationUtils.canvas_fade_in(self)
+	yield(anim, "animation_finished")
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
 	ECS.clear_ghosts()
 
 func load_characters() :
@@ -168,9 +168,6 @@ func _process(delta):
 		if pos_comp.get_position().x >20000:
 			AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(20000,500))
 			health_comp_hero.set_health(health_comp_hero.get_health_max())
-			
-		$ColorRect.hide()
-		$CanvasModulate.hide()	
 
 
 func _load_monsters():

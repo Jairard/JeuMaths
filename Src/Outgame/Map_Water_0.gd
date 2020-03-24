@@ -18,7 +18,10 @@ var hero_pos : Component = null
 var heroNode = null
 
 func _ready():
-
+	var anim = AnimationUtils.canvas_fade_in(self)
+	yield(anim, "animation_finished")
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Animation)
@@ -83,11 +86,6 @@ func _ready():
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
-
-	var anim = AnimationUtils.scene_fade_out(self)
-	yield(anim, "animation_finished")
-	var tween = AnimationUtils.canvas_fade_out(self)
-	yield(tween, "tween_completed")
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(4000,325), gold, health, damage)
