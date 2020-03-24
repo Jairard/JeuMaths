@@ -36,7 +36,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var current_damage = comp_damage.get_damage()
 		comp_hud.set_damage(current_damage)
 
-	if comp_score != null:
+	if comp_score != null and comp_hud != null:
 		comp_hud.set_good_answer(FileBankUtils.good_answer)
 		comp_hud.set_wrong_answer(FileBankUtils.wrong_answer)		
 		comp_hud.set_victories(FileBankUtils.victories)
