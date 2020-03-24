@@ -147,15 +147,15 @@ func _on_Option_map_item_selected(id):
 		1:
 			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
 		2:
-			FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 		3:
-			FileBankUtils.loaded_scenes["map_water"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["map_water"])
 		4:
-			FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
 		5:
-			FileBankUtils.loaded_scenes["map_water_0"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["map_water_0"])
 		6:
-			FileBankUtils.loaded_scenes["upside_down"]
+			get_tree().change_scene(FileBankUtils.loaded_scenes["upside_down"])
 
 func _on_Option_fight_item_selected(id):
 	load_stats()
