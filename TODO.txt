@@ -19,7 +19,7 @@
 
                                 |   Features  |
 
-*********   Mettre a jour les scenes pour fade in / out : dans le match du signin encore utilisation de scene_changer
+*********   Mettre a jour les scenes pour fade in / out : canvasmodulate pas d'effet
 ---------   c'est pas bau les datadriven des notions
 ---------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
 ---------   jauge circulaire
