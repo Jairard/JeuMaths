@@ -136,24 +136,24 @@ func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int,
 	add_child(Hud_heroNode)
 	Hud_heroNode.set_name("Hud_hero")
 
-	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
+	var hud_comp_fight_hero = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 
-	hud_comp.init_hero_map(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
+	hud_comp_fight_hero.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
 						   Hud_heroNode.get_damage(), _hero_health, _hero_health_max)
 	
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)
 	Hud_enemyNode.set_name("Hud_enemy")
 
-	var hud_enemy_comp = ECS.add_component(enemyNode, ComponentsLibrary.Hud) as HudComponent
-	hud_enemy_comp.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
+	var hud_comp_fight_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Hud_fight) as HudFightComponent
+	hud_comp_fight_enemy.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
 							  Hud_enemyNode.get_damage(), _enemy_health, _enemy_health_max)
 
-	var ScoreNode = score.instance()
-	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
-	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
-	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
-	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
+#	var ScoreNode = score.instance()
+#	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
+#	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
+#	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
+#	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
 	
 func _on_game_timer_timeout():
 

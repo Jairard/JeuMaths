@@ -120,13 +120,22 @@ func load_characters() :
 	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
 
 	
-	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
+	var Hud_heroNode = hud.instance()
+	add_child(Hud_heroNode)
+	Hud_heroNode.set_name("Hud_hero")
 
-	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(),
-						   HudNode.get_damage(), hero_health, hero_health)
+	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 
-	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
+	hud_comp_hero_fight.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
+						   Hud_heroNode.get_damage(), hero_health, hero_health)
 	
+	var hud_comp_hero_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent
+	hud_comp_hero_map.init_hero(ScoreNode.get_treasure(), treasure_comp.get_treasure(),
+								ScoreNode.get_score(), score_comp.compute_score())
+	
+	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
+	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
+
 func combat(valeur) :
 	if valeur == 0 :
 		FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]

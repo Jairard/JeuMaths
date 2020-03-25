@@ -55,9 +55,11 @@ func _ready():
 	var treasure_life_pos_comp = ECS.add_component(treasureNode_life, ComponentsLibrary.Position) as PositionComponent
 	treasure_life_pos_comp.set_position(Vector2(810,418))
 	
-	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
-	hud_comp.init_hero_treasure(ShopNode.get_treasure())
-	hud_comp.init_hero_map(HudHeroNode.get_life_hero(),HudHeroNode.get_life_hero_label(),
+	var hud_comp_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
+	hud_comp_treasure.init_treasure(ShopNode.get_treasure(), FileBankUtils.treasure)
+	
+	var hud_comp_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent	
+	hud_comp_map.init_hero_map(HudHeroNode.get_life_hero(),HudHeroNode.get_life_hero_label(),
 						   HudHeroNode.get_damage(), hero_health, hero_health_max)
 	
 	var anim = AnimationUtils.scene_fade_out(self)
