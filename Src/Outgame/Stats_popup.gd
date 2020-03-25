@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Node2D
 
 onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
 var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
