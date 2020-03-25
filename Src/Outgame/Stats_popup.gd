@@ -24,16 +24,16 @@ func _ready():
 	ECS.clear_ghosts()
 	
 func get_good_answer() -> Label :
-	return $CanvasLayer/good_answer/value	as Label
+	return $good_answer/value	as Label
 	
 func get_wrong_answer() -> Label :
-	return $CanvasLayer/wrong_answer/value 	as Label
+	return $wrong_answer/value 	as Label
 	
 func get_victories() -> Label :
-	return $CanvasLayer/victories/value 	as Label
+	return $victories/value 	as Label
 
 func get_defeats() -> Label :
-	return $CanvasLayer/defeats/value 	as Label
+	return $defeats/value 	as Label
 
 func _exit_tree():
 	ECS.set_system_pause_mode(SystemsLibrary.Hud, prev_hud_pause_mode)
