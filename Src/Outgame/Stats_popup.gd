@@ -9,8 +9,6 @@ func _ready():
 	var heroNode = hero.instance()
 	heroNode.deactivate()
 	add_child(heroNode)
-	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position, TagsLibrary.Tag_Hero) as PositionComponent
-	self.set_position(pos_comp.get_position())
 	var comp_score : Component = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal) as ScoreglobalcounterComponent
 	comp_score.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)
 	var comp_hud_stats_popup : Component = ECS.add_component(heroNode, ComponentsLibrary.Hud_stats_popup) as HudStatsPopupComponent
