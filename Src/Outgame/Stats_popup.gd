@@ -9,15 +9,13 @@ func _ready():
 	var heroNode = hero.instance()
 	heroNode.deactivate()
 	add_child(heroNode)
+	ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 	var comp_score : Component = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal) as ScoreglobalcounterComponent
 	comp_score.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)
 	var comp_hud_stats_popup : Component = ECS.add_component(heroNode, ComponentsLibrary.Hud_stats_popup) as HudStatsPopupComponent
 	comp_hud_stats_popup.init_stats(get_good_answer(), get_wrong_answer(), get_victories(),get_defeats())
 	
-	comp_hud_stats_popup.set_good_answer(FileBankUtils.good_answer)
-	comp_hud_stats_popup.set_wrong_answer(FileBankUtils.wrong_answer)		
-	comp_hud_stats_popup.set_victories(FileBankUtils.victories)
-	comp_hud_stats_popup.set_defeats(FileBankUtils.defeats)		
+	
 	
 	ECS.clear_ghosts()
 	
