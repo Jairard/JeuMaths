@@ -3,12 +3,12 @@ extends System
 class_name AnswerSystem
 
 func _get_mandatory_components() -> Array:
-	return [ComponentsLibrary.AnswerListener,ComponentsLibrary.Spell, ComponentsLibrary.AnswertoSpell,
-			ComponentsLibrary.Collision, ComponentsLibrary.Damage, ComponentsLibrary.Health]
+	return [ComponentsLibrary.Hud_fight]
 
 func _get_optional_components() -> Array:
-	return [ComponentsLibrary.Scoreglobal,
-		   ComponentsLibrary.Node_Enemy, ComponentsLibrary.Node_Hero]
+	return [ComponentsLibrary.Scoreglobal, ComponentsLibrary.Node_Enemy, ComponentsLibrary.Node_Hero, 
+			ComponentsLibrary.AnswerListener,ComponentsLibrary.Spell, ComponentsLibrary.AnswertoSpell,
+			ComponentsLibrary.Collision, ComponentsLibrary.Damage, ComponentsLibrary.Health]
 
 
 func _get_system_dependencies() -> Array:
@@ -44,10 +44,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if answer == AnswerListenerComponent.answer.true:															# COUNTER GOOD ANSWERS
 			score_comp.set_good_answer(score_comp.get_good_answer() + 1)
 			FileBankUtils.good_answer += 1
-#			print("true : ", FileBankUtils.good_answer)
 		if answer == AnswerListenerComponent.answer.false:															# COUNTER WRONG ANSWERS
 			score_comp.set_wrong_answer(score_comp.get_wrong_answer() + 1)
-#			print("wrong : ", FileBankUtils.wrong_answer)
 			FileBankUtils.wrong_answer += 1
 
 	if spell != null and health_comp != null:

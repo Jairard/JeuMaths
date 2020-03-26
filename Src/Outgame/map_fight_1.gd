@@ -17,6 +17,8 @@ onready var game_timer = get_node("game_timer")
 onready var heroNode = hero.instance()
 onready var enemyNode = enemy.instance()
 
+var treasure_comp : Component = null
+
 var calcul_instance = null
 
 func _ready():
@@ -65,7 +67,10 @@ func _ready():
 	var hero_health_max = FileBankUtils.health_max		
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_hero.init(hero_health,hero_health)
-		
+	
+	treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
+	treasure_comp.init(FileBankUtils.treasure)
+	
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 
 
@@ -149,11 +154,16 @@ func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int,
 	hud_comp_fight_enemy.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
 							  Hud_enemyNode.get_damage(), _enemy_health, _enemy_health_max)
 
-#	var ScoreNode = score.instance()
-#	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
-#	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
-#	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
-#	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
+	var ScoreNode = score.instance()	
+	var hud_comp_hero_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent
+
+	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
+	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
+	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
+	hud_comp_hero_map.init_hero(ScoreNode.get_treasure(), treasure_comp.get_treasure(),
+								ScoreNode.get_score(), score_comp.compute_score())
+	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
+	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
 	
 func _on_game_timer_timeout():
 
