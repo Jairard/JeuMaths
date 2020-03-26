@@ -1,7 +1,5 @@
                                 |   Components  |
 
-*********   mettre en pause les systems pour stats_popup
-*********   scene popup
 *********   map fire : barre de vie du hero 
 *********   ratio de la barre de vie a recalculer à chaque appel
 ---------   collision avec de la vie
