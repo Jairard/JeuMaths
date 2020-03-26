@@ -37,8 +37,8 @@ func _ready():
 	pos_comp.set_position(Vector2(100,400))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
-	var treasure_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent	
-	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
+	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent	
+	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
@@ -77,19 +77,20 @@ func _ready():
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
 	ScoreNode.set_name("Score")
-
-	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
-
-	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(),
-						   HudNode.get_damage(), hero_health, hero_health)
-
-	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
+	
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
+	
+	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 
-	var anim = AnimationUtils.scene_fade_out(self)
-	yield(anim, "animation_finished")
-	var tween = AnimationUtils.canvas_fade_out(self)
-	yield(tween, "tween_completed")
+	hud_comp_hero_fight.init_hero(HudNode.get_life_hero(),HudNode.get_life_hero_label(), 
+									HudNode.get_damage(), hero_health, hero_health)
 
+	var hud_comp_hero_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent
+	hud_comp_hero_map.init_hero(ScoreNode.get_treasure(), treasure_comp.get_treasure(), 
+								ScoreNode.get_score(), score_comp.compute_score())
+								
+	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
+	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
+	
 	ECS.clear_ghosts()
