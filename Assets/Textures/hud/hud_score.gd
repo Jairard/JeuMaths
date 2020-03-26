@@ -17,7 +17,7 @@ func _on_Button_pressed():
 
 func _on_Stats_pressed():
 	var stats = stats_popup.instance()
-	add_child(stats)
+	$CanvasLayer.add_child(stats)
 	stats.show()
 	get_tree().paused = true	
 	yield(get_tree().create_timer(2), 'timeout')
