@@ -46,7 +46,7 @@ func update_displayed_health(dt : float) -> void:
 
 func set_health(health : int) -> void :
 	if health != target_health:
-		print ("health : ", health, "  /  target : ", target_health)		
+#		print ("health : ", health, "  /  target : ", target_health)		
 		target_health = health
 		health_current_anim_time = 0
 	

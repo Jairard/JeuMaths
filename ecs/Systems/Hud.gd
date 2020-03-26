@@ -45,14 +45,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 
 	if comp_score != null and comp_hud_stats_popup != null:
-		print("in")
 		comp_hud_stats_popup.set_good_answer(FileBankUtils.good_answer)
 		comp_hud_stats_popup.set_wrong_answer(FileBankUtils.wrong_answer)		
 		comp_hud_stats_popup.set_victories(FileBankUtils.victories)
 		comp_hud_stats_popup.set_defeats(FileBankUtils.defeats)		
-
-
-		
-
-
-
