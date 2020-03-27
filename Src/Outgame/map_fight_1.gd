@@ -20,9 +20,9 @@ onready var enemyNode = enemy.instance()
 var treasure_comp : Component = null
 
 var calcul_instance = null
+var answer_listener : Array = []
 
 func _ready():
-	var answer_listener : Array = []
 
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
@@ -111,7 +111,6 @@ func _ready():
 
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
 
-	calcul_instance.set_answer_listener(answer_listener)
 
 	load_hud(hero_health, hero_health_max, enemy_health, enemy_health)	
 
@@ -132,9 +131,9 @@ func spawn() :
 	var sprite = $Ennemy/Sprite
 	sprite.apply_scale(Vector2(3, 3))
 	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
-	calcul_instance = calcul.instance()
-	calcul_instance.hide()
-	add_child(calcul_instance)
+#	calcul_instance = calcul.instance()
+#	calcul_instance.hide()
+#	add_child(calcul_instance)
 
 func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int, _enemy_health_max : int):
 	var Hud_heroNode = hud_hero.instance()
@@ -168,7 +167,12 @@ func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int,
 func _on_game_timer_timeout():
 
 	time_label.hide()
-	calcul_instance.show()
+#	calcul_instance.show()
+	calcul_instance = calcul.instance()
+#	calcul_instance.hide()
+	add_child(calcul_instance)
+	calcul_instance.set_answer_listener(answer_listener)
+	
 
 func font_choice():
 	$font_choice.set_text("FONT")	
