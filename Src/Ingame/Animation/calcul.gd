@@ -91,7 +91,7 @@ func setup_question(dict : Array) -> void:
 
 
 func _ready():
-	answer_listeners = []
+#	answer_listeners = []
 #	if FileBankUtils.classroom == 6:
 #		setup_question(load_calcul_6)
 #	if FileBankUtils.classroom == 5:

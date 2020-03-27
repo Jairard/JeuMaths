@@ -16,7 +16,8 @@ onready var game_timer = get_node("game_timer")
 
 onready var heroNode = hero.instance()
 onready var enemyNode = enemy.instance()
-
+var listener_hero : Component = null
+var listener_enemy : Component = null
 var treasure_comp : Component = null
 
 var calcul_instance = null
@@ -40,7 +41,7 @@ func _ready():
 #	yield(anim, "animation_finished")
 	var anim_rect = AnimationUtils.rect_fade_in(self)
 	yield(anim_rect, "animation_finished")
-	var listener_hero : Component = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
+	listener_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
 	listener_hero.init(calcul_instance, calcul)
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
@@ -75,7 +76,7 @@ func _ready():
 
 
 
-	var listener_enemy : Component = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
+	listener_enemy = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
 	listener_enemy.init(calcul_instance, calcul)
 
 
@@ -167,11 +168,11 @@ func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int,
 func _on_game_timer_timeout():
 
 	time_label.hide()
-#	calcul_instance.show()
 	calcul_instance = calcul.instance()
-#	calcul_instance.hide()
 	add_child(calcul_instance)
 	calcul_instance.set_answer_listener(answer_listener)
+	listener_hero.init(calcul_instance, calcul)
+	listener_enemy.init(calcul_instance, calcul)
 	
 
 func font_choice():
