@@ -93,7 +93,6 @@ func _ready():
 
 	damage_comp_enemy.init(damage_enemy)
 
-
 	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
 	answerToSpell_hero.init({AnswerListenerComponent.answer.true :
 																	{AnswertoSpellComponent.property.name :"spell_hero",
@@ -121,8 +120,6 @@ func _ready():
 
 func _process(delta):
 	time_label.set_text(str(int(game_timer.get_time_left())))
-
-
 
 func spawn() :
 

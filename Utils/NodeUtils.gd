@@ -11,8 +11,8 @@ func create_label(position : Vector2, rect_size : Vector2, color : Color,
 	dynamic_font_timer.use_filter = true
 
 	var label = Label.new()
-	label.show()				
-	label.set_position(position)				
+	label.show()
+	label.set_position(position)
 	label.rect_size.x = rect_size.x
 	label.rect_size.y = rect_size.y
 	label.align = VALIGN_CENTER
