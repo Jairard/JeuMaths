@@ -32,15 +32,9 @@ func load_c(path : String) -> Dictionary:
 
 func setup_question(dict : Array) -> void:
 	var font_question = "res://Assets/Font/Comfortaa-Bold.ttf"
-	var dynamic_font_question = DynamicFont.new()
-	dynamic_font_question.font_data = load(font_question)
-	dynamic_font_question.size = 50
-	dynamic_font_question.outline_size = 5
-	dynamic_font_question.outline_color = Color( 0, 0, 0, 1 )
-	dynamic_font_question.use_filter = true
-	question = Label.new()
+	question = NodeUtils.create_label(Vector2(0,0), Vector2(200,300), 
+						   Color.yellowgreen, font_question, 35,3, Color.black)
 	add_child(question)
-	question.add_font_override("font", dynamic_font_question)
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
@@ -50,37 +44,22 @@ func setup_question(dict : Array) -> void:
 	question.text = chosen_question["question"]
 	var answers 		: Array = chosen_question["answers"]
 
-	var ans_position : Vector2 = Vector2(0,100)
+	var ans_position : Vector2 = Vector2(question.get_position().x - 100 , question.get_position().y + 100)
 	for ans in answers:
 		button_answer = Button.new()
 		button_answer.text = ans["text"]
 		ans_position.x += 100
 		button_answer.set_position(ans_position)
 		add_child(button_answer)
-		
-		var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
-		var dynamic_font_timer = DynamicFont.new()
-		dynamic_font_timer.font_data = load(font_timer)
-		dynamic_font_timer.size = 50
-		dynamic_font_timer.outline_size = 5
-		dynamic_font_timer.outline_color = Color( 0, 0, 0, 1 )
-		dynamic_font_timer.use_filter = true
 
-		timer = Timer.new()
-		question.add_child(timer)
-		timer_label = Label.new()
-		question.add_child(timer_label)
-		timer_label.show()				
-		timer_label.set_position(Vector2(question.get_position().x + 100, question.get_position().y - 50))				
-		timer_label.rect_size.x = 200
-		timer_label.rect_size.y = 200
-		timer_label.align = VALIGN_CENTER
-		timer_label.add_font_override("font", dynamic_font_timer)
-		timer_label.add_color_override("font_color", Color.red)
-		timer.set_wait_time(4)	
-		timer.set_one_shot(true)
-		timer.set_autostart(true)	
-		timer.start()				
+		var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
+		timer = NodeUtils.create_timer(4, true, true)
+		add_child(timer)
+
+		timer_label = NodeUtils.create_label(Vector2(200,300), Vector2(200,200), 
+						   Color.red, font_timer, 50,5, Color.black)
+		timer.add_child(timer_label)
+
 
 
 		if ans["is_good_answer"] == true:
@@ -104,20 +83,21 @@ func _ready():
 	
 
 func _process(delta):
+	
 #	count += 1
 #	button_answer.set_rotation(count*delta)
 #	$ans_1.rotation = count * delta
 #	$ans_2.rotation = count * delta
+
 	timer_label.set_text(str(int(timer.get_time_left())))
 	if int(timer.get_time_left()) > 0:
-#		question.set("custom_colors/font_color", Color(79,187,67,255))
-		question.add_color_override("font_color", Color.blue)
+		question.add_color_override("font_color", Color.greenyellow)
+#		GLOBAL.critic = true
 	else:
-#		question.set("custom_colors/font_color", Color(255,255,255,255))
-		question.add_color_override("font_color", Color.black)		
-		
-
-
+		question.add_color_override("font_color", Color.green)		
+#		GLOBAL.critic = false
+	pass
+	
 func on_answer_pressed(is_good_answer : bool):
 	var answer = AnswerListenerComponent.answer.false
 	if is_good_answer == true:

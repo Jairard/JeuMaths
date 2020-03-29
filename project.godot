@@ -317,6 +317,7 @@ EntitiesUtils="*res://Utils/EntitiesUtils.gd"
 Scene_changer="*res://Src/Outgame/Scene_changer.tscn"
 AnimationUtils="*res://Utils/AnimationUtils.gd"
 FontChoice="*res://font/FontChoice.gd"
+NodeUtils="*res://Utils/NodeUtils.gd"
 
 [display]
 
