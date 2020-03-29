@@ -28,6 +28,4 @@
 
                                 |   Add_on  |
 
----------   Util pour choisir un font sur un objet type button ou label
----------   Util pour créer un timer
 ---------   relier les notions cochées au code : liste de notions 
