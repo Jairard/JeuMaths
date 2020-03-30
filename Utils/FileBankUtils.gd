@@ -48,7 +48,7 @@ func init_stats(stats : Dictionary, _pseudo : String) -> void:
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		var stats : Dictionary = {
-									"damage":damage, "critical_damage":0.15*damage, "health":health,
+									"damage":damage, "critical_damage": int(1.2*damage), "health":health,
 									"treasure":treasure,"good_answer":good_answer,"wrong_answer":wrong_answer,
 									"victories":victories, "defeats":defeats,
 									"health_max":health_max, "scene_counter":scene_counter	  
