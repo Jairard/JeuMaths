@@ -92,12 +92,10 @@ func _process(delta):
 	timer_label.set_text(str(int(timer.get_time_left())))
 	if int(timer.get_time_left()) > 0:
 		question.add_color_override("font_color", Color.greenyellow)
-#		GLOBAL.critic = true
 	else:
 		question.add_color_override("font_color", Color.green)		
-#		GLOBAL.critic = false
-	pass
-	
+
+
 func on_answer_pressed(is_good_answer : bool):
 	var answer = AnswerListenerComponent.answer.false
 	if is_good_answer == true:
