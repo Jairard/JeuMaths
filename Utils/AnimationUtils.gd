@@ -90,27 +90,14 @@ func checkpoint(scene : Node2D, node : Node2D, current_pos : Vector2, final_pos 
 
 func floating_damage(node : Node2D, dmg : int, _bool : bool, font):
 	if _bool:
-		var dynamic_font = DynamicFont.new()
-#		dynamic_font.font_data = load("res://Assets/Font/Comfortaa-Bold.ttf")	
-#		dynamic_font.font_data = load("res://font/Kenney Thick.ttf")
-		dynamic_font.font_data = load(font)
 
-		dynamic_font.size = 120
-		dynamic_font.outline_size = 5
-		dynamic_font.outline_color = Color( 0, 0, 0, 1 )
-		dynamic_font.use_filter = true
-			
-		var label = Label.new()
-		label.set_position(Vector2(node.get_position().x + 100, node.get_position().y - 20))
+		var label = NodeUtils.create_label(Vector2(node.get_position().x + 100, node.get_position().y - 20), 
+										   Vector2(200,200), Color.red, font, 120,5, Color.black)
 
 		var parent = node.get_parent()
 		parent.add_child(label)
 		label.text = ("-" + str(dmg))
-		label.rect_size.x = 200
-		label.rect_size.y = 200
-		label.align = VALIGN_CENTER
-		label.add_font_override("font", dynamic_font)
-		label.add_color_override("font_color", Color.red)
+
 		var tween : Tween = Tween.new()
 		node.add_child(tween)
 
@@ -118,11 +105,5 @@ func floating_damage(node : Node2D, dmg : int, _bool : bool, font):
 		tween.start()	
 		yield(tween, "tween_completed")		
 
-#		tween.interpolate_property(label, "Scale", Vector2(10,10), Vector2(0.4,0.4), 0.3, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.7)				
-#		tween.start()
-#		tween.interpolate_callback(label, 1.0, "destroy")			
-#		label.queue_free()
 		_bool = false
 		return tween
-
-
