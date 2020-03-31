@@ -20,7 +20,7 @@ func init_spell(node : Node2D, target : Node2D, damage : int) -> void:
 	target_comp.init(target)
 	ECS.add_component(node, ComponentsLibrary.Collision)
 	var spl_dmg_comp = ECS.add_component(node, ComponentsLibrary.Damage) as DamageComponent
-	spl_dmg_comp.init(damage)
+	spl_dmg_comp.init(damage, 0)
 
 
 func _process_node(dt : float, components : Dictionary) -> void:

@@ -3,7 +3,6 @@ extends Node
 var health 			: int = 0
 var health_max		: int = 0
 var damage 			: int = 0
-var critical_damage : int = 0
 var treasure 		: int = 0
 var good_answer 	: int = 0
 var wrong_answer 	: int = 0
@@ -35,7 +34,6 @@ func save_json(dict,path : String) -> void:
 func init_stats(stats : Dictionary, _pseudo : String) -> void:
 	health 			= stats["health"]
 	damage 			= stats["damage"]
-	critical_damage = stats["critical_damage"]
 	treasure		= stats["treasure"]
 	good_answer 	= stats["good_answer"]
 	wrong_answer 	= stats["wrong_answer"]
@@ -48,7 +46,7 @@ func init_stats(stats : Dictionary, _pseudo : String) -> void:
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		var stats : Dictionary = {
-									"damage":damage, "critical_damage": int(1.2*damage), "health":health,
+									"damage":damage, "health":health,
 									"treasure":treasure,"good_answer":good_answer,"wrong_answer":wrong_answer,
 									"victories":victories, "defeats":defeats,
 									"health_max":health_max, "scene_counter":scene_counter	  

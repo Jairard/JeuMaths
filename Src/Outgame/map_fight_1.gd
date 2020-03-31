@@ -19,6 +19,8 @@ onready var enemyNode = enemy.instance()
 var listener_hero : Component = null
 var listener_enemy : Component = null
 var treasure_comp : Component = null
+var answerToSpell_hero : Component = null
+var damage_comp_hero : Component = null
 
 var calcul_instance = null
 var answer_listener : Array = []
@@ -34,7 +36,9 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Endfight)
-	
+	ECS.register_system(SystemsLibrary.Critic)
+
+
 	spawn()
 	
 #	var anim = AnimationUtils.canvas_fade_in(self)
@@ -47,15 +51,13 @@ func _ready():
 	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
 	answer_listener.append(listener_hero)
 	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
-	var damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
-#	damage_comp_hero.init(damage_comp_hero.damage)
-	damage_comp_hero.init(FileBankUtils.damage)
+	damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
+	damage_comp_hero.init(FileBankUtils.damage, 4)
 
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
-	ECS.add_component(heroNode, ComponentsLibrary.Node_Hero)
 
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
@@ -91,9 +93,9 @@ func _ready():
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
 	var damage_enemy = int(damage_comp_hero.damage * 0.3)
 
-	damage_comp_enemy.init(damage_enemy)
+	damage_comp_enemy.init(damage_enemy,0)
 
-	var answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
+	answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
 	answerToSpell_hero.init({AnswerListenerComponent.answer.true :
 																	{AnswertoSpellComponent.property.name :"spell_hero",
 																	 AnswertoSpellComponent.property.target : enemyNode,
@@ -120,6 +122,14 @@ func _ready():
 
 func _process(delta):
 	time_label.set_text(str(int(game_timer.get_time_left())))
+
+	if answerToSpell_hero != null:
+		answerToSpell_hero.init({AnswerListenerComponent.answer.true :
+																	{AnswertoSpellComponent.property.name :"spell_hero",
+																	 AnswertoSpellComponent.property.target : enemyNode,
+																	 AnswertoSpellComponent.property.damage : damage_comp_hero.get_damage()}
+																	})
+
 
 func spawn() :
 
@@ -170,7 +180,7 @@ func _on_game_timer_timeout():
 	calcul_instance.set_answer_listener(answer_listener)
 	listener_hero.init(calcul_instance, calcul)
 	listener_enemy.init(calcul_instance, calcul)
-	
+	ECS.add_component(heroNode, ComponentsLibrary.Node_Hero)	
 
 func font_choice():
 	$font_choice.set_text("FONT")	

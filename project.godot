@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Component.gd"
 }, {
+"base": "System",
+"class": "CriticSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Critic.gd"
+}, {
 "base": "Component",
 "class": "DamageComponent",
 "language": "GDScript",
@@ -257,6 +262,7 @@ _global_script_class_icons={
 "CollisionComponent": "",
 "CollisionSystem": "",
 "Component": "",
+"CriticSystem": "",
 "DamageComponent": "",
 "EmitParticulesComponent": "",
 "EmitParticulesSystem": "",
