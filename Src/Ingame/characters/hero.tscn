@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Src/Ingame/characters/hero.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Characters/TEST_punk_pour_P.png" type="Texture" id=2]
@@ -124,6 +124,13 @@ scale_random = 1.0
 scale_curve = SubResource( 10 )
 color_ramp = SubResource( 8 )
 
+[sub_resource type="CircleShape2D" id=12]
+radius = 14.1122
+
+[sub_resource type="CapsuleShape2D" id=13]
+radius = 17.7617
+height = 114.824
+
 [node name="hero" type="KinematicBody2D"]
 modulate = Color( 1, 0.980392, 0.980392, 1 )
 collision_mask = 65526
@@ -183,4 +190,13 @@ explosiveness = 0.26
 process_material = SubResource( 11 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -55.097, 107.733, -36.6067, 109.998, 51.3167, 106.224, 18.8643, -97.5468, -4.1543, -97.5468, -53.965, 49.9984, -55.8517, 89.2432 )
+position = Vector2( 0.377365, 0 )
+polygon = PoolVector2Array( -39.8939, 99.5594, -36.6067, 109.998, 39.5391, 108.205, 28.7319, 58.492, 22.2476, 25.53, -15.5777, 28.2318, -32.3289, 70.9203 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 10.1886, -81.8859 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 2.70181, 5.94397 )
+shape = SubResource( 13 )
