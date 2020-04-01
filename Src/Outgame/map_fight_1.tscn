@@ -408,10 +408,10 @@ centered = false
 [node name="Control" parent="." instance=ExtResource( 7 )]
 
 [node name="font_choice" type="OptionButton" parent="."]
-margin_left = -395.0
-margin_top = 28.0
-margin_right = -136.0
-margin_bottom = 101.0
+margin_left = -760.426
+margin_top = 89.3692
+margin_right = -501.426
+margin_bottom = 162.369
 custom_fonts/font = SubResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false

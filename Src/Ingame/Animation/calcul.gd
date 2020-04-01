@@ -50,7 +50,7 @@ func setup_question(dict : Array) -> void:
 		button_answer.text = ans["text"]
 		ans_position.x += 100
 		button_answer.set_position(ans_position)
-		add_child(button_answer)
+		question.add_child(button_answer)
 
 		var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
 		timer = NodeUtils.create_timer(4, true, true)
