@@ -113,7 +113,7 @@ func load_characters() :
 
 
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
-	damage_comp.init(FileBankUtils.damage)
+	damage_comp.init(FileBankUtils.damage, 0)
 
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
