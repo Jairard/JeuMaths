@@ -67,6 +67,8 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.0119602, 0.0119602, 0.0119602, 0.98804 )
+margin_left = -16914.0
 margin_top = -20643.0
 margin_right = 66202.0
 margin_bottom = 22473.0
@@ -82,4 +84,5 @@ anims/out_rect = SubResource( 3 )
 anims/out_scene = SubResource( 4 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+modulate = Color( 0.00318567, 0.00318567, 0.00318567, 1 )
 show_behind_parent = true
