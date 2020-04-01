@@ -1,9 +1,7 @@
                                 |   Components  |
 
-*********   map fire : barre de vie du hero 
 *********   ratio de la barre de vie a recalculer à chaque appel
 *********   plus rapide est la réponse plus les dégats sont grands : pas de dégats critiques pour l'ennemi
----------   collision avec de la vie
 ---------   map évolutive : utiliser la découpe de scene en plusieurs tilemaps
 ---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : jouer le scale
