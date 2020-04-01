@@ -36,7 +36,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Endfight)
-	ECS.register_system(SystemsLibrary.Critic)
 
 
 	spawn()
@@ -93,7 +92,7 @@ func _ready():
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
 	var damage_enemy = int(damage_comp_hero.damage * 0.3)
 
-	damage_comp_enemy.init(damage_enemy,0)
+	damage_comp_enemy.init(damage_enemy,3)
 
 	answerToSpell_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswertoSpell) as AnswertoSpellComponent
 	answerToSpell_hero.init({AnswerListenerComponent.answer.true :
