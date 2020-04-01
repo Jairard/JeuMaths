@@ -32,9 +32,9 @@ func load_c(path : String) -> Dictionary:
 
 func setup_question(dict : Array) -> void:
 	var font_question = "res://Assets/Font/Comfortaa-Bold.ttf"
-	question = NodeUtils.create_label(Vector2(0,0), Vector2(200,300), 
+	question = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
 						   Color.yellowgreen, font_question, 35,3, Color.black)
-	add_child(question)
+	$CanvasLayer.add_child(question)
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
@@ -55,12 +55,6 @@ func setup_question(dict : Array) -> void:
 		var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
 		timer = NodeUtils.create_timer(4, true, true)
 		add_child(timer)
-
-		timer_label = NodeUtils.create_label(Vector2(200,300), Vector2(200,200), 
-						   Color.red, font_timer, 50,5, Color.black)
-		timer.add_child(timer_label)
-
-
 
 		if ans["is_good_answer"] == true:
 			var style : StyleBoxFlat = StyleBoxFlat.new()
@@ -89,7 +83,6 @@ func _process(delta):
 #	$ans_1.rotation = count * delta
 #	$ans_2.rotation = count * delta
 
-	timer_label.set_text(str(int(timer.get_time_left())))
 	if int(timer.get_time_left()) > 0:
 		question.add_color_override("font_color", Color.greenyellow)
 	else:
