@@ -406,7 +406,6 @@ texture = ExtResource( 6 )
 centered = false
 
 [node name="Control" parent="." instance=ExtResource( 7 )]
-visible = false
 
 [node name="font_choice" type="OptionButton" parent="."]
 margin_left = 0.133728
