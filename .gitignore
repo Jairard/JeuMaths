@@ -10,3 +10,4 @@ export_presets.cfg
 .directory
 *~
 Sprite.gd
+Assets/Stats_Characters/Hero_Stats.json
