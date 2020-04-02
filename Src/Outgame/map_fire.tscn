@@ -316,7 +316,6 @@ position = Vector2( 22416.5, 378.697 )
 shape = SubResource( 13 )
 
 [node name="Control" parent="." instance=ExtResource( 7 )]
-visible = false
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Missile_spawn" to="." method="_on_Missile_spawn_body_entered"]
