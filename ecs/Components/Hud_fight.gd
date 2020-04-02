@@ -3,13 +3,15 @@ extends Component
 class_name HudFightComponent
 
 var _health_value  	: 	TextureProgress = null
+var current_health : int = 0
 var _health_label 	: 	Label = null
 var _damage			: 	Label = null
 var original_health : int = 0
 var target_health : int = 0
 
-var health_anim_time : float = 1
+var health_anim_time : float = 5
 var health_current_anim_time : float = 0
+var timer_anim : float = health_anim_time - health_current_anim_time
 
 
 func init_hero(health_value : TextureProgress, health_label : Label,
@@ -40,18 +42,19 @@ func update_displayed_health(dt : float) -> void:
 	if original_health != target_health:
 		health_current_anim_time = min(health_anim_time, health_current_anim_time + dt)
 		_health_value.value = lerp(original_health, target_health, health_current_anim_time/health_anim_time)
-		print (_health_value.value)
 		if health_current_anim_time == health_anim_time :
 			original_health = target_health
+			var reset  = health_anim_time - health_current_anim_time
+			health_anim_time += reset
 			health_current_anim_time = 0
-
-
+			
 func set_health(health : int) -> void :
 	if health != target_health:
 #		print ("health : ", health, "  /  target : ", target_health)		
 		target_health = health
 #		health_current_anim_time = 0
-	
+
+
 	if _health_value.value > 0:
 		_health_label.text = "%s / %s" % [health,  _health_value.max_value]	
 	if _health_value.value <= 0:
