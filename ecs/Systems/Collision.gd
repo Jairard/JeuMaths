@@ -151,7 +151,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			print("Rain collision !")
 			
-			comp_move.set_direction(comp_move.dir.colliding)			
 			FileBankUtils.health -= 5
 			collider.call_deferred("free")
 
@@ -178,13 +177,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
 
 			print("Fire collision !")
+			unique_collision(collider)			
 			collider.queue_free()
-#			comp_move.set_direction(comp_move.dir.colliding)
 #			print ("dir : ", comp_move.dir.colliding)
 #			yield(comp_move.get_node().get_parent().get_tree().create_timer(10), "timeout")
 			
 			if health_comp != null:
-				health_comp.set_health(health_comp.get_health() - 10)# lerp(0, 10, 0))
+				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
 				AnimationUtils.tween_hero_collision(my_body)			
 		
