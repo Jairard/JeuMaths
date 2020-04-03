@@ -11,6 +11,8 @@ var load_calcul = load_c("res://Assets/Questions/questions.json")
 var timer : Timer = null
 var timer_label : Label = null
 var button_answer : Button = null
+var control_answer : Control = null
+var control_question : Control = null
 var question : Label = null
 var colorRect : ColorRect = null
 
@@ -34,7 +36,10 @@ func setup_question(dict : Array) -> void:
 	var font_question = "res://Assets/Font/Comfortaa-Bold.ttf"
 	question = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
 						   Color.yellowgreen, font_question, 35,3, Color.black)
-	$CanvasLayer.add_child(question)
+	control_question = Control.new() 
+	control_question.rect_size = Vector2(200,200)
+	$CanvasLayer.add_child(control_question)
+	control_question.add_child(question)
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
@@ -46,11 +51,13 @@ func setup_question(dict : Array) -> void:
 
 	var ans_position : Vector2 = Vector2(question.get_position().x - 100 , question.get_position().y + 100)
 	for ans in answers:
+		control_answer = Control.new()
 		button_answer = Button.new()
 		button_answer.text = ans["text"]
 		ans_position.x += 100
 		button_answer.set_position(ans_position)
-		question.add_child(button_answer)
+		question.add_child(control_answer)
+		control_answer.add_child(button_answer)
 
 		var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
 		timer = NodeUtils.create_timer(4, true, true)
@@ -74,14 +81,18 @@ func _ready():
 #	if FileBankUtils.classroom == 3:
 #		setup_question(load_calcul_3)
 	setup_question(load_calcul)
-	
+
 
 func _process(delta):
-	
-#	count += 1
-#	button_answer.set_rotation(count*delta)
-#	$ans_1.rotation = count * delta
-#	$ans_2.rotation = count * delta
+
+	count += 1
+	control_question.set_pivot_offset(Vector2(control_question.rect_size.x/2, control_question.rect_size.y/2))
+	control_answer.set_pivot_offset(control_question.get_pivot_offset())
+	print (control_answer.get_pivot_offset())	
+	control_answer.set_rotation(count*delta)
+	button_answer.set_rotation(-count*delta)	
+
+
 
 	if int(timer.get_time_left()) > 0:
 		question.add_color_override("font_color", Color.greenyellow)
