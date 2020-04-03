@@ -277,8 +277,6 @@ margin_right = 121.0
 margin_bottom = 108.0
 text = "notion 4"
 
-[node name="Control" parent="." instance=ExtResource( 3 )]
-
 [node name="Control_Option" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -321,6 +319,8 @@ margin_bottom = 250.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control" parent="." instance=ExtResource( 3 )]
 [connection signal="pressed" from="_6eme" to="." method="_on_6eme_pressed"]
 [connection signal="pressed" from="_5eme" to="." method="_on_5eme_pressed"]
 [connection signal="pressed" from="_4eme" to="." method="_on_4eme_pressed"]
