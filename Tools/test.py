@@ -27,7 +27,7 @@ for i in range(-12, 12, 1):
         image_bytes = render_latex(formula, fontsize=10, dpi=300, format_='png')
         with open(output_file_name, 'wb') as image_file:
             image_file.write(image_bytes)
-            print("Done !")
+    print("-12 / 12         Done !")
 
 for i in range(-200, 200, 10):
     for j in range(-200, 200, 10 ):
@@ -46,10 +46,10 @@ for i in range(-200, 200, 10):
         image_bytes = render_latex(formula, fontsize=10, dpi=300, format_='png')
         with open(output_file_name, 'wb') as image_file:
             image_file.write(image_bytes)
-            print("Done !")
+    print("-200 / 200       Done !")
 
-for i in range(0, 20, 1):
-    for j in range(0, 20, 1 ):
+for i in range(1, 20, 1):
+    for j in range(1, 20, 1 ):
         raw_numerator = float(i)
         raw_denominator = float(j)
 
@@ -65,4 +65,4 @@ for i in range(0, 20, 1):
         image_bytes = render_latex(formula, fontsize=10, dpi=300, format_='png')
         with open(output_file_name, 'wb') as image_file:
             image_file.write(image_bytes)
-            print("Done !")
+    print("1 / 20       Done !")
