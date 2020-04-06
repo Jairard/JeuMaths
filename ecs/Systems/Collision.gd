@@ -259,7 +259,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if health_comp != null:
 				FileBankUtils.scene_counter += 1
-				FileBankUtils.load_right_scene()
+				my_body.get_parent().get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 			collider.queue_free()
 			
 		if (has_collision_layer(collider,portal_green_layer_bit) == true
@@ -268,7 +268,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Portal green collision !")
 
 			if health_comp != null:
-				FileBankUtils.load_right_scene()
+				var right_scene = FileBankUtils.load_right_scene()
+				my_body.get_parent().get_tree().change_scene(FileBankUtils.load_right_scene())
 			collider.queue_free()
 
 
@@ -282,7 +283,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				yield(anim_rect, "animation_finished")
 			#	var anim = AnimationUtils.canvas_fade_out(my_body.get_parent())
 			#	yield(anim, "animation_finished")
-				FileBankUtils.loaded_scenes["map_fight_1"]
+				my_body.get_parent().get_tree().change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 			collider.queue_free()	
 			
 func unique_collision(collider):
