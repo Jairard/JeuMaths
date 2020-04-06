@@ -18,7 +18,8 @@ var question : Label = null
 var colorRect : ColorRect = null
 var control_1 : Control = null
 var control_2 : Control = null
-
+var center_question : CenterContainer = null
+var center_answer : CenterContainer = null
 
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
@@ -37,6 +38,8 @@ func load_c(path : String) -> Dictionary:
 func setup_question(dict : Array) -> void:
 	control_1 = Control.new()
 	control_2 = Control.new()
+	center_question = CenterContainer.new()
+	center_answer = CenterContainer.new()
 	control_1.self_modulate = Color(1, 1, 1, 0)
 	control_2.self_modulate = Color(1, 1, 1, 0)
 	var font_question = "res://font/Colored Crayons.ttf"
@@ -47,10 +50,9 @@ func setup_question(dict : Array) -> void:
 	control_question.rect_size = Vector2(200,50)
 	control_question.self_modulate = Color(1, 1, 1, 0)
 	$CanvasLayer.add_child(control_question)
-	control_question.add_child(question)
-	var rect = control_question.rect_size
-	var pos = rect/2
-	question.rect_position = pos
+	control_question.add_child(center_question)
+	center_question.add_child(question)
+
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
@@ -77,7 +79,8 @@ func setup_question(dict : Array) -> void:
 		control_2.add_child(control_answer)
 		control_answer.add_child(button_answer)
 		button_answer.add_child(label_answer)
-		control_1.set_pivot_offset(question.rect_size / 2 + Vector2(0,30))
+		control_1.set_pivot_offset(Vector2(0,30))
+		control_1.set_position(Vector2(question.rect_size / 2) + Vector2(-50,30))
 
 
 		var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
