@@ -47,7 +47,6 @@ func update_displayed_health(dt : float) -> void:
 			current_health = clamp(current_health + health_increment_value , original_health, target_health)
 		set_bar_health(current_health)
 
-		print ("current : " ,round(current_health * 100), "   health : ", _health_value.value * 100)
 		if get_bar_health() == target_health :
 			original_health = target_health
 
