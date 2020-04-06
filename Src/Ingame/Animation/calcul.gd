@@ -1,6 +1,7 @@
 extends Node2D
 
 var count = 0
+var angle : float = 0
 var answer_listeners  : Array = []
 #var load_calcul_6 = load_c("res://Assets/Questions/questions_6.json")
 #var load_calcul_5 = load_c("res://Assets/Questions/questions_5.json")
@@ -15,6 +16,8 @@ var control_answer : Control = null
 var control_question : Control = null
 var question : Label = null
 var colorRect : ColorRect = null
+var control_1 : Control = null
+var control_2 : Control = null
 
 
 func set_answer_listener(listeners : Array) -> void:
@@ -32,14 +35,22 @@ func load_c(path : String) -> Dictionary:
 	return dict
 
 func setup_question(dict : Array) -> void:
+	control_1 = Control.new()
+	control_2 = Control.new()
+	control_1.self_modulate = Color(1, 1, 1, 0)
+	control_2.self_modulate = Color(1, 1, 1, 0)
 	var font_question = "res://font/Colored Crayons.ttf"
 	var font_answer = "res://font/Colored Crayons.ttf"
 	question = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
 						   Color.yellowgreen, font_question, 35,2, Color.black)
 	control_question = Control.new() 
-	control_question.rect_size = Vector2(200,200)
+	control_question.rect_size = Vector2(200,50)
+	control_question.self_modulate = Color(1, 1, 1, 0)
 	$CanvasLayer.add_child(control_question)
 	control_question.add_child(question)
+	var rect = control_question.rect_size
+	var pos = rect/2
+	question.rect_position = pos
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
@@ -52,18 +63,21 @@ func setup_question(dict : Array) -> void:
 	var ans_position : Vector2 = Vector2(question.get_position().x - 150 , question.get_position().y + 130)
 	for ans in answers:
 		control_answer = Control.new()
+		control_answer.self_modulate = Color(1, 1, 1, 0)
 		button_answer = Button.new()
 		button_answer.self_modulate = Color(1, 1, 1, 0)
 		var label_answer = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
 						   Color.orangered, font_question, 30,1, Color.black)
 		label_answer.text = ans["text"]
-		ans_position.x += 100
+		ans_position.x += 130
 		button_answer.set_position(ans_position)
 		button_answer.rect_size = Vector2(50,40)
-		question.add_child(control_answer)
+		question.add_child(control_1)
+		control_1.add_child(control_2)
+		control_2.add_child(control_answer)
 		control_answer.add_child(button_answer)
 		button_answer.add_child(label_answer)
-		control_answer.set_pivot_offset(button_answer.get_position() + Vector2(50,0))
+		control_1.set_pivot_offset(question.rect_size / 2 + Vector2(0,30))
 
 
 		var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
@@ -91,11 +105,10 @@ func _ready():
 
 
 func _process(delta):
-
-	count += 1
-	control_answer.set_rotation(count*delta)
-	button_answer.set_rotation(-count*delta)
-
+	
+	angle += delta
+	control_1.set_rotation(angle)
+	control_2.set_rotation(-angle)
 
 
 	if int(timer.get_time_left()) > 0:
