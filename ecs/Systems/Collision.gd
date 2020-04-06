@@ -236,7 +236,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 					health_comp.set_health(health_comp.get_health() + 10)
 				FileBankUtils.health += 10
 				AnimationUtils.tween_hero_loot(collider)
-				
+
 			collider.queue_free()
 
 		if (has_collision_layer(collider,answer_layer_bit) == true 				# ANSWER
@@ -270,13 +270,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			if health_comp != null:
 				FileBankUtils.load_right_scene()
 			collider.queue_free()
-		
-		
+
+
 		if (has_collision_layer(collider,portal_red_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL RED
 
 			print("Portal red collision !")
-				
+
 			if health_comp != null:
 				var anim_rect = AnimationUtils.rect_fade_out(my_body.get_parent())
 				yield(anim_rect, "animation_finished")

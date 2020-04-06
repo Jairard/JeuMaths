@@ -27,7 +27,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if comp_health != null:
 		comp_hud_fight.update_displayed_health(dt)	
 		var max_health = comp_health.get_health_max()
-		comp_hud_fight.set_health_max(max_health)					
+		comp_hud_fight.set_health_max(max_health)
 		var current_health = comp_health.get_health()
 		comp_hud_fight.set_health(current_health)
 	
@@ -37,7 +37,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		
 	if comp_damage != null:
 		var current_damage = comp_damage.get_damage()
-		comp_hud_fight.set_damage(current_damage)	
+		comp_hud_fight.set_damage(current_damage)
 
 	if comp_treasure != null:
 		var current_treasure = comp_treasure.get_treasure()
