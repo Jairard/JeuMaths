@@ -61,7 +61,7 @@ func get_stats(pseudo : String) -> Dictionary:
 	for _pseudo in stats.keys():
 		if _pseudo == pseudo:
 			return { "new_hero" : false, "stats" : stats[_pseudo]}
-	
+
 	var new_stats = init_stats.duplicate(true)
 	stats[pseudo] = new_stats
 	return {"new_hero" : true, "stats" : new_stats}
@@ -130,8 +130,8 @@ func load_stats():
 	var pseudo : String = $TileMap/pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
-	
-	
+
+
 
 func _on_Option_map_item_selected(id):
 	load_stats()
@@ -141,8 +141,8 @@ func _on_Option_map_item_selected(id):
 #	var anim = AnimationUtils.canvas_fade_out(self)
 #	yield(anim, "animation_finished")
 	$Control_Option.hide()
-	
-	
+
+
 	match id:
 		1:
 			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
@@ -159,7 +159,7 @@ func _on_Option_map_item_selected(id):
 
 func _on_Option_fight_item_selected(id):
 	load_stats()
-	
+
 	match id:
 		1:
 			get_tree().change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
@@ -167,7 +167,7 @@ func _on_Option_fight_item_selected(id):
 			get_tree().change_scene(FileBankUtils.loaded_scenes["map_fight_2"])
 
 func _on_Option_featured_scenes_item_selected(id):
-	load_stats()	
+	load_stats()
 	match id:
 		1:
 			get_tree().change_scene(FileBankUtils.loaded_scenes["rewards"])
@@ -177,7 +177,7 @@ func _on_Option_featured_scenes_item_selected(id):
 			get_tree().change_scene(FileBankUtils.loaded_scenes["death"])
 
 func _on_Option_unused_scenes_item_selected(id):
-	load_stats()	
+	load_stats()
 	match id:
 		1:
 			get_tree().change_scene(FileBankUtils.loaded_scenes["create_hero"])

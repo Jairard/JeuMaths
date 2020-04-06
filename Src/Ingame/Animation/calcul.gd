@@ -29,7 +29,6 @@ func load_c(path : String) -> Dictionary:
 	var text = file.get_as_text()
 	var dict = parse_json(text)
 	file.close()
-#	print (dict)
 	return dict
 
 func setup_question(dict : Array) -> void:
@@ -102,7 +101,7 @@ func _process(delta):
 	if int(timer.get_time_left()) > 0:
 		question.add_color_override("font_color", Color.greenyellow)
 	else:
-		question.add_color_override("font_color", Color.green)		
+		question.add_color_override("font_color", Color.green)
 
 
 func on_answer_pressed(is_good_answer : bool):

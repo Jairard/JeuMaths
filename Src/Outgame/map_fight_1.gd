@@ -39,7 +39,7 @@ func _ready():
 
 
 	spawn()
-	
+
 #	var anim = AnimationUtils.canvas_fade_in(self)
 #	yield(anim, "animation_finished")
 	var anim_rect = AnimationUtils.rect_fade_in(self)
@@ -65,14 +65,14 @@ func _ready():
 	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	hero_pos.set_position(Vector2(100,535))
 
-	var hero_health = FileBankUtils.health	
-	var hero_health_max = FileBankUtils.health_max		
+	var hero_health = FileBankUtils.health
+	var hero_health_max = FileBankUtils.health_max
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_hero.init(hero_health,hero_health)
-	
+
 	treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
-	
+
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 
 
@@ -86,7 +86,7 @@ func _ready():
 	ECS.add_component(enemyNode, ComponentsLibrary.Node_Enemy)
 	ECS.add_component(enemyNode, ComponentsLibrary.Position)
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
-	var enemy_health = health_comp_hero.get_health_max() + (damage_comp_hero.get_damage() * 6)	
+	var enemy_health = health_comp_hero.get_health_max() + (damage_comp_hero.get_damage() * 6)
 	health_comp_enemy.init(enemy_health, enemy_health)
 
 	var damage_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Damage) as DamageComponent
@@ -160,7 +160,7 @@ func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int,
 	hud_comp_fight_enemy.init_enemy(Hud_enemyNode.get_life_enemy(), Hud_enemyNode.get_life_enemy_label(),
 							  Hud_enemyNode.get_damage(), _enemy_health, _enemy_health_max)
 
-	var ScoreNode = score.instance()	
+	var ScoreNode = score.instance()
 	var hud_comp_hero_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent
 
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
@@ -182,7 +182,7 @@ func _on_game_timer_timeout():
 	ECS.add_component(heroNode, ComponentsLibrary.Node_Hero)	
 
 func font_choice():
-	$font_choice.set_text("FONT")	
+	$font_choice.set_text("FONT")
 	$font_choice.add_separator()
 	$font_choice.add_item("crayon")
 	$font_choice.add_item("pixel_square")
