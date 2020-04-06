@@ -3,26 +3,24 @@ extends Component
 class_name HudFightComponent
 
 var _health_value  	: 	TextureProgress = null
-var current_health : int = 0
 var _health_label 	: 	Label = null
 var _damage			: 	Label = null
 var original_health : int = 0
 var target_health : int = 0
+var current_health : float = 0
 
-var health_anim_time : float = 5
-var health_current_anim_time : float = 0
-var timer_anim : float = health_anim_time - health_current_anim_time
-
+var health_anim_velocity : float = 0.2
 
 func init_hero(health_value : TextureProgress, health_label : Label,
 				   damage : Label, initial_health : int, initial_health_max : int) -> void : 		#init node on map fire/water		
 	_health_value = health_value
 	_health_label = health_label
 	_damage = damage
-	_health_value.max_value = initial_health_max
-	_health_value.value = initial_health
+	set_health_max(initial_health_max)
+	set_bar_health(initial_health)
 	original_health = initial_health
 	target_health = original_health
+	current_health = original_health
 #	print ("original hero : ", original_health, "  /  target : ", target_health)	
 	
 
@@ -30,37 +28,42 @@ func init_enemy(health_value : TextureProgress, health_label : Label,
 				damage : Label, initial_health : int, initial_health_max : int) -> void:
 	_health_value = health_value
 	_health_label = health_label
-	_health_value.max_value = initial_health_max
-	_health_value.value = initial_health
+	set_health_max(initial_health_max)
+	set_bar_health(initial_health)
 	_damage = damage
 	original_health = initial_health
 	target_health = original_health
+	current_health = original_health
 #	print ("original enemy : ", original_health, "  /  target : ", target_health)
 	
 
 func update_displayed_health(dt : float) -> void:
 	if original_health != target_health:
-		health_current_anim_time = min(health_anim_time, health_current_anim_time + dt)
-		_health_value.value = lerp(original_health, target_health, health_current_anim_time/health_anim_time)
-		if health_current_anim_time == health_anim_time :
+		var health_bar_ratio_increment : float = health_anim_velocity * dt
+		var health_increment_value : float = get_max_health() * health_bar_ratio_increment
+		if original_health > target_health:
+			current_health = clamp(current_health - health_increment_value ,target_health, original_health)
+		else:
+			current_health = clamp(current_health + health_increment_value , original_health, target_health)
+		set_bar_health(current_health)
+
+		print ("current : " ,round(current_health * 100), "   health : ", _health_value.value * 100)
+		if get_bar_health() == target_health :
 			original_health = target_health
-			var reset  = health_anim_time - health_current_anim_time
-			health_anim_time += reset
-			health_current_anim_time = 0
-			
+
+
 func set_health(health : int) -> void :
 	if health != target_health:
-#		print ("health : ", health, "  /  target : ", target_health)		
 		target_health = health
-#		health_current_anim_time = 0
+
 
 
 	if _health_value.value > 0:
-		_health_label.text = "%s / %s" % [health,  _health_value.max_value]	
+		_health_label.text = "%s / %s" % [health,  get_max_health()]	
 	if _health_value.value <= 0:
 		_health_label.text = str(0)
 	
-	var global_ratio = (health  / _health_value.max_value) 	
+	var global_ratio = (float(health)  / get_max_health())
 	var yellow = Color("f1ff08")
 	var green = Color("14e114")
 	var orange = Color("ffad00")
@@ -89,8 +92,29 @@ func set_health(health : int) -> void :
 		_health_value.set_tint_progress(color) 
 
 
-func set_health_max(value : int) -> void:
-	_health_value.max_value = value
+func set_health_max(value : float) -> void:
+	_health_value.max_value = round(value * 100)
 
 func set_damage(value : int) -> void :
 	_damage.text = str(value)
+
+func get_max_health() -> int:
+	return int(round(_health_value.max_value / 100))
+	
+func get_bar_health()-> int:
+	return int(round(_health_value.value / 100))
+
+func set_bar_health(value : float) -> void:
+	_health_value.value = round(value * 100)
+
+
+
+
+
+
+
+
+
+
+
+
