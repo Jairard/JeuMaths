@@ -128,8 +128,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				
 			if (collider_health_component != null) and (damage_comp.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - damage_comp.get_damage())
-				FileBankUtils.health -= damage_comp.get_damage()
+#				FileBankUtils.health -= damage_comp.get_damage()
 				AnimationUtils.floating_damage(collider, damage_comp.get_damage(), true, FontChoice.get_font())
+
 #				yield(dmg, "tween_completed")
 			my_body.queue_free()
 
@@ -140,9 +141,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if (collider_health_component != null and damage_comp.get_damage() != null):
 				collider_health_component.set_health(collider_health_component.get_health() - damage_comp.get_damage())
-				FileBankUtils.health -= damage_comp.get_damage()
+#				FileBankUtils.health -= damage_comp.get_damage()
 				AnimationUtils.floating_damage(collider, damage_comp.get_damage(), true, FontChoice.get_font())
-				
+
 			my_body.queue_free()
 
 
