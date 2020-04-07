@@ -65,7 +65,7 @@ func _ready():
 	var hero_health = FileBankUtils.health
 	var hero_health_max = FileBankUtils.health_max
 	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_hero.init(hero_health,hero_health)
+	health_comp_hero.init(hero_health,hero_health_max)
 
 	treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
@@ -153,7 +153,7 @@ func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int,
 
 	hud_comp_fight_hero.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
 						   Hud_heroNode.get_damage(), _hero_health, _hero_health_max)
-	
+
 	var Hud_enemyNode = hud_enemy.instance()
 	add_child(Hud_enemyNode)
 	Hud_enemyNode.set_name("Hud_enemy")
