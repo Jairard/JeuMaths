@@ -138,8 +138,8 @@ func _on_Option_map_item_selected(id):
 	rect.show()
 	var anim_rect = AnimationUtils.rect_fade_out(self)
 	yield(anim_rect, "animation_finished")
-#	var anim = AnimationUtils.canvas_fade_out(self)
-#	yield(anim, "animation_finished")
+	var anim = AnimationUtils.canvas_fade_out(self)
+	yield(anim, "animation_finished")
 	$Control_Option.hide()
 
 
@@ -159,7 +159,12 @@ func _on_Option_map_item_selected(id):
 
 func _on_Option_fight_item_selected(id):
 	load_stats()
-
+	rect.show()
+	var anim_rect = AnimationUtils.rect_fade_out(self)
+	yield(anim_rect, "animation_finished")
+	var anim = AnimationUtils.canvas_fade_out(self)
+	yield(anim, "animation_finished")
+	$Control_Option.hide()
 	match id:
 		1:
 			get_tree().change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
