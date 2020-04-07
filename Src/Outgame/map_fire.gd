@@ -53,6 +53,7 @@ func _ready():
 	yield(anim, "animation_finished")
 	var anim_rect = AnimationUtils.rect_fade_in(self)
 	yield(anim_rect, "animation_finished")
+	
 	ECS.clear_ghosts()
 
 func load_characters() :
@@ -101,12 +102,11 @@ func load_characters() :
 
 	
 
-	var hero_health = FileBankUtils.health
+	var hero_health_max = FileBankUtils.health_max
+	FileBankUtils.health = hero_health_max
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_hero.init(FileBankUtils.health_max,FileBankUtils.health_max)
-	# Refill the health
-	FileBankUtils.health = health_comp_hero.get_health_max()
-	health_comp_hero.set_health(FileBankUtils.health)
+	health_comp_hero.init(hero_health_max,hero_health_max)
+
 
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
@@ -117,7 +117,7 @@ func load_characters() :
 
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
-	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
+	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)
 
 	
 	var Hud_heroNode = hud.instance()
@@ -127,7 +127,7 @@ func load_characters() :
 	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 
 	hud_comp_hero_fight.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
-						   Hud_heroNode.get_damage(), hero_health, hero_health)
+						   Hud_heroNode.get_damage(), hero_health_max, hero_health_max)
 	
 	var hud_comp_hero_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent
 	hud_comp_hero_map.init_hero(ScoreNode.get_treasure(), treasure_comp.get_treasure(),

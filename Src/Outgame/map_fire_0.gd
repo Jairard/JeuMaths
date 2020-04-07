@@ -37,10 +37,12 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bounce)
 
 	load_characters()
-	var anim = AnimationUtils.scene_fade_out(self)
+	
+	var anim = AnimationUtils.canvas_fade_in(self)
 	yield(anim, "animation_finished")
-	var tween = AnimationUtils.canvas_fade_out(self)
-	yield(tween, "tween_completed")
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
+	
 	_load_ressources()
 	_load_monsters()
 	load_gold()
@@ -61,11 +63,6 @@ func load_characters() :
 
 	heroNode = hero.instance()
 	add_child(heroNode)
-
-
-	var HudNode = hud.instance()
-	add_child(HudNode)
-	HudNode.set_name("Hud")
 
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
@@ -100,30 +97,37 @@ func load_characters() :
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 
 
-	var hero_health = FileBankUtils.health
+	var hero_health_max = FileBankUtils.health_max
+	FileBankUtils.health = hero_health_max
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_hero.init(hero_health,hero_health)
-	# Refill the health
-	FileBankUtils.health = health_comp_hero.get_health_max()
-	health_comp_hero.set_health(FileBankUtils.health)
+	health_comp_hero.init(hero_health_max,hero_health_max)
 
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
 
 
 	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
-	damage_comp.init(FileBankUtils.damage)
+	damage_comp.init(FileBankUtils.damage,0)
 
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
 
-	var hud_comp = ECS.add_component(heroNode, ComponentsLibrary.Hud) as HudComponent
+	var Hud_heroNode = hud.instance()
+	add_child(Hud_heroNode)
+	Hud_heroNode.set_name("Hud_hero")
 
-	hud_comp.init_hero_map(HudNode.get_life_hero(),HudNode.get_life_hero_label(),
-						   HudNode.get_damage(), hero_health, hero_health)
+	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 
-	hud_comp.init_hero_fight(ScoreNode.get_treasure(), ScoreNode.get_score())
+	hud_comp_hero_fight.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
+						   Hud_heroNode.get_damage(), hero_health_max, hero_health_max)
+	
+	var hud_comp_hero_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent
+	hud_comp_hero_map.init_hero(ScoreNode.get_treasure(), treasure_comp.get_treasure(),
+								ScoreNode.get_score(), score_comp.compute_score())
+	
+	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
+	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
 	
 func combat(valeur) :
 	if valeur == 0 :
