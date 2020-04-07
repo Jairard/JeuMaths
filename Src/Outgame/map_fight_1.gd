@@ -136,7 +136,7 @@ func spawn() :
 
 	add_child(heroNode)
 	add_child(enemyNode)
-	enemyNode.set_position(Vector2(900,500))
+	enemyNode.set_position(Vector2(950,500))
 	var sprite = $Ennemy/Sprite
 	sprite.apply_scale(Vector2(3, 3))
 	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
