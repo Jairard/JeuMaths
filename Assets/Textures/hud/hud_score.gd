@@ -12,8 +12,8 @@ func get_treasure() -> Label :
 	return $CanvasLayer/HBoxContainer2/MarginContainer/treasure 	as Label
 
 func _on_Button_pressed():
-	FileBankUtils.loaded_scenes["shop"]
-	
+	get_tree().change_scene(FileBankUtils.loaded_scenes["shop"])
+
 
 func _on_Stats_pressed():
 	var stats = stats_popup.instance()

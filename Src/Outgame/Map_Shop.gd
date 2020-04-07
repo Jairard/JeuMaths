@@ -14,7 +14,7 @@ var treasure_comp_hero : Component = null
 
 func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
-	
+
 	heroNode = hero.instance()
 	heroNode.deactivate()
 	add_child(heroNode)
@@ -29,11 +29,11 @@ func _ready():
 	add_child(ShopNode)
 	var canvas = ShopNode.get_node("CanvasLayer") as CanvasLayer
 	canvas.set_offset(Vector2(600,100))
-	
-	var HudHeroNode = hud_hero.instance()
-	add_child(HudHeroNode)
-	HudHeroNode.set_position(Vector2(200,200))
-	
+
+	var Hud_heroNode = hud_hero.instance()
+	add_child(Hud_heroNode)
+	Hud_heroNode.set_position(Vector2(200,200))
+
 	var treasureNode_damage = treasure_damage.instance()
 	add_child(treasureNode_damage)
 	treasureNode_damage.apply_scale(Vector2(1.8,1.8))
@@ -57,18 +57,18 @@ func _ready():
 	
 	var hud_comp_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
 	hud_comp_treasure.init_treasure(ShopNode.get_treasure(), FileBankUtils.treasure)
-	
-	var hud_comp_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent	
-	hud_comp_map.init_hero_map(HudHeroNode.get_life_hero(),HudHeroNode.get_life_hero_label(),
-						   HudHeroNode.get_damage(), hero_health, hero_health_max)
-	
-	var anim = AnimationUtils.scene_fade_out(self)
+
+	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
+	hud_comp_hero_fight.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
+						   Hud_heroNode.get_damage(), hero_health_max, hero_health_max)
+
+	var anim = AnimationUtils.canvas_fade_in(self)
 	yield(anim, "animation_finished")
-	var tween = AnimationUtils.canvas_fade_out(self)
-	yield(tween, "tween_completed")
-	
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
+
 	ECS.clear_ghosts()
-	
+
 func _on_Damages_pressed():
 
 	if treasure_comp_hero.get_treasure() >= 10:
@@ -80,28 +80,23 @@ func _on_Damages_pressed():
 
 
 func _on_Health_pressed():
-	
+
 	if treasure_comp_hero.get_treasure() >= 10:
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 10)
 		FileBankUtils.treasure -= 10
-		
+
 		if health_comp_hero.is_health_max():
 			health_comp_hero.set_health_max(health_comp_hero.get_health_max() + 10)
 			FileBankUtils.health_max += 10
-			
+
 		health_comp_hero.set_health(health_comp_hero.get_health() + 10)
 		FileBankUtils.health += 10
 
 		FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]	
 
 func _on_regen_health_pressed():
-	
+
 	if treasure_comp_hero.get_treasure() >= 20 and !health_comp_hero.is_health_max():
 		health_comp_hero.set_health(FileBankUtils.health_max)
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 20)
 		FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
-
-
-	
-	
-	
