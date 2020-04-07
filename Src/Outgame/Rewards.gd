@@ -11,6 +11,8 @@ onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
+var health_comp_hero : Component = null
+
 func _ready():
 
 	ECS.register_system(SystemsLibrary.Move)
@@ -28,11 +30,10 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Loot)
 
-	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-#	print ("health : ", health_comp_hero.get_health())
-#	print ("health_max : ", health_comp_hero.get_health_max())
-	var hero_health = FileBankUtils.health
-	health_comp_hero.init(FileBankUtils.health,FileBankUtils.health)
+	var hero_health = FileBankUtils.health_max
+	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
+	health_comp_hero.init(hero_health,hero_health)
+
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(100,400))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
@@ -92,5 +93,10 @@ func _ready():
 								
 	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
+	
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
+	var anim = AnimationUtils.canvas_fade_in(self)
+	yield(anim, "animation_finished")
 	
 	ECS.clear_ghosts()
