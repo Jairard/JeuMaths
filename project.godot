@@ -322,6 +322,8 @@ NodeUtils="*res://Utils/NodeUtils.gd"
 [display]
 
 window/size/height=640
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [layer_names]
 
