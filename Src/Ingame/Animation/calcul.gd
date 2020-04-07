@@ -62,7 +62,7 @@ func setup_question(dict : Array) -> void:
 	question.text 	= chosen_question["question"]
 	var answers 	: Array = chosen_question["answers"]
 
-	var ans_position : Vector2 = Vector2(question.get_position().x - 150 , question.get_position().y + 130)
+	var ans_position : Vector2 = Vector2(question.get_position().x - 150 , question.get_position().y + 50)
 	for ans in answers:
 		control_answer = Control.new()
 		control_answer.self_modulate = Color(1, 1, 1, 0)
@@ -79,7 +79,7 @@ func setup_question(dict : Array) -> void:
 		control_2.add_child(control_answer)
 		control_answer.add_child(button_answer)
 		button_answer.add_child(label_answer)
-		control_1.set_pivot_offset(Vector2(0,30))
+		control_1.set_pivot_offset(Vector2(0,50))
 		control_1.set_position(Vector2(question.rect_size / 2) + Vector2(-50,30))
 
 
