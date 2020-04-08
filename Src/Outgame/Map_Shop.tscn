@@ -1,155 +1,340 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Src/Outgame/Map_Shop.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Textures/hud/bombs_icon.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Textures/hud/icons1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Textures/Characters/perle_de_vie_png.png" type="Texture" id=5]
 [ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Textures/Characters/X1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/GUI/genericItem_color_023.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/GUI/container.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/GUI/carrot.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/GUI/mushroom_red.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 2 ),
+"transitions": PoolRealArray( 1, 2 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="DynamicFont" id=1]
-size = 35
-outline_color = Color( 0.423529, 0.0352941, 0.513726, 1 )
+size = 25
+outline_size = 1
+outline_color = Color( 0.572549, 0.572549, 0.572549, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+outline_size = 1
+outline_color = Color( 0.572549, 0.572549, 0.572549, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
 font_data = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Damage" type="VBoxContainer" parent="."]
-margin_left = 5.8421
-margin_top = 401.052
-margin_right = 245.842
-margin_bottom = 484.052
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="damage_cost" type="HBoxContainer" parent="Damage"]
-margin_right = 239.0
-margin_bottom = 38.0
-
-[node name="cost" type="Label" parent="Damage/damage_cost"]
-margin_right = 54.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.815686, 0.819608, 0.0313726, 1 )
-text = "- 10"
-
-[node name="damage" type="Label" parent="Damage/damage_cost"]
-margin_left = 58.0
-margin_right = 181.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.811765, 0.811765, 0.776471, 1 )
-text = "       + 10"
-
-[node name="Sprite" type="Sprite" parent="Damage/damage_cost"]
-position = Vector2( 202.188, 12.2214 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 3 )
-
-[node name="buy_damage" type="Button" parent="Damage"]
-margin_top = 42.0
-margin_right = 239.0
-margin_bottom = 62.0
-text = "Payer"
-
-[node name="Health" type="VBoxContainer" parent="."]
-margin_left = 370.304
-margin_top = 401.507
-margin_right = 621.304
-margin_bottom = 489.507
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="health_cost" type="HBoxContainer" parent="Health"]
-margin_right = 251.0
-margin_bottom = 38.0
-
-[node name="cost" type="Label" parent="Health/health_cost"]
-margin_right = 54.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.815686, 0.819608, 0.0313726, 1 )
-text = "- 10"
-
-[node name="health" type="Label" parent="Health/health_cost"]
-margin_left = 58.0
-margin_right = 181.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.811765, 0.811765, 0.776471, 1 )
-text = "       + 10"
-
-[node name="Sprite" type="Sprite" parent="Health/health_cost"]
-position = Vector2( 206.288, 18.0783 )
-scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 4 )
-
-[node name="buy_health" type="Button" parent="Health"]
-margin_top = 42.0
-margin_right = 251.0
-margin_bottom = 62.0
-text = "Payer"
-
-[node name="regen_health" type="VBoxContainer" parent="."]
-margin_left = 725.144
-margin_top = 401.5
-margin_right = 915.144
-margin_bottom = 678.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="regen_health"]
-margin_right = 190.0
-margin_bottom = 38.0
-
-[node name="life_cost" type="Label" parent="regen_health/HBoxContainer"]
-margin_right = 54.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.815686, 0.819608, 0.0313726, 1 )
-text = "- 20"
-
-[node name="life" type="Label" parent="regen_health/HBoxContainer"]
-margin_left = 58.0
-margin_right = 94.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.811765, 0.811765, 0.776471, 1 )
-text = "    "
-
-[node name="Sprite" type="Sprite" parent="regen_health/HBoxContainer"]
-position = Vector2( 173.102, 17.0265 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 5 )
-
-[node name="regen_health2" type="Button" parent="regen_health"]
-margin_top = 42.0
-margin_right = 190.0
-margin_bottom = 62.0
-text = "Payer"
-
-[node name="shop" type="VBoxContainer" parent="."]
-margin_left = 671.624
-margin_top = 27.8062
-margin_right = 778.624
-margin_bottom = 304.807
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="shop" type="Label" parent="shop"]
-margin_right = 107.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.701961, 0.603922, 0.764706, 1 )
-text = "SHOP"
+[node name="anim_back" type="AnimationPlayer" parent="."]
+anims/fade_in = SubResource( 4 )
 
 [node name="Control" parent="." instance=ExtResource( 6 )]
 visible = false
-[connection signal="pressed" from="Damage/buy_damage" to="." method="_on_Damages_pressed"]
-[connection signal="pressed" from="Health/buy_health" to="." method="_on_Health_pressed"]
-[connection signal="pressed" from="regen_health/regen_health2" to="." method="_on_regen_health_pressed"]
+
+[node name="Back" type="ColorRect" parent="."]
+margin_left = -1.07245
+margin_top = -1.21997
+margin_right = 1027.93
+margin_bottom = 640.78
+color = Color( 0.494118, 0.490196, 0.356863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Back"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 37.5338
+margin_top = 318.262
+margin_right = -49.4686
+margin_bottom = -197.738
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="New_interface" type="HBoxContainer" parent="Back/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 937.0
+margin_bottom = 121.0
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Damage" type="Control" parent="Back/MarginContainer/New_interface"]
+margin_bottom = 116.0
+size_flags_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Damage"]
+modulate = Color( 0.8, 0.72549, 0.72549, 0.854902 )
+show_behind_parent = true
+margin_left = 29.232
+margin_top = 9.49454
+margin_right = 214.232
+margin_bottom = 79.4945
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="damage_label" type="Label" parent="Back/MarginContainer/New_interface/Damage"]
+margin_left = 70.7635
+margin_top = 39.5119
+margin_right = 100.764
+margin_bottom = 66.5119
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
+text = "+ 5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="damage_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Damage"]
+position = Vector2( 138.023, 55.8331 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="cost_damage" type="Sprite" parent="Back/MarginContainer/New_interface/Damage"]
+position = Vector2( 245.328, 26.7012 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 7 )
+hframes = 8
+
+[node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Damage"]
+modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
+show_behind_parent = true
+margin_left = 307.299
+margin_top = 42.0387
+margin_right = 492.299
+margin_bottom = 112.039
+rect_rotation = -180.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Damage"]
+margin_left = 268.129
+margin_top = 15.017
+margin_right = 308.129
+margin_bottom = 42.017
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "50 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Damage" type="Button" parent="Back/MarginContainer/New_interface/Damage"]
+modulate = Color( 1, 1, 1, 0.160784 )
+margin_left = 32.0
+margin_top = 13.1426
+margin_right = 307.0
+margin_bottom = 101.143
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Control" parent="Back/MarginContainer/New_interface"]
+margin_left = 312.0
+margin_right = 312.0
+margin_bottom = 116.0
+size_flags_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Health"]
+modulate = Color( 0.8, 0.72549, 0.72549, 0.854902 )
+show_behind_parent = true
+margin_left = 29.9671
+margin_top = 9.49454
+margin_right = 214.967
+margin_bottom = 79.4945
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_label" type="Label" parent="Back/MarginContainer/New_interface/Health"]
+modulate = Color( 0.313726, 1, 0, 1 )
+margin_left = 70.7635
+margin_top = 39.5119
+margin_right = 100.764
+margin_bottom = 66.5119
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "+ 10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health"]
+position = Vector2( 163.751, 53.6278 )
+texture = ExtResource( 10 )
+
+[node name="cost_health" type="Sprite" parent="Back/MarginContainer/New_interface/Health"]
+position = Vector2( 245.328, 26.7012 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 7 )
+hframes = 8
+
+[node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Health"]
+modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
+show_behind_parent = true
+margin_left = 307.299
+margin_top = 42.0387
+margin_right = 492.299
+margin_bottom = 112.039
+rect_rotation = -180.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Health"]
+margin_left = 268.129
+margin_top = 15.017
+margin_right = 308.129
+margin_bottom = 42.017
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "50 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Button" parent="Back/MarginContainer/New_interface/Health"]
+modulate = Color( 1, 1, 1, 0.160784 )
+margin_left = 35.1664
+margin_top = 12.0
+margin_right = 307.166
+margin_bottom = 105.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health_refill" type="Control" parent="Back/MarginContainer/New_interface"]
+margin_left = 624.0
+margin_right = 624.0
+margin_bottom = 116.0
+size_flags_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Health_refill"]
+modulate = Color( 0.8, 0.72549, 0.72549, 0.854902 )
+show_behind_parent = true
+margin_left = 29.232
+margin_top = 9.49454
+margin_right = 214.232
+margin_bottom = 79.4945
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="refill_sprite_1" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
+position = Vector2( 70, 39 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )
+
+[node name="refill_sprite_2" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
+position = Vector2( 120, 39 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )
+
+[node name="refill_sprite_3" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
+position = Vector2( 170, 39 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )
+
+[node name="cost_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
+position = Vector2( 245.328, 26.7012 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 7 )
+hframes = 8
+
+[node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Health_refill"]
+modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
+show_behind_parent = true
+margin_left = 307.299
+margin_top = 42.0387
+margin_right = 492.299
+margin_bottom = 112.039
+rect_rotation = -180.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Health_refill"]
+margin_left = 268.0
+margin_top = 15.0
+margin_right = 308.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Back/MarginContainer/New_interface/Health_refill"]
+margin_left = 48.0129
+margin_top = 74.5915
+margin_right = 253.013
+margin_bottom = 96.5915
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.403922, 0.403922, 0.403922, 1 )
+text = "Recharger toute la vie"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Refill" type="Button" parent="Back/MarginContainer/New_interface/Health_refill"]
+modulate = Color( 1, 1, 1, 0.160784 )
+margin_left = 31.9193
+margin_top = 12.0807
+margin_right = 303.919
+margin_bottom = 107.081
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Back/MarginContainer/New_interface/Damage/Damage" to="." method="_on_Damage_pressed"]
+[connection signal="pressed" from="Back/MarginContainer/New_interface/Health/Health" to="." method="_on_Health_pressed"]
+[connection signal="pressed" from="Back/MarginContainer/New_interface/Health_refill/Refill" to="." method="_on_Refill_pressed"]
