@@ -84,7 +84,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(20000,500))
+	pos_comp.set_position(Vector2(25250,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -100,12 +100,11 @@ func load_characters() :
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 
 
-	
-
-	var hero_health_max = FileBankUtils.health_max
-	FileBankUtils.health = hero_health_max
+	var hero_health = FileBankUtils.health_max
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_hero.init(hero_health_max,hero_health_max)
+	health_comp_hero.init(hero_health,hero_health)
+	health_comp_hero.set_health(health_comp_hero.get_health_max())
+	FileBankUtils.health = hero_health
 
 
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
@@ -127,7 +126,7 @@ func load_characters() :
 	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 
 	hud_comp_hero_fight.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
-						   Hud_heroNode.get_damage(), hero_health_max, hero_health_max)
+						   Hud_heroNode.get_damage(), hero_health, hero_health)
 	
 	var hud_comp_hero_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent
 	hud_comp_hero_map.init_hero(ScoreNode.get_treasure(), treasure_comp.get_treasure(),

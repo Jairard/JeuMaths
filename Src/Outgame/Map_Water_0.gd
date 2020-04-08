@@ -45,10 +45,11 @@ func _ready():
 	move_comp.set_jump_impulse(800)
 	move_comp.set_lateral_velocity(350)
 	
-	var hero_health_max = FileBankUtils.health_max
-	FileBankUtils.health = hero_health_max
+	var hero_health = FileBankUtils.health_max
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
-	health_comp_hero.init(hero_health_max,hero_health_max)
+	health_comp_hero.init(hero_health,hero_health)
+	health_comp_hero.set_health(health_comp_hero.get_health_max())
+	FileBankUtils.health = hero_health
 
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
