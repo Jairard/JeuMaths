@@ -1,5 +1,6 @@
                                 |   Components  |
-
+                                
+---------   map shop : lien vers la map 
 ---------   map évolutive : utiliser la découpe de scene en plusieurs tilemaps
 ---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : jouer le scale
@@ -13,7 +14,6 @@
 
                                 |   Features  |
 
-*********   améliorer le sho : perte et gain de stats
 ---------   c'est pas bau les datadriven des notions
 ---------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
 ---------   jauge circulaire
