@@ -21,8 +21,6 @@ func init_hero(health_value : TextureProgress, health_label : Label,
 	original_health = initial_health
 	target_health = original_health
 	current_health = original_health
-#	print ("original hero : ", original_health, "  /  target : ", target_health)	
-	
 
 func init_enemy(health_value : TextureProgress, health_label : Label, 
 				damage : Label, initial_health : int, initial_health_max : int) -> void:
@@ -34,8 +32,6 @@ func init_enemy(health_value : TextureProgress, health_label : Label,
 	original_health = initial_health
 	target_health = original_health
 	current_health = original_health
-#	print ("original enemy : ", original_health, "  /  target : ", target_health)
-	
 
 func update_displayed_health(dt : float) -> void:
 	if original_health != target_health:
@@ -55,42 +51,6 @@ func set_health(health : int) -> void :
 	if health != target_health:
 		target_health = health
 
-
-
-	if _health_value.value > 0:
-		_health_label.text = "%s / %s" % [health,  get_max_health()]	
-	if _health_value.value <= 0:
-		_health_label.text = str(0)
-	
-	var global_ratio = (float(health)  / get_max_health())
-	var yellow = Color("f1ff08")
-	var green = Color("14e114")
-	var orange = Color("ffad00")
-	var red = Color("e11e1e")
-	var black = Color("000000")
-
-	if global_ratio >= 0.75:
-#		print (global_ratio)
-		var local_ratio = 4*global_ratio - 3
-		var color = lerp(yellow, green, local_ratio)
-		_health_value.set_tint_progress(color)
-
-	elif global_ratio >= 0.5 and global_ratio < 0.75 :
-		var local_ratio = 4*global_ratio - 2
-		var color = lerp(orange, yellow, local_ratio)
-		_health_value.set_tint_progress(color)
-
-	elif global_ratio >= 0.25 and global_ratio < 0.5 :
-		var local_ratio = 4*global_ratio - 1
-		var color = lerp(red, orange, local_ratio)
-		_health_value.set_tint_progress(color) 
-			
-	elif global_ratio < 0.25 :
-		var local_ratio = 4*global_ratio 
-		var color = lerp(black, red, local_ratio)
-		_health_value.set_tint_progress(color) 
-
-
 func set_health_max(value : float) -> void:
 	_health_value.max_value = round(value * 100)
 
@@ -99,21 +59,9 @@ func set_damage(value : int) -> void :
 
 func get_max_health() -> int:
 	return int(round(_health_value.max_value / 100))
-	
+
 func get_bar_health()-> int:
 	return int(round(_health_value.value / 100))
 
 func set_bar_health(value : float) -> void:
 	_health_value.value = round(value * 100)
-
-
-
-
-
-
-
-
-
-
-
-
