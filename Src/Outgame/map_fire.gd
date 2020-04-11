@@ -66,14 +66,12 @@ func load_characters() :
 	add_child(heroNode)
 
 
-	var HudNode = hud.instance()
-	add_child(HudNode)
-	HudNode.set_name("Hud")
+	var Hud_heroNode = hud.instance()
+	add_child(Hud_heroNode)
 
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
-	ScoreNode.set_name("Score")
-
+	ScoreNode.set_hero_node(heroNode)
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
 	enemy_pos_comp.set_position(Vector2(500,300))														
@@ -118,10 +116,6 @@ func load_characters() :
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)
 
-	
-	var Hud_heroNode = hud.instance()
-	add_child(Hud_heroNode)
-	Hud_heroNode.set_name("Hud_hero")
 
 	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 

@@ -42,6 +42,8 @@ size = 20
 font_data = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D"]
+pause_mode = 2
+visible = false
 script = ExtResource( 1 )
 
 [node name="anim_back" type="AnimationPlayer" parent="."]
