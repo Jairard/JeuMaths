@@ -42,7 +42,6 @@ func _ready():
 	var anim_rect = AnimationUtils.rect_fade_in(self)
 	yield(anim_rect, "animation_finished")
 	
-	_load_ressources()
 	_load_monsters()
 	var portalNode = portal.instance()
 	add_child(portalNode)
@@ -136,25 +135,7 @@ func combat(valeur) :
 
 
 func _on_Button_pressed():
-	save_ressources()
 	FileBankUtils.loaded_scenes["sign_in"]
-
-
-
-func _load_ressources():
-
-#	file.open("res://log_in/pseudo.json", File.READ)
-#	dict = parse_json(file.get_as_text())
-#	GLOBAL.pv_hero_max = dict["health_max"]
-#	GLOBAL.pv_hero = dict["health"]
-#	file.close()
-	pass
-func save_ressources():
-#	file.open("res://log_in/pseudo.json", File.WRITE)
-#	var dict = to_json(dict)
-#	file.store_string(dict)
-#	file.close()
-	pass
 
 
 func _process(delta):

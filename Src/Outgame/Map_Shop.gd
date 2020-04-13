@@ -1,11 +1,5 @@
 extends Node2D
 
-#onready var treasure_damage	= 	preload("res://Src/Ingame/characters/gold.tscn")
-#onready var treasure_health	= 	preload("res://Src/Ingame/characters/gold.tscn")
-#onready var treasure_life	= 	preload("res://Src/Ingame/characters/gold.tscn")
-#onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
-#onready var shop			= 	preload("res://Assets/Textures/hud/hud_shop.tscn")
-
 var health_comp_hero : Component = null
 var damage_comp_hero : Component = null
 var treasure_comp_hero : Component = null
@@ -19,8 +13,6 @@ func init(heroNode : Node2D) -> void:
 	get_tree().paused = true
 	prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
 
-#	var hero_health = FileBankUtils.health
-#	var hero_health_max = FileBankUtils.health_max
 	health_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Health) as HealthComponent
 
 	damage_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Damage) as DamageComponent
@@ -34,7 +26,6 @@ func init(heroNode : Node2D) -> void:
 #	yield(anim_rect, "animation_finished")
 #	AnimationUtils.rect_fade_in(self)
 #	$Back.show()
-#
 #	$anim_back.play("fade_in")
 
 

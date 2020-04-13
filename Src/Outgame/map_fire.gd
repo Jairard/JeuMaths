@@ -39,7 +39,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bounce)
 
 	load_characters()
-	_load_ressources()
 	_load_monsters()
 	load_gold()
 	load_platform()
@@ -136,25 +135,8 @@ func combat(valeur) :
 
 
 func _on_Button_pressed():
-	save_ressources()
 	FileBankUtils.loaded_scenes["sign_in"]
 
-
-
-func _load_ressources():
-
-#	file.open("res://log_in/pseudo.json", File.READ)
-#	dict = parse_json(file.get_as_text())
-#	GLOBAL.pv_hero_max = dict["health_max"]
-#	GLOBAL.pv_hero = dict["health"]
-#	file.close()
-	pass
-func save_ressources():
-#	file.open("res://log_in/pseudo.json", File.WRITE)
-#	var dict = to_json(dict)
-#	file.store_string(dict)
-#	file.close()
-	pass
 func _on_Timer_timeout():
 	_load_bullets()
 
@@ -164,9 +146,7 @@ func _process(delta):
 #			FileBankUtils.loaded_scenes["death"]
 			pass
 		if pos_comp.get_position().x >11500 and pos_comp.get_position().x <= 20000:
-#			tween(Vector2(11500, 500))
-#			health_comp_hero.set_health(health_comp_hero.get_health_max())		
-			pass	
+			pass
 		if pos_comp.get_position().x >20000:
 			AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(20000,500))
 			health_comp_hero.set_health(health_comp_hero.get_health_max())
@@ -192,7 +172,7 @@ func _load_bullets():
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(4670,550))
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(6100,550))
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(7430,550))
-	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(13000,800))	
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(13000,800))
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(15500,800))
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(17000,800))
 	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(21200,800))
