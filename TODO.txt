@@ -1,6 +1,5 @@
                                 |   Components  |
                                 
----------   map shop : lien vers la map 
 ---------   map évolutive : utiliser la découpe de scene en plusieurs tilemaps
 ---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : jouer le scale
@@ -25,6 +24,3 @@
                                 |   Add_on  |
 
 ---------   relier les notions cochées au code : liste de notions 
-
-
-move_and_slide_with_snap

@@ -6,7 +6,6 @@ extends Node2D
 #onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
 #onready var shop			= 	preload("res://Assets/Textures/hud/hud_shop.tscn")
 
-var heroNode : Node2D = null
 var health_comp_hero : Component = null
 var damage_comp_hero : Component = null
 var treasure_comp_hero : Component = null
