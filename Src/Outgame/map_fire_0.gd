@@ -66,7 +66,7 @@ func load_characters() :
 
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
-	ScoreNode.set_name("Score")
+	ScoreNode.set_hero_node(heroNode)
 
 	var portalNode = portal.instance()
 	add_child(portalNode)
@@ -121,7 +121,7 @@ func load_characters() :
 	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 
 	hud_comp_hero_fight.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
-						   Hud_heroNode.get_damage(), hero_health_max, hero_health_max)
+						   Hud_heroNode.get_damage(), hero_health, hero_health)
 	
 	var hud_comp_hero_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent
 	hud_comp_hero_map.init_hero(ScoreNode.get_treasure(), treasure_comp.get_treasure(),

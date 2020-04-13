@@ -1,10 +1,10 @@
 extends Node2D
 
-onready var treasure_damage	= 	preload("res://Src/Ingame/characters/gold.tscn")
-onready var treasure_health	= 	preload("res://Src/Ingame/characters/gold.tscn")
-onready var treasure_life	= 	preload("res://Src/Ingame/characters/gold.tscn")
-onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
-onready var shop			= 	preload("res://Assets/Textures/hud/hud_shop.tscn")
+#onready var treasure_damage	= 	preload("res://Src/Ingame/characters/gold.tscn")
+#onready var treasure_health	= 	preload("res://Src/Ingame/characters/gold.tscn")
+#onready var treasure_life	= 	preload("res://Src/Ingame/characters/gold.tscn")
+#onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
+#onready var shop			= 	preload("res://Assets/Textures/hud/hud_shop.tscn")
 
 var heroNode : Node2D = null
 var health_comp_hero : Component = null
@@ -17,11 +17,11 @@ var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
 func init(heroNode : Node2D) -> void:
 	is_shown = true
 	show()
-	get_tree().paused = true	
+	get_tree().paused = true
 	prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
 
-	var hero_health = FileBankUtils.health
-	var hero_health_max = FileBankUtils.health_max
+#	var hero_health = FileBankUtils.health
+#	var hero_health_max = FileBankUtils.health_max
 	health_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Health) as HealthComponent
 
 	damage_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Damage) as DamageComponent
