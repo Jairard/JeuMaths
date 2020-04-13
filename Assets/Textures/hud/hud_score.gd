@@ -28,8 +28,7 @@ func _on_Button_pressed():
 		shop.init(heroNode)
 
 func _on_Stats_pressed():
-	stats.show()
-	get_tree().paused = true	
-	yield(get_tree().create_timer(2), 'timeout')
-	stats.hide()
-	get_tree().paused = false
+	if stats.is_shown():
+		stats.shutdown()
+	else:
+		stats.init(heroNode)
