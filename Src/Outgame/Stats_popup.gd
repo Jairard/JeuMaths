@@ -5,6 +5,7 @@ onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
 var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
 var is_shown : bool = false
 var comp_score : Component = null
+onready var comp_hud_stats_popup : Component = null
 
 func init(heroNode : Node2D) -> void:
 	is_shown = true
@@ -12,10 +13,17 @@ func init(heroNode : Node2D) -> void:
 	get_tree().paused = true
 	prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
 
-	comp_score = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Health) as HealthComponent
+	comp_score = ECS.__get_component(heroNode.get_instance_id(), 
+									ComponentsLibrary.Health) as HealthComponent
+	
+	if comp_hud_stats_popup == null:
+		comp_hud_stats_popup = ECS.add_component(heroNode, 
+							   ComponentsLibrary.Hud_stats_popup) as HudStatsPopupComponent
+		comp_hud_stats_popup.init_stats(get_good_answer(), get_wrong_answer(), get_victories(),get_defeats())
 
-	var comp_hud_stats_popup : Component = ECS.add_component(heroNode, ComponentsLibrary.Hud_stats_popup) as HudStatsPopupComponent
-	comp_hud_stats_popup.init_stats(get_good_answer(), get_wrong_answer(), get_victories(),get_defeats())
+	else:
+		comp_hud_stats_popup = ECS.__get_component(heroNode.get_instance_id(), 
+								ComponentsLibrary.Scoreglobal) as ScoreglobalcounterComponent
 
 
 func get_good_answer() -> Label :
