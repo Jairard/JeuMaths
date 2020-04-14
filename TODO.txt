@@ -24,3 +24,8 @@
                                 |   Add_on  |
 
 ---------   relier les notions cochées au code : liste de notions 
+
+après la pause du shop, break dans le world si on lance les stats 
+
+générer fractions sans le 0
+canger police d'écriture des fractions
