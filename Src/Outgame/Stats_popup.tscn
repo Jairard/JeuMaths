@@ -4,15 +4,15 @@
 
 [node name="Stats_popup" type="Node2D"]
 pause_mode = 2
-visible = false
 script = ExtResource( 1 )
 
 [node name="defeats" type="HBoxContainer" parent="."]
-margin_left = 552.783
-margin_top = 411.908
-margin_right = 710.783
-margin_bottom = 451.908
+margin_left = 380.0
+margin_top = 430.0
+margin_right = 538.0
+margin_bottom = 470.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -33,11 +33,12 @@ margin_bottom = 27.0
 text = "Combats perdus"
 
 [node name="victories" type="HBoxContainer" parent="."]
-margin_left = 274.222
-margin_top = 411.094
-margin_right = 432.222
-margin_bottom = 451.094
+margin_left = 381.108
+margin_top = 270.0
+margin_right = 539.108
+margin_bottom = 310.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -58,17 +59,18 @@ margin_bottom = 27.0
 text = "Combats gagnés"
 
 [node name="wrong_answer" type="HBoxContainer" parent="."]
-margin_left = 275.036
-margin_top = 297.877
-margin_right = 433.036
-margin_bottom = 337.877
+margin_left = 550.0
+margin_top = 510.0
+margin_right = 708.0
+margin_bottom = 550.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="value" type="Label" parent="wrong_answer"]
-margin_top = 13.0
-margin_bottom = 27.0
+margin_top = 12.0
+margin_bottom = 26.0
 
 [node name="sprite" type="Sprite" parent="wrong_answer"]
 position = Vector2( 40.0951, 17.785 )
@@ -77,17 +79,18 @@ hframes = 8
 
 [node name="wrong" type="Label" parent="wrong_answer"]
 margin_left = 4.0
-margin_top = 13.0
+margin_top = 12.0
 margin_right = 134.0
-margin_bottom = 27.0
+margin_bottom = 26.0
 text = "Mauvaises réponses"
 
 [node name="good_answer" type="HBoxContainer" parent="."]
-margin_left = 555.227
-margin_top = 300.321
-margin_right = 694.227
-margin_bottom = 340.321
+margin_left = 550.0
+margin_top = 350.0
+margin_right = 689.0
+margin_bottom = 390.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -108,22 +111,22 @@ margin_bottom = 27.0
 text = "Bonnes réponses"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color( 0.0117647, 0.164706, 0.133333, 1 )
+modulate = Color( 0.243137, 0.337255, 0.317647, 1 )
 show_behind_parent = true
-margin_left = 242.449
-margin_top = 107.544
-margin_right = 744.449
-margin_bottom = 626.544
-color = Color( 1, 1, 1, 0.403922 )
+margin_left = 272.366
+margin_top = 94.2476
+margin_right = 774.366
+margin_bottom = 613.248
+color = Color( 1, 1, 1, 0.490196 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 395.681
-margin_top = 128.191
-margin_right = 435.681
-margin_bottom = 168.191
+margin_left = 449.974
+margin_top = 130.407
+margin_right = 489.974
+margin_bottom = 170.407
 rect_scale = Vector2( 5, 5 )
 bbcode_enabled = true
 bbcode_text = "[wave][rainbow]stats"
