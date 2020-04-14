@@ -44,10 +44,10 @@ offset = Vector2( 0, -20 )
 
 [node name="Medal_Button" type="Button" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 857.908
-margin_top = 5.8624
-margin_right = 877.908
-margin_bottom = 44.8624
+margin_left = 849.0
+margin_top = 3.0
+margin_right = 885.0
+margin_bottom = 48.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -62,10 +62,10 @@ hframes = 8
 
 [node name="Gold_Button" type="Button" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 574.212
-margin_top = 14.416
-margin_right = 586.212
-margin_bottom = 47.416
+margin_left = 570.0
+margin_top = 9.0
+margin_right = 607.0
+margin_bottom = 45.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
