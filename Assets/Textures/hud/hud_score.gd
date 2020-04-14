@@ -11,23 +11,25 @@ func set_hero_node(node : Node2D) -> void:
 	heroNode = node
 
 func _ready():
-	$CanvasLayer/HBoxContainer/Gold/gold_sprite/AnimationPlayer.play("anim_gold")
+	$CanvasLayer/AnimationPlayer.play("anim_gold")
 	$CanvasLayer.add_child(shop)
 	$CanvasLayer.add_child(stats)	
 
 func get_score() -> RichTextLabel:
-	return $CanvasLayer/HBoxContainer/Score/score_richText/RichTextLabel			as RichTextLabel
+	return $CanvasLayer/Score_richText			as RichTextLabel
 
 func get_treasure() -> Label :
-	return $CanvasLayer/HBoxContainer/Gold/gold_label					as Label
+	return $CanvasLayer/gold_label					as Label
 
-func _on_Button_pressed():
+
+func _on_Gold_Button_pressed():
 	if shop.is_shown():
 		shop.shutdown()
 	else:
 		shop.init(heroNode)
 
-func _on_Stats_pressed():
+
+func _on_Medal_Button_pressed():
 	if stats.is_shown():
 		stats.shutdown()
 	else:
