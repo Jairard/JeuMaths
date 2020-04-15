@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Src/Outgame/Map_Shop.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Textures/GUI/coeur_full_vie_3.png" type="Texture" id=3]
 [ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Textures/Characters/X1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Textures/GUI/genericItem_color_023.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Textures/GUI/container.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/GUI/carrot.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Textures/GUI/mushroom_red.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -54,9 +54,9 @@ visible = false
 
 [node name="Back" type="ColorRect" parent="."]
 margin_left = 8.5918
-margin_top = 323.973
+margin_top = 324.139
 margin_right = 1036.59
-margin_bottom = 639.973
+margin_bottom = 640.139
 color = Color( 0.929412, 0.984314, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -159,9 +159,9 @@ __meta__ = {
 [node name="Damage" type="Button" parent="Back/MarginContainer/New_interface/Damage"]
 modulate = Color( 1, 1, 1, 0.160784 )
 margin_left = 32.0
-margin_top = 15.0
+margin_top = 13.8337
 margin_right = 305.0
-margin_bottom = 103.0
+margin_bottom = 101.834
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -257,35 +257,25 @@ __meta__ = {
 }
 
 [node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Health_refill"]
-modulate = Color( 0.8, 0.72549, 0.72549, 0.854902 )
+modulate = Color( 0.2, 0.160784, 0.160784, 0.854902 )
 show_behind_parent = true
-margin_left = 29.232
-margin_top = 9.49454
-margin_right = 214.232
-margin_bottom = 79.4945
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = 20.232
+margin_top = -32.5056
+margin_right = 205.232
+margin_bottom = 37.4944
+rect_scale = Vector2( 1.8, 3 )
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="refill_sprite_1" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
-position = Vector2( 70, 39 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 11 )
-
-[node name="refill_sprite_2" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
-position = Vector2( 120, 39 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 11 )
-
-[node name="refill_sprite_3" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
-position = Vector2( 170, 39 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 11 )
+[node name="refill_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
+position = Vector2( 144.174, 61.1626 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
 
 [node name="cost_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
-position = Vector2( 245.328, 26.7012 )
+position = Vector2( 280.328, -12.2989 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 7 )
 hframes = 8
@@ -293,10 +283,10 @@ hframes = 8
 [node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Health_refill"]
 modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
 show_behind_parent = true
-margin_left = 303.993
-margin_top = 45.274
-margin_right = 488.993
-margin_bottom = 115.274
+margin_left = 350.993
+margin_top = 4.27393
+margin_right = 535.993
+margin_bottom = 74.2739
 rect_rotation = -180.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
@@ -305,10 +295,10 @@ __meta__ = {
 }
 
 [node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Health_refill"]
-margin_left = 268.0
-margin_top = 15.0
-margin_right = 308.0
-margin_bottom = 42.0
+margin_left = 306.0
+margin_top = -24.0001
+margin_right = 346.0
+margin_bottom = 2.99991
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "10"
@@ -317,12 +307,12 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Back/MarginContainer/New_interface/Health_refill"]
-margin_left = 48.0129
-margin_top = 74.5915
-margin_right = 253.013
-margin_bottom = 96.5915
+margin_left = 49.3476
+margin_top = 135.255
+margin_right = 254.348
+margin_bottom = 157.255
 custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.403922, 0.403922, 0.403922, 1 )
+custom_colors/font_color = Color( 0.858824, 0.807843, 0.807843, 1 )
 text = "Recharger toute la vie"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -330,10 +320,10 @@ __meta__ = {
 
 [node name="Refill" type="Button" parent="Back/MarginContainer/New_interface/Health_refill"]
 modulate = Color( 1, 1, 1, 0.160784 )
-margin_left = 33.6003
-margin_top = 12.8368
-margin_right = 305.6
-margin_bottom = 107.837
+margin_left = 24.2695
+margin_top = 128.306
+margin_right = 296.269
+margin_bottom = 223.306
 __meta__ = {
 "_edit_use_anchors_": false
 }
