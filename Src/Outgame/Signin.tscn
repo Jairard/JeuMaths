@@ -3,7 +3,7 @@
 [ext_resource path="res://Src/Outgame/Signin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Textures/GUI/container.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/GUI/975671341f214e57c34bb8b2e791b456.png" type="Texture" id=5]
 
 [sub_resource type="TileSet" id=1]
 0/name = "sol0"
@@ -70,14 +70,12 @@ __meta__ = {
 
 [node name="back" type="TextureRect" parent="_6eme"]
 visible = false
-modulate = Color( 0.188235, 0.6, 1, 1 )
-margin_left = 95.0
-margin_top = 20.0
-margin_right = 281.0
-margin_bottom = 90.0
-rect_rotation = -270.0
-rect_scale = Vector2( 1, 1.8 )
-texture = ExtResource( 4 )
+margin_left = -33.0
+margin_top = 16.0
+margin_right = 346.0
+margin_bottom = 528.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -127,14 +125,12 @@ __meta__ = {
 
 [node name="back" type="TextureRect" parent="_5eme"]
 visible = false
-modulate = Color( 0.207843, 0.945098, 0, 0.0901961 )
-margin_left = 105.0
-margin_top = 20.0
-margin_right = 290.0
-margin_bottom = 90.0
-rect_rotation = -270.0
-rect_scale = Vector2( 1, 1.8 )
-texture = ExtResource( 4 )
+margin_left = -33.0
+margin_top = 16.0
+margin_right = 326.0
+margin_bottom = 516.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -184,14 +180,12 @@ __meta__ = {
 
 [node name="back" type="TextureRect" parent="_4eme"]
 visible = false
-modulate = Color( 0.984314, 0.498039, 0.941176, 0.631373 )
-margin_left = 105.0
-margin_top = 20.0
-margin_right = 290.0
-margin_bottom = 90.0
-rect_rotation = -270.0
-rect_scale = Vector2( 1, 1.8 )
-texture = ExtResource( 4 )
+margin_left = -30.0
+margin_top = 16.0
+margin_right = 329.0
+margin_bottom = 516.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -241,14 +235,12 @@ __meta__ = {
 
 [node name="back" type="TextureRect" parent="_3eme"]
 visible = false
-modulate = Color( 1, 0.239216, 0.184314, 1 )
-margin_left = 100.0
-margin_top = 20.0
-margin_right = 285.0
-margin_bottom = 90.0
-rect_rotation = -270.0
-rect_scale = Vector2( 1, 1.8 )
-texture = ExtResource( 4 )
+margin_left = -33.0
+margin_top = 16.0
+margin_right = 326.0
+margin_bottom = 516.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
