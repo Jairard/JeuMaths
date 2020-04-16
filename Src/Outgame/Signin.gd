@@ -66,61 +66,61 @@ func get_stats(pseudo : String) -> Dictionary:
 
 
 func _on_6eme_pressed():
-	$_5eme/ColorRect.hide()
+	$_5eme/back.hide()
 	$_5eme/question_5.hide()
-	$_4eme/ColorRect.hide()
+	$_4eme/back.hide()
 	$_4eme/questions_4.hide()
-	$_3eme/ColorRect.hide()
+	$_3eme/back.hide()
 	$_3eme/questions_3.hide()
 	$_5eme.pressed = false
 	$_4eme.pressed = false
 	$_3eme.pressed = false
 	FileBankUtils.classroom = 6
-	$_6eme/ColorRect.show()
+	$_6eme/back.show()
 	$_6eme/questions_6.show()
 
 func _on_5eme_pressed():
-	$_6eme/ColorRect.hide()
+	$_6eme/back.hide()
 	$_6eme/questions_6.hide()
-	$_4eme/ColorRect.hide()
+	$_4eme/back.hide()
 	$_4eme/questions_4.hide()
-	$_3eme/ColorRect.hide()
+	$_3eme/back.hide()
 	$_3eme/questions_3.hide()
 	$_6eme.pressed = false
 	$_4eme.pressed = false
 	$_3eme.pressed = false
 	FileBankUtils.classroom = 5
-	$_5eme/ColorRect.show()
+	$_5eme/back.show()
 	$_5eme/question_5.show()
 
 
 
 func _on_4eme_pressed():
-	$_6eme/ColorRect.hide()
+	$_6eme/back.hide()
 	$_6eme/questions_6.hide()
-	$_5eme/ColorRect.hide()
+	$_5eme/back.hide()
 	$_5eme/question_5.hide()
-	$_3eme/ColorRect.hide()
+	$_3eme/back.hide()
 	$_3eme/questions_3.hide()
 	$_6eme.pressed = false
 	$_5eme.pressed = false
 	$_3eme.pressed = false
 	FileBankUtils.classroom = 4
-	$_4eme/ColorRect.show()
+	$_4eme/back.show()
 	$_4eme/questions_4.show()
 
 func _on_3eme_pressed():
-	$_6eme/ColorRect.hide()
+	$_6eme/back.hide()
 	$_6eme/questions_6.hide()
-	$_5eme/ColorRect.hide()
+	$_5eme/back.hide()
 	$_5eme/question_5.hide()
-	$_4eme/ColorRect.hide()
+	$_4eme/back.hide()
 	$_4eme/questions_4.hide()
 	$_6eme.pressed = false
 	$_5eme.pressed = false
 	$_4eme.pressed = false
 	FileBankUtils.classroom = 3
-	$_3eme/ColorRect.show()
+	$_3eme/back.show()
 	$_3eme/questions_3.show()
 
 
