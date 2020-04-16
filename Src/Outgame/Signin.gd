@@ -1,6 +1,6 @@
 extends Node2D
 
-#onready var rect = $Control/ColorRect
+onready var rect = $Control/ColorRect
 
 var stats : Dictionary = {}
 const init_stats : Dictionary =  {
@@ -14,7 +14,7 @@ func _ready():
 
 	var anim_rect = AnimationUtils.rect_fade_in(self)
 	yield(anim_rect, "animation_finished")
-
+	rect.hide()
 
 	if FileBankUtils.loaded_heroes_stats != null:
 		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
