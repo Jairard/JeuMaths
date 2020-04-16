@@ -13,7 +13,6 @@ func init_hero(treasure : Label, gold : int,  score_label : RichTextLabel, score
 	_score = score
 	_score_label = score_label
 	_score_label.set_bbcode("[wave][rainbow]"+str(score))
-#	print ("score label dans l'init : ", _score_label)
 
 func set_treasure(value : int) -> void :
 	_treasure.text = str(value)

@@ -185,7 +185,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
 				AnimationUtils.tween_hero_collision(my_body)
-		
 
 		if (has_collision_layer(collider,gold_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 10
