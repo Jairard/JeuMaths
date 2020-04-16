@@ -37,12 +37,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bounce)
 
 	load_characters()
-	
-	var anim = AnimationUtils.canvas_fade_in(self)
-	yield(anim, "animation_finished")
-	var anim_rect = AnimationUtils.rect_fade_in(self)
-	yield(anim_rect, "animation_finished")
-	
+
 	_load_ressources()
 	_load_monsters()
 	load_gold()
@@ -60,7 +55,6 @@ func load_characters() :
 	var enemyNode = enemy.instance()
 	add_child(enemyNode)
 
-
 	heroNode = hero.instance()
 	add_child(heroNode)
 
@@ -73,7 +67,7 @@ func load_characters() :
 	portalNode.set_position(Vector2(16300,550))
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-	enemy_pos_comp.set_position(Vector2(600,200))														#Appears at (0,0)
+	enemy_pos_comp.set_position(Vector2(600,200))
 
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
@@ -132,13 +126,13 @@ func load_characters() :
 	
 func combat(valeur) :
 	if valeur == 0 :
-		FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
+		Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 
 
 func _on_Button_pressed():
 	save_ressources()
-	FileBankUtils.loaded_scenes["sign_in"]
+	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
 
 
 
@@ -162,7 +156,7 @@ func _on_Timer_timeout():
 func _process(delta):
 	if health_comp_hero.get_health() <= 0:
 		if pos_comp.get_position().x <= 11500:
-			FileBankUtils.loaded_scenes["death"]
+			Fade.change_scene(FileBankUtils.loaded_scenes["death"])
 		if pos_comp.get_position().x >11500 and pos_comp.get_position().x <= 20000:
 			tween(Vector2(11500, 500))
 			health_comp_hero.set_health(health_comp_hero.get_health_max())			

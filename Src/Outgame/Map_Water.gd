@@ -96,13 +96,8 @@ func _ready():
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
 
 
-	var anim = AnimationUtils.canvas_fade_in(self)
-	yield(anim, "animation_finished")
-	var anim_rect = AnimationUtils.rect_fade_in(self)
-	yield(anim_rect, "animation_finished")
-	
 func _on_Button_pressed():
-	FileBankUtils.loaded_scenes["sign_in"]
+	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
 
 
 func _on_Timer_timeout():

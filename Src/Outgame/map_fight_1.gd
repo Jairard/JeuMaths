@@ -109,13 +109,7 @@ func _ready():
 
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
 
-
-	load_hud(hero_health, hero_health_max, enemy_health, enemy_health)	
-	var anim_rect = AnimationUtils.rect_fade_in(self)
-	yield(anim_rect, "animation_finished")
-	var anim = AnimationUtils.canvas_fade_in(self)
-	yield(anim, "animation_finished")
-
+	load_hud(hero_health, hero_health_max, enemy_health, enemy_health)
 
 	font_choice()
 

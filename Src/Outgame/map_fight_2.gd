@@ -15,11 +15,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bounce)
 
-	var anim = AnimationUtils.scene_fade_out(self)
-	yield(anim, "animation_finished")
-	var tween = AnimationUtils.canvas_fade_out(self)
-	yield(tween, "tween_completed")
-
 	var enemyNode = enemy.instance()
 	add_child(enemy.instance())
 	enemyNode.set_name("enemy")

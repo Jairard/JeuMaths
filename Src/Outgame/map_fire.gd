@@ -48,11 +48,6 @@ func _ready():
 	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp_portal.set_position(Vector2(25500,375))
 
-	var anim = AnimationUtils.canvas_fade_in(self)
-	yield(anim, "animation_finished")
-	var anim_rect = AnimationUtils.rect_fade_in(self)
-	yield(anim_rect, "animation_finished")
-	
 	ECS.clear_ghosts()
 
 func load_characters() :
@@ -73,8 +68,7 @@ func load_characters() :
 	ScoreNode.set_hero_node(heroNode)
 
 	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-	enemy_pos_comp.set_position(Vector2(500,300))														
-
+	enemy_pos_comp.set_position(Vector2(500,300))
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
@@ -130,12 +124,12 @@ func load_characters() :
 
 func combat(valeur) :
 	if valeur == 0 :
-		FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
+		Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 
 
 func _on_Button_pressed():
-	FileBankUtils.loaded_scenes["sign_in"]
+	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
 
 func _on_Timer_timeout():
 	_load_bullets()
@@ -143,7 +137,7 @@ func _on_Timer_timeout():
 func _process(delta):
 	if health_comp_hero.get_health() <= 0:
 		if pos_comp.get_position().x <= 11500:
-#			FileBankUtils.loaded_scenes["death"]
+#			Fade.change_scene(FileBankUtils.loaded_scenes["death"])
 			pass
 		if pos_comp.get_position().x >11500 and pos_comp.get_position().x <= 20000:
 			pass

@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Src/Outgame/Map_Water.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/test_bulle_png.png" type="Texture" id=5]
-[ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/un_seul_nenuhar.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/debut_debut.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/test_debut__gd_eau_png_.png" type="Texture" id=9]
@@ -257,7 +256,5 @@ centered = false
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
-
-[node name="Control" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

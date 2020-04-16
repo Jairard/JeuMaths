@@ -22,7 +22,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 
 
-				
 	var heroNode = hero.instance()
 	add_child(heroNode)
 	heroNode.set_name("hero")
@@ -96,10 +95,5 @@ func _ready():
 								
 	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
-	
-	var anim_rect = AnimationUtils.rect_fade_in(self)
-	yield(anim_rect, "animation_finished")
-	var anim = AnimationUtils.canvas_fade_in(self)
-	yield(anim, "animation_finished")
-	
+
 	ECS.clear_ghosts()

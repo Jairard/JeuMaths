@@ -105,7 +105,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 #			print("Enemy collision !")
 
 			if health_comp != null:
-				FileBankUtils.loaded_scenes["map_fight_1"]
+				Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 			collider.queue_free()
 
 		if (has_collision_layer(collider,monster_layer_bit) == true
@@ -178,15 +178,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
 
 			print("Fire collision !")
-			unique_collision(collider)			
+			unique_collision(collider)
 			collider.queue_free()
-#			print ("dir : ", comp_move.dir.colliding)
-#			yield(comp_move.get_node().get_parent().get_tree().create_timer(10), "timeout")
 			
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
-				AnimationUtils.tween_hero_collision(my_body)			
+				AnimationUtils.tween_hero_collision(my_body)
 		
 
 		if (has_collision_layer(collider,gold_layer_bit) == true
@@ -260,7 +258,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if health_comp != null:
 				FileBankUtils.scene_counter += 1
-				my_body.get_parent().get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+				my_body.get_parent().Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 			collider.queue_free()
 			
 		if (has_collision_layer(collider,portal_green_layer_bit) == true
@@ -270,7 +268,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if health_comp != null:
 				var right_scene = FileBankUtils.load_right_scene()
-				my_body.get_parent().get_tree().change_scene(FileBankUtils.load_right_scene())
+				my_body.get_parent().Fade.change_scene(FileBankUtils.load_right_scene())
 			collider.queue_free()
 
 
@@ -284,8 +282,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				yield(anim_rect, "animation_finished")
 			#	var anim = AnimationUtils.canvas_fade_out(my_body.get_parent())
 			#	yield(anim, "animation_finished")
-				my_body.get_parent().get_tree().change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
-			collider.queue_free()	
+				my_body.get_parent().Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+			collider.queue_free()
 			
 func unique_collision(collider):
 		collider.get_node("CollisionShape2D").disabled = true

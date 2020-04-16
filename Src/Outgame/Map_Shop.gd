@@ -19,15 +19,6 @@ func init(heroNode : Node2D) -> void:
 	
 	treasure_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Treasure) as TreasureComponent
 
-#	var anim = AnimationUtils.canvas_fade_in(self)
-#	yield(anim, "animation_finished")
-#	AnimationUtils.canvas_fade_in(self)
-#	var anim_rect = AnimationUtils.rect_fade_in(self)
-#	yield(anim_rect, "animation_finished")
-#	AnimationUtils.rect_fade_in(self)
-#	$Back.show()
-#	$anim_back.play("fade_in")
-
 
 func _on_Damage_pressed():
 	if treasure_comp_hero.get_treasure() >= 50:
