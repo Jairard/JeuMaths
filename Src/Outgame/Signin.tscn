@@ -63,6 +63,7 @@ margin_left = 208.478
 margin_top = 345.787
 margin_right = 273.478
 margin_bottom = 369.787
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "6ème"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -93,24 +94,36 @@ __meta__ = {
 [node name="CheckBox" type="CheckBox" parent="_6eme/questions_6"]
 margin_right = 85.0
 margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 1 "
 
 [node name="CheckBox2" type="CheckBox" parent="_6eme/questions_6"]
 margin_top = 28.0
 margin_right = 85.0
 margin_bottom = 52.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 2"
 
 [node name="CheckBox3" type="CheckBox" parent="_6eme/questions_6"]
 margin_top = 56.0
 margin_right = 85.0
 margin_bottom = 80.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 3"
 
 [node name="CheckBox4" type="CheckBox" parent="_6eme/questions_6"]
 margin_top = 84.0
 margin_right = 85.0
 margin_bottom = 108.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 4"
 
 [node name="_5eme" type="CheckBox" parent="."]
@@ -148,24 +161,36 @@ __meta__ = {
 [node name="CheckBox" type="CheckBox" parent="_5eme/questions_5"]
 margin_right = 85.0
 margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 1 "
 
 [node name="CheckBox2" type="CheckBox" parent="_5eme/questions_5"]
 margin_top = 28.0
 margin_right = 85.0
 margin_bottom = 52.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 2"
 
 [node name="CheckBox3" type="CheckBox" parent="_5eme/questions_5"]
 margin_top = 56.0
 margin_right = 85.0
 margin_bottom = 80.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 3"
 
 [node name="CheckBox4" type="CheckBox" parent="_5eme/questions_5"]
 margin_top = 84.0
 margin_right = 85.0
 margin_bottom = 108.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 4"
 
 [node name="_4eme" type="CheckBox" parent="."]
@@ -203,24 +228,36 @@ __meta__ = {
 [node name="CheckBox" type="CheckBox" parent="_4eme/questions_4"]
 margin_right = 85.0
 margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 1 "
 
 [node name="CheckBox2" type="CheckBox" parent="_4eme/questions_4"]
 margin_top = 28.0
 margin_right = 85.0
 margin_bottom = 52.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 2"
 
 [node name="CheckBox3" type="CheckBox" parent="_4eme/questions_4"]
 margin_top = 56.0
 margin_right = 85.0
 margin_bottom = 80.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 3"
 
 [node name="CheckBox4" type="CheckBox" parent="_4eme/questions_4"]
 margin_top = 84.0
 margin_right = 85.0
 margin_bottom = 108.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 4"
 
 [node name="_3eme" type="CheckBox" parent="."]
@@ -258,24 +295,36 @@ __meta__ = {
 [node name="CheckBox" type="CheckBox" parent="_3eme/questions_3"]
 margin_right = 121.0
 margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 1 "
 
 [node name="CheckBox2" type="CheckBox" parent="_3eme/questions_3"]
 margin_top = 28.0
 margin_right = 121.0
 margin_bottom = 52.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 2"
 
 [node name="CheckBox3" type="CheckBox" parent="_3eme/questions_3"]
 margin_top = 56.0
 margin_right = 121.0
 margin_bottom = 80.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 3"
 
 [node name="CheckBox4" type="CheckBox" parent="_3eme/questions_3"]
 margin_top = 84.0
 margin_right = 121.0
 margin_bottom = 108.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "notion 4"
 
 [node name="Control_Option" type="Control" parent="."]
