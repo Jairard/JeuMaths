@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var rect = $Control/ColorRect
+#onready var rect = $Control/ColorRect
 
 var stats : Dictionary = {}
 const init_stats : Dictionary =  {
@@ -14,10 +14,10 @@ func _ready():
 
 #	var anim = AnimationUtils.canvas_fade_in(self)
 #	yield(anim, "animation_finished")
-	var anim_rect = AnimationUtils.rect_fade_in(self)
-	yield(anim_rect, "animation_finished")
-	rect.hide()
-	
+#	var anim_rect = AnimationUtils.rect_fade_in(self)
+#	yield(anim_rect, "animation_finished")
+
+
 	if FileBankUtils.loaded_heroes_stats != null:
 		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
 
@@ -135,66 +135,40 @@ func load_stats():
 
 func _on_Option_map_item_selected(id):
 	load_stats()
-	rect.show()
-	var anim_rect = AnimationUtils.rect_fade_out(self)
-	yield(anim_rect, "animation_finished")
-	var anim = AnimationUtils.canvas_fade_out(self)
-	yield(anim, "animation_finished")
-	$Control_Option.hide()
-
-
 	match id:
 		1:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
 		2:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 		3:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["map_water"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["map_water"])
 		4:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
 		5:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["map_water_0"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["map_water_0"])
 		6:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["upside_down"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["upside_down"])
 
 func _on_Option_fight_item_selected(id):
 	load_stats()
-	rect.show()
-	var anim_rect = AnimationUtils.rect_fade_out(self)
-	yield(anim_rect, "animation_finished")
-	var anim = AnimationUtils.canvas_fade_out(self)
-	yield(anim, "animation_finished")
-	$Control_Option.hide()
 	match id:
 		1:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 		2:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["map_fight_2"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_2"])
 
 func _on_Option_featured_scenes_item_selected(id):
 	load_stats()
-	rect.show()
-	var anim_rect = AnimationUtils.rect_fade_out(self)
-	yield(anim_rect, "animation_finished")
-	var anim = AnimationUtils.canvas_fade_out(self)
-	yield(anim, "animation_finished")
-	$Control_Option.hide()
 	match id:
 		1:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["rewards"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
 		2:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["shop"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["shop"])
 		3:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["death"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["death"])
 
 func _on_Option_unused_scenes_item_selected(id):
 	load_stats()
-	rect.show()
-	var anim_rect = AnimationUtils.rect_fade_out(self)
-	yield(anim_rect, "animation_finished")
-	var anim = AnimationUtils.canvas_fade_out(self)
-	yield(anim, "animation_finished")
-	$Control_Option.hide()
 	match id:
 		1:
-			get_tree().change_scene(FileBankUtils.loaded_scenes["create_hero"])
+			Fade.change_scene(FileBankUtils.loaded_scenes["create_hero"])

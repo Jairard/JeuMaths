@@ -35,7 +35,7 @@ func _ready():
 	heroNode = hero.instance()
 	add_child(heroNode)	
 
-	ECS.add_component(heroNode, ComponentsLibrary.Health)	
+	ECS.add_component(heroNode, ComponentsLibrary.Health)
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_lateral_velocity(300)
@@ -54,11 +54,10 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 
-	var anim = AnimationUtils.canvas_fade_in(self)
-	yield(anim, "animation_finished")
-	var anim_rect = AnimationUtils.rect_fade_in(self)
-	yield(anim_rect, "animation_finished")
-	
+#	var anim = AnimationUtils.canvas_fade_in(self)
+#	yield(anim, "animation_finished")
+#	var anim_rect = AnimationUtils.rect_fade_in(self)
+#	yield(anim_rect, "animation_finished")
 
 	var portalNode = portal.instance()
 	add_child(portalNode)
@@ -116,7 +115,7 @@ func _on_Missile_4_body_entered(body):
 	EntitiesUtils.create_missile(self, eye, Vector2(19000,150), heroNode)
 
 func _on_Return_pressed():
-	FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
+	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 func tumble():
 #	if pos_comp.get_position().y > 1550:
