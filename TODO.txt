@@ -27,18 +27,3 @@
 
 générer fractions sans le 0
 changer police d'écriture des fractions
-
-
-Scene_changer.change_scene(FileBankUtils.loaded_scenes["upside_down"])
-
-extends CanvasLayer
-
-func change_scene(path):
-	$Control.show()
-	$AnimationPlayer.play("scene_changer")
-	yield($AnimationPlayer, "animation_finished")
-	assert(get_tree().change_scene(path) == OK)
-	$AnimationPlayer.play_backwards("scene_changer")
-	yield($AnimationPlayer, "animation_finished")
-	$Control.show()
-	
