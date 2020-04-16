@@ -12,10 +12,8 @@ const init_stats : Dictionary =  {
 
 func _ready(): 
 
-#	var anim = AnimationUtils.canvas_fade_in(self)
-#	yield(anim, "animation_finished")
-#	var anim_rect = AnimationUtils.rect_fade_in(self)
-#	yield(anim_rect, "animation_finished")
+	var anim_rect = AnimationUtils.rect_fade_in(self)
+	yield(anim_rect, "animation_finished")
 
 
 	if FileBankUtils.loaded_heroes_stats != null:
