@@ -66,8 +66,24 @@ func get_stats(pseudo : String) -> Dictionary:
 
 
 func _on_6eme_pressed():
+	
+	$_5eme/questions_5/CheckBox.pressed = false
+	$_5eme/questions_5/CheckBox2.pressed = false
+	$_5eme/questions_5/CheckBox3.pressed = false
+	$_5eme/questions_5/CheckBox4.pressed = false
+
+	$_4eme/questions_4/CheckBox.pressed = false
+	$_4eme/questions_4/CheckBox2.pressed = false
+	$_4eme/questions_4/CheckBox3.pressed = false
+	$_4eme/questions_4/CheckBox4.pressed = false
+	
+	$_3eme/questions_3/CheckBox.pressed = false
+	$_3eme/questions_3/CheckBox2.pressed = false
+	$_3eme/questions_3/CheckBox3.pressed = false
+	$_3eme/questions_3/CheckBox4.pressed = false
+	
 	$_5eme/back.hide()
-	$_5eme/question_5.hide()
+	$_5eme/questions_5.hide()
 	$_4eme/back.hide()
 	$_4eme/questions_4.hide()
 	$_3eme/back.hide()
@@ -80,6 +96,22 @@ func _on_6eme_pressed():
 	$_6eme/questions_6.show()
 
 func _on_5eme_pressed():
+	
+	$_6eme/questions_6/CheckBox.pressed = false
+	$_6eme/questions_6/CheckBox2.pressed = false
+	$_6eme/questions_6/CheckBox3.pressed = false
+	$_6eme/questions_6/CheckBox4.pressed = false
+
+	$_4eme/questions_4/CheckBox.pressed = false
+	$_4eme/questions_4/CheckBox2.pressed = false
+	$_4eme/questions_4/CheckBox3.pressed = false
+	$_4eme/questions_4/CheckBox4.pressed = false
+	
+	$_3eme/questions_3/CheckBox.pressed = false
+	$_3eme/questions_3/CheckBox2.pressed = false
+	$_3eme/questions_3/CheckBox3.pressed = false
+	$_3eme/questions_3/CheckBox4.pressed = false
+	
 	$_6eme/back.hide()
 	$_6eme/questions_6.hide()
 	$_4eme/back.hide()
@@ -91,15 +123,31 @@ func _on_5eme_pressed():
 	$_3eme.pressed = false
 	FileBankUtils.classroom = 5
 	$_5eme/back.show()
-	$_5eme/question_5.show()
+	$_5eme/questions_5.show()
 
 
 
 func _on_4eme_pressed():
+	
+	$_6eme/questions_6/CheckBox.pressed = false
+	$_6eme/questions_6/CheckBox2.pressed = false
+	$_6eme/questions_6/CheckBox3.pressed = false
+	$_6eme/questions_6/CheckBox4.pressed = false
+	
+	$_5eme/questions_5/CheckBox.pressed = false
+	$_5eme/questions_5/CheckBox2.pressed = false
+	$_5eme/questions_5/CheckBox3.pressed = false
+	$_5eme/questions_5/CheckBox4.pressed = false
+	
+	$_3eme/questions_3/CheckBox.pressed = false
+	$_3eme/questions_3/CheckBox2.pressed = false
+	$_3eme/questions_3/CheckBox3.pressed = false
+	$_3eme/questions_3/CheckBox4.pressed = false
+	
 	$_6eme/back.hide()
 	$_6eme/questions_6.hide()
 	$_5eme/back.hide()
-	$_5eme/question_5.hide()
+	$_5eme/questions_5.hide()
 	$_3eme/back.hide()
 	$_3eme/questions_3.hide()
 	$_6eme.pressed = false
@@ -110,10 +158,26 @@ func _on_4eme_pressed():
 	$_4eme/questions_4.show()
 
 func _on_3eme_pressed():
+	
+	$_6eme/questions_6/CheckBox.pressed = false
+	$_6eme/questions_6/CheckBox2.pressed = false
+	$_6eme/questions_6/CheckBox3.pressed = false
+	$_6eme/questions_6/CheckBox4.pressed = false
+	
+	$_5eme/questions_5/CheckBox.pressed = false
+	$_5eme/questions_5/CheckBox2.pressed = false
+	$_5eme/questions_5/CheckBox3.pressed = false
+	$_5eme/questions_5/CheckBox4.pressed = false
+	
+	$_4eme/questions_4/CheckBox.pressed = false
+	$_4eme/questions_4/CheckBox2.pressed = false
+	$_4eme/questions_4/CheckBox3.pressed = false
+	$_4eme/questions_4/CheckBox4.pressed = false
+	
 	$_6eme/back.hide()
 	$_6eme/questions_6.hide()
 	$_5eme/back.hide()
-	$_5eme/question_5.hide()
+	$_5eme/questions_5.hide()
 	$_4eme/back.hide()
 	$_4eme/questions_4.hide()
 	$_6eme.pressed = false
