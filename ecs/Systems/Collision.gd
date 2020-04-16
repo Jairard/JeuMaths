@@ -257,7 +257,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if health_comp != null:
 				FileBankUtils.scene_counter += 1
-				my_body.get_parent().Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+				Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 			collider.queue_free()
 			
 		if (has_collision_layer(collider,portal_green_layer_bit) == true
@@ -267,7 +267,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if health_comp != null:
 				var right_scene = FileBankUtils.load_right_scene()
-				my_body.get_parent().Fade.change_scene(FileBankUtils.load_right_scene())
+				Fade.change_scene(FileBankUtils.load_right_scene())
 			collider.queue_free()
 
 
@@ -277,13 +277,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Portal red collision !")
 
 			if health_comp != null:
-				var anim_rect = AnimationUtils.rect_fade_out(my_body.get_parent())
-				yield(anim_rect, "animation_finished")
-			#	var anim = AnimationUtils.canvas_fade_out(my_body.get_parent())
-			#	yield(anim, "animation_finished")
-				my_body.get_parent().Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+				Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 			collider.queue_free()
-			
+
 func unique_collision(collider):
 		collider.get_node("CollisionShape2D").disabled = true
-	
