@@ -7,18 +7,18 @@ def render_latex(formula, fontsize=12, dpi=300, format_='png'):
     fig = plt.figure(figsize=(0.01, 0.01))
 
     ##plt.style.use("classic")
-    rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-    rc('text', usetex=True)
+    ##rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+    ##rc('text', usetex=True)
     fig.text(0, 0, u'${}$'.format(formula), fontsize=fontsize)
     buffer_ = io.BytesIO()
     fig.savefig(buffer_, dpi=dpi, transparent=True, format=format_, bbox_inches='tight', pad_inches=0.0)
     plt.close(fig)
     return buffer_.getvalue()
 
-for i in range(-1, 1, 1):
+for i in range(1, 3, 1):
     if i == 0 :
         continue
-    for j in range(-1, 1, 1):
+    for j in range(1, 3, 1):
         if j == 0 :
             continue
         raw_numerator = float(i)

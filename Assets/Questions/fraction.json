@@ -1,0 +1,23 @@
+[
+	{
+		"fraction" : "",
+		"questions" :
+					[
+						{
+						"question" :[
+										"<num>_<denum>.png", "OPERATION", "<num>_<denum>.png"
+									],
+						"answers" : [
+										{
+											"text" : "<num>_<denum>.png",
+											"is_good_answer" : false
+										},
+										{
+											"text" : "<num>_<denum>.png",
+											"is_good_answer" : true
+										}
+									]
+						},
+                    ]
+	}
+]
