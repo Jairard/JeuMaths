@@ -5,19 +5,34 @@
 					[
 						{
 						"question" :[
-										"<num>_<denum>.png", "OPERATION", "<num>_<denum>.png"
+										"1_1.png", "+", "1_1.png"
 									],
 						"answers" : [
 										{
-											"text" : "<num>_<denum>.png",
+											"text" : "1_1.png",
 											"is_good_answer" : false
 										},
 										{
-											"text" : "<num>_<denum>.png",
+											"text" : "1_1.png",
 											"is_good_answer" : true
 										}
 									]
 						},
+						{
+							"question" :[
+											"2_2.png", "+", "2_2.png"
+										],
+							"answers" : [
+											{
+												"text" : "2_2.png",
+												"is_good_answer" : false
+											},
+											{
+												"text" : "2_2.png",
+												"is_good_answer" : true
+											}
+										]
+							}
                     ]
 	}
 ]

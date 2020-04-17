@@ -3,11 +3,12 @@ extends Node2D
 var count = 0
 var angle : float = 0
 var answer_listeners  : Array = []
+var pictures : Dictionary = {}
 #var load_calcul_6 = load_c("res://Assets/Questions/questions_6.json")
 #var load_calcul_5 = load_c("res://Assets/Questions/questions_5.json")
 #var load_calcul_4 = load_c("res://Assets/Questions/questions_4.json")
 #var load_calcul_3 = load_c("res://Assets/Questions/questions_3.json")
-var load_calcul = load_c("res://Assets/Questions/questions.json")
+var load_calcul = load_c("res://Assets/Questions/fraction.json")
 
 var timer : Timer = null
 var timer_label : Label = null
@@ -18,7 +19,6 @@ var question : Label = null
 var colorRect : ColorRect = null
 var control_1 : Control = null
 var control_2 : Control = null
-var center_question : CenterContainer = null
 var center_answer : CenterContainer = null
 
 func set_answer_listener(listeners : Array) -> void:
@@ -38,7 +38,6 @@ func load_c(path : String) -> Dictionary:
 func setup_question(dict : Array) -> void:
 	control_1 = Control.new()
 	control_2 = Control.new()
-	center_question = CenterContainer.new()
 	center_answer = CenterContainer.new()
 	control_1.self_modulate = Color(1, 1, 1, 0)
 	control_2.self_modulate = Color(1, 1, 1, 0)
@@ -50,8 +49,7 @@ func setup_question(dict : Array) -> void:
 	control_question.rect_size = Vector2(200,50)
 	control_question.self_modulate = Color(1, 1, 1, 0)
 	$CanvasLayer.add_child(control_question)
-	control_question.add_child(center_question)
-	center_question.add_child(question)
+	control_question.add_child(question)
 
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
@@ -59,7 +57,19 @@ func setup_question(dict : Array) -> void:
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
 
-	question.text 	= chosen_question["question"]
+	var texture_frac_1 = Sprite.new()
+	var frac_1 = chosen_question["question"][0]
+	texture_frac_1.texture = pictures[frac_1]
+	control_question.add_child(texture_frac_1)
+	texture_frac_1.set_position(question.get_position() + Vector2(-35,20))
+	question.text 	= chosen_question["question"][1]
+	var texture_frac_2 = Sprite.new()
+	var frac_2 = chosen_question["question"][2]
+	texture_frac_2.texture = pictures[frac_2]
+	control_question.add_child(texture_frac_2)
+	texture_frac_2.set_position(question.get_position() + Vector2(50,20))
+	
+	
 	var answers 	: Array = chosen_question["answers"]
 
 	var ans_position : Vector2 = Vector2(question.get_position().x - 150 , question.get_position().y + 50)
@@ -68,17 +78,25 @@ func setup_question(dict : Array) -> void:
 		control_answer.self_modulate = Color(1, 1, 1, 0)
 		button_answer = Button.new()
 		button_answer.self_modulate = Color(1, 1, 1, 0)
-		var label_answer = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
-						   Color.orangered, font_question, 30,1, Color.black)
-		label_answer.text = ans["text"]
+		
+#		var label_answer = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
+#						   Color.orangered, font_question, 30,1, Color.black)
+#		label_answer.text = ans["text"]
+
+		var texture_fraction = Sprite.new()
+		texture_fraction.centered = false
+		texture_fraction.texture = pictures[ans["text"]]
+		
+
 		ans_position.x += 130
 		button_answer.set_position(ans_position)
-		button_answer.rect_size = Vector2(50,40)
+		button_answer.rect_size = Vector2(50,60)
 		question.add_child(control_1)
 		control_1.add_child(control_2)
 		control_2.add_child(control_answer)
 		control_answer.add_child(button_answer)
-		button_answer.add_child(label_answer)
+#		button_answer.add_child(label_answer)
+		button_answer.add_child(texture_fraction)
 		control_1.set_pivot_offset(Vector2(0,50))
 		control_1.set_position(Vector2(question.rect_size / 2) + Vector2(-50,30))
 
@@ -95,6 +113,19 @@ func setup_question(dict : Array) -> void:
 
 
 func _ready():
+	var path = "res://Tools/"
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
+	while true:
+		var file_name = dir.get_next()
+		if file_name == "":
+			break
+		elif file_name.ends_with(".png"):
+#			pictures.append(load(path + "/" + file_name))
+			pictures[file_name] = load(path + "/" + file_name)
+	dir.list_dir_end()
+	print (pictures)
 #	answer_listeners = []
 #	if FileBankUtils.classroom == 6:
 #		setup_question(load_calcul_6)
