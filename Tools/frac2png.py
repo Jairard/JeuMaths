@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+﻿import matplotlib.pyplot as plt
 import io
 import sys
 
@@ -10,20 +10,24 @@ def render_latex(formula, fontsize=12, dpi=300, format_='png'):
     plt.close(fig)
     return buffer_.getvalue()
 
-raw_numerator = float(sys.argv[1])
-raw_denominator = float(sys.argv[2])
-decimal_count = int(sys.argv[3]) if len(sys.argv) > 3 else 0
 
-float_fmt = "%." + str(decimal_count) + "f"
-numerator = float_fmt % raw_numerator
-denominator = float_fmt % raw_denominator
 
-formula = r"\frac{%s}{%s}" % (numerator, denominator)
-output_file_name = "frac_%s_%s.png" % (raw_numerator, raw_denominator)
+numerator = int(sys.argv[1])
+denominator = int(sys.argv[2])
 
-print("Saving fraction %s/%s to '%s'..." % (numerator, denominator, output_file_name))
+for i in range(-numerator, numerator + 1, 1):
+    if i == 0 :
+        continue
+    for j in range(-denominator, denominator + 1, 1):
+        if j == 0 :
+            continue
 
-image_bytes = render_latex(formula, fontsize=10, dpi=300, format_='png')
-with open(output_file_name, 'wb') as image_file:
-    image_file.write(image_bytes)
-    print("Done !")
+        formula = r"\frac{%s}{%s}" % (i, j)
+        output_file_name = "%s_%s.png" % (i, j)
+
+        print("Saving fraction %s/%s to '%s'..." % (i, j, output_file_name))
+
+        image_bytes = render_latex(formula, fontsize=10, dpi=300, format_='png')
+        with open(output_file_name, 'wb') as image_file:
+            image_file.write(image_bytes)
+            print("Done !")
