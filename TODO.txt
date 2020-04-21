@@ -25,5 +25,6 @@
 
 ---------   relier les notions cochées au code : liste de notions 
 
-générer fractions sans le 0
 changer police d'écriture des fractions
+taille affichage pour les puissances
+parcourir les fractions pour savoir les images a générer
