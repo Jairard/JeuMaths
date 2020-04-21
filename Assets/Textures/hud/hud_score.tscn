@@ -9,7 +9,7 @@
 length = 1.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Gold:frame")
+tracks/0/path = NodePath("Control_gold/Gold/Label/Gold:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -21,12 +21,16 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="DynamicFont" id=2]
-size = 30
+[sub_resource type="DynamicFont" id=4]
+size = 25
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.258824 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 30
+size = 25
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.223529 )
 font_data = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D"]
@@ -35,63 +39,101 @@ script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Medal" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 856.676, 18.0118 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 0, -20 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+anims/anim_gold = SubResource( 1 )
 
-[node name="Medal_Button" type="Button" parent="CanvasLayer"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 849.0
-margin_top = 3.0
-margin_right = 885.0
-margin_bottom = 48.0
+[node name="Control_gold" type="Control" parent="CanvasLayer"]
+margin_left = 801.0
+margin_top = 25.0
+margin_right = 801.0
+margin_bottom = 65.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Gold" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 576.544, 19.675 )
+[node name="Gold" type="HBoxContainer" parent="CanvasLayer/Control_gold"]
+show_behind_parent = true
+margin_left = -128.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Control_gold/Gold"]
+margin_right = 62.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Gold" type="Sprite" parent="CanvasLayer/Control_gold/Gold/Label"]
+position = Vector2( 35.9216, 2.98087 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( 0, -3 )
 hframes = 8
 
-[node name="Gold_Button" type="Button" parent="CanvasLayer"]
+[node name="gold_label" type="Label" parent="CanvasLayer/Control_gold/Gold"]
+margin_left = 66.0
+margin_right = 128.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gold_Button" type="Button" parent="CanvasLayer/Control_gold"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 570.0
-margin_top = 9.0
-margin_right = 607.0
-margin_bottom = 45.0
+margin_left = -100.0
+margin_top = -4.0
+margin_right = -63.0
+margin_bottom = 30.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-anims/anim_gold = SubResource( 1 )
-
-[node name="gold_label" type="Label" parent="CanvasLayer"]
-margin_left = 616.0
-margin_top = 12.0
-margin_right = 847.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-text = "1000"
+[node name="Control_score" type="Control" parent="CanvasLayer"]
+margin_left = 1.16635
+margin_right = 41.1664
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score_richText" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 895.0
-margin_top = 12.0
-margin_right = 1131.0
-margin_bottom = 45.0
+[node name="Score" type="HBoxContainer" parent="CanvasLayer/Control_score"]
+show_behind_parent = true
+margin_left = 794.0
+margin_top = 25.0
+margin_right = 1024.0
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Control_score/Score"]
+margin_right = 113.0
+margin_bottom = 77.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Medal" type="Sprite" parent="CanvasLayer/Control_score/Score/Label"]
+position = Vector2( 88.2791, 0.524294 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+centered = false
+offset = Vector2( 0, -20 )
+
+[node name="Score_richText" type="RichTextLabel" parent="CanvasLayer/Control_score/Score"]
+margin_left = 117.0
+margin_right = 230.0
+margin_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[wave][rainbow]1000"
@@ -100,5 +142,15 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="CanvasLayer/Medal_Button" to="." method="_on_Medal_Button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Gold_Button" to="." method="_on_Gold_Button_pressed"]
+
+[node name="Medal_Button" type="Button" parent="CanvasLayer/Control_score"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 877.262
+margin_top = 13.563
+margin_right = 910.262
+margin_bottom = 53.563
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/Control_gold/Gold_Button" to="." method="_on_Gold_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_score/Medal_Button" to="." method="_on_Medal_Button_pressed"]

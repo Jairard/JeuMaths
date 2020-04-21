@@ -7,6 +7,6 @@ func get_life_hero_label() -> Label :
 	return $CanvasLayer/HBoxContainer5/MarginContainer/health 		as Label
 
 func get_damage() -> Label :
-	return $CanvasLayer/valeur_degats/MarginContainer/valeur_degat 	as Label
+	return $CanvasLayer/valeur_degats/valeur_degat 	as Label
 
 

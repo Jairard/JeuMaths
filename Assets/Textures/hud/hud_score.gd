@@ -16,10 +16,10 @@ func _ready():
 	$CanvasLayer.add_child(stats)	
 
 func get_score() -> RichTextLabel:
-	return $CanvasLayer/Score_richText			as RichTextLabel
+	return $CanvasLayer/Control_score/Score/Score_richText			as RichTextLabel
 
 func get_treasure() -> Label :
-	return $CanvasLayer/gold_label					as Label
+	return $CanvasLayer/Control_gold/Gold/gold_label					as Label
 
 
 func _on_Gold_Button_pressed():
@@ -30,6 +30,7 @@ func _on_Gold_Button_pressed():
 
 
 func _on_Medal_Button_pressed():
+	print ("in")
 	if stats.is_shown():
 		stats.shutdown()
 	else:
