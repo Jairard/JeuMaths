@@ -65,129 +65,6 @@ func get_stats(pseudo : String) -> Dictionary:
 	return {"new_hero" : true, "stats" : new_stats}
 
 
-func _on_6eme_pressed():
-	
-	$_5eme/questions_5/CheckBox.pressed = false
-	$_5eme/questions_5/CheckBox2.pressed = false
-	$_5eme/questions_5/CheckBox3.pressed = false
-	$_5eme/questions_5/CheckBox4.pressed = false
-
-	$_4eme/questions_4/CheckBox.pressed = false
-	$_4eme/questions_4/CheckBox2.pressed = false
-	$_4eme/questions_4/CheckBox3.pressed = false
-	$_4eme/questions_4/CheckBox4.pressed = false
-	
-	$_3eme/questions_3/CheckBox.pressed = false
-	$_3eme/questions_3/CheckBox2.pressed = false
-	$_3eme/questions_3/CheckBox3.pressed = false
-	$_3eme/questions_3/CheckBox4.pressed = false
-	
-	$_5eme/back.hide()
-	$_5eme/questions_5.hide()
-	$_4eme/back.hide()
-	$_4eme/questions_4.hide()
-	$_3eme/back.hide()
-	$_3eme/questions_3.hide()
-	$_5eme.pressed = false
-	$_4eme.pressed = false
-	$_3eme.pressed = false
-	FileBankUtils.classroom = 6
-	$_6eme/back.show()
-	$_6eme/questions_6.show()
-
-func _on_5eme_pressed():
-	
-	$_6eme/questions_6/CheckBox.pressed = false
-	$_6eme/questions_6/CheckBox2.pressed = false
-	$_6eme/questions_6/CheckBox3.pressed = false
-	$_6eme/questions_6/CheckBox4.pressed = false
-
-	$_4eme/questions_4/CheckBox.pressed = false
-	$_4eme/questions_4/CheckBox2.pressed = false
-	$_4eme/questions_4/CheckBox3.pressed = false
-	$_4eme/questions_4/CheckBox4.pressed = false
-	
-	$_3eme/questions_3/CheckBox.pressed = false
-	$_3eme/questions_3/CheckBox2.pressed = false
-	$_3eme/questions_3/CheckBox3.pressed = false
-	$_3eme/questions_3/CheckBox4.pressed = false
-	
-	$_6eme/back.hide()
-	$_6eme/questions_6.hide()
-	$_4eme/back.hide()
-	$_4eme/questions_4.hide()
-	$_3eme/back.hide()
-	$_3eme/questions_3.hide()
-	$_6eme.pressed = false
-	$_4eme.pressed = false
-	$_3eme.pressed = false
-	FileBankUtils.classroom = 5
-	$_5eme/back.show()
-	$_5eme/questions_5.show()
-
-
-
-func _on_4eme_pressed():
-	
-	$_6eme/questions_6/CheckBox.pressed = false
-	$_6eme/questions_6/CheckBox2.pressed = false
-	$_6eme/questions_6/CheckBox3.pressed = false
-	$_6eme/questions_6/CheckBox4.pressed = false
-	
-	$_5eme/questions_5/CheckBox.pressed = false
-	$_5eme/questions_5/CheckBox2.pressed = false
-	$_5eme/questions_5/CheckBox3.pressed = false
-	$_5eme/questions_5/CheckBox4.pressed = false
-	
-	$_3eme/questions_3/CheckBox.pressed = false
-	$_3eme/questions_3/CheckBox2.pressed = false
-	$_3eme/questions_3/CheckBox3.pressed = false
-	$_3eme/questions_3/CheckBox4.pressed = false
-	
-	$_6eme/back.hide()
-	$_6eme/questions_6.hide()
-	$_5eme/back.hide()
-	$_5eme/questions_5.hide()
-	$_3eme/back.hide()
-	$_3eme/questions_3.hide()
-	$_6eme.pressed = false
-	$_5eme.pressed = false
-	$_3eme.pressed = false
-	FileBankUtils.classroom = 4
-	$_4eme/back.show()
-	$_4eme/questions_4.show()
-
-func _on_3eme_pressed():
-	
-	$_6eme/questions_6/CheckBox.pressed = false
-	$_6eme/questions_6/CheckBox2.pressed = false
-	$_6eme/questions_6/CheckBox3.pressed = false
-	$_6eme/questions_6/CheckBox4.pressed = false
-	
-	$_5eme/questions_5/CheckBox.pressed = false
-	$_5eme/questions_5/CheckBox2.pressed = false
-	$_5eme/questions_5/CheckBox3.pressed = false
-	$_5eme/questions_5/CheckBox4.pressed = false
-	
-	$_4eme/questions_4/CheckBox.pressed = false
-	$_4eme/questions_4/CheckBox2.pressed = false
-	$_4eme/questions_4/CheckBox3.pressed = false
-	$_4eme/questions_4/CheckBox4.pressed = false
-	
-	$_6eme/back.hide()
-	$_6eme/questions_6.hide()
-	$_5eme/back.hide()
-	$_5eme/questions_5.hide()
-	$_4eme/back.hide()
-	$_4eme/questions_4.hide()
-	$_6eme.pressed = false
-	$_5eme.pressed = false
-	$_4eme.pressed = false
-	FileBankUtils.classroom = 3
-	$_3eme/back.show()
-	$_3eme/questions_3.show()
-
-
 func load_stats():
 	var pseudo : String = $TileMap/pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
@@ -234,3 +111,99 @@ func _on_Option_unused_scenes_item_selected(id):
 	match id:
 		1:
 			Fade.change_scene(FileBankUtils.loaded_scenes["create_hero"])
+	
+func _on_Conversion_pressed():
+	$_4_Operations/Control.hide()
+	$Literal_calculation/Control.hide()
+	$Fraction/Control.hide()
+	$Arithmetic/Control.hide()
+	$Conversion/Control.show()
+	$Percentage/Control2.hide()
+	
+	$_4_Operations.pressed = false
+	$Literal_calculation.pressed = false
+	$Fraction.pressed = false
+	$Arithmetic.pressed = false
+	$Percentage.pressed = false
+
+
+func _on_Percentage_pressed():
+	$_4_Operations/Control.hide()
+	$Literal_calculation/Control.hide()
+	$Fraction/Control.hide()
+	$Arithmetic/Control.hide()
+	$Conversion/Control.hide()
+	$Percentage/Control2.show()
+	
+	$_4_Operations.pressed = false
+	$Literal_calculation.pressed = false
+	$Fraction.pressed = false
+	$Arithmetic.pressed = false
+	$Conversion.pressed = false
+
+
+func _on_Arithmetic_pressed():
+	$_4_Operations/Control.hide()
+	$Literal_calculation/Control.hide()
+	$Fraction/Control.hide()
+	$Arithmetic/Control.show()
+	$Conversion/Control.hide()
+	$Percentage/Control2.hide()
+	
+	$_4_Operations.pressed = false
+	$Literal_calculation.pressed = false
+	$Fraction.pressed = false
+	$Conversion.pressed = false
+	$Percentage.pressed = false
+
+
+func _on_Fraction_pressed():
+	$_4_Operations/Control.hide()
+	$Literal_calculation/Control.hide()
+	$Fraction/Control.show()
+	$Arithmetic/Control.hide()
+	$Conversion/Control.hide()
+	$Percentage/Control2.hide()
+	
+	$_4_Operations.pressed = false
+	$Literal_calculation.pressed = false
+	$Arithmetic.pressed = false
+	$Conversion.pressed = false
+	$Percentage.pressed = false
+
+
+func _on_Literal_calculation_pressed():
+	$_4_Operations/Control.hide()
+	$Literal_calculation/Control.show()
+	$Fraction/Control.hide()
+	$Arithmetic/Control.hide()
+	$Conversion/Control.hide()
+	$Percentage/Control2.hide()
+	
+	$_4_Operations.pressed = false
+	$Fraction.pressed = false
+	$Arithmetic.pressed = false
+	$Conversion.pressed = false
+	$Percentage.pressed = false
+
+
+func _on_4_Operations_pressed():
+	$_4_Operations/Control.show()
+	$Literal_calculation/Control.hide()
+	$Fraction/Control.hide()
+	$Arithmetic/Control.hide()
+	$Conversion/Control.hide()
+	$Percentage/Control2.hide()
+	
+	$Literal_calculation.pressed = false
+	$Fraction.pressed = false
+	$Arithmetic.pressed = false
+	$Conversion.pressed = false
+	$Percentage.pressed = false
+
+func _on_Fonction_pressed():
+	pass
+
+
+func _on_Power_pressed():
+	pass
