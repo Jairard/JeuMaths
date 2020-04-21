@@ -3,9 +3,9 @@
 [ext_resource path="res://Src/Outgame/Map_Shop.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Textures/GUI/coeur_full_vie_3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/GUI/icone_degats_png.png" type="Texture" id=4]
 [ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Textures/Characters/X1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Textures/GUI/genericItem_color_023.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Textures/GUI/container.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/GUI/carrot.png" type="Texture" id=10]
 
@@ -53,10 +53,10 @@ anims/fade_in = SubResource( 1 )
 visible = false
 
 [node name="Back" type="ColorRect" parent="."]
-margin_left = 8.5918
-margin_top = 324.139
-margin_right = 1036.59
-margin_bottom = 640.139
+margin_left = 9.5918
+margin_top = 323.54
+margin_right = 1037.59
+margin_bottom = 639.54
 color = Color( 0.929412, 0.984314, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -95,23 +95,23 @@ __meta__ = {
 }
 
 [node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Damage"]
-modulate = Color( 0.8, 0.72549, 0.72549, 0.854902 )
+modulate = Color( 0.2, 0.160784, 0.160784, 0.854902 )
 show_behind_parent = true
-margin_left = 29.232
-margin_top = 9.49454
-margin_right = 214.232
-margin_bottom = 79.4945
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = -9.53872
+margin_top = -26.4518
+margin_right = 175.461
+margin_bottom = 43.5482
+rect_scale = Vector2( 1.8, 3 )
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="damage_label" type="Label" parent="Back/MarginContainer/New_interface/Damage"]
-margin_left = 70.7635
-margin_top = 39.5119
-margin_right = 100.764
-margin_bottom = 66.5119
+margin_left = 33.6219
+margin_top = 46.476
+margin_right = 63.6224
+margin_bottom = 73.476
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
 text = "+ 5"
@@ -120,12 +120,12 @@ __meta__ = {
 }
 
 [node name="damage_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Damage"]
-position = Vector2( 138.023, 55.8331 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 8 )
+position = Vector2( 132.607, 72.8563 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
 
 [node name="cost_damage" type="Sprite" parent="Back/MarginContainer/New_interface/Damage"]
-position = Vector2( 245.328, 26.7012 )
+position = Vector2( 250.717, -9.82184 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 7 )
 hframes = 8
@@ -133,10 +133,10 @@ hframes = 8
 [node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Damage"]
 modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
 show_behind_parent = true
-margin_left = 303.423
-margin_top = 45.0697
-margin_right = 488.423
-margin_bottom = 115.07
+margin_left = 322.349
+margin_top = 7.948
+margin_right = 507.349
+margin_bottom = 77.9483
 rect_rotation = -180.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
@@ -145,10 +145,10 @@ __meta__ = {
 }
 
 [node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Damage"]
-margin_left = 268.129
-margin_top = 15.017
-margin_right = 308.129
-margin_bottom = 42.017
+margin_left = 275.737
+margin_top = -21.7977
+margin_right = 315.737
+margin_bottom = 5.2023
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "50 "
@@ -157,11 +157,11 @@ __meta__ = {
 }
 
 [node name="Damage" type="Button" parent="Back/MarginContainer/New_interface/Damage"]
-modulate = Color( 1, 1, 1, 0.160784 )
-margin_left = 32.0
-margin_top = 13.8337
-margin_right = 305.0
-margin_bottom = 101.834
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -9.23926
+margin_top = -23.2776
+margin_right = 322.761
+margin_bottom = 173.722
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -259,10 +259,10 @@ __meta__ = {
 [node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Health_refill"]
 modulate = Color( 0.2, 0.160784, 0.160784, 0.854902 )
 show_behind_parent = true
-margin_left = 20.232
-margin_top = -32.5056
-margin_right = 205.232
-margin_bottom = 37.4944
+margin_left = 20.3413
+margin_top = -27.4178
+margin_right = 205.341
+margin_bottom = 42.5822
 rect_scale = Vector2( 1.8, 3 )
 texture = ExtResource( 9 )
 __meta__ = {
@@ -275,7 +275,7 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="cost_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
-position = Vector2( 280.328, -12.2989 )
+position = Vector2( 282.124, -10.5027 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 7 )
 hframes = 8
@@ -283,10 +283,10 @@ hframes = 8
 [node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Health_refill"]
 modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
 show_behind_parent = true
-margin_left = 350.993
-margin_top = 4.27393
-margin_right = 535.993
-margin_bottom = 74.2739
+margin_left = 353.388
+margin_top = 8.46509
+margin_right = 538.388
+margin_bottom = 78.4651
 rect_rotation = -180.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
@@ -320,10 +320,10 @@ __meta__ = {
 
 [node name="Refill" type="Button" parent="Back/MarginContainer/New_interface/Health_refill"]
 modulate = Color( 1, 1, 1, 0.160784 )
-margin_left = 24.2695
-margin_top = 128.306
-margin_right = 296.269
-margin_bottom = 223.306
+margin_left = 22.0
+margin_top = -25.0
+margin_right = 352.0
+margin_bottom = 167.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
