@@ -187,14 +187,14 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				AnimationUtils.tween_hero_collision(my_body)
 
 		if (has_collision_layer(collider,gold_layer_bit) == true
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 10
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 1
 			
 			unique_collision(collider)
 			print("Gold collision !")
 
 			if treasure_comp != null:
-				treasure_comp.set_treasure(treasure_comp.get_treasure() + 10)
-				FileBankUtils.treasure += 10
+				treasure_comp.set_treasure(treasure_comp.get_treasure() + 1)
+				FileBankUtils.treasure += 1
 			var tween = AnimationUtils.tween_hero_loot(collider)
 			yield(tween, "tween_completed")
 			collider.queue_free()

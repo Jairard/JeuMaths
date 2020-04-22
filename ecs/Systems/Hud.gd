@@ -41,7 +41,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var green = Color("14e114")
 		var orange = Color("ffad00")
 		var red = Color("e11e1e")
-		var black = Color("000000")
+		var black = Color("6f0000")
 
 		if global_ratio >= 0.75:
 			var local_ratio = 4*global_ratio - 3
@@ -62,9 +62,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			var local_ratio = 4*global_ratio 
 			var color = lerp(black, red, local_ratio)
 			comp_hud_fight._health_value.set_tint_progress(color) 
-			if comp_score != null:	
-				var current_score = comp_score.compute_score()
-				comp_hud_fight.set_score(current_score)
+#			if comp_score != null:	
+#				var current_score = comp_score.compute_score()
+#				comp_hud_fight.set_score(current_score)
 
 	if comp_damage != null:
 		var current_damage = comp_damage.get_damage()

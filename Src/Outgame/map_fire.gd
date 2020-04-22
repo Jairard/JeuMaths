@@ -19,6 +19,7 @@ onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode = null
+var treasure_comp : Component = null
 
 var file = File.new()
 var dict = {}
@@ -92,7 +93,7 @@ func load_characters() :
 	FileBankUtils.health = hero_health
 
 
-	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
+	treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
 
 
@@ -129,6 +130,9 @@ func _process(delta):
 			Fade.checkpoint(heroNode, Vector2(400,500))
 		if pos_comp.get_position().x >11500:
 			Fade.checkpoint(heroNode, Vector2(11500,500))
+		treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
+		FileBankUtils.treasure *= 0.7
+		health_comp_hero.set_health(health_comp_hero.get_health_max())
 
 
 func _load_monsters():

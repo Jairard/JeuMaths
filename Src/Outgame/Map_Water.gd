@@ -15,6 +15,8 @@ onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode : Node2D = null
+var treasure_comp : Component = null
+
 
 func _ready():
 
@@ -51,7 +53,7 @@ func _ready():
 	FileBankUtils.health = hero_health
 
 
-	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
+	treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
 
 
@@ -101,6 +103,9 @@ func _process(delta):
 			Fade.checkpoint(heroNode, Vector2(100,550))
 		if pos_comp.get_position().x >9500:
 			Fade.checkpoint(heroNode, Vector2(9500,500))
+	treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
+	FileBankUtils.treasure *= 0.7
+	health_comp_hero.set_health(health_comp_hero.get_health_max())
 
 func _on_Button_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
