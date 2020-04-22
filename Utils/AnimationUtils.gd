@@ -68,25 +68,7 @@ func tween_hero_death(node : Node2D, current_pos : Vector2, final_pos : Vector2)
 	tween.interpolate_callback(node, 1.0, "destroy")		
 	tween.start()
 	return tween
-	
 
-func checkpoint(scene : Node2D, node : Node2D, current_pos : Vector2, final_pos : Vector2):
-	var tween_in = AnimationUtils.canvas_fade_in(scene)							#hide hero
-	yield(tween_in, "tween_completed")
-	var tween_pos = tween_hero_death(node, current_pos, final_pos)				#set new position for hero
-	yield(tween_pos, "tween_completed")
-	var anim_in = AnimationUtils.scene_fade_in(scene)							#hide scene
-	yield(anim_in, "animation_finished")
-	var anim_out = AnimationUtils.scene_fade_out(scene)							#show scene
-	yield(anim_out, "animation_finished")
-	var tween_out = AnimationUtils.canvas_fade_out(scene)						#show hero
-	yield(tween_out, "tween_completed")
-
-#	AnimationUtils.canvas_fade_in(scene)
-#	AnimationUtils.scene_fade_in(scene)
-#	AnimationUtils.scene_fade_out(scene)	
-#	AnimationUtils.canvas_fade_out(scene)
-#	AnimationUtils.tween_hero_death(node, current_pos, final_pos)
 
 func floating_damage(node : Node2D, dmg : int, _bool : bool, font):
 	if _bool:
