@@ -14,8 +14,8 @@ onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.ts
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 
 var health_comp_hero : Component = null
-var hero_pos : Component = null
-var heroNode = null
+var pos_comp : Component = null
+var heroNode : Node2D = null
 
 func _ready():
 
@@ -33,8 +33,8 @@ func _ready():
 	heroNode = hero.instance()
 	add_child(heroNode)
 	heroNode.set_name("hero")
-	hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	hero_pos.set_position(Vector2(300,300))
+	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
+	pos_comp.set_position(Vector2(100,300))
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
@@ -92,6 +92,12 @@ func _ready():
 	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
 
+func _process(delta):
+	if health_comp_hero.get_health() <= 0 :
+		if pos_comp.get_position().x <= 6300:
+			Fade.checkpoint(heroNode, Vector2(100,300))
+		if pos_comp.get_position().x >6300:
+			Fade.checkpoint(heroNode, Vector2(6300,700))
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(4000,325), gold, health, damage)

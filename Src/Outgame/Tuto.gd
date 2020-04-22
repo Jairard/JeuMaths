@@ -14,9 +14,6 @@ var move_comp : Component = null
 var gravity_comp : Component = null
 var pos_comp : Component = null
 
-export var color_game = Color("#00000000")
-export var color_tumble = Color("#000000")
-
 func _process(delta):
 	tumble()
 	
@@ -42,7 +39,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(7500,-500))
+	pos_comp.set_position(Vector2(22250,1300))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -118,9 +115,9 @@ func _on_Return_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 func tumble():
-#	if pos_comp.get_position().y > 1550:
-#		AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(22000,1300))
-		pass
+	if pos_comp.get_position().y > 1550:
+		Fade.checkpoint(heroNode, Vector2(22000,1300))
+		
 
 
 

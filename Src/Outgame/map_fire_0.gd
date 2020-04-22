@@ -19,9 +19,6 @@ var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode = null
 
-export var color_game = Color("#00000000")
-export var color_tumble = Color("#000000")
-
 var file = File.new()
 var dict = {}
 	
@@ -123,10 +120,6 @@ func load_characters() :
 	
 	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
-	
-func combat(valeur) :
-	if valeur == 0 :
-		Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 
 
@@ -155,32 +148,11 @@ func _on_Timer_timeout():
 
 func _process(delta):
 	if health_comp_hero.get_health() <= 0:
-		if pos_comp.get_position().x <= 11500:
-			Fade.change_scene(FileBankUtils.loaded_scenes["death"])
-		if pos_comp.get_position().x >11500 and pos_comp.get_position().x <= 20000:
-			tween(Vector2(11500, 500))
-			health_comp_hero.set_health(health_comp_hero.get_health_max())			
-		if pos_comp.get_position().x >20000:
-			tween(Vector2(20000, 500))
-			health_comp_hero.set_health(health_comp_hero.get_health_max())
-		
+		if pos_comp.get_position().x <= 9750:
+			Fade.checkpoint(heroNode, Vector2(300,500))
+		if pos_comp.get_position().x >9750:
+			Fade.checkpoint(heroNode, Vector2(9750, 500))
 
-func tween(pos : Vector2):
-		var tween = Tween.new()
-		add_child(tween)
-		$CanvasModulate.show()
-		tween.interpolate_property($CanvasModulate, "color", color_game, color_tumble, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
-		yield(tween, "tween_completed")
-		remove_child(tween)
-		
-		$Control/ColorRect.show()
-		$Control/AnimationPlayer.play("test")
-		yield($Control/AnimationPlayer, "animation_finished")
-	
-		pos_comp.set_position(pos)
-		$Control/ColorRect.hide()
-		$CanvasModulate.hide()
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(1080, 250), gold, health, damage)

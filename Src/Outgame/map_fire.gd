@@ -20,12 +20,9 @@ var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode = null
 
-export var color_game = Color("#00000000")
-export var color_tumble = Color("#000000")
-
 var file = File.new()
 var dict = {}
-	
+
 func _ready():
 	
 	ECS.register_system(SystemsLibrary.Move)
@@ -67,15 +64,12 @@ func load_characters() :
 	add_child(ScoreNode)
 	ScoreNode.set_hero_node(heroNode)
 
-	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-	enemy_pos_comp.set_position(Vector2(500,300))
-
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(25250,500))
+	pos_comp.set_position(Vector2(400,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -122,11 +116,6 @@ func load_characters() :
 	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
 
-func combat(valeur) :
-	if valeur == 0 :
-		Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
-
-
 
 func _on_Button_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
@@ -135,15 +124,11 @@ func _on_Timer_timeout():
 	_load_bullets()
 
 func _process(delta):
-	if health_comp_hero.get_health() <= 0:
+	if health_comp_hero.get_health() <= 0 :
 		if pos_comp.get_position().x <= 11500:
-#			Fade.change_scene(FileBankUtils.loaded_scenes["death"])
-			pass
-		if pos_comp.get_position().x >11500 and pos_comp.get_position().x <= 20000:
-			pass
-		if pos_comp.get_position().x >20000:
-			AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(20000,500))
-			health_comp_hero.set_health(health_comp_hero.get_health_max())
+			Fade.checkpoint(heroNode, Vector2(400,500))
+		if pos_comp.get_position().x >11500:
+			Fade.checkpoint(heroNode, Vector2(11500,500))
 
 
 func _load_monsters():

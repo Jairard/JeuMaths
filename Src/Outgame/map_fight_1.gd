@@ -59,8 +59,8 @@ func _ready():
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle"}
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
-	var hero_pos = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	hero_pos.set_position(Vector2(100,535))
+	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
+	pos_comp.set_position(Vector2(100,535))
 
 	var hero_health = FileBankUtils.health
 	var hero_health_max = FileBankUtils.health_max

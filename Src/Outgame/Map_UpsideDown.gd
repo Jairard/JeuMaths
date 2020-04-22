@@ -16,10 +16,7 @@ onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 
 var health_comp_hero : Component = null
 var pos_comp : Component = null
-var heroNode = null
-
-export var color_game = Color("#00000000")
-export var color_tumble = Color("#000000")
+var heroNode : Node2D = null
 
 var file = File.new()
 var dict = {}
@@ -120,10 +117,7 @@ func load_characters() :
 	
 	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
-	
-func combat(valeur) :
-	if valeur == 0 :
-		Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+
 
 
 func _on_Button_pressed():
@@ -131,20 +125,12 @@ func _on_Button_pressed():
 
 
 func _process(delta):
-	if health_comp_hero.get_health() <= 0:
-		if pos_comp.get_position().x <= 11500:
-#			Fade.change_scene(FileBankUtils.loaded_scenes["death"])
-			pass
-		if pos_comp.get_position().x >11500 and pos_comp.get_position().x <= 20000:
-#			tween(Vector2(11500, 500))
-#			health_comp_hero.set_health(health_comp_hero.get_health_max())		
-			pass	
-		if pos_comp.get_position().x >20000:
-			AnimationUtils.checkpoint(self, heroNode, pos_comp.get_position(), Vector2(20000,500))
-			health_comp_hero.set_health(health_comp_hero.get_health_max())
-			
-		$ColorRect.hide()
-		$CanvasModulate.hide()	
+		if health_comp_hero.get_health() <= 0:
+			if pos_comp.get_position().x <= 10750:
+				Fade.checkpoint(heroNode, Vector2(100,300))
+			if pos_comp.get_position().x >10750:
+				Fade.checkpoint(heroNode, Vector2(10750, 250))
+
 
 
 func _load_monsters():
