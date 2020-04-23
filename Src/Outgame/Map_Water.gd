@@ -103,9 +103,9 @@ func _process(delta):
 			Fade.checkpoint(heroNode, Vector2(100,550))
 		if pos_comp.get_position().x >9500:
 			Fade.checkpoint(heroNode, Vector2(9500,500))
-	treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
-	FileBankUtils.treasure *= 0.7
-	health_comp_hero.set_health(health_comp_hero.get_health_max())
+		treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
+		FileBankUtils.treasure *= 0.7
+		health_comp_hero.set_health(health_comp_hero.get_health_max())
 
 func _on_Button_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])

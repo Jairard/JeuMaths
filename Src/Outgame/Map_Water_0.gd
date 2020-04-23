@@ -76,7 +76,7 @@ func _ready():
 
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
-	ScoreNode.set_name("Score")
+	ScoreNode.set_hero_node(heroNode)
 
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
@@ -100,9 +100,9 @@ func _process(delta):
 			Fade.checkpoint(heroNode, Vector2(100,300))
 		if pos_comp.get_position().x >6300:
 			Fade.checkpoint(heroNode, Vector2(6300,700))
-	treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
-	FileBankUtils.treasure *= 0.7
-	health_comp_hero.set_health(health_comp_hero.get_health_max())
+		treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
+		FileBankUtils.treasure *= 0.7
+		health_comp_hero.set_health(health_comp_hero.get_health_max())
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(4000,325), gold, health, damage)
