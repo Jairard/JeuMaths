@@ -1,6 +1,7 @@
 ﻿import matplotlib.pyplot as plt
 import io
 import sys
+import os
 
 def render_latex(formula, fontsize=12, dpi=300, format_='png'):
     fig = plt.figure(figsize=(0.01, 0.01))
@@ -12,22 +13,21 @@ def render_latex(formula, fontsize=12, dpi=300, format_='png'):
 
 
 
-numerator = int(sys.argv[1])
-denominator = int(sys.argv[2])
+#numerator = int(sys.argv[1])
+#denominator = int(sys.argv[2])
 
-for i in range(-numerator, numerator + 1, 1):
-    if i == 0 :
-        continue
-    for j in range(-denominator, denominator + 1, 1):
-        if j == 0 :
-            continue
+def generate_fraction(numerator, denominator, file_name, dst_folder = "."):
 
-        formula = r"\frac{%s}{%s}" % (i, j)
-        output_file_name = "%s_%s.png" % (i, j)
+    formula = r"\frac{%d}{%d}" % (numerator, denominator)
 
-        print("Saving fraction %s/%s to '%s'..." % (i, j, output_file_name))
+    file_path = os.path.join(dst_folder, file_name)
+    print("Saving fraction %d/%d to '%s'..." % (numerator, denominator, file_path))
 
-        image_bytes = render_latex(formula, fontsize=10, dpi=300, format_='png')
-        with open(output_file_name, 'wb') as image_file:
-            image_file.write(image_bytes)
-            print("Done !")
+    image_bytes = render_latex(formula, fontsize=10, dpi=300, format_='png')
+    if not os.path.exists(dst_folder):
+        os.makedirs(dst_folder)
+    with open(file_path, 'wb') as image_file:
+        image_file.write(image_bytes)
+        print("Done !")
+
+    sys.stdout.flush()
