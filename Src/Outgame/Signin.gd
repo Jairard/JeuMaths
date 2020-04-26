@@ -10,6 +10,89 @@ const init_stats : Dictionary =  {
 									"health_max":70, "scene_counter":0
 									} 	
 
+
+var notions_show : Array = ["_4_Operations/Control", "Literal_calculation/Control", "Fraction/Control", "Arithmetic/Control",
+					"Conversion/Control", "Percentage/Control"]#, "Power", "Fonction"]
+
+var notions_press : Array = ["_4_Operations", "Literal_calculation", "Fraction", "Arithmetic",
+					"Conversion", "Percentage"]#, "Power", "Fonction"]
+
+var lessons_path : Array = ["_4_Operations/Control/HBoxContainer/questions_intergers/+", 
+"_4_Operations/Control/HBoxContainer/questions_intergers/-", 
+"_4_Operations/Control/HBoxContainer/questions_intergers/*",
+ "_4_Operations/Control/HBoxContainer/questions_intergers/__", 
+"_4_Operations/Control/HBoxContainer/questions_floats/+", 
+"_4_Operations/Control/HBoxContainer/questions_floats/-",
+"_4_Operations/Control/HBoxContainer/questions_floats/*",
+"_4_Operations/Control/HBoxContainer/questions_floats/__", 
+"_4_Operations/Control/HBoxContainer/questions_relatives/+", 
+"_4_Operations/Control/HBoxContainer/questions_relatives/-",
+ "_4_Operations/Control/HBoxContainer/questions_relatives/*",
+"_4_Operations/Control/HBoxContainer/questions_relatives/__",
+ "_4_Operations/Control/HBoxContainer/questions_priorities/no_()",
+"_4_Operations/Control/HBoxContainer/questions_priorities/()",
+"Literal_calculation/Control/HBoxContainer/Use/with_a_value",
+"Literal_calculation/Control/HBoxContainer/Use/ax+b=c",
+"Literal_calculation/Control/HBoxContainer/Use/ax+b=cxd",
+"Literal_calculation/Control/HBoxContainer/Reduce/no_()",
+"Literal_calculation/Control/HBoxContainer/Reduce/()",
+"Literal_calculation/Control/HBoxContainer/Distribute/simple",
+"Literal_calculation/Control/HBoxContainer/Distribute/factorisation",
+"Literal_calculation/Control/HBoxContainer/Distribute/double",
+"Literal_calculation/Control/HBoxContainer/Distribute/a²-b²=(a-b)(a+b)",
+"Fraction/Control/HBoxContainer/+_-/same_denominator",
+"Fraction/Control/HBoxContainer/+_-/multiple_denominator",
+"Fraction/Control/HBoxContainer/+_-/general_case",
+"Fraction/Control/HBoxContainer/*____/*",
+"Fraction/Control/HBoxContainer/*____/__",
+"Arithmetic/Control/HBoxContainer/arithmetic/products",
+"Arithmetic/Control/HBoxContainer/arithmetic/irreducible",
+"Conversion/Control/HBoxContainer/Conversion/Length",
+"Conversion/Control/HBoxContainer/Conversion/Area",
+"Conversion/Control/HBoxContainer/Conversion/Volume",
+"Percentage/Control/HBoxContainer/Percentage/Apply_%",
+"Percentage/Control/HBoxContainer/Percentage/Find_%",
+"Percentage/Control/HBoxContainer/Percentage/increase_%",
+"Percentage/Control/HBoxContainer/Percentage/reduce_%"]
+
+var lessons_list : Array = []
+var lessons : Array = []
+
+func itemlist(_lessons : Array) -> void:
+	for i in _lessons:
+		var txt = i.split("/")
+		if lessons.count(txt[4]) == 0:
+			$ItemList.add_item(txt[4])
+			lessons += [txt[4]]
+			print (lessons)
+
+func check_click():
+	for i in lessons_path:
+		if get_node(i).pressed:
+			print ("in")
+			if lessons_list.count(i) == 0 or len(lessons_list) == 0:
+				lessons_list += [i]
+				itemlist(lessons_list)
+
+func _input(event):
+	if event.is_action_released("clic"):
+		check_click()
+
+func show_notion(notions_show : Array, lesson : String) -> void:
+	for i in notions_show:
+		if i == lesson:
+			get_node(i).show()
+		else:
+			get_node(i).hide()
+
+func press_notion(notions_press : Array,  lesson : String) -> void:
+	for i in notions_press:
+		if i == lesson:
+			get_node(i).pressed = true
+		else:
+			get_node(i).pressed = false
+
+
 func _ready(): 
 
 	var anim_rect = AnimationUtils.rect_fade_in(self)
@@ -23,8 +106,7 @@ func _ready():
 	add_fight_option()
 	add_featured_option()
 	add_unused_option()
-	
-	
+
 
 func add_map_option_() -> void:
 	$Control_Option/Option_map.set_text("Maps")	
@@ -113,93 +195,32 @@ func _on_Option_unused_scenes_item_selected(id):
 			Fade.change_scene(FileBankUtils.loaded_scenes["create_hero"])
 	
 func _on_Conversion_pressed():
-	$_4_Operations/Control.hide()
-	$Literal_calculation/Control.hide()
-	$Fraction/Control.hide()
-	$Arithmetic/Control.hide()
-	$Conversion/Control.show()
-	$Percentage/Control2.hide()
-	
-	$_4_Operations.pressed = false
-	$Literal_calculation.pressed = false
-	$Fraction.pressed = false
-	$Arithmetic.pressed = false
-	$Percentage.pressed = false
-
+	show_notion(notions_show, "Conversion/Control")
+	press_notion(notions_press, "Conversion")
 
 func _on_Percentage_pressed():
-	$_4_Operations/Control.hide()
-	$Literal_calculation/Control.hide()
-	$Fraction/Control.hide()
-	$Arithmetic/Control.hide()
-	$Conversion/Control.hide()
-	$Percentage/Control2.show()
-	
-	$_4_Operations.pressed = false
-	$Literal_calculation.pressed = false
-	$Fraction.pressed = false
-	$Arithmetic.pressed = false
-	$Conversion.pressed = false
+	show_notion(notions_show, "Percentage/Control")
+	press_notion(notions_press, "Percentage")
 
 
 func _on_Arithmetic_pressed():
-	$_4_Operations/Control.hide()
-	$Literal_calculation/Control.hide()
-	$Fraction/Control.hide()
-	$Arithmetic/Control.show()
-	$Conversion/Control.hide()
-	$Percentage/Control2.hide()
-	
-	$_4_Operations.pressed = false
-	$Literal_calculation.pressed = false
-	$Fraction.pressed = false
-	$Conversion.pressed = false
-	$Percentage.pressed = false
+	show_notion(notions_show, "Arithmetic/Control")
+	press_notion(notions_press, "Arithmetic")
 
 
 func _on_Fraction_pressed():
-	$_4_Operations/Control.hide()
-	$Literal_calculation/Control.hide()
-	$Fraction/Control.show()
-	$Arithmetic/Control.hide()
-	$Conversion/Control.hide()
-	$Percentage/Control2.hide()
-	
-	$_4_Operations.pressed = false
-	$Literal_calculation.pressed = false
-	$Arithmetic.pressed = false
-	$Conversion.pressed = false
-	$Percentage.pressed = false
+	show_notion(notions_show, "Fraction/Control")
+	press_notion(notions_press, "Fraction")
 
 
 func _on_Literal_calculation_pressed():
-	$_4_Operations/Control.hide()
-	$Literal_calculation/Control.show()
-	$Fraction/Control.hide()
-	$Arithmetic/Control.hide()
-	$Conversion/Control.hide()
-	$Percentage/Control2.hide()
-	
-	$_4_Operations.pressed = false
-	$Fraction.pressed = false
-	$Arithmetic.pressed = false
-	$Conversion.pressed = false
-	$Percentage.pressed = false
+	show_notion(notions_show, "Literal_calculation/Control")
+	press_notion(notions_press, "Literal_calculation")
 
 
 func _on_4_Operations_pressed():
-	$_4_Operations/Control.show()
-	$Literal_calculation/Control.hide()
-	$Fraction/Control.hide()
-	$Arithmetic/Control.hide()
-	$Conversion/Control.hide()
-	$Percentage/Control2.hide()
-	
-	$Literal_calculation.pressed = false
-	$Fraction.pressed = false
-	$Arithmetic.pressed = false
-	$Conversion.pressed = false
-	$Percentage.pressed = false
+	show_notion(notions_show, "_4_Operations/Control")
+	press_notion(notions_press, "_4_Operations")
 
 func _on_Fonction_pressed():
 	pass

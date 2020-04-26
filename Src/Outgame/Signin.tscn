@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/Outgame/Signin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Textures/GUI/975671341f214e57c34bb8b2e791b456.png" type="Texture" id=5]
 
 [sub_resource type="TileSet" id=1]
@@ -26,6 +27,9 @@
 1/navigation_offset = Vector2( 0, 0 )
 1/shapes = [  ]
 1/z_index = 0
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
 
 [node name="Signin" type="Node2D"]
 script = ExtResource( 1 )
@@ -916,7 +920,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control2" type="Control" parent="Percentage"]
+[node name="Control" type="Control" parent="Percentage"]
 visible = false
 margin_left = -85.7773
 margin_top = -33.3879
@@ -926,7 +930,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="back_percentage" type="TextureRect" parent="Percentage/Control2"]
+[node name="back_percentage" type="TextureRect" parent="Percentage/Control"]
 margin_left = 59.4435
 margin_top = 58.0287
 margin_right = 432.444
@@ -937,7 +941,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Percentage/Control2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Percentage/Control"]
 margin_left = 86.1241
 margin_top = 70.7475
 margin_right = 280.124
@@ -946,7 +950,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Percentage" type="VBoxContainer" parent="Percentage/Control2/HBoxContainer"]
+[node name="Percentage" type="VBoxContainer" parent="Percentage/Control/HBoxContainer"]
 margin_right = 194.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
@@ -955,7 +959,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Apply_%" type="CheckBox" parent="Percentage/Control2/HBoxContainer/Percentage"]
+[node name="Apply_%" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
 margin_right = 194.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
@@ -968,7 +972,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Find_%" type="CheckBox" parent="Percentage/Control2/HBoxContainer/Percentage"]
+[node name="Find_%" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
 margin_top = 36.0
 margin_right = 194.0
 margin_bottom = 68.0
@@ -982,7 +986,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="increase_%" type="CheckBox" parent="Percentage/Control2/HBoxContainer/Percentage"]
+[node name="increase_%" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
 margin_top = 72.0
 margin_right = 194.0
 margin_bottom = 104.0
@@ -996,7 +1000,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="reduce_%" type="CheckBox" parent="Percentage/Control2/HBoxContainer/Percentage"]
+[node name="reduce_%" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
 margin_top = 108.0
 margin_right = 194.0
 margin_bottom = 140.0
@@ -1081,6 +1085,21 @@ margin_left = -242.903
 margin_top = 95.2473
 margin_right = -242.903
 margin_bottom = 95.2473
+
+[node name="ItemList" type="ItemList" parent="."]
+modulate = Color( 1, 1, 1, 0.607843 )
+margin_left = 910.0
+margin_top = 29.0
+margin_right = 1003.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="_4_Operations" to="." method="_on_4_Operations_pressed"]
 [connection signal="pressed" from="Literal_calculation" to="." method="_on_Literal_calculation_pressed"]
 [connection signal="pressed" from="Fraction" to="." method="_on_Fraction_pressed"]
