@@ -6,7 +6,7 @@ dict= []
 frac = []
 chain = ".png"
 
-file = open("Godot_Fractions.txt", "r")
+file = open("fraction.txt", "r")
 dict = file.read()
 file.close
 frac = json.loads(dict)
@@ -18,6 +18,7 @@ def parse_string(chain):
         denominator = int(result["denominator"])
         return frozenset([(numerator, denominator, chain)])
     except:
+        print (chain)
         return frozenset()
 
 def parse_answer(dict):

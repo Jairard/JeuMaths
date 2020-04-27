@@ -1,0 +1,1920 @@
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+÷
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+Rendre la fraction irréductible
+0 / 2223
+Saving fraction 7/4 to 'Fractions\7_4.png'...
+Done !
+1 / 2223
+Saving fraction 14/15 to 'Fractions\14_15.png'...
+Done !
+2 / 2223
+Saving fraction -5/56 to 'Fractions\-5_56.png'...
+Done !
+3 / 2223
+Saving fraction 8/4 to 'Fractions\8_4.png'...
+Done !
+4 / 2223
+Saving fraction 1/42 to 'Fractions\1_42.png'...
+Done !
+5 / 2223
+Saving fraction 2/16 to 'Fractions\2_16.png'...
+Done !
+6 / 2223
+Saving fraction 88/35 to 'Fractions\88_35.png'...
+Done !
+7 / 2223
+Saving fraction 129/17 to 'Fractions\129_17.png'...
+Done !
+8 / 2223
+Saving fraction 25/25 to 'Fractions\25_25.png'...
+Done !
+9 / 2223
+Saving fraction 18/70 to 'Fractions\18_70.png'...
+Done !
+10 / 2223
+Saving fraction 14/20 to 'Fractions\14_20.png'...
+Done !
+11 / 2223
+Saving fraction 28/10 to 'Fractions\28_10.png'...
+Done !
+12 / 2223
+Saving fraction 8/1 to 'Fractions\8_1.png'...
+Done !
+13 / 2223
+Saving fraction 35/18 to 'Fractions\35_18.png'...
+Done !
+14 / 2223
+Saving fraction 70/9 to 'Fractions\70_9.png'...
+Done !
+15 / 2223
+Saving fraction 18/16 to 'Fractions\18_16.png'...
+Done !
+16 / 2223
+Saving fraction 27/16 to 'Fractions\27_16.png'...
+Done !
+17 / 2223
+Saving fraction 20/10 to 'Fractions\20_10.png'...
+Done !
+18 / 2223
+Saving fraction 14/19 to 'Fractions\14_19.png'...
+Done !
+19 / 2223
+Saving fraction -4/4 to 'Fractions\-4_4.png'...
+Done !
+20 / 2223
+Saving fraction 26/18 to 'Fractions\26_18.png'...
+Done !
+21 / 2223
+Saving fraction 9/0 to 'Fractions\9_0.png'...
+Done !
+22 / 2223
+Saving fraction 94/13 to 'Fractions\94_13.png'...
+Done !
+23 / 2223
+Saving fraction 48/100 to 'Fractions\48_100.png'...
+Done !
+24 / 2223
+Saving fraction 36/30 to 'Fractions\36_30.png'...
+Done !
+25 / 2223
+Saving fraction 11/26 to 'Fractions\11_26.png'...
+Done !
+26 / 2223
+Saving fraction 19/2 to 'Fractions\19_2.png'...
+Done !
+27 / 2223
+Saving fraction 50/5 to 'Fractions\50_5.png'...
+Done !
+28 / 2223
+Saving fraction 24/12 to 'Fractions\24_12.png'...
+Done !
+29 / 2223
+Saving fraction -17/3 to 'Fractions\-17_3.png'...
+Done !
+30 / 2223
+Saving fraction 4/32 to 'Fractions\4_32.png'...
+Done !
+31 / 2223
+Saving fraction 14/35 to 'Fractions\14_35.png'...
+Done !
+32 / 2223
+Saving fraction 13/28 to 'Fractions\13_28.png'...
+Done !
+33 / 2223
+Saving fraction 106/45 to 'Fractions\106_45.png'...
+Done !
+34 / 2223
+Saving fraction 15/40 to 'Fractions\15_40.png'...
+Done !
+35 / 2223
+Saving fraction -4/9 to 'Fractions\-4_9.png'...
+Done !
+36 / 2223
+Saving fraction -16/18 to 'Fractions\-16_18.png'...
+Done !
+37 / 2223
+Saving fraction 18/42 to 'Fractions\18_42.png'...
+Done !
+38 / 2223
+Saving fraction 85/14 to 'Fractions\85_14.png'...
+Done !
+39 / 2223
+Saving fraction 32/15 to 'Fractions\32_15.png'...
+Done !
