@@ -11,3 +11,6 @@ export_presets.cfg
 *~
 Sprite.gd
 Assets/Stats_Characters/Hero_Stats.json
+
+# Python
+*.pyc
