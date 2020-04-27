@@ -17,6 +17,7 @@ var colorRect : ColorRect = null
 var control_1 : Control = null
 var control_2 : Control = null
 var center_answer : CenterContainer = null
+var center_question : CenterContainer = null
 
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
@@ -36,17 +37,20 @@ func setup_question(dict : Array) -> void:
 	control_1 = Control.new()
 	control_2 = Control.new()
 	center_answer = CenterContainer.new()
+	center_question = CenterContainer.new()
 	control_1.self_modulate = Color(1, 1, 1, 0)
 	control_2.self_modulate = Color(1, 1, 1, 0)
-	var font_question = "res://font/Colored Crayons.ttf"
-	var font_answer = "res://font/Colored Crayons.ttf"
+	var font_question = "res://font/Lato-Black.ttf"
+	var font_answer = "res://font/Lato-Black.ttf"
 	question = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
-						   Color.yellowgreen, font_question, 35,2, Color.black)
+						   Color.yellowgreen, font_question, 60,2, Color.black)
 	control_question = Control.new() 
 	control_question.rect_size = Vector2(200,50)
 	control_question.self_modulate = Color(1, 1, 1, 0)
-	$CanvasLayer.add_child(control_question)
-	control_question.add_child(question)
+
+	add_child(control_question)
+	control_question.add_child(center_question)
+	center_question.add_child(question)
 
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
@@ -54,32 +58,37 @@ func setup_question(dict : Array) -> void:
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
 
-	print ("theme : ", random_theme)
+#	print ("theme : ", random_theme)
 	if random_theme < 8:
 		var texture_frac_1 = Sprite.new()
 		var frac_1 = chosen_question["question"][0]
 		texture_frac_1.texture = pictures[frac_1]
 		control_question.add_child(texture_frac_1)
-		texture_frac_1.set_position(question.get_position() + Vector2(-35,20))
+
+		control_question.add_child(texture_frac_1)
+
+		texture_frac_1.set_position(question.get_position() + Vector2(-35,30))
 		question.text 	= chosen_question["question"][1]
 		var texture_frac_2 = Sprite.new()
 		var frac_2 = chosen_question["question"][2]
 		texture_frac_2.texture = pictures[frac_2]
 		control_question.add_child(texture_frac_2)
-		texture_frac_2.set_position(question.get_position() + Vector2(50,20))
+
+		control_question.add_child(texture_frac_2)
+		texture_frac_2.set_position(question.get_position() + Vector2(60,30))
 	elif random_theme == 8:
 		question.text 	= chosen_question["question"][0]
 		var texture_frac = Sprite.new()
 		var frac = chosen_question["question"][1]
 		texture_frac.texture = pictures[frac]
 		control_question.add_child(texture_frac)
-		texture_frac.set_position(question.get_position() + Vector2(50,20))
+		texture_frac.set_position(question.get_position() + Vector2(800,40))
 	else:
 		question.text 	= chosen_question["question"]
 
 	var answers 	: Array = chosen_question["answers"]
 
-	var ans_position : Vector2 = Vector2(question.get_position().x - 150 , question.get_position().y + 50)
+	var ans_position : Vector2 = Vector2(question.get_position().x - 500 , question.get_position().y + 50)
 	for ans in answers:
 		control_answer = Control.new()
 		control_answer.self_modulate = Color(1, 1, 1, 0)
@@ -87,7 +96,7 @@ func setup_question(dict : Array) -> void:
 		button_answer.self_modulate = Color(1, 1, 1, 0)
 
 		var label_answer = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
-						   Color.orangered, font_question, 30,1, Color.black)
+						   Color.orangered, font_question, 60,1, Color.black)
 		label_answer.text = ans["text"]
 
 		if random_theme < 9:
@@ -99,7 +108,7 @@ func setup_question(dict : Array) -> void:
 		else:
 			button_answer.add_child(label_answer)
 
-		ans_position.x += 160
+		ans_position.x += 250
 		button_answer.set_position(ans_position)
 		button_answer.rect_size = Vector2(50,60)
 		question.add_child(control_1)

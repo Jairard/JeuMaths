@@ -3,5 +3,5 @@
 [ext_resource path="res://Src/Ingame/Animation/calcul.gd" type="Script" id=1]
 
 [node name="calcul" type="Node2D"]
-position = Vector2( 400, 300 )
+position = Vector2( 400, 250 )
 script = ExtResource( 1 )
