@@ -50,7 +50,7 @@ def parse_file(array):
 
 fractions = parse_file(frac)
 for i,(numerator,denominator, file_name) in enumerate(fractions):
-    print("%d / %d" % (i, len(fractions)))
+    print("%d / %d" % (i + 1, len(fractions)))
     frac2png.generate_fraction(numerator, denominator, file_name, "Fractions")
 
 
