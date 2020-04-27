@@ -204,34 +204,36 @@ func _on_font_choice_item_selected(id):
 		1:
 			FontChoice.set_font("res://font/Colored Crayons.ttf")
 		2:
-			FontChoice.set_font("res://font/Kenney Pixel Square.ttf")
+			FontChoice.set_font("res://font/Chocolate Covered Raindrops BOLD.ttf")
 		3:
-			FontChoice.set_font("res://font/Kenney Pixel.ttf")	
+			FontChoice.set_font("res://font/Chocolate Covered Raindrops.ttf")	
 		4:
-			FontChoice.set_font("res://font/Kenney Thick.ttf")
+			FontChoice.set_font("res://font/DancingScript-Bold.ttf")
 		5:
-			FontChoice.set_font("res://font/KenPixel Blocks.ttf")
+			FontChoice.set_font("res://font/DancingScript-Regular.ttf")
 		6:
-			FontChoice.set_font("res://font/KenPixel Future Square.ttf")
+			FontChoice.set_font("res://font/Lato-Black.ttf")
 		7:
-			FontChoice.set_font("res://font/KenPixel Future.ttf")
+			FontChoice.set_font("res://font/Lato-BlackItalic.ttf")
 		8:
-			FontChoice.set_font("res://font/KenPixel High.ttf")
+			FontChoice.set_font("res://font/Lato-Bold.ttf")
 		9:
-			FontChoice.set_font("res://font/KenPixel Mini Square.ttf")
+			FontChoice.set_font("res://font/Lato-BoldItalic.ttf")
 		10:
-			FontChoice.set_font("res://font/KenPixel Mini.ttf")
+			FontChoice.set_font("res://font/Lato-Hairline.ttf")
 		11:
-			FontChoice.set_font("res://font/KenPixel Nova.ttf")
+			FontChoice.set_font("res://font/Lato-HairlineItalic.ttf")
 		12:
-			FontChoice.set_font("res://font/KenPixel Square.ttf")	
+			FontChoice.set_font("res://font/Lato-Italic.ttf")	
 		13:
-			FontChoice.set_font("res://font/KenPixel.ttf")
+			FontChoice.set_font("res://font/Lato-Light.ttf")
 		14:
-			FontChoice.set_font("res://font/KenVector Bold.ttf")
+			FontChoice.set_font("res://font/Lato-LightItalic.ttf")
 		15:
-			FontChoice.set_font("res://font/KenVector Future Thin Square.ttf")
+			FontChoice.set_font("res://font/Lato-Regular.ttf")
 		16:
-			FontChoice.set_font("res://font/KenVector Future Thin.ttf")	
+			FontChoice.set_font("res://font/Montserrat-Bold.ttf")	
 		17:
-			FontChoice.set_font("res://font/KenVector Future.ttf")
+			FontChoice.set_font("res://font/Montserrat-Regular.ttf")
+		18:
+			FontChoice.set_font("res://font/always forever.ttf")
