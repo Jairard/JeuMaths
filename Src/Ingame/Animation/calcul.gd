@@ -4,11 +4,8 @@ var count = 0
 var angle : float = 0
 var answer_listeners  : Array = []
 var pictures : Dictionary = {}
-#var load_calcul_6 = load_c("res://Assets/Questions/questions_6.json")
-#var load_calcul_5 = load_c("res://Assets/Questions/questions_5.json")
-#var load_calcul_4 = load_c("res://Assets/Questions/questions_4.json")
-#var load_calcul_3 = load_c("res://Assets/Questions/questions_3.json")
-var load_calcul = load_c("res://Assets/Questions/fraction.json")
+
+var load_calcul = load_c("res://Assets/Questions/Questions.json")
 
 var timer : Timer = null
 var timer_label : Label = null
@@ -57,19 +54,29 @@ func setup_question(dict : Array) -> void:
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
 
-	var texture_frac_1 = Sprite.new()
-	var frac_1 = chosen_question["question"][0]
-	texture_frac_1.texture = pictures[frac_1]
-	control_question.add_child(texture_frac_1)
-	texture_frac_1.set_position(question.get_position() + Vector2(-35,20))
-	question.text 	= chosen_question["question"][1]
-	var texture_frac_2 = Sprite.new()
-	var frac_2 = chosen_question["question"][2]
-	texture_frac_2.texture = pictures[frac_2]
-	control_question.add_child(texture_frac_2)
-	texture_frac_2.set_position(question.get_position() + Vector2(50,20))
-	
-	
+	print ("theme : ", random_theme)
+	if random_theme < 8:
+		var texture_frac_1 = Sprite.new()
+		var frac_1 = chosen_question["question"][0]
+		texture_frac_1.texture = pictures[frac_1]
+		control_question.add_child(texture_frac_1)
+		texture_frac_1.set_position(question.get_position() + Vector2(-35,20))
+		question.text 	= chosen_question["question"][1]
+		var texture_frac_2 = Sprite.new()
+		var frac_2 = chosen_question["question"][2]
+		texture_frac_2.texture = pictures[frac_2]
+		control_question.add_child(texture_frac_2)
+		texture_frac_2.set_position(question.get_position() + Vector2(50,20))
+	elif random_theme == 8:
+		question.text 	= chosen_question["question"][0]
+		var texture_frac = Sprite.new()
+		var frac = chosen_question["question"][1]
+		texture_frac.texture = pictures[frac]
+		control_question.add_child(texture_frac)
+		texture_frac.set_position(question.get_position() + Vector2(50,20))
+	else:
+		question.text 	= chosen_question["question"]
+
 	var answers 	: Array = chosen_question["answers"]
 
 	var ans_position : Vector2 = Vector2(question.get_position().x - 150 , question.get_position().y + 50)
@@ -78,25 +85,28 @@ func setup_question(dict : Array) -> void:
 		control_answer.self_modulate = Color(1, 1, 1, 0)
 		button_answer = Button.new()
 		button_answer.self_modulate = Color(1, 1, 1, 0)
-		
-#		var label_answer = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
-#						   Color.orangered, font_question, 30,1, Color.black)
-#		label_answer.text = ans["text"]
 
-		var texture_fraction = Sprite.new()
-		texture_fraction.centered = false
-		texture_fraction.texture = pictures[ans["text"]]
-		
+		var label_answer = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
+						   Color.orangered, font_question, 30,1, Color.black)
+		label_answer.text = ans["text"]
 
-		ans_position.x += 130
+		if random_theme < 9:
+			var texture_fraction = Sprite.new()
+			texture_fraction.centered = false
+			texture_fraction.texture = pictures[ans["text"]]
+			button_answer.add_child(texture_fraction)
+
+		else:
+			button_answer.add_child(label_answer)
+
+		ans_position.x += 160
 		button_answer.set_position(ans_position)
 		button_answer.rect_size = Vector2(50,60)
 		question.add_child(control_1)
 		control_1.add_child(control_2)
 		control_2.add_child(control_answer)
 		control_answer.add_child(button_answer)
-#		button_answer.add_child(label_answer)
-		button_answer.add_child(texture_fraction)
+			
 		control_1.set_pivot_offset(Vector2(0,50))
 		control_1.set_position(Vector2(question.rect_size / 2) + Vector2(-50,30))
 
@@ -105,15 +115,15 @@ func setup_question(dict : Array) -> void:
 		timer = NodeUtils.create_timer(4, true, true)
 		add_child(timer)
 
-		if ans["is_good_answer"] == true:
-			var style : StyleBoxFlat = StyleBoxFlat.new()
-			style.set_bg_color(Color(0,255,0))
-			button_answer.add_stylebox_override("hover",style)
+#		if ans["is_good_answer"] == true:
+#			var style : StyleBoxFlat = StyleBoxFlat.new()
+#			style.set_bg_color(Color(0,255,0))
+#			button_answer.add_stylebox_override("hover",style)
 		button_answer.connect("pressed", self, "on_answer_pressed", [ans["is_good_answer"]])
 
 
 func _ready():
-	var path = "res://Tools/"
+	var path = "res://Tools/Fractions/"
 	var dir = Directory.new()
 	dir.open(path)
 	dir.list_dir_begin()
@@ -122,19 +132,8 @@ func _ready():
 		if file_name == "":
 			break
 		elif file_name.ends_with(".png"):
-#			pictures.append(load(path + "/" + file_name))
 			pictures[file_name] = load(path + "/" + file_name)
 	dir.list_dir_end()
-	print (pictures)
-#	answer_listeners = []
-#	if FileBankUtils.classroom == 6:
-#		setup_question(load_calcul_6)
-#	if FileBankUtils.classroom == 5:
-#		setup_question(load_calcul_5)
-#	if FileBankUtils.classroom == 4:
-#		setup_question(load_calcul_4)
-#	if FileBankUtils.classroom == 3:
-#		setup_question(load_calcul_3)
 	setup_question(load_calcul)
 
 
@@ -149,7 +148,7 @@ func _process(delta):
 		question.add_color_override("font_color", Color.greenyellow)
 	else:
 		question.add_color_override("font_color", Color.green)
-
+	pass
 
 func on_answer_pressed(is_good_answer : bool):
 	var answer = AnswerListenerComponent.answer.false
