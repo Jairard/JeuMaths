@@ -2,15 +2,6 @@
 from parse import parse
 import frac2png
 
-dict= []
-frac = []
-chain = ".png"
-
-file = open("fraction.txt", "r")
-dict = file.read()
-file.close
-frac = json.loads(dict)
-
 def parse_string(chain):
     result = parse("{numerator}_{denominator}.png", chain)
     try:
@@ -49,10 +40,17 @@ def parse_file(array):
         fractions |= parse_topic(i)
     return fractions
 
-fractions = parse_file(frac)
-for i,(numerator,denominator, file_name) in enumerate(fractions):
-    print("%d / %d" % (i + 1, len(fractions)))
-    frac2png.generate_fraction(numerator, denominator, file_name, "Fractions")
+if __name__ == '__main__':
+    fileName = "fraction.txt"
+    print("Reading data from '%s'" % fileName)
+    json = get_json_from_file(fileName)
+    print("Parsing fractions ...")
+    fractions = list(parse_file(json))
+    fractionCount = len(fractions)
+
+    dst_folder = "Fractions"
+    if not os.path.exists(dst_folder):
+        os.makedirs(dst_folder)
 
 
 
