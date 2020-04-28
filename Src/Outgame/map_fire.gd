@@ -51,7 +51,7 @@ func _ready():
 func load_characters() :
 
 	var enemyNode = enemy.instance()
-	add_child(enemyNode)
+#	add_child(enemyNode)
 
 
 	heroNode = hero.instance()
