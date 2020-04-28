@@ -11,23 +11,25 @@ def render_latex(formula, fontsize=12, dpi=300, format_='png'):
     plt.close(fig)
     return buffer_.getvalue()
 
-
-
-#numerator = int(sys.argv[1])
-#denominator = int(sys.argv[2])
-
-def generate_fraction(numerator, denominator, file_name, dst_folder = "."):
+def generate_fraction(numerator, denominator, file_name, dst_folder = ".", verbose = True):
 
     formula = r"\frac{%d}{%d}" % (numerator, denominator)
 
     file_path = os.path.join(dst_folder, file_name)
-    print("Saving fraction %d/%d to '%s'..." % (numerator, denominator, file_path))
+    if (verbose):
+        print("Saving fraction %d/%d to '%s'..." % (numerator, denominator, file_path))
 
     image_bytes = render_latex(formula, fontsize=10, dpi=300, format_='png')
-    if not os.path.exists(dst_folder):
-        os.makedirs(dst_folder)
     with open(file_path, 'wb') as image_file:
         image_file.write(image_bytes)
-        print("Done !")
+        if (verbose):
+            print("Done !")
 
-    sys.stdout.flush()
+    if (verbose):
+        sys.stdout.flush()
+
+if __name__ == '__main__':
+    numerator = int(sys.argv[1])
+    denominator = int(sys.argv[2])
+    fileName = "%d_%d.png" % (numerator, denominator)
+    generate_fraction(numerator, denominator, fileName)
