@@ -4,10 +4,10 @@
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Textures/GUI/coeur_full_vie_3.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/GUI/icone_degats_png.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/GUI/fiole_2_PNG.png" type="Texture" id=5]
 [ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Textures/Characters/X1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Textures/GUI/container.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Textures/GUI/carrot.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -54,9 +54,9 @@ visible = false
 
 [node name="Back" type="ColorRect" parent="."]
 margin_left = 9.5918
-margin_top = 323.54
+margin_top = 325.345
 margin_right = 1037.59
-margin_bottom = 639.54
+margin_bottom = 641.345
 color = Color( 0.929412, 0.984314, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -88,8 +88,10 @@ __meta__ = {
 }
 
 [node name="Damage" type="Control" parent="Back/MarginContainer/New_interface"]
+margin_right = 306.0
 margin_bottom = 34.0
-size_flags_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -97,10 +99,10 @@ __meta__ = {
 [node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Damage"]
 modulate = Color( 0.2, 0.160784, 0.160784, 0.854902 )
 show_behind_parent = true
-margin_left = -9.53872
-margin_top = -26.4518
-margin_right = 175.461
-margin_bottom = 43.5482
+margin_left = -38.4187
+margin_top = -29.1593
+margin_right = 146.581
+margin_bottom = 40.8407
 rect_scale = Vector2( 1.8, 3 )
 texture = ExtResource( 9 )
 __meta__ = {
@@ -108,10 +110,10 @@ __meta__ = {
 }
 
 [node name="damage_label" type="Label" parent="Back/MarginContainer/New_interface/Damage"]
-margin_left = 33.6219
-margin_top = 46.476
-margin_right = 63.6224
-margin_bottom = 73.476
+margin_left = 4.74189
+margin_top = 43.7685
+margin_right = 34.7424
+margin_bottom = 70.7685
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.878431, 0, 0, 1 )
 text = "+ 5"
@@ -120,12 +122,12 @@ __meta__ = {
 }
 
 [node name="damage_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Damage"]
-position = Vector2( 132.607, 72.8563 )
+position = Vector2( 103.727, 70.1489 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
 
 [node name="cost_damage" type="Sprite" parent="Back/MarginContainer/New_interface/Damage"]
-position = Vector2( 250.717, -9.82184 )
+position = Vector2( 221.837, -12.5293 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 7 )
 hframes = 8
@@ -133,10 +135,10 @@ hframes = 8
 [node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Damage"]
 modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
 show_behind_parent = true
-margin_left = 322.349
-margin_top = 7.948
-margin_right = 507.349
-margin_bottom = 77.9483
+margin_left = 293.469
+margin_top = 5.24048
+margin_right = 478.469
+margin_bottom = 75.2408
 rect_rotation = -180.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
@@ -145,10 +147,10 @@ __meta__ = {
 }
 
 [node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Damage"]
-margin_left = 275.737
-margin_top = -21.7977
-margin_right = 315.737
-margin_bottom = 5.2023
+margin_left = 246.857
+margin_top = -24.5052
+margin_right = 286.857
+margin_bottom = 2.49481
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "50 "
@@ -158,31 +160,32 @@ __meta__ = {
 
 [node name="Damage" type="Button" parent="Back/MarginContainer/New_interface/Damage"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = -9.23926
-margin_top = -23.2776
-margin_right = 322.761
-margin_bottom = 173.722
+margin_left = -38.1193
+margin_top = -27.8851
+margin_right = 293.881
+margin_bottom = 169.115
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Health" type="Control" parent="Back/MarginContainer/New_interface"]
 margin_left = 311.0
-margin_right = 311.0
+margin_right = 617.0
 margin_bottom = 34.0
-size_flags_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Health"]
-modulate = Color( 0.8, 0.72549, 0.72549, 0.854902 )
+modulate = Color( 0.2, 0.160784, 0.160784, 0.854902 )
 show_behind_parent = true
-margin_left = 29.9671
-margin_top = 9.49454
-margin_right = 214.967
-margin_bottom = 79.4945
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = 8.71948
+margin_top = -30.4954
+margin_right = 193.719
+margin_bottom = 39.5046
+rect_scale = Vector2( 1.8, 3 )
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,10 +193,10 @@ __meta__ = {
 
 [node name="health_label" type="Label" parent="Back/MarginContainer/New_interface/Health"]
 modulate = Color( 0.313726, 1, 0, 1 )
-margin_left = 70.7635
-margin_top = 39.5119
-margin_right = 100.764
-margin_bottom = 66.5119
+margin_left = 42.8659
+margin_top = 46.072
+margin_right = 84.8659
+margin_bottom = 73.072
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "+ 10"
@@ -202,11 +205,12 @@ __meta__ = {
 }
 
 [node name="health_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health"]
-position = Vector2( 163.751, 53.6278 )
-texture = ExtResource( 10 )
+position = Vector2( 150.103, 63.9879 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
 
 [node name="cost_health" type="Sprite" parent="Back/MarginContainer/New_interface/Health"]
-position = Vector2( 245.328, 26.7012 )
+position = Vector2( 271.988, -12.2527 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 7 )
 hframes = 8
@@ -214,10 +218,10 @@ hframes = 8
 [node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Health"]
 modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
 show_behind_parent = true
-margin_left = 304.459
-margin_top = 44.5264
-margin_right = 489.459
-margin_bottom = 114.527
+margin_left = 340.882
+margin_top = 4.74548
+margin_right = 525.882
+margin_bottom = 74.7461
 rect_rotation = -180.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
@@ -226,10 +230,10 @@ __meta__ = {
 }
 
 [node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Health"]
-margin_left = 268.129
-margin_top = 15.017
-margin_right = 308.129
-margin_bottom = 42.017
+margin_left = 299.023
+margin_top = -22.994
+margin_right = 339.023
+margin_bottom = 4.00598
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "50 "
@@ -238,20 +242,21 @@ __meta__ = {
 }
 
 [node name="Health" type="Button" parent="Back/MarginContainer/New_interface/Health"]
-modulate = Color( 1, 1, 1, 0.160784 )
-margin_left = 35.8658
-margin_top = 11.1655
-margin_right = 307.865
-margin_bottom = 104.165
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 16.0
+margin_top = -29.0
+margin_right = 343.0
+margin_bottom = 163.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Health_refill" type="Control" parent="Back/MarginContainer/New_interface"]
 margin_left = 622.0
-margin_right = 622.0
+margin_right = 930.0
 margin_bottom = 34.0
-size_flags_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -259,10 +264,10 @@ __meta__ = {
 [node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Health_refill"]
 modulate = Color( 0.2, 0.160784, 0.160784, 0.854902 )
 show_behind_parent = true
-margin_left = 20.3413
-margin_top = -27.4178
-margin_right = 205.341
-margin_bottom = 42.5822
+margin_left = 53.3662
+margin_top = -29.1253
+margin_right = 238.366
+margin_bottom = 40.8747
 rect_scale = Vector2( 1.8, 3 )
 texture = ExtResource( 9 )
 __meta__ = {
@@ -270,12 +275,12 @@ __meta__ = {
 }
 
 [node name="refill_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
-position = Vector2( 144.174, 61.1626 )
+position = Vector2( 177.199, 59.4551 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="cost_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health_refill"]
-position = Vector2( 282.124, -10.5027 )
+position = Vector2( 315.149, -12.2102 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 7 )
 hframes = 8
@@ -283,10 +288,10 @@ hframes = 8
 [node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Health_refill"]
 modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
 show_behind_parent = true
-margin_left = 353.388
-margin_top = 8.46509
-margin_right = 538.388
-margin_bottom = 78.4651
+margin_left = 386.413
+margin_top = 6.75757
+margin_right = 571.413
+margin_bottom = 76.7576
 rect_rotation = -180.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
@@ -295,10 +300,10 @@ __meta__ = {
 }
 
 [node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Health_refill"]
-margin_left = 306.0
-margin_top = -24.0001
-margin_right = 346.0
-margin_bottom = 2.99991
+margin_left = 339.025
+margin_top = -25.7076
+margin_right = 379.025
+margin_bottom = 1.29242
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "10"
@@ -307,10 +312,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Back/MarginContainer/New_interface/Health_refill"]
-margin_left = 49.3476
-margin_top = 135.255
-margin_right = 254.348
-margin_bottom = 157.255
+margin_left = 82.3725
+margin_top = 133.548
+margin_right = 287.373
+margin_bottom = 155.548
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.858824, 0.807843, 0.807843, 1 )
 text = "Recharger toute la vie"
@@ -320,10 +325,10 @@ __meta__ = {
 
 [node name="Refill" type="Button" parent="Back/MarginContainer/New_interface/Health_refill"]
 modulate = Color( 1, 1, 1, 0.160784 )
-margin_left = 22.0
-margin_top = -25.0
-margin_right = 352.0
-margin_bottom = 167.0
+margin_left = 55.0249
+margin_top = -26.7075
+margin_right = 385.025
+margin_bottom = 165.293
 __meta__ = {
 "_edit_use_anchors_": false
 }
