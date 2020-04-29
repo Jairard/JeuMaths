@@ -132,9 +132,9 @@ func _ready():
 
 func critic(qestion : Label) -> void:
 	if int(timer.get_time_left()) > 0:
-		question.add_color_override("font_color", Color.greenyellow)
+		question.add_color_override("font_color", Color.red)
 	else:
-		question.add_color_override("font_color", Color.green)
+		question.add_color_override("font_color", Color.blue)
 	pass
 
 func _process(delta):
