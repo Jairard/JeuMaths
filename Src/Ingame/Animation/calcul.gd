@@ -32,51 +32,74 @@ func setup_question(dict : Array) -> void:
 
 	var font_question = "res://font/Lato-Black.ttf"
 	var font_answer = "res://font/Lato-Black.ttf"
-#	question = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
-#						   Color.yellowgreen, font_question, 60,2, Color.black)
 
-	var random_theme 	: int 			= 4#RandomUtils.randi_to(len(dict))
+	var random_theme 	: int 			= 3#RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
 
 #	print ("theme : ", random_theme)
 	if random_theme < 8:
+		$Fractions.show()
+		$Fraction_irreductible.hide()
+		$Calcul.hide()
 		var frac_1 = chosen_question["question"][0]
-		$Buttons/Fractions/question/fraction_1.texture = pictures[frac_1]
-		var operator = chosen_question["question"][1]
-		$Buttons/Fractions/question/operator.text = operator
+		$Fractions/question/fraction_1.texture = pictures[frac_1]
+		question = chosen_question["question"][1]
+		$Fractions/question/operator.text = question
 		var frac_2 = chosen_question["question"][2]
-		$Buttons/Fractions/question/fraction_2.texture = pictures[frac_2]
+		$Fractions/question/fraction_2.texture = pictures[frac_2]
 	elif random_theme == 8:
-		question.text = chosen_question["question"][0]
-		var texture_frac = TextureRect.new()
-		texture_frac.SIZE_EXPAND_FILL
+		$Fraction_irreductible.show()
+		$Fractions.hide()
+		$Calcul.hide()
+		question = chosen_question["question"][0]
+		$Fraction_irreductible/question/question.text = question
 		var frac = chosen_question["question"][1]
-		texture_frac.texture = pictures[frac]
-		$control/question.add_child(texture_frac)
-		texture_frac.set_position(question.get_position() + Vector2(900,40))
+		$Fraction_irreductible/question/fraction.texture = pictures[frac]
 	else:
-		question.text = chosen_question["question"]
+		$Fraction_irreductible.hide()
+		$Fractions.hide()
+		$Calcul.show()
+		question = chosen_question["question"]
+		$Calcul/question/question.text = question
 
 	answers = chosen_question["answers"]
 
-#	var ans_position : Vector2 = Vector2(question.get_position().x - 500 , question.get_position().y + 50)
-#	for ans in answers:
-
-	if random_theme < 9:
+	if random_theme < 8:
+		$Buttons_fractions.show()
+		$Buttons_calculs.hide()
 		var frac_1 = answers[0] 
-		$Buttons/Fractions/answer/fraction_1.texture = pictures[frac_1["text"]]
+		$Fractions/answer/fraction_1.texture = pictures[frac_1["text"]]
 		var frac_2 = answers[1] 
-		$Buttons/Fractions/answer/fraction_2.texture = pictures[frac_2["text"]]
+		$Fractions/answer/fraction_2.texture = pictures[frac_2["text"]]
 		var frac_3 = answers[2] 
-		$Buttons/Fractions/answer/fraction_3.texture = pictures[frac_3["text"]]
+		$Fractions/answer/fraction_3.texture = pictures[frac_3["text"]]
 		var frac_4 = answers[3] 
-		$Buttons/Fractions/answer/fraction_4.texture = pictures[frac_4["text"]]
+		$Fractions/answer/fraction_4.texture = pictures[frac_4["text"]]
+	elif random_theme == 8:
+		$Buttons_fractions.show()
+		$Buttons_calculs.hide()
+		var frac_1 = answers[0]
+		print (frac_1["text"])
+		$Fraction_irreductible/answer/fraction_1.texture = pictures[frac_1["text"]]
+		var frac_2 = answers[1]
+		$Fraction_irreductible/answer/fraction_2.texture = pictures[frac_2["text"]]
+		var frac_3 = answers[2]
+		$Fraction_irreductible/answer/fraction_3.texture = pictures[frac_3["text"]]
+		var frac_4 = answers[3]
+		$Fraction_irreductible/answer/fraction_4.texture = pictures[frac_4["text"]]
 	else:
-#		var label_answer = NodeUtils.create_label(Vector2(0,0), Vector2(0,0), 
-#					   Color.orangered, font_question, 60,1, Color.black)
-		pass
+		$Buttons_fractions.hide()
+		$Buttons_calculs.show()
+		var calcul_1 = answers[0]
+		$Calcul/answer/Label1.text = str(calcul_1["text"])
+		var calcul_2 = answers[1]
+		$Calcul/answer/Label2.text = str(calcul_2["text"])
+		var calcul_3 = answers[2]
+		$Calcul/answer/Label3.text = str(calcul_3["text"])
+		var calcul_4 = answers[3]
+		$Calcul/answer/Label4.text = str(calcul_4["text"])
 
 		var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
 		timer = NodeUtils.create_timer(4, true, true)
@@ -111,10 +134,10 @@ func _process(delta):
 #	$control/answer/control.set_rotation(-angle)
 
 
-#	if int(timer.get_time_left()) > 0:
-#		question.add_color_override("font_color", Color.greenyellow)
-#	else:
-#		question.add_color_override("font_color", Color.green)
+	if int(timer.get_time_left()) > 0:
+		question.add_color_override("font_color", Color.greenyellow)
+	else:
+		question.add_color_override("font_color", Color.green)
 	pass
 
 func on_answer_pressed(is_good_answer : bool):
@@ -131,7 +154,6 @@ func on_answer_pressed(is_good_answer : bool):
 func _on_Button1_pressed():
 	on_answer_pressed(answers[0]["is_good_answer"])
 #	connect("pressed", self, "on_answer_pressed", answers[0]["is_good_answer"])
-	
 
 func _on_Button2_pressed():
 	on_answer_pressed(answers[1]["is_good_answer"])
@@ -142,3 +164,14 @@ func _on_Button3_pressed():
 func _on_Button4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])
 
+func _on_calcul1_pressed():
+	on_answer_pressed(answers[0]["is_good_answer"])
+
+func _on_calcul2_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+
+func _on_calcul3_pressed():
+	on_answer_pressed(answers[2]["is_good_answer"])
+
+func _on_calcul4_pressed():
+	on_answer_pressed(answers[3]["is_good_answer"])
