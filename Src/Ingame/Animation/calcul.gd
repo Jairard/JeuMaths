@@ -33,10 +33,14 @@ func setup_question(dict : Array) -> void:
 	var font_question = "res://font/Lato-Black.ttf"
 	var font_answer = "res://font/Lato-Black.ttf"
 
-	var random_theme 	: int 			= 3#RandomUtils.randi_to(len(dict))
+	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
+
+	var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
+	timer = NodeUtils.create_timer(4, true, true)
+	add_child(timer)
 
 #	print ("theme : ", random_theme)
 	if random_theme < 8:
@@ -45,24 +49,27 @@ func setup_question(dict : Array) -> void:
 		$Calcul.hide()
 		var frac_1 = chosen_question["question"][0]
 		$Fractions/question/fraction_1.texture = pictures[frac_1]
-		question = chosen_question["question"][1]
-		$Fractions/question/operator.text = question
+		var question_txt = chosen_question["question"][1]
+		$Fractions/question/operator.text = question_txt
 		var frac_2 = chosen_question["question"][2]
 		$Fractions/question/fraction_2.texture = pictures[frac_2]
+		question = $Fractions/question/operator
 	elif random_theme == 8:
 		$Fraction_irreductible.show()
 		$Fractions.hide()
 		$Calcul.hide()
-		question = chosen_question["question"][0]
-		$Fraction_irreductible/question/question.text = question
+		var question_txt = chosen_question["question"][0]
+		$Fraction_irreductible/question/question.text = question_txt
 		var frac = chosen_question["question"][1]
 		$Fraction_irreductible/question/fraction.texture = pictures[frac]
+		question = $Fraction_irreductible/question/question
 	else:
 		$Fraction_irreductible.hide()
 		$Fractions.hide()
 		$Calcul.show()
-		question = chosen_question["question"]
-		$Calcul/question/question.text = question
+		var question_txt = chosen_question["question"]
+		$Calcul/question/question.text = question_txt
+		question = $Calcul/question/question
 
 	answers = chosen_question["answers"]
 
@@ -101,9 +108,6 @@ func setup_question(dict : Array) -> void:
 		var calcul_4 = answers[3]
 		$Calcul/answer/Label4.text = str(calcul_4["text"])
 
-		var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
-		timer = NodeUtils.create_timer(4, true, true)
-		add_child(timer)
 
 #		if ans["is_good_answer"] == true:
 #			var style : StyleBoxFlat = StyleBoxFlat.new()
@@ -126,18 +130,19 @@ func _ready():
 	dir.list_dir_end()
 	setup_question(load_calcul)
 
+func critic(qestion : Label) -> void:
+	if int(timer.get_time_left()) > 0:
+		question.add_color_override("font_color", Color.greenyellow)
+	else:
+		question.add_color_override("font_color", Color.green)
+	pass
 
 func _process(delta):
 
 #	angle += delta
 #	$control/answer.set_rotation(angle)
 #	$control/answer/control.set_rotation(-angle)
-
-
-	if int(timer.get_time_left()) > 0:
-		question.add_color_override("font_color", Color.greenyellow)
-	else:
-		question.add_color_override("font_color", Color.green)
+	critic(question)
 	pass
 
 func on_answer_pressed(is_good_answer : bool):
