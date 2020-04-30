@@ -33,10 +33,7 @@ func load_c(path : String) -> Dictionary:
 
 func setup_question(dict : Array) -> void:
 
-	var font_question = "res://font/Lato-Black.ttf"
-	var font_answer = "res://font/Lato-Black.ttf"
-
-	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
+	var random_theme 	: int 			= 14#RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
@@ -45,7 +42,7 @@ func setup_question(dict : Array) -> void:
 	timer = NodeUtils.create_timer(4, true, true)
 	add_child(timer)
 
-#	print ("theme : ", random_theme)
+	print ("theme : ", random_theme)
 	if random_theme < 8:
 		$Fractions.show()
 		$Fraction_irreductible.hide()
@@ -147,7 +144,7 @@ func _ready():
 
 func critic(qestion : Label, delta : float) -> void:
 	if int(timer.get_time_left()) > 0:
-		question.add_color_override("font_color", Color.red)
+		question.add_color_override("font_color", Color.darkorchid)
 	else:
 		question.add_color_override("font_color", Color.blue)
 	rotation(control, hbox, buttons, delta)
@@ -174,7 +171,6 @@ func on_answer_pressed(is_good_answer : bool):
 
 func _on_Button1_pressed():
 	on_answer_pressed(answers[0]["is_good_answer"])
-#	connect("pressed", self, "on_answer_pressed", answers[0]["is_good_answer"])
 
 func _on_Button2_pressed():
 	on_answer_pressed(answers[1]["is_good_answer"])
@@ -187,6 +183,8 @@ func _on_Button4_pressed():
 
 func _on_calcul1_pressed():
 	on_answer_pressed(answers[0]["is_good_answer"])
+#	var test = answers[0]["is_good_answer"]
+#	connect("pressed", self, "on_answer_pressed", test)
 
 func _on_calcul2_pressed():
 	on_answer_pressed(answers[1]["is_good_answer"])
