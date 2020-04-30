@@ -4,7 +4,7 @@ import json
 import multiprocessing
 import math
 from parse import parse
-import frac2png
+import formula2png
 
 def parse_string(chain):
     result = parse("{numerator}_{denominator}.png", chain)
@@ -53,7 +53,7 @@ def get_json_from_file(fileName):
 def generate_fractions(fractions, dstFolder, globalCounter):
     for i,(numerator,denominator, fileName) in enumerate(fractions):
         # Generation the image
-        frac2png.generate_fraction(numerator, denominator, fileName, dstFolder, verbose=False)
+        formula2png.generate_fraction(numerator, denominator, fileName, dstFolder, verbose=False)
         # Increment the global counter
         with globalCounter.get_lock():
             globalCounter.value += 1
