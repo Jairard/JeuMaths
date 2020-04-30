@@ -128,7 +128,7 @@ __meta__ = {
 }
 
 [node name="Button1" type="Button" parent="Fractions/Control/Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0.658824 )
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 85.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
@@ -138,7 +138,7 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="Fractions/Control/Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0.658824 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 185.0
 margin_right = 270.0
 margin_bottom = 59.0
@@ -149,7 +149,7 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="Fractions/Control/Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0.658824 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 370.0
 margin_right = 455.0
 margin_bottom = 59.0
@@ -160,7 +160,7 @@ __meta__ = {
 }
 
 [node name="Button4" type="Button" parent="Fractions/Control/Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0.658824 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 555.0
 margin_right = 641.0
 margin_bottom = 59.0
@@ -267,7 +267,7 @@ __meta__ = {
 }
 
 [node name="Button1" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
-modulate = Color( 1, 1, 1, 0.658824 )
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 85.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
@@ -277,7 +277,7 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
-modulate = Color( 1, 1, 1, 0.658824 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 185.0
 margin_right = 270.0
 margin_bottom = 59.0
@@ -288,7 +288,7 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
-modulate = Color( 1, 1, 1, 0.658824 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 370.0
 margin_right = 455.0
 margin_bottom = 59.0
@@ -299,7 +299,7 @@ __meta__ = {
 }
 
 [node name="Button4" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
-modulate = Color( 1, 1, 1, 0.658824 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 555.0
 margin_right = 641.0
 margin_bottom = 59.0
@@ -405,7 +405,7 @@ __meta__ = {
 }
 
 [node name="calcul1" type="Button" parent="Calcul/Control/Buttons_calculs"]
-modulate = Color( 1, 1, 1, 0.584314 )
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 337.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
@@ -415,7 +415,7 @@ __meta__ = {
 }
 
 [node name="calcul2" type="Button" parent="Calcul/Control/Buttons_calculs"]
-modulate = Color( 1, 1, 1, 0.584314 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 537.0
 margin_right = 874.0
 margin_bottom = 50.0
@@ -423,7 +423,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="calcul3" type="Button" parent="Calcul/Control/Buttons_calculs"]
-modulate = Color( 1, 1, 1, 0.584314 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 1074.0
 margin_right = 1411.0
 margin_bottom = 50.0
@@ -431,7 +431,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="calcul4" type="Button" parent="Calcul/Control/Buttons_calculs"]
-modulate = Color( 1, 1, 1, 0.584314 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 1611.0
 margin_right = 1950.0
 margin_bottom = 50.0
