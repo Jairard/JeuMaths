@@ -40,13 +40,11 @@ collision_layer = 256
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -42.6924, 1.32038 )
-rotation = -3.14159
+position = Vector2( 51.1183, -0.647064 )
 shape = SubResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
-rotation = -3.14159
-amount = 100
+amount = 300
 lifetime = 2.0
 speed_scale = 6.0
 process_material = SubResource( 6 )
