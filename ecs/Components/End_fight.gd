@@ -2,7 +2,7 @@ extends Component
 
 class_name EndfightComponent
 
-var end : bool = false
+var end : bool = true
 
 func get_end() -> bool:
 	return end
