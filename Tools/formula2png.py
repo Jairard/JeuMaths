@@ -43,6 +43,10 @@ def generate_exponent(number, exponent, file_name, dst_folder = ".", verbose = T
     formula = r"{%d}^{%d}" % (number, exponent)
     generate_formula(formula, file_name, dst_folder, verbose, padding)
 
+def generate_double_exponent(number, first_exponent, second_exponent, file_name, dst_folder = ".", verbose = True, padding=0):
+    formula = r"{%d}^{{%d}^{%d}}" % (number, first_exponent, second_exponent)
+    generate_formula(formula, file_name, dst_folder, verbose, padding)
+
 if __name__ == '__main__':
     numerator = int(sys.argv[1])
     denominator = int(sys.argv[2])
