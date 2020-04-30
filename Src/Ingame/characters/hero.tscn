@@ -125,8 +125,8 @@ scale_curve = SubResource( 10 )
 color_ramp = SubResource( 8 )
 
 [sub_resource type="CapsuleShape2D" id=12]
-radius = 43.7808
-height = 118.35
+radius = 60.8645
+height = 87.6309
 
 [node name="hero" type="KinematicBody2D"]
 modulate = Color( 1, 0.980392, 0.980392, 1 )
@@ -187,5 +187,5 @@ explosiveness = 0.26
 process_material = SubResource( 11 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 17.1781, 11.8474 )
+position = Vector2( 2.64107, 17.3619 )
 shape = SubResource( 12 )
