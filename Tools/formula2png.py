@@ -35,13 +35,13 @@ def generate_formula(formula, file_name, dst_folder = ".", verbose = True, paddi
         print("Done !")
         sys.stdout.flush()
 
-def generate_fraction(numerator, denominator, file_name, dst_folder = ".", verbose = True):
+def generate_fraction(numerator, denominator, file_name, dst_folder = ".", verbose = True, padding=0):
     formula = r"\frac{%d}{%d}" % (numerator, denominator)
-    generate_formula(formula, file_name, dst_folder, verbose)
+    generate_formula(formula, file_name, dst_folder, verbose, padding)
 
-def generate_exponent(number, exponent, file_name, dst_folder = ".", verbose = True):
+def generate_exponent(number, exponent, file_name, dst_folder = ".", verbose = True, padding=0):
     formula = r"{%d}^{%d}" % (number, exponent)
-    generate_formula(formula, file_name, dst_folder, verbose, pad_inches=0.025)
+    generate_formula(formula, file_name, dst_folder, verbose, padding)
 
 if __name__ == '__main__':
     numerator = int(sys.argv[1])
