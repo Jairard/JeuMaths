@@ -14,7 +14,7 @@ def render_latex(formula, fontsize=12, dpi=300, format_='png', pad_inches=0.0):
 
 def generate_formula(formula, file_name, dst_folder = ".", verbose = True, padding=0):
     file_path = os.path.join(dst_folder, file_name)
-    tmp_file_path = "tmp.png"
+    tmp_file_path = "tmp_%s.png" % formula.replace('\\', '')
     if (verbose):
         print("Saving formula %s to '%s'..." % (formula, file_path))
 
