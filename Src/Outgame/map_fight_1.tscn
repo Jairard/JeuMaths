@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Src/Outgame/map_fight_1.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
@@ -306,13 +306,6 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 13/shapes = [  ]
 13/z_index = 0
 
-[sub_resource type="DynamicFontData" id=14]
-font_path = "res://font/Colored Crayons.ttf"
-
-[sub_resource type="DynamicFont" id=15]
-size = 35
-font_data = SubResource( 14 )
-
 [node name="map 1" type="Node2D"]
 light_mask = 0
 script = ExtResource( 1 )
@@ -395,16 +388,5 @@ visible = false
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 centered = false
-
-[node name="font_choice" type="OptionButton" parent="."]
-margin_left = -276.028
-margin_top = 628.442
-margin_right = -17.0274
-margin_bottom = 701.442
-custom_fonts/font = SubResource( 15 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="CanvasLayer/return" to="." method="_on_return_pressed"]
 [connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]
-[connection signal="item_selected" from="font_choice" to="." method="_on_font_choice_item_selected"]

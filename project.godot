@@ -320,6 +320,10 @@ FontChoice="*res://font/FontChoice.gd"
 NodeUtils="*res://Utils/NodeUtils.gd"
 Fade="*res://Utils/Fade.tscn"
 
+[debug]
+
+shapes/collision/shape_color=Color( 0, 0.6, 0.701961, 0.501961 )
+
 [display]
 
 window/size/height=640

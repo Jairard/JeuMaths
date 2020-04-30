@@ -1,6 +1,6 @@
 extends Node
 
-var font = ""
+var font = "res://font/Montserrat-Regular.ttf"
 
 func get_font() -> String:
 	return font
