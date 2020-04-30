@@ -13,6 +13,9 @@ var button_answer : Button = null
 var question : Label = null
 var colorRect : ColorRect = null
 var answers : Array = []
+var control : Control = null
+var hbox : HBoxContainer = null
+var buttons : HBoxContainer = null
 
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
@@ -74,39 +77,51 @@ func setup_question(dict : Array) -> void:
 	answers = chosen_question["answers"]
 
 	if random_theme < 8:
-		$Buttons_fractions.show()
-		$Buttons_calculs.hide()
+		$Fractions/Control/Buttons_fractions.show()
+		$Fraction_irreductible/Control/Buttons_irreductible.hide()
+		$Calcul/Control/Buttons_calculs.hide()
 		var frac_1 = answers[0] 
-		$Fractions/answer/fraction_1.texture = pictures[frac_1["text"]]
+		$Fractions/Control/answer/fraction_1.texture = pictures[frac_1["text"]]
 		var frac_2 = answers[1] 
-		$Fractions/answer/fraction_2.texture = pictures[frac_2["text"]]
+		$Fractions/Control/answer/fraction_2.texture = pictures[frac_2["text"]]
 		var frac_3 = answers[2] 
-		$Fractions/answer/fraction_3.texture = pictures[frac_3["text"]]
+		$Fractions/Control/answer/fraction_3.texture = pictures[frac_3["text"]]
 		var frac_4 = answers[3] 
-		$Fractions/answer/fraction_4.texture = pictures[frac_4["text"]]
+		$Fractions/Control/answer/fraction_4.texture = pictures[frac_4["text"]]
+		control = $Fractions/Control
+		hbox = $Fractions/Control/answer
+		buttons = $Fractions/Control/Buttons_fractions
 	elif random_theme == 8:
-		$Buttons_fractions.show()
-		$Buttons_calculs.hide()
+		$Fraction_irreductible/Control/Buttons_irreductible.show()
+		$Fractions/Control/Buttons_fractions.hide()
+		$Calcul/Control/Buttons_calculs.hide()
 		var frac_1 = answers[0]
 		print (frac_1["text"])
-		$Fraction_irreductible/answer/fraction_1.texture = pictures[frac_1["text"]]
+		$Fraction_irreductible/Control/answer/fraction_1.texture = pictures[frac_1["text"]]
 		var frac_2 = answers[1]
-		$Fraction_irreductible/answer/fraction_2.texture = pictures[frac_2["text"]]
+		$Fraction_irreductible/Control/answer/fraction_2.texture = pictures[frac_2["text"]]
 		var frac_3 = answers[2]
-		$Fraction_irreductible/answer/fraction_3.texture = pictures[frac_3["text"]]
+		$Fraction_irreductible/Control/answer/fraction_3.texture = pictures[frac_3["text"]]
 		var frac_4 = answers[3]
-		$Fraction_irreductible/answer/fraction_4.texture = pictures[frac_4["text"]]
+		$Fraction_irreductible/Control/answer/fraction_4.texture = pictures[frac_4["text"]]
+		control = $Fraction_irreductible/Control
+		hbox = $Fraction_irreductible/Control/answer
+		buttons = $Fraction_irreductible/Control/Buttons_irreductible
 	else:
-		$Buttons_fractions.hide()
-		$Buttons_calculs.show()
+		$Fractions/Control/Buttons_fractions.hide()
+		$Fraction_irreductible/Control/Buttons_irreductible.hide()
+		$Calcul/Control/Buttons_calculs.show()
 		var calcul_1 = answers[0]
-		$Calcul/answer/Label1.text = str(calcul_1["text"])
+		$Calcul/Control/answer/Label1.text = str(calcul_1["text"])
 		var calcul_2 = answers[1]
-		$Calcul/answer/Label2.text = str(calcul_2["text"])
+		$Calcul/Control/answer/Label2.text = str(calcul_2["text"])
 		var calcul_3 = answers[2]
-		$Calcul/answer/Label3.text = str(calcul_3["text"])
+		$Calcul/Control/answer/Label3.text = str(calcul_3["text"])
 		var calcul_4 = answers[3]
-		$Calcul/answer/Label4.text = str(calcul_4["text"])
+		$Calcul/Control/answer/Label4.text = str(calcul_4["text"])
+		control = $Calcul/Control
+		hbox = $Calcul/Control/answer
+		buttons = $Calcul/Control/Buttons_calculs
 
 
 #		if ans["is_good_answer"] == true:
@@ -130,20 +145,21 @@ func _ready():
 	dir.list_dir_end()
 	setup_question(load_calcul)
 
-func critic(qestion : Label) -> void:
+func critic(qestion : Label, delta : float) -> void:
 	if int(timer.get_time_left()) > 0:
 		question.add_color_override("font_color", Color.red)
 	else:
 		question.add_color_override("font_color", Color.blue)
-	pass
+	rotation(control, hbox, buttons, delta)
+
+func rotation(control : Control, hbox : HBoxContainer, buttons : HBoxContainer, delta : float) -> void:
+	control.set_rotation(control.get_rotation() + delta)
+	hbox.set_rotation(hbox.get_rotation() - delta)
+	buttons.set_rotation(buttons.get_rotation() - delta)
 
 func _process(delta):
 
-#	angle += delta
-#	$control/answer.set_rotation(angle)
-#	$control/answer/control.set_rotation(-angle)
-	critic(question)
-	pass
+	critic(question, delta)
 
 func on_answer_pressed(is_good_answer : bool):
 	var answer = AnswerListenerComponent.answer.false

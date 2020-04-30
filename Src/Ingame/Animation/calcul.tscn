@@ -66,7 +66,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 stretch_mode = 6
 
-[node name="answer" type="HBoxContainer" parent="Fractions"]
+[node name="Control" type="Control" parent="Fractions"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -270, 150 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer" type="HBoxContainer" parent="Fractions/Control"]
 margin_left = -400.0
 margin_top = 140.0
 margin_right = 347.0
@@ -78,14 +86,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fraction_1" type="TextureRect" parent="Fractions/answer"]
+[node name="fraction_1" type="TextureRect" parent="Fractions/Control/answer"]
 show_behind_parent = true
 margin_right = 183.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="fraction_2" type="TextureRect" parent="Fractions/answer"]
+[node name="fraction_2" type="TextureRect" parent="Fractions/Control/answer"]
 show_behind_parent = true
 margin_left = 187.0
 margin_right = 370.0
@@ -93,7 +101,7 @@ margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="fraction_3" type="TextureRect" parent="Fractions/answer"]
+[node name="fraction_3" type="TextureRect" parent="Fractions/Control/answer"]
 show_behind_parent = true
 margin_left = 374.0
 margin_right = 557.0
@@ -101,13 +109,66 @@ margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="fraction_4" type="TextureRect" parent="Fractions/answer"]
+[node name="fraction_4" type="TextureRect" parent="Fractions/Control/answer"]
 show_behind_parent = true
 margin_left = 561.0
 margin_right = 747.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Buttons_fractions" type="HBoxContainer" parent="Fractions/Control"]
+margin_left = -400.0
+margin_top = 141.0
+margin_right = 241.0
+margin_bottom = 200.0
+custom_constants/separation = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="Button" parent="Fractions/Control/Buttons_fractions"]
+modulate = Color( 1, 1, 1, 0.658824 )
+margin_right = 85.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Fractions/Control/Buttons_fractions"]
+modulate = Color( 1, 1, 1, 0.658824 )
+margin_left = 185.0
+margin_right = 270.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Fractions/Control/Buttons_fractions"]
+modulate = Color( 1, 1, 1, 0.658824 )
+margin_left = 370.0
+margin_right = 455.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="Fractions/Control/Buttons_fractions"]
+modulate = Color( 1, 1, 1, 0.658824 )
+margin_left = 555.0
+margin_right = 641.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Fraction_irreductible" type="Control" parent="."]
 margin_right = 40.0
@@ -144,7 +205,15 @@ margin_bottom = 53.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="answer" type="HBoxContainer" parent="Fraction_irreductible"]
+[node name="Control" type="Control" parent="Fraction_irreductible"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -300, 150 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer" type="HBoxContainer" parent="Fraction_irreductible/Control"]
 margin_left = -400.0
 margin_top = 140.0
 margin_right = 347.0
@@ -156,14 +225,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fraction_1" type="TextureRect" parent="Fraction_irreductible/answer"]
+[node name="fraction_1" type="TextureRect" parent="Fraction_irreductible/Control/answer"]
 show_behind_parent = true
 margin_right = 183.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="fraction_2" type="TextureRect" parent="Fraction_irreductible/answer"]
+[node name="fraction_2" type="TextureRect" parent="Fraction_irreductible/Control/answer"]
 show_behind_parent = true
 margin_left = 187.0
 margin_right = 370.0
@@ -171,7 +240,7 @@ margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="fraction_3" type="TextureRect" parent="Fraction_irreductible/answer"]
+[node name="fraction_3" type="TextureRect" parent="Fraction_irreductible/Control/answer"]
 show_behind_parent = true
 margin_left = 374.0
 margin_right = 557.0
@@ -179,13 +248,66 @@ margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="fraction_4" type="TextureRect" parent="Fraction_irreductible/answer"]
+[node name="fraction_4" type="TextureRect" parent="Fraction_irreductible/Control/answer"]
 show_behind_parent = true
 margin_left = 561.0
 margin_right = 747.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Buttons_irreductible" type="HBoxContainer" parent="Fraction_irreductible/Control"]
+margin_left = -400.0
+margin_top = 141.0
+margin_right = 241.0
+margin_bottom = 200.0
+custom_constants/separation = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
+modulate = Color( 1, 1, 1, 0.658824 )
+margin_right = 85.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
+modulate = Color( 1, 1, 1, 0.658824 )
+margin_left = 185.0
+margin_right = 270.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
+modulate = Color( 1, 1, 1, 0.658824 )
+margin_left = 370.0
+margin_right = 455.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
+modulate = Color( 1, 1, 1, 0.658824 )
+margin_left = 555.0
+margin_right = 641.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Calcul" type="Control" parent="."]
 margin_right = 40.0
@@ -216,7 +338,15 @@ custom_fonts/font = SubResource( 2 )
 autowrap = true
 max_lines_visible = 2
 
-[node name="answer" type="HBoxContainer" parent="Calcul"]
+[node name="Control" type="Control" parent="Calcul"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -800, 180 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer" type="HBoxContainer" parent="Calcul/Control"]
 margin_left = -900.0
 margin_top = 140.0
 margin_right = 1050.0
@@ -229,7 +359,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label1" type="Label" parent="Calcul/answer"]
+[node name="Label1" type="Label" parent="Calcul/Control/answer"]
 margin_right = 337.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
@@ -237,7 +367,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 clip_text = true
 
-[node name="Label2" type="Label" parent="Calcul/answer"]
+[node name="Label2" type="Label" parent="Calcul/Control/answer"]
 margin_left = 537.0
 margin_right = 874.0
 margin_bottom = 140.0
@@ -246,7 +376,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 clip_text = true
 
-[node name="Label3" type="Label" parent="Calcul/answer"]
+[node name="Label3" type="Label" parent="Calcul/Control/answer"]
 margin_left = 1074.0
 margin_right = 1411.0
 margin_bottom = 140.0
@@ -255,7 +385,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 clip_text = true
 
-[node name="Label4" type="Label" parent="Calcul/answer"]
+[node name="Label4" type="Label" parent="Calcul/Control/answer"]
 margin_left = 1611.0
 margin_right = 1950.0
 margin_bottom = 140.0
@@ -264,60 +394,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 clip_text = true
 
-[node name="Buttons_fractions" type="HBoxContainer" parent="."]
-margin_left = -400.0
-margin_top = 141.0
-margin_right = 241.0
-margin_bottom = 200.0
-custom_constants/separation = 100
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button1" type="Button" parent="Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0 )
-margin_right = 85.0
-margin_bottom = 59.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button2" type="Button" parent="Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 185.0
-margin_right = 270.0
-margin_bottom = 59.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button3" type="Button" parent="Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 370.0
-margin_right = 455.0
-margin_bottom = 59.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button4" type="Button" parent="Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 555.0
-margin_right = 641.0
-margin_bottom = 59.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Buttons_calculs" type="HBoxContainer" parent="."]
+[node name="Buttons_calculs" type="HBoxContainer" parent="Calcul/Control"]
 margin_left = -902.392
 margin_top = 142.392
 margin_right = 1047.61
@@ -327,8 +404,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="calcul1" type="Button" parent="Buttons_calculs"]
-modulate = Color( 1, 1, 1, 0 )
+[node name="calcul1" type="Button" parent="Calcul/Control/Buttons_calculs"]
+modulate = Color( 1, 1, 1, 0.584314 )
 margin_right = 337.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
@@ -337,24 +414,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="calcul2" type="Button" parent="Buttons_calculs"]
-modulate = Color( 1, 1, 1, 0 )
+[node name="calcul2" type="Button" parent="Calcul/Control/Buttons_calculs"]
+modulate = Color( 1, 1, 1, 0.584314 )
 margin_left = 537.0
 margin_right = 874.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="calcul3" type="Button" parent="Buttons_calculs"]
-modulate = Color( 1, 1, 1, 0 )
+[node name="calcul3" type="Button" parent="Calcul/Control/Buttons_calculs"]
+modulate = Color( 1, 1, 1, 0.584314 )
 margin_left = 1074.0
 margin_right = 1411.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="calcul4" type="Button" parent="Buttons_calculs"]
-modulate = Color( 1, 1, 1, 0 )
+[node name="calcul4" type="Button" parent="Calcul/Control/Buttons_calculs"]
+modulate = Color( 1, 1, 1, 0.584314 )
 margin_left = 1611.0
 margin_right = 1950.0
 margin_bottom = 50.0
@@ -363,11 +440,15 @@ size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Buttons_fractions/Button1" to="." method="_on_Button1_pressed"]
-[connection signal="pressed" from="Buttons_fractions/Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="Buttons_fractions/Button3" to="." method="_on_Button3_pressed"]
-[connection signal="pressed" from="Buttons_fractions/Button4" to="." method="_on_Button4_pressed"]
-[connection signal="pressed" from="Buttons_calculs/calcul1" to="." method="_on_calcul1_pressed"]
-[connection signal="pressed" from="Buttons_calculs/calcul2" to="." method="_on_calcul2_pressed"]
-[connection signal="pressed" from="Buttons_calculs/calcul3" to="." method="_on_calcul3_pressed"]
-[connection signal="pressed" from="Buttons_calculs/calcul4" to="." method="_on_calcul4_pressed"]
+[connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="Fraction_irreductible/Control/Buttons_irreductible/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="Fraction_irreductible/Control/Buttons_irreductible/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Fraction_irreductible/Control/Buttons_irreductible/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Fraction_irreductible/Control/Buttons_irreductible/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul1" to="." method="_on_calcul1_pressed"]
+[connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul2" to="." method="_on_calcul2_pressed"]
+[connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul3" to="." method="_on_calcul3_pressed"]
+[connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul4" to="." method="_on_calcul4_pressed"]
