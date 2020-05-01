@@ -17,6 +17,12 @@ var control : Control = null
 var hbox : HBoxContainer = null
 var buttons : HBoxContainer = null
 
+var calcul_1 : Dictionary = {}
+var calcul_2 : Dictionary = {}
+var calcul_3 : Dictionary = {}
+var calcul_4 : Dictionary = {}
+
+
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
 
@@ -140,12 +146,6 @@ func setup_question(dict : Array) -> void:
 	answers = chosen_question["answers"]
 
 	if random_theme < 8:
-#		$Fractions/Control/Buttons_fractions.show()
-#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
-#		$Calcul/Control/Buttons_calculs.hide()
-#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
-#		$Calcul_litteral/Control/buttons_litteral.hide()
-#		$Calcul_factorisation/Control/buttons_factorisation.hide()
 		var frac_1 = answers[0] 
 		$Fractions/Control/answer/fraction_1.texture = pictures[frac_1["text"]]
 		var frac_2 = answers[1] 
@@ -158,12 +158,6 @@ func setup_question(dict : Array) -> void:
 		hbox = $Fractions/Control/answer
 		buttons = $Fractions/Control/Buttons_fractions
 	elif random_theme == 8:
-#		$Fraction_irreductible/Control/Buttons_irreductible.show()
-#		$Fractions/Control/Buttons_fractions.hide()
-#		$Calcul/Control/Buttons_calculs.hide()
-#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
-#		$Calcul_litteral/Control/buttons_litteral.hide()
-#		$Calcul_factorisation/Control/buttons_factorisation.hide()
 		var frac_1 = answers[0]
 		print (frac_1["text"])
 		$Fraction_irreductible/Control/answer/fraction_1.texture = pictures[frac_1["text"]]
@@ -177,85 +171,61 @@ func setup_question(dict : Array) -> void:
 		hbox = $Fraction_irreductible/Control/answer
 		buttons = $Fraction_irreductible/Control/Buttons_irreductible
 	elif random_theme == 9:
-#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
-#		$Fractions/Control/Buttons_fractions.hide()
-#		$Calcul/Control/Buttons_calculs.hide()
-#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
-#		$Calcul_factorisation/Control/buttons_factorisation.hide()
-#		$Calcul_litteral/Control/buttons_litteral.show()
-		var calcul_1 = answers[0]
+		calcul_1 = answers[0]
 		$Calcul_litteral/Control/answer/label1.text = str(calcul_1["text"])
-		var calcul_2 = answers[1]
+		calcul_2 = answers[1]
 		$Calcul_litteral/Control/answer/label2.text = str(calcul_2["text"])
-		var calcul_3 = answers[2]
+		calcul_3 = answers[2]
 		$Calcul_litteral/Control/answer/label3.text = str(calcul_3["text"])
-		var calcul_4 = answers[3]
+		calcul_4 = answers[3]
 		$Calcul_litteral/Control/answer/label4.text = str(calcul_4["text"])
 		control = $Calcul_litteral/Control
 		hbox = $Calcul_litteral/Control/answer
 		buttons = $Calcul_litteral/Control/buttons_litteral
 	elif random_theme == 12 or random_theme == 13:
-#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
-#		$Fractions/Control/Buttons_fractions.hide()
-#		$Calcul/Control/Buttons_calculs.hide()
-#		$Calcul_litteral/Control/buttons_litteral.hide()
-#		$Calcul_factorisation/Control/buttons_factorisation.hide()
-#		$Calcul_litteral_reduction/Control/buttons_litteral.show()
-		var calcul_1 = answers[0]
+		calcul_1 = answers[0]
 		$Calcul_litteral_reduction/Control/answer/label1.text = str(calcul_1["text"])
-		var calcul_2 = answers[1]
+		calcul_2 = answers[1]
 		$Calcul_litteral_reduction/Control/answer/label2.text = str(calcul_2["text"])
-		var calcul_3 = answers[2]
+		calcul_3 = answers[2]
 		$Calcul_litteral_reduction/Control/answer/label3.text = str(calcul_3["text"])
-		var calcul_4 = answers[3]
+		calcul_4 = answers[3]
 		$Calcul_litteral_reduction/Control/answer/label4.text = str(calcul_4["text"])
 		control = $Calcul_litteral_reduction/Control
 		hbox = $Calcul_litteral_reduction/Control/answer
 		buttons = $Calcul_litteral_reduction/Control/buttons_litteral
 	elif random_theme == 16 :
-#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
-#		$Fractions/Control/Buttons_fractions.hide()
-#		$Calcul/Control/Buttons_calculs.hide()
-#		$Calcul_litteral/Control/buttons_litteral.hide()
-#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
-#		$Calcul_factorisation/Control/buttons_factorisation.show()
-		var calcul_1 = answers[0]
+		calcul_1 = answers[0]
 		$Calcul_factorisation/Control/answer/label1.text = str(calcul_1["text"])
-		var calcul_2 = answers[1]
+		calcul_2 = answers[1]
 		$Calcul_factorisation/Control/answer/label2.text = str(calcul_2["text"])
-		var calcul_3 = answers[2]
+		calcul_3 = answers[2]
 		$Calcul_factorisation/Control/answer/label3.text = str(calcul_3["text"])
-		var calcul_4 = answers[3]
+		calcul_4 = answers[3]
 		$Calcul_factorisation/Control/answer/label4.text = str(calcul_4["text"])
 		control = $Calcul_factorisation/Control
 		hbox = $Calcul_factorisation/Control/answer
 		buttons = $Calcul_factorisation/Control/buttons_factorisation
 	elif random_theme == 31 or random_theme == 32 or random_theme == 33:
-		var calcul_1 = answers[0]
+		calcul_1 = answers[0]
 		$Percentages/Control/answer/Label1.text = str(calcul_1["text"])
-		var calcul_2 = answers[1]
+		calcul_2 = answers[1]
 		$Percentages/Control/answer/Label2.text = str(calcul_2["text"])
-		var calcul_3 = answers[2]
+		calcul_3 = answers[2]
 		$Percentages/Control/answer/Label3.text = str(calcul_3["text"])
-		var calcul_4 = answers[3]
+		calcul_4 = answers[3]
 		$Percentages/Control/answer/Label4.text = str(calcul_4["text"])
 		control = $Percentages/Control
 		hbox = $Percentages/Control/answer
 		buttons = $Percentages/Control/Buttons_percentages
 	else:
-#		$Fractions/Control/Buttons_fractions.hide()
-#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
-#		$Calcul_litteral/Control/buttons_litteral.hide()
-#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
-#		$Calcul_factorisation/Control/buttons_factorisation.hide()
-#		$Calcul/Control/Buttons_calculs.show()
-		var calcul_1 = answers[0]
+		calcul_1 = answers[0]
 		$Calcul/Control/answer/Label1.text = str(calcul_1["text"])
-		var calcul_2 = answers[1]
+		calcul_2 = answers[1]
 		$Calcul/Control/answer/Label2.text = str(calcul_2["text"])
-		var calcul_3 = answers[2]
+		calcul_3 = answers[2]
 		$Calcul/Control/answer/Label3.text = str(calcul_3["text"])
-		var calcul_4 = answers[3]
+		calcul_4 = answers[3]
 		$Calcul/Control/answer/Label4.text = str(calcul_4["text"])
 		control = $Calcul/Control
 		hbox = $Calcul/Control/answer
