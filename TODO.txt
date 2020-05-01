@@ -24,6 +24,3 @@
                                 |   Add_on  |
 
 ---------   relier les notions cochées au code : liste de notions 
-
-
-taille affichage pour les puissances
