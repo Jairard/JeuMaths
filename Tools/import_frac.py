@@ -6,6 +6,7 @@ import math
 from parse import parse
 import formula2png
 import hashlib
+import shutil
 
 def parse_string(chain):
     result = parse("{numerator}_{denominator}.png", chain)
@@ -120,9 +121,10 @@ if __name__ == '__main__':
     fractions = list(parse_file(json))
     fractionCount = len(fractions)
 
-    dst_folder = "Fractions"
-    if not os.path.exists(dst_folder):
-        os.makedirs(dst_folder)
+    if os.path.exists(dst_folder):
+        print("Cleaning previously generated images ...")
+        shutil.rmtree(dst_folder)
+    os.makedirs(dst_folder)
 
     globalCounter = multiprocessing.Value('i', 0)
     processi = create_processi(multiprocessing.cpu_count(), fractions, dst_folder, globalCounter)
