@@ -3,6 +3,7 @@
 [ext_resource path="res://Src/Outgame/Signin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Textures/GUI/975671341f214e57c34bb8b2e791b456.png" type="Texture" id=5]
 
 [sub_resource type="TileSet" id=1]
@@ -27,11 +28,8 @@
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="DynamicFontData" id=2]
-font_path = "res://font/Colored Crayons.ttf"
-
 [sub_resource type="DynamicFont" id=3]
-font_data = SubResource( 2 )
+font_data = ExtResource( 4 )
 
 [node name="Signin" type="Node2D"]
 script = ExtResource( 1 )
@@ -568,7 +566,7 @@ size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Développeme double"
+text = "Développement double"
 
 [node name="factorisation" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
 margin_top = 88.0
@@ -1075,16 +1073,25 @@ margin_right = -242.903
 margin_bottom = 95.2473
 
 [node name="ItemList" type="ItemList" parent="."]
-modulate = Color( 1, 1, 1, 0.607843 )
+modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 910.0
 margin_top = 29.0
-margin_right = 1003.0
-margin_bottom = 70.0
+margin_right = 1201.0
+margin_bottom = 46.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ItemList"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.423529, 0.235294, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
