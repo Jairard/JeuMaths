@@ -1,23 +1,22 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/hud_hero.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/GUI/icone_degats_png.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Textures/hud/lifebar_bg.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Textures/hud/lifebar_fill.png" type="Texture" id=4]
-[ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Assets/Textures/hud/icons1.png" type="Texture" id=8]
-
-[sub_resource type="DynamicFont" id=1]
-size = 25
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.258824 )
-font_data = ExtResource( 5 )
+[ext_resource path="res://Assets/Textures/hud/Barre_vie_pleine_2_png.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/hud/Barre_vie_vide_1_png.png" type="Texture" id=4]
+[ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=2]
-size = 25
+size = 15
 outline_size = 1
-outline_color = Color( 0, 0, 0, 0.223529 )
-font_data = ExtResource( 5 )
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
 
 [node name="hud_hero" type="Node2D"]
 pause_mode = 2
@@ -25,96 +24,62 @@ script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="pv_hero" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 110.114
-margin_top = 9.0
-margin_right = 526.114
-margin_bottom = 82.0
+[node name="health" type="Label" parent="CanvasLayer"]
+margin_left = 1.67249
+margin_top = 7.10806
+margin_right = 84.6725
+margin_bottom = 57.1081
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.890196, 0.862745, 0.862745, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/pv_hero"]
-margin_right = 396.0
-margin_bottom = 73.0
-
-[node name="life_hero" type="TextureProgress" parent="CanvasLayer/pv_hero/MarginContainer"]
-margin_right = 396.0
-margin_bottom = 73.0
+[node name="life_hero" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 83.2
+margin_right = 6083.2
+margin_bottom = 1000.0
+rect_scale = Vector2( 0.04, 0.04 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 value = 100.0
-texture_under = ExtResource( 3 )
-texture_progress = ExtResource( 4 )
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
 tint_under = Color( 0.27451, 0.27451, 0.278431, 1 )
-
-[node name="valeur_degats" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 495.427
-margin_top = 9.0
-margin_right = 631.427
-margin_bottom = 68.0
-alignment = 2
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/valeur_degats"]
-margin_right = 66.0
-margin_bottom = 59.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 309.758
+margin_top = 10.1054
+margin_right = 419.758
+margin_bottom = 50.1054
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+margin_right = 53.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer/valeur_degats/Label"]
-position = Vector2( 30, 0 )
-scale = Vector2( 0.06, 0.06 )
+[node name="Sprite" type="Sprite" parent="CanvasLayer/HBoxContainer/Label"]
+position = Vector2( 13.3042, -8.25757 )
+scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="valeur_degat" type="Label" parent="CanvasLayer/valeur_degats"]
-margin_left = 70.0
-margin_right = 136.0
-margin_bottom = 59.0
+[node name="damages" type="Label" parent="CanvasLayer/HBoxContainer"]
+margin_left = 57.0
+margin_right = 110.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "10"
-align = 1
-valign = 1
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 69.0
-margin_bottom = 56.0
+custom_fonts/font = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer5"]
-margin_bottom = 40.0
-
-[node name="health" type="Label" parent="CanvasLayer/HBoxContainer5/MarginContainer"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.890196, 0.862745, 0.862745, 1 )
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 9.73978
-margin_top = 7.91326
-margin_right = 26.7398
-margin_bottom = 47.9133
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer3"]
-margin_right = 17.0
-margin_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer3/MarginContainer"]
-show_behind_parent = true
-margin_right = 17.0
-margin_bottom = 40.0
-texture = ExtResource( 8 )

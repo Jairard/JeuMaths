@@ -1,12 +1,12 @@
 extends Node2D
 
 func get_life_hero() -> TextureProgress :
-	return $CanvasLayer/pv_hero/MarginContainer/life_hero 			as TextureProgress
+	return $CanvasLayer/life_hero 			as TextureProgress
 
 func get_life_hero_label() -> Label :
-	return $CanvasLayer/HBoxContainer5/MarginContainer/health 		as Label
+	return $CanvasLayer/health 		as Label
 
 func get_damage() -> Label :
-	return $CanvasLayer/valeur_degats/valeur_degat 	as Label
+	return $CanvasLayer/HBoxContainer/damages 	as Label
 
 

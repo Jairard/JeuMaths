@@ -32,36 +32,36 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		comp_hud_fight.set_health(current_health)
 
 		if comp_hud_fight._health_value.value > 0:
-			comp_hud_fight._health_label.text = "%s / %s" % [comp_health.health,  comp_hud_fight.get_max_health()]
+			comp_hud_fight._health_label.text = "%s/%s" % [comp_health.health,  comp_hud_fight.get_max_health()]
 		if comp_hud_fight._health_value.value <= 0:
 			comp_hud_fight._health_label.text = str(0)
 
 		var global_ratio = (float(comp_health.health)  / comp_hud_fight.get_max_health())
-		var yellow = Color("f1ff08")
-		var green = Color("14e114")
-		var orange = Color("ffad00")
-		var red = Color("e11e1e")
-		var black = Color("6f0000")
+#		var yellow = Color("f1ff08")
+#		var green = Color("14e114")
+#		var orange = Color("ffad00")
+#		var red = Color("e11e1e")
+#		var black = Color("6f0000")
 
-		if global_ratio >= 0.75:
-			var local_ratio = 4*global_ratio - 3
-			var color = lerp(yellow, green, local_ratio)
-			comp_hud_fight._health_value.set_tint_progress(color)
-
-		elif global_ratio >= 0.5 and global_ratio < 0.75 :
-			var local_ratio = 4*global_ratio - 2
-			var color = lerp(orange, yellow, local_ratio)
-			comp_hud_fight._health_value.set_tint_progress(color)
-
-		elif global_ratio >= 0.25 and global_ratio < 0.5 :
-			var local_ratio = 4*global_ratio - 1
-			var color = lerp(red, orange, local_ratio)
-			comp_hud_fight._health_value.set_tint_progress(color) 
-
-		elif global_ratio < 0.25 :
-			var local_ratio = 4*global_ratio 
-			var color = lerp(black, red, local_ratio)
-			comp_hud_fight._health_value.set_tint_progress(color) 
+#		if global_ratio >= 0.75:
+#			var local_ratio = 4*global_ratio - 3
+#			var color = lerp(yellow, green, local_ratio)
+#			comp_hud_fight._health_value.set_tint_progress(color)
+#
+#		elif global_ratio >= 0.5 and global_ratio < 0.75 :
+#			var local_ratio = 4*global_ratio - 2
+#			var color = lerp(orange, yellow, local_ratio)
+#			comp_hud_fight._health_value.set_tint_progress(color)
+#
+#		elif global_ratio >= 0.25 and global_ratio < 0.5 :
+#			var local_ratio = 4*global_ratio - 1
+#			var color = lerp(red, orange, local_ratio)
+#			comp_hud_fight._health_value.set_tint_progress(color) 
+#
+#		elif global_ratio < 0.25 :
+#			var local_ratio = 4*global_ratio 
+#			var color = lerp(black, red, local_ratio)
+#			comp_hud_fight._health_value.set_tint_progress(color) 
 #			if comp_score != null:	
 #				var current_score = comp_score.compute_score()
 #				comp_hud_fight.set_score(current_score)
