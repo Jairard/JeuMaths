@@ -11,7 +11,7 @@ onready var spell_enemy		= preload("res://Src/Ingame/Animation/spell_enemy.tscn"
 
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
-onready var time_label = get_node("sol/time_label")
+onready var time_label = get_node("time_label")
 onready var game_timer = get_node("game_timer")
 
 onready var heroNode = hero.instance()
@@ -112,8 +112,6 @@ func _ready():
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
 
 	load_hud(hero_health, hero_health_max, enemy_health, enemy_health)
-
-	font_choice()
 
 	ECS.clear_ghosts()
 
