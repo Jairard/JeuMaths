@@ -74,7 +74,10 @@ func check_click():
 				itemlist(lessons_list)
 
 func _input(event):
-	if event.is_action_released("clic"):
+#	if event.is_action_released("clic"):
+#		check_click()
+	if (event is InputEventMouseButton && event.pressed):
+		yield(get_tree().create_timer(.1), "timeout")
 		check_click()
 
 func show_notion(notions_show : Array, lesson : String) -> void:
