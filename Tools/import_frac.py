@@ -5,6 +5,7 @@ import multiprocessing
 import math
 from parse import parse
 import formula2png
+import hashlib
 
 def parse_string(chain):
     result = parse("{numerator}_{denominator}.png", chain)
@@ -46,8 +47,13 @@ def parse_file(array):
 def get_json_from_file(fileName):
     file = open(fileName, "r")
     fileContent = file.read()
-    file.close
-    return json.loads(fileContent)
+    file.close()
+
+    # Compute hash
+    m = hashlib.md5()
+    m.update(fileContent)
+
+    return json.loads(fileContent), m.hexdigest()
 
 def generate_fractions(fractions, dstFolder, globalCounter):
     for i,(numerator,denominator, fileName) in enumerate(fractions):
@@ -88,10 +94,28 @@ def wait_processi(processi):
 def get_digit_count(n):
     return int(math.log10(n))+1
 
+def is_same_hash(currentHash, filePath):
+    if os.path.exists(hashFilePath):
+        with open(hashFilePath, 'r') as hashFile:
+            previousHash = hashFile.read()
+            return currentHash == previousHash
+    return False
+
+def write_hash(hash, filePath):
+    with open(filePath, 'w') as hashFile:
+        hashFile.write(hash)
+
 if __name__ == '__main__':
     fileName = "fraction.txt"
     print("Reading data from '%s'" % fileName)
-    json = get_json_from_file(fileName)
+    json, hash = get_json_from_file(fileName)
+
+    hashFileName = "hash.md5"
+    hashFilePath = os.path.join(dst_folder, hashFileName)
+    if (is_same_hash(hash, hashFilePath)):
+        print("Nothing to do")
+        exit(0)
+
     print("Parsing fractions ...")
     fractions = list(parse_file(json))
     fractionCount = len(fractions)
@@ -110,6 +134,7 @@ if __name__ == '__main__':
         print(progressFormat % (int(100 * globalCounter.value / fractionCount), globalCounter.value, fractionCount))
     wait_processi(processi)
 
+    write_hash(hash, hashFilePath)
 
 
 
