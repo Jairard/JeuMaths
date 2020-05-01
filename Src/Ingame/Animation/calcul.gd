@@ -33,7 +33,7 @@ func load_c(path : String) -> Dictionary:
 
 func setup_question(dict : Array) -> void:
 
-	var random_theme 	: int 			= 14#RandomUtils.randi_to(len(dict))
+	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
@@ -47,6 +47,10 @@ func setup_question(dict : Array) -> void:
 		$Fractions.show()
 		$Fraction_irreductible.hide()
 		$Calcul.hide()
+		$Calcul_litteral.hide()
+		$Calcul_litteral_reduction.hide()
+		$Calcul_factorisation.hide()
+		$Percentages.hide()
 		var frac_1 = chosen_question["question"][0]
 		$Fractions/question/fraction_1.texture = pictures[frac_1]
 		var question_txt = chosen_question["question"][1]
@@ -55,18 +59,80 @@ func setup_question(dict : Array) -> void:
 		$Fractions/question/fraction_2.texture = pictures[frac_2]
 		question = $Fractions/question/operator
 	elif random_theme == 8:
-		$Fraction_irreductible.show()
 		$Fractions.hide()
+		$Fraction_irreductible.show()
 		$Calcul.hide()
+		$Calcul_litteral.hide()
+		$Calcul_litteral_reduction.hide()
+		$Calcul_factorisation.hide()
+		$Percentages.hide()
 		var question_txt = chosen_question["question"][0]
 		$Fraction_irreductible/question/question.text = question_txt
 		var frac = chosen_question["question"][1]
 		$Fraction_irreductible/question/fraction.texture = pictures[frac]
 		question = $Fraction_irreductible/question/question
-	else:
-		$Fraction_irreductible.hide()
+	elif random_theme == 9:
 		$Fractions.hide()
+		$Fraction_irreductible.hide()
+		$Calcul.hide()
+		$Calcul_litteral.show()
+		$Calcul_litteral_reduction.hide()
+		$Calcul_factorisation.hide()
+		$Percentages.hide()
+		var title = chosen_question["question"][0]
+		$Calcul_litteral/question/title.text = title
+		var equation = chosen_question["question"][1]
+		$Calcul_litteral/question/equation.text = equation
+		var value = chosen_question["question"][2]
+		$Calcul_litteral/question/value.text = value
+		question = $Calcul_litteral/question/equation
+	elif random_theme == 12 or random_theme == 13:
+		$Fractions.hide()
+		$Fraction_irreductible.hide()
+		$Calcul.hide()
+		$Calcul_litteral.hide()
+		$Calcul_litteral_reduction.show()
+		$Calcul_factorisation.hide()
+		$Percentages.hide()
+		var title = chosen_question["question"][0]
+		$Calcul_litteral_reduction/question/title.text = title
+		var equation = chosen_question["question"][1]
+		$Calcul_litteral_reduction/question/equation.text = equation
+		var value = chosen_question["question"][2]
+		$Calcul_litteral_reduction/question/value.text = value
+		question = $Calcul_litteral_reduction/question/equation
+	elif random_theme == 16:
+		$Fractions.hide()
+		$Fraction_irreductible.hide()
+		$Calcul.hide()
+		$Calcul_litteral.hide()
+		$Calcul_litteral_reduction.hide()
+		$Calcul_factorisation.show()
+		$Percentages.hide()
+		var title = chosen_question["question"][0]
+		$Calcul_factorisation/question/title.text = title
+		var equation = chosen_question["question"][1]
+		$Calcul_factorisation/question/equation.text = equation
+		question = $Calcul_factorisation/question/equation
+	elif random_theme == 31 or random_theme == 32 or random_theme == 33:
+		$Fractions.hide()
+		$Fraction_irreductible.hide()
+		$Calcul.hide()
+		$Calcul_litteral.hide()
+		$Calcul_litteral_reduction.hide()
+		$Calcul_factorisation.hide()
+		$Percentages.show()
+		var question_txt = chosen_question["question"]
+		$Percentages/question/question.text = question_txt
+		question = $Percentages/question/question
+	else:
+		$Fractions.hide()
+		$Fraction_irreductible.hide()
 		$Calcul.show()
+		$Calcul_litteral.hide()
+		$Calcul_litteral_reduction.hide()
+		$Calcul_factorisation.hide()
+		$Percentages.hide()
 		var question_txt = chosen_question["question"]
 		$Calcul/question/question.text = question_txt
 		question = $Calcul/question/question
@@ -74,9 +140,12 @@ func setup_question(dict : Array) -> void:
 	answers = chosen_question["answers"]
 
 	if random_theme < 8:
-		$Fractions/Control/Buttons_fractions.show()
-		$Fraction_irreductible/Control/Buttons_irreductible.hide()
-		$Calcul/Control/Buttons_calculs.hide()
+#		$Fractions/Control/Buttons_fractions.show()
+#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
+#		$Calcul/Control/Buttons_calculs.hide()
+#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
+#		$Calcul_litteral/Control/buttons_litteral.hide()
+#		$Calcul_factorisation/Control/buttons_factorisation.hide()
 		var frac_1 = answers[0] 
 		$Fractions/Control/answer/fraction_1.texture = pictures[frac_1["text"]]
 		var frac_2 = answers[1] 
@@ -89,9 +158,12 @@ func setup_question(dict : Array) -> void:
 		hbox = $Fractions/Control/answer
 		buttons = $Fractions/Control/Buttons_fractions
 	elif random_theme == 8:
-		$Fraction_irreductible/Control/Buttons_irreductible.show()
-		$Fractions/Control/Buttons_fractions.hide()
-		$Calcul/Control/Buttons_calculs.hide()
+#		$Fraction_irreductible/Control/Buttons_irreductible.show()
+#		$Fractions/Control/Buttons_fractions.hide()
+#		$Calcul/Control/Buttons_calculs.hide()
+#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
+#		$Calcul_litteral/Control/buttons_litteral.hide()
+#		$Calcul_factorisation/Control/buttons_factorisation.hide()
 		var frac_1 = answers[0]
 		print (frac_1["text"])
 		$Fraction_irreductible/Control/answer/fraction_1.texture = pictures[frac_1["text"]]
@@ -104,10 +176,79 @@ func setup_question(dict : Array) -> void:
 		control = $Fraction_irreductible/Control
 		hbox = $Fraction_irreductible/Control/answer
 		buttons = $Fraction_irreductible/Control/Buttons_irreductible
+	elif random_theme == 9:
+#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
+#		$Fractions/Control/Buttons_fractions.hide()
+#		$Calcul/Control/Buttons_calculs.hide()
+#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
+#		$Calcul_factorisation/Control/buttons_factorisation.hide()
+#		$Calcul_litteral/Control/buttons_litteral.show()
+		var calcul_1 = answers[0]
+		$Calcul_litteral/Control/answer/label1.text = str(calcul_1["text"])
+		var calcul_2 = answers[1]
+		$Calcul_litteral/Control/answer/label2.text = str(calcul_2["text"])
+		var calcul_3 = answers[2]
+		$Calcul_litteral/Control/answer/label3.text = str(calcul_3["text"])
+		var calcul_4 = answers[3]
+		$Calcul_litteral/Control/answer/label4.text = str(calcul_4["text"])
+		control = $Calcul_litteral/Control
+		hbox = $Calcul_litteral/Control/answer
+		buttons = $Calcul_litteral/Control/buttons_litteral
+	elif random_theme == 12 or random_theme == 13:
+#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
+#		$Fractions/Control/Buttons_fractions.hide()
+#		$Calcul/Control/Buttons_calculs.hide()
+#		$Calcul_litteral/Control/buttons_litteral.hide()
+#		$Calcul_factorisation/Control/buttons_factorisation.hide()
+#		$Calcul_litteral_reduction/Control/buttons_litteral.show()
+		var calcul_1 = answers[0]
+		$Calcul_litteral_reduction/Control/answer/label1.text = str(calcul_1["text"])
+		var calcul_2 = answers[1]
+		$Calcul_litteral_reduction/Control/answer/label2.text = str(calcul_2["text"])
+		var calcul_3 = answers[2]
+		$Calcul_litteral_reduction/Control/answer/label3.text = str(calcul_3["text"])
+		var calcul_4 = answers[3]
+		$Calcul_litteral_reduction/Control/answer/label4.text = str(calcul_4["text"])
+		control = $Calcul_litteral_reduction/Control
+		hbox = $Calcul_litteral_reduction/Control/answer
+		buttons = $Calcul_litteral_reduction/Control/buttons_litteral
+	elif random_theme == 16 :
+#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
+#		$Fractions/Control/Buttons_fractions.hide()
+#		$Calcul/Control/Buttons_calculs.hide()
+#		$Calcul_litteral/Control/buttons_litteral.hide()
+#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
+#		$Calcul_factorisation/Control/buttons_factorisation.show()
+		var calcul_1 = answers[0]
+		$Calcul_factorisation/Control/answer/label1.text = str(calcul_1["text"])
+		var calcul_2 = answers[1]
+		$Calcul_factorisation/Control/answer/label2.text = str(calcul_2["text"])
+		var calcul_3 = answers[2]
+		$Calcul_factorisation/Control/answer/label3.text = str(calcul_3["text"])
+		var calcul_4 = answers[3]
+		$Calcul_factorisation/Control/answer/label4.text = str(calcul_4["text"])
+		control = $Calcul_factorisation/Control
+		hbox = $Calcul_factorisation/Control/answer
+		buttons = $Calcul_factorisation/Control/buttons_factorisation
+	elif random_theme == 31 or random_theme == 32 or random_theme == 33:
+		var calcul_1 = answers[0]
+		$Percentages/Control/answer/Label1.text = str(calcul_1["text"])
+		var calcul_2 = answers[1]
+		$Percentages/Control/answer/Label2.text = str(calcul_2["text"])
+		var calcul_3 = answers[2]
+		$Percentages/Control/answer/Label3.text = str(calcul_3["text"])
+		var calcul_4 = answers[3]
+		$Percentages/Control/answer/Label4.text = str(calcul_4["text"])
+		control = $Percentages/Control
+		hbox = $Percentages/Control/answer
+		buttons = $Percentages/Control/Buttons_percentages
 	else:
-		$Fractions/Control/Buttons_fractions.hide()
-		$Fraction_irreductible/Control/Buttons_irreductible.hide()
-		$Calcul/Control/Buttons_calculs.show()
+#		$Fractions/Control/Buttons_fractions.hide()
+#		$Fraction_irreductible/Control/Buttons_irreductible.hide()
+#		$Calcul_litteral/Control/buttons_litteral.hide()
+#		$Calcul_litteral_reduction/Control/buttons_litteral.hide()
+#		$Calcul_factorisation/Control/buttons_factorisation.hide()
+#		$Calcul/Control/Buttons_calculs.show()
 		var calcul_1 = answers[0]
 		$Calcul/Control/answer/Label1.text = str(calcul_1["text"])
 		var calcul_2 = answers[1]
@@ -181,16 +322,81 @@ func _on_Button3_pressed():
 func _on_Button4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])
 
+
+func _on_litteral1_pressed():
+	on_answer_pressed(answers[0]["is_good_answer"])
+
+
+func _on_litteral2_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+
+
+func _on_litteral3_pressed():
+	on_answer_pressed(answers[2]["is_good_answer"])
+
+
+func _on_litteral4_pressed():
+	on_answer_pressed(answers[3]["is_good_answer"])
+
 func _on_calcul1_pressed():
 	on_answer_pressed(answers[0]["is_good_answer"])
 #	var test = answers[0]["is_good_answer"]
 #	connect("pressed", self, "on_answer_pressed", test)
 
+
 func _on_calcul2_pressed():
 	on_answer_pressed(answers[1]["is_good_answer"])
 
-func _on_calcul3_pressed():
+func _on_calcul4_pressed():
 	on_answer_pressed(answers[2]["is_good_answer"])
 
-func _on_calcul4_pressed():
+func _on_calcul3_pressed():
+	on_answer_pressed(answers[3]["is_good_answer"])
+
+func _on_reduction1_pressed():
+	on_answer_pressed(answers[0]["is_good_answer"])
+
+func _on_reduction2_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+
+func _on_reduction3_pressed():
+	on_answer_pressed(answers[2]["is_good_answer"])
+
+func _on_reduction4_pressed():
+	on_answer_pressed(answers[3]["is_good_answer"])
+
+func _on_factorisation1_pressed():
+	on_answer_pressed(answers[0]["is_good_answer"])
+
+func _on_factorisation2_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+
+func _on_factorisation3_pressed():
+	on_answer_pressed(answers[2]["is_good_answer"])
+
+func _on_factorisation4_pressed():
+	on_answer_pressed(answers[3]["is_good_answer"])
+
+func _on_1_pressed():
+	on_answer_pressed(answers[0]["is_good_answer"])
+
+func _on_3_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+
+func _on_2_pressed():
+	on_answer_pressed(answers[2]["is_good_answer"])
+
+func _on_4_pressed():
+	on_answer_pressed(answers[3]["is_good_answer"])
+
+func _on_percent1_pressed():
+	on_answer_pressed(answers[0]["is_good_answer"])
+
+func _on_percent2_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+
+func _on_percent3_pressed():
+	on_answer_pressed(answers[2]["is_good_answer"])
+
+func _on_percent4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])

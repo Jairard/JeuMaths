@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/Ingame/Animation/calcul.gd" type="Script" id=1]
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=3]
@@ -15,6 +15,14 @@ font_data = ExtResource( 3 )
 size = 40
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
 font_data = ExtResource( 3 )
 
 [node name="calcul" type="Node2D"]
@@ -70,6 +78,9 @@ margin_bottom = -38.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Control" type="Control" parent="Fractions"]
 margin_right = 40.0
@@ -320,7 +331,6 @@ __meta__ = {
 }
 
 [node name="Calcul" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -461,6 +471,563 @@ size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Calcul_litteral" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="question" type="HBoxContainer" parent="Calcul_litteral"]
+margin_left = -317.0
+margin_right = 365.0
+margin_bottom = 153.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Calcul_litteral/question"]
+modulate = Color( 0, 0, 1, 1 )
+margin_right = 214.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="equation" type="Label" parent="Calcul_litteral/question"]
+margin_left = 234.0
+margin_right = 448.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="Calcul_litteral/question"]
+modulate = Color( 0, 0, 1, 1 )
+margin_left = 468.0
+margin_right = 682.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Calcul_litteral"]
+margin_left = 31.3421
+margin_top = 39.7683
+margin_right = 71.3421
+margin_bottom = 79.7683
+rect_pivot_offset = Vector2( -800, 180 )
+
+[node name="answer" type="HBoxContainer" parent="Calcul_litteral/Control"]
+margin_left = -900.0
+margin_top = 140.0
+margin_right = 1050.0
+margin_bottom = 280.0
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label1" type="Label" parent="Calcul_litteral/Control/answer"]
+margin_right = 337.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label2" type="Label" parent="Calcul_litteral/Control/answer"]
+margin_left = 537.0
+margin_right = 874.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label3" type="Label" parent="Calcul_litteral/Control/answer"]
+margin_left = 1074.0
+margin_right = 1411.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label4" type="Label" parent="Calcul_litteral/Control/answer"]
+margin_left = 1611.0
+margin_right = 1950.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="buttons_litteral" type="HBoxContainer" parent="Calcul_litteral/Control"]
+margin_left = -900.0
+margin_top = 140.0
+margin_right = 1050.0
+margin_bottom = 280.0
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="litteral1" type="Button" parent="Calcul_litteral/Control/buttons_litteral"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 337.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="litteral2" type="Button" parent="Calcul_litteral/Control/buttons_litteral"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 537.0
+margin_right = 874.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="litteral3" type="Button" parent="Calcul_litteral/Control/buttons_litteral"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1074.0
+margin_right = 1411.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="litteral4" type="Button" parent="Calcul_litteral/Control/buttons_litteral"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1611.0
+margin_right = 1950.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Calcul_litteral_reduction" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="question" type="HBoxContainer" parent="Calcul_litteral_reduction"]
+margin_left = -450.0
+margin_right = 399.0
+margin_bottom = 153.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Calcul_litteral_reduction/question"]
+modulate = Color( 0, 0, 1, 1 )
+margin_right = 269.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="equation" type="Label" parent="Calcul_litteral_reduction/question"]
+margin_left = 289.0
+margin_right = 558.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="value" type="Label" parent="Calcul_litteral_reduction/question"]
+modulate = Color( 0, 0, 1, 1 )
+margin_left = 578.0
+margin_right = 849.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Calcul_litteral_reduction"]
+margin_left = 31.3421
+margin_top = 39.7683
+margin_right = 71.3421
+margin_bottom = 79.7683
+rect_pivot_offset = Vector2( -800, 180 )
+
+[node name="answer" type="HBoxContainer" parent="Calcul_litteral_reduction/Control"]
+margin_left = -900.0
+margin_top = 140.0
+margin_right = 1050.0
+margin_bottom = 280.0
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label1" type="Label" parent="Calcul_litteral_reduction/Control/answer"]
+margin_right = 337.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label2" type="Label" parent="Calcul_litteral_reduction/Control/answer"]
+margin_left = 537.0
+margin_right = 874.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label3" type="Label" parent="Calcul_litteral_reduction/Control/answer"]
+margin_left = 1074.0
+margin_right = 1411.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label4" type="Label" parent="Calcul_litteral_reduction/Control/answer"]
+margin_left = 1611.0
+margin_right = 1950.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="buttons_litteral" type="HBoxContainer" parent="Calcul_litteral_reduction/Control"]
+margin_left = -900.0
+margin_top = 140.0
+margin_right = 1050.0
+margin_bottom = 280.0
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reduction1" type="Button" parent="Calcul_litteral_reduction/Control/buttons_litteral"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 337.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="reduction2" type="Button" parent="Calcul_litteral_reduction/Control/buttons_litteral"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 537.0
+margin_right = 874.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="reduction3" type="Button" parent="Calcul_litteral_reduction/Control/buttons_litteral"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1074.0
+margin_right = 1411.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="reduction4" type="Button" parent="Calcul_litteral_reduction/Control/buttons_litteral"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1611.0
+margin_right = 1950.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Calcul_factorisation" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="question" type="HBoxContainer" parent="Calcul_factorisation"]
+margin_left = -377.0
+margin_right = 360.0
+margin_bottom = 153.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Calcul_factorisation/question"]
+modulate = Color( 0, 0, 1, 1 )
+margin_right = 358.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="equation" type="Label" parent="Calcul_factorisation/question"]
+margin_left = 378.0
+margin_right = 737.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Calcul_factorisation"]
+margin_left = 31.3421
+margin_top = 39.7683
+margin_right = 71.3421
+margin_bottom = 79.7683
+rect_pivot_offset = Vector2( -800, 180 )
+
+[node name="answer" type="HBoxContainer" parent="Calcul_factorisation/Control"]
+margin_left = -900.0
+margin_top = 140.0
+margin_right = 1050.0
+margin_bottom = 280.0
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label1" type="Label" parent="Calcul_factorisation/Control/answer"]
+margin_right = 337.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label2" type="Label" parent="Calcul_factorisation/Control/answer"]
+margin_left = 537.0
+margin_right = 874.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label3" type="Label" parent="Calcul_factorisation/Control/answer"]
+margin_left = 1074.0
+margin_right = 1411.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label4" type="Label" parent="Calcul_factorisation/Control/answer"]
+margin_left = 1611.0
+margin_right = 1950.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="buttons_factorisation" type="HBoxContainer" parent="Calcul_factorisation/Control"]
+margin_left = -900.0
+margin_top = 140.0
+margin_right = 1050.0
+margin_bottom = 280.0
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="factorisation1" type="Button" parent="Calcul_factorisation/Control/buttons_factorisation"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 337.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="factorisation2" type="Button" parent="Calcul_factorisation/Control/buttons_factorisation"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 537.0
+margin_right = 874.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="factorisation3" type="Button" parent="Calcul_factorisation/Control/buttons_factorisation"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1074.0
+margin_right = 1411.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="factorisation4" type="Button" parent="Calcul_factorisation/Control/buttons_factorisation"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1611.0
+margin_right = 1950.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Percentages" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="question" type="HBoxContainer" parent="Percentages"]
+margin_left = -282.0
+margin_top = -149.0
+margin_right = 613.0
+margin_bottom = -42.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="question" type="Label" parent="Percentages/question"]
+margin_top = 16.0
+margin_right = 895.0
+margin_bottom = 91.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+align = 3
+autowrap = true
+
+[node name="Control" type="Control" parent="Percentages"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -800, 180 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer" type="HBoxContainer" parent="Percentages/Control"]
+margin_left = -898.772
+margin_top = 140.0
+margin_right = 1051.23
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 200
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label1" type="Label" parent="Percentages/Control/answer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 337.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+clip_text = true
+
+[node name="Label2" type="Label" parent="Percentages/Control/answer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 537.0
+margin_right = 874.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+clip_text = true
+
+[node name="Label3" type="Label" parent="Percentages/Control/answer"]
+margin_left = 1074.0
+margin_right = 1411.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+clip_text = true
+
+[node name="Label4" type="Label" parent="Percentages/Control/answer"]
+margin_left = 1611.0
+margin_right = 1950.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+clip_text = true
+
+[node name="Buttons_percentages" type="HBoxContainer" parent="Percentages/Control"]
+margin_left = -902.392
+margin_top = 142.392
+margin_right = 1047.61
+margin_bottom = 192.392
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="percent1" type="Button" parent="Percentages/Control/Buttons_percentages"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 337.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="percent2" type="Button" parent="Percentages/Control/Buttons_percentages"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 537.0
+margin_right = 874.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="percent3" type="Button" parent="Percentages/Control/Buttons_percentages"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1074.0
+margin_right = 1411.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="percent4" type="Button" parent="Percentages/Control/Buttons_percentages"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1611.0
+margin_right = 1950.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 [connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button1" to="." method="_on_Button1_pressed"]
 [connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button3" to="." method="_on_Button3_pressed"]
@@ -473,3 +1040,19 @@ __meta__ = {
 [connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul2" to="." method="_on_calcul2_pressed"]
 [connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul3" to="." method="_on_calcul3_pressed"]
 [connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul4" to="." method="_on_calcul4_pressed"]
+[connection signal="pressed" from="Calcul_litteral/Control/buttons_litteral/litteral1" to="." method="_on_litteral1_pressed"]
+[connection signal="pressed" from="Calcul_litteral/Control/buttons_litteral/litteral2" to="." method="_on_litteral2_pressed"]
+[connection signal="pressed" from="Calcul_litteral/Control/buttons_litteral/litteral3" to="." method="_on_litteral3_pressed"]
+[connection signal="pressed" from="Calcul_litteral/Control/buttons_litteral/litteral4" to="." method="_on_litteral4_pressed"]
+[connection signal="pressed" from="Calcul_litteral_reduction/Control/buttons_litteral/reduction1" to="." method="_on_reduction1_pressed"]
+[connection signal="pressed" from="Calcul_litteral_reduction/Control/buttons_litteral/reduction2" to="." method="_on_reduction2_pressed"]
+[connection signal="pressed" from="Calcul_litteral_reduction/Control/buttons_litteral/reduction3" to="." method="_on_reduction3_pressed"]
+[connection signal="pressed" from="Calcul_litteral_reduction/Control/buttons_litteral/reduction4" to="." method="_on_reduction4_pressed"]
+[connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation1" to="." method="_on_factorisation1_pressed"]
+[connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation2" to="." method="_on_factorisation2_pressed"]
+[connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation3" to="." method="_on_factorisation3_pressed"]
+[connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation4" to="." method="_on_factorisation4_pressed"]
+[connection signal="pressed" from="Percentages/Control/Buttons_percentages/percent1" to="." method="_on_percent1_pressed"]
+[connection signal="pressed" from="Percentages/Control/Buttons_percentages/percent2" to="." method="_on_percent2_pressed"]
+[connection signal="pressed" from="Percentages/Control/Buttons_percentages/percent3" to="." method="_on_percent3_pressed"]
+[connection signal="pressed" from="Percentages/Control/Buttons_percentages/percent4" to="." method="_on_percent4_pressed"]
