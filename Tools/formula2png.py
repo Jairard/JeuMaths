@@ -1,9 +1,7 @@
-﻿import matplotlib.pyplot as plt
-import io
-import sys
-import os
-import imageUtils
+﻿import os, io, sys
+import matplotlib.pyplot as plt
 import numpy
+import imageUtils
 
 def render_latex(formula, fontsize=12, dpi=300, format_='png', pad_inches=0.0):
     fig = plt.figure(figsize=(0.01, 0.01))

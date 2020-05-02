@@ -1,12 +1,7 @@
-import os
-import time
-import json
-import multiprocessing
-import math
+import os, multiprocessing, shutil, time, math
+import json, hashlib
 from parse import parse
 import formula2png
-import hashlib
-import shutil
 
 def parse_string(chain):
     result = parse("{numerator}_{denominator}.png", chain)
