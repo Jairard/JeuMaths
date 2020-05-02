@@ -26,7 +26,7 @@ func _get_mandatory_components() -> Array:
 func _get_optional_components() -> Array:
 	return [ComponentsLibrary.Position, ComponentsLibrary.Health, ComponentsLibrary.Bounce,
 			ComponentsLibrary.Loot, ComponentsLibrary.Treasure, ComponentsLibrary.Damage, ComponentsLibrary.Movement,
-			ComponentsLibrary.Velocity, ComponentsLibrary.Stats, ComponentsLibrary.AnswertoSpell]
+			ComponentsLibrary.Velocity, ComponentsLibrary.Stats]
 
 func _get_system_dependencies() -> Array:
 	return [SystemsLibrary.Move, SystemsLibrary.Answer]
@@ -67,9 +67,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var damage_comp 	= 	components[ComponentsLibrary.Damage] 	as 	DamageComponent
 	var treasure_comp 	= 	components[ComponentsLibrary.Treasure] 	as 	TreasureComponent
 	var stats_comp	 	= 	components[ComponentsLibrary.Stats] 	as 	CharacterstatsComponent
-	var answer_comp 	=   components[ComponentsLibrary.AnswertoSpell] as AnswerListenerComponent
 	var comp_move		= 	components[ComponentsLibrary.Movement] 	as MovementComponent
-
 
 	# Check if the node is a PhysicsBody2D
 	var my_body = col_comp.get_node() as PhysicsBody2D
@@ -97,7 +95,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		var collider_ID : int = collider.get_instance_id()
 		var collider_health_component 	: HealthComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Health)
 		var collider_damage_component 	: DamageComponent 	= _getComponentOfEntity(collider_ID, ComponentsLibrary.Damage)
-
 
 		if (has_collision_layer(collider,enemy_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true) :    			# ENEMY
@@ -131,7 +128,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 #				FileBankUtils.health -= damage_comp.get_damage()
 				AnimationUtils.floating_damage(collider, damage_comp.get_damage(), true, FontChoice.get_font())
 
-#				yield(dmg, "tween_completed")
 			my_body.queue_free()
 
 		if (has_collision_layer(collider,enemy_layer_bit) == true
