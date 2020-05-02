@@ -3,6 +3,7 @@ import io
 import sys
 import os
 import imageUtils
+import numpy
 
 def render_latex(formula, fontsize=12, dpi=300, format_='png', pad_inches=0.0):
     fig = plt.figure(figsize=(0.01, 0.01))
@@ -30,7 +31,7 @@ def generate_formula(formula, file_name, dst_folder = ".", verbose = True, paddi
 
     os.remove(tmp_file_path)
 
-    imageUtils.write_image(img2, file_path)
+    imageUtils.write_image(numpy.array(img), file_path)
     if (verbose):
         print("Done !")
         sys.stdout.flush()
