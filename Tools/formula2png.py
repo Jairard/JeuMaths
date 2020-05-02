@@ -1,7 +1,6 @@
-﻿import matplotlib.pyplot as plt
-import io
-import sys
-import os
+﻿import os, io, sys
+import matplotlib.pyplot as plt
+import numpy
 import imageUtils
 
 def render_latex(formula, fontsize=12, dpi=300, format_='png', pad_inches=0.0):
@@ -24,13 +23,13 @@ def generate_formula(formula, file_name, dst_folder = ".", verbose = True, paddi
         image_file.write(image_bytes)
 
     with open(tmp_file_path, 'rb') as image_file:
-        img = imageUtils.read_image_from_file(image_file)
-        top, bot, left, right = imageUtils.count_alpha_padding(img)
-        img2 = imageUtils.create_image_subregion(img, top, bot, left, right, padding=padding)
+        tmp_img = imageUtils.read_image_from_file(image_file)
+        top, bot, left, right = imageUtils.count_alpha_padding(tmp_img)
+        img = imageUtils.create_image_subregion(tmp_img, top, bot, left, right, padding=padding)
 
     os.remove(tmp_file_path)
 
-    imageUtils.write_image(img2, file_path)
+    imageUtils.write_image(numpy.array(img), file_path)
     if (verbose):
         print("Done !")
         sys.stdout.flush()
