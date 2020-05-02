@@ -28,7 +28,7 @@
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 4 )
 
 [node name="Signin" type="Node2D"]
@@ -366,9 +366,9 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Avec parenthèses"
 
 [node name="Literal_calculation" type="CheckBox" parent="."]
-margin_left = 419.289
+margin_left = 415.79
 margin_top = 231.648
-margin_right = 531.289
+margin_right = 527.79
 margin_bottom = 255.648
 text = "Calcul littéral"
 __meta__ = {
@@ -1080,7 +1080,7 @@ margin_right = 1201.0
 margin_bottom = 46.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 auto_height = true
 __meta__ = {

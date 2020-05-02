@@ -52,9 +52,9 @@ def get_json_from_file(fileName):
 
     # Compute hash
     m = hashlib.md5()
-    m.update(fileContent)
+    m.update(fileContent.encode("utf-8"))
 
-    return json.loads(fileContent), m.hexdigest()
+    return json.loads(fileContent.encode("utf-8")), m.hexdigest()
 
 def generate_fractions(fractions, dstFolder, globalCounter):
     for i,(numerator,denominator, fileName) in enumerate(fractions):
@@ -67,7 +67,7 @@ def generate_fractions(fractions, dstFolder, globalCounter):
 def create_processi(processusCount, fractions, dstFolder, counter):
     processi = []
     fractionCount = len(fractions)
-    baseFractionPerProcessus = fractionCount / processusCount
+    baseFractionPerProcessus = int(fractionCount / processusCount)
     remainingFractionCount = fractionCount % processusCount
     print("Distributing %d fractions generation over %d processi" % (fractionCount, processusCount))
 
@@ -76,6 +76,7 @@ def create_processi(processusCount, fractions, dstFolder, counter):
         endIndex = min(startIndex + baseFractionPerProcessus, fractionCount)
         if (i < remainingFractionCount):
             endIndex += 1
+        print(startIndex, endIndex)
         subRange = fractions[startIndex:endIndex]
 
         print("Processus %d will compute fractions from index %d to %d:" % (i, startIndex, endIndex - 1))

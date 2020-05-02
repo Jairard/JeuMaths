@@ -11,10 +11,26 @@ var defeats 		: int = 0
 var scene_counter	: int = 0
 var classroom		: int = 0
 var pseudo			: String = ""
-	
+
 var loaded_scenes = load_json("res://Assets/Scenes.json")
 var stats_File_Name : String = "res://Assets/Stats_Characters/Hero_Stats.json"
 var loaded_heroes_stats = load_json(stats_File_Name)
+var loaded_questions = load_json("res://Assets/Questions/Questions.json")
+var loaded_fractions = load_fractions("res://Tools/Fractions/")
+
+func load_fractions(path : String) -> Dictionary:
+	var pictures : Dictionary = {}
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
+	while true:
+		var file_name = dir.get_next()
+		if file_name == "":
+			break
+		elif file_name.ends_with(".png"):
+			pictures[file_name] = load(path + "/" + file_name)
+	dir.list_dir_end()
+	return pictures
 
 func _ready():
 	check_fractions_gen()
@@ -86,3 +102,4 @@ func load_right_scene() -> String:
 		5:
 			return FileBankUtils.loaded_scenes["upside_down"]
 	return ""
+
