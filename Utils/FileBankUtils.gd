@@ -16,6 +16,23 @@ var loaded_scenes = load_json("res://Assets/Scenes.json")
 var stats_File_Name : String = "res://Assets/Stats_Characters/Hero_Stats.json"
 var loaded_heroes_stats = load_json(stats_File_Name)
 
+func _ready():
+	check_fractions_gen()
+
+func check_fractions_gen() -> void:
+	if (get_fractions_gen_hash() != get_fractions_hash()):
+		push_error("Fractions images are not up to date ! Please generate them")
+
+func get_fractions_gen_hash() -> String:
+	var file = File.new()
+	file.open("res://Tools/Fractions/hash.md5", File.READ)
+	return file.get_as_text()
+
+func get_fractions_hash() -> String:
+	var file = File.new()
+	file.open("res://Tools/fraction.txt", File.READ)
+	return file.get_as_text().md5_text()
+
 func load_json(path : String):
 	var file = File.new()
 	file.open(path, File.READ)
