@@ -22,7 +22,6 @@ var treasure_comp : Component = null
 var answerToSpell_hero : Component = null
 var damage_comp_hero : Component = null
 
-var calcul_instance = null
 var answer_listener : Array = []
 
 func _ready():
@@ -37,12 +36,9 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Endfight)
 
-
 	spawn()
 
-
 	listener_hero = ECS.add_component(heroNode, ComponentsLibrary.AnswerListener) 	as AnswerListenerComponent
-	listener_hero.init(calcul_instance, calcul)
 	var comp_spell_hero = ECS.add_component(heroNode, ComponentsLibrary.Spell) as SpellComponent
 	comp_spell_hero.init({"spell_hero" : spell_hero, "ulti_hero" : ulti_hero})						#spellname --> scene instance
 	answer_listener.append(listener_hero)
@@ -77,8 +73,6 @@ func _ready():
 
 
 	listener_enemy = ECS.add_component(enemyNode, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
-	listener_enemy.init(calcul_instance, calcul)
-
 
 	answer_listener.append(listener_enemy)
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
@@ -125,7 +119,6 @@ func _process(delta):
 																	 AnswertoSpellComponent.property.damage : damage_comp_hero.get_damage()}
 																	})
 
-
 func spawn() :
 
 	add_child(heroNode)
@@ -134,9 +127,6 @@ func spawn() :
 	var sprite = $Ennemy/Sprite
 	sprite.apply_scale(Vector2(3, 3))
 	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
-#	calcul_instance = calcul.instance()
-#	calcul_instance.hide()
-#	add_child(calcul_instance)
 
 func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int, _enemy_health_max : int):
 	var Hud_heroNode = hud_hero.instance()
@@ -168,11 +158,12 @@ func load_hud( _hero_health : int,  _hero_health_max : int, _enemy_health : int,
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
 	
 func _on_game_timer_timeout():
-
 	time_label.hide()
-	calcul_instance = calcul.instance()
+	var calcul_instance = calcul.instance()
 	add_child(calcul_instance)
+	var questions = Scene_transition_data.get_data("questions")
+	calcul_instance.setup_question(questions)
 	calcul_instance.set_answer_listener(answer_listener)
-	listener_hero.init(calcul_instance, calcul)
-	listener_enemy.init(calcul_instance, calcul)
+	listener_hero.init(calcul_instance, calcul, questions)
+	listener_enemy.init(calcul_instance, calcul, questions)
 	ECS.add_component(heroNode, ComponentsLibrary.Node_Hero)

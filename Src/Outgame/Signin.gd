@@ -8,7 +8,7 @@ const init_stats : Dictionary =  {
 									"treasure":0,"good_answer":0,
 									"wrong_answer":0,"victories":0,"defeats":0,
 									"health_max":70, "scene_counter":0
-									} 	
+									}
 
 
 var notions_show : Array = ["_4_Operations/Control", "Literal_calculation/Control", "Fraction/Control", "Arithmetic/Control",
@@ -154,10 +154,12 @@ func load_stats():
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 
-
+func before_change_scene() -> void:
+	Scene_transition_data.set_data("questions", FileBankUtils.loaded_questions)
+	load_stats()
 
 func _on_Option_map_item_selected(id):
-	load_stats()
+	before_change_scene()
 	match id:
 		1:
 			Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
@@ -173,7 +175,7 @@ func _on_Option_map_item_selected(id):
 			Fade.change_scene(FileBankUtils.loaded_scenes["upside_down"])
 
 func _on_Option_fight_item_selected(id):
-	load_stats()
+	before_change_scene()
 	match id:
 		1:
 			Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
@@ -181,7 +183,7 @@ func _on_Option_fight_item_selected(id):
 			Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_2"])
 
 func _on_Option_featured_scenes_item_selected(id):
-	load_stats()
+	before_change_scene()
 	match id:
 		1:
 			Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
@@ -191,7 +193,7 @@ func _on_Option_featured_scenes_item_selected(id):
 			Fade.change_scene(FileBankUtils.loaded_scenes["death"])
 
 func _on_Option_unused_scenes_item_selected(id):
-	load_stats()
+	before_change_scene()
 	match id:
 		1:
 			Fade.change_scene(FileBankUtils.loaded_scenes["create_hero"])
