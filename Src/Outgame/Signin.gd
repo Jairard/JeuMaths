@@ -68,7 +68,6 @@ func itemlist(_lessons : Array) -> void:
 func check_click():
 	for i in lessons_path:
 		if get_node(i).pressed:
-			print ("in")
 			if lessons_list.count(i) == 0 or len(lessons_list) == 0:
 				lessons_list += [i]
 				itemlist(lessons_list)

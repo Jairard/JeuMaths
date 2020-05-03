@@ -29,9 +29,6 @@
 
 calcul:
 match themes
-liste des mnoeuds a afficher/cacher
-créer des constantes explicites pour par utiliser random_theme = 6
-
 
 liste des notions cliquées : renvoi un dictionnaire avec seulement ces notions
-dans signin qui l'envoi dans fight puis dans calcul     : signal ready()
+avec un singleton scene_transition_data

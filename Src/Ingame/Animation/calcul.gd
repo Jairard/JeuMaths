@@ -32,6 +32,15 @@ const soustraction_relatifs = 27;const multiplication_relatifs = 28;const divisi
 const appliquer_pourcentage = 30;const trouver_pourcentage_simple = 31;const trouver_pourcentage = 32
 const priorites_sans_parentheses = 33;const priorites_avec_parentheses = 34;const decomposition = 35
 
+var notions_show : Array = ["Fractions", "Fraction_irreductible", "Calcul", "Calcul_litteral",
+					"Calcul_litteral_reduction", "Calcul_factorisation", "Percentages"]
+
+func show_notion(notions_show : Array, lesson : String) -> void:
+	for i in notions_show:
+		if i == lesson:
+			get_node(i).show()
+		else:
+			get_node(i).hide()
 
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
@@ -53,13 +62,7 @@ func setup_question(dict : Array) -> void:
 
 	print ("theme : ", random_theme)
 	if random_theme < fractions_irreductible:
-		$Fractions.show()
-		$Fraction_irreductible.hide()
-		$Calcul.hide()
-		$Calcul_litteral.hide()
-		$Calcul_litteral_reduction.hide()
-		$Calcul_factorisation.hide()
-		$Percentages.hide()
+		show_notion(notions_show, "Fractions")
 		var frac_1 = chosen_question["question"][0]
 		$Fractions/question/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1]
 		var question_txt = chosen_question["question"][1]
@@ -68,26 +71,14 @@ func setup_question(dict : Array) -> void:
 		$Fractions/question/fraction_2.texture = FileBankUtils.loaded_fractions[frac_2]
 		question = $Fractions/question/operator
 	elif random_theme == fractions_irreductible:
-		$Fractions.hide()
-		$Fraction_irreductible.show()
-		$Calcul.hide()
-		$Calcul_litteral.hide()
-		$Calcul_litteral_reduction.hide()
-		$Calcul_factorisation.hide()
-		$Percentages.hide()
+		show_notion(notions_show, "Fractions_irreductible")
 		var question_txt = chosen_question["question"][0]
 		$Fraction_irreductible/question/question.text = question_txt
 		var frac = chosen_question["question"][1]
 		$Fraction_irreductible/question/fraction.texture = FileBankUtils.loaded_fractions[frac]
 		question = $Fraction_irreductible/question/question
 	elif random_theme == tester_valeur:
-		$Fractions.hide()
-		$Fraction_irreductible.hide()
-		$Calcul.hide()
-		$Calcul_litteral.show()
-		$Calcul_litteral_reduction.hide()
-		$Calcul_factorisation.hide()
-		$Percentages.hide()
+		show_notion(notions_show, "Calcul_litteral")
 		var title = chosen_question["question"][0]
 		$Calcul_litteral/question/title.text = title
 		var equation = chosen_question["question"][1]
@@ -96,13 +87,7 @@ func setup_question(dict : Array) -> void:
 		$Calcul_litteral/question/value.text = value
 		question = $Calcul_litteral/question/equation
 	elif random_theme == reduire_sans_parentheses or random_theme == reduire_avec_parentheses:
-		$Fractions.hide()
-		$Fraction_irreductible.hide()
-		$Calcul.hide()
-		$Calcul_litteral.hide()
-		$Calcul_litteral_reduction.show()
-		$Calcul_factorisation.hide()
-		$Percentages.hide()
+		show_notion(notions_show, "Calcul_litteral_reduction")
 		var title = chosen_question["question"][0]
 		$Calcul_litteral_reduction/question/title.text = title
 		var equation = chosen_question["question"][1]
@@ -111,13 +96,7 @@ func setup_question(dict : Array) -> void:
 		$Calcul_litteral_reduction/question/value.text = value
 		question = $Calcul_litteral_reduction/question/equation
 	elif random_theme == factorisarion_simple:
-		$Fractions.hide()
-		$Fraction_irreductible.hide()
-		$Calcul.hide()
-		$Calcul_litteral.hide()
-		$Calcul_litteral_reduction.hide()
-		$Calcul_factorisation.show()
-		$Percentages.hide()
+		show_notion(notions_show, "Calcul_factorisation")
 		var title = chosen_question["question"][0]
 		$Calcul_factorisation/question/title.text = title
 		var equation = chosen_question["question"][1]
@@ -125,24 +104,12 @@ func setup_question(dict : Array) -> void:
 		question = $Calcul_factorisation/question/equation
 	elif (random_theme == appliquer_pourcentage or random_theme == trouver_pourcentage_simple 
 		  or random_theme == trouver_pourcentage):
-		$Fractions.hide()
-		$Fraction_irreductible.hide()
-		$Calcul.hide()
-		$Calcul_litteral.hide()
-		$Calcul_litteral_reduction.hide()
-		$Calcul_factorisation.hide()
-		$Percentages.show()
+		show_notion(notions_show, "Percentages")
 		var question_txt = chosen_question["question"]
 		$Percentages/question/question.text = question_txt
 		question = $Percentages/question/question
 	else:
-		$Fractions.hide()
-		$Fraction_irreductible.hide()
-		$Calcul.show()
-		$Calcul_litteral.hide()
-		$Calcul_litteral_reduction.hide()
-		$Calcul_factorisation.hide()
-		$Percentages.hide()
+		show_notion(notions_show, "Calcul")
 		var question_txt = chosen_question["question"]
 		$Calcul/question/question.text = question_txt
 		question = $Calcul/question/question
