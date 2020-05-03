@@ -901,7 +901,7 @@ __meta__ = {
 }
 
 [node name="question" type="HBoxContainer" parent="Percentages"]
-margin_left = -282.0
+margin_left = -393.0
 margin_top = -149.0
 margin_right = 613.0
 margin_bottom = -42.0
@@ -914,7 +914,7 @@ __meta__ = {
 
 [node name="question" type="Label" parent="Percentages/question"]
 margin_top = 16.0
-margin_right = 895.0
+margin_right = 1006.0
 margin_bottom = 91.0
 size_flags_horizontal = 3
 size_flags_vertical = 6

@@ -19,6 +19,20 @@ var calcul_2 : Dictionary = {}
 var calcul_3 : Dictionary = {}
 var calcul_4 : Dictionary = {}
 
+const addition_fractions_simple = 0;const soustraction_fractions_simple = 1;const addition_fractions_multiple = 2
+const soustration_fractions_multiple = 3;const addition_fractions_general = 4;const soustraction_fractions_general = 5
+const multiplication_fractions = 6;const division_fractions = 7;const fractions_irreductible = 8
+const tester_valeur = 9;const tester_egalite_simple = 10;const tester_egalite_generale = 11
+const reduire_sans_parentheses = 12;const reduire_avec_parentheses = 13;const developpement_simple = 14
+const developpement_double = 15;const factorisarion_simple = 16;const factorisation_id_remarquable = 17
+const addition_entiers = 18;const soustraction_entiers = 19;const multiplication_entiers = 20
+const division_entiers = 21;const addition_decimaux = 22;const soustraction_decimaux = 23
+const multiplication_decimaux = 24;const division_decimaux = 25;const addition_relatifs = 26
+const soustraction_relatifs = 27;const multiplication_relatifs = 28;const division_relatifs = 29
+const appliquer_pourcentage = 30;const trouver_pourcentage_simple = 31;const trouver_pourcentage = 32
+const priorites_sans_parentheses = 33;const priorites_avec_parentheses = 34;const decomposition = 35
+
+
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
 
@@ -38,7 +52,7 @@ func setup_question(dict : Array) -> void:
 	add_child(timer)
 
 	print ("theme : ", random_theme)
-	if random_theme < 8:
+	if random_theme < fractions_irreductible:
 		$Fractions.show()
 		$Fraction_irreductible.hide()
 		$Calcul.hide()
@@ -53,7 +67,7 @@ func setup_question(dict : Array) -> void:
 		var frac_2 = chosen_question["question"][2]
 		$Fractions/question/fraction_2.texture = FileBankUtils.loaded_fractions[frac_2]
 		question = $Fractions/question/operator
-	elif random_theme == 8:
+	elif random_theme == fractions_irreductible:
 		$Fractions.hide()
 		$Fraction_irreductible.show()
 		$Calcul.hide()
@@ -66,7 +80,7 @@ func setup_question(dict : Array) -> void:
 		var frac = chosen_question["question"][1]
 		$Fraction_irreductible/question/fraction.texture = FileBankUtils.loaded_fractions[frac]
 		question = $Fraction_irreductible/question/question
-	elif random_theme == 9:
+	elif random_theme == tester_valeur:
 		$Fractions.hide()
 		$Fraction_irreductible.hide()
 		$Calcul.hide()
@@ -81,7 +95,7 @@ func setup_question(dict : Array) -> void:
 		var value = chosen_question["question"][2]
 		$Calcul_litteral/question/value.text = value
 		question = $Calcul_litteral/question/equation
-	elif random_theme == 12 or random_theme == 13:
+	elif random_theme == reduire_sans_parentheses or random_theme == reduire_avec_parentheses:
 		$Fractions.hide()
 		$Fraction_irreductible.hide()
 		$Calcul.hide()
@@ -96,7 +110,7 @@ func setup_question(dict : Array) -> void:
 		var value = chosen_question["question"][2]
 		$Calcul_litteral_reduction/question/value.text = value
 		question = $Calcul_litteral_reduction/question/equation
-	elif random_theme == 16:
+	elif random_theme == factorisarion_simple:
 		$Fractions.hide()
 		$Fraction_irreductible.hide()
 		$Calcul.hide()
@@ -109,7 +123,8 @@ func setup_question(dict : Array) -> void:
 		var equation = chosen_question["question"][1]
 		$Calcul_factorisation/question/equation.text = equation
 		question = $Calcul_factorisation/question/equation
-	elif random_theme == 31 or random_theme == 32 or random_theme == 33:
+	elif (random_theme == appliquer_pourcentage or random_theme == trouver_pourcentage_simple 
+		  or random_theme == trouver_pourcentage):
 		$Fractions.hide()
 		$Fraction_irreductible.hide()
 		$Calcul.hide()
@@ -134,7 +149,7 @@ func setup_question(dict : Array) -> void:
 
 	answers = chosen_question["answers"]
 
-	if random_theme < 8:
+	if random_theme < fractions_irreductible:
 		var frac_1 = answers[0] 
 		$Fractions/Control/answer/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1["text"]]
 		var frac_2 = answers[1] 
@@ -146,7 +161,7 @@ func setup_question(dict : Array) -> void:
 		control = $Fractions/Control
 		hbox = $Fractions/Control/answer
 		buttons = $Fractions/Control/Buttons_fractions
-	elif random_theme == 8:
+	elif random_theme == fractions_irreductible:
 		var frac_1 = answers[0]
 		print (frac_1["text"])
 		$Fraction_irreductible/Control/answer/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1["text"]]
@@ -159,7 +174,7 @@ func setup_question(dict : Array) -> void:
 		control = $Fraction_irreductible/Control
 		hbox = $Fraction_irreductible/Control/answer
 		buttons = $Fraction_irreductible/Control/Buttons_irreductible
-	elif random_theme == 9:
+	elif random_theme == tester_valeur:
 		calcul_1 = answers[0]
 		$Calcul_litteral/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
@@ -171,7 +186,7 @@ func setup_question(dict : Array) -> void:
 		control = $Calcul_litteral/Control
 		hbox = $Calcul_litteral/Control/answer
 		buttons = $Calcul_litteral/Control/buttons_litteral
-	elif random_theme == 12 or random_theme == 13:
+	elif random_theme == reduire_sans_parentheses or random_theme == reduire_avec_parentheses:
 		calcul_1 = answers[0]
 		$Calcul_litteral_reduction/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
@@ -183,7 +198,7 @@ func setup_question(dict : Array) -> void:
 		control = $Calcul_litteral_reduction/Control
 		hbox = $Calcul_litteral_reduction/Control/answer
 		buttons = $Calcul_litteral_reduction/Control/buttons_litteral
-	elif random_theme == 16 :
+	elif random_theme == factorisarion_simple :
 		calcul_1 = answers[0]
 		$Calcul_factorisation/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
@@ -195,7 +210,8 @@ func setup_question(dict : Array) -> void:
 		control = $Calcul_factorisation/Control
 		hbox = $Calcul_factorisation/Control/answer
 		buttons = $Calcul_factorisation/Control/buttons_factorisation
-	elif random_theme == 31 or random_theme == 32 or random_theme == 33:
+	elif (random_theme == appliquer_pourcentage or random_theme == trouver_pourcentage_simple 
+		  or random_theme == trouver_pourcentage):
 		calcul_1 = answers[0]
 		$Percentages/Control/answer/Label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
