@@ -595,7 +595,6 @@ margin_right = 680.683
 margin_bottom = 256.64
 text = "Fractions"
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -609,10 +608,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="back_+_-" type="TextureRect" parent="Fraction/Control"]
-margin_left = 158.093
-margin_top = 20.1065
-margin_right = 531.093
+[node name="back_+" type="TextureRect" parent="Fraction/Control"]
+margin_left = 25.1289
+margin_top = 18.9985
+margin_right = 398.129
+margin_bottom = 518.999
+rect_scale = Vector2( 0.6, 0.35 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_-" type="TextureRect" parent="Fraction/Control"]
+margin_left = 289.949
+margin_top = 20.1066
+margin_right = 662.949
 margin_bottom = 520.107
 rect_scale = Vector2( 0.6, 0.35 )
 texture = ExtResource( 5 )
@@ -621,9 +631,9 @@ __meta__ = {
 }
 
 [node name="back_x___" type="TextureRect" parent="Fraction/Control"]
-margin_left = 378.0
+margin_left = 530.909
 margin_top = 17.0
-margin_right = 737.0
+margin_right = 889.909
 margin_bottom = 517.0
 rect_scale = Vector2( 0.6, 0.35 )
 texture = ExtResource( 5 )
@@ -632,16 +642,16 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Fraction/Control"]
-margin_left = 169.794
-margin_top = 30.6673
-margin_right = 634.794
-margin_bottom = 170.667
+margin_left = 46.0
+margin_top = 35.0
+margin_right = 814.0
+margin_bottom = 175.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fraction_additions_oustraction" type="VBoxContainer" parent="Fraction/Control/HBoxContainer"]
-margin_right = 230.0
+[node name="fraction_additions" type="VBoxContainer" parent="Fraction/Control/HBoxContainer"]
+margin_right = 253.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -649,18 +659,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="+_-" type="Label" parent="Fraction/Control/HBoxContainer/fraction_additions_oustraction"]
-margin_right = 230.0
+[node name="addition" type="Label" parent="Fraction/Control/HBoxContainer/fraction_additions"]
+margin_right = 253.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "     Addition / Soustraction"
+text = "           Addition "
 
-[node name="même_dénominateur" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions_oustraction"]
+[node name="+_même_dénominateur" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
 margin_top = 36.0
-margin_right = 230.0
+margin_right = 253.0
 margin_bottom = 68.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -672,9 +682,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="dénominateur_multiples" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions_oustraction"]
+[node name="+_dénominateur_multiples" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
 margin_top = 72.0
-margin_right = 230.0
+margin_right = 253.0
 margin_bottom = 104.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -686,9 +696,70 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cas_général" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions_oustraction"]
+[node name="+_cas_général" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
 margin_top = 108.0
-margin_right = 230.0
+margin_right = 253.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Cas général"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fraction_soustractions" type="VBoxContainer" parent="Fraction/Control/HBoxContainer"]
+margin_left = 257.0
+margin_right = 510.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="soustraction" type="Label" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
+margin_right = 253.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "            Soustraction"
+
+[node name="-_même_dénominateur" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
+margin_top = 36.0
+margin_right = 253.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Même dénominateur"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="-_dénominateur_multiples" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
+margin_top = 72.0
+margin_right = 253.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Dénominateur multiple"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="-_cas_général" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
+margin_top = 108.0
+margin_right = 253.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -701,8 +772,8 @@ __meta__ = {
 }
 
 [node name="fraction_multiplication_division" type="VBoxContainer" parent="Fraction/Control/HBoxContainer"]
-margin_left = 234.0
-margin_right = 465.0
+margin_left = 514.0
+margin_right = 768.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -711,7 +782,7 @@ __meta__ = {
 }
 
 [node name="fraction" type="Label" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
-margin_right = 231.0
+margin_right = 254.0
 margin_bottom = 44.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -721,7 +792,7 @@ text = "Multiplication / Division"
 
 [node name="fraction_multiplication" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
 margin_top = 48.0
-margin_right = 231.0
+margin_right = 254.0
 margin_bottom = 92.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -732,7 +803,7 @@ text = "Multiplication"
 
 [node name="fraction_division" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
 margin_top = 96.0
-margin_right = 231.0
+margin_right = 254.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
