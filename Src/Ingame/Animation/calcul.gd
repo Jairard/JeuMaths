@@ -51,7 +51,7 @@ func get_answer_listener() -> Array:
 
 func setup_question(dict : Array) -> void:
 
-	var random_theme 	: int 			= 8#RandomUtils.randi_to(len(dict))
+	var random_theme 	: int 			= 5#RandomUtils.randi_to(len(dict))
 	var questions		: Array 		= dict[random_theme]["questions"]
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
