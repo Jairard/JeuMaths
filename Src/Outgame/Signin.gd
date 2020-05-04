@@ -29,33 +29,33 @@ var lessons_path : Array = ["_4_Operations/Control/HBoxContainer/questions_inter
 "_4_Operations/Control/HBoxContainer/questions_relatives/soustraction_relatifs",
  "_4_Operations/Control/HBoxContainer/questions_relatives/multiplication_relatifs",
 "_4_Operations/Control/HBoxContainer/questions_relatives/division_relatifs",
- "_4_Operations/Control/HBoxContainer/questions_priorities/priorités_sans_parenthèses",
-"_4_Operations/Control/HBoxContainer/questions_priorities/priorités_avec_parenthèses",
-"Literal_calculation/Control/HBoxContainer/Use/tester_valeur",
-"Literal_calculation/Control/HBoxContainer/Use/ax+b=c",
-"Literal_calculation/Control/HBoxContainer/Use/ax+b=cxd",
-"Literal_calculation/Control/HBoxContainer/Reduce/réduction_sans_parenthèses",
-"Literal_calculation/Control/HBoxContainer/Reduce/réduction_avec_parenthèses",
+ "_4_Operations/Control/HBoxContainer/questions_priorities/priorités_simple",
+"_4_Operations/Control/HBoxContainer/questions_priorities/priorités_parenthèse",
+"Literal_calculation/Control/HBoxContainer/Use/calcul_valeur",
+"Literal_calculation/Control/HBoxContainer/Use/tester_égalité_simple",
+"Literal_calculation/Control/HBoxContainer/Use/tester_égalité_général",
+"Literal_calculation/Control/HBoxContainer/Reduce/réduire_simple",
+"Literal_calculation/Control/HBoxContainer/Reduce/réduire_parenthèse",
 "Literal_calculation/Control/HBoxContainer/Distribute/développement_simple",
 "Literal_calculation/Control/HBoxContainer/Distribute/développement_double",
-"Literal_calculation/Control/HBoxContainer/Distribute/factorisation",
-"Literal_calculation/Control/HBoxContainer/Distribute/a²-b²=(a-b)(a+b)",
-"Fraction/Control/HBoxContainer/fraction_additions/+_même_dénominateur",
-"Fraction/Control/HBoxContainer/fraction_additions/+_dénominateur_multiples",
-"Fraction/Control/HBoxContainer/fraction_additions/+_cas_général",
-"Fraction/Control/HBoxContainer/fraction_soustractions/-_même_dénominateur",
-"Fraction/Control/HBoxContainer/fraction_soustractions/-_dénominateur_multiples",
-"Fraction/Control/HBoxContainer/fraction_soustractions/-_cas_général",
-"Fraction/Control/HBoxContainer/fraction_multiplication_division/fraction_multiplication",
-"Fraction/Control/HBoxContainer/fraction_multiplication_division/fraction_division",
+"Literal_calculation/Control/HBoxContainer/Distribute/factorisation_simple",
+"Literal_calculation/Control/HBoxContainer/Distribute/factorisation_id_rem",
+"Fraction/Control/HBoxContainer/fraction_additions/addition_fraction_simple",
+"Fraction/Control/HBoxContainer/fraction_additions/addition_fraction_multiple",
+"Fraction/Control/HBoxContainer/fraction_additions/addition_fraction_général",
+"Fraction/Control/HBoxContainer/fraction_soustractions/soustraction_fraction_simple",
+"Fraction/Control/HBoxContainer/fraction_soustractions/soustraction_fraction_multiple",
+"Fraction/Control/HBoxContainer/fraction_soustractions/soustraction_fraction_général",
+"Fraction/Control/HBoxContainer/fraction_multiplication_division/multiplication_fraction",
+"Fraction/Control/HBoxContainer/fraction_multiplication_division/division_fraction",
 "Arithmetic/Control/HBoxContainer/arithmetic/décomposition",
 "Arithmetic/Control/HBoxContainer/arithmetic/fraction_irréductible",
 "Conversion/Control/HBoxContainer/Conversion/conversion_longueurs",
 "Conversion/Control/HBoxContainer/Conversion/conversion_aires",
 "Conversion/Control/HBoxContainer/Conversion/conversion_volumes",
-"Percentage/Control/HBoxContainer/Percentage/appliquer_pourcentages",
-"Percentage/Control/HBoxContainer/Percentage/trouver_pourcentages_simple",
-"Percentage/Control/HBoxContainer/Percentage/trouver_pourcentages"]
+"Percentage/Control/HBoxContainer/Percentage/appliquer_pourcentage",
+"Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage_simple",
+"Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage"]
 
 var lessons_list : Array = []
 var lessons : Array = []
@@ -79,7 +79,7 @@ func _input(event):
 #	if event.is_action_released("clic"):
 #		check_click()
 	if (event is InputEventMouseButton && event.pressed):
-		yield(get_tree().create_timer(.1), "timeout")
+		yield(get_tree().create_timer(.2), "timeout")
 		check_click()
 
 func show_notion(notions_show : Array, lesson : String) -> void:

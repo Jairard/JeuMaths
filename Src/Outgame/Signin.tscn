@@ -343,7 +343,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "        Priorités"
 
-[node name="priorités_sans_parenthèses" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
+[node name="priorités_simple" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
 margin_top = 48.0
 margin_right = 148.0
 margin_bottom = 72.0
@@ -352,9 +352,9 @@ size_flags_vertical = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Sans parenthèses"
+text = "prioriés simple"
 
-[node name="priorités_avec_parenthèses" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
+[node name="priorités_parenthèse" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
 margin_top = 96.0
 margin_right = 148.0
 margin_bottom = 120.0
@@ -363,7 +363,7 @@ size_flags_vertical = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Avec parenthèses"
+text = "priorités_parenthèse"
 
 [node name="Literal_calculation" type="CheckBox" parent="."]
 margin_left = 415.79
@@ -446,7 +446,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "     Utiliser une expression"
 
-[node name="tester_valeur" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
+[node name="calcul_valeur" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
 margin_top = 36.0
 margin_right = 220.0
 margin_bottom = 68.0
@@ -455,12 +455,12 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Calculer avec une valeur"
+text = "calcul valeur"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ax+b=c" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
+[node name="tester_égalité_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
 margin_top = 72.0
 margin_right = 220.0
 margin_bottom = 104.0
@@ -469,12 +469,12 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "ax + b = c"
+text = "tester égalité simple"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ax+b=cxd" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
+[node name="tester_égalité_général" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
 margin_top = 108.0
 margin_right = 220.0
 margin_bottom = 140.0
@@ -483,7 +483,7 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "ax + b = cx + d"
+text = "tester égalité général"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -507,7 +507,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "    Réduire une expression"
 
-[node name="réduction_sans_parenthèses" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
+[node name="réduire_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
 margin_top = 48.0
 margin_right = 220.0
 margin_bottom = 92.0
@@ -516,9 +516,9 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Sans parenthèses"
+text = "réduire simple"
 
-[node name="réduction_avec_parenthèses" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
+[node name="réduire_parenthèse" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
 margin_top = 96.0
 margin_right = 220.0
 margin_bottom = 140.0
@@ -527,7 +527,7 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Avec parenthèses"
+text = "réduire parenthèse"
 
 [node name="Distribute" type="VBoxContainer" parent="Literal_calculation/Control/HBoxContainer"]
 margin_left = 448.0
@@ -568,7 +568,7 @@ custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Développement double"
 
-[node name="factorisation" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
+[node name="factorisation_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
 margin_top = 88.0
 margin_right = 221.0
 margin_bottom = 112.0
@@ -576,9 +576,9 @@ size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Factorisation"
+text = "factorisation simple"
 
-[node name="a²-b²=(a-b)(a+b)" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
+[node name="factorisation_id_rem" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
 margin_top = 116.0
 margin_right = 221.0
 margin_bottom = 140.0
@@ -586,7 +586,7 @@ size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "a² - b² = (a - b) (a + b)"
+text = "factorisation id rem"
 
 [node name="Fraction" type="CheckBox" parent="."]
 margin_left = 594.683
@@ -668,7 +668,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "           Addition "
 
-[node name="+_même_dénominateur" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
+[node name="addition_fraction_simple" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
 margin_top = 36.0
 margin_right = 253.0
 margin_bottom = 68.0
@@ -677,12 +677,12 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Même dénominateur"
+text = "addition fraction simple"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="+_dénominateur_multiples" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
+[node name="addition_fraction_multiple" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
 margin_top = 72.0
 margin_right = 253.0
 margin_bottom = 104.0
@@ -691,12 +691,12 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Dénominateur multiple"
+text = "addition fraction multiple"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="+_cas_général" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
+[node name="addition_fraction_général" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
 margin_top = 108.0
 margin_right = 253.0
 margin_bottom = 140.0
@@ -705,7 +705,7 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Cas général"
+text = "addition fraction général"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -729,7 +729,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "            Soustraction"
 
-[node name="-_même_dénominateur" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
+[node name="soustraction_fraction_simple" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
 margin_top = 36.0
 margin_right = 253.0
 margin_bottom = 68.0
@@ -738,12 +738,12 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Même dénominateur"
+text = "soustraction fraction simple"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="-_dénominateur_multiples" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
+[node name="soustraction_fraction_multiple" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
 margin_top = 72.0
 margin_right = 253.0
 margin_bottom = 104.0
@@ -752,12 +752,12 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Dénominateur multiple"
+text = "soustraction fraction multiple"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="-_cas_général" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
+[node name="soustraction_fraction_général" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
 margin_top = 108.0
 margin_right = 253.0
 margin_bottom = 140.0
@@ -766,7 +766,7 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Cas général"
+text = "soustraction fraction général"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -790,7 +790,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "Multiplication / Division"
 
-[node name="fraction_multiplication" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
+[node name="multiplication_fraction" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
 margin_top = 48.0
 margin_right = 254.0
 margin_bottom = 92.0
@@ -799,9 +799,9 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Multiplication"
+text = "multiplication fraction"
 
-[node name="fraction_division" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
+[node name="division_fraction" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
 margin_top = 96.0
 margin_right = 254.0
 margin_bottom = 140.0
@@ -810,7 +810,7 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Division"
+text = "division fraction"
 
 [node name="Arithmetic" type="CheckBox" parent="."]
 margin_left = 761.275
@@ -1030,7 +1030,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="appliquer_pourcentages" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
+[node name="appliquer_pourcentage" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
 margin_right = 194.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
@@ -1038,12 +1038,12 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Appliquer %"
+text = "appliquer pourcentage"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="trouver_pourcentages_simple" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
+[node name="trouver_pourcentage_simple" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
 margin_top = 36.0
 margin_right = 194.0
 margin_bottom = 68.0
@@ -1052,12 +1052,12 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Trouver %"
+text = "trouver pourcentage simple"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="trouver_pourcentages" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
+[node name="trouver_pourcentage" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
 margin_top = 72.0
 margin_right = 194.0
 margin_bottom = 104.0
@@ -1066,7 +1066,7 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "% augmentation"
+text = "trouver pourcentage"
 __meta__ = {
 "_edit_use_anchors_": false
 }
