@@ -104,7 +104,7 @@ def write_hash(hash, filePath):
         hashFile.write(hash)
 
 if __name__ == '__main__':
-    fileName = "fraction.txt"
+    fileName = "Questions.json"
     dst_folder = "Fractions"
     print("Reading data from '%s'" % fileName)
     json, hash = get_json_from_file(fileName)
