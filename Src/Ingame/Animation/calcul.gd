@@ -32,7 +32,7 @@ const soustraction_relatifs = 27;const multiplication_relatifs = 28;const divisi
 const appliquer_pourcentage = 30;const trouver_pourcentage_simple = 31;const trouver_pourcentage = 32
 const priorites_sans_parentheses = 33;const priorites_avec_parentheses = 34;const decomposition = 35
 
-var notions_show : Array = ["Fractions", "Fraction_irreductible", "Calcul", "Calcul_litteral",
+var notions_show : Array = ["Fractions", "Fractions_irreductible", "Calcul", "Calcul_litteral",
 					"Calcul_litteral_reduction", "Calcul_factorisation", "Percentages"]
 
 func show_notion(notions_show : Array, lesson : String) -> void:
@@ -73,10 +73,10 @@ func setup_question(dict : Array) -> void:
 	elif random_theme == fractions_irreductible:
 		show_notion(notions_show, "Fractions_irreductible")
 		var question_txt = chosen_question["question"][0]
-		$Fraction_irreductible/question/question.text = question_txt
+		$Fractions_irreductible/question/question.text = question_txt
 		var frac = chosen_question["question"][1]
-		$Fraction_irreductible/question/fraction.texture = FileBankUtils.loaded_fractions[frac]
-		question = $Fraction_irreductible/question/question
+		$Fractions_irreductible/question/fraction.texture = FileBankUtils.loaded_fractions[frac]
+		question = $Fractions_irreductible/question/question
 	elif random_theme == tester_valeur:
 		show_notion(notions_show, "Calcul_litteral")
 		var title = chosen_question["question"][0]
@@ -130,17 +130,16 @@ func setup_question(dict : Array) -> void:
 		buttons = $Fractions/Control/Buttons_fractions
 	elif random_theme == fractions_irreductible:
 		var frac_1 = answers[0]
-		print (frac_1["text"])
-		$Fraction_irreductible/Control/answer/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1["text"]]
+		$Fractions_irreductible/Control/answer/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1["text"]]
 		var frac_2 = answers[1]
-		$Fraction_irreductible/Control/answer/fraction_2.texture = FileBankUtils.loaded_fractions[frac_2["text"]]
+		$Fractions_irreductible/Control/answer/fraction_2.texture = FileBankUtils.loaded_fractions[frac_2["text"]]
 		var frac_3 = answers[2]
-		$Fraction_irreductible/Control/answer/fraction_3.texture = FileBankUtils.loaded_fractions[frac_3["text"]]
+		$Fractions_irreductible/Control/answer/fraction_3.texture = FileBankUtils.loaded_fractions[frac_3["text"]]
 		var frac_4 = answers[3]
-		$Fraction_irreductible/Control/answer/fraction_4.texture = FileBankUtils.loaded_fractions[frac_4["text"]]
-		control = $Fraction_irreductible/Control
-		hbox = $Fraction_irreductible/Control/answer
-		buttons = $Fraction_irreductible/Control/Buttons_irreductible
+		$Fractions_irreductible/Control/answer/fraction_4.texture = FileBankUtils.loaded_fractions[frac_4["text"]]
+		control = $Fractions_irreductible/Control
+		hbox = $Fractions_irreductible/Control/answer
+		buttons = $Fractions_irreductible/Control/Buttons_irreductible
 	elif random_theme == tester_valeur:
 		calcul_1 = answers[0]
 		$Calcul_litteral/Control/answer/label1.text = str(calcul_1["text"])

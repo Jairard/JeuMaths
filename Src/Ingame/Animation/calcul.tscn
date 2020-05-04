@@ -186,14 +186,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fraction_irreductible" type="Control" parent="."]
+[node name="Fractions_irreductible" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="question" type="HBoxContainer" parent="Fraction_irreductible"]
+[node name="question" type="HBoxContainer" parent="Fractions_irreductible"]
 margin_left = -148.479
 margin_top = -119.432
 margin_right = 753.521
@@ -206,7 +206,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="question" type="Label" parent="Fraction_irreductible/question"]
+[node name="question" type="Label" parent="Fractions_irreductible/question"]
 margin_top = 25.0
 margin_right = 401.0
 margin_bottom = 81.0
@@ -215,7 +215,7 @@ size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
 align = 1
 
-[node name="fraction" type="TextureRect" parent="Fraction_irreductible/question"]
+[node name="fraction" type="TextureRect" parent="Fractions_irreductible/question"]
 margin_left = 501.0
 margin_top = 53.0
 margin_right = 902.0
@@ -223,7 +223,7 @@ margin_bottom = 53.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="Control" type="Control" parent="Fraction_irreductible"]
+[node name="Control" type="Control" parent="Fractions_irreductible"]
 margin_left = 214.531
 margin_top = -24.5547
 margin_right = 254.531
@@ -234,7 +234,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="answer" type="HBoxContainer" parent="Fraction_irreductible/Control"]
+[node name="answer" type="HBoxContainer" parent="Fractions_irreductible/Control"]
 margin_left = -400.0
 margin_top = 140.0
 margin_right = 347.0
@@ -246,14 +246,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fraction_1" type="TextureRect" parent="Fraction_irreductible/Control/answer"]
+[node name="fraction_1" type="TextureRect" parent="Fractions_irreductible/Control/answer"]
 show_behind_parent = true
 margin_right = 183.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="fraction_2" type="TextureRect" parent="Fraction_irreductible/Control/answer"]
+[node name="fraction_2" type="TextureRect" parent="Fractions_irreductible/Control/answer"]
 show_behind_parent = true
 margin_left = 187.0
 margin_right = 370.0
@@ -261,7 +261,7 @@ margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="fraction_3" type="TextureRect" parent="Fraction_irreductible/Control/answer"]
+[node name="fraction_3" type="TextureRect" parent="Fractions_irreductible/Control/answer"]
 show_behind_parent = true
 margin_left = 374.0
 margin_right = 557.0
@@ -269,7 +269,7 @@ margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="fraction_4" type="TextureRect" parent="Fraction_irreductible/Control/answer"]
+[node name="fraction_4" type="TextureRect" parent="Fractions_irreductible/Control/answer"]
 show_behind_parent = true
 margin_left = 561.0
 margin_right = 747.0
@@ -277,7 +277,7 @@ margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Buttons_irreductible" type="HBoxContainer" parent="Fraction_irreductible/Control"]
+[node name="Buttons_irreductible" type="HBoxContainer" parent="Fractions_irreductible/Control"]
 margin_left = -400.0
 margin_top = 141.0
 margin_right = 241.0
@@ -287,7 +287,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button1" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
+[node name="Button1" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 85.0
 margin_bottom = 59.0
@@ -297,7 +297,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
+[node name="Button2" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 185.0
 margin_right = 270.0
@@ -308,7 +308,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
+[node name="Button3" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 370.0
 margin_right = 455.0
@@ -319,7 +319,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button4" type="Button" parent="Fraction_irreductible/Control/Buttons_irreductible"]
+[node name="Button4" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 555.0
 margin_right = 641.0
@@ -1032,10 +1032,10 @@ size_flags_vertical = 3
 [connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button4" to="." method="_on_Button4_pressed"]
-[connection signal="pressed" from="Fraction_irreductible/Control/Buttons_irreductible/Button1" to="." method="_on_Button1_pressed"]
-[connection signal="pressed" from="Fraction_irreductible/Control/Buttons_irreductible/Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="Fraction_irreductible/Control/Buttons_irreductible/Button3" to="." method="_on_Button3_pressed"]
-[connection signal="pressed" from="Fraction_irreductible/Control/Buttons_irreductible/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul1" to="." method="_on_calcul1_pressed"]
 [connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul2" to="." method="_on_calcul2_pressed"]
 [connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul3" to="." method="_on_calcul3_pressed"]
