@@ -1,5 +1,5 @@
 [{
-    "text": "addition_fractions_simple",
+    "text": "addition_fraction_simple",
     "questions": [{
             "question": ["3_4.png", "+", "7_4.png"],
             "answers": [{
@@ -4004,7 +4004,7 @@
 },
 
 {
-    "text": "soustraction_fractions_simple",
+    "text": "soustraction_fraction_simple",
     "questions": [{
             "question": ["5_2.png", "-", "1_2.png"],
             "answers": [{
@@ -8009,7 +8009,7 @@
 },
 
 {
-    "text": "addition_fractions_multiple",
+    "text": "addition_fraction_multiple",
     "questions": [{
             "question": ["6_10.png", "+", "6_30.png"],
             "answers": [{
@@ -12014,7 +12014,7 @@
 },
 
 {
-    "text": "soustraction_fractions_multiple",
+    "text": "soustraction_fraction_multiple",
     "questions": [{
             "question": ["5_4.png", "-", "2_12.png"],
             "answers": [{
@@ -16019,7 +16019,7 @@
 },
 
 {
-    "text": "addition_fractions_général",
+    "text": "addition_fraction_général",
     "questions": [{
             "question": ["2_6.png", "+", "5_7.png"],
             "answers": [{
@@ -20024,7 +20024,7 @@
 },
 
 {
-    "text": "soustraction_fractions_général",
+    "text": "soustraction_fraction_général",
     "questions": [{
             "question": ["1_7.png", "-", "2_4.png"],
             "answers": [{
@@ -24029,7 +24029,7 @@
 },
 
 {
-    "text": "multiplication_fractions",
+    "text": "multiplication_fraction",
     "questions": [{
             "question": ["2_2.png", "x", "6_10.png"],
             "answers": [{
@@ -28034,7 +28034,7 @@
 },
 
 {
-    "text": "division_fractions",
+    "text": "division_fraction",
     "questions": [{
             "question": ["9_4.png", "÷", "1_2.png"],
             "answers": [{
@@ -40049,7 +40049,7 @@
 },
 
 {
-    "text": "Tester_egalite_simple",
+    "text": "tester_égalité_simple",
     "questions": [{
             "question": "L'égalité -10x -2 = -22 est vraie pour x = …",
             "answers": [{
@@ -44054,7 +44054,7 @@
 },
 
 {
-    "text": "Tester_egalite_générale",
+    "text": "tester_égalité_générale",
     "questions": [{
             "question": "L'égalité 8x+10 = -1x -35 est vraie pour x = …",
             "answers": [{
@@ -120149,7 +120149,7 @@
 },
 
 {
-    "text": "Appliquer_pourcentage",
+    "text": "appliquer_pourcentage",
     "questions": [{
             "question": "75% de 380 est égal à …",
             "answers": [{
@@ -128159,7 +128159,7 @@
 },
 
 {
-    "text": "trouver_pourcentage_augm_réduc",
+    "text": "trouver_pourcentage",
     "questions": [{
             "question": "Un article à 160 € vaut aujourd'hui 280 €. Le pourcentage d'augmentation est de …",
             "answers": [{
