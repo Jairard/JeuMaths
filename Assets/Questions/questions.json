@@ -121201,7 +121201,7 @@
                     "is_good_answer": false
                 },
                 {
-                    "text": "3,3€ ",
+                    "text": "3,3��� ",
                     "is_good_answer": false
                 },
                 {
@@ -132164,7 +132164,7 @@
 },
 
 {
-    "text": "Priorités_simple",
+    "text": "priorités_simple",
     "questions": [{
             "question": "152 + 5 - 10",
             "answers": [{
@@ -136169,7 +136169,7 @@
 },
 
 {
-    "text": "priorités_avec_parenthèses",
+    "text": "priorités_parenthèse",
     "questions": [{
             "question": "4 × (8-6)",
             "answers": [{
