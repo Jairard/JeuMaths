@@ -49,12 +49,12 @@ func get_answer_listener() -> Array:
 	return answer_listeners
 
 
-func setup_question(dict : Array) -> void:
+func setup_question(exercices : Array, constants : Array) -> void:
 
-	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
-	var theme = dict[random_theme]["text"]
+	var random_theme 	: int 			= RandomUtils.randi_to(len(exercices))
+	var theme = constants[random_theme]
 	print ("theme : ", theme)
-	var questions		: Array 		= dict[random_theme]["questions"]
+	var questions		: Array 		= exercices[random_theme]["questions"]
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
 
@@ -62,7 +62,7 @@ func setup_question(dict : Array) -> void:
 	timer = NodeUtils.create_timer(4, true, true)
 	add_child(timer)
 
-	if random_theme < fractions_irreductible:
+	if theme < fractions_irreductible:
 		show_notion(notions_show, "Fractions")
 		var frac_1 = chosen_question["question"][0]
 		$Fractions/question/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1]
@@ -71,14 +71,14 @@ func setup_question(dict : Array) -> void:
 		var frac_2 = chosen_question["question"][2]
 		$Fractions/question/fraction_2.texture = FileBankUtils.loaded_fractions[frac_2]
 		question = $Fractions/question/operator
-	elif random_theme == fractions_irreductible:
+	elif theme == fractions_irreductible:
 		show_notion(notions_show, "Fractions_irreductible")
 		var question_txt = chosen_question["question"][0]
 		$Fractions_irreductible/question/question.text = question_txt
 		var frac = chosen_question["question"][1]
 		$Fractions_irreductible/question/fraction.texture = FileBankUtils.loaded_fractions[frac]
 		question = $Fractions_irreductible/question/question
-	elif random_theme == tester_valeur:
+	elif theme == tester_valeur:
 		show_notion(notions_show, "Calcul_litteral")
 		var title = chosen_question["question"][0]
 		$Calcul_litteral/question/title.text = title
@@ -87,7 +87,7 @@ func setup_question(dict : Array) -> void:
 		var value = chosen_question["question"][2]
 		$Calcul_litteral/question/value.text = value
 		question = $Calcul_litteral/question/equation
-	elif random_theme == reduire_sans_parentheses or random_theme == reduire_avec_parentheses:
+	elif theme == reduire_sans_parentheses or theme == reduire_avec_parentheses:
 		show_notion(notions_show, "Calcul_litteral_reduction")
 		var title = chosen_question["question"][0]
 		$Calcul_litteral_reduction/question/title.text = title
@@ -96,15 +96,15 @@ func setup_question(dict : Array) -> void:
 		var value = chosen_question["question"][2]
 		$Calcul_litteral_reduction/question/value.text = value
 		question = $Calcul_litteral_reduction/question/equation
-	elif random_theme == factorisarion_simple:
+	elif theme == factorisarion_simple:
 		show_notion(notions_show, "Calcul_factorisation")
 		var title = chosen_question["question"][0]
 		$Calcul_factorisation/question/title.text = title
 		var equation = chosen_question["question"][1]
 		$Calcul_factorisation/question/equation.text = equation
 		question = $Calcul_factorisation/question/equation
-	elif (random_theme == appliquer_pourcentage or random_theme == trouver_pourcentage_simple 
-		  or random_theme == trouver_pourcentage):
+	elif (theme == appliquer_pourcentage or theme == trouver_pourcentage_simple 
+		  or theme == trouver_pourcentage):
 		show_notion(notions_show, "Percentages")
 		var question_txt = chosen_question["question"]
 		$Percentages/question/question.text = question_txt
@@ -117,7 +117,7 @@ func setup_question(dict : Array) -> void:
 
 	answers = chosen_question["answers"]
 
-	if random_theme < fractions_irreductible:
+	if theme < fractions_irreductible:
 		var frac_1 = answers[0] 
 		$Fractions/Control/answer/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1["text"]]
 		var frac_2 = answers[1] 
@@ -129,7 +129,7 @@ func setup_question(dict : Array) -> void:
 		control = $Fractions/Control
 		hbox = $Fractions/Control/answer
 		buttons = $Fractions/Control/Buttons_fractions
-	elif random_theme == fractions_irreductible:
+	elif theme == fractions_irreductible:
 		var frac_1 = answers[0]
 		$Fractions_irreductible/Control/answer/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1["text"]]
 		var frac_2 = answers[1]
@@ -141,7 +141,7 @@ func setup_question(dict : Array) -> void:
 		control = $Fractions_irreductible/Control
 		hbox = $Fractions_irreductible/Control/answer
 		buttons = $Fractions_irreductible/Control/Buttons_irreductible
-	elif random_theme == tester_valeur:
+	elif theme == tester_valeur:
 		calcul_1 = answers[0]
 		$Calcul_litteral/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
@@ -153,7 +153,7 @@ func setup_question(dict : Array) -> void:
 		control = $Calcul_litteral/Control
 		hbox = $Calcul_litteral/Control/answer
 		buttons = $Calcul_litteral/Control/buttons_litteral
-	elif random_theme == reduire_sans_parentheses or random_theme == reduire_avec_parentheses:
+	elif theme == reduire_sans_parentheses or theme == reduire_avec_parentheses:
 		calcul_1 = answers[0]
 		$Calcul_litteral_reduction/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
@@ -165,7 +165,7 @@ func setup_question(dict : Array) -> void:
 		control = $Calcul_litteral_reduction/Control
 		hbox = $Calcul_litteral_reduction/Control/answer
 		buttons = $Calcul_litteral_reduction/Control/buttons_litteral
-	elif random_theme == factorisarion_simple :
+	elif theme == factorisarion_simple :
 		calcul_1 = answers[0]
 		$Calcul_factorisation/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
@@ -177,8 +177,8 @@ func setup_question(dict : Array) -> void:
 		control = $Calcul_factorisation/Control
 		hbox = $Calcul_factorisation/Control/answer
 		buttons = $Calcul_factorisation/Control/buttons_factorisation
-	elif (random_theme == appliquer_pourcentage or random_theme == trouver_pourcentage_simple 
-		  or random_theme == trouver_pourcentage):
+	elif (theme == appliquer_pourcentage or theme == trouver_pourcentage_simple 
+		  or theme == trouver_pourcentage):
 		calcul_1 = answers[0]
 		$Percentages/Control/answer/Label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]

@@ -10,6 +10,18 @@ const init_stats : Dictionary =  {
 									"health_max":70, "scene_counter":0
 									}
 
+var constants : Dictionary = {"addition_fractions_simple" : 0, "soustraction_fractions_simple" : 1,
+"addition_fractions_multiple" : 2, "soustration_fractions_multiple" : 3, "addition_fractions_general" : 4,
+"soustraction_fractions_general" : 5, "multiplication_fractions" : 6, "division_fractions" : 7, 
+"fractions_irreductible" : 8,"tester_valeur" : 9, "tester_egalite_simple" : 10, "tester_egalite_generale" : 11,
+"reduire_sans_parentheses" : 12, "reduire_avec_parentheses" : 13, "developpement_simple" : 14,
+"developpement_double" : 15, "factorisarion_simple" : 16, "factorisation_id_remarquable" : 17,
+"addition_entiers" : 18, "soustraction_entiers" : 19, "multiplication_entiers" : 20,
+"division_entiers" : 21, "addition_decimaux" : 22, "soustraction_decimaux" : 23,
+"multiplication_decimaux" : 24, "division_decimaux" : 25, "addition_relatifs" : 26,
+"soustraction_relatifs" : 27, "multiplication_relatifs" : 28, "division_relatifs" : 29,
+"appliquer_pourcentage" : 30, "trouver_pourcentage_simple" : 31, "trouver_pourcentage" : 32,
+"priorites_sans_parentheses" : 33, "priorites_avec_parentheses" : 34, "decomposition" : 35}
 
 var notions_show : Array = ["_4_Operations/Control", "Literal_calculation/Control", "Fraction/Control", "Arithmetic/Control",
 					"Conversion/Control", "Percentage/Control"]#, "Power", "Fonction"]
@@ -75,8 +87,6 @@ func check_click():
 				itemlist(lessons_list)
 
 func _input(event):
-#	if event.is_action_released("clic"):
-#		check_click()
 	if (event is InputEventMouseButton && event.pressed):
 		yield(get_tree().create_timer(.2), "timeout")
 		check_click()
@@ -156,11 +166,15 @@ func load_stats():
 
 func before_change_scene() -> void:
 	var exercices : Array = []
+	var _constants : Array = []
 	for i in lessons:
 		for j in FileBankUtils.loaded_questions:
 			if j["text"] == i:
 				exercices.append(j)
-	Scene_transition_data.set_data("questions", exercices)
+				if constants[i]:
+					_constants.append(constants[i])
+	print("constants : ", _constants)
+	Scene_transition_data.set_data("questions", exercices, "constants", _constants)
 	load_stats()
 
 func _on_Option_map_item_selected(id):

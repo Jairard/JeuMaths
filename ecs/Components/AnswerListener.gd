@@ -7,6 +7,7 @@ var answr = answer.none
 var scene 		: Node2D = null
 var resource 	: Resource = null
 var questions 
+var constants
 
 func get_answer() :
 	return answr
@@ -14,10 +15,11 @@ func get_answer() :
 func set_answer(answer) -> void :
 	answr = answer
 
-func init(_scene : Node2D, _resource : Resource, _questions) -> void:
+func init(_scene : Node2D, _resource : Resource, _questions, _constants) -> void:
 	scene 		= _scene
 	resource 	= _resource
 	questions = _questions
+	constants = _constants
 
 func set_scene(_scene : Node2D) -> void:
 	  scene = _scene
@@ -25,7 +27,7 @@ func set_scene(_scene : Node2D) -> void:
 func reset() -> void:
 	var scene_parent : Node2D = scene.get_parent()
 	var new_instance : Node2D = resource.instance()
-	new_instance.setup_question(questions)
+	new_instance.setup_question(questions, constants)
 	scene_parent.add_child(new_instance)
 	var listeners : Array = scene.get_answer_listener()
 
