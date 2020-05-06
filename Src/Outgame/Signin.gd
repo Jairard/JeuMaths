@@ -66,7 +66,6 @@ func itemlist(_lessons : Array) -> void:
 		if lessons.count(txt[4]) == 0:
 			$ItemList.add_item(txt[4])
 			lessons += [txt[4]]
-			print (lessons)
 
 func check_click():
 	for i in lessons_path:
@@ -110,7 +109,6 @@ func _ready():
 	add_fight_option()
 	add_featured_option()
 	add_unused_option()
-
 
 func add_map_option_() -> void:
 	$Control_Option/Option_map.set_text("Maps")	
@@ -157,7 +155,12 @@ func load_stats():
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 
 func before_change_scene() -> void:
-	Scene_transition_data.set_data("questions", FileBankUtils.loaded_questions)
+	var exercices : Array = []
+	for i in lessons:
+		for j in FileBankUtils.loaded_questions:
+			if j["text"] == i:
+				exercices.append(j)
+	Scene_transition_data.set_data("questions", exercices)
 	load_stats()
 
 func _on_Option_map_item_selected(id):

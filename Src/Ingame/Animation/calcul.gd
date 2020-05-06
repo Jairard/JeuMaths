@@ -52,6 +52,8 @@ func get_answer_listener() -> Array:
 func setup_question(dict : Array) -> void:
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(dict))
+	var theme = dict[random_theme]["text"]
+	print ("theme : ", theme)
 	var questions		: Array 		= dict[random_theme]["questions"]
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
@@ -60,7 +62,6 @@ func setup_question(dict : Array) -> void:
 	timer = NodeUtils.create_timer(4, true, true)
 	add_child(timer)
 
-	print ("theme : ", random_theme)
 	if random_theme < fractions_irreductible:
 		show_notion(notions_show, "Fractions")
 		var frac_1 = chosen_question["question"][0]
