@@ -6,7 +6,7 @@
 ---------   mettre composant de dégats sur missile, monstre...
 ---------   2ème collision avec le feu pousse le hero                  
 ---------   vector orthogonal : collider.get_normal angle entre vecteur et la normale : -angle pour le rebond
----------   system de pause 
+---------   system de pause : quand pause sur shop + stats, unpause le premier annule la pause
 
                                 |   Positioning  |
  
@@ -25,10 +25,11 @@
                                 |   Add_on  |
 
 ---------   relier les notions cochées au code : liste de notions 
-
+            A Améliorer : liste des notions cliquées : renvoi un dictionnaire 
+            avec seulement ces notions avec un singleton scene_transition_data 
+            => récup les constantes de calcul dans signin pour envoyer 
+            les valeur des entiers qui correspondent aux leçons sélectionnées
 
 calcul:
 match themes
 
-liste des notions cliquées : renvoi un dictionnaire avec seulement ces notions
-avec un singleton scene_transition_data
