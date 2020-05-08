@@ -29,6 +29,8 @@
 1/z_index = 0
 
 [sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [node name="Signin" type="Node2D"]
@@ -595,6 +597,7 @@ margin_right = 680.683
 margin_bottom = 256.64
 text = "Fractions"
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -1101,37 +1104,37 @@ __meta__ = {
 }
 
 [node name="Option_fight" type="OptionButton" parent="Control_Option"]
-margin_left = 507.723
-margin_top = 115.464
-margin_right = 582.723
-margin_bottom = 155.464
+margin_left = 200.782
+margin_top = 22.01
+margin_right = 275.782
+margin_bottom = 62.01
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Option_featured_scenes" type="OptionButton" parent="Control_Option"]
-margin_left = 637.723
-margin_top = 115.464
-margin_right = 712.723
-margin_bottom = 155.464
+margin_left = 306.776
+margin_top = 22.8674
+margin_right = 381.776
+margin_bottom = 62.8674
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Option_unused_scenes" type="OptionButton" parent="Control_Option"]
-margin_left = 767.723
-margin_top = 115.464
-margin_right = 842.723
-margin_bottom = 155.464
+margin_left = 315.029
+margin_top = 80.3116
+margin_right = 390.029
+margin_bottom = 120.312
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Option_map" type="OptionButton" parent="Control_Option"]
-margin_left = 377.723
-margin_top = 115.464
-margin_right = 452.723
-margin_bottom = 155.464
+margin_left = 92.2168
+margin_top = 18.5805
+margin_right = 167.217
+margin_bottom = 58.5805
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1144,25 +1147,30 @@ margin_right = -242.903
 margin_bottom = 95.2473
 
 [node name="ItemList" type="ItemList" parent="."]
-modulate = Color( 1, 1, 1, 0.690196 )
-margin_left = 910.0
-margin_top = 29.0
-margin_right = 1201.0
-margin_bottom = 46.0
+margin_left = 432.0
+margin_top = 25.0
+margin_right = 939.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-auto_height = true
+custom_constants/vseparation = 10
+custom_constants/hseparation = 50
+max_columns = 2
+same_column_width = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="ItemList"]
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0.423529, 0.235294, 1 )
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 422.833
+margin_top = -7.48767
+margin_right = 555.833
+margin_bottom = 34.5123
+bbcode_enabled = true
+bbcode_text = "[wave][center]Combats du jour :"
+text = "Combats du jour :"
 __meta__ = {
 "_edit_use_anchors_": false
 }

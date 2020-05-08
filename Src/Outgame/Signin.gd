@@ -70,21 +70,39 @@ var lessons_path : Array = ["_4_Operations/Control/HBoxContainer/questions_inter
 "Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage"]
 
 var lessons_list : Array = []
-var lessons : Array = []
+var lessons_selected : Array = []
 
 func itemlist(_lessons : Array) -> void:
+	if $ItemList.get_item_count() > 0:
+		$ItemList.clear()
+
+	lessons_selected = []
 	for i in _lessons:
 		var txt = i.split("/")
-		if lessons.count(txt[4]) == 0:
-			$ItemList.add_item(txt[4])
-			lessons += [txt[4]]
+		$ItemList.add_item(txt[4])
+		lessons_selected += [txt[4]]
+	print("lessons_selected : ", lessons_selected)
 
 func check_click():
+	lessons_list = []
 	for i in lessons_path:
 		if get_node(i).pressed:
-			if lessons_list.count(i) == 0 or len(lessons_list) == 0:
-				lessons_list += [i]
-				itemlist(lessons_list)
+			lessons_list += [i]
+	itemlist(lessons_list)
+
+func check_list():
+	for i in lessons_path:
+		var split = i.split("/")
+		var name = split[4]
+		if lessons_selected.has(name):
+			print("i :", i)
+			get_node(i).pressed = false
+
+func _process(delta):
+	for i in lessons_selected:
+		if $ItemList.is_selected(int(i)):
+			$ItemList.remove_item(int(i))
+			check_list()
 
 func _input(event):
 	if (event is InputEventMouseButton && event.pressed):
@@ -167,7 +185,7 @@ func load_stats():
 func before_change_scene() -> void:
 	var exercices : Array = []
 	var _constants : Array = []
-	for i in lessons:
+	for i in lessons_selected:
 		for j in FileBankUtils.loaded_questions:
 			if j["text"] == i:
 				exercices.append(j)
