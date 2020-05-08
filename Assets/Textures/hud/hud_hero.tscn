@@ -2,17 +2,17 @@
 
 [ext_resource path="res://Assets/Textures/hud/hud_hero.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/GUI/icone_degats_png.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Textures/hud/Barre_vie_pleine_2_png.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Textures/hud/Barre_vie_vide_1_png.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/hud/Barre_vie_new_vide_ok_pour_de_vrai_2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/hud/Barre_vie_new_pleine_ok_png.png" type="Texture" id=4]
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=6]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 15
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 15
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -31,7 +31,7 @@ margin_right = 89.5357
 margin_bottom = 57.1081
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.890196, 0.862745, 0.862745, 1 )
 text = "10"
 __meta__ = {
@@ -45,9 +45,9 @@ margin_bottom = 1000.0
 rect_scale = Vector2( 0.04, 0.04 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-value = 100.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 3 )
+value = 9.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
 tint_under = Color( 0.27451, 0.27451, 0.278431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -80,7 +80,7 @@ margin_right = 110.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
