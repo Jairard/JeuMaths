@@ -20,6 +20,8 @@ var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode = null
 var treasure_comp : Component = null
+var move_comp : Component = null
+var input : Component = null
 
 var file = File.new()
 var dict = {}
@@ -35,6 +37,10 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
+
+#	$CanvasLayer/right_controller.connect("input_event", self, "on_input")
+#	$CanvasLayer/left_controller.connect("input_event", self, "on_input")
+	set_process_input(true)
 
 	load_characters()
 	_load_monsters()
@@ -65,7 +71,7 @@ func load_characters() :
 	add_child(ScoreNode)
 	ScoreNode.set_hero_node(heroNode)
 
-	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
+	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 
 
@@ -75,7 +81,7 @@ func load_characters() :
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
-	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
+	move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_jump_impulse(800)
 	move_comp.set_lateral_velocity(300)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
@@ -134,6 +140,9 @@ func _process(delta):
 			FileBankUtils.treasure *= 0.7
 			health_comp_hero.set_health(health_comp_hero.get_health_max())
 
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
+		input.set_jump(true)
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(750, 295), gold, health, damage)
@@ -189,3 +198,19 @@ func load_gold():
 
 func load_platform():
 	EntitiesUtils.create_platform(self, platform, Vector2(12250,550), Vector2(12850,550),  3.5) 
+
+func _on_right_controller_button_down():
+	input.set_right(true)
+	input.set_left(false)
+
+func _on_right_controller_button_up():
+	input.set_right(false)
+	input.set_left(false)
+
+func _on_left_controller_button_up():
+	input.set_right(false)
+	input.set_left(false)
+
+func _on_left_controller_button_down():
+	input.set_right(false)
+	input.set_left(true)

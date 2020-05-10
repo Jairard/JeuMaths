@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Src/Outgame/map_fire.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_png/fond droite.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_bmp/fond_volcan_bitap.bmp" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/GUI/arrowSilver_left.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/GUI/arrowSilver_right.png" type="Texture" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -265,15 +267,38 @@ tile_data = PoolIntArray( -1376111, -1610612732, 0, -1310575, -1610612732, 0, -1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
 modulate = Color( 0.752941, 0.937255, 0, 1 )
 self_modulate = Color( 0.87451, 0.87451, 0.890196, 1 )
 show_behind_parent = true
-margin_left = 269.774
-margin_top = -401.755
-margin_right = 418.774
-margin_bottom = -329.755
+margin_left = 99.3846
+margin_top = 17.8887
+margin_right = 248.385
+margin_bottom = 89.8887
 custom_fonts/font = SubResource( 12 )
 text = "retour"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_controller" type="TextureButton" parent="CanvasLayer"]
+margin_left = 82.0
+margin_top = 546.765
+margin_right = 122.0
+margin_bottom = 586.765
+action_mode = 0
+texture_normal = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right_controller" type="TextureButton" parent="CanvasLayer"]
+margin_left = 965.763
+margin_top = 550.274
+margin_right = 1005.76
+margin_bottom = 590.274
+action_mode = 0
+texture_normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -291,7 +316,7 @@ motion_mirroring = Vector2( 1700, 0 )
 
 [node name="volcano" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 show_behind_parent = true
-position = Vector2( 0.507813, -286.339 )
+position = Vector2( -0.636077, -284.051 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 centered = false
@@ -314,5 +339,11 @@ visible = false
 position = Vector2( 22416.5, 378.697 )
 shape = SubResource( 13 )
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="button_down" from="CanvasLayer/left_controller" to="." method="_on_left_controller_button_down"]
+[connection signal="button_up" from="CanvasLayer/left_controller" to="." method="_on_left_controller_button_up"]
+[connection signal="pressed" from="CanvasLayer/left_controller" to="." method="_on_left_controller_pressed"]
+[connection signal="button_down" from="CanvasLayer/right_controller" to="." method="_on_right_controller_button_down"]
+[connection signal="button_up" from="CanvasLayer/right_controller" to="." method="_on_right_controller_button_up"]
+[connection signal="pressed" from="CanvasLayer/right_controller" to="." method="_on_right_controller_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Missile_spawn" to="." method="_on_Missile_spawn_body_entered"]
