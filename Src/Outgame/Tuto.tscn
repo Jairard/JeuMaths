@@ -665,7 +665,6 @@ shape = SubResource( 33 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
 motion_scale = Vector2( 0.001, 0.001 )
 motion_mirroring = Vector2( 1920, 1080 )
 
