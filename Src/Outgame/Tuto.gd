@@ -62,11 +62,12 @@ func _on_Move_body_entered(body):
 	$First_Spawn/Move/Control_move.show()
 
 func _on_Jump_body_entered(body):
-	$First_Spawn/Jump/jump.show()
+	$First_Spawn/Jump/Label3.show()
 
 func _on_Monster_body_entered(body):
 	$First_Spawn/Monster/Control_monster.show()
 	$First_Spawn/Monster/Monster_spawn.show()
+	$First_Spawn/Monster/Control_monster/RichTextLabel.add_font_override("mono_font",  load("res://font/Montserrat-Regular.ttf"))
 
 func _on_Monster_spawn_body_entered(body):
 	EntitiesUtils.create_monster(self, monster, Vector2(3500, 550), gold, health, damage)
