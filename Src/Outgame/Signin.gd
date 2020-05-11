@@ -199,6 +199,7 @@ func _on_Option_map_item_selected(id):
 	before_change_scene()
 	match id:
 		1:
+#			Fade.change_scene(FileBankUtils.load_right_scene())
 			Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
 		2:
 			Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])

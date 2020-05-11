@@ -132,9 +132,9 @@ func _process(delta):
 				Fade.checkpoint(heroNode, Vector2(100,300))
 			if pos_comp.get_position().x >10750:
 				Fade.checkpoint(heroNode, Vector2(10750, 250))
-				treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
-				FileBankUtils.treasure *= 0.7
-				health_comp_hero.set_health(health_comp_hero.get_health_max())
+			treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
+			FileBankUtils.treasure *= 0.7
+			health_comp_hero.set_health(health_comp_hero.get_health_max())
 
 
 func _load_monsters():
