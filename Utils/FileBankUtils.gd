@@ -90,7 +90,11 @@ func _notification(what):
 		save_json(loaded_heroes_stats, stats_File_Name)
 
 func load_right_scene() -> String:
+#	if FileBankUtils.scene_counter == 0:
+#		return FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"]
 	match FileBankUtils.scene_counter % 5:
+		0:
+			return FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"]
 		1:
 			return FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
 		2:
