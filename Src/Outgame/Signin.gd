@@ -152,19 +152,19 @@ func add_fight_option() -> void:
 	$Control_Option/Option_fight.set_text("Fights")
 	$Control_Option/Option_fight.add_separator()
 	$Control_Option/Option_fight.add_item("fight_1")
-	$Control_Option/Option_fight.add_item("fight_2")	
 
 func add_featured_option() -> void:
 	$Control_Option/Option_featured_scenes.set_text("Featured")
 	$Control_Option/Option_featured_scenes.add_separator()
-	$Control_Option/Option_featured_scenes.add_item("rewards")	
+	$Control_Option/Option_featured_scenes.add_item("rewards")
 	$Control_Option/Option_featured_scenes.add_item("shop")
 	$Control_Option/Option_featured_scenes.add_item("death")
 	
 func add_unused_option() -> void:
 	$Control_Option/Option_unused_scenes.set_text("Unused")
 	$Control_Option/Option_unused_scenes.add_separator()
-	$Control_Option/Option_unused_scenes.add_item("create_hero")	
+	$Control_Option/Option_unused_scenes.add_item("create_hero")
+	$Control_Option/Option_fight.add_item("fight_2")
 
 
 func get_stats(pseudo : String) -> Dictionary:
@@ -217,8 +217,6 @@ func _on_Option_fight_item_selected(id):
 	match id:
 		1:
 			Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
-		2:
-			Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_2"])
 
 func _on_Option_featured_scenes_item_selected(id):
 	before_change_scene()
@@ -235,6 +233,8 @@ func _on_Option_unused_scenes_item_selected(id):
 	match id:
 		1:
 			Fade.change_scene(FileBankUtils.loaded_scenes["create_hero"])
+		2:
+			Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_2"])
 	
 func _on_Conversion_pressed():
 	show_notion(notions_show, "Conversion/Control")
