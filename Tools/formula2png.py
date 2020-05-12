@@ -17,7 +17,7 @@ def generate_formula(formula, file_name, dst_folder = ".", verbose = True, paddi
     if (verbose):
         print("Saving formula %s to '%s'..." % (formula, file_path))
 
-    image_bytes = render_latex(formula, fontsize=20, dpi=300, format_='png', pad_inches=0.025)
+    image_bytes = render_latex(formula, fontsize=25, dpi=300, format_='png', pad_inches=0.025)
 
     with open(tmp_file_path, 'wb') as image_file:
         image_file.write(image_bytes)
