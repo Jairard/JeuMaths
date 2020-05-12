@@ -94,7 +94,8 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		var equation = chosen_question["question"][1]
 		$Calcul_factorisation/question/equation.text = equation
 		question = $Calcul_factorisation/question/equation
-	elif theme == developpement_simple or theme == developpement_double or theme == factorisation_id_rem :
+	elif (theme == developpement_simple or theme == developpement_double 
+		or theme == factorisation_id_rem or theme == decomposition):
 		show_notion(notions_show, "Calcul_litteral_distribution")
 		var question_txt = chosen_question["question"]
 		$Calcul_litteral_distribution/question/title.text = question_txt
@@ -162,7 +163,8 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		control = $Calcul_factorisation/Control
 		hbox = $Calcul_factorisation/Control/answer
 		buttons = $Calcul_factorisation/Control/buttons_factorisation
-	elif theme == developpement_simple or theme == developpement_double or theme == factorisation_id_rem :
+	elif (theme == developpement_simple or theme == developpement_double 
+			or theme == factorisation_id_rem or theme == decomposition) :
 		calcul_1 = answers[0]
 		$Calcul_litteral_distribution/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]

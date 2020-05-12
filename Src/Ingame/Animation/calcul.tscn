@@ -12,7 +12,7 @@ size = 150
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 40
+size = 100
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
@@ -345,9 +345,9 @@ __meta__ = {
 
 [node name="question" type="HBoxContainer" parent="Calcul"]
 margin_left = -282.0
-margin_top = -149.0
-margin_right = 613.0
-margin_bottom = -42.0
+margin_top = -220.0
+margin_right = 1174.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -356,8 +356,9 @@ __meta__ = {
 }
 
 [node name="question" type="Label" parent="Calcul/question"]
-margin_right = 895.0
-margin_bottom = 184.0
+margin_top = 35.0
+margin_right = 1456.0
+margin_bottom = 219.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 2 )
