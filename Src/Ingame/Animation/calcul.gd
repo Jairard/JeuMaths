@@ -19,9 +19,9 @@ var calcul_2 : Dictionary = {}
 var calcul_3 : Dictionary = {}
 var calcul_4 : Dictionary = {}
 
-const addition_fractions_simple = 0;const soustraction_fractions_simple = 1;const addition_fractions_multiple = 2
-const soustration_fractions_multiple = 3;const addition_fractions_general = 4;const soustraction_fractions_general = 5
-const multiplication_fractions = 6;const division_fractions = 7;const fractions_irreductible = 8
+const addition_fraction_simple = 0;const soustraction_fraction_simple = 1;const addition_fraction_multiple = 2
+const soustration_fraction_multiple = 3;const addition_fraction_general = 4;const soustraction_fraction_general = 5
+const multiplication_fraction = 6;const division_fraction = 7;const fraction_irreductible = 8
 const calcul_valeur = 9;const tester_egalite_simple = 10;const tester_egalite_general = 11
 const reduire_simple = 12;const reduire_parentheses = 13;const developpement_simple = 14
 const developpement_double = 15;const factorisation_simple = 16;const factorisation_id_rem = 17
@@ -62,7 +62,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 	timer = NodeUtils.create_timer(4, true, true)
 	add_child(timer)
 
-	if theme < fractions_irreductible:
+	if theme < fraction_irreductible:
 		show_notion(notions_show, "Fractions")
 		var frac_1 = chosen_question["question"][0]
 		$Fractions/question/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1]
@@ -119,7 +119,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 
 	answers = chosen_question["answers"]
 
-	if theme < fractions_irreductible:
+	if theme < fraction_irreductible:
 		var frac_1 = answers[0] 
 		$Fractions/Control/answer/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1["text"]]
 		var frac_2 = answers[1] 

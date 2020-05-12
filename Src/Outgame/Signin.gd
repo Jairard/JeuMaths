@@ -10,10 +10,10 @@ const init_stats : Dictionary =  {
 									"health_max":70, "scene_counter":0
 									}
 
-var constants : Dictionary = {"addition_fractions_simple" : 0, "soustraction_fractions_simple" : 1,
-"addition_fractions_multiple" : 2, "soustration_fractions_multiple" : 3, "addition_fractions_general" : 4,
-"soustraction_fractions_general" : 5, "multiplication_fractions" : 6, "division_fractions" : 7, 
-"fractions_irreductible" : 8,"calcul_valeur" : 9, "tester_egalite_simple" : 10, "tester_egalite_general" : 11,
+var constants : Dictionary = {"addition_fraction_simple" : 0, "soustraction_fraction_simple" : 1,
+"addition_fraction_multiple" : 2, "soustration_fraction_multiple" : 3, "addition_fraction_general" : 4,
+"soustraction_fraction_general" : 5, "multiplication_fraction" : 6, "division_fraction" : 7, 
+"fraction_irreductible" : 8,"calcul_valeur" : 9, "tester_egalite_simple" : 10, "tester_egalite_general" : 11,
 "reduire_simple" : 12, "reduire_parentheses" : 13, "developpement_simple" : 14,
 "developpement_double" : 15, "factorisation_simple" : 16, "factorisation_id_rem" : 17,
 "addition_entiers" : 18, "soustraction_entiers" : 19, "multiplication_entiers" : 20,

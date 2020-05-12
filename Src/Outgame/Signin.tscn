@@ -60,6 +60,7 @@ margin_top = 22.0
 margin_right = 329.0
 margin_bottom = 182.0
 custom_colors/selection_color = Color( 0.819608, 0.0196078, 0.0196078, 1 )
+max_length = 100
 __meta__ = {
 "_edit_use_anchors_": false
 }
