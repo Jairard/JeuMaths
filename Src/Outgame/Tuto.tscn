@@ -14,14 +14,11 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=36]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
-
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -30,9 +27,12 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 
-[sub_resource type="TileSet" id=7]
+[sub_resource type="TileSet" id=8]
 0/name = "spritesheet2.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -71,7 +71,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -87,7 +87,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
@@ -103,7 +103,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
@@ -119,7 +119,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -145,7 +145,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -191,86 +191,85 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 32, 64, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 36 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 11/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8.79639, 153.912 )
 
-[sub_resource type="DynamicFont" id=34]
-size = 30
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 10 )
-
-[sub_resource type="DynamicFont" id=35]
+[sub_resource type="DynamicFont" id=10]
 size = 45
 use_filter = true
 font_data = ExtResource( 10 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="DynamicFont" id=11]
+size = 45
+use_filter = true
+font_data = ExtResource( 10 )
+
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 25.3181, 137.631 )
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=13]
 _data = [ Vector2( 0, 0.520455 ), 0.0, 0.0, 0, 0, Vector2( 0.519084, 0.992045 ), 0.0, 0.0, 0, 0, Vector2( 0.996947, 0.0284091 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=15]
 flag_disable_z = true
 gravity = Vector3( 0, -2000, 0 )
 angular_velocity = 90.0
 angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 11 )
+scale_curve = SubResource( 14 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 157.757, 82.6567 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 16.5361, 161.026 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=18]
 font_data = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 8.70947, 126.2 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 10, 142.109 )
 
-[sub_resource type="RectangleShape2D" id=24]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 6.41455, 169.023 )
 
-[sub_resource type="RectangleShape2D" id=25]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 21.1592, 125.1 )
 
-[sub_resource type="RectangleShape2D" id=26]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 14.0503, 147.55 )
 
-[sub_resource type="RectangleShape2D" id=27]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 35.4849, 162.28 )
 
-[sub_resource type="RectangleShape2D" id=28]
+[sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 23.5508, 89.4011 )
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 27.2021, 121.115 )
 
-[sub_resource type="RectangleShape2D" id=30]
+[sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 21.0711, 136.031 )
 
-[sub_resource type="RectangleShape2D" id=31]
+[sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 35.1406, 167.38 )
 
-[sub_resource type="RectangleShape2D" id=32]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 19.2871, 175.553 )
 
-[sub_resource type="RectangleShape2D" id=33]
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 17.875, 178.568 )
 
 [node name="Node2D" type="Node2D"]
@@ -278,7 +277,7 @@ script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
-tile_set = SubResource( 7 )
+tile_set = SubResource( 8 )
 collision_layer = 2
 collision_mask = 129
 format = 1
@@ -310,7 +309,7 @@ collision_layer = 16384
 
 [node name="monster" type="CollisionShape2D" parent="First_Spawn/Monster/Monster"]
 position = Vector2( 2632.49, 420.466 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="Control_monster" type="Control" parent="First_Spawn/Monster"]
 visible = false
@@ -323,12 +322,12 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="First_Spawn/Monster/Control_monster"]
-visible = false
-margin_left = 9.11523
-margin_top = -172.074
-margin_right = 233.115
-margin_bottom = -69.0735
-custom_fonts/mono_font = SubResource( 34 )
+margin_left = -106.761
+margin_top = -358.262
+margin_right = 632.239
+margin_bottom = -64.2622
+custom_fonts/normal_font = SubResource( 10 )
+custom_colors/default_color = Color( 0.0392157, 0.0117647, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "				Attention ! 
 		
@@ -345,11 +344,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="First_Spawn/Monster/Control_monster"]
-margin_left = -250.756
-margin_top = -483.871
-margin_right = 432.244
-margin_bottom = -191.871
-custom_fonts/font = SubResource( 35 )
+margin_left = -853.412
+margin_top = -367.077
+margin_right = -170.412
+margin_bottom = -75.0771
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "               Attention ! 
 
@@ -367,14 +366,14 @@ collision_layer = 16384
 
 [node name="spawn" type="CollisionShape2D" parent="First_Spawn/Monster/Monster_spawn"]
 position = Vector2( 2088.64, 439.401 )
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [node name="Particles2D" type="Particles2D" parent="First_Spawn/Monster/Monster_spawn"]
 position = Vector2( 2088.61, 548.238 )
 amount = 9
 lifetime = 0.6
 randomness = 0.31
-process_material = SubResource( 12 )
+process_material = SubResource( 15 )
 texture = ExtResource( 8 )
 
 [node name="Move" type="Container" parent="First_Spawn"]
@@ -386,7 +385,7 @@ collision_layer = 16384
 
 [node name="move" type="CollisionShape2D" parent="First_Spawn/Move/Move"]
 position = Vector2( 159.757, 492.463 )
-shape = SubResource( 13 )
+shape = SubResource( 16 )
 
 [node name="Control_move" type="Control" parent="First_Spawn/Move"]
 visible = false
@@ -402,7 +401,7 @@ margin_left = 280.383
 margin_top = 138.213
 margin_right = 574.383
 margin_bottom = 196.213
-custom_fonts/font = SubResource( 35 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "flèche droite"
 __meta__ = {
@@ -414,7 +413,7 @@ margin_left = -208.748
 margin_top = 130.808
 margin_right = 110.252
 margin_bottom = 188.808
-custom_fonts/font = SubResource( 35 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "flèche gauche"
 __meta__ = {
@@ -426,7 +425,7 @@ margin_left = 53.0279
 margin_top = 20.0449
 margin_right = 347.028
 margin_bottom = 78.0449
-custom_fonts/font = SubResource( 35 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "Pour bouger"
 __meta__ = {
@@ -453,7 +452,7 @@ margin_left = 1053.49
 margin_top = 4.10849
 margin_right = 1736.49
 margin_bottom = 296.108
-custom_fonts/font = SubResource( 35 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "               Pour sauter 
 			    appui sur   \"espace\""
@@ -466,7 +465,7 @@ collision_layer = 16384
 
 [node name="jump" type="CollisionShape2D" parent="First_Spawn/Jump/Jump"]
 position = Vector2( 973.822, 411.613 )
-shape = SubResource( 15 )
+shape = SubResource( 17 )
 
 [node name="jump" type="RichTextLabel" parent="First_Spawn/Jump"]
 visible = false
@@ -474,7 +473,7 @@ margin_left = 1270.61
 margin_top = 282.807
 margin_right = 1419.61
 margin_bottom = 335.807
-custom_fonts/bold_font = SubResource( 16 )
+custom_fonts/bold_font = SubResource( 18 )
 bbcode_enabled = true
 bbcode_text = "Pour [b]sauter[/b] appuyer sur [shake rate=5
  level=5]  [color=yellow]\"espace\""
@@ -492,7 +491,7 @@ collision_layer = 16384
 
 [node name="bullet" type="CollisionShape2D" parent="First_Spawn/Bullet/Bullet"]
 position = Vector2( 8776.24, 445.567 )
-shape = SubResource( 17 )
+shape = SubResource( 19 )
 
 [node name="Control_bullet" type="Control" parent="First_Spawn/Bullet"]
 visible = false
@@ -509,7 +508,7 @@ margin_left = -51.2979
 margin_top = -247.298
 margin_right = 631.702
 margin_bottom = 44.702
-custom_fonts/font = SubResource( 35 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "       Tir a esquiver 
 	       en approche..."
@@ -524,14 +523,14 @@ collision_layer = 16384
 
 [node name="spawn" type="CollisionShape2D" parent="First_Spawn/Bullet/Bullet_spawn"]
 position = Vector2( 2179.51, 438.783 )
-shape = SubResource( 18 )
+shape = SubResource( 20 )
 
 [node name="Particles2D" type="Particles2D" parent="First_Spawn/Bullet/Bullet_spawn"]
 position = Vector2( 2179.01, 558.036 )
 amount = 9
 lifetime = 0.6
 randomness = 0.31
-process_material = SubResource( 12 )
+process_material = SubResource( 15 )
 texture = ExtResource( 8 )
 
 [node name="Missile" type="Container" parent="First_Spawn"]
@@ -543,7 +542,7 @@ collision_layer = 16384
 
 [node name="missile" type="CollisionShape2D" parent="First_Spawn/Missile/Missile"]
 position = Vector2( 10548, 413.285 )
-shape = SubResource( 24 )
+shape = SubResource( 21 )
 
 [node name="Control_missile" type="Control" parent="First_Spawn/Missile"]
 visible = false
@@ -560,7 +559,7 @@ margin_left = -226.275
 margin_top = -155.988
 margin_right = 456.725
 margin_bottom = 136.012
-custom_fonts/font = SubResource( 35 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = " Attention  un missile !
         Cache toi vite"
@@ -575,14 +574,14 @@ collision_layer = 16384
 
 [node name="spawn" type="CollisionShape2D" parent="First_Spawn/Missile/Missile_spawn"]
 position = Vector2( 5076.7, 451.874 )
-shape = SubResource( 25 )
+shape = SubResource( 22 )
 
 [node name="Particles2D" type="Particles2D" parent="First_Spawn/Missile/Missile_spawn"]
 position = Vector2( 5077.2, 553.477 )
 amount = 9
 lifetime = 0.6
 randomness = 0.31
-process_material = SubResource( 12 )
+process_material = SubResource( 15 )
 texture = ExtResource( 8 )
 
 [node name="Add_Monsters" type="Container" parent="."]
@@ -597,28 +596,28 @@ collision_layer = 16384
 
 [node name="monster_2" type="CollisionShape2D" parent="Add_Monsters/Monster_2"]
 position = Vector2( 4304.81, 301.825 )
-shape = SubResource( 26 )
+shape = SubResource( 23 )
 
 [node name="Monster_3" type="Area2D" parent="Add_Monsters"]
 collision_mask = 16385
 
 [node name="monster_3" type="CollisionShape2D" parent="Add_Monsters/Monster_3"]
 position = Vector2( 6946.33, 413.51 )
-shape = SubResource( 27 )
+shape = SubResource( 24 )
 
 [node name="Monster_4" type="Area2D" parent="Add_Monsters"]
 collision_layer = 16384
 
 [node name="monster_4" type="CollisionShape2D" parent="Add_Monsters/Monster_4"]
 position = Vector2( 12119, 488.628 )
-shape = SubResource( 28 )
+shape = SubResource( 25 )
 
 [node name="Monster_5" type="Area2D" parent="Add_Monsters"]
 collision_layer = 16384
 
 [node name="monster_5" type="CollisionShape2D" parent="Add_Monsters/Monster_5"]
 position = Vector2( 13085.4, 330.971 )
-shape = SubResource( 29 )
+shape = SubResource( 26 )
 
 [node name="Add_Bullets" type="Container" parent="."]
 margin_right = 40.0
@@ -632,7 +631,7 @@ collision_layer = 16384
 
 [node name="bullet_2" type="CollisionShape2D" parent="Add_Bullets/Bullet_2"]
 position = Vector2( 13208.9, 439.555 )
-shape = SubResource( 30 )
+shape = SubResource( 27 )
 
 [node name="Add_Missiles" type="Container" parent="."]
 margin_right = 40.0
@@ -646,21 +645,21 @@ collision_layer = 16384
 
 [node name="missile_2" type="CollisionShape2D" parent="Add_Missiles/Missile_2"]
 position = Vector2( 15906.5, 792.024 )
-shape = SubResource( 31 )
+shape = SubResource( 28 )
 
 [node name="Missile_3" type="Area2D" parent="Add_Missiles"]
 collision_layer = 16384
 
 [node name="missile_3" type="CollisionShape2D" parent="Add_Missiles/Missile_3"]
 position = Vector2( 17297.7, 785.618 )
-shape = SubResource( 32 )
+shape = SubResource( 29 )
 
 [node name="Missile_4" type="Area2D" parent="Add_Missiles"]
 collision_layer = 16384
 
 [node name="missile_4" type="CollisionShape2D" parent="Add_Missiles/Missile_4"]
 position = Vector2( 17039.4, 779.175 )
-shape = SubResource( 33 )
+shape = SubResource( 30 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
