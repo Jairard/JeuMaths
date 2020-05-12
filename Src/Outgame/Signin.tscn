@@ -227,7 +227,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "       Décimaux"
 
-[node name="addition_décimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
+[node name="addition_decimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
 margin_top = 32.0
 margin_right = 145.0
 margin_bottom = 56.0
@@ -237,7 +237,7 @@ custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Addition"
 
-[node name="soustraction_décimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
+[node name="soustraction_decimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
 margin_top = 60.0
 margin_right = 145.0
 margin_bottom = 84.0
@@ -247,7 +247,7 @@ custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Soustraction"
 
-[node name="multiplication_décimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
+[node name="multiplication_decimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
 margin_top = 88.0
 margin_right = 145.0
 margin_bottom = 112.0
@@ -257,7 +257,7 @@ custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Multiplication"
 
-[node name="division_décimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
+[node name="division_decimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
 margin_top = 116.0
 margin_right = 145.0
 margin_bottom = 140.0
@@ -345,7 +345,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "        Priorités"
 
-[node name="priorités_simple" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
+[node name="priorites_simple" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
 margin_top = 48.0
 margin_right = 148.0
 margin_bottom = 72.0
@@ -356,7 +356,7 @@ custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "prioriés simple"
 
-[node name="priorités_parenthèse" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
+[node name="priorites_parenthese" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
 margin_top = 96.0
 margin_right = 148.0
 margin_bottom = 120.0
@@ -462,7 +462,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tester_égalité_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
+[node name="tester_egalite_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
 margin_top = 72.0
 margin_right = 220.0
 margin_bottom = 104.0
@@ -476,7 +476,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tester_égalité_général" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
+[node name="tester_egalite_general" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
 margin_top = 108.0
 margin_right = 220.0
 margin_bottom = 140.0
@@ -699,7 +699,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="addition_fraction_général" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
+[node name="addition_fraction_general" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
 margin_top = 108.0
 margin_right = 253.0
 margin_bottom = 140.0
@@ -760,7 +760,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="soustraction_fraction_général" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
+[node name="soustraction_fraction_general" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
 margin_top = 108.0
 margin_right = 253.0
 margin_bottom = 140.0
@@ -865,7 +865,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="décomposition" type="CheckBox" parent="Arithmetic/Control/HBoxContainer/arithmetic"]
+[node name="decomposition" type="CheckBox" parent="Arithmetic/Control/HBoxContainer/arithmetic"]
 margin_right = 194.0
 margin_bottom = 68.0
 size_flags_horizontal = 3
@@ -878,7 +878,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fraction_irréductible" type="CheckBox" parent="Arithmetic/Control/HBoxContainer/arithmetic"]
+[node name="fraction_irreductible" type="CheckBox" parent="Arithmetic/Control/HBoxContainer/arithmetic"]
 margin_top = 72.0
 margin_right = 194.0
 margin_bottom = 140.0
