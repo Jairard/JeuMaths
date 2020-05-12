@@ -12,7 +12,7 @@ size = 150
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 100
+size = 90
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
@@ -22,7 +22,7 @@ size = 90
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 40
+size = 80
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=6]
@@ -368,15 +368,15 @@ autowrap = true
 [node name="Control" type="Control" parent="Calcul"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( -800, 180 )
+rect_pivot_offset = Vector2( -770, 140 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="answer" type="HBoxContainer" parent="Calcul/Control"]
-margin_left = -898.772
+margin_left = -899.0
 margin_top = 140.0
-margin_right = 1051.23
+margin_right = 1477.0
 margin_bottom = 280.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -388,8 +388,8 @@ __meta__ = {
 
 [node name="Label1" type="Label" parent="Calcul/Control/answer"]
 modulate = Color( 0, 0, 0, 1 )
-margin_right = 337.0
-margin_bottom = 140.0
+margin_right = 444.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -399,9 +399,9 @@ clip_text = true
 
 [node name="Label2" type="Label" parent="Calcul/Control/answer"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 537.0
-margin_right = 874.0
-margin_bottom = 140.0
+margin_left = 644.0
+margin_right = 1088.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -410,9 +410,9 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 clip_text = true
 
 [node name="Label3" type="Label" parent="Calcul/Control/answer"]
-margin_left = 1074.0
-margin_right = 1411.0
-margin_bottom = 140.0
+margin_left = 1288.0
+margin_right = 1732.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -421,9 +421,9 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 clip_text = true
 
 [node name="Label4" type="Label" parent="Calcul/Control/answer"]
-margin_left = 1611.0
-margin_right = 1950.0
-margin_bottom = 140.0
+margin_left = 1932.0
+margin_right = 2376.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -434,8 +434,8 @@ clip_text = true
 [node name="Buttons_calculs" type="HBoxContainer" parent="Calcul/Control"]
 margin_left = -902.392
 margin_top = 142.392
-margin_right = 1047.61
-margin_bottom = 192.392
+margin_right = 1473.61
+margin_bottom = 326.392
 custom_constants/separation = 200
 __meta__ = {
 "_edit_use_anchors_": false
@@ -443,8 +443,8 @@ __meta__ = {
 
 [node name="calcul1" type="Button" parent="Calcul/Control/Buttons_calculs"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 337.0
-margin_bottom = 50.0
+margin_right = 444.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -453,25 +453,25 @@ __meta__ = {
 
 [node name="calcul2" type="Button" parent="Calcul/Control/Buttons_calculs"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 537.0
-margin_right = 874.0
-margin_bottom = 50.0
+margin_left = 644.0
+margin_right = 1088.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="calcul3" type="Button" parent="Calcul/Control/Buttons_calculs"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1074.0
-margin_right = 1411.0
-margin_bottom = 50.0
+margin_left = 1288.0
+margin_right = 1732.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="calcul4" type="Button" parent="Calcul/Control/Buttons_calculs"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1611.0
-margin_right = 1950.0
-margin_bottom = 50.0
+margin_left = 1932.0
+margin_right = 2376.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -537,20 +537,23 @@ margin_left = 31.3421
 margin_top = 39.7683
 margin_right = 71.3421
 margin_bottom = 79.7683
-rect_pivot_offset = Vector2( -800, 180 )
+rect_pivot_offset = Vector2( -830, 140 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="answer" type="HBoxContainer" parent="Calcul_litteral_reduction/Control"]
-margin_left = -900.0
+margin_left = -1001.0
 margin_top = 140.0
-margin_right = 1050.0
+margin_right = 1506.0
 margin_bottom = 280.0
-custom_constants/separation = 200
+custom_constants/separation = 150
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="label1" type="Label" parent="Calcul_litteral_reduction/Control/answer"]
-margin_right = 337.0
+margin_right = 514.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -558,8 +561,8 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label2" type="Label" parent="Calcul_litteral_reduction/Control/answer"]
-margin_left = 537.0
-margin_right = 874.0
+margin_left = 664.0
+margin_right = 1178.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -567,8 +570,8 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label3" type="Label" parent="Calcul_litteral_reduction/Control/answer"]
-margin_left = 1074.0
-margin_right = 1411.0
+margin_left = 1328.0
+margin_right = 1842.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -576,8 +579,8 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label4" type="Label" parent="Calcul_litteral_reduction/Control/answer"]
-margin_left = 1611.0
-margin_right = 1950.0
+margin_left = 1992.0
+margin_right = 2507.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -585,42 +588,42 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="buttons_litteral" type="HBoxContainer" parent="Calcul_litteral_reduction/Control"]
-margin_left = -900.0
+margin_left = -1001.0
 margin_top = 140.0
-margin_right = 1050.0
+margin_right = 1506.0
 margin_bottom = 280.0
-custom_constants/separation = 200
+custom_constants/separation = 150
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="reduction1" type="Button" parent="Calcul_litteral_reduction/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 337.0
+margin_right = 514.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="reduction2" type="Button" parent="Calcul_litteral_reduction/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 537.0
-margin_right = 874.0
+margin_left = 664.0
+margin_right = 1178.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="reduction3" type="Button" parent="Calcul_litteral_reduction/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1074.0
-margin_right = 1411.0
+margin_left = 1328.0
+margin_right = 1842.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="reduction4" type="Button" parent="Calcul_litteral_reduction/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1611.0
-margin_right = 1950.0
+margin_left = 1992.0
+margin_right = 2507.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -660,12 +663,12 @@ margin_left = 31.3421
 margin_top = 39.7683
 margin_right = 71.3421
 margin_bottom = 79.7683
-rect_pivot_offset = Vector2( -800, 180 )
+rect_pivot_offset = Vector2( -1030, 130 )
 
 [node name="answer" type="HBoxContainer" parent="Calcul_litteral_distribution/Control"]
-margin_left = -900.0
+margin_left = -1150.0
 margin_top = 140.0
-margin_right = 1050.0
+margin_right = 1600.0
 margin_bottom = 280.0
 custom_constants/separation = 200
 __meta__ = {
@@ -673,7 +676,7 @@ __meta__ = {
 }
 
 [node name="label1" type="Label" parent="Calcul_litteral_distribution/Control/answer"]
-margin_right = 337.0
+margin_right = 537.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -681,8 +684,8 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label2" type="Label" parent="Calcul_litteral_distribution/Control/answer"]
-margin_left = 537.0
-margin_right = 874.0
+margin_left = 737.0
+margin_right = 1274.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -690,8 +693,8 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label3" type="Label" parent="Calcul_litteral_distribution/Control/answer"]
-margin_left = 1074.0
-margin_right = 1411.0
+margin_left = 1474.0
+margin_right = 2011.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -699,8 +702,8 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label4" type="Label" parent="Calcul_litteral_distribution/Control/answer"]
-margin_left = 1611.0
-margin_right = 1950.0
+margin_left = 2211.0
+margin_right = 2750.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -708,9 +711,9 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="buttons_litteral" type="HBoxContainer" parent="Calcul_litteral_distribution/Control"]
-margin_left = -900.0
+margin_left = -1150.0
 margin_top = 140.0
-margin_right = 1050.0
+margin_right = 1600.0
 margin_bottom = 280.0
 custom_constants/separation = 200
 __meta__ = {
@@ -719,32 +722,176 @@ __meta__ = {
 
 [node name="reduction1" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 337.0
+margin_right = 537.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="reduction2" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 537.0
-margin_right = 874.0
+margin_left = 737.0
+margin_right = 1274.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="reduction3" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1074.0
-margin_right = 1411.0
+margin_left = 1474.0
+margin_right = 2011.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="reduction4" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1611.0
-margin_right = 1950.0
+margin_left = 2211.0
+margin_right = 2750.0
 margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Decomposition" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="question" type="HBoxContainer" parent="Decomposition"]
+margin_left = -742.0
+margin_top = -150.0
+margin_right = 1711.0
+margin_bottom = 99.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Decomposition/question"]
+modulate = Color( 0, 0, 1, 1 )
+margin_right = 2453.0
+margin_bottom = 249.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Decomposition"]
+margin_left = 31.3421
+margin_top = 39.7683
+margin_right = 71.3421
+margin_bottom = 79.7683
+rect_pivot_offset = Vector2( -1030, 130 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer_up" type="HBoxContainer" parent="Decomposition/Control"]
+margin_left = -1045.0
+margin_top = 140.0
+margin_right = 905.0
+margin_bottom = 295.0
+custom_constants/separation = 400
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label1" type="Label" parent="Decomposition/Control/answer_up"]
+margin_right = 775.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label3" type="Label" parent="Decomposition/Control/answer_up"]
+margin_left = 1175.0
+margin_right = 1950.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="answers_down" type="HBoxContainer" parent="Decomposition/Control"]
+margin_left = -606.097
+margin_top = 400.0
+margin_right = 1343.9
+margin_bottom = 555.0
+custom_constants/separation = 400
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label2" type="Label" parent="Decomposition/Control/answers_down"]
+margin_right = 775.0
+margin_bottom = 154.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="label4" type="Label" parent="Decomposition/Control/answers_down"]
+margin_left = 1175.0
+margin_right = 1950.0
+margin_bottom = 154.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="buttons_litteral_up" type="HBoxContainer" parent="Decomposition/Control"]
+margin_left = -1045.0
+margin_top = 140.0
+margin_right = 905.0
+margin_bottom = 295.0
+custom_constants/separation = 400
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reduction1" type="Button" parent="Decomposition/Control/buttons_litteral_up"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 775.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="reduction3" type="Button" parent="Decomposition/Control/buttons_litteral_up"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1175.0
+margin_right = 1950.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="buttons_litteral_down" type="HBoxContainer" parent="Decomposition/Control"]
+margin_left = -606.0
+margin_top = 400.0
+margin_right = 1344.0
+margin_bottom = 555.0
+custom_constants/separation = 400
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reduction2" type="Button" parent="Decomposition/Control/buttons_litteral_down"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 775.0
+margin_bottom = 154.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="reduction4" type="Button" parent="Decomposition/Control/buttons_litteral_down"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1175.0
+margin_right = 1950.0
+margin_bottom = 154.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -793,12 +940,15 @@ margin_left = 31.3421
 margin_top = 39.7683
 margin_right = 71.3421
 margin_bottom = 79.7683
-rect_pivot_offset = Vector2( -800, 180 )
+rect_pivot_offset = Vector2( -870, 140 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="answer" type="HBoxContainer" parent="Calcul_factorisation/Control"]
-margin_left = -900.0
+margin_left = -1000.0
 margin_top = 140.0
-margin_right = 1050.0
+margin_right = 1400.0
 margin_bottom = 280.0
 custom_constants/separation = 200
 __meta__ = {
@@ -806,7 +956,7 @@ __meta__ = {
 }
 
 [node name="label1" type="Label" parent="Calcul_factorisation/Control/answer"]
-margin_right = 337.0
+margin_right = 450.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -814,8 +964,8 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label2" type="Label" parent="Calcul_factorisation/Control/answer"]
-margin_left = 537.0
-margin_right = 874.0
+margin_left = 650.0
+margin_right = 1100.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -823,8 +973,8 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label3" type="Label" parent="Calcul_factorisation/Control/answer"]
-margin_left = 1074.0
-margin_right = 1411.0
+margin_left = 1300.0
+margin_right = 1750.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -832,8 +982,8 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label4" type="Label" parent="Calcul_factorisation/Control/answer"]
-margin_left = 1611.0
-margin_right = 1950.0
+margin_left = 1950.0
+margin_right = 2400.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -841,9 +991,9 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="buttons_factorisation" type="HBoxContainer" parent="Calcul_factorisation/Control"]
-margin_left = -900.0
+margin_left = -1000.0
 margin_top = 140.0
-margin_right = 1050.0
+margin_right = 1400.0
 margin_bottom = 280.0
 custom_constants/separation = 200
 __meta__ = {
@@ -852,31 +1002,31 @@ __meta__ = {
 
 [node name="factorisation1" type="Button" parent="Calcul_factorisation/Control/buttons_factorisation"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 337.0
+margin_right = 450.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="factorisation2" type="Button" parent="Calcul_factorisation/Control/buttons_factorisation"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 537.0
-margin_right = 874.0
+margin_left = 650.0
+margin_right = 1100.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="factorisation3" type="Button" parent="Calcul_factorisation/Control/buttons_factorisation"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1074.0
-margin_right = 1411.0
+margin_left = 1300.0
+margin_right = 1750.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="factorisation4" type="Button" parent="Calcul_factorisation/Control/buttons_factorisation"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1611.0
-margin_right = 1950.0
+margin_left = 1950.0
+margin_right = 2400.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -911,16 +1061,16 @@ autowrap = true
 [node name="Control" type="Control" parent="Percentages"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( -800, 180 )
+rect_pivot_offset = Vector2( -790, 200 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="answer" type="HBoxContainer" parent="Percentages/Control"]
-margin_left = -898.772
-margin_top = 140.0
-margin_right = 1051.23
-margin_bottom = 280.0
+margin_left = -923.0
+margin_top = 200.0
+margin_right = 1657.0
+margin_bottom = 384.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 200
@@ -931,8 +1081,8 @@ __meta__ = {
 
 [node name="Label1" type="Label" parent="Percentages/Control/answer"]
 modulate = Color( 0, 0, 0, 1 )
-margin_right = 337.0
-margin_bottom = 140.0
+margin_right = 495.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -942,9 +1092,9 @@ clip_text = true
 
 [node name="Label2" type="Label" parent="Percentages/Control/answer"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 537.0
-margin_right = 874.0
-margin_bottom = 140.0
+margin_left = 695.0
+margin_right = 1190.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -953,9 +1103,9 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 clip_text = true
 
 [node name="Label3" type="Label" parent="Percentages/Control/answer"]
-margin_left = 1074.0
-margin_right = 1411.0
-margin_bottom = 140.0
+margin_left = 1390.0
+margin_right = 1885.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -964,9 +1114,9 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 clip_text = true
 
 [node name="Label4" type="Label" parent="Percentages/Control/answer"]
-margin_left = 1611.0
-margin_right = 1950.0
-margin_bottom = 140.0
+margin_left = 2085.0
+margin_right = 2580.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -975,10 +1125,10 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 clip_text = true
 
 [node name="Buttons_percentages" type="HBoxContainer" parent="Percentages/Control"]
-margin_left = -902.392
-margin_top = 142.392
-margin_right = 1047.61
-margin_bottom = 192.392
+margin_left = -923.0
+margin_top = 200.0
+margin_right = 1657.0
+margin_bottom = 384.0
 custom_constants/separation = 200
 __meta__ = {
 "_edit_use_anchors_": false
@@ -986,32 +1136,32 @@ __meta__ = {
 
 [node name="percent1" type="Button" parent="Percentages/Control/Buttons_percentages"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 337.0
-margin_bottom = 50.0
+margin_right = 495.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="percent2" type="Button" parent="Percentages/Control/Buttons_percentages"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 537.0
-margin_right = 874.0
-margin_bottom = 50.0
+margin_left = 695.0
+margin_right = 1190.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="percent3" type="Button" parent="Percentages/Control/Buttons_percentages"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1074.0
-margin_right = 1411.0
-margin_bottom = 50.0
+margin_left = 1390.0
+margin_right = 1885.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="percent4" type="Button" parent="Percentages/Control/Buttons_percentages"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 1611.0
-margin_right = 1950.0
-margin_bottom = 50.0
+margin_left = 2085.0
+margin_right = 2580.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 [connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button1" to="." method="_on_Button1_pressed"]
@@ -1034,6 +1184,10 @@ size_flags_vertical = 3
 [connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/reduction2" to="." method="_on_reduction2_pressed"]
 [connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/reduction3" to="." method="_on_reduction3_pressed"]
 [connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/reduction4" to="." method="_on_reduction4_pressed"]
+[connection signal="pressed" from="Decomposition/Control/buttons_litteral_up/reduction1" to="." method="_on_reduction1_pressed"]
+[connection signal="pressed" from="Decomposition/Control/buttons_litteral_up/reduction3" to="." method="_on_reduction3_pressed"]
+[connection signal="pressed" from="Decomposition/Control/buttons_litteral_down/reduction2" to="." method="_on_reduction2_pressed"]
+[connection signal="pressed" from="Decomposition/Control/buttons_litteral_down/reduction4" to="." method="_on_reduction4_pressed"]
 [connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation1" to="." method="_on_factorisation1_pressed"]
 [connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation2" to="." method="_on_factorisation2_pressed"]
 [connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation3" to="." method="_on_factorisation3_pressed"]

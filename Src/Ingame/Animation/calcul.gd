@@ -33,7 +33,7 @@ const appliquer_pourcentage = 30;const trouver_pourcentage_simple = 31;const tro
 const priorites_simple = 33;const priorites_parentheses = 34;const decomposition = 35
 
 var notions_show : Array = ["Fractions", "Fractions_irreductible", "Calcul", "Calcul_litteral_distribution",
-					"Calcul_litteral_reduction", "Calcul_factorisation", "Percentages"]
+					"Calcul_litteral_reduction", "Decomposition", "Calcul_factorisation", "Percentages"]
 
 func show_notion(notions_show : Array, lesson : String) -> void:
 	for i in notions_show:
@@ -95,12 +95,16 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		$Calcul_factorisation/question/equation.text = equation
 		question = $Calcul_factorisation/question/equation
 	elif (theme == developpement_simple or theme == developpement_double 
-		or theme == factorisation_id_rem or theme == decomposition):
+		or theme == factorisation_id_rem):
 		show_notion(notions_show, "Calcul_litteral_distribution")
 		var question_txt = chosen_question["question"]
 		$Calcul_litteral_distribution/question/title.text = question_txt
 		question = $Calcul_litteral_distribution/question/title
-		
+	elif theme == decomposition:
+		show_notion(notions_show, "Decomposition")
+		var question_txt = chosen_question["question"]
+		$Decomposition/question/title.text = question_txt
+		question = $Decomposition/question/title
 	elif (theme == appliquer_pourcentage or theme == trouver_pourcentage_simple 
 		  or theme == trouver_pourcentage):
 		show_notion(notions_show, "Percentages")
@@ -164,7 +168,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		hbox = $Calcul_factorisation/Control/answer
 		buttons = $Calcul_factorisation/Control/buttons_factorisation
 	elif (theme == developpement_simple or theme == developpement_double 
-			or theme == factorisation_id_rem or theme == decomposition) :
+			or theme == factorisation_id_rem) :
 		calcul_1 = answers[0]
 		$Calcul_litteral_distribution/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
@@ -176,6 +180,18 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		control = $Calcul_litteral_distribution/Control
 		hbox = $Calcul_litteral_distribution/Control/answer
 		buttons = $Calcul_litteral_distribution/Control/buttons_litteral
+	elif theme == decomposition :
+		calcul_1 = answers[0]
+		$Decomposition/Control/answer_up/label1.text = str(calcul_1["text"])
+		calcul_2 = answers[1]
+		$Decomposition/Control/answers_down/label2.text = str(calcul_2["text"])
+		calcul_3 = answers[2]
+		$Decomposition/Control/answer_up/label3.text = str(calcul_3["text"])
+		calcul_4 = answers[3]
+		$Decomposition/Control/answers_down/label4.text = str(calcul_4["text"])
+		control = null
+		hbox = null
+		buttons = null
 	elif (theme == appliquer_pourcentage or theme == trouver_pourcentage_simple 
 		  or theme == trouver_pourcentage):
 		calcul_1 = answers[0]
@@ -216,9 +232,10 @@ func critic(qestion : Label, delta : float) -> void:
 	rotation(control, hbox, buttons, delta)
 
 func rotation(control : Control, hbox : HBoxContainer, buttons : HBoxContainer, delta : float) -> void:
-	control.set_rotation(control.get_rotation() + delta)
-	hbox.set_rotation(hbox.get_rotation() - delta)
-	buttons.set_rotation(buttons.get_rotation() - delta)
+	if control != null and hbox != null and buttons != null:
+		control.set_rotation(control.get_rotation() + delta)
+		hbox.set_rotation(hbox.get_rotation() - delta)
+		buttons.set_rotation(buttons.get_rotation() - delta)
 
 func _process(delta):
 

@@ -41,10 +41,10 @@ tile_set = SubResource( 1 )
 format = 1
 
 [node name="pseudo_text" type="Label" parent="TileMap"]
-margin_left = 38.2422
-margin_top = 89.608
-margin_right = 185.243
-margin_bottom = 171.608
+margin_left = -32.8376
+margin_top = 90.9004
+margin_right = 114.163
+margin_bottom = 172.9
 text = "Pseudo :"
 align = 1
 valign = 1
@@ -55,10 +55,10 @@ __meta__ = {
 
 [node name="pseudo" type="LineEdit" parent="TileMap"]
 modulate = Color( 1, 1, 1, 0.780392 )
-margin_left = 160.245
-margin_top = 100.464
-margin_right = 291.245
-margin_bottom = 162.464
+margin_left = 74.0
+margin_top = 22.0
+margin_right = 329.0
+margin_bottom = 182.0
 custom_colors/selection_color = Color( 0.819608, 0.0196078, 0.0196078, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1104,37 +1104,37 @@ __meta__ = {
 }
 
 [node name="Option_fight" type="OptionButton" parent="Control_Option"]
-margin_left = 200.782
-margin_top = 22.01
-margin_right = 275.782
-margin_bottom = 62.01
+margin_left = 377.864
+margin_top = 26.1528
+margin_right = 650.864
+margin_bottom = 181.153
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Option_featured_scenes" type="OptionButton" parent="Control_Option"]
-margin_left = 306.776
+margin_left = 666.052
 margin_top = 22.8674
-margin_right = 381.776
+margin_right = 741.052
 margin_bottom = 62.8674
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Option_unused_scenes" type="OptionButton" parent="Control_Option"]
-margin_left = 315.029
-margin_top = 80.3116
-margin_right = 390.029
-margin_bottom = 120.312
+margin_left = 673.013
+margin_top = 95.8199
+margin_right = 748.013
+margin_bottom = 135.82
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Option_map" type="OptionButton" parent="Control_Option"]
-margin_left = 92.2168
-margin_top = 18.5805
-margin_right = 167.217
-margin_bottom = 58.5805
+margin_left = 673.779
+margin_top = 156.863
+margin_right = 748.779
+margin_bottom = 196.863
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1147,10 +1147,10 @@ margin_right = -242.903
 margin_bottom = 95.2473
 
 [node name="ItemList" type="ItemList" parent="."]
-margin_left = 432.0
-margin_top = 25.0
-margin_right = 939.0
-margin_bottom = 145.0
+margin_left = 762.844
+margin_top = 58.6013
+margin_right = 1269.84
+margin_bottom = 178.601
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
@@ -1160,18 +1160,20 @@ custom_constants/hseparation = 50
 max_columns = 2
 same_column_width = true
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 422.833
-margin_top = -7.48767
-margin_right = 555.833
-margin_bottom = 34.5123
+margin_left = 753.677
+margin_top = 26.1137
+margin_right = 886.677
+margin_bottom = 68.1136
 bbcode_enabled = true
 bbcode_text = "[wave][center]Combats du jour :"
 text = "Combats du jour :"
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="_4_Operations" to="." method="_on_4_Operations_pressed"]
