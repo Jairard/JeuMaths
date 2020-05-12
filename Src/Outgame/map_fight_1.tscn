@@ -1,23 +1,37 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Src/Outgame/map_fight_1.gd" type="Script" id=1]
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Levels/tuto/back_land01.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Textures/Levels/tuto/back_land02.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/GUI/mushroom_red.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/GUI/tile_flowerPurple.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/GUI/treeDead.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/GUI/tree_pine.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/GUI/tree_small.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/GUI/tile_flowerWhite.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/GUI/tile_flowerRed.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Textures/GUI/fly.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Textures/GUI/bee.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 200
 outline_color = Color( 0.121569, 0.0352941, 0.0352941, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -29,18 +43,12 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
-
-[sub_resource type="TileSet" id=13]
+[sub_resource type="TileSet" id=11]
 0/name = "spritesheet2.png 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -63,7 +71,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -79,7 +87,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -95,7 +103,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
@@ -111,7 +119,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 8 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
@@ -127,7 +135,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 9 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -143,7 +151,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 10 ),
+"shape": SubResource( 8 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
@@ -159,7 +167,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 11 ),
+"shape": SubResource( 9 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -185,7 +193,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 12 ),
+"shape": SubResource( 10 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 9/z_index = 0
@@ -254,7 +262,7 @@ margin_left = 768.437
 margin_top = 473.467
 margin_right = 867.437
 margin_bottom = 682.467
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.717647, 0.0352941, 0.0352941, 0.623529 )
 text = "3"
 __meta__ = {
@@ -263,34 +271,94 @@ __meta__ = {
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
-tile_set = SubResource( 13 )
+tile_set = SubResource( 11 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 851971, 12, 0, 851972, 12, 0, 851989, 12, 0, 851990, 12, 0, 917506, 12, 0, 917507, 12, 0, 917508, 12, 0, 917509, 12, 0, 917524, 12, 0, 917525, 12, 0, 917526, 12, 0, 917527, 12, 0, 1048557, 12, 0, 1048561, 13, 0, 1048562, 12, 0, 1048568, 13, 0, 1048571, 13, 0, 983041, 12, 0, 983042, 12, 0, 983043, 12, 0, 983044, 12, 0, 983045, 12, 0, 983046, 12, 0, 983047, 13, 0, 983056, 13, 0, 983059, 12, 0, 983060, 12, 0, 983061, 12, 0, 983062, 12, 0, 983063, 12, 0, 983064, 12, 0, 983067, 13, 0, 983073, 13, 0, 983076, 13, 0, 983077, 13, 0, 1114093, 11, 0, 1114094, 11, 0, 1114095, 11, 0, 1114096, 11, 0, 1114097, 11, 0, 1114098, 11, 0, 1114099, 11, 0, 1114100, 11, 0, 1114101, 11, 0, 1114102, 11, 0, 1114103, 11, 0, 1114104, 11, 0, 1114105, 11, 0, 1114106, 11, 0, 1114107, 11, 0, 1114108, 11, 0, 1114109, 11, 0, 1114110, 11, 0, 1114111, 11, 0, 1048576, 11, 0, 1048577, 11, 0, 1048578, 11, 0, 1048579, 11, 0, 1048580, 11, 0, 1048581, 11, 0, 1048582, 11, 0, 1048583, 11, 0, 1048584, 11, 0, 1048585, 11, 0, 1048586, 11, 0, 1048587, 11, 0, 1048588, 11, 0, 1048589, 11, 0, 1048590, 11, 0, 1048591, 11, 0, 1048592, 11, 0, 1048593, 11, 0, 1048594, 11, 0, 1048595, 11, 0, 1048596, 11, 0, 1048597, 11, 0, 1048598, 11, 0, 1048599, 11, 0, 1048600, 11, 0, 1048601, 11, 0, 1048602, 11, 0, 1048603, 11, 0, 1048604, 11, 0, 1048605, 11, 0, 1048606, 11, 0, 1048607, 11, 0, 1048608, 11, 0, 1048609, 11, 0, 1048610, 11, 0, 1048611, 11, 0, 1048612, 11, 0, 1048613, 11, 0 )
+tile_data = PoolIntArray( 1048561, 13, 0, 1048564, 13, 0, 1048565, 13, 0, 1048567, 13, 0, 1048568, 13, 0, 1048571, 13, 0, 1048572, 13, 0, 1048575, 13, 0, 983040, 13, 0, 983061, 13, 0, 983065, 13, 0, 983069, 13, 0, 983070, 13, 0, 983073, 13, 0, 983076, 13, 0, 983077, 13, 0, 1114093, 11, 0, 1114094, 11, 0, 1114095, 11, 0, 1114096, 11, 0, 1114097, 11, 0, 1114098, 11, 0, 1114099, 11, 0, 1114100, 11, 0, 1114101, 11, 0, 1114102, 11, 0, 1114103, 11, 0, 1114104, 11, 0, 1114105, 11, 0, 1114106, 11, 0, 1114107, 11, 0, 1114108, 11, 0, 1114109, 11, 0, 1114110, 11, 0, 1114111, 11, 0, 1048576, 11, 0, 1048577, 11, 0, 1048578, 11, 0, 1048579, 11, 0, 1048580, 11, 0, 1048581, 11, 0, 1048582, 11, 0, 1048583, 11, 0, 1048584, 11, 0, 1048585, 11, 0, 1048586, 11, 0, 1048587, 11, 0, 1048588, 11, 0, 1048589, 11, 0, 1048590, 11, 0, 1048591, 11, 0, 1048592, 11, 0, 1048593, 11, 0, 1048594, 11, 0, 1048595, 11, 0, 1048596, 11, 0, 1048597, 11, 0, 1048598, 11, 0, 1048599, 11, 0, 1048600, 11, 0, 1048601, 11, 0, 1048602, 11, 0, 1048603, 11, 0, 1048604, 11, 0, 1048605, 11, 0, 1048606, 11, 0, 1048607, 11, 0, 1048608, 11, 0, 1048609, 11, 0, 1048610, 11, 0, 1048611, 11, 0, 1048612, 11, 0, 1048613, 11, 0, 1048614, 11, 0, 1048615, 11, 0, 1048616, 11, 0, 1048617, 11, 0, 1048618, 11, 0, 1048619, 11, 0, 1048620, 11, 0, 1048621, 11, 0, 1048622, 11, 0, 1048623, 11, 0, 1048624, 11, 0, 1048625, 11, 0, 1048626, 11, 0, 1048627, 11, 0, 1048628, 11, 0, 1048629, 11, 0, 1048630, 11, 0, 1048631, 11, 0, 1048632, 11, 0, 1048633, 11, 0, 1048634, 11, 0 )
+
+[node name="sky" type="Sprite" parent="TileMap"]
+show_behind_parent = true
+position = Vector2( -3261.18, -1374.05 )
+scale = Vector2( 15.8397, 21.4425 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="shroom1" type="Sprite" parent="TileMap"]
+position = Vector2( 2057.81, 985.277 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 6 )
+
+[node name="shroom2" type="Sprite" parent="TileMap"]
+position = Vector2( 2568.01, 974.934 )
+texture = ExtResource( 6 )
+
+[node name="shroom3" type="Sprite" parent="TileMap"]
+position = Vector2( 2212.65, 994.413 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 6 )
+
+[node name="shroom4" type="Sprite" parent="TileMap"]
+position = Vector2( 2289.34, 984.732 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 6 )
+
+[node name="treedead" type="Sprite" parent="TileMap"]
+position = Vector2( 2437.67, 779.152 )
+texture = ExtResource( 8 )
+
+[node name="tree_pine" type="Sprite" parent="TileMap"]
+position = Vector2( -370.267, 772.711 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="tree_small" type="Sprite" parent="TileMap"]
+position = Vector2( -231.052, 990.293 )
+scale = Vector2( 0.6, 0.56 )
+texture = ExtResource( 10 )
+
+[node name="flower1" type="Sprite" parent="TileMap"]
+position = Vector2( -159.36, 989.826 )
+scale = Vector2( 0.6, 0.56 )
+texture = ExtResource( 7 )
+
+[node name="flower2" type="Sprite" parent="TileMap"]
+position = Vector2( -81.7201, 989.046 )
+scale = Vector2( 0.6, 0.56 )
+texture = ExtResource( 12 )
+
+[node name="flower3" type="Sprite" parent="TileMap"]
+position = Vector2( -306.79, 990.733 )
+scale = Vector2( 0.6, 0.56 )
+texture = ExtResource( 11 )
+
+[node name="flower4" type="Sprite" parent="TileMap"]
+position = Vector2( -441.359, 987.454 )
+scale = Vector2( 0.6, 0.56 )
+texture = ExtResource( 11 )
+
+[node name="bee1" type="Sprite" parent="TileMap"]
+position = Vector2( -43.011, 939.757 )
+scale = Vector2( 0.6, 0.56 )
+texture = ExtResource( 15 )
+
+[node name="bee2" type="Sprite" parent="TileMap"]
+position = Vector2( -183.627, 926.78 )
+scale = Vector2( 0.6, 0.56 )
+texture = ExtResource( 15 )
+flip_h = true
+
+[node name="fly1" type="Sprite" parent="TileMap"]
+position = Vector2( 2134.48, 921.95 )
+scale = Vector2( 0.6, 0.56 )
+texture = ExtResource( 14 )
+
+[node name="fly2" type="Sprite" parent="TileMap"]
+position = Vector2( 2614.27, 611.337 )
+scale = Vector2( 0.6, 0.56 )
+texture = ExtResource( 14 )
 
 [node name="game_timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 1920, 1080 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 4, 4 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-position = Vector2( 80, 0 )
-motion_mirroring = Vector2( 960, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-visible = false
-scale = Vector2( 2, 2 )
-texture = ExtResource( 6 )
-centered = false
 [connection signal="pressed" from="CanvasLayer/return" to="." method="_on_return_pressed"]
 [connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]
