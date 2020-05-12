@@ -13,15 +13,15 @@ const init_stats : Dictionary =  {
 var constants : Dictionary = {"addition_fractions_simple" : 0, "soustraction_fractions_simple" : 1,
 "addition_fractions_multiple" : 2, "soustration_fractions_multiple" : 3, "addition_fractions_general" : 4,
 "soustraction_fractions_general" : 5, "multiplication_fractions" : 6, "division_fractions" : 7, 
-"fractions_irreductible" : 8,"tester_valeur" : 9, "tester_egalite_simple" : 10, "tester_egalite_generale" : 11,
-"reduire_sans_parentheses" : 12, "reduire_avec_parentheses" : 13, "developpement_simple" : 14,
-"developpement_double" : 15, "factorisarion_simple" : 16, "factorisation_id_remarquable" : 17,
+"fractions_irreductible" : 8,"calcul_valeur" : 9, "tester_egalite_simple" : 10, "tester_egalite_general" : 11,
+"reduire_simple" : 12, "reduire_parentheses" : 13, "developpement_simple" : 14,
+"developpement_double" : 15, "factorisarion_simple" : 16, "factorisation_id_rem" : 17,
 "addition_entiers" : 18, "soustraction_entiers" : 19, "multiplication_entiers" : 20,
 "division_entiers" : 21, "addition_decimaux" : 22, "soustraction_decimaux" : 23,
 "multiplication_decimaux" : 24, "division_decimaux" : 25, "addition_relatifs" : 26,
 "soustraction_relatifs" : 27, "multiplication_relatifs" : 28, "division_relatifs" : 29,
 "appliquer_pourcentage" : 30, "trouver_pourcentage_simple" : 31, "trouver_pourcentage" : 32,
-"priorites_sans_parentheses" : 33, "priorites_avec_parentheses" : 34, "decomposition" : 35}
+"priorites_simple" : 33, "priorites_parentheses" : 34, "decomposition" : 35}
 
 var notions_show : Array = ["_4_Operations/Control", "Literal_calculation/Control", "Fraction/Control", "Arithmetic/Control",
 					"Conversion/Control", "Percentage/Control"]#, "Power", "Fonction"]
