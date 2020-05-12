@@ -20,7 +20,7 @@ var calcul_3 : Dictionary = {}
 var calcul_4 : Dictionary = {}
 
 const addition_fraction_simple = 0;const soustraction_fraction_simple = 1;const addition_fraction_multiple = 2
-const soustration_fraction_multiple = 3;const addition_fraction_general = 4;const soustraction_fraction_general = 5
+const soustraction_fraction_multiple = 3;const addition_fraction_general = 4;const soustraction_fraction_general = 5
 const multiplication_fraction = 6;const division_fraction = 7;const fraction_irreductible = 8
 const calcul_valeur = 9;const tester_egalite_simple = 10;const tester_egalite_general = 11
 const reduire_simple = 12;const reduire_parentheses = 13;const developpement_simple = 14
@@ -71,7 +71,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		var frac_2 = chosen_question["question"][2]
 		$Fractions/question/fraction_2.texture = FileBankUtils.loaded_fractions[frac_2]
 		question = $Fractions/question/operator
-	elif theme == fractions_irreductible:
+	elif theme == fraction_irreductible:
 		show_notion(notions_show, "Fractions_irreductible")
 		var question_txt = chosen_question["question"][0]
 		$Fractions_irreductible/question/question.text = question_txt
@@ -131,7 +131,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		control = $Fractions/Control
 		hbox = $Fractions/Control/answer
 		buttons = $Fractions/Control/Buttons_fractions
-	elif theme == fractions_irreductible:
+	elif theme == fraction_irreductible:
 		var frac_1 = answers[0]
 		$Fractions_irreductible/Control/answer/fraction_1.texture = FileBankUtils.loaded_fractions[frac_1["text"]]
 		var frac_2 = answers[1]

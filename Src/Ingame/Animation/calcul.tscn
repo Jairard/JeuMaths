@@ -4,7 +4,7 @@
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 55
+size = 75
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -64,10 +64,10 @@ __meta__ = {
 }
 
 [node name="operator" type="Label" parent="Fractions/question"]
-margin_left = -60.6303
-margin_top = -24.3081
-margin_right = -16.6303
-margin_bottom = 43.6919
+margin_left = -47.0
+margin_top = -24.308
+margin_right = -3.0
+margin_bottom = 67.692
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
@@ -90,59 +90,60 @@ __meta__ = {
 [node name="Control" type="Control" parent="Fractions"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( -320, 160 )
+rect_pivot_offset = Vector2( -830, 240 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="answer" type="HBoxContainer" parent="Fractions/Control"]
-margin_left = -451.0
-margin_top = 200.0
-margin_right = 499.0
-margin_bottom = 340.0
+margin_left = -981.0
+margin_top = 240.0
+margin_right = 1080.0
+margin_bottom = 386.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 200
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="fraction_1" type="TextureRect" parent="Fractions/Control/answer"]
 show_behind_parent = true
-margin_right = 234.0
-margin_bottom = 140.0
+margin_right = 365.0
+margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="fraction_2" type="TextureRect" parent="Fractions/Control/answer"]
 show_behind_parent = true
-margin_left = 238.0
-margin_right = 472.0
-margin_bottom = 140.0
+margin_left = 565.0
+margin_right = 930.0
+margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="fraction_3" type="TextureRect" parent="Fractions/Control/answer"]
 show_behind_parent = true
-margin_left = 476.0
-margin_right = 710.0
-margin_bottom = 140.0
+margin_left = 1130.0
+margin_right = 1495.0
+margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="fraction_4" type="TextureRect" parent="Fractions/Control/answer"]
 show_behind_parent = true
-margin_left = 714.0
-margin_right = 950.0
-margin_bottom = 140.0
+margin_left = 1695.0
+margin_right = 2061.0
+margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Buttons_fractions" type="HBoxContainer" parent="Fractions/Control"]
-margin_left = -451.0
-margin_top = 200.0
-margin_right = 398.0
-margin_bottom = 316.0
-custom_constants/separation = 100
+margin_left = -981.0
+margin_top = 240.0
+margin_right = 1080.0
+margin_bottom = 386.0
+custom_constants/separation = 200
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -150,8 +151,8 @@ __meta__ = {
 [node name="Button1" type="Button" parent="Fractions/Control/Buttons_fractions"]
 modulate = Color( 1, 1, 1, 0.858824 )
 self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 137.0
-margin_bottom = 116.0
+margin_right = 365.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -161,9 +162,9 @@ __meta__ = {
 [node name="Button2" type="Button" parent="Fractions/Control/Buttons_fractions"]
 modulate = Color( 1, 1, 1, 0.858824 )
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 237.0
-margin_right = 374.0
-margin_bottom = 116.0
+margin_left = 565.0
+margin_right = 930.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -173,9 +174,9 @@ __meta__ = {
 [node name="Button3" type="Button" parent="Fractions/Control/Buttons_fractions"]
 modulate = Color( 1, 1, 1, 0.858824 )
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 474.0
-margin_right = 611.0
-margin_bottom = 116.0
+margin_left = 1130.0
+margin_right = 1495.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -185,9 +186,9 @@ __meta__ = {
 [node name="Button4" type="Button" parent="Fractions/Control/Buttons_fractions"]
 modulate = Color( 1, 1, 1, 0.858824 )
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 711.0
-margin_right = 849.0
-margin_bottom = 116.0
+margin_left = 1695.0
+margin_right = 2061.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -214,9 +215,9 @@ __meta__ = {
 }
 
 [node name="question" type="Label" parent="Fractions_irreductible/question"]
-margin_top = 19.0
+margin_top = 7.0
 margin_right = 401.0
-margin_bottom = 87.0
+margin_bottom = 99.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
@@ -235,68 +236,69 @@ margin_left = 214.531
 margin_top = -24.5547
 margin_right = 254.531
 margin_bottom = 15.4453
-rect_pivot_offset = Vector2( -280, 150 )
+rect_pivot_offset = Vector2( -830, 240 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="answer" type="HBoxContainer" parent="Fractions_irreductible/Control"]
-margin_left = -400.0
-margin_top = 140.0
-margin_right = 550.0
-margin_bottom = 280.0
+margin_left = -981.0
+margin_top = 240.0
+margin_right = 1080.0
+margin_bottom = 386.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 200
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="fraction_1" type="TextureRect" parent="Fractions_irreductible/Control/answer"]
 show_behind_parent = true
-margin_right = 234.0
-margin_bottom = 140.0
+margin_right = 365.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="fraction_2" type="TextureRect" parent="Fractions_irreductible/Control/answer"]
 show_behind_parent = true
-margin_left = 238.0
-margin_right = 472.0
-margin_bottom = 140.0
+margin_left = 565.0
+margin_right = 930.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="fraction_3" type="TextureRect" parent="Fractions_irreductible/Control/answer"]
 show_behind_parent = true
-margin_left = 476.0
-margin_right = 710.0
-margin_bottom = 140.0
+margin_left = 1130.0
+margin_right = 1495.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="fraction_4" type="TextureRect" parent="Fractions_irreductible/Control/answer"]
 show_behind_parent = true
-margin_left = 714.0
-margin_right = 950.0
-margin_bottom = 140.0
+margin_left = 1695.0
+margin_right = 2061.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Buttons_irreductible" type="HBoxContainer" parent="Fractions_irreductible/Control"]
-margin_left = -400.95
-margin_top = 141.0
-margin_right = 432.05
-margin_bottom = 281.0
-custom_constants/separation = 130
+margin_left = -981.0
+margin_top = 240.0
+margin_right = 1080.0
+margin_bottom = 386.0
+custom_constants/separation = 200
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Button1" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
-modulate = Color( 1, 1, 1, 0 )
-margin_right = 110.0
-margin_bottom = 140.0
+modulate = Color( 1, 1, 1, 0.533333 )
+margin_right = 365.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -304,10 +306,10 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 240.0
-margin_right = 350.0
-margin_bottom = 140.0
+modulate = Color( 1, 1, 1, 0.533333 )
+margin_left = 565.0
+margin_right = 930.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -315,10 +317,10 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 480.0
-margin_right = 590.0
-margin_bottom = 140.0
+modulate = Color( 1, 1, 1, 0.533333 )
+margin_left = 1130.0
+margin_right = 1495.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -326,10 +328,10 @@ __meta__ = {
 }
 
 [node name="Button4" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 720.0
-margin_right = 833.0
-margin_bottom = 140.0
+modulate = Color( 1, 1, 1, 0.533333 )
+margin_left = 1695.0
+margin_right = 2061.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -344,10 +346,10 @@ __meta__ = {
 }
 
 [node name="question" type="HBoxContainer" parent="Calcul"]
-margin_left = -282.0
-margin_top = -220.0
-margin_right = 1174.0
-margin_bottom = 35.0
+margin_left = -283.618
+margin_top = -218.382
+margin_right = 1172.38
+margin_bottom = 36.6177
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -389,7 +391,7 @@ __meta__ = {
 [node name="Label1" type="Label" parent="Calcul/Control/answer"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 444.0
-margin_bottom = 184.0
+margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -401,7 +403,7 @@ clip_text = true
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 644.0
 margin_right = 1088.0
-margin_bottom = 184.0
+margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -412,7 +414,7 @@ clip_text = true
 [node name="Label3" type="Label" parent="Calcul/Control/answer"]
 margin_left = 1288.0
 margin_right = 1732.0
-margin_bottom = 184.0
+margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -423,7 +425,7 @@ clip_text = true
 [node name="Label4" type="Label" parent="Calcul/Control/answer"]
 margin_left = 1932.0
 margin_right = 2376.0
-margin_bottom = 184.0
+margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -829,17 +831,17 @@ __meta__ = {
 }
 
 [node name="label2" type="Label" parent="Decomposition/Control/answers_down"]
-margin_right = 775.0
-margin_bottom = 154.0
+margin_right = 774.0
+margin_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="label4" type="Label" parent="Decomposition/Control/answers_down"]
-margin_left = 1175.0
-margin_right = 1950.0
-margin_bottom = 154.0
+margin_left = 1174.0
+margin_right = 1949.0
+margin_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 5 )
@@ -883,7 +885,7 @@ __meta__ = {
 [node name="reduction2" type="Button" parent="Decomposition/Control/buttons_litteral_down"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 775.0
-margin_bottom = 154.0
+margin_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -891,7 +893,7 @@ size_flags_vertical = 3
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1175.0
 margin_right = 1950.0
-margin_bottom = 154.0
+margin_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -1040,9 +1042,9 @@ __meta__ = {
 
 [node name="question" type="HBoxContainer" parent="Percentages"]
 margin_left = -700.0
-margin_top = -149.0
+margin_top = -146.842
 margin_right = 1135.0
-margin_bottom = 35.0
+margin_bottom = 37.1584
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -1126,9 +1128,9 @@ clip_text = true
 
 [node name="Buttons_percentages" type="HBoxContainer" parent="Percentages/Control"]
 margin_left = -923.0
-margin_top = 200.0
+margin_top = 199.05
 margin_right = 1657.0
-margin_bottom = 384.0
+margin_bottom = 383.05
 custom_constants/separation = 200
 __meta__ = {
 "_edit_use_anchors_": false

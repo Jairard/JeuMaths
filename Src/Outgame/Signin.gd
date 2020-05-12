@@ -11,7 +11,7 @@ const init_stats : Dictionary =  {
 									}
 
 var constants : Dictionary = {"addition_fraction_simple" : 0, "soustraction_fraction_simple" : 1,
-"addition_fraction_multiple" : 2, "soustration_fraction_multiple" : 3, "addition_fraction_general" : 4,
+"addition_fraction_multiple" : 2, "soustraction_fraction_multiple" : 3, "addition_fraction_general" : 4,
 "soustraction_fraction_general" : 5, "multiplication_fraction" : 6, "division_fraction" : 7, 
 "fraction_irreductible" : 8,"calcul_valeur" : 9, "tester_egalite_simple" : 10, "tester_egalite_general" : 11,
 "reduire_simple" : 12, "reduire_parentheses" : 13, "developpement_simple" : 14,
