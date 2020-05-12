@@ -7,14 +7,14 @@
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 15
-outline_size = 1
+size = 40
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 15
-outline_size = 1
+size = 40
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
@@ -25,23 +25,23 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="health" type="Label" parent="CanvasLayer"]
-margin_left = 6.53573
-margin_top = 7.10806
-margin_right = 89.5357
-margin_bottom = 57.1081
+margin_left = 9.10787
+margin_top = 6.66792
+margin_right = 174.108
+margin_bottom = 56.668
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.890196, 0.862745, 0.862745, 1 )
-text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="life_hero" type="TextureProgress" parent="CanvasLayer"]
-margin_left = 83.2
-margin_right = 6083.2
-margin_bottom = 1000.0
+margin_left = 177.56
+margin_top = 11.5264
+margin_right = 6177.56
+margin_bottom = 1011.53
 rect_scale = Vector2( 0.04, 0.04 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -54,30 +54,30 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-margin_left = 309.758
-margin_top = 10.1054
-margin_right = 419.758
-margin_bottom = 50.1054
+margin_left = 407.512
+margin_top = 5.58629
+margin_right = 540.512
+margin_bottom = 55.5863
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
-margin_right = 53.0
-margin_bottom = 40.0
+margin_right = 64.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/HBoxContainer/Label"]
-position = Vector2( 13.3042, -8.25757 )
-scale = Vector2( 0.04, 0.04 )
+position = Vector2( 3.8916, -3.28838 )
+scale = Vector2( 0.06, 0.06 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="damages" type="Label" parent="CanvasLayer/HBoxContainer"]
-margin_left = 57.0
-margin_right = 110.0
-margin_bottom = 40.0
+margin_left = 68.0
+margin_right = 133.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
