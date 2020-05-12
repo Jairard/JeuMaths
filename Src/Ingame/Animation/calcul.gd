@@ -22,15 +22,15 @@ var calcul_4 : Dictionary = {}
 const addition_fractions_simple = 0;const soustraction_fractions_simple = 1;const addition_fractions_multiple = 2
 const soustration_fractions_multiple = 3;const addition_fractions_general = 4;const soustraction_fractions_general = 5
 const multiplication_fractions = 6;const division_fractions = 7;const fractions_irreductible = 8
-const tester_valeur = 9;const tester_egalite_simple = 10;const tester_egalite_generale = 11
-const reduire_sans_parentheses = 12;const reduire_avec_parentheses = 13;const developpement_simple = 14
-const developpement_double = 15;const factorisarion_simple = 16;const factorisation_id_remarquable = 17
+const calcul_valeur = 9;const tester_egalite_simple = 10;const tester_egalite_general = 11
+const reduire_simple = 12;const reduire_parentheses = 13;const developpement_simple = 14
+const developpement_double = 15;const factorisarion_simple = 16;const factorisation_id_rem = 17
 const addition_entiers = 18;const soustraction_entiers = 19;const multiplication_entiers = 20
 const division_entiers = 21;const addition_decimaux = 22;const soustraction_decimaux = 23
 const multiplication_decimaux = 24;const division_decimaux = 25;const addition_relatifs = 26
 const soustraction_relatifs = 27;const multiplication_relatifs = 28;const division_relatifs = 29
 const appliquer_pourcentage = 30;const trouver_pourcentage_simple = 31;const trouver_pourcentage = 32
-const priorites_sans_parentheses = 33;const priorites_avec_parentheses = 34;const decomposition = 35
+const priorites_simple = 33;const priorites_parentheses = 34;const decomposition = 35
 
 var notions_show : Array = ["Fractions", "Fractions_irreductible", "Calcul", "Calcul_litteral",
 					"Calcul_litteral_reduction", "Calcul_factorisation", "Percentages"]
@@ -78,7 +78,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		var frac = chosen_question["question"][1]
 		$Fractions_irreductible/question/fraction.texture = FileBankUtils.loaded_fractions[frac]
 		question = $Fractions_irreductible/question/question
-	elif theme == tester_valeur:
+	elif theme == calcul_valeur:
 		show_notion(notions_show, "Calcul_litteral")
 		var title = chosen_question["question"][0]
 		$Calcul_litteral/question/title.text = title
@@ -141,7 +141,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		control = $Fractions_irreductible/Control
 		hbox = $Fractions_irreductible/Control/answer
 		buttons = $Fractions_irreductible/Control/Buttons_irreductible
-	elif theme == tester_valeur:
+	elif theme == calcul_valeur:
 		calcul_1 = answers[0]
 		$Calcul_litteral/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
