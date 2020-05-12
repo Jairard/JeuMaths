@@ -356,7 +356,7 @@ custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "prioriés simple"
 
-[node name="priorites_parenthese" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
+[node name="priorites_parentheses" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
 margin_top = 96.0
 margin_right = 148.0
 margin_bottom = 120.0
@@ -509,7 +509,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "    Réduire une expression"
 
-[node name="réduire_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
+[node name="reduire_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
 margin_top = 48.0
 margin_right = 220.0
 margin_bottom = 92.0
@@ -520,7 +520,7 @@ custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "réduire simple"
 
-[node name="réduire_parenthèse" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
+[node name="reduire_parentheses" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
 margin_top = 96.0
 margin_right = 220.0
 margin_bottom = 140.0

@@ -32,7 +32,7 @@ const soustraction_relatifs = 27;const multiplication_relatifs = 28;const divisi
 const appliquer_pourcentage = 30;const trouver_pourcentage_simple = 31;const trouver_pourcentage = 32
 const priorites_simple = 33;const priorites_parentheses = 34;const decomposition = 35
 
-var notions_show : Array = ["Fractions", "Fractions_irreductible", "Calcul", "Calcul_litteral",
+var notions_show : Array = ["Fractions", "Fractions_irreductible", "Calcul",
 					"Calcul_litteral_reduction", "Calcul_factorisation", "Percentages"]
 
 func show_notion(notions_show : Array, lesson : String) -> void:
@@ -78,16 +78,16 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		var frac = chosen_question["question"][1]
 		$Fractions_irreductible/question/fraction.texture = FileBankUtils.loaded_fractions[frac]
 		question = $Fractions_irreductible/question/question
-	elif theme == calcul_valeur:
-		show_notion(notions_show, "Calcul_litteral")
-		var title = chosen_question["question"][0]
-		$Calcul_litteral/question/title.text = title
-		var equation = chosen_question["question"][1]
-		$Calcul_litteral/question/equation.text = equation
-		var value = chosen_question["question"][2]
-		$Calcul_litteral/question/value.text = value
-		question = $Calcul_litteral/question/equation
-	elif theme == reduire_simple or theme == reduire_parentheses:
+#	elif theme == calcul_valeur:
+#		show_notion(notions_show, "Calcul_litteral")
+#		var title = chosen_question["question"][0]
+#		$Calcul_litteral/question/title.text = title
+#		var equation = chosen_question["question"][1]
+#		$Calcul_litteral/question/equation.text = equation
+#		var value = chosen_question["question"][2]
+#		$Calcul_litteral/question/value.text = value
+#		question = $Calcul_litteral/question/equation
+	elif theme == reduire_simple or theme == reduire_parentheses or theme == calcul_valeur:
 		show_notion(notions_show, "Calcul_litteral_reduction")
 		var title = chosen_question["question"][0]
 		$Calcul_litteral_reduction/question/title.text = title
@@ -141,19 +141,19 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		control = $Fractions_irreductible/Control
 		hbox = $Fractions_irreductible/Control/answer
 		buttons = $Fractions_irreductible/Control/Buttons_irreductible
-	elif theme == calcul_valeur:
-		calcul_1 = answers[0]
-		$Calcul_litteral/Control/answer/label1.text = str(calcul_1["text"])
-		calcul_2 = answers[1]
-		$Calcul_litteral/Control/answer/label2.text = str(calcul_2["text"])
-		calcul_3 = answers[2]
-		$Calcul_litteral/Control/answer/label3.text = str(calcul_3["text"])
-		calcul_4 = answers[3]
-		$Calcul_litteral/Control/answer/label4.text = str(calcul_4["text"])
-		control = $Calcul_litteral/Control
-		hbox = $Calcul_litteral/Control/answer
-		buttons = $Calcul_litteral/Control/buttons_litteral
-	elif theme == reduire_simple or theme == reduire_parentheses:
+#	elif theme == calcul_valeur:
+#		calcul_1 = answers[0]
+#		$Calcul_litteral/Control/answer/label1.text = str(calcul_1["text"])
+#		calcul_2 = answers[1]
+#		$Calcul_litteral/Control/answer/label2.text = str(calcul_2["text"])
+#		calcul_3 = answers[2]
+#		$Calcul_litteral/Control/answer/label3.text = str(calcul_3["text"])
+#		calcul_4 = answers[3]
+#		$Calcul_litteral/Control/answer/label4.text = str(calcul_4["text"])
+#		control = $Calcul_litteral/Control
+#		hbox = $Calcul_litteral/Control/answer
+#		buttons = $Calcul_litteral/Control/buttons_litteral
+	elif theme == reduire_simple or theme == reduire_parentheses or theme == calcul_valeur:
 		calcul_1 = answers[0]
 		$Calcul_litteral_reduction/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
