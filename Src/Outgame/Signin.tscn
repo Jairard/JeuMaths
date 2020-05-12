@@ -550,7 +550,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "           Distributivité"
 
-[node name="développement_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
+[node name="developpement_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
 margin_top = 32.0
 margin_right = 221.0
 margin_bottom = 56.0
@@ -560,7 +560,7 @@ custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Développement simple"
 
-[node name="développement_double" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
+[node name="developpement_double" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
 margin_top = 60.0
 margin_right = 221.0
 margin_bottom = 84.0
