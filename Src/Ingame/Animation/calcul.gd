@@ -87,7 +87,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		var value = chosen_question["question"][2]
 		$Calcul_litteral/question/value.text = value
 		question = $Calcul_litteral/question/equation
-	elif theme == reduire_sans_parentheses or theme == reduire_avec_parentheses:
+	elif theme == reduire_simple or theme == reduire_parentheses:
 		show_notion(notions_show, "Calcul_litteral_reduction")
 		var title = chosen_question["question"][0]
 		$Calcul_litteral_reduction/question/title.text = title
@@ -153,7 +153,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		control = $Calcul_litteral/Control
 		hbox = $Calcul_litteral/Control/answer
 		buttons = $Calcul_litteral/Control/buttons_litteral
-	elif theme == reduire_sans_parentheses or theme == reduire_avec_parentheses:
+	elif theme == reduire_simple or theme == reduire_parentheses:
 		calcul_1 = answers[0]
 		$Calcul_litteral_reduction/Control/answer/label1.text = str(calcul_1["text"])
 		calcul_2 = answers[1]
