@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Src/Outgame/Signin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Src/Outgame/Fade_scene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Textures/GUI/975671341f214e57c34bb8b2e791b456.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/GUI/text_go.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Characters/TEST_punk_pour_P.png" type="Texture" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "sol0"
@@ -29,8 +31,77 @@
 1/z_index = 0
 
 [sub_resource type="DynamicFont" id=2]
+size = 70
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 27
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 25
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 30
 font_data = ExtResource( 4 )
 
 [node name="Signin" type="Node2D"]
@@ -40,12 +111,18 @@ script = ExtResource( 1 )
 tile_set = SubResource( 1 )
 format = 1
 
+[node name="TEST_punk_pour_P" type="Sprite" parent="TileMap"]
+position = Vector2( 91.8446, 95.7097 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 7 )
+
 [node name="pseudo_text" type="Label" parent="TileMap"]
-margin_left = -32.8376
-margin_top = 90.9004
-margin_right = 114.163
-margin_bottom = 172.9
-text = "Pseudo :"
+margin_left = 145.0
+margin_top = 50.1998
+margin_right = 178.0
+margin_bottom = 137.2
+custom_fonts/font = SubResource( 2 )
+text = ":"
 align = 1
 valign = 1
 autowrap = true
@@ -54,853 +131,110 @@ __meta__ = {
 }
 
 [node name="pseudo" type="LineEdit" parent="TileMap"]
-modulate = Color( 1, 1, 1, 0.780392 )
-margin_left = 74.0
-margin_top = 22.0
-margin_right = 329.0
-margin_bottom = 182.0
+margin_left = 180.474
+margin_top = 14.8404
+margin_right = 681.474
+margin_bottom = 174.841
+custom_fonts/font = SubResource( 3 )
 custom_colors/selection_color = Color( 0.819608, 0.0196078, 0.0196078, 1 )
 max_length = 100
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_4_Operations" type="CheckBox" parent="."]
-margin_left = 236.025
-margin_top = 226.94
-margin_right = 351.025
-margin_bottom = 250.94
+[node name="Control_Option" type="Control" parent="."]
+visible = false
+margin_right = 44.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option_fight" type="OptionButton" parent="Control_Option"]
+margin_left = 377.864
+margin_top = 26.1528
+margin_right = 650.864
+margin_bottom = 181.153
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option_featured_scenes" type="OptionButton" parent="Control_Option"]
+margin_left = 666.052
+margin_top = 22.8674
+margin_right = 741.052
+margin_bottom = 62.8674
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option_unused_scenes" type="OptionButton" parent="Control_Option"]
+margin_left = 673.013
+margin_top = 95.8199
+margin_right = 748.013
+margin_bottom = 135.82
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option_map" type="OptionButton" parent="Control_Option"]
+margin_left = 673.779
+margin_top = 156.863
+margin_right = 748.779
+margin_bottom = 196.863
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = -242.903
+margin_top = 94.3448
+margin_right = -242.903
+margin_bottom = 94.3448
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 936.0
+margin_top = 62.0
+margin_right = 1262.0
+margin_bottom = 468.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "4 Opérations "
+custom_constants/vseparation = 10
+custom_constants/hseparation = 50
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="_4_Operations"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_integers" type="TextureRect" parent="_4_Operations/Control"]
-margin_left = -212.492
-margin_top = 16.7149
-margin_right = 195.508
-margin_bottom = 582.715
-rect_scale = Vector2( 0.4, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_floats" type="TextureRect" parent="_4_Operations/Control"]
-margin_left = -65.605
-margin_top = 18.0
-margin_right = 293.395
-margin_bottom = 518.0
-rect_scale = Vector2( 0.4, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_relatives" type="TextureRect" parent="_4_Operations/Control"]
-margin_left = 79.18
-margin_top = 18.0
-margin_right = 438.18
-margin_bottom = 518.0
-rect_scale = Vector2( 0.4, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_priorities" type="TextureRect" parent="_4_Operations/Control"]
-margin_left = 222.913
-margin_top = 17.0
-margin_right = 581.913
-margin_bottom = 517.0
-rect_scale = Vector2( 0.5, 0.35 )
-size_flags_vertical = 2
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="_4_Operations/Control"]
-margin_left = -201.0
-margin_top = 33.0
-margin_right = 394.0
-margin_bottom = 173.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="questions_intergers" type="VBoxContainer" parent="_4_Operations/Control/HBoxContainer"]
-margin_right = 145.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Integers" type="Label" parent="_4_Operations/Control/HBoxContainer/questions_intergers"]
-margin_right = 145.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "        Entiers"
-
-[node name="addition_entiers" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_intergers"]
-margin_top = 32.0
-margin_right = 145.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Addition"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="soustraction_entiers" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_intergers"]
-margin_top = 60.0
-margin_right = 145.0
-margin_bottom = 84.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Soustraction"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="multiplication_entiers" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_intergers"]
-margin_top = 88.0
-margin_right = 145.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Multiplication"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="division_entiers" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_intergers"]
-margin_top = 116.0
-margin_right = 145.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Division"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="questions_floats" type="VBoxContainer" parent="_4_Operations/Control/HBoxContainer"]
-margin_left = 149.0
-margin_right = 294.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Floats" type="Label" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
-margin_right = 145.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "       Décimaux"
-
-[node name="addition_decimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
-margin_top = 32.0
-margin_right = 145.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Addition"
-
-[node name="soustraction_decimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
-margin_top = 60.0
-margin_right = 145.0
-margin_bottom = 84.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Soustraction"
-
-[node name="multiplication_decimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
-margin_top = 88.0
-margin_right = 145.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Multiplication"
-
-[node name="division_decimaux" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_floats"]
-margin_top = 116.0
-margin_right = 145.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Division"
-
-[node name="questions_relatives" type="VBoxContainer" parent="_4_Operations/Control/HBoxContainer"]
-margin_left = 298.0
-margin_right = 443.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Relatives" type="Label" parent="_4_Operations/Control/HBoxContainer/questions_relatives"]
-margin_right = 145.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "       Relatifs"
-
-[node name="addition_relatifs" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_relatives"]
-margin_top = 32.0
-margin_right = 145.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Addition"
-
-[node name="soustraction_relatifs" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_relatives"]
-margin_top = 60.0
-margin_right = 145.0
-margin_bottom = 84.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Soustraction"
-
-[node name="multiplication_relatifs" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_relatives"]
-margin_top = 88.0
-margin_right = 145.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Multiplication"
-
-[node name="division_relatifs" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_relatives"]
-margin_top = 116.0
-margin_right = 145.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Division"
-
-[node name="questions_priorities" type="VBoxContainer" parent="_4_Operations/Control/HBoxContainer"]
-margin_left = 447.0
-margin_right = 595.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Priorities" type="Label" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
-margin_right = 148.0
-margin_bottom = 14.0
-size_flags_horizontal = 3
-size_flags_vertical = 2
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "        Priorités"
-
-[node name="priorites_simple" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
-margin_top = 48.0
-margin_right = 148.0
-margin_bottom = 72.0
-size_flags_horizontal = 3
-size_flags_vertical = 2
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "prioriés simple"
-
-[node name="priorites_parentheses" type="CheckBox" parent="_4_Operations/Control/HBoxContainer/questions_priorities"]
-margin_top = 96.0
-margin_right = 148.0
-margin_bottom = 120.0
-size_flags_horizontal = 3
-size_flags_vertical = 2
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "priorités_parenthèse"
-
-[node name="Literal_calculation" type="CheckBox" parent="."]
-margin_left = 415.79
-margin_top = 231.648
-margin_right = 527.79
-margin_bottom = 255.648
-text = "Calcul littéral"
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 844.874
+margin_top = -50.7512
+margin_right = 1310.87
+margin_bottom = 82.2488
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[wave][center]Combats du jour :"
+text = "Combats du jour :"
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="Literal_calculation"]
-visible = false
-margin_left = -20.5729
-margin_top = -1.45413
-margin_right = 19.4271
-margin_bottom = 38.5459
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_use" type="TextureRect" parent="Literal_calculation/Control"]
-margin_left = -211.0
-margin_top = 17.0
-margin_right = 162.0
-margin_bottom = 517.0
-rect_scale = Vector2( 0.6, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_reduction" type="TextureRect" parent="Literal_calculation/Control"]
-margin_left = 6.0
-margin_top = 18.0
-margin_right = 374.0
-margin_bottom = 518.0
-rect_scale = Vector2( 0.6, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_distributivity" type="TextureRect" parent="Literal_calculation/Control"]
-margin_left = 228.0
-margin_top = 16.0
-margin_right = 604.0
-margin_bottom = 518.0
-rect_scale = Vector2( 0.6, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Literal_calculation/Control"]
-margin_left = -201.0
-margin_top = 33.0
-margin_right = 468.0
-margin_bottom = 173.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Use" type="VBoxContainer" parent="Literal_calculation/Control/HBoxContainer"]
-margin_right = 220.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="use" type="Label" parent="Literal_calculation/Control/HBoxContainer/Use"]
-margin_right = 220.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "     Utiliser une expression"
-
-[node name="calcul_valeur" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
-margin_top = 36.0
-margin_right = 220.0
-margin_bottom = 68.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "calcul valeur"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="tester_egalite_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
-margin_top = 72.0
-margin_right = 220.0
-margin_bottom = 104.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "tester égalité simple"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="tester_egalite_general" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Use"]
-margin_top = 108.0
-margin_right = 220.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "tester égalité général"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Reduce" type="VBoxContainer" parent="Literal_calculation/Control/HBoxContainer"]
-margin_left = 224.0
-margin_right = 444.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Reduce" type="Label" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
-margin_right = 220.0
-margin_bottom = 44.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "    Réduire une expression"
-
-[node name="reduire_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
-margin_top = 48.0
-margin_right = 220.0
-margin_bottom = 92.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "réduire simple"
-
-[node name="reduire_parentheses" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Reduce"]
-margin_top = 96.0
-margin_right = 220.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "réduire parenthèse"
-
-[node name="Distribute" type="VBoxContainer" parent="Literal_calculation/Control/HBoxContainer"]
-margin_left = 448.0
-margin_right = 669.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Distribute" type="Label" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
-margin_right = 221.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "           Distributivité"
-
-[node name="developpement_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
-margin_top = 32.0
-margin_right = 221.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Développement simple"
-
-[node name="developpement_double" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
-margin_top = 60.0
-margin_right = 221.0
-margin_bottom = 84.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Développement double"
-
-[node name="factorisation_simple" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
-margin_top = 88.0
-margin_right = 221.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "factorisation simple"
-
-[node name="factorisation_id_rem" type="CheckBox" parent="Literal_calculation/Control/HBoxContainer/Distribute"]
-margin_top = 116.0
-margin_right = 221.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "factorisation id rem"
-
-[node name="Fraction" type="CheckBox" parent="."]
-margin_left = 594.683
-margin_top = 232.64
-margin_right = 680.683
-margin_bottom = 256.64
-text = "Fractions"
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="Fraction"]
-visible = false
-margin_left = -307.218
-margin_top = 5.38898
-margin_right = -267.218
-margin_bottom = 45.389
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_+" type="TextureRect" parent="Fraction/Control"]
-margin_left = 25.1289
-margin_top = 18.9985
-margin_right = 398.129
-margin_bottom = 518.999
-rect_scale = Vector2( 0.6, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_-" type="TextureRect" parent="Fraction/Control"]
-margin_left = 289.949
-margin_top = 20.1066
-margin_right = 662.949
-margin_bottom = 520.107
-rect_scale = Vector2( 0.6, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_x___" type="TextureRect" parent="Fraction/Control"]
-margin_left = 530.909
-margin_top = 17.0
-margin_right = 889.909
-margin_bottom = 517.0
-rect_scale = Vector2( 0.6, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Fraction/Control"]
-margin_left = 46.0
-margin_top = 35.0
-margin_right = 814.0
-margin_bottom = 175.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="fraction_additions" type="VBoxContainer" parent="Fraction/Control/HBoxContainer"]
-margin_right = 253.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="addition" type="Label" parent="Fraction/Control/HBoxContainer/fraction_additions"]
-margin_right = 253.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "           Addition "
-
-[node name="addition_fraction_simple" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
-margin_top = 36.0
-margin_right = 253.0
-margin_bottom = 68.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "addition fraction simple"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="addition_fraction_multiple" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
-margin_top = 72.0
-margin_right = 253.0
-margin_bottom = 104.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "addition fraction multiple"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="addition_fraction_general" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_additions"]
-margin_top = 108.0
-margin_right = 253.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "addition fraction général"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="fraction_soustractions" type="VBoxContainer" parent="Fraction/Control/HBoxContainer"]
-margin_left = 257.0
-margin_right = 510.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="soustraction" type="Label" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
-margin_right = 253.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "            Soustraction"
-
-[node name="soustraction_fraction_simple" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
-margin_top = 36.0
-margin_right = 253.0
-margin_bottom = 68.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "soustraction fraction simple"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="soustraction_fraction_multiple" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
-margin_top = 72.0
-margin_right = 253.0
-margin_bottom = 104.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "soustraction fraction multiple"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="soustraction_fraction_general" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_soustractions"]
-margin_top = 108.0
-margin_right = 253.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "soustraction fraction général"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="fraction_multiplication_division" type="VBoxContainer" parent="Fraction/Control/HBoxContainer"]
-margin_left = 514.0
-margin_right = 768.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="fraction" type="Label" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
-margin_right = 254.0
-margin_bottom = 44.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
-custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "Multiplication / Division"
-
-[node name="multiplication_fraction" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
-margin_top = 48.0
-margin_right = 254.0
-margin_bottom = 92.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "multiplication fraction"
-
-[node name="division_fraction" type="CheckBox" parent="Fraction/Control/HBoxContainer/fraction_multiplication_division"]
-margin_top = 96.0
-margin_right = 254.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "division fraction"
-
-[node name="Arithmetic" type="CheckBox" parent="."]
-margin_left = 761.275
-margin_top = 233.441
-margin_right = 874.275
-margin_bottom = 257.441
-text = "Arithmétique"
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="Arithmetic"]
-visible = false
-margin_left = -440.292
-margin_top = 51.7338
-margin_right = -400.292
-margin_bottom = 91.7338
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back_arithmetic" type="TextureRect" parent="Arithmetic/Control"]
-margin_left = 399.528
-margin_top = -30.3685
-margin_right = 772.528
-margin_bottom = 469.631
-rect_scale = Vector2( 0.6, 0.35 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Arithmetic/Control"]
-margin_left = 415.158
-margin_top = -20.1053
-margin_right = 609.158
-margin_bottom = 119.895
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="arithmetic" type="VBoxContainer" parent="Arithmetic/Control/HBoxContainer"]
-margin_right = 194.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="decomposition" type="CheckBox" parent="Arithmetic/Control/HBoxContainer/arithmetic"]
-margin_right = 194.0
-margin_bottom = 68.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Décomposition produits"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="fraction_irreductible" type="CheckBox" parent="Arithmetic/Control/HBoxContainer/arithmetic"]
-margin_top = 72.0
-margin_right = 194.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "Fraction irréductible"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( 1026.93, 540.245 )
+normal = ExtResource( 6 )
 
 [node name="Conversion" type="CheckBox" parent="."]
-margin_left = 241.059
-margin_top = 423.444
-margin_right = 340.059
-margin_bottom = 464.444
+visible = false
+margin_left = 279.0
+margin_top = 393.0
+margin_right = 475.0
+margin_bottom = 417.0
 text = "Conversion"
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -984,18 +318,958 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Percentage" type="CheckBox" parent="."]
-margin_left = 413.676
-margin_top = 423.21
-margin_right = 520.676
-margin_bottom = 459.21
-text = "Pourcentage"
+[node name="Power" type="CheckBox" parent="."]
+visible = false
+margin_left = 279.0
+margin_top = 421.0
+margin_right = 475.0
+margin_bottom = 445.0
+text = "Puissances"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fonction" type="CheckBox" parent="."]
+visible = false
+margin_left = 279.0
+margin_top = 449.0
+margin_right = 475.0
+margin_bottom = 473.0
+text = "Fonctions"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 338.727
+margin_top = 186.096
+margin_right = 547.727
+margin_bottom = 594.096
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="_4_Operations" type="CheckBox" parent="VBoxContainer"]
+margin_right = 209.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
+custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "4 Opérations "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer/_4_Operations"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_integers" type="TextureRect" parent="VBoxContainer/_4_Operations/Control"]
+margin_left = -318.008
+margin_top = 9.22101
+margin_right = 91.9922
+margin_bottom = 564.221
+rect_scale = Vector2( 0.8, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_floats" type="TextureRect" parent="VBoxContainer/_4_Operations/Control"]
+margin_left = -318.0
+margin_top = 273.279
+margin_right = 84.0
+margin_bottom = 921.279
+rect_scale = Vector2( 0.8, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_relatives" type="TextureRect" parent="VBoxContainer/_4_Operations/Control"]
+margin_left = 212.166
+margin_top = 12.8355
+margin_right = 571.166
+margin_bottom = 512.836
+rect_scale = Vector2( 0.8, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_priorities" type="TextureRect" parent="VBoxContainer/_4_Operations/Control"]
+margin_left = 208.0
+margin_top = 268.834
+margin_right = 697.0
+margin_bottom = 1057.83
+rect_scale = Vector2( 1.1, 0.4 )
+size_flags_vertical = 2
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer_up" type="HBoxContainer" parent="VBoxContainer/_4_Operations/Control"]
+margin_left = -303.0
+margin_top = 17.0
+margin_right = 519.0
+margin_bottom = 255.0
+custom_constants/separation = 250
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="Percentage"]
+[node name="questions_intergers" type="VBoxContainer" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up"]
+margin_right = 286.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Integers" type="Label" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_intergers"]
+margin_right = 286.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "        Entiers"
+
+[node name="addition_entiers" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_intergers"]
+margin_top = 42.0
+margin_right = 286.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Addition"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="soustraction_entiers" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_intergers"]
+margin_top = 92.0
+margin_right = 286.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Soustraction"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="multiplication_entiers" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_intergers"]
+margin_top = 142.0
+margin_right = 286.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Multiplication"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="division_entiers" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_intergers"]
+margin_top = 192.0
+margin_right = 286.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Division"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="questions_floats" type="VBoxContainer" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up"]
+margin_left = 536.0
+margin_right = 822.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Floats" type="Label" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_floats"]
+margin_right = 286.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "       Décimaux"
+
+[node name="addition_decimaux" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_floats"]
+margin_top = 42.0
+margin_right = 286.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Addition"
+
+[node name="soustraction_decimaux" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_floats"]
+margin_top = 92.0
+margin_right = 286.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Soustraction"
+
+[node name="multiplication_decimaux" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_floats"]
+margin_top = 142.0
+margin_right = 286.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Multiplication"
+
+[node name="division_decimaux" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_floats"]
+margin_top = 192.0
+margin_right = 286.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Division"
+
+[node name="HBoxContainer_down" type="HBoxContainer" parent="VBoxContainer/_4_Operations/Control"]
+margin_left = -303.0
+margin_top = 282.0
+margin_right = 577.0
+margin_bottom = 520.0
+custom_constants/separation = 250
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="questions_relatives" type="VBoxContainer" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down"]
+margin_right = 280.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Relatives" type="Label" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_relatives"]
+margin_right = 280.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "       Relatifs"
+
+[node name="addition_relatifs" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_relatives"]
+margin_top = 42.0
+margin_right = 280.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Addition"
+
+[node name="soustraction_relatifs" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_relatives"]
+margin_top = 92.0
+margin_right = 280.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Soustraction"
+
+[node name="multiplication_relatifs" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_relatives"]
+margin_top = 142.0
+margin_right = 280.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Multiplication"
+
+[node name="division_relatifs" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_relatives"]
+margin_top = 192.0
+margin_right = 280.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Division"
+
+[node name="questions_priorities" type="VBoxContainer" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down"]
+margin_left = 530.0
+margin_right = 880.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Priorities" type="Label" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_priorities"]
+margin_right = 350.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "        Priorités"
+
+[node name="priorites_simple" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_priorities"]
+margin_top = 42.0
+margin_right = 350.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "prioriés simple"
+
+[node name="priorites_parentheses" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_priorities"]
+margin_top = 92.0
+margin_right = 350.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "priorités_parenthèse"
+
+[node name="Literal_calculation" type="CheckBox" parent="VBoxContainer"]
+margin_top = 82.0
+margin_right = 209.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
+custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "Calcul littéral"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer/Literal_calculation"]
+visible = false
+margin_left = -20.5729
+margin_top = -1.45413
+margin_right = 19.4271
+margin_bottom = 38.5459
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_use" type="TextureRect" parent="VBoxContainer/Literal_calculation/Control"]
+margin_left = -296.485
+margin_top = -61.2434
+margin_right = 311.515
+margin_bottom = 677.757
+rect_scale = Vector2( 0.85, 0.4 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_reduction" type="TextureRect" parent="VBoxContainer/Literal_calculation/Control"]
+margin_left = 215.442
+margin_top = -67.4596
+margin_right = 887.442
+margin_bottom = 1325.54
+rect_scale = Vector2( 1.1, 0.4 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_distributivity" type="TextureRect" parent="VBoxContainer/Literal_calculation/Control"]
+margin_left = -294.928
+margin_top = 202.0
+margin_right = 161.072
+margin_bottom = 819.0
+rect_scale = Vector2( 0.8, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer_up" type="HBoxContainer" parent="VBoxContainer/Literal_calculation/Control"]
+margin_left = -277.0
+margin_top = -58.0
+margin_right = 576.0
+margin_bottom = 180.0
+custom_constants/separation = 250
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Use" type="VBoxContainer" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up"]
+margin_right = 280.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="use" type="Label" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use"]
+margin_right = 280.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "Tester expression"
+
+[node name="calcul_valeur" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use"]
+margin_top = 42.0
+margin_right = 280.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "calcul valeur"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tester_egalite_simple" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use"]
+margin_top = 92.0
+margin_right = 280.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "égalité simple"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tester_egalite_general" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use"]
+margin_top = 142.0
+margin_right = 280.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "égalité général"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reduce" type="VBoxContainer" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up"]
+margin_left = 530.0
+margin_right = 853.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reduce" type="Label" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Reduce"]
+margin_right = 323.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "    Réduire expression"
+
+[node name="reduire_simple" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Reduce"]
+margin_top = 42.0
+margin_right = 323.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "réduire simple"
+
+[node name="reduire_parentheses" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Reduce"]
+margin_top = 92.0
+margin_right = 323.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "réduire parenthèse"
+
+[node name="HBoxContainer_down" type="HBoxContainer" parent="VBoxContainer/Literal_calculation/Control"]
+margin_left = -277.0
+margin_top = 210.0
+margin_right = -10.0
+margin_bottom = 448.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Distribute" type="VBoxContainer" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_down"]
+margin_right = 267.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Distribute" type="Label" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute"]
+margin_right = 267.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "    Distributivité"
+
+[node name="developpement_simple" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute"]
+margin_top = 42.0
+margin_right = 267.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Dév simple"
+
+[node name="developpement_double" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute"]
+margin_top = 92.0
+margin_right = 267.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Dév double"
+
+[node name="factorisation_simple" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute"]
+margin_top = 142.0
+margin_right = 267.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "facto simple"
+
+[node name="factorisation_id_rem" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute"]
+margin_top = 192.0
+margin_right = 267.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "facto id rem"
+
+[node name="Fraction" type="CheckBox" parent="VBoxContainer"]
+margin_top = 164.0
+margin_right = 209.0
+margin_bottom = 242.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
+custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "Fractions"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer/Fraction"]
+visible = false
+margin_left = -307.218
+margin_top = 5.38898
+margin_right = -267.218
+margin_bottom = 45.389
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_+" type="TextureRect" parent="VBoxContainer/Fraction/Control"]
+margin_left = -24.0401
+margin_top = -128.587
+margin_right = 348.96
+margin_bottom = 414.413
+rect_scale = Vector2( 0.95, 0.4 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_-" type="TextureRect" parent="VBoxContainer/Fraction/Control"]
+margin_left = -20.4398
+margin_top = 127.48
+margin_right = 406.56
+margin_bottom = 789.48
+rect_scale = Vector2( 0.85, 0.4 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_x___" type="TextureRect" parent="VBoxContainer/Fraction/Control"]
+margin_left = 516.653
+margin_top = -130.64
+margin_right = 981.653
+margin_bottom = 539.36
+rect_scale = Vector2( 1.1, 0.4 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer_up" type="HBoxContainer" parent="VBoxContainer/Fraction/Control"]
+margin_left = -2.0
+margin_top = -124.0
+margin_right = 855.0
+margin_bottom = 114.0
+custom_constants/separation = 250
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="fraction_additions" type="VBoxContainer" parent="VBoxContainer/Fraction/Control/HBoxContainer_up"]
+margin_right = 305.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addition" type="Label" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
+margin_right = 305.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "           Addition "
+
+[node name="addition_fraction_simple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
+margin_top = 42.0
+margin_right = 305.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "+ fraction simple"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addition_fraction_multiple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
+margin_top = 92.0
+margin_right = 305.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "+ fraction multiple"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addition_fraction_general" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
+margin_top = 142.0
+margin_right = 305.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "+ fraction général"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fraction_soustractions" type="VBoxContainer" parent="VBoxContainer/Fraction/Control/HBoxContainer_up"]
+margin_left = 555.0
+margin_right = 857.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="soustraction" type="Label" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
+margin_right = 302.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "       Soustraction"
+
+[node name="soustraction_fraction_simple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
+margin_top = 42.0
+margin_right = 302.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "- fraction simple"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="soustraction_fraction_multiple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
+margin_top = 92.0
+margin_right = 302.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "- fraction multiple"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="soustraction_fraction_general" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
+margin_top = 142.0
+margin_right = 302.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "- fraction général"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer_down" type="HBoxContainer" parent="VBoxContainer/Fraction/Control"]
+margin_left = -2.0
+margin_top = 144.045
+margin_right = 966.0
+margin_bottom = 382.045
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="fraction_multiplication_division" type="VBoxContainer" parent="VBoxContainer/Fraction/Control/HBoxContainer_down"]
+margin_right = 968.0
+margin_bottom = 238.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fraction" type="Label" parent="VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division"]
+margin_right = 968.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
+custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
+text = "     Multiplication"
+
+[node name="multiplication_fraction" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division"]
+margin_top = 42.0
+margin_right = 968.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "x fraction"
+
+[node name="division_fraction" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division"]
+margin_top = 92.0
+margin_right = 968.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "/ fraction"
+
+[node name="Arithmetic" type="CheckBox" parent="VBoxContainer"]
+margin_top = 246.0
+margin_right = 209.0
+margin_bottom = 324.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
+custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "Arithmétique"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer/Arithmetic"]
+visible = false
+margin_left = -440.292
+margin_top = 51.7338
+margin_right = -400.292
+margin_bottom = 91.7338
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_arithmetic" type="TextureRect" parent="VBoxContainer/Arithmetic/Control"]
+margin_left = 96.4725
+margin_top = -236.637
+margin_right = 469.472
+margin_bottom = 263.363
+rect_scale = Vector2( 1, 0.35 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Arithmetic/Control"]
+margin_left = 107.342
+margin_top = -239.067
+margin_right = 502.342
+margin_bottom = -99.0666
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="arithmetic" type="VBoxContainer" parent="VBoxContainer/Arithmetic/Control/HBoxContainer"]
+margin_right = 395.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="decomposition" type="CheckBox" parent="VBoxContainer/Arithmetic/Control/HBoxContainer/arithmetic"]
+margin_right = 395.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 18 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Décomposition "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fraction_irreductible" type="CheckBox" parent="VBoxContainer/Arithmetic/Control/HBoxContainer/arithmetic"]
+margin_top = 72.0
+margin_right = 395.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 18 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Fraction irréductible"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Percentage" type="CheckBox" parent="VBoxContainer"]
+margin_top = 328.0
+margin_right = 209.0
+margin_bottom = 408.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
+custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "Pourcentage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer/Percentage"]
 visible = false
 margin_left = -85.7773
 margin_top = -33.3879
@@ -1005,187 +1279,88 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="back_percentage" type="TextureRect" parent="Percentage/Control"]
-margin_left = 59.4435
-margin_top = 58.0287
-margin_right = 432.444
-margin_bottom = 558.029
-rect_scale = Vector2( 0.6, 0.35 )
+[node name="back_percentage" type="TextureRect" parent="VBoxContainer/Percentage/Control"]
+margin_left = -235.215
+margin_top = -224.352
+margin_right = 137.786
+margin_bottom = 275.648
+rect_scale = Vector2( 0.85, 0.35 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Percentage/Control"]
-margin_left = 86.1241
-margin_top = 70.7475
-margin_right = 280.124
-margin_bottom = 210.748
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Percentage/Control"]
+margin_left = -224.865
+margin_top = -219.615
+margin_right = -19.8649
+margin_bottom = -79.6142
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Percentage" type="VBoxContainer" parent="Percentage/Control/HBoxContainer"]
-margin_right = 194.0
-margin_bottom = 140.0
+[node name="Percentage" type="VBoxContainer" parent="VBoxContainer/Percentage/Control/HBoxContainer"]
+margin_right = 452.0
+margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="appliquer_pourcentage" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
-margin_right = 194.0
-margin_bottom = 32.0
+[node name="appliquer_pourcentage" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
+margin_right = 452.0
+margin_bottom = 46.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "appliquer pourcentage"
+text = "appliquer %"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="trouver_pourcentage_simple" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
-margin_top = 36.0
-margin_right = 194.0
-margin_bottom = 68.0
+[node name="trouver_pourcentage_simple" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
+margin_top = 50.0
+margin_right = 452.0
+margin_bottom = 96.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "trouver pourcentage simple"
+text = "trouver % simple"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="trouver_pourcentage" type="CheckBox" parent="Percentage/Control/HBoxContainer/Percentage"]
-margin_top = 72.0
-margin_right = 194.0
-margin_bottom = 104.0
+[node name="trouver_pourcentage" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
+margin_top = 100.0
+margin_right = 452.0
+margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "trouver pourcentage"
+text = "trouver %"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Power" type="CheckBox" parent="."]
-margin_left = 582.121
-margin_top = 428.6
-margin_right = 681.121
-margin_bottom = 457.6
-text = "Puissances"
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Fonction" type="CheckBox" parent="."]
-margin_left = 764.11
-margin_top = 429.928
-margin_right = 854.11
-margin_bottom = 461.928
-text = "Fonctions"
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Control_Option" type="Control" parent="."]
-margin_right = 44.0
-margin_bottom = 24.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Option_fight" type="OptionButton" parent="Control_Option"]
-margin_left = 377.864
-margin_top = 26.1528
-margin_right = 650.864
-margin_bottom = 181.153
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Option_featured_scenes" type="OptionButton" parent="Control_Option"]
-margin_left = 666.052
-margin_top = 22.8674
-margin_right = 741.052
-margin_bottom = 62.8674
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Option_unused_scenes" type="OptionButton" parent="Control_Option"]
-margin_left = 673.013
-margin_top = 95.8199
-margin_right = 748.013
-margin_bottom = 135.82
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Option_map" type="OptionButton" parent="Control_Option"]
-margin_left = 673.779
-margin_top = 156.863
-margin_right = 748.779
-margin_bottom = 196.863
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control" parent="." instance=ExtResource( 3 )]
-visible = false
-margin_left = -242.903
-margin_top = 95.2473
-margin_right = -242.903
-margin_bottom = 95.2473
-
-[node name="ItemList" type="ItemList" parent="."]
-margin_left = 762.844
-margin_top = 58.6013
-margin_right = 1269.84
-margin_bottom = 178.601
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_constants/vseparation = 10
-custom_constants/hseparation = 50
-max_columns = 2
-same_column_width = true
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 753.677
-margin_top = 26.1137
-margin_right = 886.677
-margin_bottom = 68.1136
-bbcode_enabled = true
-bbcode_text = "[wave][center]Combats du jour :"
-text = "Combats du jour :"
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="_4_Operations" to="." method="_on_4_Operations_pressed"]
-[connection signal="pressed" from="Literal_calculation" to="." method="_on_Literal_calculation_pressed"]
-[connection signal="pressed" from="Fraction" to="." method="_on_Fraction_pressed"]
-[connection signal="pressed" from="Arithmetic" to="." method="_on_Arithmetic_pressed"]
-[connection signal="pressed" from="Conversion" to="." method="_on_Conversion_pressed"]
-[connection signal="pressed" from="Percentage" to="." method="_on_Percentage_pressed"]
-[connection signal="pressed" from="Power" to="." method="_on_Power_pressed"]
-[connection signal="pressed" from="Fonction" to="." method="_on_Fonction_pressed"]
 [connection signal="item_selected" from="Control_Option/Option_fight" to="." method="_on_Option_fight_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_featured_scenes" to="." method="_on_Option_featured_scenes_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_unused_scenes" to="." method="_on_Option_unused_scenes_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_map" to="." method="_on_Option_map_item_selected"]
+[connection signal="pressed" from="Conversion" to="." method="_on_Conversion_pressed"]
+[connection signal="pressed" from="Power" to="." method="_on_Power_pressed"]
+[connection signal="pressed" from="Fonction" to="." method="_on_Fonction_pressed"]
+[connection signal="pressed" from="VBoxContainer/_4_Operations" to="." method="_on_4_Operations_pressed"]
+[connection signal="pressed" from="VBoxContainer/Literal_calculation" to="." method="_on_Literal_calculation_pressed"]
+[connection signal="pressed" from="VBoxContainer/Fraction" to="." method="_on_Fraction_pressed"]
+[connection signal="pressed" from="VBoxContainer/Arithmetic" to="." method="_on_Arithmetic_pressed"]
+[connection signal="pressed" from="VBoxContainer/Percentage" to="." method="_on_Percentage_pressed"]

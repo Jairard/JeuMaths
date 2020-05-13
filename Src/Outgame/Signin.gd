@@ -23,51 +23,53 @@ var constants : Dictionary = {"addition_fraction_simple" : 0, "soustraction_frac
 "appliquer_pourcentage" : 30, "trouver_pourcentage_simple" : 31, "trouver_pourcentage" : 32,
 "priorites_simple" : 33, "priorites_parentheses" : 34, "decomposition" : 35}
 
-var notions_show : Array = ["_4_Operations/Control", "Literal_calculation/Control", "Fraction/Control", "Arithmetic/Control",
-					"Conversion/Control", "Percentage/Control"]#, "Power", "Fonction"]
+var notions_show : Array = ["VBoxContainer/_4_Operations/Control", "VBoxContainer/Literal_calculation/Control", 
+							"VBoxContainer/Fraction/Control", "VBoxContainer/Arithmetic/Control",
+							"VBoxContainer/Percentage/Control"]#, "Conversion", "Power", "Fonction"]
 
-var notions_press : Array = ["_4_Operations", "Literal_calculation", "Fraction", "Arithmetic",
-					"Conversion", "Percentage"]#, "Power", "Fonction"]
+var notions_press : Array = ["VBoxContainer/_4_Operations", "VBoxContainer/Literal_calculation", 
+							 "VBoxContainer/Fraction", "VBoxContainer/Arithmetic",
+							 "VBoxContainer/Percentage"]#, "Conversion", "Power", "Fonction"]
 
-var lessons_path : Array = ["_4_Operations/Control/HBoxContainer/questions_intergers/addition_entiers", 
-"_4_Operations/Control/HBoxContainer/questions_intergers/soustraction_entiers", 
-"_4_Operations/Control/HBoxContainer/questions_intergers/multiplication_entiers",
- "_4_Operations/Control/HBoxContainer/questions_intergers/division_entiers", 
-"_4_Operations/Control/HBoxContainer/questions_floats/addition_decimaux", 
-"_4_Operations/Control/HBoxContainer/questions_floats/soustraction_decimaux",
-"_4_Operations/Control/HBoxContainer/questions_floats/multiplication_decimaux",
-"_4_Operations/Control/HBoxContainer/questions_floats/division_decimaux", 
-"_4_Operations/Control/HBoxContainer/questions_relatives/addition_relatifs", 
-"_4_Operations/Control/HBoxContainer/questions_relatives/soustraction_relatifs",
- "_4_Operations/Control/HBoxContainer/questions_relatives/multiplication_relatifs",
-"_4_Operations/Control/HBoxContainer/questions_relatives/division_relatifs",
- "_4_Operations/Control/HBoxContainer/questions_priorities/priorites_simple",
-"_4_Operations/Control/HBoxContainer/questions_priorities/priorites_parentheses",
-"Literal_calculation/Control/HBoxContainer/Use/calcul_valeur",
-"Literal_calculation/Control/HBoxContainer/Use/tester_egalite_simple",
-"Literal_calculation/Control/HBoxContainer/Use/tester_egalite_general",
-"Literal_calculation/Control/HBoxContainer/Reduce/reduire_simple",
-"Literal_calculation/Control/HBoxContainer/Reduce/reduire_parentheses",
-"Literal_calculation/Control/HBoxContainer/Distribute/developpement_simple",
-"Literal_calculation/Control/HBoxContainer/Distribute/developpement_double",
-"Literal_calculation/Control/HBoxContainer/Distribute/factorisation_simple",
-"Literal_calculation/Control/HBoxContainer/Distribute/factorisation_id_rem",
-"Fraction/Control/HBoxContainer/fraction_additions/addition_fraction_simple",
-"Fraction/Control/HBoxContainer/fraction_additions/addition_fraction_multiple",
-"Fraction/Control/HBoxContainer/fraction_additions/addition_fraction_general",
-"Fraction/Control/HBoxContainer/fraction_soustractions/soustraction_fraction_simple",
-"Fraction/Control/HBoxContainer/fraction_soustractions/soustraction_fraction_multiple",
-"Fraction/Control/HBoxContainer/fraction_soustractions/soustraction_fraction_general",
-"Fraction/Control/HBoxContainer/fraction_multiplication_division/multiplication_fraction",
-"Fraction/Control/HBoxContainer/fraction_multiplication_division/division_fraction",
-"Arithmetic/Control/HBoxContainer/arithmetic/decomposition",
-"Arithmetic/Control/HBoxContainer/arithmetic/fraction_irreductible",
+var lessons_path : Array = ["VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_intergers/addition_entiers", 
+"VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_intergers/soustraction_entiers", 
+"VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_intergers/multiplication_entiers",
+ "VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_intergers/division_entiers", 
+"VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_floats/addition_decimaux", 
+"VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_floats/soustraction_decimaux",
+"VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_floats/multiplication_decimaux",
+"VBoxContainer/_4_Operations/Control/HBoxContainer_up/questions_floats/division_decimaux", 
+"VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_relatives/addition_relatifs", 
+"VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_relatives/soustraction_relatifs",
+ "VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_relatives/multiplication_relatifs",
+"VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_relatives/division_relatifs",
+ "VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_priorities/priorites_simple",
+"VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_priorities/priorites_parentheses",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use/calcul_valeur",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use/tester_egalite_simple",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use/tester_egalite_general",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Reduce/reduire_simple",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Reduce/reduire_parentheses",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute/developpement_simple",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute/developpement_double",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute/factorisation_simple",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute/factorisation_id_rem",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions/addition_fraction_simple",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions/addition_fraction_multiple",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions/addition_fraction_general",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions/soustraction_fraction_simple",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions/soustraction_fraction_multiple",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions/soustraction_fraction_general",
+"VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division/multiplication_fraction",
+"VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division/division_fraction",
+"VBoxContainer/Arithmetic/Control/HBoxContainer/arithmetic/decomposition",
+"VBoxContainer/Arithmetic/Control/HBoxContainer/arithmetic/fraction_irreductible",
 "Conversion/Control/HBoxContainer/Conversion/conversion_longueurs",
 "Conversion/Control/HBoxContainer/Conversion/conversion_aires",
 "Conversion/Control/HBoxContainer/Conversion/conversion_volumes",
-"Percentage/Control/HBoxContainer/Percentage/appliquer_pourcentage",
-"Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage_simple",
-"Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage"]
+"VBoxContainer/Percentage/Control/HBoxContainer/Percentage/appliquer_pourcentage",
+"VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage_simple",
+"VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage"]
 
 var lessons_list : Array = []
 var lessons_selected : Array = []
@@ -79,8 +81,8 @@ func itemlist(_lessons : Array) -> void:
 	lessons_selected = []
 	for i in _lessons:
 		var txt = i.split("/")
-		$ItemList.add_item(txt[4])
-		lessons_selected += [txt[4]]
+		$ItemList.add_item(txt[5])
+		lessons_selected += [txt[5]]
 	print("lessons_selected : ", lessons_selected)
 
 func check_click():
@@ -119,8 +121,11 @@ func show_notion(notions_show : Array, lesson : String) -> void:
 func press_notion(notions_press : Array,  lesson : String) -> void:
 	for i in notions_press:
 		if i == lesson:
+			print("i : ", i)
 			get_node(i).pressed = true
 		else:
+			print("test : ", i)
+			
 			get_node(i).pressed = false
 
 
@@ -139,7 +144,7 @@ func _ready():
 	add_unused_option()
 
 func add_map_option_() -> void:
-	$Control_Option/Option_map.set_text("Maps")	
+	$Control_Option/Option_map.set_text("Maps")
 	$Control_Option/Option_map.add_separator()
 	$Control_Option/Option_map.add_item("tuto")
 	$Control_Option/Option_map.add_item("fire")
@@ -164,7 +169,7 @@ func add_unused_option() -> void:
 	$Control_Option/Option_unused_scenes.set_text("Unused")
 	$Control_Option/Option_unused_scenes.add_separator()
 	$Control_Option/Option_unused_scenes.add_item("create_hero")
-	$Control_Option/Option_fight.add_item("fight_2")
+	$Control_Option/Option_unused_scenes.add_item("fight_2")
 
 
 func get_stats(pseudo : String) -> Dictionary:
@@ -191,7 +196,7 @@ func before_change_scene() -> void:
 				exercices.append(j)
 				if constants[i]:
 					_constants.append(constants[i])
-	print("constants : ", _constants)
+					print("constants : ", _constants)
 	Scene_transition_data.set_data("questions", exercices, "constants", _constants)
 	load_stats()
 
@@ -237,32 +242,32 @@ func _on_Option_unused_scenes_item_selected(id):
 			Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_2"])
 	
 func _on_Conversion_pressed():
-	show_notion(notions_show, "Conversion/Control")
-	press_notion(notions_press, "Conversion")
+	show_notion(notions_show, "VBoxContainer/Conversion/Control")
+	press_notion(notions_press, "VBoxContainer/Conversion")
 
 func _on_Percentage_pressed():
-	show_notion(notions_show, "Percentage/Control")
-	press_notion(notions_press, "Percentage")
+	show_notion(notions_show, "VBoxContainer/Percentage/Control")
+	press_notion(notions_press, "VBoxContainer/Percentage")
 
 
 func _on_Arithmetic_pressed():
-	show_notion(notions_show, "Arithmetic/Control")
-	press_notion(notions_press, "Arithmetic")
+	show_notion(notions_show, "VBoxContainer/Arithmetic/Control")
+	press_notion(notions_press, "VBoxContainer/Arithmetic")
 
 
 func _on_Fraction_pressed():
-	show_notion(notions_show, "Fraction/Control")
-	press_notion(notions_press, "Fraction")
+	show_notion(notions_show, "VBoxContainer/Fraction/Control")
+	press_notion(notions_press, "VBoxContainer/Fraction")
 
 
 func _on_Literal_calculation_pressed():
-	show_notion(notions_show, "Literal_calculation/Control")
-	press_notion(notions_press, "Literal_calculation")
+	show_notion(notions_show, "VBoxContainer/Literal_calculation/Control")
+	press_notion(notions_press, "VBoxContainer/Literal_calculation")
 
 
 func _on_4_Operations_pressed():
-	show_notion(notions_show, "_4_Operations/Control")
-	press_notion(notions_press, "_4_Operations")
+	show_notion(notions_show, "VBoxContainer/_4_Operations/Control")
+	press_notion(notions_press, "VBoxContainer/_4_Operations")
 
 func _on_Fonction_pressed():
 	pass
