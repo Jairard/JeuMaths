@@ -83,7 +83,7 @@ func itemlist(_lessons : Array) -> void:
 		var txt = i.split("/")
 		$ItemList.add_item(txt[5])
 		lessons_selected += [txt[5]]
-	print("lessons_selected : ", lessons_selected)
+#	print("lessons_selected : ", lessons_selected)
 
 func check_click():
 	lessons_list = []
@@ -97,7 +97,7 @@ func check_list():
 		var split = i.split("/")
 		var name = split[4]
 		if lessons_selected.has(name):
-			print("i :", i)
+#			print("i :", i)
 			get_node(i).pressed = false
 
 func _process(delta):
@@ -121,11 +121,8 @@ func show_notion(notions_show : Array, lesson : String) -> void:
 func press_notion(notions_press : Array,  lesson : String) -> void:
 	for i in notions_press:
 		if i == lesson:
-			print("i : ", i)
 			get_node(i).pressed = true
 		else:
-			print("test : ", i)
-			
 			get_node(i).pressed = false
 
 
@@ -175,16 +172,19 @@ func add_unused_option() -> void:
 func get_stats(pseudo : String) -> Dictionary:
 	for _pseudo in stats.keys():
 		if _pseudo == pseudo:
+			print("true")
 			return { "new_hero" : false, "stats" : stats[_pseudo]}
 
 	var new_stats = init_stats.duplicate(true)
 	stats[pseudo] = new_stats
+	print("false")
 	return {"new_hero" : true, "stats" : new_stats}
 
 
 func load_stats():
 	var pseudo : String = $TileMap/pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
+	print ("stats : ", stats_hero)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 
 func before_change_scene() -> void:
@@ -194,9 +194,9 @@ func before_change_scene() -> void:
 		for j in FileBankUtils.loaded_questions:
 			if j["text"] == i:
 				exercices.append(j)
-				if constants[i]:
-					_constants.append(constants[i])
-					print("constants : ", _constants)
+#				if constants[i]:
+				_constants.append(constants[i])
+				print("constants : ", _constants)
 	Scene_transition_data.set_data("questions", exercices, "constants", _constants)
 	load_stats()
 
@@ -275,3 +275,13 @@ func _on_Fonction_pressed():
 
 func _on_Power_pressed():
 	pass
+
+
+func _on_TouchScreenButton_pressed():
+	before_change_scene()
+	Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+
+
+func _on_TouchScreenButton2_pressed():
+	before_change_scene()
+	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Src/Outgame/Signin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Textures/GUI/975671341f214e57c34bb8b2e791b456.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/GUI/text_go.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Textures/Characters/TEST_punk_pour_P.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/GUI/mushroom_red.png" type="Texture" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "sol0"
@@ -38,33 +39,33 @@ font_data = ExtResource( 4 )
 size = 80
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=4]
 size = 25
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=9]
-size = 40
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=10]
-size = 27
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 30
-font_data = ExtResource( 4 )
-
 [sub_resource type="DynamicFont" id=5]
-size = 30
+size = 37
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 30
+size = 27
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
 size = 30
 font_data = ExtResource( 4 )
 
@@ -151,10 +152,10 @@ __meta__ = {
 }
 
 [node name="Option_fight" type="OptionButton" parent="Control_Option"]
-margin_left = 377.864
-margin_top = 26.1528
-margin_right = 650.864
-margin_bottom = 181.153
+margin_left = 640.847
+margin_top = 197.579
+margin_right = 913.847
+margin_bottom = 352.579
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -200,7 +201,7 @@ margin_right = 1262.0
 margin_bottom = 468.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/vseparation = 10
 custom_constants/hseparation = 50
@@ -210,11 +211,11 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 844.874
-margin_top = -50.7512
-margin_right = 1310.87
-margin_bottom = 82.2488
-custom_fonts/normal_font = SubResource( 9 )
+margin_left = 876.478
+margin_top = -40.8228
+margin_right = 1342.47
+margin_bottom = 92.1772
+custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[wave][center]Combats du jour :"
 text = "Combats du jour :"
@@ -224,7 +225,7 @@ __meta__ = {
 }
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2( 1026.93, 540.245 )
+position = Vector2( 1023.03, 501.285 )
 normal = ExtResource( 6 )
 
 [node name="Conversion" type="CheckBox" parent="."]
@@ -345,6 +346,7 @@ margin_left = 338.727
 margin_top = 186.096
 margin_right = 547.727
 margin_bottom = 594.096
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -354,10 +356,12 @@ margin_right = 209.0
 margin_bottom = 78.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
 custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+toggle_mode = false
+shortcut_in_tooltip = false
 text = "4 Opérations "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -441,7 +445,7 @@ margin_right = 286.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "        Entiers"
@@ -451,7 +455,7 @@ margin_top = 42.0
 margin_right = 286.0
 margin_bottom = 88.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -465,7 +469,7 @@ margin_top = 92.0
 margin_right = 286.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -479,7 +483,7 @@ margin_top = 142.0
 margin_right = 286.0
 margin_bottom = 188.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -493,7 +497,7 @@ margin_top = 192.0
 margin_right = 286.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -517,7 +521,7 @@ margin_right = 286.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "       Décimaux"
@@ -527,7 +531,7 @@ margin_top = 42.0
 margin_right = 286.0
 margin_bottom = 88.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -538,7 +542,7 @@ margin_top = 92.0
 margin_right = 286.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -549,7 +553,7 @@ margin_top = 142.0
 margin_right = 286.0
 margin_bottom = 188.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -560,7 +564,7 @@ margin_top = 192.0
 margin_right = 286.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -591,7 +595,7 @@ margin_right = 280.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "       Relatifs"
@@ -601,7 +605,7 @@ margin_top = 42.0
 margin_right = 280.0
 margin_bottom = 88.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -612,7 +616,7 @@ margin_top = 92.0
 margin_right = 280.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -623,7 +627,7 @@ margin_top = 142.0
 margin_right = 280.0
 margin_bottom = 188.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -634,7 +638,7 @@ margin_top = 192.0
 margin_right = 280.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -655,7 +659,7 @@ margin_right = 350.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "        Priorités"
@@ -665,7 +669,7 @@ margin_top = 42.0
 margin_right = 350.0
 margin_bottom = 88.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -676,7 +680,7 @@ margin_top = 92.0
 margin_right = 350.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -692,6 +696,7 @@ custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
 custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+toggle_mode = false
 text = "Calcul littéral"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -937,6 +942,7 @@ custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
 custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+toggle_mode = false
 text = "Fractions"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1180,6 +1186,7 @@ custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
 custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+toggle_mode = false
 text = "Arithmétique"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1264,6 +1271,7 @@ custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
 custom_colors/font_color_hover = Color( 0.117647, 0.745098, 0.152941, 1 )
 custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+toggle_mode = false
 text = "Pourcentage"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1352,10 +1360,15 @@ text = "trouver %"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+position = Vector2( 1048.04, 611.679 )
+normal = ExtResource( 8 )
 [connection signal="item_selected" from="Control_Option/Option_fight" to="." method="_on_Option_fight_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_featured_scenes" to="." method="_on_Option_featured_scenes_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_unused_scenes" to="." method="_on_Option_unused_scenes_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_map" to="." method="_on_Option_map_item_selected"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
 [connection signal="pressed" from="Conversion" to="." method="_on_Conversion_pressed"]
 [connection signal="pressed" from="Power" to="." method="_on_Power_pressed"]
 [connection signal="pressed" from="Fonction" to="." method="_on_Fonction_pressed"]
@@ -1364,3 +1377,4 @@ __meta__ = {
 [connection signal="pressed" from="VBoxContainer/Fraction" to="." method="_on_Fraction_pressed"]
 [connection signal="pressed" from="VBoxContainer/Arithmetic" to="." method="_on_Arithmetic_pressed"]
 [connection signal="pressed" from="VBoxContainer/Percentage" to="." method="_on_Percentage_pressed"]
+[connection signal="pressed" from="TouchScreenButton2" to="." method="_on_TouchScreenButton2_pressed"]
