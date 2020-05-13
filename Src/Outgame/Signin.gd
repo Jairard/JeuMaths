@@ -98,6 +98,8 @@ func check_list():
 		var name = split[4]
 		if lessons_selected.has(name):
 #			print("i :", i)
+			get_node(i).pressed = true
+		else:
 			get_node(i).pressed = false
 
 func _process(delta):
