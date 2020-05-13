@@ -107,7 +107,6 @@ func _ready():
 	ECS.add_component(enemyNode, ComponentsLibrary.Collision)
 
 	load_hud(hero_health, hero_health_max, enemy_health, enemy_health)
-
 	ECS.clear_ghosts()
 
 func _process(delta):
@@ -123,6 +122,8 @@ func _process(delta):
 func spawn() :
 
 	add_child(heroNode)
+	heroNode.set_camera_offset(heroNode, Vector2(600,-400))
+	heroNode.set_camera_zoom(heroNode, Vector2(2.5,2.5))
 	add_child(enemyNode)
 	enemyNode.set_position(Vector2(1700,900))
 	var sprite = $Ennemy/Sprite

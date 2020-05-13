@@ -62,7 +62,8 @@ func load_characters() :
 
 	heroNode = hero.instance()
 	add_child(heroNode)
-
+	heroNode.set_camera_offset(heroNode, Vector2(300,50))
+	heroNode.set_camera_zoom(heroNode, Vector2(1.5,1.5))
 
 	var Hud_heroNode = hud.instance()
 	add_child(Hud_heroNode)
@@ -122,10 +123,6 @@ func load_characters() :
 	
 	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
-
-
-func _on_Button_pressed():
-	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
 
 func _on_Timer_timeout():
 	_load_bullets()
@@ -214,3 +211,6 @@ func _on_left_controller_button_up():
 func _on_left_controller_button_down():
 	input.set_right(false)
 	input.set_left(true)
+
+func _on_return_pressed():
+	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])

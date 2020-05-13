@@ -1,13 +1,13 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Src/Outgame/map_fire.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
-[ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Textures/GUI/return.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_png/fond droite.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_bmp/fond_volcan_bitap.bmp" type="Texture" id=6]
-[ext_resource path="res://Assets/Textures/GUI/arrowSilver_left.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Textures/GUI/arrowSilver_right.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/GUI/arrowLeft.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/GUI/arrowRight.png" type="Texture" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -217,10 +217,6 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 11/z_index = 0
 
-[sub_resource type="DynamicFont" id=12]
-size = 35
-font_data = ExtResource( 3 )
-
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 68.4043, 222.586 )
 
@@ -266,42 +262,34 @@ tile_data = PoolIntArray( -1376111, -1610612732, 0, -1310575, -1610612732, 0, -1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-visible = false
-modulate = Color( 0.752941, 0.937255, 0, 1 )
-self_modulate = Color( 0.87451, 0.87451, 0.890196, 1 )
-show_behind_parent = true
-margin_left = 99.3846
-margin_top = 17.8887
-margin_right = 248.385
-margin_bottom = 89.8887
-custom_fonts/font = SubResource( 12 )
-text = "retour"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="left_controller" type="TextureButton" parent="CanvasLayer"]
-margin_left = 82.0
-margin_top = 546.765
-margin_right = 122.0
-margin_bottom = 586.765
+margin_left = 71.877
+margin_top = 560.0
+margin_right = 171.877
+margin_bottom = 660.0
+rect_scale = Vector2( 1.5, 1.5 )
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="right_controller" type="TextureButton" parent="CanvasLayer"]
-margin_left = 965.763
-margin_top = 550.274
-margin_right = 1005.76
-margin_bottom = 590.274
+modulate = Color( 0.929412, 0.0627451, 0.0627451, 1 )
+margin_left = 1096.18
+margin_top = 560.0
+margin_right = 1196.18
+margin_bottom = 660.0
+rect_scale = Vector2( 1.5, 1.5 )
 action_mode = 0
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="return" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 1199.3, 20.9004 )
+normal = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -326,7 +314,7 @@ motion_scale = Vector2( 0.2, 0.2 )
 motion_mirroring = Vector2( 1600, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 793.397, 1094.47 )
+position = Vector2( 778.183, 1094.47 )
 rotation = -3.14159
 texture = ExtResource( 4 )
 
@@ -338,12 +326,12 @@ collision_layer = 16384
 visible = false
 position = Vector2( 22416.5, 378.697 )
 shape = SubResource( 13 )
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="button_down" from="CanvasLayer/left_controller" to="." method="_on_left_controller_button_down"]
 [connection signal="button_up" from="CanvasLayer/left_controller" to="." method="_on_left_controller_button_up"]
 [connection signal="pressed" from="CanvasLayer/left_controller" to="." method="_on_left_controller_pressed"]
 [connection signal="button_down" from="CanvasLayer/right_controller" to="." method="_on_right_controller_button_down"]
 [connection signal="button_up" from="CanvasLayer/right_controller" to="." method="_on_right_controller_button_up"]
 [connection signal="pressed" from="CanvasLayer/right_controller" to="." method="_on_right_controller_pressed"]
+[connection signal="pressed" from="CanvasLayer/return" to="." method="_on_return_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Missile_spawn" to="." method="_on_Missile_spawn_body_entered"]
