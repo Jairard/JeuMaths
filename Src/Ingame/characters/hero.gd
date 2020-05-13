@@ -10,6 +10,8 @@ func deactivate() -> void:
 func set_camera_offset(node : Node2D, pos : Vector2) -> void:
 	node.get_node("Camera2D").set_offset(pos)
 
+func get_camera_zoom() -> Vector2:
+	return get_node("Camera2D").get_zoom()
 
 func set_camera_zoom(node : Node2D, pos : Vector2) -> void:
 	node.get_node("Camera2D").set_zoom(pos)

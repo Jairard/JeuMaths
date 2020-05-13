@@ -22,6 +22,12 @@ var heroNode = null
 var treasure_comp : Component = null
 var move_comp : Component = null
 var input : Component = null
+var zoom_min : Vector2 = Vector2(0,0)
+var zoom_max : Vector2 = Vector2(0,0)
+var left_touch : Vector2 = Vector2(0,0)
+var right_touch : Vector2 = Vector2(0,0)
+
+
 
 var file = File.new()
 var dict = {}
@@ -38,8 +44,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
 
-#	$CanvasLayer/right_controller.connect("input_event", self, "on_input")
-#	$CanvasLayer/left_controller.connect("input_event", self, "on_input")
 	set_process_input(true)
 
 	load_characters()
@@ -62,8 +66,10 @@ func load_characters() :
 
 	heroNode = hero.instance()
 	add_child(heroNode)
-	heroNode.set_camera_offset(heroNode, Vector2(300,50))
+	heroNode.set_camera_offset(heroNode, Vector2(250,50))
 	heroNode.set_camera_zoom(heroNode, Vector2(1.5,1.5))
+	zoom_min = Vector2(1.2,1.2)
+	zoom_max = Vector2(2.5,2.5)
 
 	var Hud_heroNode = hud.instance()
 	add_child(Hud_heroNode)
@@ -140,6 +146,21 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
 		input.set_jump(true)
+	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP :
+		if heroNode.get_camera_zoom() >= zoom_min:
+			heroNode.set_camera_zoom(heroNode, heroNode.get_camera_zoom() - Vector2(0.05,0.05))
+			print("zoom : ", heroNode.get_camera_zoom())
+	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN :
+		if heroNode.get_camera_zoom() < zoom_max:
+			heroNode.set_camera_zoom(heroNode, heroNode.get_camera_zoom() + Vector2(0.05,0.05))
+			print("zoom : ", heroNode.get_camera_zoom())
+#	if event is InputEventScreenTouch:
+#		var event_list = []
+#		event_list.append(event)
+#		if len(event_list) == 2:
+#			left_touch = event_list[0]
+#			right_touch = event_list[1] # + position
+
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(750, 295), gold, health, damage)
