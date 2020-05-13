@@ -26,7 +26,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			yield(node.get_parent().get_tree().create_timer(3.0), "timeout")
 			if node_hero != null and end_comp.get_end() == true:
 				FileBankUtils.defeats += 1
-				print ("in")
+				FileBankUtils.scene_counter += 1
 				end_comp.set_end(false)
 				Fade.change_scene(FileBankUtils.loaded_scenes["death"])
 			if node_enemy != null and end_comp.get_end() == true:

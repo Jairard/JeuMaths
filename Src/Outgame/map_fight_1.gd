@@ -78,6 +78,7 @@ func _ready():
 	answer_listener.append(ECS.add_component(enemyNode, ComponentsLibrary.EmitPArticules))
 	ECS.add_component(enemyNode, ComponentsLibrary.Node_Enemy)
 	ECS.add_component(enemyNode, ComponentsLibrary.Position)
+	ECS.add_component(enemyNode, ComponentsLibrary.End_fight)
 	var health_comp_enemy = ECS.add_component(enemyNode, ComponentsLibrary.Health) as HealthComponent
 	var enemy_health = health_comp_hero.get_health_max() + (damage_comp_hero.get_damage() * 6)
 	health_comp_enemy.init(enemy_health, enemy_health)
