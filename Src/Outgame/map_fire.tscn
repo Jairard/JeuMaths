@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Src/Outgame/map_fire.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/GUI/return.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Textures/Levels/scene_volcano_png/fond droite.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_bmp/fond_volcan_bitap.bmp" type="Texture" id=6]
 [ext_resource path="res://Assets/Textures/GUI/arrowLeft.png" type="Texture" id=9]
@@ -217,7 +216,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 11/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 68.4043, 222.586 )
 
 [node name="map 0" type="Node2D"]
@@ -291,6 +290,20 @@ __meta__ = {
 position = Vector2( 1199.3, 20.9004 )
 normal = ExtResource( 3 )
 
+[node name="zoom" type="HScrollBar" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.937255 )
+margin_left = 529.359
+margin_top = 657.337
+margin_right = 793.359
+margin_bottom = 696.337
+min_value = 1.15
+max_value = 2.5
+step = 0.05
+value = 1.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
@@ -300,7 +313,7 @@ autostart = true
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, -500 )
 motion_scale = Vector2( 0.2, 0.2 )
-motion_mirroring = Vector2( 1700, 0 )
+motion_mirroring = Vector2( 2048, 1280 )
 
 [node name="volcano" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 show_behind_parent = true
@@ -309,15 +322,6 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.2, 0.2 )
-motion_mirroring = Vector2( 1600, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 778.183, 1094.47 )
-rotation = -3.14159
-texture = ExtResource( 4 )
-
 [node name="Missile_spawn" type="Area2D" parent="."]
 visible = false
 collision_layer = 16384
@@ -325,7 +329,7 @@ collision_layer = 16384
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Missile_spawn"]
 visible = false
 position = Vector2( 22416.5, 378.697 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 [connection signal="button_down" from="CanvasLayer/left_controller" to="." method="_on_left_controller_button_down"]
 [connection signal="button_up" from="CanvasLayer/left_controller" to="." method="_on_left_controller_button_up"]
 [connection signal="pressed" from="CanvasLayer/left_controller" to="." method="_on_left_controller_pressed"]
@@ -333,5 +337,6 @@ shape = SubResource( 13 )
 [connection signal="button_up" from="CanvasLayer/right_controller" to="." method="_on_right_controller_button_up"]
 [connection signal="pressed" from="CanvasLayer/right_controller" to="." method="_on_right_controller_pressed"]
 [connection signal="pressed" from="CanvasLayer/return" to="." method="_on_return_pressed"]
+[connection signal="value_changed" from="CanvasLayer/zoom" to="." method="_on_zoom_value_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Missile_spawn" to="." method="_on_Missile_spawn_body_entered"]

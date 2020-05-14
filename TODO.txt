@@ -30,11 +30,8 @@
             => récup les constantes de calcul dans signin pour envoyer 
             les valeur des entiers qui correspondent aux leçons sélectionnées
 
-camera : map (400,-100) / fight()
 
 right / left : faire une enum au lieu des booléens
-boutton - tactile
-plus zoomer sur hero
-zoom / dezoom en écartant les doigts / molette
-
+zoom / dezoom en écartant les doigts 
+enlever items de la liste, latence
 bonne réponse : false est envoyé dans answerlistener

@@ -235,3 +235,8 @@ func _on_left_controller_button_down():
 
 func _on_return_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
+
+
+func _on_zoom_value_changed(value):
+	heroNode.set_camera_zoom(heroNode, Vector2($CanvasLayer/zoom.value,$CanvasLayer/zoom.value))
+	print("zoom : ", $CanvasLayer/zoom.value)
