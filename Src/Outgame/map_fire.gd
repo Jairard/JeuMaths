@@ -15,6 +15,7 @@ onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.tscn")
 
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
+onready var fps_label = get_node("CanvasLayer/Label") 
 
 var health_comp_hero : Component = null
 var pos_comp : Component = null
@@ -134,6 +135,7 @@ func _on_Timer_timeout():
 	_load_bullets()
 
 func _process(delta):
+	fps_label.set_text(str(Engine.get_frames_per_second()))
 	if health_comp_hero.get_health() <= 0 :
 		if pos_comp.get_position().x <= 11500:
 			Fade.checkpoint(heroNode, Vector2(400,500))
@@ -238,5 +240,5 @@ func _on_return_pressed():
 
 
 func _on_zoom_value_changed(value):
-	heroNode.set_camera_zoom(heroNode, Vector2($CanvasLayer/zoom.value,$CanvasLayer/zoom.value))
-	print("zoom : ", $CanvasLayer/zoom.value)
+	heroNode.set_camera_zoom(heroNode, Vector2($CanvasLayer/zoom.value + 0.05, $CanvasLayer/zoom.value + 0.05))
+	print("zoom : ", heroNode.get_camera_zoom())

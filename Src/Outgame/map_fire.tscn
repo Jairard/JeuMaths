@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Src/Outgame/map_fire.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Textures/GUI/barrier_white.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_bmp/fond_volcan_bitap.bmp" type="Texture" id=6]
+[ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/Textures/GUI/arrowLeft.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/GUI/arrowRight.png" type="Texture" id=10]
 
@@ -217,7 +218,11 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 11/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="DynamicFont" id=12]
+size = 50
+font_data = ExtResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 68.4043, 222.586 )
 
 [node name="map 0" type="Node2D"]
@@ -317,6 +322,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 334.192
+margin_top = 648.549
+margin_right = 374.192
+margin_bottom = 710.549
+custom_fonts/font = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
@@ -324,6 +340,7 @@ autostart = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 position = Vector2( 0, -500 )
 motion_scale = Vector2( 0.2, 0.2 )
 motion_mirroring = Vector2( 2048, 1280 )
@@ -342,7 +359,7 @@ collision_layer = 16384
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Missile_spawn"]
 visible = false
 position = Vector2( 22416.5, 378.697 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 [connection signal="button_down" from="CanvasLayer/left_controller" to="." method="_on_left_controller_button_down"]
 [connection signal="button_up" from="CanvasLayer/left_controller" to="." method="_on_left_controller_button_up"]
 [connection signal="pressed" from="CanvasLayer/left_controller" to="." method="_on_left_controller_pressed"]

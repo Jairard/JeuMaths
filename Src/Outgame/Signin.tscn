@@ -205,6 +205,7 @@ custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/vseparation = 10
 custom_constants/hseparation = 50
+allow_reselect = true
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
