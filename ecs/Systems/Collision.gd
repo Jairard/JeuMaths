@@ -253,7 +253,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if health_comp != null:
 				FileBankUtils.scene_counter += 1
-				Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
+				Fade.change_scene(FileBankUtils.load_right_scene())
 			collider.queue_free()
 			
 		if (has_collision_layer(collider,portal_green_layer_bit) == true
@@ -262,7 +262,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Portal green collision !")
 
 			if health_comp != null:
-				var right_scene = FileBankUtils.load_right_scene()
 				Fade.change_scene(FileBankUtils.load_right_scene())
 			collider.queue_free()
 
