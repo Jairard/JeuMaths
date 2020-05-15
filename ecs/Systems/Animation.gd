@@ -15,7 +15,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	if comp.get_direction() == comp.dir.right :
 		comp_anim.play(comp_anim.anim.right)
-
+	
 	if comp.get_direction() == comp.dir.left :
 		comp_anim.play(comp_anim.anim.left)
 

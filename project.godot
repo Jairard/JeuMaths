@@ -323,6 +323,7 @@ Scene_transition_data="*res://Utils/Scene_transition_data.gd"
 
 [debug]
 
+settings/fps/force_fps=60
 shapes/collision/shape_color=Color( 0, 0.6, 0.701961, 0.501961 )
 
 [display]
