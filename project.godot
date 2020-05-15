@@ -320,6 +320,7 @@ FontChoice="*res://font/FontChoice.gd"
 NodeUtils="*res://Utils/NodeUtils.gd"
 Fade="*res://Utils/Fade.tscn"
 Scene_transition_data="*res://Utils/Scene_transition_data.gd"
+CameraUtils="*res://Utils/CameraUtils.gd"
 
 [debug]
 

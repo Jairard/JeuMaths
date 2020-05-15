@@ -122,8 +122,9 @@ func _process(delta):
 func spawn() :
 
 	add_child(heroNode)
-	heroNode.set_camera_offset(heroNode, Vector2(600,-400))
-	heroNode.set_camera_zoom(heroNode, Vector2(2.5,2.5))
+	CameraUtils.set_camera_from_hero(heroNode)
+	CameraUtils.set_offset(Vector2(600, -400))
+	CameraUtils.set_zoom(2.5)
 	add_child(enemyNode)
 	enemyNode.set_position(Vector2(1700,900))
 	var sprite = $Ennemy/Sprite
