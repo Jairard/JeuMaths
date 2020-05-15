@@ -281,9 +281,16 @@ func _on_Power_pressed():
 
 func _on_TouchScreenButton_pressed():
 	before_change_scene()
-	Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+#	Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+#	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
+	Fade.change_scene(FileBankUtils.load_right_scene())
 
 
 func _on_TouchScreenButton2_pressed():
 	before_change_scene()
 	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+
+
+func _on_TouchScreenButton3_pressed():
+	before_change_scene()
+	Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
