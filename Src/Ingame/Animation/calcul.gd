@@ -251,60 +251,76 @@ func on_answer_pressed(is_good_answer : bool):
 			component.set_answer(answer)
 
 
-
-func _on_Button1_pressed():
+func _on_fraction1_pressed():
 	on_answer_pressed(answers[0]["is_good_answer"])
 
-func _on_Button2_pressed():
+func _on_fraction2_pressed():
 	on_answer_pressed(answers[1]["is_good_answer"])
 
-func _on_Button3_pressed():
+func _on_fraction3_pressed():
 	on_answer_pressed(answers[2]["is_good_answer"])
 
-func _on_Button4_pressed():
+func _on_fraction4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])
 
-
-func _on_litteral1_pressed():
+func _on_fraction_irreductible1_pressed():
 	on_answer_pressed(answers[0]["is_good_answer"])
 
-
-func _on_litteral2_pressed():
+func _on_fraction_irreductible2_pressed():
 	on_answer_pressed(answers[1]["is_good_answer"])
 
-
-func _on_litteral3_pressed():
+func _on_fraction_irreductible3_pressed():
 	on_answer_pressed(answers[2]["is_good_answer"])
 
-
-func _on_litteral4_pressed():
+func _on_fraction_irreductible4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])
 
 func _on_calcul1_pressed():
-#	on_answer_pressed()
-#	var test = answers[0]["is_good_answer"]
-	$Calcul/Control/Buttons_calculs/calcul1.connect("pressed", self, "on_answer_pressed", [answers[0]["is_good_answer"]])
-
+	on_answer_pressed(answers[0]["is_good_answer"])
 
 func _on_calcul2_pressed():
 	on_answer_pressed(answers[1]["is_good_answer"])
 
-func _on_calcul4_pressed():
+func _on_calcul3_pressed():
 	on_answer_pressed(answers[2]["is_good_answer"])
 
-func _on_calcul3_pressed():
+func _on_calcul4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])
 
 func _on_reduction1_pressed():
 	on_answer_pressed(answers[0]["is_good_answer"])
 
-func _on_reduction2_pressed():
+func _on_reduction3_pressed():
 	on_answer_pressed(answers[1]["is_good_answer"])
 
-func _on_reduction3_pressed():
+func _on_reduction2_pressed():
 	on_answer_pressed(answers[2]["is_good_answer"])
 
 func _on_reduction4_pressed():
+	on_answer_pressed(answers[3]["is_good_answer"])
+
+func _on_distribution1_pressed():
+	on_answer_pressed(answers[0]["is_good_answer"])
+
+func _on_distribution2_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+
+func _on_distribution3_pressed():
+	on_answer_pressed(answers[2]["is_good_answer"])
+
+func _on_distribution4_pressed():
+	on_answer_pressed(answers[3]["is_good_answer"])
+
+func _on_decomposition1_pressed():
+	on_answer_pressed(answers[0]["is_good_answer"])
+
+func _on_decomposition2_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+
+func _on_decomposition3_pressed():
+	on_answer_pressed(answers[2]["is_good_answer"])
+
+func _on_decomposition4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])
 
 func _on_factorisation1_pressed():
@@ -317,18 +333,6 @@ func _on_factorisation3_pressed():
 	on_answer_pressed(answers[2]["is_good_answer"])
 
 func _on_factorisation4_pressed():
-	on_answer_pressed(answers[3]["is_good_answer"])
-
-func _on_1_pressed():
-	on_answer_pressed(answers[0]["is_good_answer"])
-
-func _on_3_pressed():
-	on_answer_pressed(answers[1]["is_good_answer"])
-
-func _on_2_pressed():
-	on_answer_pressed(answers[2]["is_good_answer"])
-
-func _on_4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])
 
 func _on_percent1_pressed():

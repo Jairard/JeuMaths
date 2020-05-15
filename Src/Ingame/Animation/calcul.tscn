@@ -148,7 +148,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button1" type="Button" parent="Fractions/Control/Buttons_fractions"]
+[node name="fraction1" type="Button" parent="Fractions/Control/Buttons_fractions"]
 modulate = Color( 1, 1, 1, 0.858824 )
 self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 365.0
@@ -159,7 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="Fractions/Control/Buttons_fractions"]
+[node name="fraction2" type="Button" parent="Fractions/Control/Buttons_fractions"]
 modulate = Color( 1, 1, 1, 0.858824 )
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 565.0
@@ -171,7 +171,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="Fractions/Control/Buttons_fractions"]
+[node name="fraction3" type="Button" parent="Fractions/Control/Buttons_fractions"]
 modulate = Color( 1, 1, 1, 0.858824 )
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 1130.0
@@ -183,7 +183,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button4" type="Button" parent="Fractions/Control/Buttons_fractions"]
+[node name="fraction4" type="Button" parent="Fractions/Control/Buttons_fractions"]
 modulate = Color( 1, 1, 1, 0.858824 )
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 1695.0
@@ -295,7 +295,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button1" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
+[node name="fraction_irreductible1" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 365.0
 margin_bottom = 146.0
@@ -305,7 +305,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
+[node name="fraction_irreductible2" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 565.0
 margin_right = 930.0
@@ -316,7 +316,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
+[node name="fraction_irreductible3" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1130.0
 margin_right = 1495.0
@@ -327,7 +327,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button4" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
+[node name="fraction_irreductible4" type="Button" parent="Fractions_irreductible/Control/Buttons_irreductible"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1695.0
 margin_right = 2061.0
@@ -666,6 +666,9 @@ margin_top = 39.7683
 margin_right = 71.3421
 margin_bottom = 79.7683
 rect_pivot_offset = Vector2( -1030, 130 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="answer" type="HBoxContainer" parent="Calcul_litteral_distribution/Control"]
 margin_left = -1150.0
@@ -722,14 +725,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="reduction1" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
+[node name="distribution1" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 537.0
 margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="reduction2" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
+[node name="distribution2" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 737.0
 margin_right = 1274.0
@@ -737,7 +740,7 @@ margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="reduction3" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
+[node name="distribution3" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1474.0
 margin_right = 2011.0
@@ -745,7 +748,7 @@ margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="reduction4" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
+[node name="distribution4" type="Button" parent="Calcul_litteral_distribution/Control/buttons_litteral"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 2211.0
 margin_right = 2750.0
@@ -857,14 +860,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="reduction1" type="Button" parent="Decomposition/Control/buttons_litteral_up"]
+[node name="decomposition1" type="Button" parent="Decomposition/Control/buttons_litteral_up"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 775.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="reduction3" type="Button" parent="Decomposition/Control/buttons_litteral_up"]
+[node name="decomposition2" type="Button" parent="Decomposition/Control/buttons_litteral_up"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1175.0
 margin_right = 1950.0
@@ -882,14 +885,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="reduction2" type="Button" parent="Decomposition/Control/buttons_litteral_down"]
+[node name="decomposition3" type="Button" parent="Decomposition/Control/buttons_litteral_down"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 775.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="reduction4" type="Button" parent="Decomposition/Control/buttons_litteral_down"]
+[node name="decomposition4" type="Button" parent="Decomposition/Control/buttons_litteral_down"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1175.0
 margin_right = 1950.0
@@ -1166,14 +1169,14 @@ margin_right = 2580.0
 margin_bottom = 183.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-[connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button1" to="." method="_on_Button1_pressed"]
-[connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button3" to="." method="_on_Button3_pressed"]
-[connection signal="pressed" from="Fractions/Control/Buttons_fractions/Button4" to="." method="_on_Button4_pressed"]
-[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/Button1" to="." method="_on_Button1_pressed"]
-[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/Button3" to="." method="_on_Button3_pressed"]
-[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="Fractions/Control/Buttons_fractions/fraction1" to="." method="_on_fraction1_pressed"]
+[connection signal="pressed" from="Fractions/Control/Buttons_fractions/fraction2" to="." method="_on_fraction2_pressed"]
+[connection signal="pressed" from="Fractions/Control/Buttons_fractions/fraction3" to="." method="_on_fraction3_pressed"]
+[connection signal="pressed" from="Fractions/Control/Buttons_fractions/fraction4" to="." method="_on_fraction4_pressed"]
+[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/fraction_irreductible1" to="." method="_on_fraction_irreductible1_pressed"]
+[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/fraction_irreductible2" to="." method="_on_fraction_irreductible2_pressed"]
+[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/fraction_irreductible3" to="." method="_on_fraction_irreductible3_pressed"]
+[connection signal="pressed" from="Fractions_irreductible/Control/Buttons_irreductible/fraction_irreductible4" to="." method="_on_fraction_irreductible4_pressed"]
 [connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul1" to="." method="_on_calcul1_pressed"]
 [connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul2" to="." method="_on_calcul2_pressed"]
 [connection signal="pressed" from="Calcul/Control/Buttons_calculs/calcul3" to="." method="_on_calcul3_pressed"]
@@ -1182,14 +1185,14 @@ size_flags_vertical = 3
 [connection signal="pressed" from="Calcul_litteral_reduction/Control/buttons_litteral/reduction2" to="." method="_on_reduction2_pressed"]
 [connection signal="pressed" from="Calcul_litteral_reduction/Control/buttons_litteral/reduction3" to="." method="_on_reduction3_pressed"]
 [connection signal="pressed" from="Calcul_litteral_reduction/Control/buttons_litteral/reduction4" to="." method="_on_reduction4_pressed"]
-[connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/reduction1" to="." method="_on_reduction1_pressed"]
-[connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/reduction2" to="." method="_on_reduction2_pressed"]
-[connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/reduction3" to="." method="_on_reduction3_pressed"]
-[connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/reduction4" to="." method="_on_reduction4_pressed"]
-[connection signal="pressed" from="Decomposition/Control/buttons_litteral_up/reduction1" to="." method="_on_reduction1_pressed"]
-[connection signal="pressed" from="Decomposition/Control/buttons_litteral_up/reduction3" to="." method="_on_reduction3_pressed"]
-[connection signal="pressed" from="Decomposition/Control/buttons_litteral_down/reduction2" to="." method="_on_reduction2_pressed"]
-[connection signal="pressed" from="Decomposition/Control/buttons_litteral_down/reduction4" to="." method="_on_reduction4_pressed"]
+[connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/distribution1" to="." method="_on_distribution1_pressed"]
+[connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/distribution2" to="." method="_on_distribution2_pressed"]
+[connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/distribution3" to="." method="_on_distribution3_pressed"]
+[connection signal="pressed" from="Calcul_litteral_distribution/Control/buttons_litteral/distribution4" to="." method="_on_distribution4_pressed"]
+[connection signal="pressed" from="Decomposition/Control/buttons_litteral_up/decomposition1" to="." method="_on_decomposition1_pressed"]
+[connection signal="pressed" from="Decomposition/Control/buttons_litteral_up/decomposition2" to="." method="_on_decomposition2_pressed"]
+[connection signal="pressed" from="Decomposition/Control/buttons_litteral_down/decomposition3" to="." method="_on_decomposition3_pressed"]
+[connection signal="pressed" from="Decomposition/Control/buttons_litteral_down/decomposition4" to="." method="_on_decomposition4_pressed"]
 [connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation1" to="." method="_on_factorisation1_pressed"]
 [connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation2" to="." method="_on_factorisation2_pressed"]
 [connection signal="pressed" from="Calcul_factorisation/Control/buttons_factorisation/factorisation3" to="." method="_on_factorisation3_pressed"]
