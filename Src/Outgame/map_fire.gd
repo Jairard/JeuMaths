@@ -16,6 +16,8 @@ onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.ts
 
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 onready var fps_label = get_node("CanvasLayer/Label") 
+onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
+onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
 
 var health_comp_hero : Component = null
 var pos_comp : Component = null
@@ -27,8 +29,8 @@ var zoom_min : Vector2 = Vector2(0,0)
 var zoom_max : Vector2 = Vector2(0,0)
 var left_touch : Vector2 = Vector2(0,0)
 var right_touch : Vector2 = Vector2(0,0)
-
-
+var is_dragging : bool = false
+var origin_zoom_ratio : float = 0
 
 var file = File.new()
 var dict = {}
@@ -143,6 +145,7 @@ func _process(delta):
 		treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
 		FileBankUtils.treasure *= 0.7
 		health_comp_hero.set_health(health_comp_hero.get_health_max())
+	update_dragging()
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
@@ -153,12 +156,6 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN :
 		CameraUtils.set_zoom(CameraUtils.get_zoom() + 0.05)
 		print("zoom : ", CameraUtils.get_zoom())
-#	if event is InputEventScreenTouch:
-#		var event_list = []
-#		event_list.append(event)
-#		if len(event_list) == 2:
-#			left_touch = event_list[0]
-#			right_touch = event_list[1] # + position
 
 
 func _load_monsters():
@@ -215,6 +212,29 @@ func load_gold():
 
 func load_platform():
 	EntitiesUtils.create_platform(self, platform, Vector2(12250,550), Vector2(12850,550),  3.5) 
+
+# Return the distance between two opposite corner of the touches' bounding box
+# (i.e. the distance between the two touches).
+func get_touched_area_metrics(box : Rect2) -> float:
+	return sqrt(box.size.x * box.size.x + box.size.y * box.size.y)
+
+func update_dragging():
+	var min_metrics = float(min_metric_edit.text)
+	var max_metrics = float(max_metric_edit.text)
+
+	if TouchUtils.has_bounding_box() and max_metrics > min_metrics:
+		if not is_dragging:
+			is_dragging = true
+			origin_zoom_ratio = CameraUtils.get_zoom_ratio()
+		var box = TouchUtils.get_bounding_box()
+		DebugUtils.add_rect(box, Color.green, 1, false)
+		var metrics_delta = get_touched_area_metrics(box) - get_touched_area_metrics(TouchUtils.get_origin_bouding_box())
+		if abs(metrics_delta) < min_metrics:
+			metrics_delta = min_metrics
+		var ratio_delta = (metrics_delta - min_metrics) / (max_metrics - min_metrics)
+		CameraUtils.set_zoom_ratio(origin_zoom_ratio + ratio_delta)
+	else:
+		is_dragging = false
 
 func _on_right_controller_button_down():
 	input.set_right(true)
