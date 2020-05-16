@@ -227,7 +227,6 @@ func update_dragging():
 			is_dragging = true
 			origin_zoom_ratio = CameraUtils.get_zoom_ratio()
 		var box = TouchUtils.get_bounding_box()
-		DebugUtils.add_rect(box, Color.green, 1, false)
 		var metrics_delta = get_touched_area_metrics(box) - get_touched_area_metrics(TouchUtils.get_origin_bouding_box())
 		if abs(metrics_delta) < min_metrics:
 			metrics_delta = min_metrics
