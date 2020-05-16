@@ -333,6 +333,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+
+[node name="MinMetrics" type="TextEdit" parent="CanvasLayer"]
+margin_left = 979.34
+margin_top = 46.2746
+margin_right = 1111.34
+margin_bottom = 105.275
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxMetrics" type="TextEdit" parent="CanvasLayer"]
+margin_left = 977.753
+margin_top = 135.128
+margin_right = 1109.75
+margin_bottom = 194.128
+text = "600"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
