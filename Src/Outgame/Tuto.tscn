@@ -204,31 +204,31 @@ size = 45
 use_filter = true
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=11]
-size = 45
-use_filter = true
-font_data = ExtResource( 10 )
-
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 25.3181, 137.631 )
 
-[sub_resource type="Curve" id=13]
+[sub_resource type="Curve" id=12]
 _data = [ Vector2( 0, 0.520455 ), 0.0, 0.0, 0, 0, Vector2( 0.519084, 0.992045 ), 0.0, 0.0, 0, 0, Vector2( 0.996947, 0.0284091 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=14]
-curve = SubResource( 13 )
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
 
-[sub_resource type="ParticlesMaterial" id=15]
+[sub_resource type="ParticlesMaterial" id=14]
 flag_disable_z = true
 gravity = Vector3( 0, -2000, 0 )
 angular_velocity = 90.0
 angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 14 )
+scale_curve = SubResource( 13 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 157.757, 82.6567 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 45
+use_filter = true
+font_data = ExtResource( 10 )
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 16.5361, 161.026 )
@@ -343,22 +343,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="First_Spawn/Monster/Control_monster"]
-margin_left = -853.412
-margin_top = -367.077
-margin_right = -170.412
-margin_bottom = -75.0771
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
-text = "               Attention ! 
-
-       Voici une sentinelle
-
-Esquive la ou saute sur sa tête"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Monster_spawn" type="Area2D" parent="First_Spawn/Monster"]
 visible = false
 position = Vector2( 1012, 0.517456 )
@@ -366,14 +350,14 @@ collision_layer = 16384
 
 [node name="spawn" type="CollisionShape2D" parent="First_Spawn/Monster/Monster_spawn"]
 position = Vector2( 2088.64, 439.401 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="Particles2D" type="Particles2D" parent="First_Spawn/Monster/Monster_spawn"]
 position = Vector2( 2088.61, 548.238 )
 amount = 9
 lifetime = 0.6
 randomness = 0.31
-process_material = SubResource( 15 )
+process_material = SubResource( 14 )
 texture = ExtResource( 8 )
 
 [node name="Move" type="Container" parent="First_Spawn"]
@@ -385,7 +369,7 @@ collision_layer = 16384
 
 [node name="move" type="CollisionShape2D" parent="First_Spawn/Move/Move"]
 position = Vector2( 159.757, 492.463 )
-shape = SubResource( 16 )
+shape = SubResource( 15 )
 
 [node name="Control_move" type="Control" parent="First_Spawn/Move"]
 visible = false
@@ -401,7 +385,7 @@ margin_left = 280.383
 margin_top = 138.213
 margin_right = 574.383
 margin_bottom = 196.213
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "flèche droite"
 __meta__ = {
@@ -413,7 +397,7 @@ margin_left = -208.748
 margin_top = 130.808
 margin_right = 110.252
 margin_bottom = 188.808
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "flèche gauche"
 __meta__ = {
@@ -425,7 +409,7 @@ margin_left = 53.0279
 margin_top = 20.0449
 margin_right = 347.028
 margin_bottom = 78.0449
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "Pour bouger"
 __meta__ = {
@@ -452,10 +436,10 @@ margin_left = 1053.49
 margin_top = 4.10849
 margin_right = 1736.49
 margin_bottom = 296.108
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "               Pour sauter 
-			    appui sur   \"espace\""
+			  double clic sur une flèche"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -508,7 +492,7 @@ margin_left = -51.2979
 margin_top = -247.298
 margin_right = 631.702
 margin_bottom = 44.702
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
 text = "       Tir a esquiver 
 	       en approche..."
@@ -530,7 +514,7 @@ position = Vector2( 2179.01, 558.036 )
 amount = 9
 lifetime = 0.6
 randomness = 0.31
-process_material = SubResource( 15 )
+process_material = SubResource( 14 )
 texture = ExtResource( 8 )
 
 [node name="Missile" type="Container" parent="First_Spawn"]
@@ -559,10 +543,9 @@ margin_left = -226.275
 margin_top = -155.988
 margin_right = 456.725
 margin_bottom = 136.012
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
-text = " Attention  un missile !
-        Cache toi vite"
+text = "Cache toi du missile !"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -581,7 +564,7 @@ position = Vector2( 5077.2, 553.477 )
 amount = 9
 lifetime = 0.6
 randomness = 0.31
-process_material = SubResource( 15 )
+process_material = SubResource( 14 )
 texture = ExtResource( 8 )
 
 [node name="Add_Monsters" type="Container" parent="."]
