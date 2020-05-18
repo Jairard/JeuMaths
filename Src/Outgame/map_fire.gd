@@ -46,7 +46,6 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
 
-	set_process_input(true)
 
 	load_characters()
 	_load_monsters()

@@ -33,5 +33,3 @@
 
 right / left : faire une enum au lieu des booléens
 enlever items de la liste, latence
-
-init zoom / input(event) on all maps

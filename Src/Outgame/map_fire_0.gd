@@ -14,12 +14,18 @@ onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
+onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
+onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
 
 var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode = null
 var treasure_comp : Component = null
 var input : Component = null
+var zoom_min : Vector2 = Vector2(0,0)
+var zoom_max : Vector2 = Vector2(0,0)
+var is_dragging : bool = false
+var origin_zoom_ratio : float = 0
 
 var file = File.new()
 var dict = {}
@@ -56,6 +62,9 @@ func load_characters() :
 
 	heroNode = hero.instance()
 	add_child(heroNode)
+	CameraUtils.set_camera_from_hero(heroNode)
+	CameraUtils.set_offset(Vector2(250, 50))
+	CameraUtils.set_zoom(1.5)
 
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
@@ -160,6 +169,17 @@ func _process(delta):
 		treasure_comp.set_treasure(treasure_comp.get_treasure() *  0.7)
 		FileBankUtils.treasure *= 0.7
 		health_comp_hero.set_health(health_comp_hero.get_health_max())
+	update_dragging()
+
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
+		input.set_jump(true)
+	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP :
+		CameraUtils.set_zoom(CameraUtils.get_zoom() - 0.05)
+		print("zoom : ", CameraUtils.get_zoom())
+	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN :
+		CameraUtils.set_zoom(CameraUtils.get_zoom() + 0.05)
+		print("zoom : ", CameraUtils.get_zoom())
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(1080, 250), gold, health, damage)
@@ -226,3 +246,23 @@ func load_gold():
 func load_platform():
 #	EntitiesUtils.create_platform(self, platform, Vector2(5100,600), 100)
 	pass
+
+func get_touched_area_metrics(box : Rect2) -> float:
+	return sqrt(box.size.x * box.size.x + box.size.y * box.size.y)
+
+func update_dragging():
+	var min_metrics = float(min_metric_edit.text)
+	var max_metrics = float(max_metric_edit.text)
+
+	if TouchUtils.has_bounding_box() and max_metrics > min_metrics:
+		if not is_dragging:
+			is_dragging = true
+			origin_zoom_ratio = CameraUtils.get_zoom_ratio()
+		var box = TouchUtils.get_bounding_box()
+		var metrics_delta = get_touched_area_metrics(box) - get_touched_area_metrics(TouchUtils.get_origin_bouding_box())
+		if abs(metrics_delta) < min_metrics:
+			metrics_delta = min_metrics
+		var ratio_delta = (metrics_delta - min_metrics) / (max_metrics - min_metrics)
+		CameraUtils.set_zoom_ratio(origin_zoom_ratio + ratio_delta)
+	else:
+		is_dragging = false
