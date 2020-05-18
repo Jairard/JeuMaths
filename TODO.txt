@@ -32,6 +32,6 @@
 
 
 right / left : faire une enum au lieu des booléens
-zoom / dezoom en écartant les doigts 
 enlever items de la liste, latence
-bonne réponse : false est envoyé dans answerlistener
+
+init zoom / input(event) on all maps
