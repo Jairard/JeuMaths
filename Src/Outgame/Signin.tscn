@@ -1375,6 +1375,7 @@ normal = ExtResource( 9 )
 [connection signal="item_selected" from="Control_Option/Option_featured_scenes" to="." method="_on_Option_featured_scenes_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_unused_scenes" to="." method="_on_Option_unused_scenes_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_map" to="." method="_on_Option_map_item_selected"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
 [connection signal="pressed" from="Conversion" to="." method="_on_Conversion_pressed"]
 [connection signal="pressed" from="Power" to="." method="_on_Power_pressed"]

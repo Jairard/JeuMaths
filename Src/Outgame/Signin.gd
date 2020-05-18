@@ -64,54 +64,55 @@ var lessons_path : Array = ["VBoxContainer/_4_Operations/Control/HBoxContainer_u
 "VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division/division_fraction",
 "VBoxContainer/Arithmetic/Control/HBoxContainer/arithmetic/decomposition",
 "VBoxContainer/Arithmetic/Control/HBoxContainer/arithmetic/fraction_irreductible",
-"Conversion/Control/HBoxContainer/Conversion/conversion_longueurs",
-"Conversion/Control/HBoxContainer/Conversion/conversion_aires",
-"Conversion/Control/HBoxContainer/Conversion/conversion_volumes",
 "VBoxContainer/Percentage/Control/HBoxContainer/Percentage/appliquer_pourcentage",
 "VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage_simple",
 "VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage"]
 
 var lessons_list : Array = []
 var lessons_selected : Array = []
+var itemlist = false
 
-func itemlist(_lessons : Array) -> void:
-	if $ItemList.get_item_count() > 0:
-		$ItemList.clear()
-
-	lessons_selected = []
-	for i in _lessons:
-		var txt = i.split("/")
-		$ItemList.add_item(txt[5])
-		lessons_selected += [txt[5]]
-#	print("lessons_selected : ", lessons_selected)
-
-func check_click():
-	lessons_list = []
-	for i in lessons_path:
-		if get_node(i).pressed:
-			lessons_list += [i]
-	itemlist(lessons_list)
-
-func check_list():
-	for i in lessons_path:
-		var split = i.split("/")
-		var name = split[4]
-		if lessons_selected.has(name):
-#			print("i :", i)
-			get_node(i).pressed = true
-		else:
-			get_node(i).pressed = false
-
-func _process(delta):
-	for i in lessons_selected:
-		if $ItemList.is_selected(int(i)):
-			$ItemList.remove_item(int(i))
-			check_list()
+func _on_ItemList_item_selected(index):
+	$ItemList.remove_item(index)
+	lessons_selected.remove(index)
+	print(lessons_selected)
+	itemlist = true
 
 func _input(event):
 	if (event is InputEventMouseButton && event.pressed):
 		yield(get_tree().create_timer(.2), "timeout")
-		check_click()
+		if itemlist == false:
+			lessons_selected = []
+			check_click()
+		else:
+			check_list()
+
+func check_click():
+		lessons_list = []
+		for i in lessons_path:
+			if get_node(i).pressed:
+				lessons_list += [i]
+		itemlist(lessons_list)
+
+func itemlist(_lessons : Array) -> void:
+	if $ItemList.get_item_count() > 0:
+		$ItemList.clear()
+	for i in _lessons:
+		var txt = i.split("/")
+		$ItemList.add_item(txt[5])
+		lessons_selected += [txt[5]]
+
+
+func check_list():
+#	print(lessons_selected)
+	for i in lessons_path:
+		var split = i.split("/")
+		var name = split[5]
+		if lessons_selected.has(name):
+			get_node(i).pressed = true
+		else:
+			get_node(i).pressed = false
+	itemlist = false
 
 func show_notion(notions_show : Array, lesson : String) -> void:
 	for i in notions_show:
@@ -294,3 +295,6 @@ func _on_TouchScreenButton2_pressed():
 func _on_TouchScreenButton3_pressed():
 	before_change_scene()
 	Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+
+
+
