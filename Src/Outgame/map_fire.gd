@@ -14,6 +14,7 @@ onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.tscn")
 
+onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 onready var fps_label = get_node("CanvasLayer/Label") 
 onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
@@ -27,8 +28,6 @@ var move_comp : Component = null
 var input : Component = null
 var zoom_min : Vector2 = Vector2(0,0)
 var zoom_max : Vector2 = Vector2(0,0)
-var left_touch : Vector2 = Vector2(0,0)
-var right_touch : Vector2 = Vector2(0,0)
 var is_dragging : bool = false
 var origin_zoom_ratio : float = 0
 
@@ -81,9 +80,11 @@ func load_characters() :
 	ScoreNode.set_hero_node(heroNode)
 
 	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
+	var controllerNode = controller.instance()
+	add_child(controllerNode)
+	controllerNode.set_controller(input, heroNode)
+	
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
-
-
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(400,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
@@ -235,26 +236,5 @@ func update_dragging():
 	else:
 		is_dragging = false
 
-func _on_right_controller_button_down():
-	input.set_right(true)
-	input.set_left(false)
-
-func _on_right_controller_button_up():
-	input.set_right(false)
-	input.set_left(false)
-
-func _on_left_controller_button_up():
-	input.set_right(false)
-	input.set_left(false)
-
-func _on_left_controller_button_down():
-	input.set_right(false)
-	input.set_left(true)
-
 func _on_return_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
-
-
-func _on_zoom_value_changed(value):
-	CameraUtils.set_zoom($CanvasLayer/zoom.value + 0.05)
-	print("zoom : ", CameraUtils.get_zoom())

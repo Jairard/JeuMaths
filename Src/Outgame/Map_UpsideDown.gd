@@ -10,7 +10,7 @@ onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
-
+onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 
@@ -18,7 +18,7 @@ var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode : Node2D = null
 var treasure_comp : Component = null
-
+var input : Component = null
 
 var file = File.new()
 var dict = {}
@@ -64,7 +64,10 @@ func load_characters() :
 
 	load_gold()
 
-	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
+	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
+	var controllerNode = controller.instance()
+	add_child(controllerNode)
+	controllerNode.set_controller(input, heroNode)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 
 	heroNode.get_node("hero_spr").set_rotation_degrees(-180)

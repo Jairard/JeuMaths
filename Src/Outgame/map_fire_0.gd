@@ -12,14 +12,14 @@ onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.ts
 onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
-
+onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 
 var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode = null
 var treasure_comp : Component = null
-
+var input : Component = null
 
 var file = File.new()
 var dict = {}
@@ -69,7 +69,10 @@ func load_characters() :
 	enemy_pos_comp.set_position(Vector2(600,200))
 
 
-	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
+	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
+	var controllerNode = controller.instance()
+	add_child(controllerNode)
+	controllerNode.set_controller(input, heroNode)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 
 
