@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/hud_score.gd" type="Script" id=1]
-[ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Textures/Characters/X1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/hud/flat_medal1.png" type="Texture" id=5]
 
@@ -22,13 +22,13 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=2]
-size = 25
+size = 40
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.258824 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 25
+size = 40
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.223529 )
 font_data = ExtResource( 2 )
@@ -53,43 +53,46 @@ __meta__ = {
 
 [node name="Gold" type="HBoxContainer" parent="CanvasLayer/Control_gold"]
 show_behind_parent = true
-margin_left = -128.0
-margin_bottom = 40.0
+margin_left = -125.679
+margin_top = -13.1542
+margin_right = 67.3214
+margin_bottom = 36.8458
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/Control_gold/Gold"]
-margin_right = 62.0
-margin_bottom = 40.0
+margin_right = 94.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Gold" type="Sprite" parent="CanvasLayer/Control_gold/Gold/Label"]
-position = Vector2( 35.9216, 2.98087 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 19.9967, 9.17109 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( 0, -3 )
 hframes = 8
 
 [node name="gold_label" type="Label" parent="CanvasLayer/Control_gold/Gold"]
-margin_left = 66.0
-margin_right = 128.0
-margin_bottom = 40.0
+margin_left = 98.0
+margin_right = 193.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
+text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Gold_Button" type="Button" parent="CanvasLayer/Control_gold"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = -100.0
-margin_top = -4.0
-margin_right = -63.0
-margin_bottom = 30.0
+margin_left = -111.0
+margin_top = -16.0
+margin_right = -57.0
+margin_bottom = 35.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -104,16 +107,16 @@ __meta__ = {
 
 [node name="Score" type="HBoxContainer" parent="CanvasLayer/Control_score"]
 show_behind_parent = true
-margin_left = 794.0
-margin_top = 25.0
-margin_right = 1024.0
-margin_bottom = 102.0
+margin_left = 826.499
+margin_top = 12.5035
+margin_right = 1210.5
+margin_bottom = 89.5035
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/Control_score/Score"]
-margin_right = 113.0
+margin_right = 190.0
 margin_bottom = 77.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -122,15 +125,15 @@ __meta__ = {
 }
 
 [node name="Medal" type="Sprite" parent="CanvasLayer/Control_score/Score/Label"]
-position = Vector2( 88.2791, 0.524294 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 118.189, 1.75012 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 centered = false
 offset = Vector2( 0, -20 )
 
 [node name="Score_richText" type="RichTextLabel" parent="CanvasLayer/Control_score/Score"]
-margin_left = 117.0
-margin_right = 230.0
+margin_left = 194.0
+margin_right = 384.0
 margin_bottom = 77.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -145,10 +148,12 @@ __meta__ = {
 
 [node name="Medal_Button" type="Button" parent="CanvasLayer/Control_score"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 877.262
-margin_top = 13.563
-margin_right = 910.262
-margin_bottom = 53.563
+anchor_top = -0.0183777
+anchor_bottom = -0.0183777
+margin_left = 939.806
+margin_top = -15.6423
+margin_right = 1009.81
+margin_bottom = 95.3577
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -280,6 +280,7 @@ __meta__ = {
 }
 
 [node name="MinMetrics" type="TextEdit" parent="CanvasLayer"]
+visible = false
 margin_left = 979.34
 margin_top = 46.2746
 margin_right = 1111.34
@@ -290,6 +291,7 @@ __meta__ = {
 }
 
 [node name="MaxMetrics" type="TextEdit" parent="CanvasLayer"]
+visible = false
 margin_left = 977.753
 margin_top = 135.128
 margin_right = 1109.75
@@ -306,7 +308,6 @@ autostart = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
 position = Vector2( 0, -500 )
 motion_scale = Vector2( 0.2, 0.2 )
 motion_mirroring = Vector2( 2048, 1280 )
