@@ -75,7 +75,6 @@ var itemlist = false
 func _on_ItemList_item_selected(index):
 	$ItemList.remove_item(index)
 	lessons_selected.remove(index)
-	print(lessons_selected)
 	itemlist = true
 
 func _input(event):
@@ -104,7 +103,6 @@ func itemlist(_lessons : Array) -> void:
 
 
 func check_list():
-#	print(lessons_selected)
 	for i in lessons_path:
 		var split = i.split("/")
 		var name = split[5]
