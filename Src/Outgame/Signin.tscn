@@ -972,10 +972,10 @@ __meta__ = {
 }
 
 [node name="back_-" type="TextureRect" parent="VBoxContainer/Fraction/Control"]
-margin_left = -20.4398
-margin_top = 127.48
-margin_right = 406.56
-margin_bottom = 789.48
+margin_left = -20.0
+margin_top = 127.0
+margin_right = 339.0
+margin_bottom = 643.0
 rect_scale = Vector2( 0.85, 0.4 )
 texture = ExtResource( 5 )
 __meta__ = {
@@ -1129,16 +1129,16 @@ __meta__ = {
 
 [node name="HBoxContainer_down" type="HBoxContainer" parent="VBoxContainer/Fraction/Control"]
 margin_left = -2.0
-margin_top = 144.045
-margin_right = 966.0
-margin_bottom = 382.045
+margin_top = 144.0
+margin_right = 283.0
+margin_bottom = 382.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="fraction_multiplication_division" type="VBoxContainer" parent="VBoxContainer/Fraction/Control/HBoxContainer_down"]
-margin_right = 968.0
+margin_right = 285.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1147,7 +1147,7 @@ __meta__ = {
 }
 
 [node name="fraction" type="Label" parent="VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division"]
-margin_right = 968.0
+margin_right = 285.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1158,7 +1158,7 @@ text = "     Multiplication"
 
 [node name="multiplication_fraction" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division"]
 margin_top = 42.0
-margin_right = 968.0
+margin_right = 285.0
 margin_bottom = 88.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 17 )
@@ -1169,7 +1169,7 @@ text = "x fraction"
 
 [node name="division_fraction" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division"]
 margin_top = 92.0
-margin_right = 968.0
+margin_right = 285.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 17 )
@@ -1311,7 +1311,7 @@ __meta__ = {
 }
 
 [node name="Percentage" type="VBoxContainer" parent="VBoxContainer/Percentage/Control/HBoxContainer"]
-margin_right = 452.0
+margin_right = 280.0
 margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1320,7 +1320,7 @@ __meta__ = {
 }
 
 [node name="appliquer_pourcentage" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
-margin_right = 452.0
+margin_right = 280.0
 margin_bottom = 46.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1335,7 +1335,7 @@ __meta__ = {
 
 [node name="trouver_pourcentage_simple" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
 margin_top = 50.0
-margin_right = 452.0
+margin_right = 280.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1350,7 +1350,7 @@ __meta__ = {
 
 [node name="trouver_pourcentage" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
 margin_top = 100.0
-margin_right = 452.0
+margin_right = 280.0
 margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
