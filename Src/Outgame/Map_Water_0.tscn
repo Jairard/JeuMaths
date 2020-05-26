@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/debut_debut.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/test_bulle_png.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/un_seul_nenuhar.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=4]
 [ext_resource path="res://Src/Outgame/Map_Water_0.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Textures/Levels/tuto/back_land01.png" type="Texture" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 32, 96, 32, 96, 64, 0, 64 )
@@ -165,4 +166,14 @@ tile_data = PoolIntArray( 5571116, 0, 0, 5571143, 0, 0, 5571169, 0, 0 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 480, 270 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 6 )
+centered = false
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

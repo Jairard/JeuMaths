@@ -5,9 +5,9 @@
 [ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/test_bulle_png.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Levels/tuto/back_land01.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/un_seul_nenuhar.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/debut_debut.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Textures/Levels/scene_eau/test_debut__gd_eau_png_.png" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -244,13 +244,12 @@ __meta__ = {
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-motion_mirroring = Vector2( 7000, 0 )
+motion_mirroring = Vector2( 480, 270 )
 
 [node name="background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 show_behind_parent = true
 position = Vector2( 0.316956, -91.9344 )
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
 centered = false
 
 [node name="Timer" type="Timer" parent="."]
