@@ -11,5 +11,6 @@
     "next_level"    : "res://Src/Outgame/Next_level.tscn",
     "death"         : "res://Src/Outgame/Death.tscn",
     "stats"         : "res://Src/Outgame/Stats.tscn",
-    "upside_down"   : "res://Src/Outgame/Map_UpsideDown.tscn"
+    "upside_down"   : "res://Src/Outgame/Map_UpsideDown.tscn",
+    "fonctions  "   : "res://Src/Outgame/Fonctions.tscn"
 }

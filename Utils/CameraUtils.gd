@@ -4,6 +4,9 @@ var camera : Camera2D = null
 const min_zoom = 1.2
 const max_zoom = 2.5
 
+func set_on_current_camera(node : Node2D) -> void:
+	node.get_node("Camera2D")._set_current(true)
+
 func set_camera(_camera: Camera2D) -> void:
 	camera = _camera
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Src/Outgame/Signin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Textures/Characters/TEST_punk_pour_P.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Textures/GUI/fire.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Textures/GUI/question.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/GUI/mushroom_red.png" type="Texture" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "sol0"
@@ -1371,6 +1372,10 @@ normal = ExtResource( 8 )
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
 position = Vector2( 908.928, 590.878 )
 normal = ExtResource( 9 )
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
+position = Vector2( 1037.19, 589.575 )
+normal = ExtResource( 10 )
 [connection signal="item_selected" from="Control_Option/Option_fight" to="." method="_on_Option_fight_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_featured_scenes" to="." method="_on_Option_featured_scenes_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_unused_scenes" to="." method="_on_Option_unused_scenes_item_selected"]
@@ -1387,3 +1392,4 @@ normal = ExtResource( 9 )
 [connection signal="pressed" from="VBoxContainer/Percentage" to="." method="_on_Percentage_pressed"]
 [connection signal="pressed" from="TouchScreenButton2" to="." method="_on_TouchScreenButton2_pressed"]
 [connection signal="pressed" from="TouchScreenButton3" to="." method="_on_TouchScreenButton3_pressed"]
+[connection signal="pressed" from="TouchScreenButton4" to="." method="_on_TouchScreenButton4_pressed"]

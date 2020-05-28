@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Textures/Levels/Fonction/quadrillage.jpg" type="Texture" id=1]
+[ext_resource path="res://Src/Outgame/Fonctions.gd" type="Script" id=2]
+[ext_resource path="res://Src/Outgame/Grid.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="game_timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="time_label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 600, 350 )
+current = true
+
+[node name="Grid" parent="." instance=ExtResource( 3 )]
+[connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]

@@ -33,3 +33,8 @@
 
 right / left : faire une enum au lieu des booléens
 enlever items de la liste, latence
+
+
+grid : 
+controller grid - 4 fleches
+system move grid
