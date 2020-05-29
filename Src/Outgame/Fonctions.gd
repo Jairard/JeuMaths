@@ -17,7 +17,7 @@ func _ready():
 	CameraUtils.set_offset(Vector2(0, 0))
 	CameraUtils.set_zoom(10)
 	
-	ECS.register_system(SystemsLibrary.Grid)
+#	ECS.register_system(SystemsLibrary.Grid)
 	ECS.register_system(SystemsLibrary.Input)
 #	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Collision)
