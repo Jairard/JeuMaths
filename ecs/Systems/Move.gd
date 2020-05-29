@@ -22,6 +22,11 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	elif move_comp.get_direction() == move_comp.dir.left :
 		velocity.x = -move_comp.get_lateral_velocity()
 
+	elif move_comp.get_direction() == move_comp.dir.mouse :
+		velocity = pos_comp.get_position().direction_to(move_comp.target) * move_comp.get_lateral_velocity()
+		if pos_comp.get_position().distance_to(move_comp.target) < 5:
+			velocity = Vector2(0,0)
+
 	else :
 		velocity.x = 0
 

@@ -1,13 +1,20 @@
 extends Component
 
 class_name MovementComponent
-enum dir {left, right, none, colliding}
+enum dir {left, right, none, colliding, mouse}
 
 var direction = dir.none
 var jump 	: bool 	= false
 var impulse : int 	= 0
 var lateral_velocity : int = 0
+var target : Vector2 = Vector2(0,0)
 
+func get_target() :
+	return target
+
+func set_target(dir) -> void :
+	target = dir
+	
 func get_direction() :		# -> dir
 	return direction
 

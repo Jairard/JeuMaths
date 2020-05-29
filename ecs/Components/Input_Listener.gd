@@ -5,7 +5,14 @@ class_name InputListenerComponent
 var left = false
 var right = false
 var jump = false
+var move = false
 
+func get_move() -> bool:
+	return move
+
+func set_move(_bool) -> void:
+	move = _bool
+	
 func get_left() -> bool:
 	return left
 

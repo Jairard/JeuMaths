@@ -8,7 +8,6 @@ func _get_mandatory_components() -> Array:
 func _process_node(dt : float, components : Dictionary) -> void:
 	var comp = components[ComponentsLibrary.Movement] as MovementComponent
 	var input = components[ComponentsLibrary.InputListener] as InputListenerComponent
-
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left") :
 		comp.set_direction(comp.dir.none)
 	elif Input.is_action_pressed("ui_right"):# or Input.is_action_pressed("Arrow_right"):
@@ -29,3 +28,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		print("jump")
 		comp.set_is_jumping(true)
 		input.set_jump(false)
+	
+	if input.get_move():
+		comp.set_direction(comp.dir.mouse)
+#		input.set_move(false)
