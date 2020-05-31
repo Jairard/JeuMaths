@@ -1,5 +1,7 @@
 extends Node
 
+onready var gen_popup	= 	preload("res://Src/Outgame/gen_popup.tscn")
+
 var health 			: int = 0
 var health_max		: int = 0
 var damage 			: int = 0
@@ -15,7 +17,7 @@ var pseudo			: String = ""
 var loaded_scenes = load_json("res://Assets/Scenes.json")
 var stats_File_Name : String = "res://Assets/Stats_Characters/Hero_Stats.json"
 var loaded_heroes_stats = load_json(stats_File_Name)
-var loaded_questions = load_json("res://Assets/Questions/Questions.json")
+var loaded_questions = load_json("res://Assets/Questions/questions.json")
 var loaded_fractions = load_fractions("res://Tools/Fractions/")
 
 func load_fractions(path : String) -> Dictionary:
