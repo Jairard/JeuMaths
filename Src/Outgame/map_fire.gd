@@ -19,6 +19,7 @@ onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 onready var fps_label = get_node("CanvasLayer/Label") 
 onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
+onready var systems_profiling_checkbox = get_node("CanvasLayer/SystemsProfiling")
 
 var health_comp_hero : Component = null
 var pos_comp : Component = null
@@ -45,7 +46,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
-
+	ECS.set_debug_mode(systems_profiling_checkbox.pressed)
 
 	load_characters()
 	_load_monsters()
@@ -237,3 +238,7 @@ func update_dragging():
 
 func _on_return_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])
+
+
+func _on_SystemsProfiling_toggled(pressed : bool) -> void:
+	ECS.set_debug_mode(pressed)
