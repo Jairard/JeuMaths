@@ -12,8 +12,6 @@ var is_world_paused : bool = false
 
 enum SystemScope { Scene, Manual }
 
-# TODO:
-# - init syntactic sugar ?
 func _ready():
 	system_scopes[SystemScope.Scene] = []
 	system_scopes[SystemScope.Manual] = []
