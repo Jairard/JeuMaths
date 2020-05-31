@@ -9,8 +9,13 @@ var active_entities : Dictionary = {}  # Dictionary(Id -> int) / Stores the acti
 var is_processing : bool  = false
 var ghosts : GhostsHandler = preload("res://ecs/Internal/GhostsHandler.gd").new()
 var is_world_paused : bool = false
+var log_profiling_infos : bool = false
 
 enum SystemScope { Scene, Manual }
+
+class SystemDurationSorter:
+	static func sort(a : Array, b : Array) -> bool:
+		return a[1] > b[1]
 
 func _ready():
 	system_scopes[SystemScope.Scene] = []
@@ -195,16 +200,36 @@ func __instanciate_component(id : int, componentResource : Resource, tag : Strin
 
 func _process(dt : float) -> void:
 	is_processing = true
+	var ti = OS.get_ticks_usec()
 
 	if (__order_systems_IFN() == false):
 		return
+	var ordering_duration = OS.get_ticks_usec() - ti
 
+	var duration_by_system : Array = []
 	for systemType in ordered_systems:
+		var start = OS.get_ticks_usec()
 		var system : System = active_systems[systemType]
 		if (__can_process_system(system)):
 			__process_system(system, dt)
+		duration_by_system += [[systemType, OS.get_ticks_usec() - start]]
 
 	is_processing = false
+
+	if (log_profiling_infos):
+		duration_by_system.sort_custom(SystemDurationSorter, "sort")
+		var total_duration = OS.get_ticks_usec() - ti
+		print("ECS world process time:")
+		print("Ordering systems: " + __get_duration_string(ordering_duration))
+		for type_and_duration in duration_by_system:
+			var system_type = type_and_duration[0]
+			var system_duration = type_and_duration[1]
+			var duration_percent = (100.0 * system_duration) / total_duration
+			print("%s: %s (%.2f%%)" % [system_type.resource_path, __get_duration_string(system_duration), duration_percent])
+		print("Total: " + __get_duration_string(total_duration))
+
+func __get_duration_string(usec : int) -> String:
+	return "%.2fms" % [usec / 1000.0]
 
 func __process_system(system : System, dt : float):
 	for entityId in active_entities:
@@ -306,3 +331,6 @@ func set_system_pause_mode(systemResource : Resource, mode):
 
 func clear_ghosts() -> void:
 	ghosts.clear()
+
+func set_debug_mode(is_in_debug_mode : bool):
+	log_profiling_infos = is_in_debug_mode
