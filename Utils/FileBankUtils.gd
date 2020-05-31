@@ -150,26 +150,26 @@ func check_fractions_gen() -> void:
 		push_error("Fractions images are not up to date ! Please generate them")
 
 func get_fractions_gen_hash() -> String:
-	var file = File.new()
-	file.open("res://Tools/Fractions/hash.md5", File.READ)
-	return file.get_as_text()
+	var file = safe_open_file("res://Tools/Fractions/hash.md5", File.READ, "get_fractions_gen_hash")
+	return file.get_as_text() if file != null else ""
 
 func get_fractions_hash() -> String:
-	var file = File.new()
-	file.open("res://Tools/fraction.txt", File.READ)
-	return file.get_as_text().md5_text()
+	var file = safe_open_file("res://Tools/fraction.txt", File.READ, "get_fractions_hash")
+	return file.get_as_text().md5_text() if file != null else ""
 
 func load_json(path : String):
-	var file = File.new()
-	file.open(path, File.READ)
+	var file = safe_open_file(path, File.READ, "load_json")
+	if file == null:
+		return null
 	var text = file.get_as_text()
 	var content = parse_json(text)
 	file.close()
 	return content
 
 func save_json(dict,path : String) -> void:
-	var file = File.new()
-	file.open(path, File.WRITE)
+	var file = safe_open_file(path, File.WRITE, "save_json")
+	if file == null:
+		return
 	var streuh = to_json(dict)
 	file.store_string(streuh)
 	file.close()
