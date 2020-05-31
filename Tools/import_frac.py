@@ -1,4 +1,4 @@
-import os, multiprocessing, shutil, time, math
+import sys, os, multiprocessing, shutil, time, math
 import json, hashlib
 from parse import parse
 import formula2png
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     while (globalCounter.value < fractionCount):
         time.sleep(0.1)
         print(progressFormat % (int(100 * globalCounter.value / fractionCount), globalCounter.value, fractionCount))
-        sus.stdout.flush()
+        sys.stdout.flush()
     wait_processi(processi)
 
     write_hash(hash, hashFilePath)
