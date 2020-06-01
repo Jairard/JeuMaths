@@ -210,9 +210,10 @@ func _process(dt : float) -> void:
 	for systemType in ordered_systems:
 		var start = OS.get_ticks_usec()
 		var system : System = active_systems[systemType]
+		var internal_duration = [0, 0]
 		if (__can_process_system(system)):
-			__process_system(system, dt)
-		duration_by_system += [[systemType, OS.get_ticks_usec() - start]]
+			internal_duration = __process_system(system, dt)
+		duration_by_system += [[systemType, OS.get_ticks_usec() - start] + internal_duration]
 
 	is_processing = false
 
@@ -226,23 +227,38 @@ func _process(dt : float) -> void:
 			var system_duration = type_and_duration[1]
 			var duration_percent = (100.0 * system_duration) / total_duration
 			print("%s: %s (%.2f%%)" % [system_type.resource_path, __get_duration_string(system_duration), duration_percent])
+			var misc_percent = (100.0 * type_and_duration[2]) / system_duration
+			var process_percent = (100.0 * type_and_duration[3]) / system_duration
+			print("\tinternal: %s (%.2f%%) / process: %s (%.2f%%)" %
+				[__get_duration_string(type_and_duration[2]), misc_percent,
+				 __get_duration_string(type_and_duration[3]), process_percent])
 		print("Total: " + __get_duration_string(total_duration))
 
 func __get_duration_string(usec : int) -> String:
 	return "%.2fms" % [usec / 1000.0]
 
 func __process_system(system : System, dt : float):
+	var misc_duration = 0
+	var process_duration = 0
+
 	for entityId in active_entities:
+		var ti = OS.get_ticks_usec()
 		var node = instance_from_id(entityId)
 		if (node == null):
+			misc_duration += OS.get_ticks_usec() - ti
 			continue
 		if (!node.is_inside_tree()):
 			EcsUtils.log_and_push_warning("ECS.__process_system: entity " + str(entityId) + " is not inside tree")
+			misc_duration += OS.get_ticks_usec() - ti
 			continue
 
 		var components = __get_components_for_system(system, entityId)
+		var ti_process = OS.get_ticks_usec()
+		misc_duration += ti_process - ti
 		if (components != null):
 			system._process_node(dt, components)
+		process_duration +=  OS.get_ticks_usec()  - ti_process
+	return [misc_duration, process_duration]
 
 # Gets all the components that the system needs
 func __get_components_for_system(system : System, id : int):
