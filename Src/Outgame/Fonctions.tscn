@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Src/Outgame/Grid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/Grid/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Src/Outgame/Fonctions.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
@@ -15,6 +15,15 @@ __meta__ = {
 
 [node name="game_timer" type="Timer" parent="."]
 
-[node name="Grid" parent="." instance=ExtResource( 1 )]
-line_H_count = 15
-line_V_count = 10
+[node name="Grid_creator" type="Node2D" parent="."]
+script = ExtResource( 1 )
+line_H_lengh = 1920
+line_V_lengh = 1920
+line_H_spacing = 160
+line_V_spacing = 160
+line_H_count = 4
+line_V_count = 2
+line_width = 1
+start = Vector2( 0, 0 )
+color_H = Color( 1, 1, 1, 1 )
+color_V = Color( 0.68, 1, 0.18, 1 )
