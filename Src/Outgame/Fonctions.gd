@@ -2,6 +2,8 @@ extends Node2D
 
 onready var hero   			= preload("res://Src/Ingame/characters/hero.tscn")
 onready var heroNode = hero.instance()
+onready var enemy 			= preload("res://Src/Ingame/characters/Ennemy.tscn")
+onready var enemyNode = enemy.instance()
 
 onready var time_label = get_node("time_label")
 onready var game_timer = get_node("game_timer")
@@ -29,11 +31,17 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 
 	add_child(heroNode)
+	var sprite = $hero/hero_spr
+	sprite.apply_scale(Vector2(0.5, 0.5))
+	$hero/CollisionShape2D2.scale = Vector2(0.5, 0.5)
 	heroNode.set_position(Vector2(480,480))
-	CameraUtils.set_on_current_camera($Grid)
-	CameraUtils.set_camera_from_hero($Grid)
-	CameraUtils.set_offset(Vector2(0, 0))
-	CameraUtils.set_zoom(10)
+	CameraUtils.set_on_current_camera($Node2D)
+	CameraUtils.set_camera_from_hero($Node2D)
+	CameraUtils.set_offset(Vector2(600, 400))
+	CameraUtils.set_zoom(2.5)
+	
+	add_child(enemyNode)
+	enemyNode.set_position(Vector2(1700,900))
 	
 #	ECS.register_system(SystemsLibrary.Grid)
 	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent

@@ -17,13 +17,18 @@ __meta__ = {
 
 [node name="Grid_creator" type="Node2D" parent="."]
 script = ExtResource( 1 )
-line_H_lengh = 1920
-line_V_lengh = 1920
+line_H_lengh = 1460
+line_V_lengh = 1460
 line_H_spacing = 160
 line_V_spacing = 160
-line_H_count = 4
-line_V_count = 2
+line_H_count = 10
+line_V_count = 10
 line_width = 1
 start = Vector2( 0, 0 )
 color_H = Color( 1, 1, 1, 1 )
 color_V = Color( 0.68, 1, 0.18, 1 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 600, 350 )
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
