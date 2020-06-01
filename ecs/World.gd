@@ -6,6 +6,7 @@ var ordered_systems :  Array = []      # Array[Resource]
 var needs_systems_ordering = false
 var components : Dictionary = {}       # Dictionary(Resource -> Dictionary(Id -> Component))
 var active_entities : Dictionary = {}  # Dictionary(Id -> int) / Stores the active entites and the count of components attached to them
+var entities_components_by_system : Dictionary = {} # Dictionary(Resource -> Dictionary(Id -> Array[component])
 var is_processing : bool  = false
 var ghosts : GhostsHandler = preload("res://ecs/Internal/GhostsHandler.gd").new()
 var is_world_paused : bool = false
@@ -68,6 +69,13 @@ func register_system(systemResource : Resource, scope = SystemScope.Scene) -> Sy
 	system_scopes[scope].push_back(systemResource)
 	needs_systems_ordering = true
 
+	var entities_and_components : Dictionary = {}
+	for id in active_entities:
+		var components = __get_components_for_system(system, id)
+		if (components  != null):
+			entities_and_components[id] = components
+	entities_components_by_system[system] = entities_and_components
+
 	return system
 
 func __check_system(system : System, resPath : String) -> bool:
@@ -98,7 +106,9 @@ func unregister_system(systemResource : Resource) -> bool:
 		EcsUtils.log_and_push_warning("ECS.unregister_system: system " + systemResource.resource_path + " is not registered")
 		return false
 
-	active_systems[systemResource].free()
+	var system = active_systems[systemResource]
+	entities_components_by_system.erase(system)
+	system.free()
 	active_systems.erase(systemResource)
 	needs_systems_ordering = true
 
@@ -142,6 +152,10 @@ func add_component(node : Node, componentResource : Resource, tag : String = "")
 		active_entities[id] = 0
 	active_entities[id] += 1
 
+	for system in entities_components_by_system:
+		var entities_and_components = entities_components_by_system[system]
+		entities_and_components[id] = __get_components_for_system(system, id)
+
 	return component
 
 func remove_component(node : Node, componentResource : Resource, mustExist : bool = true) -> bool:
@@ -179,6 +193,10 @@ func remove_component(node : Node, componentResource : Resource, mustExist : boo
 		active_entities[id] -= 1
 		if (active_entities[id] == 0):
 			active_entities.erase(id)
+
+	for system in entities_components_by_system:
+		var entities_and_components = entities_components_by_system[system]
+		entities_and_components[id] = __get_components_for_system(system, id)
 
 	return true
 
@@ -241,7 +259,8 @@ func __process_system(system : System, dt : float):
 	var misc_duration = 0
 	var process_duration = 0
 
-	for entityId in active_entities:
+	var entities_and_components = entities_components_by_system[system]
+	for entityId in entities_and_components:
 		var ti = OS.get_ticks_usec()
 		var node = instance_from_id(entityId)
 		if (node == null):
@@ -252,7 +271,7 @@ func __process_system(system : System, dt : float):
 			misc_duration += OS.get_ticks_usec() - ti
 			continue
 
-		var components = __get_components_for_system(system, entityId)
+		var components = entities_and_components[entityId]
 		var ti_process = OS.get_ticks_usec()
 		misc_duration += ti_process - ti
 		if (components != null):
