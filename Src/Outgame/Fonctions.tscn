@@ -16,3 +16,5 @@ __meta__ = {
 [node name="game_timer" type="Timer" parent="."]
 
 [node name="Grid" parent="." instance=ExtResource( 1 )]
+line_H_count = 15
+line_V_count = 10
