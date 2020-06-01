@@ -1,7 +1,5 @@
 extends Node
 
-onready var gen_popup	= 	preload("res://Src/Outgame/gen_popup.tscn")
-
 var health 			: int = 0
 var health_max		: int = 0
 var damage 			: int = 0
