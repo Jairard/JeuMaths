@@ -244,7 +244,8 @@ func _process(dt : float) -> void:
 			var system_type = type_and_duration[0]
 			var system_duration = type_and_duration[1]
 			var duration_percent = (100.0 * system_duration) / total_duration
-			print("%s: %s (%.2f%%)" % [system_type.resource_path, __get_duration_string(system_duration), duration_percent])
+			var entity_count = len(entities_components_by_system[active_systems[system_type]])
+			print("%s: %s (%.2f%%) - %d entities" % [system_type.resource_path, __get_duration_string(system_duration), duration_percent, entity_count])
 			var misc_percent = (100.0 * type_and_duration[2]) / system_duration
 			var process_percent = (100.0 * type_and_duration[3]) / system_duration
 			print("\tinternal: %s (%.2f%%) / process: %s (%.2f%%)" %
