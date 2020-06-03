@@ -154,7 +154,9 @@ func add_component(node : Node, componentResource : Resource, tag : String = "")
 
 	for system in entities_components_by_system:
 		var entities_and_components = entities_components_by_system[system]
-		entities_and_components[id] = __get_components_for_system(system, id)
+		var components = __get_components_for_system(system, id)
+		if (components != null):
+			entities_and_components[id] = components
 
 	return component
 
@@ -196,7 +198,11 @@ func remove_component(node : Node, componentResource : Resource, mustExist : boo
 
 	for system in entities_components_by_system:
 		var entities_and_components = entities_components_by_system[system]
-		entities_and_components[id] = __get_components_for_system(system, id)
+		var components = __get_components_for_system(system, id)
+		if (components != null):
+			entities_and_components[id] = components
+		else:
+			entities_and_components.erase(id)
 
 	return true
 
