@@ -24,16 +24,18 @@ position = Vector2( 600, 350 )
 [node name="Grid_creator" type="Node2D" parent="."]
 script = ExtResource( 1 )
 line_spacing = 160
-line_H_count = 10
-line_V_count = 10
+arrow_i_lengh = 3
+arrow_j_lengh = 2
+line_H_count = 13
+line_V_count = 5
 
 [node name="arrow_y" type="Sprite" parent="Grid_creator"]
-position = Vector2( 800, 720 )
+position = Vector2( 320, 800 )
 rotation = -1.5708
-scale = Vector2( 1.75824, 0.703297 )
+scale = Vector2( 3.51648, 1.40659 )
 texture = ExtResource( 3 )
 
 [node name="arrow_x" type="Sprite" parent="Grid_creator"]
-position = Vector2( 880, 800 )
-scale = Vector2( 1.75824, 0.703297 )
+position = Vector2( 560, 960 )
+scale = Vector2( 5.27473, 2.10989 )
 texture = ExtResource( 3 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Src/Outgame/Signin.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Assets/Textures/GUI/fire.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Textures/GUI/question.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/GUI/mushroom_red.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/GUI/elementGlass020  - 400x300.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/GUI/elementGlass0 clicked - 400x300.png" type="Texture" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "sol0"
@@ -105,6 +107,12 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=19]
 size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 60
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [node name="Signin" type="Node2D"]
@@ -228,7 +236,7 @@ __meta__ = {
 }
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2( 1023.03, 501.285 )
+position = Vector2( 1094.85, 521.327 )
 normal = ExtResource( 6 )
 
 [node name="Conversion" type="CheckBox" parent="."]
@@ -1376,6 +1384,55 @@ normal = ExtResource( 9 )
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
 position = Vector2( 1037.19, 589.575 )
 normal = ExtResource( 10 )
+
+[node name="PopupDialog" type="PopupDialog" parent="."]
+modulate = Color( 1, 1, 1, 0.996078 )
+margin_left = 148.807
+margin_top = 198.362
+margin_right = 169.807
+margin_bottom = 216.362
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="PopupDialog"]
+margin_left = 233.327
+margin_top = -6.58582
+margin_right = 924.327
+margin_bottom = 399.414
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PopupDialog"]
+anchor_left = 12.6946
+anchor_top = 1.71929
+anchor_right = 33.9326
+anchor_bottom = 16.5526
+custom_fonts/font = SubResource( 20 )
+custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0.65098, 0.0392157, 1 )
+text = "Choisis 
+au moins 
+un thème !"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="PopupDialog"]
+show_behind_parent = true
+margin_left = -141.021
+margin_top = -200.509
+margin_right = 1131.98
+margin_bottom = 512.491
+mouse_filter = 2
+color = Color( 0.203922, 0.203922, 0.203922, 0.862745 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="item_selected" from="Control_Option/Option_fight" to="." method="_on_Option_fight_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_featured_scenes" to="." method="_on_Option_featured_scenes_item_selected"]
 [connection signal="item_selected" from="Control_Option/Option_unused_scenes" to="." method="_on_Option_unused_scenes_item_selected"]
@@ -1393,3 +1450,4 @@ normal = ExtResource( 10 )
 [connection signal="pressed" from="TouchScreenButton2" to="." method="_on_TouchScreenButton2_pressed"]
 [connection signal="pressed" from="TouchScreenButton3" to="." method="_on_TouchScreenButton3_pressed"]
 [connection signal="pressed" from="TouchScreenButton4" to="." method="_on_TouchScreenButton4_pressed"]
+[connection signal="pressed" from="PopupDialog/TextureButton" to="." method="_on_TextureButton_pressed"]

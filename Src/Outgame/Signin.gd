@@ -279,10 +279,18 @@ func _on_Power_pressed():
 
 
 func _on_TouchScreenButton_pressed():
-	before_change_scene()
-#	Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
-#	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
-	Fade.change_scene(FileBankUtils.load_right_scene())
+	if len(lessons_selected) == 0:
+#		print("popup")
+#		var popup : PopupDialog = PopupDialog.new()
+#		popup.text = "popup"
+#		add_child(popup)
+		$VBoxContainer.hide()
+		$PopupDialog.show()
+	else:
+		before_change_scene()
+	#	Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+	#	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
+		Fade.change_scene(FileBankUtils.load_right_scene())
 
 
 func _on_TouchScreenButton2_pressed():
@@ -297,3 +305,20 @@ func _on_TouchScreenButton3_pressed():
 func _on_TouchScreenButton4_pressed():
 #	Fade.change_scene(FileBankUtils.loaded_scenes["fonctions"])
 	get_tree().change_scene("res://Src/Outgame/Fonctions.tscn")
+
+func _on_TextureButton_pressed():
+	$PopupDialog.hide()
+	$VBoxContainer.show()
+
+func _process(delta):
+	if FileBankUtils.popup:
+		var popup : Popup = Popup.new()
+		popup.instance()
+		add_child(popup)
+		var text  : Label = Label.new()
+		text.text = "Fractions images are not up to date ! Please generate them"
+		popup.add_child(text)
+		FileBankUtils.popup = false
+
+
+
