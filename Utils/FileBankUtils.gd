@@ -11,6 +11,7 @@ var defeats 		: int = 0
 var scene_counter	: int = 0
 var classroom		: int = 0
 var pseudo			: String = ""
+var popup			= false
 
 var loaded_scenes = load_json("res://Assets/Scenes.json")
 var stats_File_Name : String = "res://Assets/Stats_Characters/Hero_Stats.json"
@@ -147,6 +148,7 @@ func safe_open_file(path : String, flags : int, function_name : String) -> File:
 
 func check_fractions_gen() -> void:
 	if (get_fractions_gen_hash() != get_fractions_hash()):
+		popup = true
 		push_error("Fractions images are not up to date ! Please generate them")
 
 func get_fractions_gen_hash() -> String:

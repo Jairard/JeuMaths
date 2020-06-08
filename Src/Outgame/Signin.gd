@@ -313,11 +313,12 @@ func _on_TextureButton_pressed():
 func _process(delta):
 	if FileBankUtils.popup:
 		var popup : Popup = Popup.new()
-		popup.instance()
 		add_child(popup)
 		var text  : Label = Label.new()
 		text.text = "Fractions images are not up to date ! Please generate them"
 		popup.add_child(text)
+		popup.show()
+		popup.set_position($TileMap/pseudo.get_position())
 		FileBankUtils.popup = false
 
 
