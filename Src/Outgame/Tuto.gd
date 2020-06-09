@@ -8,15 +8,25 @@ onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_blue.tscn")
+onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
+onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
+onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
 
 var heroNode : Node2D = null
 var move_comp : Component = null
 var gravity_comp : Component = null
 var pos_comp : Component = null
+var input : Component = null
+var zoom_min : Vector2 = Vector2(0,0)
+var zoom_max : Vector2 = Vector2(0,0)
+var is_dragging : bool = false
+var origin_zoom_ratio : float = 0
 
 func _process(delta):
 	tumble()
-	
+	if delta > 1:
+		update_dragging()
+
 func _ready():
 
 	ECS.register_system(SystemsLibrary.Move)
@@ -28,10 +38,17 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Missile)
 
 	heroNode = hero.instance()
-	add_child(heroNode)	
+	add_child(heroNode)
+	CameraUtils.set_camera_from_hero(heroNode)
+	CameraUtils.set_offset(Vector2(250, 50))
+	CameraUtils.set_zoom(1.5)
+
+	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
+	var controllerNode = controller.instance()
+	add_child(controllerNode)
+	controllerNode.set_controller(input, heroNode)
 
 	ECS.add_component(heroNode, ComponentsLibrary.Health)
-	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_lateral_velocity(300)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
@@ -113,12 +130,39 @@ func _on_Missile_4_body_entered(body):
 func _on_Return_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
+		input.set_jump(true)
+	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP :
+		CameraUtils.set_zoom(CameraUtils.get_zoom() - 0.05)
+	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN :
+		CameraUtils.set_zoom(CameraUtils.get_zoom() + 0.05)
+
 func tumble():
 	if pos_comp.get_position().y > 1550:
 		Fade.checkpoint(heroNode, Vector2(22000,1300))
-		
 
+# Return the distance between two opposite corner of the touches' bounding box
+# (i.e. the distance between the two touches).
+func get_touched_area_metrics(box : Rect2) -> float:
+	return sqrt(box.size.x * box.size.x + box.size.y * box.size.y)
 
+func update_dragging():
+	var min_metrics = float(min_metric_edit.text)
+	var max_metrics = float(max_metric_edit.text)
+
+	if TouchUtils.has_bounding_box() and max_metrics > min_metrics:
+		if not is_dragging:
+			is_dragging = true
+			origin_zoom_ratio = CameraUtils.get_zoom_ratio()
+		var box = TouchUtils.get_bounding_box()
+		var metrics_delta = get_touched_area_metrics(box) - get_touched_area_metrics(TouchUtils.get_origin_bouding_box())
+		if abs(metrics_delta) < min_metrics:
+			metrics_delta = min_metrics
+		var ratio_delta = (metrics_delta - min_metrics) / (max_metrics - min_metrics)
+		CameraUtils.set_zoom_ratio(origin_zoom_ratio - ratio_delta)
+	else:
+		is_dragging = false
 
 
 
