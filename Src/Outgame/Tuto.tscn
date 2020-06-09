@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=1]
 [ext_resource path="res://Src/Outgame/Tuto.gd" type="Script" id=2]
@@ -230,46 +230,114 @@ size = 45
 use_filter = true
 font_data = ExtResource( 10 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="Animation" id=17]
+resource_name = "zoom"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("left_zoom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 50 ), Vector2( 20, 50 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "zoom"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("right_zoom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 130, 50 ), Vector2( 230, 50 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "dezoom"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("right_dezoom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 830, 50 ), Vector2( 740, 50 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "dezoom"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("left_dezoom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 620.478, 50 ), Vector2( 710, 50 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 16.5361, 161.026 )
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=19]
 font_data = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 8.70947, 126.2 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 10, 142.109 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 6.41455, 169.023 )
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 21.1592, 125.1 )
 
-[sub_resource type="RectangleShape2D" id=23]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 14.0503, 147.55 )
 
-[sub_resource type="RectangleShape2D" id=24]
+[sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 35.4849, 162.28 )
 
-[sub_resource type="RectangleShape2D" id=25]
+[sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 23.5508, 89.4011 )
 
-[sub_resource type="RectangleShape2D" id=26]
+[sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 27.2021, 121.115 )
 
-[sub_resource type="RectangleShape2D" id=27]
+[sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 21.0711, 136.031 )
 
-[sub_resource type="RectangleShape2D" id=28]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 35.1406, 167.38 )
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 19.2871, 175.553 )
 
-[sub_resource type="RectangleShape2D" id=30]
+[sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 17.875, 178.568 )
 
 [node name="Node2D" type="Node2D"]
@@ -380,7 +448,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="move" type="Label" parent="First_Spawn/Move/Control_move"]
+[node name="right" type="Label" parent="First_Spawn/Move/Control_move"]
 margin_left = 280.383
 margin_top = 138.213
 margin_right = 574.383
@@ -404,7 +472,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="right" type="Label" parent="First_Spawn/Move/Control_move"]
+[node name="move" type="Label" parent="First_Spawn/Move/Control_move"]
 margin_left = 53.0279
 margin_top = 20.0449
 margin_right = 347.028
@@ -425,6 +493,66 @@ texture = ExtResource( 5 )
 position = Vector2( 424.714, 268.869 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
+
+[node name="Zoom" type="Container" parent="First_Spawn/Move"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Control" type="Control" parent="First_Spawn/Move/Zoom"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="left_zoom" type="Sprite" parent="First_Spawn/Move/Zoom/Control"]
+position = Vector2( 20, 50 )
+texture = ExtResource( 5 )
+
+[node name="right_dezoom" type="Sprite" parent="First_Spawn/Move/Zoom/Control"]
+position = Vector2( 830, 50 )
+texture = ExtResource( 5 )
+
+[node name="right_zoom" type="Sprite" parent="First_Spawn/Move/Zoom/Control"]
+position = Vector2( 180, 50 )
+texture = ExtResource( 4 )
+
+[node name="left_dezoom" type="Sprite" parent="First_Spawn/Move/Zoom/Control"]
+position = Vector2( 620.478, 50 )
+texture = ExtResource( 4 )
+
+[node name="anim_left_zoom" type="AnimationPlayer" parent="First_Spawn/Move/Zoom/Control"]
+anims/zoom = SubResource( 17 )
+
+[node name="anim_right_zoom" type="AnimationPlayer" parent="First_Spawn/Move/Zoom/Control"]
+anims/zoom = SubResource( 32 )
+
+[node name="anim_right_dezoom" type="AnimationPlayer" parent="First_Spawn/Move/Zoom/Control"]
+anims/dezoom = SubResource( 33 )
+
+[node name="anim_left_dezoom" type="AnimationPlayer" parent="First_Spawn/Move/Zoom/Control"]
+anims/dezoom = SubResource( 34 )
+
+[node name="zoom" type="Label" parent="First_Spawn/Move/Zoom/Control"]
+margin_left = 54.7068
+margin_top = -82.5656
+margin_right = 348.707
+margin_bottom = -24.5656
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
+text = "Zoomer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dezoom" type="Label" parent="First_Spawn/Move/Zoom/Control"]
+margin_left = 624.337
+margin_top = -65.2932
+margin_right = 918.337
+margin_bottom = -7.29323
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
+text = "Dézoomer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Jump" type="Container" parent="First_Spawn"]
 margin_right = 40.0
@@ -449,7 +577,7 @@ collision_layer = 16384
 
 [node name="jump" type="CollisionShape2D" parent="First_Spawn/Jump/Jump"]
 position = Vector2( 973.822, 411.613 )
-shape = SubResource( 17 )
+shape = SubResource( 18 )
 
 [node name="jump" type="RichTextLabel" parent="First_Spawn/Jump"]
 visible = false
@@ -457,7 +585,7 @@ margin_left = 1270.61
 margin_top = 282.807
 margin_right = 1419.61
 margin_bottom = 335.807
-custom_fonts/bold_font = SubResource( 18 )
+custom_fonts/bold_font = SubResource( 19 )
 bbcode_enabled = true
 bbcode_text = "Pour [b]sauter[/b] appuyer sur [shake rate=5
  level=5]  [color=yellow]\"espace\""
@@ -475,7 +603,7 @@ collision_layer = 16384
 
 [node name="bullet" type="CollisionShape2D" parent="First_Spawn/Bullet/Bullet"]
 position = Vector2( 8776.24, 445.567 )
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="Control_bullet" type="Control" parent="First_Spawn/Bullet"]
 visible = false
@@ -507,7 +635,7 @@ collision_layer = 16384
 
 [node name="spawn" type="CollisionShape2D" parent="First_Spawn/Bullet/Bullet_spawn"]
 position = Vector2( 2179.51, 438.783 )
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 
 [node name="Particles2D" type="Particles2D" parent="First_Spawn/Bullet/Bullet_spawn"]
 position = Vector2( 2179.01, 558.036 )
@@ -526,7 +654,7 @@ collision_layer = 16384
 
 [node name="missile" type="CollisionShape2D" parent="First_Spawn/Missile/Missile"]
 position = Vector2( 10548, 413.285 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Control_missile" type="Control" parent="First_Spawn/Missile"]
 visible = false
@@ -557,7 +685,7 @@ collision_layer = 16384
 
 [node name="spawn" type="CollisionShape2D" parent="First_Spawn/Missile/Missile_spawn"]
 position = Vector2( 5076.7, 451.874 )
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="Particles2D" type="Particles2D" parent="First_Spawn/Missile/Missile_spawn"]
 position = Vector2( 5077.2, 553.477 )
@@ -579,28 +707,28 @@ collision_layer = 16384
 
 [node name="monster_2" type="CollisionShape2D" parent="Add_Monsters/Monster_2"]
 position = Vector2( 4304.81, 301.825 )
-shape = SubResource( 23 )
+shape = SubResource( 24 )
 
 [node name="Monster_3" type="Area2D" parent="Add_Monsters"]
 collision_mask = 16385
 
 [node name="monster_3" type="CollisionShape2D" parent="Add_Monsters/Monster_3"]
 position = Vector2( 6946.33, 413.51 )
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="Monster_4" type="Area2D" parent="Add_Monsters"]
 collision_layer = 16384
 
 [node name="monster_4" type="CollisionShape2D" parent="Add_Monsters/Monster_4"]
 position = Vector2( 12119, 488.628 )
-shape = SubResource( 25 )
+shape = SubResource( 26 )
 
 [node name="Monster_5" type="Area2D" parent="Add_Monsters"]
 collision_layer = 16384
 
 [node name="monster_5" type="CollisionShape2D" parent="Add_Monsters/Monster_5"]
 position = Vector2( 13085.4, 330.971 )
-shape = SubResource( 26 )
+shape = SubResource( 27 )
 
 [node name="Add_Bullets" type="Container" parent="."]
 margin_right = 40.0
@@ -614,7 +742,7 @@ collision_layer = 16384
 
 [node name="bullet_2" type="CollisionShape2D" parent="Add_Bullets/Bullet_2"]
 position = Vector2( 13208.9, 439.555 )
-shape = SubResource( 27 )
+shape = SubResource( 28 )
 
 [node name="Add_Missiles" type="Container" parent="."]
 margin_right = 40.0
@@ -628,25 +756,26 @@ collision_layer = 16384
 
 [node name="missile_2" type="CollisionShape2D" parent="Add_Missiles/Missile_2"]
 position = Vector2( 15906.5, 792.024 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Missile_3" type="Area2D" parent="Add_Missiles"]
 collision_layer = 16384
 
 [node name="missile_3" type="CollisionShape2D" parent="Add_Missiles/Missile_3"]
 position = Vector2( 17297.7, 785.618 )
-shape = SubResource( 29 )
+shape = SubResource( 30 )
 
 [node name="Missile_4" type="Area2D" parent="Add_Missiles"]
 collision_layer = 16384
 
 [node name="missile_4" type="CollisionShape2D" parent="Add_Missiles/Missile_4"]
 position = Vector2( 17039.4, 779.175 )
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2( 0.001, 0.001 )
 motion_mirroring = Vector2( 1920, 1080 )
 

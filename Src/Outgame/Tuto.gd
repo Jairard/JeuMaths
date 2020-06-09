@@ -76,7 +76,11 @@ func _ready():
 	portalNode.set_position(Vector2(29600,1000))
 
 func _on_Move_body_entered(body):
-	$First_Spawn/Move/Control_move.show()
+#	$First_Spawn/Move/Control_move.show()
+	$First_Spawn/Move/Zoom/Control/anim_left_zoom.play("zoom")
+	$First_Spawn/Move/Zoom/Control/anim_right_zoom.play("zoom")
+	$First_Spawn/Move/Zoom/Control/anim_right_dezoom.play("dezoom")
+	$First_Spawn/Move/Zoom/Control/anim_left_dezoom.play("dezoom")
 
 func _on_Jump_body_entered(body):
 	$First_Spawn/Jump/Label3.show()
