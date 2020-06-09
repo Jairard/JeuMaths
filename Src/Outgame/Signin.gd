@@ -300,7 +300,7 @@ func _on_TouchScreenButton2_pressed():
 
 func _on_TouchScreenButton3_pressed():
 	before_change_scene()
-	Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
+	Fade.change_scene(FileBankUtils.loaded_scenes["map_water"])
 
 func _on_TouchScreenButton4_pressed():
 #	Fade.change_scene(FileBankUtils.loaded_scenes["fonctions"])

@@ -31,7 +31,7 @@ func _ready():
 
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
-	ECS.register_system(SystemsLibrary.Animation)
+#	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Patrol)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Bullet)

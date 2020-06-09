@@ -184,6 +184,6 @@ func update_dragging():
 		if abs(metrics_delta) < min_metrics:
 			metrics_delta = min_metrics
 		var ratio_delta = (metrics_delta - min_metrics) / (max_metrics - min_metrics)
-		CameraUtils.set_zoom_ratio(origin_zoom_ratio + ratio_delta)
+		CameraUtils.set_zoom_ratio(origin_zoom_ratio - ratio_delta)
 	else:
 		is_dragging = false
