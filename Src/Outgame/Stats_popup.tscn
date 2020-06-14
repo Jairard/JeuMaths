@@ -3,10 +3,6 @@
 [ext_resource path="res://Src/Outgame/Stats_popup.gd" type="Script" id=1]
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=5]
-size = 40
-font_data = ExtResource( 2 )
-
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 2 )
@@ -20,6 +16,10 @@ size = 40
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 40
 font_data = ExtResource( 2 )
 
@@ -43,7 +43,7 @@ __meta__ = {
 margin_right = 356.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "Combats [color=red]perdus"
 text = "Combats perdus"
@@ -54,7 +54,7 @@ margin_right = 762.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
 
 [node name="victories" type="HBoxContainer" parent="."]
@@ -72,7 +72,7 @@ __meta__ = {
 margin_right = 350.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "Combats [color=yellow]gagnés"
 text = "Combats gagnés"
@@ -83,7 +83,7 @@ margin_right = 751.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.968627, 1, 0, 1 )
 
 [node name="wrong_answer" type="HBoxContainer" parent="."]
@@ -101,7 +101,7 @@ __meta__ = {
 margin_right = 429.0
 margin_bottom = 105.0
 size_flags_horizontal = 3
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[color=red]Mauvaises[/color] réponses"
 text = "Mauvaises réponses"
@@ -112,7 +112,7 @@ margin_right = 908.0
 margin_bottom = 105.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -133,7 +133,7 @@ __meta__ = {
 margin_right = 356.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[color=yellow]Bonnes [/color]réponses"
 text = "Bonnes réponses"
@@ -144,7 +144,7 @@ margin_right = 762.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.968627, 1, 0, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

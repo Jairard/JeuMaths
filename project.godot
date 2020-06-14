@@ -145,6 +145,11 @@ _global_script_classes=[ {
 "path": "res://ecs/Systems/Input.gd"
 }, {
 "base": "Component",
+"class": "IsOpenComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/is_open.gd"
+}, {
+"base": "Component",
 "class": "LootComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Loot.gd"
@@ -272,6 +277,7 @@ _global_script_class_icons={
 "HudTreasureComponent": "",
 "InputListenerComponent": "",
 "InputSystem": "",
+"IsOpenComponent": "",
 "LootComponent": "",
 "MissileSystem": "",
 "MoveSystem": "",

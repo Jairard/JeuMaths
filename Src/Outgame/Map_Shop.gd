@@ -3,6 +3,7 @@ extends Node2D
 var health_comp_hero : Component = null
 var damage_comp_hero : Component = null
 var treasure_comp_hero : Component = null
+var hud_open : Component = null
 
 var is_shown : bool = false
 var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
@@ -10,13 +11,16 @@ var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
 func init(heroNode : Node2D) -> void:
 	is_shown = true
 	show()
+	hud_open = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Is_Open) as IsOpenComponent
+	hud_open.shop = true
+	hud_open.stats = true
 	get_tree().paused = true
 	prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
 
 	health_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Health) as HealthComponent
 
 	damage_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Damage) as DamageComponent
-	
+
 	treasure_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Treasure) as TreasureComponent
 
 

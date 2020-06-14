@@ -9,10 +9,18 @@ onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
 onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_blue.tscn")
 onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
+var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
+var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
 
+var hud_show = false
+var hud_open  : Component = null
+var health_comp_hero : Component = null
+var treasure_comp : Component = null
 var heroNode : Node2D = null
+var Hud_heroNode : Node2D = null
+var ScoreNode : Node2D = null
 var move_comp : Component = null
 var gravity_comp : Component = null
 var pos_comp : Component = null
@@ -27,8 +35,20 @@ func _process(delta):
 	if delta > 1:
 		update_dragging()
 
+	if hud_show and hud_open != null:
+		if hud_open.shop or hud_open.stats:
+			$CanvasLayer/arrow_life.hide()
+			$CanvasLayer/arrow_dmg.hide()
+			$CanvasLayer/arrow_shop.hide()
+			$CanvasLayer/arrow_stats.hide()
+			$CanvasLayer/shop.hide()
+			hud_open.shop = false
+			hud_open.stats = false
+
+
 func _ready():
 
+	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 #	ECS.register_system(SystemsLibrary.Animation)
@@ -43,18 +63,18 @@ func _ready():
 	CameraUtils.set_offset(Vector2(250, 50))
 	CameraUtils.set_zoom(1.5)
 
+
 	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
 	var controllerNode = controller.instance()
 	add_child(controllerNode)
 	controllerNode.set_controller(input, heroNode)
 
-	ECS.add_component(heroNode, ComponentsLibrary.Health)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_lateral_velocity(300)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(100,400))
+	pos_comp.set_position(Vector2(19250,1000))		#(100,400)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -169,5 +189,50 @@ func update_dragging():
 		is_dragging = false
 
 
+func _on_Hud_body_entered(body):
+#	$Hud.disconnect()
+	hud_show = true
+	$Hud.queue_free()
+	$CanvasLayer/Animation_shop.play("up")
+	$CanvasLayer/Animation_stats.play("up")
+	$CanvasLayer/arrow_life.show()
+	$CanvasLayer/arrow_dmg.show()
+	$CanvasLayer/arrow_shop.show()
+	$CanvasLayer/arrow_stats.show()
+	$CanvasLayer/shop.show()
+	Hud_heroNode = hud.instance()
+	add_child(Hud_heroNode)
+	var ScoreNode = score.instance()
+	add_child(ScoreNode)
+	ScoreNode.set_hero_node(heroNode)
+
+	var hero_health = FileBankUtils.health_max
+	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
+	health_comp_hero.init(hero_health,hero_health)
+	health_comp_hero.set_health(health_comp_hero.get_health_max())
+	FileBankUtils.health = hero_health
+
+	hud_open = ECS.add_component(heroNode, ComponentsLibrary.Is_Open) as IsOpenComponent
+
+	treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
+	treasure_comp.init(FileBankUtils.treasure)
 
 
+	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
+	damage_comp.init(FileBankUtils.damage, 0)
+
+	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
+	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
+	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)
+
+	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
+
+	hud_comp_hero_fight.init_hero(Hud_heroNode.get_life_hero(),Hud_heroNode.get_life_hero_label(),
+						   Hud_heroNode.get_damage(), hero_health, hero_health)
+
+	var hud_comp_hero_map = ECS.add_component(heroNode, ComponentsLibrary.Hud_map) as HudMapComponent
+	hud_comp_hero_map.init_hero(ScoreNode.get_treasure(), treasure_comp.get_treasure(),
+								ScoreNode.get_score(), score_comp.compute_score())
+
+	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
+	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())

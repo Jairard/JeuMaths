@@ -4,8 +4,8 @@ onready var rect = $Control/ColorRect
 
 var stats : Dictionary = {}
 const init_stats : Dictionary =  {
-									"damage":15, "health":70,
-									"treasure":0,"good_answer":0,
+									"damage":0, "health":70,
+									"treasure":150,"good_answer":0,
 									"wrong_answer":0,"victories":0,"defeats":0,
 									"health_max":70, "scene_counter":0
 									}
