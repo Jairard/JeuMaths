@@ -30,7 +30,6 @@ func _on_Damage_pressed():
 		treasure_comp_hero.set_treasure(treasure_comp_hero.get_treasure() - 50)
 		FileBankUtils.treasure -= 50 
 
-
 func _on_Refill_pressed():
 	if treasure_comp_hero.get_treasure() >= 10 and !health_comp_hero.is_health_max():
 		health_comp_hero.set_health(FileBankUtils.health_max)
@@ -56,3 +55,18 @@ func shutdown():
 
 func is_shown() -> bool:
 	return is_shown 
+
+func hide_health():
+	$Back/MarginContainer/New_interface/Health.hide()
+	$Back/MarginContainer/New_interface/Health_refill.hide()
+
+func show_health():
+	$Back/MarginContainer/New_interface/Health.show()
+	$Back/MarginContainer/New_interface/Health_refill.show()
+
+func _process(delta):
+	if hud_open != null:
+		if hud_open.get_hide_health():
+			hide_health()
+		else:
+			show_health()

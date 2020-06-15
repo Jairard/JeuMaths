@@ -47,8 +47,12 @@ func _process(delta):
 			hud_open.stats = false
 
 	if treasure_comp != null and damage_comp != null :
-		if treasure_comp.get_treasure() == 50 and damage_comp.get_damage() == 0: 
+		if damage_comp.get_damage() == 0: 
+			hud_open.set_hide_health(true)
 			print("hide health on hud")
+		if damage_comp.get_damage() > 0:
+			print("SHOW")
+			hud_open.set_hide_health(false)
 
 func _ready():
 
