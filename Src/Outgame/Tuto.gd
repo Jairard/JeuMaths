@@ -14,6 +14,7 @@ var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
 
+var damage_comp : Component = null
 var hud_show = false
 var hud_open  : Component = null
 var health_comp_hero : Component = null
@@ -45,6 +46,9 @@ func _process(delta):
 			hud_open.shop = false
 			hud_open.stats = false
 
+	if treasure_comp != null and damage_comp != null :
+		if treasure_comp.get_treasure() == 50 and damage_comp.get_damage() == 0: 
+			print("hide health on hud")
 
 func _ready():
 
@@ -218,7 +222,7 @@ func _on_Hud_body_entered(body):
 	treasure_comp.init(FileBankUtils.treasure)
 
 
-	var damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
+	damage_comp = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
 	damage_comp.init(FileBankUtils.damage, 0)
 
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent

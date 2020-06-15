@@ -173,19 +173,16 @@ func add_unused_option() -> void:
 func get_stats(pseudo : String) -> Dictionary:
 	for _pseudo in stats.keys():
 		if _pseudo == pseudo:
-			print("true")
 			return { "new_hero" : false, "stats" : stats[_pseudo]}
 
 	var new_stats = init_stats.duplicate(true)
 	stats[pseudo] = new_stats
-	print("false")
 	return {"new_hero" : true, "stats" : new_stats}
 
 
 func load_stats():
 	var pseudo : String = $TileMap/pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
-	print ("stats : ", stats_hero)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 
 func before_change_scene() -> void:
@@ -197,7 +194,6 @@ func before_change_scene() -> void:
 				exercices.append(j)
 #				if constants[i]:
 				_constants.append(constants[i])
-				print("constants : ", _constants)
 	Scene_transition_data.set_data("questions", exercices, "constants", _constants)
 	load_stats()
 
@@ -280,10 +276,7 @@ func _on_Power_pressed():
 
 func _on_TouchScreenButton_pressed():
 	if len(lessons_selected) == 0:
-#		print("popup")
-#		var popup : PopupDialog = PopupDialog.new()
-#		popup.text = "popup"
-#		add_child(popup)
+
 		$VBoxContainer.hide()
 		$PopupDialog.show()
 	else:

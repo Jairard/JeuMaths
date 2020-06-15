@@ -30,7 +30,6 @@ func _on_Gold_Button_pressed():
 
 
 func _on_Medal_Button_pressed():
-	print ("in")
 	if stats.is_shown():
 		stats.shutdown()
 	else:

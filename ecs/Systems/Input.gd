@@ -25,7 +25,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if input.get_right():
 		comp.set_direction(comp.dir.right)
 	if input.get_jump():
-		print("jump")
 		comp.set_is_jumping(true)
 		input.set_jump(false)
 	

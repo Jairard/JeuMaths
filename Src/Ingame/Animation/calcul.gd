@@ -53,7 +53,6 @@ func setup_question(exercices : Array, constants : Array) -> void:
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(exercices))
 	var theme = constants[random_theme]
-	print ("theme : ", theme)
 	var questions		: Array 		= exercices[random_theme]["questions"]
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
