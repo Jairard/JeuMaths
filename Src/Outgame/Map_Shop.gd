@@ -13,7 +13,6 @@ func init(heroNode : Node2D) -> void:
 	show()
 	hud_open = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Is_Open) as IsOpenComponent
 	hud_open.shop = true
-	hud_open.stats = true
 	get_tree().paused = true
 	prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
 

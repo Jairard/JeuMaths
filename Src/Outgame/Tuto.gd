@@ -36,7 +36,7 @@ func _process(delta):
 		update_dragging()
 
 	if hud_show and hud_open != null:
-		if hud_open.shop or hud_open.stats:
+		if hud_open.get_shop() or hud_open.get_stats():
 			$CanvasLayer/arrow_life.hide()
 			$CanvasLayer/arrow_dmg.hide()
 			$CanvasLayer/arrow_shop.hide()
