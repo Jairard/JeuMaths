@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
-onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_green.tscn")
 onready var loot 			= 	preload("res://Src/Ingame/characters/Null.tscn")
 onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 
@@ -92,15 +91,6 @@ func _ready():
 	var lootdict = [ {gold : 10}, {damage : 5, health : 5, null : 90}]#, damage : 50}]#, null : 90} ]
 	var loot_comp = ECS.add_component(lootNode, ComponentsLibrary.Loot) as LootComponent
 	loot_comp.init(lootdict, lootNode)
-
-
-	var portalNode = portal.instance()
-	add_child(portalNode)
-	portalNode.set_name("portal")
-
-	ECS.add_component(portalNode, ComponentsLibrary.Collision)
-	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp_portal.set_position(Vector2(600,530))
 
 	var HudNode = hud.instance()
 	add_child(HudNode)

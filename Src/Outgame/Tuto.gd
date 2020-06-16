@@ -7,7 +7,7 @@ onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
-onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_blue.tscn")
+#onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_blue.tscn")
 onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
 var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
@@ -82,7 +82,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(19250,1000))		#(100,400)
+	pos_comp.set_position(Vector2(28600,900))		#(100,400)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -99,9 +99,9 @@ func _ready():
 #	var anim_rect = AnimationUtils.rect_fade_in(self)
 #	yield(anim_rect, "animation_finished")
 
-	var portalNode = portal.instance()
-	add_child(portalNode)
-	portalNode.set_position(Vector2(29600,1000))
+#	var portalNode = portal.instance()
+#	add_child(portalNode)
+#	portalNode.set_position(Vector2(29600,1000))
 
 func _on_Move_body_entered(body):
 #	$First_Spawn/Move/Control_move.show()
