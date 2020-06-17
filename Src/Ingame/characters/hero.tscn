@@ -130,7 +130,7 @@ height = 139.659
 
 [node name="hero" type="KinematicBody2D"]
 modulate = Color( 1, 0.980392, 0.980392, 1 )
-collision_mask = 65526
+collision_mask = 32758
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

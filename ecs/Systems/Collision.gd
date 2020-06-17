@@ -16,9 +16,8 @@ const gold_layer_bit 		: int = 9
 const answer_layer_bit 		: int = 10
 const damage_layer_bit 		: int = 11
 const health_layer_bit 		: int = 12
-const portal_blue_layer_bit : int = 13
-const portal_green_layer_bit: int = 14
-const portal_red_layer_bit 	: int = 15
+const portal_layer_bit 		: int = 13
+const portal_fight_layer_bit : int = 14
 
 func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Collision]
@@ -246,34 +245,27 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				var normal = col.get_normal()
 				bounce_comp.set_is_bouncing(normal)
 
-		if (has_collision_layer(collider,portal_blue_layer_bit) == true
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL BLUE
+		if (has_collision_layer(collider,portal_layer_bit) == true
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL 
 
-			print("Portal blue collision !")
-
-			if health_comp != null:
-				FileBankUtils.scene_counter += 1
-				Fade.change_scene(FileBankUtils.load_right_scene())
-			collider.queue_free()
-			
-		if (has_collision_layer(collider,portal_green_layer_bit) == true
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL GREEN
-
-			print("Portal green collision !")
+			print("Portal  collision !")
 
 			if health_comp != null:
+				if FileBankUtils.portal:
+					FileBankUtils.scene_counter += 1
+					FileBankUtils.portal = false
 				Fade.change_scene(FileBankUtils.load_right_scene())
-			collider.queue_free()
+#			collider.queue_free()
 
 
-		if (has_collision_layer(collider,portal_red_layer_bit) == true
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL RED
+		if (has_collision_layer(collider,portal_fight_layer_bit) == true
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL FIGHT
 
-			print("Portal red collision !")
+			print("Portal fight collision !")
 
 			if health_comp != null:
 				Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
-			collider.queue_free()
+#			collider.queue_free()
 
 func unique_collision(collider):
 		collider.get_node("CollisionShape2D").disabled = true

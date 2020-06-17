@@ -381,9 +381,8 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_11="answer"
 2d_physics/layer_12="damage"
 2d_physics/layer_13="health"
-2d_physics/layer_14="portal_blue"
-2d_physics/layer_15="portal_green"
-2d_physics/layer_16="portal_red"
+2d_physics/layer_14="portal"
+2d_physics/layer_15="portal_fight"
 
 [rendering]
 
