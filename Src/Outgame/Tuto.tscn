@@ -922,8 +922,8 @@ anims/up = SubResource( 38 )
 [node name="Animation_stats" type="AnimationPlayer" parent="CanvasLayer"]
 anims/up = SubResource( 39 )
 
-[node name="Node2D" parent="." instance=ExtResource( 13 )]
-position = Vector2( 29550, 799.025 )
+[node name="Portal" parent="." instance=ExtResource( 13 )]
+position = Vector2( 29548.5, 798.98 )
 [connection signal="pressed" from="Return" to="." method="_on_Button_pressed"]
 [connection signal="body_entered" from="First_Spawn/Monster/Monster" to="." method="_on_Monster_body_entered"]
 [connection signal="body_entered" from="First_Spawn/Monster/Monster_spawn" to="." method="_on_Monster_spawn_body_entered"]

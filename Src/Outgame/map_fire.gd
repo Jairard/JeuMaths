@@ -15,7 +15,6 @@ onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.tscn")
 
 onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
-onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 onready var fps_label = get_node("CanvasLayer/Label") 
 onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
@@ -50,11 +49,6 @@ func _ready():
 	_load_monsters()
 	load_gold()
 	load_platform()
-	var portalNode = portal.instance()
-	add_child(portalNode)
-	ECS.add_component(portalNode, ComponentsLibrary.Collision)
-	var pos_comp_portal = ECS.add_component(portalNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp_portal.set_position(Vector2(25500,375))
 
 	ECS.clear_ghosts()
 
@@ -84,7 +78,7 @@ func load_characters() :
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(400,500))
+	pos_comp.set_position(Vector2(26000,500))#(Vector2(400,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent

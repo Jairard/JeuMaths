@@ -65,6 +65,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Missile)
 
+	FileBankUtils.portal = true
 	heroNode = hero.instance()
 	add_child(heroNode)
 	CameraUtils.set_camera_from_hero(heroNode)
@@ -82,7 +83,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(28600,900))		#(100,400)
+	pos_comp.set_position(Vector2(19500,900))		#(100,400)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
