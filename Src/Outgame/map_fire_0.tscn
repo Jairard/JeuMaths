@@ -5,7 +5,7 @@
 [ext_resource path="res://Src/Outgame/map_fire_0.gd" type="Script" id=3]
 [ext_resource path="res://Src/Outgame/Portal_fight.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Textures/Levels/scene_volcano_bmp/fond_volcan_bitap.bmp" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Levels/scene_volcano_png/fond droite.png" type="Texture" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -277,14 +277,13 @@ autostart = true
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, -500 )
 motion_scale = Vector2( 0.2, 0.2 )
-motion_mirroring = Vector2( 2048, 1280 )
+motion_mirroring = Vector2( 1920, 1080 )
 
-[node name="volcano" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-show_behind_parent = true
-position = Vector2( 0.507813, -286.339 )
-scale = Vector2( 2, 2 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 6 )
 centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
