@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Textures/GUI/return.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends TouchScreenButton
+
+func _on_return_pressed():
+	Fade.change_scene(FileBankUtils.loaded_scenes[\"sign_in\"])
+"
+
+[node name="return" type="TouchScreenButton"]
+position = Vector2( 1217.11, 13.6818 )
+normal = ExtResource( 1 )
+script = SubResource( 1 )
+[connection signal="pressed" from="." to="." method="_on_return_pressed"]

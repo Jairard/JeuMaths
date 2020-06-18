@@ -1373,7 +1373,7 @@ __meta__ = {
 }
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
-position = Vector2( 1161.54, 607.268 )
+position = Vector2( 1164.12, 607.268 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 8 )
 

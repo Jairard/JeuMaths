@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Src/Outgame/map_fire.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Textures/GUI/return.png" type="Texture" id=3]
+[ext_resource path="res://Src/Outgame/Return.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Outgame/Portal_fight.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_bmp/fond_volcan_bitap.bmp" type="Texture" id=6]
@@ -265,10 +265,6 @@ tile_data = PoolIntArray( -1376111, -1610612732, 0, -1310575, -1610612732, 0, -1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="return" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 1199.3, 20.9004 )
-normal = ExtResource( 3 )
-
 [node name="Label" type="Label" parent="CanvasLayer"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 334.192
@@ -302,6 +298,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="return" parent="CanvasLayer" instance=ExtResource( 3 )]
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
@@ -332,6 +330,5 @@ shape = SubResource( 13 )
 
 [node name="Portal_fight" parent="." instance=ExtResource( 4 )]
 position = Vector2( 26520.9, 634.554 )
-[connection signal="pressed" from="CanvasLayer/return" to="." method="_on_return_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Missile_spawn" to="." method="_on_Missile_spawn_body_entered"]

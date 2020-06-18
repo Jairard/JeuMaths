@@ -227,6 +227,3 @@ func update_dragging():
 		CameraUtils.set_zoom_ratio(origin_zoom_ratio - ratio_delta)
 	else:
 		is_dragging = false
-
-func _on_return_pressed():
-	Fade.change_scene(FileBankUtils.loaded_scenes["sign_in"])

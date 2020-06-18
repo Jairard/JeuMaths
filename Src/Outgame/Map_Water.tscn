@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Src/Outgame/Map_Water.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
-[ext_resource path="res://font/Colored Crayons.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Src/Outgame/Return.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/test_bulle_png.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/tuto/water.png" type="Texture" id=6]
@@ -132,10 +132,6 @@ points = PoolVector2Array( 256, 64, 288, 128, 288, 288, 32, 288, 32, 128, 64, 64
 } ]
 0/z_index = 0
 
-[sub_resource type="DynamicFont" id=11]
-size = 35
-font_data = ExtResource( 3 )
-
 [node name="Map_Water" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -231,16 +227,7 @@ format = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 1399.88
-margin_top = 6.23474
-margin_right = 1598.88
-margin_bottom = 87.2347
-custom_fonts/font = SubResource( 11 )
-text = "Retour"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="return" parent="CanvasLayer" instance=ExtResource( 3 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -262,5 +249,4 @@ autostart = true
 
 [node name="Portal_fight" parent="." instance=ExtResource( 9 )]
 position = Vector2( 18236.3, 1713.65 )
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
