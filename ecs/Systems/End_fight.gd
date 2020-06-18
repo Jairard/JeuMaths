@@ -31,7 +31,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				Fade.change_scene(FileBankUtils.loaded_scenes["death"])
 			if node_enemy != null and end_comp.get_end() == true:
 				FileBankUtils.victories += 1
-				FileBankUtils.scene_counter += 1
+#				FileBankUtils.scene_counter += 1
 				end_comp.set_end(false)
 				Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
 
