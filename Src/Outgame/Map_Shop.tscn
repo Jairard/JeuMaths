@@ -87,91 +87,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Health" type="Control" parent="Back/MarginContainer/New_interface"]
-margin_right = 353.0
-margin_bottom = 34.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Health"]
-modulate = Color( 0.2, 0.160784, 0.160784, 0.854902 )
-show_behind_parent = true
-margin_left = -60.0153
-margin_top = -29.0634
-margin_right = 124.985
-margin_bottom = 40.9366
-rect_scale = Vector2( 1.8, 3 )
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="health_label" type="Label" parent="Back/MarginContainer/New_interface/Health"]
-modulate = Color( 0.313726, 1, 0, 1 )
-margin_left = -2.70119
-margin_top = 27.504
-margin_right = 74.2988
-margin_bottom = 77.504
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "+ 10"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="health_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health"]
-position = Vector2( 131.015, 79.8839 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 5 )
-
-[node name="cost_health" type="Sprite" parent="Back/MarginContainer/New_interface/Health"]
-position = Vector2( 201.367, -6.52477 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 7 )
-hframes = 8
-
-[node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Health"]
-modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
-show_behind_parent = true
-margin_left = 267.699
-margin_top = 9.78723
-margin_right = 452.699
-margin_bottom = 79.7878
-rect_rotation = -180.0
-rect_scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Health"]
-margin_left = 227.194
-margin_top = -21.3386
-margin_right = 267.194
-margin_bottom = 10.6614
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "50 "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Health" type="Button" parent="Back/MarginContainer/New_interface/Health"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = -57.2473
-margin_top = -24.3311
-margin_right = 269.753
-margin_bottom = 167.669
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Damage" type="Control" parent="Back/MarginContainer/New_interface"]
-margin_left = 358.0
-margin_right = 711.0
+margin_right = 353.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -247,6 +164,89 @@ margin_left = -2.70304
 margin_top = -27.1868
 margin_right = 329.297
 margin_bottom = 169.813
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Control" parent="Back/MarginContainer/New_interface"]
+margin_left = 358.0
+margin_right = 711.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="Back/MarginContainer/New_interface/Health"]
+modulate = Color( 0.2, 0.160784, 0.160784, 0.854902 )
+show_behind_parent = true
+margin_left = 25.2479
+margin_top = -33.274
+margin_right = 210.248
+margin_bottom = 36.726
+rect_scale = Vector2( 1.8, 3 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_label" type="Label" parent="Back/MarginContainer/New_interface/Health"]
+modulate = Color( 0.313726, 1, 0, 1 )
+margin_left = 61.0614
+margin_top = 27.504
+margin_right = 138.061
+margin_bottom = 77.504
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "+ 10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_sprite" type="Sprite" parent="Back/MarginContainer/New_interface/Health"]
+position = Vector2( 185.051, 67.996 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+
+[node name="cost_health" type="Sprite" parent="Back/MarginContainer/New_interface/Health"]
+position = Vector2( 283.502, -3.82296 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 7 )
+hframes = 8
+
+[node name="back_cost" type="TextureRect" parent="Back/MarginContainer/New_interface/Health"]
+modulate = Color( 0.419608, 0.45098, 0.443137, 1 )
+show_behind_parent = true
+margin_left = 350.915
+margin_top = 10.868
+margin_right = 535.915
+margin_bottom = 80.8686
+rect_rotation = -180.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost_label" type="Label" parent="Back/MarginContainer/New_interface/Health"]
+margin_left = 305.006
+margin_top = -20.2579
+margin_right = 345.006
+margin_bottom = 11.7421
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "50 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Button" parent="Back/MarginContainer/New_interface/Health"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 26.9633
+margin_top = -27.4891
+margin_right = 353.964
+margin_bottom = 164.511
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -332,6 +332,6 @@ margin_bottom = 163.861
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Back/MarginContainer/New_interface/Health/Health" to="." method="_on_Health_pressed"]
 [connection signal="pressed" from="Back/MarginContainer/New_interface/Damage/Damage" to="." method="_on_Damage_pressed"]
+[connection signal="pressed" from="Back/MarginContainer/New_interface/Health/Health" to="." method="_on_Health_pressed"]
 [connection signal="pressed" from="Back/MarginContainer/New_interface/Health_refill/Refill" to="." method="_on_Refill_pressed"]
