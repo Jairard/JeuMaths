@@ -7,10 +7,10 @@ onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
-#onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_blue.tscn")
 onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
 var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
+onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.tscn")
 onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
 
@@ -83,7 +83,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(19500,900))		#(100,400)
+	pos_comp.set_position(Vector2(19600,500))		#(100,400)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -95,6 +95,8 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 
+	load_platform()
+	
 #	var anim = AnimationUtils.canvas_fade_in(self)
 #	yield(anim, "animation_finished")
 #	var anim_rect = AnimationUtils.rect_fade_in(self)
@@ -197,6 +199,9 @@ func update_dragging():
 	else:
 		is_dragging = false
 
+func load_platform():
+	EntitiesUtils.create_platform(self, platform, Vector2(25250,1250), Vector2(26250,1250),  5)
+	EntitiesUtils.create_platform(self, platform, Vector2(27250,1250), Vector2(28250,1250),  5) 
 
 func _on_Hud_body_entered(body):
 #	$Hud.disconnect()
@@ -245,3 +250,4 @@ func _on_Hud_body_entered(body):
 
 	var hud_comp_hero_treasure = ECS.add_component(heroNode, ComponentsLibrary.Hud_treasure) as HudTreasureComponent
 	hud_comp_hero_treasure.init_treasure(ScoreNode.get_treasure(), treasure_comp.get_treasure())
+
