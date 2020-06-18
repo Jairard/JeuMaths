@@ -14,8 +14,8 @@ onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
 onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
-onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
-onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
+onready var min_metric_edit = get_node("CanvasLayer/Control/MinMetrics")
+onready var max_metric_edit = get_node("CanvasLayer/Control/MaxMetrics")
 
 var health_comp_hero : Component = null
 var pos_comp : Component = null

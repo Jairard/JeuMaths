@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Src/Outgame/map_fire.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_bmp/fond_volcan_bitap.bmp" type="Texture" id=6]
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Src/Outgame/Metrics_min_max.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -276,29 +277,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MinMetrics" type="TextEdit" parent="CanvasLayer"]
-visible = false
-margin_left = 979.34
-margin_top = 46.2746
-margin_right = 1111.34
-margin_bottom = 105.275
-text = "100"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MaxMetrics" type="TextEdit" parent="CanvasLayer"]
-visible = false
-margin_left = 977.753
-margin_top = 135.128
-margin_right = 1109.75
-margin_bottom = 194.128
-text = "600"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="return" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 8 )]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

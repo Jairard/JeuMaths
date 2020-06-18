@@ -16,8 +16,8 @@ onready var platform		= 	preload("res://Src/Ingame/characters/Moving_platform.ts
 
 onready var controller      =	preload("res://Src/Outgame/Touch_controller.tscn")
 onready var fps_label = get_node("CanvasLayer/Label") 
-onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
-onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
+onready var min_metric_edit = get_node("CanvasLayer/Control/MinMetrics")
+onready var max_metric_edit = get_node("CanvasLayer/Control/MaxMetrics")
 
 var health_comp_hero : Component = null
 var pos_comp : Component = null

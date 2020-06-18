@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=1]
 [ext_resource path="res://Src/Outgame/Return.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Src/Outgame/Portal_fight.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_png/fond droite.png" type="Texture" id=6]
+[ext_resource path="res://Src/Outgame/Metrics_min_max.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -205,7 +206,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 10/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 33.9004, 137.216 )
 
 [node name="map 0" type="Node2D"]
@@ -252,6 +253,8 @@ tile_data = PoolIntArray( -3604359, 10, 0, -3604351, 5, 0, -3604323, 10, 0, -347
 
 [node name="return" parent="CanvasLayer" instance=ExtResource( 2 )]
 
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 7 )]
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
@@ -273,7 +276,7 @@ region_rect = Rect2( 0, 0, 1920, 1080 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 8096.24, 1042.41 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 
 [node name="Portal_fight" parent="." instance=ExtResource( 4 )]
 position = Vector2( 16211, 372.712 )
