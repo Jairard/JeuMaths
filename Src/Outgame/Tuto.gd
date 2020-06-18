@@ -78,12 +78,13 @@ func _ready():
 	add_child(controllerNode)
 	controllerNode.set_controller(input, heroNode)
 
+	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_lateral_velocity(300)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(19600,500))		#(100,400)
+	pos_comp.set_position(Vector2(2500,500))		#(100,400)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -221,7 +222,7 @@ func _on_Hud_body_entered(body):
 	ScoreNode.set_hero_node(heroNode)
 
 	var hero_health = FileBankUtils.health_max
-	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
+#	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	health_comp_hero.init(hero_health,hero_health)
 	health_comp_hero.set_health(health_comp_hero.get_health_max())
 	FileBankUtils.health = hero_health
