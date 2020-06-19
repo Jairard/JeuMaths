@@ -1,22 +1,17 @@
                                 |   Components  |
                                 
----------   map évolutive : utiliser la découpe de scene en plusieurs tilemaps
 ---------   script editeur : sort fichier json d'une config : editor script
 ---------   hero : touche du bas pour s'accroupir : jouer le scale
 ---------   mettre composant de dégats sur missile, monstre...
 ---------   2ème collision avec le feu pousse le hero                  
 ---------   vector orthogonal : collider.get_normal angle entre vecteur et la normale : -angle pour le rebond
----------   system de pause : quand pause sur shop + stats, unpause le premier annule la pause
 
                                 |   Positioning  |
  
----------   Placement du personnage après avoir touché un portail
+---------   
 
                                 |   Features  |
 
----------   notions cliquées a afficher
----------   utils pour changement de scene : fade_in avec un listener pour rappeler / fade_out  : charger les systems des enemis puis après ceux des heros
----------   jauge circulaire
 ---------   AnimationNode  : pour organiser l'ordre des animations
 ---------   effets sonores
 ---------   faire un effecteur : colonne de vent
@@ -36,6 +31,7 @@ Pb :
 double saut : lorsque qu'on appuie plusieurs fois pour sauter, le saut se fait 2 fois d'affilé : check is_echo()
 saut quand on a déjà ouvert les stats les réouvrent
 les collisions sur le hero immobile ne se font pas
+system de pause : quand pause sur shop + stats, unpause le premier annule la pause
 
 a mettre en place:
 quand on ouvre les stats <==> fermer shop
