@@ -67,9 +67,10 @@ func load_characters() :
 	var Hud_heroNode = hud.instance()
 	add_child(Hud_heroNode)
 
+	var hud_open = ECS.add_component(heroNode, ComponentsLibrary.Is_Open)
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
-	ScoreNode.set_hero_node(heroNode)
+	ScoreNode.set_hero_node(heroNode, hud_open)
 
 	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
 	var controllerNode = controller.instance()

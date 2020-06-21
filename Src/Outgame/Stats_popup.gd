@@ -8,27 +8,27 @@ var comp_score : Component = null
 onready var comp_hud_stats_popup : Component = null
 var hud_open : Component = null
 
-func init(heroNode : Node2D) -> void:
-	is_shown = true
-	show()
-	get_tree().paused = true
-
-	hud_open = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Is_Open) as IsOpenComponent
-	hud_open.stats = true
-
-	prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
-
-	comp_score = ECS.__get_component(heroNode.get_instance_id(), 
-									ComponentsLibrary.Health) as HealthComponent
+func init(heroNode : Node2D, hud_open) -> void:
+	if !hud_open.get_shop():
+		is_shown = true
+		show()
+		get_tree().paused = true
 	
-	if comp_hud_stats_popup == null:
-		comp_hud_stats_popup = ECS.add_component(heroNode, 
-							   ComponentsLibrary.Hud_stats_popup) as HudStatsPopupComponent
-		comp_hud_stats_popup.init_stats(get_good_answer(), get_wrong_answer(), get_victories(),get_defeats())
-
-	else:
-		comp_hud_stats_popup = ECS.__get_component(heroNode.get_instance_id(), 
-								ComponentsLibrary.Scoreglobal) as ScoreglobalcounterComponent
+		hud_open.set_stats(true)
+	
+		prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
+	
+		comp_score = ECS.__get_component(heroNode.get_instance_id(), 
+										ComponentsLibrary.Health) as HealthComponent
+		
+		if comp_hud_stats_popup == null:
+			comp_hud_stats_popup = ECS.add_component(heroNode, 
+								   ComponentsLibrary.Hud_stats_popup) as HudStatsPopupComponent
+			comp_hud_stats_popup.init_stats(get_good_answer(), get_wrong_answer(), get_victories(),get_defeats())
+	
+		else:
+			comp_hud_stats_popup = ECS.__get_component(heroNode.get_instance_id(), 
+									ComponentsLibrary.Scoreglobal) as ScoreglobalcounterComponent
 
 
 func get_good_answer() -> Label :
@@ -46,8 +46,10 @@ func get_defeats() -> Label :
 func _exit_tree():
 	ECS.set_system_pause_mode(SystemsLibrary.Hud, prev_hud_pause_mode)
 
-func shutdown():
+func shutdown(hud_open):
 	is_shown = false
+#	if hud_open != null:
+	hud_open.set_stats(false)
 	ECS.set_system_pause_mode(SystemsLibrary.Hud, prev_hud_pause_mode)
 	hide()
 	get_tree().paused = false

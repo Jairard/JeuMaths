@@ -6,9 +6,11 @@ onready var shop = shop_popup.instance()
 onready	var stats = stats_popup.instance()
  
 var heroNode : Node2D = null
+var hud_open : Component = null
 
-func set_hero_node(node : Node2D) -> void:
+func set_hero_node(node : Node2D,  _hud_open) -> void:
 	heroNode = node
+	hud_open = _hud_open
 
 func _ready():
 	$CanvasLayer/AnimationPlayer.play("anim_gold")
@@ -24,13 +26,13 @@ func get_treasure() -> Label :
 
 func _on_Gold_Button_pressed():
 	if shop.is_shown():
-		shop.shutdown()
+		shop.shutdown(hud_open)
 	else:
-		shop.init(heroNode)
+		shop.init(heroNode, hud_open)
 
 
 func _on_Medal_Button_pressed():
 	if stats.is_shown():
-		stats.shutdown()
+		stats.shutdown(hud_open)
 	else:
-		stats.init(heroNode)
+		stats.init(heroNode, hud_open)

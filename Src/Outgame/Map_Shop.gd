@@ -8,19 +8,19 @@ var hud_open : Component = null
 var is_shown : bool = false
 var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
 
-func init(heroNode : Node2D) -> void:
-	is_shown = true
-	show()
-	hud_open = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Is_Open) as IsOpenComponent
-	hud_open.shop = true
-	get_tree().paused = true
-	prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
-
-	health_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Health) as HealthComponent
-
-	damage_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Damage) as DamageComponent
-
-	treasure_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Treasure) as TreasureComponent
+func init(heroNode : Node2D, hud_open) -> void:
+	if !hud_open.get_stats():
+		is_shown = true
+		show()
+		hud_open.set_shop(true)
+		get_tree().paused = true
+		prev_hud_pause_mode = ECS.set_system_pause_mode(SystemsLibrary.Hud, Node.PAUSE_MODE_PROCESS)
+	
+		health_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Health) as HealthComponent
+	
+		damage_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Damage) as DamageComponent
+	
+		treasure_comp_hero = ECS.__get_component(heroNode.get_instance_id(), ComponentsLibrary.Treasure) as TreasureComponent
 
 
 func _on_Damage_pressed():
@@ -47,8 +47,10 @@ func _on_Health_pressed():
 		health_comp_hero.set_health(health_comp_hero.get_health() + 10)
 		FileBankUtils.health += 10
 
-func shutdown():
+func shutdown(hud_open):
 	is_shown = false
+#	if hud_open != null:
+	hud_open.set_shop(false)
 	ECS.set_system_pause_mode(SystemsLibrary.Hud, prev_hud_pause_mode)
 	hide()
 	get_tree().paused = false
