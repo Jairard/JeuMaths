@@ -295,10 +295,11 @@ motion_mirroring = Vector2( 2048, 1280 )
 
 [node name="volcano" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 show_behind_parent = true
-position = Vector2( -0.636077, -284.051 )
+position = Vector2( -0.636, -100 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 centered = false
+region_rect = Rect2( 0, 0, 2048, 640 )
 
 [node name="Missile_spawn" type="Area2D" parent="."]
 visible = false
