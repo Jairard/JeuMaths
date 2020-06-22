@@ -29,10 +29,4 @@
 _____________________________________________________________________________________
 Pb : 
 double saut : lorsque qu'on appuie plusieurs fois pour sauter, le saut se fait 2 fois d'affilé : check is_echo()
-saut quand on a déjà ouvert les stats les réouvrent
-les collisions sur le hero immobile ne se font pas
-system de pause : quand pause sur shop + stats, unpause le premier annule la pause
-
-a mettre en place:
-quand on ouvre les stats <==> fermer shop
-set les bonnes positions dans toutes les maps
+les collisions sur le hero immobile ne se font pas                

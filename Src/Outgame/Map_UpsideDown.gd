@@ -1,6 +1,5 @@
 extends Node2D
 
-onready var enemy 			= 	preload("res://Src/Ingame/characters/Ennemy.tscn")
 onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
 onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
@@ -54,9 +53,6 @@ func _ready():
 
 func load_characters() :
 
-	var enemyNode = enemy.instance()
-	add_child(enemyNode)
-
 	heroNode = hero.instance()
 	add_child(heroNode)
 	CameraUtils.set_camera_from_hero(heroNode)
@@ -66,10 +62,6 @@ func load_characters() :
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
 	ScoreNode.set_hero_node(heroNode)
-
-
-	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-	enemy_pos_comp.set_position(Vector2(-200,500))
 
 	load_gold()
 

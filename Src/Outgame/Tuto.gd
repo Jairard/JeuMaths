@@ -49,9 +49,7 @@ func _process(delta):
 	if treasure_comp != null and damage_comp != null :
 		if damage_comp.get_damage() == 0: 
 			hud_open.set_hide_health(true)
-			print("hide health on hud")
 		if damage_comp.get_damage() > 0:
-			print("SHOW")
 			hud_open.set_hide_health(false)
 
 func _ready():
@@ -84,7 +82,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(2500,500))		#(100,400)
+	pos_comp.set_position(Vector2(100,400))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -217,9 +215,10 @@ func _on_Hud_body_entered(body):
 	$CanvasLayer/shop.show()
 	Hud_heroNode = hud.instance()
 	add_child(Hud_heroNode)
+	hud_open = ECS.add_component(heroNode, ComponentsLibrary.Is_Open) as IsOpenComponent
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
-	ScoreNode.set_hero_node(heroNode)
+	ScoreNode.set_hero_node(heroNode, hud_open)
 
 	var hero_health = FileBankUtils.health_max
 #	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
@@ -227,7 +226,6 @@ func _on_Hud_body_entered(body):
 	health_comp_hero.set_health(health_comp_hero.get_health_max())
 	FileBankUtils.health = hero_health
 
-	hud_open = ECS.add_component(heroNode, ComponentsLibrary.Is_Open) as IsOpenComponent
 
 	treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)

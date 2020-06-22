@@ -35,6 +35,3 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		move_comp.set_is_jumping(false)
 	velocity_comp.set_velocity(velocity)
 	MoveUtils.move_and_slide(pos_comp, velocity_comp, dt)
-
-
-
