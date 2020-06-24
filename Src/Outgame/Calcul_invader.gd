@@ -66,3 +66,4 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	body.queue_free()
+#	invader.set_health(invader.get_health() - 1)
