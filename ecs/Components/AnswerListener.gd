@@ -39,5 +39,20 @@ func reset() -> void:
 		if comp != null:
 			comp.set_scene(new_instance)
 
+func reset_invader() -> void:
+	var scene_parent : Node2D = scene.get_parent()
+	var new_instance : Node2D = resource.instance()
+	new_instance.setup_question(questions)
+	scene_parent.add_child(new_instance)
+	var listeners : Array = scene.get_answer_listener()
+
+	new_instance.set_answer_listener(listeners)
+	scene.queue_free()
+
+	for lis in listeners:
+		var comp : Component = lis as AnswerListenerComponent
+		if comp != null:
+			comp.set_scene(new_instance)
+
 func delete() -> void:
 	scene.queue_free()

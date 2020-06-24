@@ -12,7 +12,7 @@ func _get_optional_components() -> Array:
 
 
 func _get_system_dependencies() -> Array:
-	return [SystemsLibrary.Endfight]
+	return [SystemsLibrary.EndInvader]
 
 func init_spell(node : Node2D, target : Node2D, damage : float) -> void:
 	ECS.add_component(node, ComponentsLibrary.Position)

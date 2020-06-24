@@ -34,7 +34,7 @@ var file = File.new()
 var dict = {}
 
 func _ready():
-	
+	set_process_input(true)
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 #	ECS.register_system(SystemsLibrary.Animation)

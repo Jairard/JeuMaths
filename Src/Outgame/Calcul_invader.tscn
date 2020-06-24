@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Src/Outgame/Calcul_invader.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 633.233, 43.7725 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 638.435, 10 )
+
+[node name="Challenge_invader" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.2
+gravity_scale = 0.1
+
+[node name="answers" type="HBoxContainer" parent="RigidBody2D"]
+margin_right = 1277.0
+margin_bottom = 138.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer1" type="Label" parent="RigidBody2D/answers"]
+margin_right = 231.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
+text = "1"
+align = 1
+valign = 1
+
+[node name="answer2" type="Label" parent="RigidBody2D/answers"]
+margin_left = 261.0
+margin_right = 492.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
+text = "2"
+align = 1
+valign = 1
+
+[node name="answer3" type="Label" parent="RigidBody2D/answers"]
+margin_left = 522.0
+margin_right = 753.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
+text = "3"
+align = 1
+valign = 1
+
+[node name="answer4" type="Label" parent="RigidBody2D/answers"]
+margin_left = 783.0
+margin_right = 1014.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
+text = "4"
+align = 1
+valign = 1
+
+[node name="calcul" type="Label" parent="RigidBody2D/answers"]
+margin_left = 1044.0
+margin_right = 1277.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
+text = "5"
+align = 1
+valign = 1
+
+[node name="buttons" type="HBoxContainer" parent="RigidBody2D"]
+margin_right = 1277.0
+margin_bottom = 138.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer1" type="Button" parent="RigidBody2D/buttons"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 231.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="answer2" type="Button" parent="RigidBody2D/buttons"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 261.0
+margin_right = 492.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="answer3" type="Button" parent="RigidBody2D/buttons"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 522.0
+margin_right = 753.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="answer4" type="Button" parent="RigidBody2D/buttons"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 783.0
+margin_right = 1014.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="calcul" type="Button" parent="RigidBody2D/buttons"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1044.0
+margin_right = 1277.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 638.275, 39.7782 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 113, 313.001 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 523.603, 104.721 )
+shape = SubResource( 3 )
+[connection signal="pressed" from="RigidBody2D/buttons/answer1" to="." method="_on_answer1_pressed"]
+[connection signal="pressed" from="RigidBody2D/buttons/answer2" to="." method="_on_answer2_pressed"]
+[connection signal="pressed" from="RigidBody2D/buttons/answer3" to="." method="_on_answer3_pressed"]
+[connection signal="pressed" from="RigidBody2D/buttons/answer4" to="." method="_on_answer4_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

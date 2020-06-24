@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/Animation.gd"
 }, {
+"base": "System",
+"class": "AnswerInvaderSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Answer_invader.gd"
+}, {
 "base": "Component",
 "class": "AnswerListenerComponent",
 "language": "GDScript",
@@ -85,6 +90,16 @@ _global_script_classes=[ {
 "path": "res://ecs/Systems/Emit_particules.gd"
 }, {
 "base": "Component",
+"class": "EndInvaderComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/End_invader.gd"
+}, {
+"base": "System",
+"class": "EndInvaderSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/End_invader.gd"
+}, {
+"base": "Component",
 "class": "EndfightComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/End_fight.gd"
@@ -143,6 +158,11 @@ _global_script_classes=[ {
 "class": "InputSystem",
 "language": "GDScript",
 "path": "res://ecs/Systems/Input.gd"
+}, {
+"base": "Component",
+"class": "InvaderComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Invader.gd"
 }, {
 "base": "Component",
 "class": "IsOpenComponent",
@@ -252,6 +272,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AnimationComponent": "",
 "AnimationSystem": "",
+"AnswerInvaderSystem": "",
 "AnswerListenerComponent": "",
 "AnswerSystem": "",
 "AnswertoSpellComponent": "",
@@ -265,6 +286,8 @@ _global_script_class_icons={
 "DamageComponent": "",
 "EmitParticulesComponent": "",
 "EmitParticulesSystem": "",
+"EndInvaderComponent": "",
+"EndInvaderSystem": "",
 "EndfightComponent": "",
 "EndfightSystem": "",
 "GhostsHandler": "",
@@ -277,6 +300,7 @@ _global_script_class_icons={
 "HudTreasureComponent": "",
 "InputListenerComponent": "",
 "InputSystem": "",
+"InvaderComponent": "",
 "IsOpenComponent": "",
 "LootComponent": "",
 "MissileSystem": "",
@@ -303,7 +327,7 @@ _global_script_class_icons={
 [application]
 
 config/name="jeu"
-run/main_scene="res://Src/Outgame/Signin.tscn"
+run/main_scene="res://Src/Outgame/Challenge_invader.tscn"
 config/icon="res://Assets/Textures/Characters/icon.png"
 
 [autoload]

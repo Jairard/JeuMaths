@@ -31,4 +31,7 @@ const Hud_map		=   preload("res://ecs/Components/Hud_map.gd")
 const Hud_stats_popup=   preload("res://ecs/Components/Hud_stats_popup.gd")
 const End_fight		=   preload("res://ecs/Components/End_fight.gd")
 const Is_Open		=   preload("res://ecs/Components/is_open.gd")
+const Invader		=   preload("res://ecs/Components/Invader.gd")
+const End_invader	=   preload("res://ecs/Components/End_invader.gd")
+
 
