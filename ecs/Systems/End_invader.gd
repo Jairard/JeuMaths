@@ -12,6 +12,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var current_health = invader.get_health()
 	if current_health == 0 and end_comp.get_end() == true:
 		FileBankUtils.treasure += invader.get_gold()
+		print("lose")
 		end_comp.set_end(false)
 #		Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
 

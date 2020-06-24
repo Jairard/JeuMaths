@@ -11,7 +11,7 @@ func _get_mandatory_components() -> Array:
 func _get_optional_components() -> Array:
 	return [ ComponentsLibrary.Treasure, ComponentsLibrary.Scoreglobal, ComponentsLibrary.Health, 
 			ComponentsLibrary.Damage, ComponentsLibrary.Hud_treasure,ComponentsLibrary.Hud_map,
-			ComponentsLibrary.Hud_stats_popup]
+			ComponentsLibrary.Hud_stats_popup,  ComponentsLibrary.Hud_invader,  ComponentsLibrary.Invader]
 
 func _process_node(dt : float, components : Dictionary) -> void:
 
@@ -23,6 +23,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var comp_hud_fight		= 	components[ComponentsLibrary.Hud_fight] 		as	HudFightComponent
 	var comp_hud_map		= 	components[ComponentsLibrary.Hud_map] 			as	HudMapComponent
 	var comp_hud_stats_popup= 	components[ComponentsLibrary.Hud_stats_popup] 	as	HudStatsPopupComponent
+	var comp_hud_invader	= 	components[ComponentsLibrary.Hud_invader] 		as	HudInvaderComponent
+	var comp_invader		= 	components[ComponentsLibrary.Invader] 			as	InvaderComponent
+
+
+	if comp_hud_invader != null:
+		var current_gold = comp_invader.get_gold()
+		comp_hud_invader.set_gold(current_gold)
 
 	if comp_health != null:
 		comp_hud_fight.update_displayed_health(dt)	
