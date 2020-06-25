@@ -8,6 +8,8 @@ onready var time_label = get_node("timer")
 onready var game_timer = get_node("Timer")
 onready var calcul_invader = calcul.instance()
 
+var gravity_acceleration : float = 0.1
+
 var invader_component : InvaderComponent = null
 var questions : Array = []
 
@@ -18,15 +20,18 @@ func load_questions() -> void:
 				questions.append(i)
 
 func create_calcul() -> void:
+	gravity_acceleration += 0.02
 	var node = calcul.instance()
 	var invader_calcul = ECS.add_component(node, ComponentsLibrary.Invader_calcul) as InvaderCalculComponent
 	invader_calcul.init(invader_component)
-	game_timer.start(5.5)
+	game_timer.start(5)
 	var listener_hero = ECS.add_component(node, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
 	node.setup_question(questions)
 	node.set_answer_listener([listener_hero])
 
 	add_child(node)
+	var new_gravity = node.get_node("RigidBody2D")
+	new_gravity.set_gravity_scale(gravity_acceleration)
 
 
 func _ready():
@@ -49,7 +54,6 @@ func _ready():
 	hud_invader.init(hudNode.get_gold(), hudNode)
 
 	ECS.clear_ghosts()
-
 
 func _process(delta):
 	time_label.set_text(str(int(game_timer.get_time_left())))

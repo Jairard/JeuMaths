@@ -21,7 +21,6 @@ script = ExtResource( 2 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 mass = 0.2
-gravity_scale = 0.1
 
 [node name="answers" type="HBoxContainer" parent="RigidBody2D"]
 margin_top = 80.0
