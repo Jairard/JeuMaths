@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Src/Outgame/Calcul_invader.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Textures/GUI/container.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Textures/GUI/genericItem_color_053.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Textures/invader/star.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/invader/alienGreen_stand.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/invader/enemyRed1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/invader/enemyGreen2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/invader/enemyBlue5.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/invader/enemyBlack3.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -39,15 +41,13 @@ margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
-text = "1"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D/answers/answer1"]
 show_behind_parent = true
-position = Vector2( 122.908, 62.1522 )
-scale = Vector2( 2.5, 2.5 )
+position = Vector2( 115, 140 )
 texture = ExtResource( 5 )
 
 [node name="answer2" type="Label" parent="RigidBody2D/answers"]
@@ -57,15 +57,14 @@ margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
-text = "2"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D/answers/answer2"]
 show_behind_parent = true
-position = Vector2( 106.147, 62.8505 )
-texture = ExtResource( 3 )
+position = Vector2( 115, 140 )
+texture = ExtResource( 4 )
 
 [node name="answer3" type="Label" parent="RigidBody2D/answers"]
 margin_left = 522.0
@@ -74,15 +73,14 @@ margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
-text = "3"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D/answers/answer3"]
 show_behind_parent = true
-position = Vector2( 99.8624, 63.5488 )
-texture = ExtResource( 3 )
+position = Vector2( 115, 140 )
+texture = ExtResource( 7 )
 
 [node name="answer4" type="Label" parent="RigidBody2D/answers"]
 margin_left = 783.0
@@ -91,15 +89,14 @@ margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.113725, 0.0470588, 0.8, 1 )
-text = "4"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D/answers/answer4"]
 show_behind_parent = true
-position = Vector2( 114.528, 61.4538 )
-texture = ExtResource( 3 )
+position = Vector2( 115, 140 )
+texture = ExtResource( 6 )
 
 [node name="calcul" type="Label" parent="RigidBody2D/answers"]
 margin_left = 1044.0
@@ -109,20 +106,19 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "5"
 align = 1
 valign = 1
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D/answers/calcul"]
 show_behind_parent = true
-position = Vector2( 127.424, 69.8063 )
-scale = Vector2( 1.8, 1.5 )
-texture = ExtResource( 4 )
+position = Vector2( 115, 140 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
 
 [node name="buttons" type="HBoxContainer" parent="RigidBody2D"]
 margin_top = 80.0
 margin_right = 1277.0
-margin_bottom = 218.0
+margin_bottom = 296.0
 custom_constants/separation = 30
 __meta__ = {
 "_edit_use_anchors_": false
@@ -131,7 +127,7 @@ __meta__ = {
 [node name="answer1" type="Button" parent="RigidBody2D/buttons"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 231.0
-margin_bottom = 138.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -139,7 +135,7 @@ size_flags_vertical = 3
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 261.0
 margin_right = 492.0
-margin_bottom = 138.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -147,7 +143,7 @@ size_flags_vertical = 3
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 522.0
 margin_right = 753.0
-margin_bottom = 138.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -155,7 +151,7 @@ size_flags_vertical = 3
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 783.0
 margin_right = 1014.0
-margin_bottom = 138.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -163,7 +159,7 @@ size_flags_vertical = 3
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1044.0
 margin_right = 1277.0
-margin_bottom = 138.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
