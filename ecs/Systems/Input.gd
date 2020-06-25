@@ -18,15 +18,15 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		comp.set_direction(comp.dir.none)
 
 	if Input.is_action_just_pressed("ui_accept"):
-		input.set_jump(true)
+		input.set_is_jumping(true)
 
 	if input.get_left():
 		comp.set_direction(comp.dir.left)
 	if input.get_right():
 		comp.set_direction(comp.dir.right)
-	if input.get_jump():
+	if input.is_jumping():
 		# Consume the input
-		input.set_jump(false)
+		input.set_is_jumping(false)
 		# Trigger a real jump if possible
 		if comp.get_node().is_on_floor():
 			comp.set_is_jumping(true)

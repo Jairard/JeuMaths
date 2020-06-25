@@ -7,7 +7,7 @@ func set_controller(_input : Component, node : Node2D):
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
-		input.set_jump(true)
+		input.set_is_jumping(true)
 
 func _on_right_button_up():
 	input.set_right(false)

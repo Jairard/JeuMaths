@@ -173,7 +173,7 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
-		input.set_jump(true)
+		input.set_is_jumping((true)
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP :
 		CameraUtils.set_zoom(CameraUtils.get_zoom() - 0.05)
 		print("zoom : ", CameraUtils.get_zoom())
