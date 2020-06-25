@@ -155,7 +155,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true): 		# MISSILE health - 10
 
 			print("Missile collision !")
-			comp_move.set_direction(comp_move.dir.colliding)
+			comp_move.set_direction(MoveUtils.dir.colliding)
 			collider.queue_free()
 			
 			if health_comp != null:

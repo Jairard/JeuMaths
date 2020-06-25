@@ -1,9 +1,8 @@
 extends Component
 
 class_name MovementComponent
-enum dir {left, right, none, colliding, mouse}
 
-var direction = dir.none
+var direction = MoveUtils.dir.none
 var jump 	: bool 	= false
 var impulse : int 	= 0
 var lateral_velocity : int = 0

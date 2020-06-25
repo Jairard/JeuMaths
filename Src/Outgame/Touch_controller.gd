@@ -10,17 +10,13 @@ func _input(event):
 		input.set_is_jumping(true)
 
 func _on_right_button_up():
-	input.set_right(false)
-	input.set_left(false)
+	input.set_move_dir(MoveUtils.dir.none)
 
 func _on_right_button_down():
-	input.set_right(true)
-	input.set_left(false)
+	input.set_move_dir(MoveUtils.dir.right)
 
 func _on_left_button_up():
-	input.set_right(false)
-	input.set_left(false)
+	input.set_move_dir(MoveUtils.dir.none)
 
 func _on_left_button_down():
-	input.set_right(false)
-	input.set_left(true)
+	input.set_move_dir(MoveUtils.dir.left)

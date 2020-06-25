@@ -1,5 +1,7 @@
 extends Node
 
+enum dir {left, right, none, colliding, mouse}
+
 func dir_to_angle(dir : Vector2) -> int :
 	var angle_rad = dir.angle()
 	var angle_deg = rad2deg(angle_rad)

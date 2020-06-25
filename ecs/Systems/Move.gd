@@ -16,13 +16,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var velocity = velocity_comp.get_velocity()
 
 	velocity.y += gravity_comp.get_gravity()
-	if move_comp.get_direction() == move_comp.dir.right :
+	if move_comp.get_direction() == MoveUtils.dir.right :
 		velocity.x = move_comp.get_lateral_velocity()
 
-	elif move_comp.get_direction() == move_comp.dir.left :
+	elif move_comp.get_direction() == MoveUtils.dir.left :
 		velocity.x = -move_comp.get_lateral_velocity()
 
-	elif move_comp.get_direction() == move_comp.dir.mouse :
+	elif move_comp.get_direction() == MoveUtils.dir.mouse :
 		velocity = pos_comp.get_position().direction_to(move_comp.target) * move_comp.get_lateral_velocity()
 		if pos_comp.get_position().distance_to(move_comp.target) < 5:
 			velocity = Vector2(0,0)
