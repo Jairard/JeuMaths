@@ -16,3 +16,4 @@ func get_health() -> int:
 
 func set_health(value : int) -> void:
 	health = value
+	

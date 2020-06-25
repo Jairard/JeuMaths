@@ -22,11 +22,11 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 35
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 35
 font_data = ExtResource( 4 )
 
@@ -62,7 +62,7 @@ margin_left = 602.296
 margin_top = 7.6
 margin_right = 642.296
 margin_bottom = 21.6
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -72,7 +72,7 @@ margin_left = 570.9
 margin_top = 7.59998
 margin_right = 610.9
 margin_bottom = 57.6
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "+"
 __meta__ = {
 "_edit_use_anchors_": false

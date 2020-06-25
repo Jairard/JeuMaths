@@ -30,6 +30,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if comp_hud_invader != null:
 		var current_gold = comp_invader.get_gold()
 		comp_hud_invader.set_gold(current_gold)
+		var current_health = comp_invader.get_health()
+		comp_hud_invader.set_health(current_health)
 
 	if comp_health != null:
 		comp_hud_fight.update_displayed_health(dt)	

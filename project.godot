@@ -89,11 +89,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/Emit_particules.gd"
 }, {
-"base": "Component",
-"class": "EndInvaderComponent",
-"language": "GDScript",
-"path": "res://ecs/Components/End_invader.gd"
-}, {
 "base": "System",
 "class": "EndInvaderSystem",
 "language": "GDScript",
@@ -163,6 +158,11 @@ _global_script_classes=[ {
 "class": "InputSystem",
 "language": "GDScript",
 "path": "res://ecs/Systems/Input.gd"
+}, {
+"base": "Component",
+"class": "InvaderCalculComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Invader_calcul.gd"
 }, {
 "base": "Component",
 "class": "InvaderComponent",
@@ -291,7 +291,6 @@ _global_script_class_icons={
 "DamageComponent": "",
 "EmitParticulesComponent": "",
 "EmitParticulesSystem": "",
-"EndInvaderComponent": "",
 "EndInvaderSystem": "",
 "EndfightComponent": "",
 "EndfightSystem": "",
@@ -306,6 +305,7 @@ _global_script_class_icons={
 "HudTreasureComponent": "",
 "InputListenerComponent": "",
 "InputSystem": "",
+"InvaderCalculComponent": "",
 "InvaderComponent": "",
 "IsOpenComponent": "",
 "LootComponent": "",
