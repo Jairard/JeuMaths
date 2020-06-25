@@ -59,7 +59,7 @@ func _on_answer4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])
 
 var time = 0
-var time_animation = 3
+var time_animation = 5
 func _process(delta):
 	if time < time_animation:
 		self.set_modulate(lerp(Color(1,1,1,0), Color(1,1,1,1),time/time_animation))
