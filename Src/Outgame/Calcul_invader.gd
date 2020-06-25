@@ -7,9 +7,6 @@ var calcul_4 : Dictionary = {}
 var answer_listeners  : Array = []
 var answers : Array = []
 
-const addition_entiers = 1;const soustraction_entiers = 2;const multiplication_entiers = 3
-const division_entiers = 4
-
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
 
@@ -61,8 +58,12 @@ func _on_answer3_pressed():
 func _on_answer4_pressed():
 	on_answer_pressed(answers[3]["is_good_answer"])
 
+var time = 0
+var time_animation = 3
 func _process(delta):
-	pass
+	if time < time_animation:
+		self.set_modulate(lerp(Color(1,1,1,0), Color(1,1,1,1),time/time_animation))
+		time += delta
 
 func _on_Area2D_body_entered(body):
 	body.queue_free()
