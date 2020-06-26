@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/hud_invader.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Characters/X1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/GUI/coeur_full_vie_3.png" type="Texture" id=3]
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Textures/hud/chest1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/hud/coin (2).png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "gold"
@@ -49,7 +51,7 @@ scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 3 )
 
 [node name="gold" type="Sprite" parent="."]
-position = Vector2( 541.808, 28.5837 )
+position = Vector2( 576.958, 66.5835 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 8
@@ -58,22 +60,37 @@ hframes = 8
 anims/gold = SubResource( 1 )
 
 [node name="gold_label" type="Label" parent="."]
-margin_left = 602.296
-margin_top = 7.6
-margin_right = 642.296
-margin_bottom = 21.6
+margin_left = 637.446
+margin_top = 45.5998
+margin_right = 677.446
+margin_bottom = 88.5998
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="+_label" type="Label" parent="."]
-margin_left = 570.9
-margin_top = 7.59998
-margin_right = 610.9
-margin_bottom = 57.6
+margin_left = 606.05
+margin_top = 45.5998
+margin_right = 646.05
+margin_bottom = 95.5998
 custom_fonts/font = SubResource( 3 )
 text = "+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="treasure" type="Sprite" parent="."]
+position = Vector2( 452.972, 66.001 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 5 )
+
+[node name="Particles2D" type="CPUParticles2D" parent="treasure"]
+amount = 10
+lifetime = 2.0
+texture = ExtResource( 6 )
+gravity = Vector2( 0, -98 )
+initial_velocity = 77.62
+initial_velocity_random = 1.0
+angular_velocity_random = 0.5
+anim_speed = 2.0
