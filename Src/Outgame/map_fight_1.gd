@@ -122,7 +122,7 @@ func _process(delta):
 func spawn() :
 
 	add_child(heroNode)
-	CameraUtils.set_camera_from_hero(heroNode)
+	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(600, -400))
 	CameraUtils.set_zoom(2.5)
 	add_child(enemyNode)

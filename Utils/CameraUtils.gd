@@ -10,7 +10,7 @@ func set_on_current_camera(node : Node2D) -> void:
 func set_camera(_camera: Camera2D) -> void:
 	camera = _camera
 
-func set_camera_from_hero(node : Node2D) -> void:
+func set_camera_root(node : Node2D) -> void:
 	camera = node.get_node("Camera2D")
 
 func set_offset(pos : Vector2) -> void:

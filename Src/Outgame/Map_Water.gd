@@ -39,7 +39,7 @@ func _ready():
 	
 	heroNode = hero.instance()
 	add_child(heroNode)
-	CameraUtils.set_camera_from_hero(heroNode)
+	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))
 	CameraUtils.set_zoom(1.5)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent

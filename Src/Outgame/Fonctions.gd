@@ -36,7 +36,7 @@ func _ready():
 	$hero/CollisionShape2D2.scale = Vector2(0.5, 0.5)
 	heroNode.set_position(Vector2(480,480))
 	CameraUtils.set_on_current_camera($Node2D)
-	CameraUtils.set_camera_from_hero($Node2D)
+	CameraUtils.set_camera_root($Node2D)
 	CameraUtils.set_offset(Vector2(600, 400))
 	CameraUtils.set_zoom(2.5)
 	
