@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Src/Outgame/Challenge_invader.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Textures/invader/universe.jpg" type="Texture" id=3]
+[ext_resource path="res://Src/Outgame/Return.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -42,3 +43,7 @@ region_rect = Rect2( 0, 0, 1920, 2160 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="return" parent="CanvasLayer" instance=ExtResource( 4 )]
