@@ -254,7 +254,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				if FileBankUtils.portal:
 					FileBankUtils.scene_counter += 1
 					FileBankUtils.portal = false
-				Fade.change_scene(FileBankUtils.load_right_scene())
+				Fade.change_scene(FileBankUtils.loaded_scenes["invader"])
 
 		if (has_collision_layer(collider,portal_fight_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL FIGHT

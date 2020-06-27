@@ -297,7 +297,8 @@ func _on_TouchScreenButton3_pressed():
 
 func _on_TouchScreenButton4_pressed():
 #	Fade.change_scene(FileBankUtils.loaded_scenes["fonctions"])
-	get_tree().change_scene("res://Src/Outgame/Fonctions.tscn")
+#	get_tree().change_scene("res://Src/Outgame/Fonctions.tscn")
+	Fade.change_scene(FileBankUtils.loaded_scenes["invader"])
 
 func _on_TextureButton_pressed():
 	$PopupDialog.hide()

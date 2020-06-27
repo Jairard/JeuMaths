@@ -12,5 +12,6 @@
     "death"         : "res://Src/Outgame/Death.tscn",
     "stats"         : "res://Src/Outgame/Stats.tscn",
     "upside_down"   : "res://Src/Outgame/Map_UpsideDown.tscn",
-    "fonctions  "   : "res://Src/Outgame/Fonctions.tscn"
+    "fonctions  "   : "res://Src/Outgame/Fonctions.tscn",
+    "invader"        : "res://Src/Outgame/Challenge_invader.tscn"
 }
