@@ -61,7 +61,7 @@ func load_characters() :
 
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
-	ScoreNode.set_hero_node(heroNode)
+	ScoreNode.set_hero_node(heroNode, null)
 
 	load_gold()
 
