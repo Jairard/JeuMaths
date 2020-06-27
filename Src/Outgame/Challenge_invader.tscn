@@ -41,4 +41,4 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 2160 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 550, 80 )
+anchor_mode = 0

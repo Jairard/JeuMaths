@@ -6,7 +6,7 @@ func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.AnswerListener, ComponentsLibrary.Invader_calcul]
 
 func _get_system_dependencies() -> Array:
-	return [SystemsLibrary.Endfight] #endfightinvader
+	return [SystemsLibrary.End_invader] 
 
 func _process_node(dt : float, components : Dictionary) -> void:
 
