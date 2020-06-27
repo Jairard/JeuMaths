@@ -166,7 +166,7 @@ func _on_Return_pressed():
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
-		input.set_is_jumping((true)
+		input.set_is_jumping(true)
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP :
 		CameraUtils.set_zoom(CameraUtils.get_zoom() - 0.05)
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN :
