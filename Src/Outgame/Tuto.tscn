@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=1]
 [ext_resource path="res://Src/Outgame/Tuto.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/Textures/Levels/tuto/backgroundDesert.png" type="Texture" id=12]
 [ext_resource path="res://Src/Outgame/Portal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/Outgame/Return.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Src/Outgame/Metrics_min_max.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -924,6 +925,8 @@ anims/up = SubResource( 38 )
 anims/up = SubResource( 39 )
 
 [node name="return" parent="CanvasLayer" instance=ExtResource( 14 )]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 15 )]
 
 [node name="Portal" parent="." instance=ExtResource( 13 )]
 position = Vector2( 29548.5, 798.98 )

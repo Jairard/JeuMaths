@@ -43,8 +43,8 @@ func _process(delta):
 			$CanvasLayer/arrow_shop.hide()
 			$CanvasLayer/arrow_stats.hide()
 			$CanvasLayer/shop.hide()
-			hud_open.shop = false
-			hud_open.stats = false
+			hud_open.set_shop(false)
+			hud_open.set_stats(false)
 
 	if treasure_comp != null and damage_comp != null :
 		if damage_comp.get_damage() == 0: 
@@ -82,7 +82,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(100,400))
+	pos_comp.set_position(Vector2(19750,500))#(100,400))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -216,6 +216,7 @@ func _on_Hud_body_entered(body):
 	Hud_heroNode = hud.instance()
 	add_child(Hud_heroNode)
 	hud_open = ECS.add_component(heroNode, ComponentsLibrary.Is_Open) as IsOpenComponent
+	print( " tuto : ", hud_open)
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
 	ScoreNode.set_hero_node(heroNode, hud_open)
