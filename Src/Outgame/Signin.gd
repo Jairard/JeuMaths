@@ -288,7 +288,7 @@ func _on_TouchScreenButton_pressed():
 
 func _on_TouchScreenButton2_pressed():
 	before_change_scene()
-	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
+	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
 
 
 func _on_TouchScreenButton3_pressed():
@@ -296,9 +296,10 @@ func _on_TouchScreenButton3_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 
 func _on_TouchScreenButton4_pressed():
+	before_change_scene()
 #	Fade.change_scene(FileBankUtils.loaded_scenes["fonctions"])
 #	get_tree().change_scene("res://Src/Outgame/Fonctions.tscn")
-	Fade.change_scene(FileBankUtils.loaded_scenes["invader"])
+	Fade.change_scene(FileBankUtils.loaded_scenes["map_water_0"])
 
 func _on_TextureButton_pressed():
 	$PopupDialog.hide()

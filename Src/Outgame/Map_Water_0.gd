@@ -147,9 +147,9 @@ func load_gold():
 	
 	EntitiesUtils.create_gold(self, gold, Vector2(2350,-250))
 	EntitiesUtils.create_gold(self, gold, Vector2(2750,-380))
-	EntitiesUtils.create_gold(self, gold, Vector2(3250,-250))
+	EntitiesUtils.create_gold(self, gold, Vector2(3250,-450))
 	EntitiesUtils.create_gold(self, gold, Vector2(3650,-380))
-	EntitiesUtils.create_gold(self, gold, Vector2(4150,-250))
+	EntitiesUtils.create_gold(self, gold, Vector2(4150,-350))
 	EntitiesUtils.create_gold(self, gold, Vector2(4550,-380))
 	EntitiesUtils.create_gold(self, gold, Vector2(7750,-250))
 	EntitiesUtils.create_gold(self, gold, Vector2(8150,-380))
@@ -159,26 +159,25 @@ func load_gold():
 	EntitiesUtils.create_gold(self, gold, Vector2(9850,-380))
 
 func load_platform():
-	EntitiesUtils.create_platform(self, platform, Vector2(1750,-100), Vector2(1950,-100),  3) 
-	EntitiesUtils.create_platform(self, platform, Vector2(2250,-200), Vector2(2450,-200),  2) 
-	EntitiesUtils.create_platform(self, platform, Vector2(2650,-200), Vector2(2850,-200),  3.5)
-	EntitiesUtils.create_platform(self, platform, Vector2(3150,-300), Vector2(3350,-300),  2.5)
+	EntitiesUtils.create_platform(self, platform, Vector2(1750,-100), Vector2(1950,-100),  2.5) 
+	EntitiesUtils.create_platform(self, platform, Vector2(2250,-150), Vector2(2350,-150),  2) 
+	EntitiesUtils.create_platform(self, platform, Vector2(2650,-200), Vector2(2850,-200),  3)
+	EntitiesUtils.create_platform(self, platform, Vector2(3150,-300), Vector2(3250,-300),  1.5)
 	EntitiesUtils.create_platform(self, platform, Vector2(3550,-200), Vector2(3750,-200),  1.5)
-	EntitiesUtils.create_platform(self, platform, Vector2(4050,-200), Vector2(4250,-200),  3)
+	EntitiesUtils.create_platform(self, platform, Vector2(4050,-200), Vector2(4180,-200),  3)
 	EntitiesUtils.create_platform(self, platform, Vector2(4450,-200), Vector2(4650,-200),  2)
 
-	EntitiesUtils.create_platform(self, platform, Vector2(4950,-300), Vector2(5150,-300),  3.5) 
-	EntitiesUtils.create_platform(self, platform, Vector2(5350,-300), Vector2(5550,-300),  2.5) 
+	EntitiesUtils.create_platform(self, platform, Vector2(4950,-300), Vector2(5550,-300),  4.5) 
 	EntitiesUtils.create_platform(self, platform, Vector2(5850,-200), Vector2(6050,-200),  1.5)
 	EntitiesUtils.create_platform(self, platform, Vector2(6250,-200), Vector2(6450,-200),  3)
 	EntitiesUtils.create_platform(self, platform, Vector2(6750,-200), Vector2(6950,-200),  2)
 	EntitiesUtils.create_platform(self, platform, Vector2(7150,-300), Vector2(7350,-300),  3.5)
-	EntitiesUtils.create_platform(self, platform, Vector2(7650,-200), Vector2(7850,-200),  2.5)
+	EntitiesUtils.create_platform(self, platform, Vector2(7650,-200), Vector2(7780,-200),  2.5)
 
-	EntitiesUtils.create_platform(self, platform, Vector2(8050,-200), Vector2(8250,-200),  1.5) 
-	EntitiesUtils.create_platform(self, platform, Vector2(8550,-200), Vector2(8750,-200),  3) 
+	EntitiesUtils.create_platform(self, platform, Vector2(8050,-200), Vector2(8150,-200),  1.5) 
+	EntitiesUtils.create_platform(self, platform, Vector2(8550,-200), Vector2(8450,-200),  3) 
 	EntitiesUtils.create_platform(self, platform, Vector2(8950,-200), Vector2(9150,-200),  2)
-	EntitiesUtils.create_platform(self, platform, Vector2(9450,-100), Vector2(9650,-100),  3.5)
+	EntitiesUtils.create_platform(self, platform, Vector2(9450,-100), Vector2(9600,-100),  3.5)
 	EntitiesUtils.create_platform(self, platform, Vector2(9850,-100), Vector2(10050,-100),  1)
 
 

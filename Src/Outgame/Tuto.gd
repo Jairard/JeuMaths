@@ -82,7 +82,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(19750,500))#(100,400))
+	pos_comp.set_position(Vector2(25000,1000))#(100,400))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
@@ -199,8 +199,8 @@ func update_dragging():
 		is_dragging = false
 
 func load_platform():
-	EntitiesUtils.create_platform(self, platform, Vector2(25250,1250), Vector2(26250,1250),  5)
-	EntitiesUtils.create_platform(self, platform, Vector2(27250,1250), Vector2(28250,1250),  5) 
+	EntitiesUtils.create_platform(self, platform, Vector2(25250,1250), Vector2(26110,1250),  5)
+	EntitiesUtils.create_platform(self, platform, Vector2(27270,1250), Vector2(28080,1250),  5) 
 
 func _on_Hud_body_entered(body):
 #	$Hud.disconnect()

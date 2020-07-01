@@ -86,7 +86,7 @@ func load_characters() :
 
 
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(300,500))
+	pos_comp.set_position(Vector2(4750,500))#(300,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
@@ -244,8 +244,7 @@ func load_gold():
 	EntitiesUtils.create_gold(self, gold, Vector2(8300,-3700))
 
 func load_platform():
-#	EntitiesUtils.create_platform(self, platform, Vector2(5100,600), 100)
-	pass
+	EntitiesUtils.create_platform(self, platform, Vector2(4865,630), Vector2(5685,630),  4) 
 
 func get_touched_area_metrics(box : Rect2) -> float:
 	return sqrt(box.size.x * box.size.x + box.size.y * box.size.y)
