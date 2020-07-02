@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Src/Ingame/characters/hero.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Textures/Characters/TEST_punk_pour_P.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Characters/punk .png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_colliding"
@@ -125,18 +125,15 @@ scale_curve = SubResource( 10 )
 color_ramp = SubResource( 8 )
 
 [sub_resource type="CapsuleShape2D" id=12]
-radius = 37.2881
-height = 139.659
+radius = 43.5393
+height = 62.0056
 
 [node name="hero" type="KinematicBody2D"]
 modulate = Color( 1, 0.980392, 0.980392, 1 )
 collision_mask = 32758
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="animation_hero" type="AnimationPlayer" parent="."]
+[node name="punk" type="AnimationPlayer" parent="."]
 anims/anim_colliding = SubResource( 1 )
 anims/anim_idle = SubResource( 2 )
 anims/anim_jump = SubResource( 3 )
@@ -145,7 +142,7 @@ anims/anim_right = SubResource( 5 )
 anims/anim_up = SubResource( 6 )
 
 [node name="hero_spr" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="hero_spr"]
@@ -193,5 +190,5 @@ explosiveness = 0.26
 process_material = SubResource( 11 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 1.43868, 9.83166 )
+position = Vector2( 0.526371, 14.6484 )
 shape = SubResource( 12 )

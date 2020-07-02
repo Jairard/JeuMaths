@@ -57,7 +57,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
-#	ECS.register_system(SystemsLibrary.Animation)
+	ECS.register_system(SystemsLibrary.Animation)
 	ECS.register_system(SystemsLibrary.Patrol)
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Bullet)
@@ -70,6 +70,21 @@ func _ready():
 	CameraUtils.set_offset(Vector2(250, 50))
 	CameraUtils.set_zoom(1.5)
 
+	var skin_hero = Scene_transition_data.get_data("skin_hero")
+	if skin_hero == 0:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
+	elif skin_hero == 1:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femaleAdventurer_hold.png")
+	elif skin_hero == 2:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_maleAdventurer_attackKick.png")
+	elif skin_hero == 3:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_zombie_switch0.png")
+	elif skin_hero == 4:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femalePerson_idle.png")
+	elif skin_hero == 5:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_robot_hit.png")
+	else:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
 
 	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
 	var controllerNode = controller.instance()
@@ -82,7 +97,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(25000,1000))#(100,400))
+	pos_comp.set_position(Vector2(100,400))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)

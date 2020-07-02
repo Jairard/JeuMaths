@@ -72,6 +72,11 @@ var lessons_list : Array = []
 var lessons_selected : Array = []
 var itemlist = false
 
+var hero_count : int = 0
+var stickers : Array = ["HBoxContainer/sticker1","HBoxContainer/sticker2","HBoxContainer/sticker3"
+						,"HBoxContainer/sticker4","HBoxContainer/sticker5","HBoxContainer/sticker6"]
+
+
 func _on_ItemList_item_selected(index):
 	$ItemList.remove_item(index)
 	lessons_selected.remove(index)
@@ -141,6 +146,8 @@ func _ready():
 	add_featured_option()
 	add_unused_option()
 
+	$hero_png.texture = load("res://Assets/Textures/Characters/punk .png")
+
 func add_map_option_() -> void:
 	$Control_Option/Option_map.set_text("Maps")
 	$Control_Option/Option_map.add_separator()
@@ -181,7 +188,7 @@ func get_stats(pseudo : String) -> Dictionary:
 
 
 func load_stats():
-	var pseudo : String = $TileMap/pseudo.get_text()
+	var pseudo : String = $pseudo.get_text()
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 
@@ -194,7 +201,8 @@ func before_change_scene() -> void:
 				exercices.append(j)
 #				if constants[i]:
 				_constants.append(constants[i])
-	Scene_transition_data.set_data("questions", exercices, "constants", _constants)
+	print("hero count : ", hero_count)
+	Scene_transition_data.set_data("questions", exercices, "constants", _constants, "skin_hero", hero_count)
 	load_stats()
 
 func _on_Option_map_item_selected(id):
@@ -313,8 +321,28 @@ func _process(delta):
 		text.text = "Fractions images are not up to date ! Please generate them"
 		popup.add_child(text)
 		popup.show()
-		popup.set_position($TileMap/pseudo.get_position())
+		popup.set_position($pseudo.get_position())
 		FileBankUtils.popup = false
 
 
-
+func _on_hero_pressed():
+	hero_count += 1
+	if hero_count %6 == 0:
+		$hero_png.texture = load("res://Assets/Textures/Characters/punk .png")
+	elif hero_count %6 == 1:
+		$hero_png.texture = load("res://Assets/Textures/Characters/character_femaleAdventurer_hold.png")
+	elif hero_count %6 == 2:
+		$hero_png.texture = load("res://Assets/Textures/Characters/character_maleAdventurer_attackKick.png")
+	elif hero_count %6 == 3:
+		$hero_png.texture = load("res://Assets/Textures/Characters/character_zombie_switch0.png")
+	elif hero_count %6 == 4:
+		$hero_png.texture = load("res://Assets/Textures/Characters/character_femalePerson_idle.png")
+	elif hero_count %6 == 5:
+		$hero_png.texture = load("res://Assets/Textures/Characters/character_robot_hit.png")
+	if hero_count >= 6:
+		hero_count = 0
+	for i in len(stickers):
+		if i == hero_count:
+			get_node(stickers[i]).texture = load("res://Assets/Textures/GUI/iconCircle_grey.png")
+		else:
+			get_node(stickers[i]).texture = load("res://Assets/Textures/GUI/iconCircle_brown.png")
