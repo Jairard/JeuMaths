@@ -104,7 +104,7 @@ func load_characters() :
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", 
 						  comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle",
 						  comp_anim_hero.anim.colliding : "anim_colliding"}
-	var animation_player_hero = heroNode.get_node("animation_hero")
+	var animation_player_hero = heroNode.get_node("AnimationPlayer")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 
 

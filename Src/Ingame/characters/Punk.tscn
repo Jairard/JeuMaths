@@ -133,7 +133,7 @@ modulate = Color( 1, 0.980392, 0.980392, 1 )
 collision_mask = 32758
 script = ExtResource( 2 )
 
-[node name="punk" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/anim_colliding = SubResource( 1 )
 anims/anim_idle = SubResource( 2 )
 anims/anim_jump = SubResource( 3 )
