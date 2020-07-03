@@ -1,7 +1,11 @@
 extends Node2D
 
-onready var enemy 			= 	preload("res://Src/Ingame/characters/Ennemy.tscn")
-onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
+onready var girl_white 			= 	preload("res://Src/Ingame/characters/Girl_white.tscn")
+onready var girl_black 			= 	preload("res://Src/Ingame/characters/Girl_black.tscn")
+onready var boy_white 			= 	preload("res://Src/Ingame/characters/Boy_white.tscn")
+onready var zombie 				= 	preload("res://Src/Ingame/characters/Zombie.tscn")
+onready var punk 				= 	preload("res://Src/Ingame/characters/Punk.tscn")
+onready var robot 				= 	preload("res://Src/Ingame/characters/Robot.tscn")
 onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
 onready var monster 		= 	preload("res://Src/Ingame/characters/monsters.tscn")
@@ -52,6 +56,8 @@ func _ready():
 
 	ECS.clear_ghosts()
 
+
+func load_characters() :
 	var skin_hero = Scene_transition_data.get_data("skin_hero")
 	if skin_hero == 0:
 		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
@@ -67,13 +73,6 @@ func _ready():
 		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_robot_hit.png")
 	else:
 		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
-func load_characters() :
-
-	var enemyNode = enemy.instance()
-#	add_child(enemyNode)
-
-
-	heroNode = hero.instance()
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))

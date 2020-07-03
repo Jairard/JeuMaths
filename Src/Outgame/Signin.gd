@@ -76,7 +76,6 @@ var hero_count : int = 0
 var stickers : Array = ["HBoxContainer/sticker1","HBoxContainer/sticker2","HBoxContainer/sticker3"
 						,"HBoxContainer/sticker4","HBoxContainer/sticker5","HBoxContainer/sticker6"]
 
-
 func _on_ItemList_item_selected(index):
 	$ItemList.remove_item(index)
 	lessons_selected.remove(index)
@@ -313,16 +312,16 @@ func _on_TextureButton_pressed():
 	$PopupDialog.hide()
 	$VBoxContainer.show()
 
-func _process(delta):
-	if FileBankUtils.popup:
-		var popup : Popup = Popup.new()
-		add_child(popup)
-		var text  : Label = Label.new()
-		text.text = "Fractions images are not up to date ! Please generate them"
-		popup.add_child(text)
-		popup.show()
-		popup.set_position($pseudo.get_position())
-		FileBankUtils.popup = false
+#func _process(delta):
+#	if FileBankUtils.popup:
+#		var popup : Popup = Popup.new()
+#		add_child(popup)
+#		var text  : Label = Label.new()
+#		text.text = "Fractions images are not up to date ! Please generate them"
+#		popup.add_child(text)
+#		popup.show()
+#		popup.set_position($pseudo.get_position())
+#		FileBankUtils.popup = false
 
 
 func _on_hero_pressed():

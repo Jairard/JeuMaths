@@ -1,7 +1,11 @@
 extends Node2D
 
-onready var enemy 			= 	preload("res://Src/Ingame/characters/Ennemy.tscn")
-onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
+onready var girl_white 			= 	preload("res://Src/Ingame/characters/Girl_white.tscn")
+onready var girl_black 			= 	preload("res://Src/Ingame/characters/Girl_black.tscn")
+onready var boy_white 			= 	preload("res://Src/Ingame/characters/Boy_white.tscn")
+onready var zombie 				= 	preload("res://Src/Ingame/characters/Zombie.tscn")
+onready var punk 				= 	preload("res://Src/Ingame/characters/Punk.tscn")
+onready var robot 				= 	preload("res://Src/Ingame/characters/Robot.tscn")
 onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 onready var eye 			= 	preload("res://Src/Ingame/characters/eye.tscn")
 onready var monster 		= 	preload("res://Src/Ingame/characters/monsters.tscn")
@@ -49,21 +53,6 @@ func _ready():
 	load_platform()
 	ECS.clear_ghosts()
 
-	var skin_hero = Scene_transition_data.get_data("skin_hero")
-	if skin_hero == 0:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
-	elif skin_hero == 1:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femaleAdventurer_hold.png")
-	elif skin_hero == 2:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_maleAdventurer_attackKick.png")
-	elif skin_hero == 3:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_zombie_switch0.png")
-	elif skin_hero == 4:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femalePerson_idle.png")
-	elif skin_hero == 5:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_robot_hit.png")
-	else:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
 	var portalNode = portal.instance()
 	add_child(portalNode)
 	ECS.add_component(portalNode, ComponentsLibrary.Collision)
@@ -72,10 +61,21 @@ func _ready():
 	
 func load_characters() :
 
-	var enemyNode = enemy.instance()
-	add_child(enemyNode)
-
-	heroNode = hero.instance()
+	var skin_hero = Scene_transition_data.get_data("skin_hero")
+	if skin_hero == 0:
+		heroNode = punk.instance()
+	elif skin_hero == 1:
+		heroNode = girl_white.instance()
+	elif skin_hero == 2:
+		heroNode = boy_white.instance()
+	elif skin_hero == 3:
+		heroNode = zombie.instance()
+	elif skin_hero == 4:
+		heroNode = girl_black.instance()
+	elif skin_hero == 5:
+		heroNode = robot.instance()
+	else:
+		heroNode = punk.instance()
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))
@@ -88,10 +88,6 @@ func load_characters() :
 	var portalNode = portal.instance()
 	add_child(portalNode)
 	portalNode.set_position(Vector2(16300,550))
-
-	var enemy_pos_comp = ECS.add_component(enemyNode, ComponentsLibrary.Position) as PositionComponent
-	enemy_pos_comp.set_position(Vector2(600,200))
-
 
 	input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
 	var controllerNode = controller.instance()

@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
+onready var hero 			= 	preload("res://Src/Ingame/characters/punk.tscn")
 
 var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
 var is_shown : bool = false

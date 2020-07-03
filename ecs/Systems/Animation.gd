@@ -12,10 +12,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	var comp		 = 	components[ComponentsLibrary.Movement] as MovementComponent
 	var comp_anim	 = 	components[ComponentsLibrary.Animation] as AnimationComponent
-
 	if comp.get_direction() == MoveUtils.dir.right :
 		comp_anim.play(comp_anim.anim.right)
-	
 	if comp.get_direction() == MoveUtils.dir.left :
 		comp_anim.play(comp_anim.anim.left)
 
