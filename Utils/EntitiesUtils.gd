@@ -24,10 +24,12 @@ func create_bullet(root : Node2D, resource : Resource, pos : Vector2):
 	root.add_child(FireNode)
 	
 	ECS.add_component(FireNode, ComponentsLibrary.Collision)
+	ECS.add_component(FireNode, ComponentsLibrary.Velocity)
 	var fire_pos_comp = ECS.add_component(FireNode, ComponentsLibrary.Position) as PositionComponent
 	fire_pos_comp.set_position(pos)
 	var bullet_position = ECS.add_component(FireNode, ComponentsLibrary.Bullet)
 	bullet_position.set_position(pos)
+	
 
 
 func create_missile(root : Node2D, resource : Resource, pos : Vector2, target : Node2D):

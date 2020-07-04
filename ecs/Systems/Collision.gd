@@ -175,7 +175,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Fire collision !")
 			unique_collision(collider)
 			collider.queue_free()
-			
+
 			if health_comp != null:
 				health_comp.set_health(health_comp.get_health() - 10)
 				FileBankUtils.health -= 10
