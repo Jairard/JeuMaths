@@ -13,10 +13,7 @@ var invader_component : InvaderComponent = null
 var questions : Array = []
 
 func load_questions() -> void:
-	var full_questions = FileBankUtils.loaded_questions
-	for i in full_questions:
-		if i["text"] == "addition_entiers" or i["text"] == "soustraction_entiers" or i["text"] == "multiplication_entiers" or i["text"] == "division_entiers":
-				questions.append(i)
+	questions = FileBankUtils.loaded_invader
 
 func create_calcul() -> void:
 #	gravity_acceleration += 0.05
@@ -25,7 +22,7 @@ func create_calcul() -> void:
 	invader_calcul.init(invader_component)
 	game_timer.start(5.5)
 	var listener_hero = ECS.add_component(node, ComponentsLibrary.AnswerListener) as AnswerListenerComponent
-	node.setup_question(questions)
+	node.setup_question(questions, invader_component)
 	node.set_answer_listener([listener_hero])
 
 	add_child(node)

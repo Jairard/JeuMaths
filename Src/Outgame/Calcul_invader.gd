@@ -6,6 +6,7 @@ var calcul_3 : Dictionary = {}
 var calcul_4 : Dictionary = {}
 var answer_listeners  : Array = []
 var answers : Array = []
+var invader : Component = null
 
 func set_answer_listener(listeners : Array) -> void:
 	answer_listeners  = listeners
@@ -13,7 +14,8 @@ func set_answer_listener(listeners : Array) -> void:
 func get_answer_listener() -> Array:
 	return answer_listeners
 
-func setup_question(exercices : Array) -> void:
+func setup_question(exercices : Array,  _invader : Component) -> void:
+	invader = _invader
 
 	var random_theme 	: int 			= RandomUtils.randi_to(len(exercices))
 	var questions		: Array 		= exercices[random_theme]["questions"]
@@ -66,5 +68,6 @@ func _process(delta):
 		time += delta
 
 func _on_Area2D_body_entered(body):
+	invader.set_health(invader.get_health() - 1)
 	body.queue_free()
-#	invader.set_health(invader.get_health() - 1)
+	queue_free()

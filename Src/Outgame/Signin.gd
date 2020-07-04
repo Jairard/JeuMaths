@@ -306,7 +306,7 @@ func _on_TouchScreenButton4_pressed():
 	before_change_scene()
 #	Fade.change_scene(FileBankUtils.loaded_scenes["fonctions"])
 #	get_tree().change_scene("res://Src/Outgame/Fonctions.tscn")
-	Fade.change_scene(FileBankUtils.loaded_scenes["map_water_0"])
+	Fade.change_scene(FileBankUtils.loaded_scenes["invader"])
 
 func _on_TextureButton_pressed():
 	$PopupDialog.hide()
