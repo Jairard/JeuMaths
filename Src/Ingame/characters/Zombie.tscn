@@ -48,6 +48,8 @@ vframes = 5
 hframes = 9
 frame = 25
 
+[node name="Tween" type="Tween" parent="Sprite"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.67548, 33.8143 )
 shape = SubResource( 1 )

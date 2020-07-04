@@ -446,7 +446,7 @@ custom_colors/default_color = Color( 0.0392157, 0.0117647, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "				Attention ! 
 		
-	  Voici une [shake rate=5level=5]  [color=yellow]sentinelle[/color][/shake]
+	  Voici une [shake rate=5level=5]  [color=red]sentinelle[/color][/shake]
 	
 [u]Esquive la[/u]  ou [u]saute[/u] sur sa tête "
 text = "				Attention ! 
@@ -635,7 +635,7 @@ margin_bottom = 335.807
 custom_fonts/bold_font = SubResource( 22 )
 bbcode_enabled = true
 bbcode_text = "Pour [b]sauter[/b] appuyer sur [shake rate=5
- level=5]  [color=yellow]\"espace\""
+ level=5]  [color=red]\"espace\""
 text = "Pour sauter appuyer sur   \"espace\""
 __meta__ = {
 "_edit_use_anchors_": false

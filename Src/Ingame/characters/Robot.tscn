@@ -56,3 +56,5 @@ texture = ExtResource( 1 )
 vframes = 5
 hframes = 9
 frame = 25
+
+[node name="Tween" type="Tween" parent="Sprite"]

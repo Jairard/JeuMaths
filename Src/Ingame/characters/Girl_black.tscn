@@ -53,5 +53,7 @@ vframes = 5
 hframes = 9
 frame = 23
 
+[node name="Tween" type="Tween" parent="Sprite"]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

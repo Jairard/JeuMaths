@@ -103,7 +103,7 @@ func _ready():
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(19750,500))#(100,400))
+	pos_comp.set_position(Vector2(8750,500))#(100,400))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
