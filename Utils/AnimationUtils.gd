@@ -1,7 +1,7 @@
 extends Node
 
 func tween_hero_collision(node_hero : Node2D) -> void:
-	var node = node_hero.get_node("hero_spr")
+	var node = node_hero.get_node("Sprite")
 	var tween = node.get_node("Tween")
 
 	tween.interpolate_property(node, "modulate", Color("#ffffff"), Color("#00ffffff"),0.2, 
