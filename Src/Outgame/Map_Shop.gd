@@ -8,7 +8,8 @@ var hud_open : Component = null
 var is_shown : bool = false
 var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
 
-func init(heroNode : Node2D, hud_open) -> void:
+func init(heroNode : Node2D, _hud_open) -> void:
+	hud_open = _hud_open
 	if !hud_open.get_stats():
 		is_shown = true
 		show()

@@ -1,14 +1,13 @@
 extends Node2D
 
-onready var hero 			= 	preload("res://Src/Ingame/characters/punk.tscn")
-
 var prev_hud_pause_mode = Node.PAUSE_MODE_PROCESS
 var is_shown : bool = false
 var comp_score : Component = null
 onready var comp_hud_stats_popup : Component = null
 var hud_open : Component = null
 
-func init(heroNode : Node2D, hud_open) -> void:
+func init(heroNode : Node2D, _hud_open) -> void:
+	hud_open = _hud_open
 	if !hud_open.get_shop():
 		is_shown = true
 		show()
