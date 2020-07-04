@@ -17,7 +17,8 @@ var portal			= false
 var loaded_scenes = load_json("res://Assets/Scenes.json")
 var stats_File_Name : String = "res://Assets/Stats_Characters/Hero_Stats.json"
 var loaded_heroes_stats = load_json(stats_File_Name)
-var loaded_questions = load_json("res://Assets/Questions/questions.json")
+var loaded_questions = load_json("res://Assets/Questions/Questions.json")
+var loaded_invader = load_json("res://Assets/Questions/Invader.json")
 var loaded_fractions = load_fractions("res://Tools/Fractions/")
 
 func load_fractions(path : String) -> Dictionary:
