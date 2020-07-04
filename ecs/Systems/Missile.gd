@@ -23,7 +23,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 		var target_pos = EcsUtils.get_absolute_position(target_pos_comp) # Hero Position
 		var missile_pos = EcsUtils.get_absolute_position(pos_comp)       # Missile position
-		DebugUtils.add_line(target_pos, missile_pos, Color.orange,1)
+#		DebugUtils.add_line(target_pos, missile_pos, Color.orange,1)
 
 		# Compute path and move
 		var parent = misl_comp.get_node().get_parent()
@@ -31,7 +31,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (parent.has_node("Navigation2D")):
 			node_navigation = parent.get_node("Navigation2D")
 		var dir_to = MoveUtils.get_direction_to(target_pos, missile_pos, node_navigation)
-		DebugUtils.add_line(missile_pos, missile_pos + dir_to * speed, Color.blue,1)
+#		DebugUtils.add_line(missile_pos, missile_pos + dir_to * speed, Color.blue,1)
 		var dir = target_pos - missile_pos
 
 		# Compute orientation
