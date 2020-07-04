@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var calcul 			= preload("res://Src/Outgame/Calcul_invader.tscn")
-onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
 onready var hud				= preload("res://Assets/Textures/hud/hud_invader.tscn")
 
 onready var time_label = get_node("timer")

@@ -1,6 +1,11 @@
 extends Node2D
 
-onready var hero 			= 	preload("res://Src/Ingame/characters/hero.tscn")
+onready var girl_white 			= 	preload("res://Src/Ingame/characters/Girl_white.tscn")
+onready var girl_black 			= 	preload("res://Src/Ingame/characters/Girl_black.tscn")
+onready var boy_white 			= 	preload("res://Src/Ingame/characters/Boy_white.tscn")
+onready var zombie 				= 	preload("res://Src/Ingame/characters/Zombie.tscn")
+onready var punk 				= 	preload("res://Src/Ingame/characters/Punk.tscn")
+onready var robot 				= 	preload("res://Src/Ingame/characters/Robot.tscn")
 onready var loot 			= 	preload("res://Src/Ingame/characters/Null.tscn")
 onready var hud 			= 	preload("res://Assets/Textures/hud/hud_hero.tscn")
 
@@ -15,7 +20,7 @@ onready var min_metric_edit = get_node("CanvasLayer/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/MaxMetrics")
 
 var health_comp_hero : Component = null
-
+var heroNode : Node2D = null
 var input : Component = null
 var zoom_min : Vector2 = Vector2(0,0)
 var zoom_max : Vector2 = Vector2(0,0)
@@ -44,8 +49,21 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Hud)
 
-
-	var heroNode = hero.instance()
+	var skin_hero = Scene_transition_data.get_data("skin_hero")
+	if skin_hero == 0:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
+	elif skin_hero == 1:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femaleAdventurer_hold.png")
+	elif skin_hero == 2:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_maleAdventurer_attackKick.png")
+	elif skin_hero == 3:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_zombie_switch0.png")
+	elif skin_hero == 4:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femalePerson_idle.png")
+	elif skin_hero == 5:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_robot_hit.png")
+	else:
+		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))

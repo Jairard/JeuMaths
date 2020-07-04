@@ -3,7 +3,7 @@
 [ext_resource path="res://Src/Outgame/map_fire.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=2]
 [ext_resource path="res://Src/Outgame/Return.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Src/Outgame/Portal_fight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Outgame/Portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Levels/scene_volcano_bmp/fond_volcan_bitap.bmp" type="Texture" id=6]
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
@@ -310,7 +310,7 @@ visible = false
 position = Vector2( 22416.5, 378.697 )
 shape = SubResource( 13 )
 
-[node name="Portal_fight" parent="." instance=ExtResource( 4 )]
-position = Vector2( 26520.9, 634.554 )
+[node name="Portal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 26522.5, 637.182 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Missile_spawn" to="." method="_on_Missile_spawn_body_entered"]

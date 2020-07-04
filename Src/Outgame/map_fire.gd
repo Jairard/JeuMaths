@@ -60,19 +60,19 @@ func _ready():
 func load_characters() :
 	var skin_hero = Scene_transition_data.get_data("skin_hero")
 	if skin_hero == 0:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
+		heroNode = punk.instance()
 	elif skin_hero == 1:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femaleAdventurer_hold.png")
+		heroNode = girl_white.instance()
 	elif skin_hero == 2:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_maleAdventurer_attackKick.png")
+		heroNode = boy_white.instance()
 	elif skin_hero == 3:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_zombie_switch0.png")
+		heroNode = zombie.instance()
 	elif skin_hero == 4:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femalePerson_idle.png")
+		heroNode = girl_black.instance()
 	elif skin_hero == 5:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_robot_hit.png")
+		heroNode = robot.instance()
 	else:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
+		heroNode = punk.instance()
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))
@@ -93,7 +93,7 @@ func load_characters() :
 	
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(11900,500))#(400,500))
+	pos_comp.set_position(Vector2(26100,500))#(400,500))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent

@@ -248,7 +248,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,portal_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL 
 
-			print("Portal  collision !")
+			print("Portal  fight !")
 
 			if health_comp != null:
 				if FileBankUtils.portal:
@@ -259,7 +259,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,portal_fight_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL FIGHT
 
-			print("Portal fight collision !")
+			print("Portal invader !")
 
 			if health_comp != null:
 				Fade.change_scene(FileBankUtils.loaded_scenes["invader"])

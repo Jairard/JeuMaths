@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Textures/Levels/tuto/newtile.png" type="Texture" id=4]
 [ext_resource path="res://Src/Outgame/Map_Water_0.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Textures/Levels/tuto/back_land01.png" type="Texture" id=6]
-[ext_resource path="res://Src/Outgame/Portal_fight.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Src/Outgame/Portal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Outgame/Return.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Outgame/Metrics_min_max.tscn" type="PackedScene" id=9]
 
@@ -182,12 +182,12 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 1080 )
 
-[node name="Portal_fight" parent="." instance=ExtResource( 7 )]
-position = Vector2( 14078.9, 629.235 )
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="return" parent="CanvasLayer" instance=ExtResource( 8 )]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 9 )]
+
+[node name="Portal" parent="." instance=ExtResource( 7 )]
+position = Vector2( 14076.6, 631.846 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

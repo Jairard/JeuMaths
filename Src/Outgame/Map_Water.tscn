@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/Textures/Levels/tuto/water.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/un_seul_nenuhar.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Textures/Levels/scene_eau/debut_debut.png" type="Texture" id=8]
-[ext_resource path="res://Src/Outgame/Portal_fight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Src/Outgame/Portal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Outgame/Metrics_min_max.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -251,6 +251,6 @@ region_rect = Rect2( 0, 0, 1920, 2160 )
 wait_time = 5.0
 autostart = true
 
-[node name="Portal_fight" parent="." instance=ExtResource( 9 )]
-position = Vector2( 18236.3, 1713.65 )
+[node name="Portal" parent="." instance=ExtResource( 9 )]
+position = Vector2( 18238.4, 1720.36 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

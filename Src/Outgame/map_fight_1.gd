@@ -1,6 +1,11 @@
 extends Node2D
 
-onready var hero   			= preload("res://Src/Ingame/characters/hero.tscn")
+onready var girl_white 			= 	preload("res://Src/Ingame/characters/Girl_white.tscn")
+onready var girl_black 			= 	preload("res://Src/Ingame/characters/Girl_black.tscn")
+onready var boy_white 			= 	preload("res://Src/Ingame/characters/Boy_white.tscn")
+onready var zombie 				= 	preload("res://Src/Ingame/characters/Zombie.tscn")
+onready var punk 				= 	preload("res://Src/Ingame/characters/Punk.tscn")
+onready var robot 				= 	preload("res://Src/Ingame/characters/Robot.tscn")
 onready var enemy 			= preload("res://Src/Ingame/characters/Ennemy.tscn")
 onready var hud_hero    	= preload("res://Assets/Textures/hud/hud_hero.tscn")
 onready var hud_enemy    	= preload("res://Assets/Textures/hud/hud_enemy.tscn")
@@ -14,7 +19,7 @@ onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 onready var time_label = get_node("time_label")
 onready var game_timer = get_node("game_timer")
 
-onready var heroNode = hero.instance()
+onready var heroNode = punk.instance()
 onready var enemyNode = enemy.instance()
 var listener_hero : Component = null
 var listener_enemy : Component = null
@@ -120,7 +125,21 @@ func _process(delta):
 																	})
 
 func spawn() :
-
+	var skin_hero = Scene_transition_data.get_data("skin_hero")
+	if skin_hero == 0:
+		heroNode = punk.instance()
+	elif skin_hero == 1:
+		heroNode = girl_white.instance()
+	elif skin_hero == 2:
+		heroNode = boy_white.instance()
+	elif skin_hero == 3:
+		heroNode = zombie.instance()
+	elif skin_hero == 4:
+		heroNode = girl_black.instance()
+	elif skin_hero == 5:
+		heroNode = robot.instance()
+	else:
+		heroNode = punk.instance()
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(600, -400))
