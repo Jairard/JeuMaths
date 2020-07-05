@@ -295,7 +295,7 @@ func _on_TouchScreenButton_pressed():
 
 func _on_TouchScreenButton2_pressed():
 	before_change_scene()
-	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"])
+	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 
 func _on_TouchScreenButton3_pressed():
