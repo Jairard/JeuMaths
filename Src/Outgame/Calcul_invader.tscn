@@ -19,7 +19,6 @@ extents = Vector2( 633.233, 43.7725 )
 extents = Vector2( 638.435, 10 )
 
 [node name="Challenge_invader" type="Node2D"]
-modulate = Color( 1, 1, 1, 0 )
 script = ExtResource( 2 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
@@ -35,8 +34,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="answer1" type="Label" parent="RigidBody2D/answers"]
+[node name="calcul" type="Label" parent="RigidBody2D/answers"]
 margin_right = 231.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
+align = 1
+valign = 1
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D/answers/calcul"]
+show_behind_parent = true
+position = Vector2( 115, 140 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="answer1" type="Label" parent="RigidBody2D/answers"]
+margin_left = 261.0
+margin_right = 492.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -51,8 +67,8 @@ position = Vector2( 115, 140 )
 texture = ExtResource( 5 )
 
 [node name="answer2" type="Label" parent="RigidBody2D/answers"]
-margin_left = 261.0
-margin_right = 492.0
+margin_left = 522.0
+margin_right = 753.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -67,8 +83,8 @@ position = Vector2( 115, 140 )
 texture = ExtResource( 4 )
 
 [node name="answer3" type="Label" parent="RigidBody2D/answers"]
-margin_left = 522.0
-margin_right = 753.0
+margin_left = 783.0
+margin_right = 1014.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -83,8 +99,8 @@ position = Vector2( 115, 140 )
 texture = ExtResource( 7 )
 
 [node name="answer4" type="Label" parent="RigidBody2D/answers"]
-margin_left = 783.0
-margin_right = 1014.0
+margin_left = 1044.0
+margin_right = 1277.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -97,23 +113,6 @@ valign = 1
 show_behind_parent = true
 position = Vector2( 115, 140 )
 texture = ExtResource( 6 )
-
-[node name="calcul" type="Label" parent="RigidBody2D/answers"]
-margin_left = 1044.0
-margin_right = 1277.0
-margin_bottom = 138.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
-align = 1
-valign = 1
-
-[node name="Sprite" type="Sprite" parent="RigidBody2D/answers/calcul"]
-show_behind_parent = true
-position = Vector2( 115, 140 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
 
 [node name="buttons" type="HBoxContainer" parent="RigidBody2D"]
 margin_top = 90.0

@@ -25,7 +25,7 @@ func setup_question(exercices : Array,  _invader : Component) -> void:
 	var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
 
 	var question_txt = chosen_question["question"]
-	$RigidBody2D/answers/calcul.text = question_txt
+	$RigidBody2D/answers/calcul.text = question_txt + " = "
 
 	answers = chosen_question["answers"]
 
