@@ -159,6 +159,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,hero_layer_bit) == true
 			and my_body.get_collision_layer_bit(missile_layer_bit) == true):		# FIRE health - 10
 
+			hit_hero(my_body, collider_health_component, 10)
 
 		if (has_collision_layer(collider,wall_layer_bit) == true
 			and my_body.get_collision_layer_bit(missile_layer_bit) == true): 		# MISSILE vs wall
