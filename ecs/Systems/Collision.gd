@@ -152,16 +152,13 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 
 		if (has_collision_layer(collider,missile_layer_bit) == true
-			and my_body.get_collision_layer_bit(hero_layer_bit) == true): 		# MISSILE health - 10
+			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
 
-			print("Missile collision !")
-			comp_move.set_direction(MoveUtils.dir.colliding)
-			collider.queue_free()
-			
-			if health_comp != null:
-				health_comp.set_health(health_comp.get_health() - 10)
-				FileBankUtils.health -= 10
-				AnimationUtils.tween_hero_collision(my_body)
+			hit_hero(collider, health_comp, 10)
+
+		if (has_collision_layer(collider,hero_layer_bit) == true
+			and my_body.get_collision_layer_bit(missile_layer_bit) == true):		# FIRE health - 10
+
 
 		if (has_collision_layer(collider,wall_layer_bit) == true
 			and my_body.get_collision_layer_bit(missile_layer_bit) == true): 		# MISSILE vs wall

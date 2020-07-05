@@ -4,6 +4,7 @@ func create_monster(root : Node2D, resource : Resource, pos : Vector2, gold : Re
 	var monsterNode = resource.instance()
 	root.add_child(monsterNode)
 
+	ECS.add_component(monsterNode, ComponentsLibrary.Velocity)
 	var comp_position_monster = ECS.add_component(monsterNode, ComponentsLibrary.Position) as PositionComponent
 	comp_position_monster.set_position(pos)
 	var comp_anim_monster = ECS.add_component(monsterNode, ComponentsLibrary.Animation) as AnimationComponent
