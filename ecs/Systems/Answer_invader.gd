@@ -25,3 +25,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			invader.set_health(invader.get_health() - 1)
 
 	answ.set_answer(AnswerListenerComponent.answer.none)
+
+	if invader.lose_health:
+		invader.set_health(invader.get_health() - 1)
+		invader.lose_health = false
