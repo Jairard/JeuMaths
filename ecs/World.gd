@@ -1,5 +1,4 @@
 extends Node
-
 var active_systems : Dictionary = {}   # Dictionary(Resource -> System)
 var system_scopes : Dictionary = {}    # Dictionary(SystemScope -> Array[Resource])
 var ordered_systems :  Array = []      # Array[Resource]
@@ -11,6 +10,7 @@ var is_processing : bool  = false
 var ghosts : GhostsHandler = preload("res://ecs/Internal/GhostsHandler.gd").new()
 var is_world_paused : bool = false
 var log_profiling_infos : bool = false
+var systems_to_remove : Array = []
 
 enum SystemScope { Scene, Manual }
 
@@ -46,6 +46,7 @@ func __on_node_added(node : Node) -> void:
 
 	# If the scene changes, we unregister all the systems with the scope "Scene"
 	if (isSceneChanging):
+		
 		var systems = system_scopes[SystemScope.Scene]
 		while (!systems.empty()):
 			unregister_system(systems.back())
@@ -118,6 +119,11 @@ func unregister_system(systemResource : Resource) -> bool:
 
 	ArrayUtils.remove_IFP(ordered_systems, systemResource)
 	return true
+
+func request_unregister_system(systemResource : Resource) -> void:
+	if ArrayUtils.contains(systems_to_remove, systemResource):
+		return
+	systems_to_remove.append(systemResource)
 
 func __instanciate_system(systemResource : Resource) -> System:
 	return systemResource.new() as System
@@ -225,6 +231,9 @@ func __instanciate_component(id : int, componentResource : Resource, tag : Strin
 func _process(dt : float) -> void:
 	is_processing = true
 	var ti = OS.get_ticks_usec()
+	for system in systems_to_remove:
+		unregister_system(system)
+	systems_to_remove.clear()
 
 	if (__order_systems_IFN() == false):
 		return
