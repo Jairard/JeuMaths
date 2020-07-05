@@ -172,14 +172,12 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		if (has_collision_layer(collider,fire_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):		# FIRE health - 10
 
-			print("Fire collision !")
-			unique_collision(collider)
-			collider.queue_free()
+			hit_hero(collider, health_comp, 10)
 
-			if health_comp != null:
-				health_comp.set_health(health_comp.get_health() - 10)
-				FileBankUtils.health -= 10
-				AnimationUtils.tween_hero_collision(my_body)
+		if (has_collision_layer(collider,hero_layer_bit) == true
+			and my_body.get_collision_layer_bit(fire_layer_bit) == true):		# FIRE health - 10
+
+			hit_hero(my_body, collider_health_component, 10)
 
 		if (has_collision_layer(collider,gold_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):  		# GOLD	treasure + 1
@@ -193,9 +191,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			var tween = AnimationUtils.tween_hero_loot(collider)
 			yield(tween, "tween_completed")
 			collider.queue_free()
-
-			
-				
 
 
 		if (has_collision_layer(collider,damage_layer_bit) == true
@@ -266,3 +261,15 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 func unique_collision(collider):
 		collider.get_node("CollisionShape2D").disabled = true
+
+func hit_hero(collider : Node2D, health_component : Component, damage : int) -> void:
+	print("Fire collision REVERSE!")
+	collider.queue_free()
+	if health_component != null:
+		health_component.set_health(health_component.get_health() - damage)
+		FileBankUtils.health -= damage
+		AnimationUtils.tween_hero_collision(health_component.get_node())
+
+
+
+
