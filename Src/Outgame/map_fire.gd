@@ -100,7 +100,7 @@ func load_characters() :
 	gravity_comp.set_gravity(20)
 	move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_jump_impulse(800)
-	move_comp.set_lateral_velocity(300)
+	move_comp.set_lateral_velocity(350)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", 
 						  comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle",
@@ -144,7 +144,7 @@ func _on_Timer_timeout():
 	_load_bullets()
 
 func _process(delta):
-	fps_label.set_text(str(Engine.get_frames_per_second()))
+#	fps_label.set_text(str(Engine.get_frames_per_second()))
 	if health_comp_hero.get_health() <= 0 :
 		if pos_comp.get_position().x <= 11500:
 			Fade.checkpoint(heroNode, Vector2(400,500))
@@ -160,10 +160,8 @@ func _input(event):
 		input.set_is_jumping(true)
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP :
 		CameraUtils.set_zoom(CameraUtils.get_zoom() - 0.05)
-		print("zoom : ", CameraUtils.get_zoom())
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN :
 		CameraUtils.set_zoom(CameraUtils.get_zoom() + 0.05)
-		print("zoom : ", CameraUtils.get_zoom())
 
 
 func _load_monsters():

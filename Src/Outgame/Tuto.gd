@@ -99,7 +99,7 @@ func _ready():
 
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
-	move_comp.set_lateral_velocity(300)
+	move_comp.set_lateral_velocity(350)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
