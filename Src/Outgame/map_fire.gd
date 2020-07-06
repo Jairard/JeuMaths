@@ -100,7 +100,7 @@ func load_characters() :
 	gravity_comp.set_gravity(20)
 	move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
 	move_comp.set_jump_impulse(800)
-	move_comp.set_lateral_velocity(350)
+	move_comp.set_lateral_velocity(375)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
 	var anim_name_hero = {comp_anim_hero.anim.left : "anim_left", comp_anim_hero.anim.right : "anim_right", 
 						  comp_anim_hero.anim.jump : "anim_jump", comp_anim_hero.anim.idle : "anim_idle",

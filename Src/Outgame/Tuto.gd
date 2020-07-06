@@ -99,11 +99,11 @@ func _ready():
 
 	health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent
-	move_comp.set_lateral_velocity(350)
+	move_comp.set_lateral_velocity(375)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(8750,500))#(100,400))
+	pos_comp.set_position(Vector2(100,400))
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	gravity_comp.set_gravity(20)
