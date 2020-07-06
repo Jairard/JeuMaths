@@ -180,7 +180,8 @@ __meta__ = {
 }
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2( 1094.85, 521.327 )
+position = Vector2( 986.02, 537.651 )
+scale = Vector2( 1.75, 1.75 )
 normal = ExtResource( 6 )
 
 [node name="Conversion" type="CheckBox" parent="."]
@@ -1317,15 +1318,18 @@ __meta__ = {
 }
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 1164.12, 607.268 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 8 )
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
-position = Vector2( 908.928, 590.878 )
+visible = false
+position = Vector2( 908.928, 588.72 )
 normal = ExtResource( 9 )
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 1037.19, 589.575 )
 normal = ExtResource( 10 )
 
