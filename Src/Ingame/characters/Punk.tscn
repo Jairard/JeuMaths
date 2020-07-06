@@ -1,117 +1,22 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Textures/Characters/punk .png" type="Texture" id=1]
 [ext_resource path="res://Src/Ingame/characters/Punk.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=1]
-resource_name = "anim_colliding"
-length = 0.21
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 24 ]
-}
-
-[sub_resource type="Animation" id=3]
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 24, 25 ]
-}
-
-[sub_resource type="Animation" id=4]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 22, 23 ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 20, 21 ]
-}
-
-[sub_resource type="Animation" id=6]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 24, 26 ]
-}
-
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.525157, 1 )
 colors = PoolColorArray( 0.945313, 0.924715, 0.790222, 1, 0.972656, 0.964464, 0.448334, 1, 1, 0.984619, 0.015625, 1 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.498522, 0.4912 ), 0.0, 0.0, 0, 0, Vector2( 0.997975, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=10]
-curve = SubResource( 9 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=5]
 flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 98, 0 )
@@ -121,10 +26,10 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 4.0
 scale_random = 1.0
-scale_curve = SubResource( 10 )
-color_ramp = SubResource( 8 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="CapsuleShape2D" id=12]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 43.5393
 height = 62.0056
 
@@ -132,14 +37,6 @@ height = 62.0056
 modulate = Color( 1, 0.980392, 0.980392, 1 )
 collision_mask = 32758
 script = ExtResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/anim_colliding = SubResource( 1 )
-anims/anim_idle = SubResource( 2 )
-anims/anim_jump = SubResource( 3 )
-anims/anim_left = SubResource( 4 )
-anims/anim_right = SubResource( 5 )
-anims/anim_up = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.8, 0.8 )
@@ -187,8 +84,8 @@ editor_draw_drag_margin = true
 [node name="Particles2D" type="Particles2D" parent="."]
 amount = 500
 explosiveness = 0.26
-process_material = SubResource( 11 )
+process_material = SubResource( 5 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 0.526371, 14.6484 )
-shape = SubResource( 12 )
+shape = SubResource( 6 )

@@ -189,7 +189,6 @@ func get_stats(pseudo : String) -> Dictionary:
 
 func load_stats():
 	pseudo = $pseudo.get_text()
-	
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 
@@ -202,9 +201,7 @@ func before_change_scene() -> void:
 				exercices.append(j)
 #				if constants[i]:
 				_constants.append(constants[i])
-	print("hero count : ", hero_count)
 	Scene_transition_data.set_data("questions", exercices, "constants", _constants, "skin_hero", hero_count)
-	load_stats()
 
 func _on_Option_map_item_selected(id):
 	before_change_scene()
@@ -284,6 +281,8 @@ func _on_Power_pressed():
 
 
 func _on_TouchScreenButton_pressed():
+#	print("pseudo : ", pseudo)
+	load_stats()
 	if len(lessons_selected) == 0:
 		$VBoxContainer.hide()
 		$PopupDialog.show()

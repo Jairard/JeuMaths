@@ -6,10 +6,9 @@ func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Movement, ComponentsLibrary.Animation]
 
 func _get_system_dependencies() -> Array:
-	return [SystemsLibrary.Move, SystemsLibrary.Patrol]
+	return [SystemsLibrary.Move, SystemsLibrary.Patrol, SystemsLibrary.Input]
 
 func _process_node(dt : float, components : Dictionary) -> void:
-
 	var comp		 = 	components[ComponentsLibrary.Movement] as MovementComponent
 	var comp_anim	 = 	components[ComponentsLibrary.Animation] as AnimationComponent
 	if comp.get_direction() == MoveUtils.dir.right :
@@ -23,7 +22,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		comp_anim.play(comp_anim.anim.idle)
 
 	if comp.is_jumping() == true :
+		print("jump")
 		comp_anim.play(comp_anim.anim.jump)
-	
+
 	if comp.get_direction() == MoveUtils.dir.colliding :
 		comp_anim.play(comp_anim.anim.colliding)

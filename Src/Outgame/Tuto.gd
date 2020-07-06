@@ -39,8 +39,8 @@ var origin_zoom_ratio : float = 0
 
 func _process(delta):
 	tumble()
-	if delta > 1:
-		update_dragging()
+#	if delta > 1:
+	update_dragging()
 
 	if hud_show and hud_open != null:
 		if hud_open.get_shop() or hud_open.get_stats():
@@ -205,16 +205,19 @@ func get_touched_area_metrics(box : Rect2) -> float:
 func update_dragging():
 	var min_metrics = float(min_metric_edit.text)
 	var max_metrics = float(max_metric_edit.text)
-
+	print("1")
 	if TouchUtils.has_bounding_box() and max_metrics > min_metrics:
+		print("2")
 		if not is_dragging:
 			is_dragging = true
 			origin_zoom_ratio = CameraUtils.get_zoom_ratio()
 		var box = TouchUtils.get_bounding_box()
 		var metrics_delta = get_touched_area_metrics(box) - get_touched_area_metrics(TouchUtils.get_origin_bouding_box())
+		print("metrics_delta : ", metrics_delta)
 		if abs(metrics_delta) < min_metrics:
 			metrics_delta = min_metrics
 		var ratio_delta = (metrics_delta - min_metrics) / (max_metrics - min_metrics)
+		print("ratio delta : ", ratio_delta)
 		CameraUtils.set_zoom_ratio(origin_zoom_ratio - ratio_delta)
 	else:
 		is_dragging = false

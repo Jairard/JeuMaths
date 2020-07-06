@@ -1344,10 +1344,10 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="PopupDialog"]
-margin_left = 233.327
-margin_top = -6.58582
-margin_right = 924.327
-margin_bottom = 399.414
+margin_left = 233.0
+margin_top = -7.0
+margin_right = 636.0
+margin_bottom = 293.0
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 12 )
@@ -1393,10 +1393,10 @@ __meta__ = {
 }
 
 [node name="pseudo_empty" type="TextureButton" parent="pseudo_empty"]
-margin_left = 233.327
-margin_top = -6.58582
-margin_right = 924.327
-margin_bottom = 399.414
+margin_left = 233.0
+margin_top = -7.0
+margin_right = 633.0
+margin_bottom = 294.0
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 12 )

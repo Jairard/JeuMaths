@@ -18,7 +18,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var answer = answ.get_answer()
 	if answer == AnswerListenerComponent.answer.true:
 			invader.set_gold(invader.get_gold() + 1)
-			print("gold : ", invader.get_gold())
 			answ.get_node().queue_free()
 
 	if answer == AnswerListenerComponent.answer.false:

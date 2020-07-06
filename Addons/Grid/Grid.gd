@@ -124,14 +124,14 @@ func _draw():
 				shape.shape = circle
 #				shape.modulate = Color(0,0,0,0)
 				shape.set_position(Vector2(intersect_y[l], intersect_x[k]))
-		print(len(shape_array))
+#		print(len(shape_array))
 
 	else:
-		print(len(shape_array))
+#		print(len(shape_array))
 		for m in len(shape_array) :
 			shape_array.erase(m)
 		shape_array = []
-		print(len(shape_array))
+#		print(len(shape_array))
 
 
 	start = origin

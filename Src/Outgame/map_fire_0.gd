@@ -187,10 +187,8 @@ func _input(event):
 		input.set_is_jumping(true)
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP :
 		CameraUtils.set_zoom(CameraUtils.get_zoom() - 0.05)
-		print("zoom : ", CameraUtils.get_zoom())
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN :
 		CameraUtils.set_zoom(CameraUtils.get_zoom() + 0.05)
-		print("zoom : ", CameraUtils.get_zoom())
 
 func _load_monsters():
 	EntitiesUtils.create_monster(self, monster, Vector2(1080, 250), gold, health, damage)
