@@ -1382,6 +1382,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="pseudo_empty" type="PopupDialog" parent="."]
+modulate = Color( 1, 1, 1, 0.996078 )
+margin_left = 148.807
+margin_top = 198.362
+margin_right = 169.807
+margin_bottom = 216.362
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pseudo_empty" type="TextureButton" parent="pseudo_empty"]
+margin_left = 233.327
+margin_top = -6.58582
+margin_right = 924.327
+margin_bottom = 399.414
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="pseudo_empty"]
+anchor_left = 12.6946
+anchor_top = 1.71929
+anchor_right = 33.9326
+anchor_bottom = 16.5526
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 0.0627451, 1, 0.0352941, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0.65098, 0.0392157, 1 )
+text = "Rentre un
+ pseudo !"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="pseudo_empty"]
+show_behind_parent = true
+margin_left = -141.021
+margin_top = -200.509
+margin_right = 1131.98
+margin_bottom = 512.491
+mouse_filter = 2
+color = Color( 0.203922, 0.203922, 0.203922, 0.862745 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="pseudo_text" type="Label" parent="."]
 margin_left = 145.0
 margin_top = 50.1998
@@ -1492,4 +1540,5 @@ normal = ExtResource( 7 )
 [connection signal="pressed" from="TouchScreenButton3" to="." method="_on_TouchScreenButton3_pressed"]
 [connection signal="pressed" from="TouchScreenButton4" to="." method="_on_TouchScreenButton4_pressed"]
 [connection signal="pressed" from="PopupDialog/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="pseudo_empty/pseudo_empty" to="." method="_on_pseudo_empty_pressed"]
 [connection signal="pressed" from="hero" to="." method="_on_hero_pressed"]

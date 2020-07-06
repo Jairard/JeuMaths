@@ -68,6 +68,7 @@ var lessons_path : Array = ["VBoxContainer/_4_Operations/Control/HBoxContainer_u
 "VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage_simple",
 "VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage"]
 
+var pseudo : String = ""
 var lessons_list : Array = []
 var lessons_selected : Array = []
 var itemlist = false
@@ -187,7 +188,8 @@ func get_stats(pseudo : String) -> Dictionary:
 
 
 func load_stats():
-	var pseudo : String = $pseudo.get_text()
+	pseudo = $pseudo.get_text()
+	
 	var stats_hero = get_stats(pseudo)
 	FileBankUtils.init_stats(stats_hero["stats"], pseudo)
 
@@ -283,9 +285,11 @@ func _on_Power_pressed():
 
 func _on_TouchScreenButton_pressed():
 	if len(lessons_selected) == 0:
-
 		$VBoxContainer.hide()
 		$PopupDialog.show()
+	elif pseudo == "":
+		$VBoxContainer.hide()
+		$pseudo_empty.show()
 	else:
 		before_change_scene()
 #		Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
@@ -345,3 +349,8 @@ func _on_hero_pressed():
 			get_node(stickers[i]).texture = load("res://Assets/Textures/GUI/iconCircle_grey.png")
 		else:
 			get_node(stickers[i]).texture = load("res://Assets/Textures/GUI/iconCircle_brown.png")
+
+
+func _on_pseudo_empty_pressed():
+	$pseudo_empty.hide()
+	$VBoxContainer.show()
