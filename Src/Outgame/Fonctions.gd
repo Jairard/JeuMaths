@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var hero   			= preload("res://Src/Ingame/characters/hero.tscn")
+onready var hero   			= preload("res://Src/Ingame/characters/Punk.tscn")
 onready var heroNode = hero.instance()
 onready var enemy 			= preload("res://Src/Ingame/characters/Ennemy.tscn")
 onready var enemyNode = enemy.instance()
@@ -31,7 +31,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 
 	add_child(heroNode)
-	var sprite = $hero/hero_spr
+	var sprite = $hero/Sprite
 	sprite.apply_scale(Vector2(0.5, 0.5))
 	$hero/CollisionShape2D2.scale = Vector2(0.5, 0.5)
 	heroNode.set_position(Vector2(480,480))

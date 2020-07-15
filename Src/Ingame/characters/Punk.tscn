@@ -1,33 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Textures/Characters/punk .png" type="Texture" id=1]
 [ext_resource path="res://Src/Ingame/characters/Punk.gd" type="Script" id=2]
 
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.525157, 1 )
-colors = PoolColorArray( 0.945313, 0.924715, 0.790222, 1, 0.972656, 0.964464, 0.448334, 1, 1, 0.984619, 0.015625, 1 )
-
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
-
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.498522, 0.4912 ), 0.0, 0.0, 0, 0, Vector2( 0.997975, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
-
-[sub_resource type="ParticlesMaterial" id=5]
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 100.0
-angular_velocity = 4.63044e+27
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 4.0
-scale_random = 1.0
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.525157, 1 )
+colors = PoolColorArray( 0.945313, 0.924715, 0.790222, 1, 0.972656, 0.964464, 0.448334, 1, 1, 0.984619, 0.015625, 1 )
 
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 43.5393
@@ -81,10 +62,17 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.38
 editor_draw_drag_margin = true
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 500
 explosiveness = 0.26
-process_material = SubResource( 5 )
+spread = 180.0
+initial_velocity = 100.0
+angular_velocity = 4.63044e+27
+scale_amount = 4.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 0.526371, 14.6484 )
