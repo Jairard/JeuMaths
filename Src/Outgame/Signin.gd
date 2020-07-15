@@ -4,23 +4,23 @@ onready var rect = $Control/ColorRect
 
 var stats : Dictionary = {}
 const init_stats : Dictionary =  {
-									"damage":0, "health":70,
-									"treasure":150,"good_answer":0,
+									"damage":15, "health":70,
+									"treasure":0,"good_answer":0,
 									"wrong_answer":0,"victories":0,"defeats":0,
 									"health_max":70, "scene_counter":0
 									}
 
-var constants : Dictionary = {"addition_fraction_simple" : 0, "soustraction_fraction_simple" : 1,
-"addition_fraction_multiple" : 2, "soustraction_fraction_multiple" : 3, "addition_fraction_general" : 4,
-"soustraction_fraction_general" : 5, "multiplication_fraction" : 6, "division_fraction" : 7, 
-"fraction_irreductible" : 8,"calcul_valeur" : 9, "tester_egalite_simple" : 10, "tester_egalite_general" : 11,
-"reduire_simple" : 12, "reduire_parentheses" : 13, "developpement_simple" : 14,
+var constants : Dictionary = {"+_fraction_simple" : 0, "-_fraction_simple" : 1,
+"+_fraction_multiple" : 2, "-_fraction_multiple" : 3, "+_fraction_general" : 4,
+"-_fraction_general" : 5, "multiplication_fraction" : 6, "division_fraction" : 7, 
+"fraction_irreductible" : 8,"calcul_valeur" : 9, "tester_egalite_simple" : 10, "tester_egalite_generale" : 11,
+"reduire_simple" : 12, "reduire_parenthèses" : 13, "developpement_simple" : 14,
 "developpement_double" : 15, "factorisation_simple" : 16, "factorisation_id_rem" : 17,
 "addition_entiers" : 18, "soustraction_entiers" : 19, "multiplication_entiers" : 20,
 "division_entiers" : 21, "addition_decimaux" : 22, "soustraction_decimaux" : 23,
 "multiplication_decimaux" : 24, "division_decimaux" : 25, "addition_relatifs" : 26,
 "soustraction_relatifs" : 27, "multiplication_relatifs" : 28, "division_relatifs" : 29,
-"appliquer_pourcentage" : 30, "trouver_pourcentage_simple" : 31, "trouver_pourcentage" : 32,
+"appliquer_%" : 30, "trouver_%_simple" : 31, "trouver_%" : 32,
 "priorites_simple" : 33, "priorites_parentheses" : 34, "decomposition" : 35}
 
 var notions_show : Array = ["VBoxContainer/_4_Operations/Control", "VBoxContainer/Literal_calculation/Control", 
@@ -47,26 +47,26 @@ var lessons_path : Array = ["VBoxContainer/_4_Operations/Control/HBoxContainer_u
 "VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_priorities/priorites_parentheses",
 "VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use/calcul_valeur",
 "VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use/tester_egalite_simple",
-"VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use/tester_egalite_general",
+"VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use/tester_egalite_generale",
 "VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Reduce/reduire_simple",
 "VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Reduce/reduire_parentheses",
 "VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute/developpement_simple",
 "VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute/developpement_double",
 "VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute/factorisation_simple",
 "VBoxContainer/Literal_calculation/Control/HBoxContainer_down/Distribute/factorisation_id_rem",
-"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions/addition_fraction_simple",
-"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions/addition_fraction_multiple",
-"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions/addition_fraction_general",
-"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions/soustraction_fraction_simple",
-"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions/soustraction_fraction_multiple",
-"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions/soustraction_fraction_general",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions/+_fraction_simple",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions/+_fraction_multiple",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions/+_fraction_general",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions/-_fraction_simple",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions/-_fraction_multiple",
+"VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions/-_fraction_general",
 "VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division/multiplication_fraction",
 "VBoxContainer/Fraction/Control/HBoxContainer_down/fraction_multiplication_division/division_fraction",
 "VBoxContainer/Arithmetic/Control/HBoxContainer/arithmetic/decomposition",
 "VBoxContainer/Arithmetic/Control/HBoxContainer/arithmetic/fraction_irreductible",
-"VBoxContainer/Percentage/Control/HBoxContainer/Percentage/appliquer_pourcentage",
-"VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage_simple",
-"VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_pourcentage"]
+"VBoxContainer/Percentage/Control/HBoxContainer/Percentage/appliquer_%",
+"VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_%_simple",
+"VBoxContainer/Percentage/Control/HBoxContainer/Percentage/trouver_%"]
 
 var pseudo : String = ""
 var lessons_list : Array = []
@@ -103,7 +103,12 @@ func itemlist(_lessons : Array) -> void:
 		$ItemList.clear()
 	for i in _lessons:
 		var txt = i.split("/")
-		$ItemList.add_item(txt[5])
+		var printed_txt = ""
+		for j in txt[5]:
+			if j == "_":
+				j = " "
+			printed_txt += j
+		$ItemList.add_item(printed_txt)
 		lessons_selected += [txt[5]]
 
 
@@ -195,14 +200,16 @@ func load_stats():
 func before_change_scene() -> void:
 	var exercices : Array = []
 	var _constants : Array = []
+	print("selected : ", lessons_selected)
 	for i in lessons_selected:
 		for j in FileBankUtils.loaded_questions:
 			if j["text"] == i:
 				exercices.append(j)
 #				if constants[i]:
 				_constants.append(constants[i])
+	print("constants : ", _constants)
 	Scene_transition_data.set_data("questions", exercices, "constants", _constants, "skin_hero", hero_count)
-
+	pass
 func _on_Option_map_item_selected(id):
 	before_change_scene()
 	match id:
@@ -293,7 +300,8 @@ func _on_TouchScreenButton_pressed():
 		before_change_scene()
 #		Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
 	#	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
-		Fade.change_scene(FileBankUtils.load_right_scene())
+#		Fade.change_scene(FileBankUtils.load_right_scene())
+		Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 
 
 func _on_TouchScreenButton2_pressed():

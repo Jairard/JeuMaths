@@ -629,7 +629,7 @@ custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "prioriés simple"
+text = "priorités simple"
 
 [node name="priorites_parentheses" type="CheckBox" parent="VBoxContainer/_4_Operations/Control/HBoxContainer_down/questions_priorities"]
 margin_top = 92.0
@@ -759,7 +759,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tester_egalite_general" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use"]
+[node name="tester_egalite_generale" type="CheckBox" parent="VBoxContainer/Literal_calculation/Control/HBoxContainer_up/Use"]
 margin_top = 142.0
 margin_right = 280.0
 margin_bottom = 188.0
@@ -977,7 +977,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "           Addition "
 
-[node name="addition_fraction_simple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
+[node name="+_fraction_simple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
 margin_top = 42.0
 margin_right = 305.0
 margin_bottom = 88.0
@@ -991,7 +991,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="addition_fraction_multiple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
+[node name="+_fraction_multiple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
 margin_top = 92.0
 margin_right = 305.0
 margin_bottom = 138.0
@@ -1005,7 +1005,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="addition_fraction_general" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
+[node name="+_fraction_general" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_additions"]
 margin_top = 142.0
 margin_right = 305.0
 margin_bottom = 188.0
@@ -1039,7 +1039,7 @@ custom_colors/font_color = Color( 0, 0.309804, 0.964706, 1 )
 custom_colors/font_outline_modulate = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "       Soustraction"
 
-[node name="soustraction_fraction_simple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
+[node name="-_fraction_simple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
 margin_top = 42.0
 margin_right = 302.0
 margin_bottom = 88.0
@@ -1053,7 +1053,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="soustraction_fraction_multiple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
+[node name="-_fraction_multiple" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
 margin_top = 92.0
 margin_right = 302.0
 margin_bottom = 138.0
@@ -1067,7 +1067,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="soustraction_fraction_general" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
+[node name="-_fraction_general" type="CheckBox" parent="VBoxContainer/Fraction/Control/HBoxContainer_up/fraction_soustractions"]
 margin_top = 142.0
 margin_right = 302.0
 margin_bottom = 188.0
@@ -1273,7 +1273,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="appliquer_pourcentage" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
+[node name="appliquer_%" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
 margin_right = 280.0
 margin_bottom = 46.0
 size_flags_horizontal = 3
@@ -1287,7 +1287,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="trouver_pourcentage_simple" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
+[node name="trouver_%_simple" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
 margin_top = 50.0
 margin_right = 280.0
 margin_bottom = 96.0
@@ -1302,7 +1302,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="trouver_pourcentage" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
+[node name="trouver_%" type="CheckBox" parent="VBoxContainer/Percentage/Control/HBoxContainer/Percentage"]
 margin_top = 100.0
 margin_right = 280.0
 margin_bottom = 146.0
