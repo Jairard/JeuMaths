@@ -1,5 +1,5 @@
 [{
-    "text": "addition_fractions_simple",
+    "text": "+_fraction_simple",
     "questions": [{
             "question": ["3_4.png", "+", "7_4.png"],
             "answers": [{
@@ -4004,7 +4004,7 @@
 },
 
 {
-    "text": "soustraction_fractions_simple",
+    "text": "-_fraction_simple",
     "questions": [{
             "question": ["5_2.png", "-", "1_2.png"],
             "answers": [{
@@ -8009,7 +8009,7 @@
 },
 
 {
-    "text": "addition_fractions_multiple",
+    "text": "+_fraction_multiple",
     "questions": [{
             "question": ["6_10.png", "+", "6_30.png"],
             "answers": [{
@@ -12014,7 +12014,7 @@
 },
 
 {
-    "text": "soustraction_fractions_multiple",
+    "text": "-_fraction_multiple",
     "questions": [{
             "question": ["5_4.png", "-", "2_12.png"],
             "answers": [{
@@ -16019,7 +16019,7 @@
 },
 
 {
-    "text": "addition_fractions_général",
+    "text": "+_fraction_general",
     "questions": [{
             "question": ["2_6.png", "+", "5_7.png"],
             "answers": [{
@@ -20024,7 +20024,7 @@
 },
 
 {
-    "text": "soustraction_fractions_général",
+    "text": "-_fraction_general",
     "questions": [{
             "question": ["1_7.png", "-", "2_4.png"],
             "answers": [{
@@ -24029,7 +24029,7 @@
 },
 
 {
-    "text": "multiplication_fractions",
+    "text": "multiplication_fraction",
     "questions": [{
             "question": ["2_2.png", "x", "6_10.png"],
             "answers": [{
@@ -28034,7 +28034,7 @@
 },
 
 {
-    "text": "division_fractions",
+    "text": "division_fraction",
     "questions": [{
             "question": ["9_4.png", "÷", "1_2.png"],
             "answers": [{
@@ -32039,7 +32039,7 @@
 },
 
 {
-    "text": "fraction_irréductible",
+    "text": "fraction_irreductible",
     "questions": [{
             "question": ["Rendre la fraction irréductible", "8_12.png"],
             "answers": [{
@@ -40049,7 +40049,7 @@
 },
 
 {
-    "text": "Tester_egalite_simple",
+    "text": "tester_egalite_simple",
     "questions": [{
             "question": "L'égalité -10x -2 = -22 est vraie pour x = …",
             "answers": [{
@@ -44054,7 +44054,7 @@
 },
 
 {
-    "text": "Tester_egalite_générale",
+    "text": "tester_egalite_generale",
     "questions": [{
             "question": "L'égalité 8x+10 = -1x -35 est vraie pour x = …",
             "answers": [{
@@ -48059,7 +48059,7 @@
 },
 
 {
-    "text": "réduire_simple",
+    "text": "reduire_simple",
     "questions": [{
             "question": ["L'expression réduite de ", "-7x²   + 6-2x²  -5x", "est :"],
             "answers": [{
@@ -52064,7 +52064,7 @@
 },
 
 {
-    "text": "réduire_parenthèses",
+    "text": "reduire_parenthèses",
     "questions": [{
             "question": ["L'expression réduite de ", "(2y  + 3)   +   (-6y  + 8) ", "est :"],
             "answers": [{
@@ -56069,7 +56069,7 @@
 },
 
 {
-    "text": "développement_simple",
+    "text": "developpement_simple",
     "questions": [{
             "question": "Développer et réduire l'expression  -9(4b+1)",
             "answers": [{
@@ -60074,7 +60074,7 @@
 },
 
 {
-    "text": "développement_double",
+    "text": "developpement_double",
     "questions": [{
             "question": "Développer et réduire l'expression  (-8a -2) (-8a -4)",
             "answers": [{
@@ -88109,7 +88109,7 @@
 },
 
 {
-    "text": "addition_décimaux",
+    "text": "addition_decimaux",
     "questions": [{
             "question": "1,3 +  40,8",
             "answers": [{
@@ -92115,7 +92115,7 @@
 
 
 {
-    "text": "soustraction_décimaux",
+    "text": "soustraction_decimaux",
     "questions": [{
             "question": "32,2 - 20,2",
             "answers": [{
@@ -96121,7 +96121,7 @@
 
 
 {
-    "text": "multiplication_décimaux",
+    "text": "multiplication_decimaux",
     "questions": [{
             "question": "3885,95 x 0,01",
             "answers": [{
@@ -100126,7 +100126,7 @@
 },
 
 {
-    "text": "division_décimaux",
+    "text": "division_decimaux",
     "questions": [{
             "question": "461,33 : 1000",
             "answers": [{
@@ -120151,7 +120151,7 @@
 },
 
 {
-    "text": "Appliquer_pourcentage",
+    "text": "appliquer_%",
     "questions": [{
             "question": "75% de 380 est égal à …",
             "answers": [{
@@ -124156,7 +124156,7 @@
 },
 
 {
-    "text": "trouver_pourcentage_simple",
+    "text": "trouver_%_simple",
     "questions": [{
             "question": "Il y a 200 élèves dont 2 externes. Le pourcentage d'externes est de …",
             "answers": [{
@@ -128161,7 +128161,7 @@
 },
 
 {
-    "text": "trouver_pourcentage_augm_réduc",
+    "text": "trouver_%",
     "questions": [{
             "question": "Un article à 160 € vaut aujourd'hui 280 €. Le pourcentage d'augmentation est de …",
             "answers": [{
@@ -132166,7 +132166,7 @@
 },
 
 {
-    "text": "Priorités_simple",
+    "text": "priorites_simple",
     "questions": [{
             "question": "152 + 5 - 10",
             "answers": [{
@@ -136171,7 +136171,7 @@
 },
 
 {
-    "text": "priorités_avec_parenthèses",
+    "text": "priorites_parenthèses",
     "questions": [{
             "question": "4 × (8-6)",
             "answers": [{
@@ -140176,7 +140176,7 @@
 },
 
 {
-    "text": "Décomposition",
+    "text": "decomposition",
     "questions": [{
             "question": "Décomposer en produit de facteur premier le nombre 51",
             "answers": [{
