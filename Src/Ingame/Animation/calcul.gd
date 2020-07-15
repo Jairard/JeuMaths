@@ -58,7 +58,7 @@ func setup_question(exercices : Array, constants : Array) -> void:
 	var chosen_question : Dictionary 	= questions[random_question]
 
 	var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
-	timer = NodeUtils.create_timer(4, true, true)
+	timer = NodeUtils.create_timer(6, true, true)
 	add_child(timer)
 
 	if theme < fraction_irreductible:
