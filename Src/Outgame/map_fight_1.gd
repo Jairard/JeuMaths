@@ -49,13 +49,13 @@ func _ready():
 	answer_listener.append(listener_hero)
 	answer_listener.append(ECS.add_component(heroNode, ComponentsLibrary.EmitPArticules))
 	damage_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Damage, TagsLibrary.Tag_Hero) as DamageComponent
-	damage_comp_hero.init(FileBankUtils.damage, 4)
+	damage_comp_hero.init(FileBankUtils.damage, 6)
 
 
 	ECS.add_component(heroNode, ComponentsLibrary.InputListener)
 	ECS.add_component(heroNode, ComponentsLibrary.Movement)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
-	
+
 	var comp_end = ECS.add_component(heroNode, ComponentsLibrary.End_fight)
 	comp_end.set_end(true)
 	var comp_anim_hero = ECS.add_component(heroNode, ComponentsLibrary.Animation) as AnimationComponent
@@ -65,9 +65,9 @@ func _ready():
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(50,900))
 
-	var hero_health = FileBankUtils.health
+	var hero_health = FileBankUtils.health_max
 	var hero_health_max = FileBankUtils.health_max
-	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
+	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_hero.init(hero_health,hero_health_max)
 
 	treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
