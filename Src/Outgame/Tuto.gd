@@ -186,8 +186,8 @@ func _on_Return_pressed():
 	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"])
 
 func _input(event):
-	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
-		input.set_is_jumping(true)
+#	if event is InputEventMouseButton and event.is_pressed() and event.doubleclick:
+#		input.set_is_jumping(true)
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_UP :
 		CameraUtils.set_zoom(CameraUtils.get_zoom() - 0.05)
 	if event is InputEventMouseButton and event.button_index == BUTTON_WHEEL_DOWN :
