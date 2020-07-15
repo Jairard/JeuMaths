@@ -35,3 +35,4 @@ Problèmes :
   _grid creator : intersection coordonates ==> les points ne s'effacent pas après avoir été créés
   _récupérer le composant de dégats dans la scene de calcul et l'envoyer dans "setup_question" car pour le moment on ne récupère pas le temps 
   pour les dégats critiques initialisés dans la map de fight mais on l'écrit à la main
+  _theme calcul littéral : réponses fausses
