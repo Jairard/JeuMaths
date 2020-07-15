@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/Outgame/Touch_controller.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Textures/GUI/arrowLeft.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Textures/GUI/arrowRight.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/GUI/tile_directionEast.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/GUI/tile_directionWest.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/GUI/spring.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/GUI/spring_in.png" type="Texture" id=5]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,20 +13,31 @@ script = ExtResource( 1 )
 
 [node name="right" type="TextureButton" parent="CanvasLayer"]
 margin_left = 1150.0
-margin_top = 600.0
-margin_right = 1250.0
-margin_bottom = 700.0
-texture_normal = ExtResource( 3 )
+margin_top = 598.276
+margin_right = 1278.0
+margin_bottom = 726.276
+texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="left" type="TextureButton" parent="CanvasLayer"]
-margin_left = 50.0
-margin_top = 600.0
-margin_right = 150.0
-margin_bottom = 700.0
-texture_normal = ExtResource( 2 )
+margin_left = 980.0
+margin_top = 598.185
+margin_right = 1108.0
+margin_bottom = 726.185
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="jump" type="TextureButton" parent="CanvasLayer"]
+margin_top = 620.0
+margin_right = 145.0
+margin_bottom = 730.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,3 +45,4 @@ __meta__ = {
 [connection signal="button_up" from="CanvasLayer/right" to="." method="_on_right_button_up"]
 [connection signal="button_down" from="CanvasLayer/left" to="." method="_on_left_button_down"]
 [connection signal="button_up" from="CanvasLayer/left" to="." method="_on_left_button_up"]
+[connection signal="pressed" from="CanvasLayer/jump" to="." method="_on_jump_pressed"]
