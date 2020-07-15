@@ -204,18 +204,16 @@ func _notification(what):
 		save_json(loaded_heroes_stats, stats_File_Name)
 
 func load_right_scene() -> String:
-	match FileBankUtils.scene_counter % 6:
+	match FileBankUtils.scene_counter % 5:
 		0:
-			return FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"]
-		1:
 			return FileBankUtils.loaded_scenes["playing_map"][1]["map_fire"]
-		2:
+		1:
 			return FileBankUtils.loaded_scenes["map_water"]
-		3:
+		2:
 			return FileBankUtils.loaded_scenes["playing_map"][2]["map_fire_0"]
-		4:
+		3:
 			return FileBankUtils.loaded_scenes["map_water_0"]
-		5:
+		4:
 			return FileBankUtils.loaded_scenes["upside_down"]
 #	return FileBankUtils.loaded_scenes["sign_in"]
 	return ""
