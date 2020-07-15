@@ -1,17 +1,6 @@
-
-Dans le shop, possibilité de faire des défis pour gagner 10 / 20 / 30 gold : 
-
-		
-DEFI CALCUL 1 : dans le style chicken invaders
-
-		sur une ligne il y a 5 choix de réponses et la question
-		la ligne de calcul apparait en haut de l'écran.  
-		Elle descend et le joueur doit valider la bonne réponse en cliquant dessus avant que la ligne disparaisse an bas de l'écran
-		pendant ce temps d'autres lignes aparaissent et se suivent
-		pour ne pas pouvoir tout tester comme réponse sans malus le joueur dispose de 3 vies
-
 	
-DEFI CALCUL 2 : une vingtaine de calculs qui apparaissent en même temps
+	
+	DEFI CALCUL 2 : une vingtaine de calculs qui apparaissent en même temps
  
 		un compte a rebours se lance 
 		pleins de solutions à déplacer (drag and drop) sur les calculs 
@@ -29,3 +18,6 @@ Le joueur doit aller aux bonnes coordonnées en quelques secondes
 sinon il prends des dégats. Si il y arrive le boss prends des dégats. 
 
 		----------------------
+
+Combat pour le repérage des nombres décimaux / relatifs / fractions
+==> concevoir une (demie)droite graduée et se déplcaer dessus
