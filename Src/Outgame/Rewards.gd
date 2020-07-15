@@ -49,19 +49,19 @@ func _ready():
 
 	var skin_hero = Scene_transition_data.get_data("skin_hero")
 	if skin_hero == 0:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
+		heroNode = punk.instance()
 	elif skin_hero == 1:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femaleAdventurer_hold.png")
+		heroNode = girl_white.instance()
 	elif skin_hero == 2:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_maleAdventurer_attackKick.png")
+		heroNode = boy_white.instance()
 	elif skin_hero == 3:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_zombie_switch0.png")
+		heroNode = zombie.instance()
 	elif skin_hero == 4:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_femalePerson_idle.png")
+		heroNode = girl_black.instance()
 	elif skin_hero == 5:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/character_robot_hit.png")
+		heroNode = robot.instance()
 	else:
-		heroNode.get_node("hero_spr").texture = load("res://Assets/Textures/Characters/punk .png")
+		heroNode = punk.instance()
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))
