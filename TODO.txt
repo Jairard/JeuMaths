@@ -1,10 +1,11 @@
                                 |   Components  |
                                 
 ---------   script editeur : sort fichier json d'une config : editor script
----------   hero : touche du bas pour s'accroupir : jouer le scale
+---------   hero : touche du bas pour s'accroupir : jouer sur le scale
 ---------   mettre composant de dégats sur missile, monstre...
----------   2ème collision avec le feu pousse le hero                  
 ---------   vector orthogonal : collider.get_normal angle entre vecteur et la normale : -angle pour le rebond
+---------   fonctions : faire collisionner les points d'intersection avec le hero et comparer avec les coordonnées de la réponse
+
 
                                 |   Positioning  |
  
@@ -12,8 +13,12 @@
 
                                 |   Features  |
 
+---------   mécanique du saut : améliorer le joystick 
 ---------   AnimationNode  : pour organiser l'ordre des animations
 ---------   effets sonores
+
+                                |   Gameplay  |
+
 ---------   faire un effecteur : colonne de vent
 ---------   faire un laser
 
@@ -25,8 +30,8 @@
             => récup les constantes de calcul dans signin pour envoyer 
             les valeur des entiers qui correspondent aux leçons sélectionnées
 
-
 _____________________________________________________________________________________
-Pb : 
-double saut : lorsque qu'on appuie plusieurs fois pour sauter, le saut se fait 2 fois d'affilé : check is_echo()
-les collisions sur le hero immobile ne se font pas                
+Problèmes : 
+  _grid creator : intersection coordonates ==> les points ne s'effacent pas après avoir été créés
+  _récupérer le composant de dégats dans la scene de calcul et l'envoyer dans "setup_question" car pour le moment on ne récupère pas le temps 
+  pour les dégats critiques initialisés dans la map de fight mais on l'écrit à la main
