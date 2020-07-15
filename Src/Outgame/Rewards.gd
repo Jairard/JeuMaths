@@ -112,9 +112,10 @@ func _ready():
 	var HudNode = hud.instance()
 	add_child(HudNode)
 
+	var hud_open = ECS.add_component(heroNode, ComponentsLibrary.Is_Open)
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
-	ScoreNode.set_hero_node(heroNode, null)
+	ScoreNode.set_hero_node(heroNode, hud_open)
 	
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)

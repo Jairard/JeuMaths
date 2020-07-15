@@ -6,7 +6,7 @@ var comp_score : Component = null
 onready var comp_hud_stats_popup : Component = null
 var hud_open : Component = null
 
-func init(heroNode : Node2D, _hud_open) -> void:
+func init(heroNode : Node2D, _hud_open : Component) -> void:
 	hud_open = _hud_open
 	if !hud_open.get_shop():
 		is_shown = true
