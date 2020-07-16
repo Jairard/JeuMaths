@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Src/Outgame/Death.gd" type="Script" id=1]
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Textures/GUI/ghost_dead.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/GUI/snake_dead.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Textures/Characters/spider_dead.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/GUI/spark_04.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -28,7 +29,7 @@ rect_scale = Vector2( 3, 3 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[tornado][center][color=white]ton hero a disparu"
-text = "ton héros a disparu"
+text = "ton hero a disparu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -84,4 +85,15 @@ texture = ExtResource( 5 )
 [node name="ghost_dead2" type="Sprite" parent="."]
 position = Vector2( 1171.9, 115.673 )
 texture = ExtResource( 5 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -2.15843, 4.31702 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 8 )
+centered = false
+region_rect = Rect2( 0, 0, 1024, 1024 )
 [connection signal="pressed" from="reset_button" to="." method="_on_reset_button_pressed"]
