@@ -48,17 +48,6 @@ func on_answer_pressed(is_good_answer : bool):
 		if component != null:
 			component.set_answer(answer)
 
-func _on_answer1_pressed():
-	on_answer_pressed(answers[0]["is_good_answer"])
-
-func _on_answer2_pressed():
-	on_answer_pressed(answers[1]["is_good_answer"])
-
-func _on_answer3_pressed():
-	on_answer_pressed(answers[2]["is_good_answer"])
-
-func _on_answer4_pressed():
-	on_answer_pressed(answers[3]["is_good_answer"])
 
 var time = 0
 var time_animation = 3
@@ -70,3 +59,19 @@ func _process(delta):
 func _on_Area2D_body_entered(body):
 	invader.lose_health = true
 	body.queue_free()
+
+
+func _on_answer1_pressed():
+	on_answer_pressed(answers[0]["is_good_answer"])
+
+
+func _on_answer2_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+
+
+func _on_answer3_pressed():
+	on_answer_pressed(answers[2]["is_good_answer"])
+
+
+func _on_answer4_pressed():
+	on_answer_pressed(answers[3]["is_good_answer"])
