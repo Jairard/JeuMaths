@@ -38,6 +38,7 @@ func _ready():
 	ECS.add_component(self, ComponentsLibrary.Hud_fight) 
 
 	invader_component = ECS.add_component(self, ComponentsLibrary.Invader) as InvaderComponent
+	invader_component.set_health(5)
 	load_questions()
 
 	create_calcul()
