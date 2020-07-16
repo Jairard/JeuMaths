@@ -7,7 +7,7 @@ onready var time_label = get_node("timer")
 onready var game_timer = get_node("Timer")
 onready var calcul_invader = calcul.instance()
 
-var gravity_acceleration : float = 0.1
+var gravity_acceleration : float = 0.15
 
 var invader_component : InvaderComponent = null
 var questions : Array = []

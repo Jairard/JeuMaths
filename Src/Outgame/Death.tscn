@@ -28,7 +28,7 @@ rect_scale = Vector2( 3, 3 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[tornado][center][color=white]ton hero a disparu"
-text = "ton hero a disparu"
+text = "ton héros a disparu"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -3,7 +3,7 @@ extends Component
 class_name InvaderComponent
 
 var gold : int = 0
-var health : int = 3
+var health : int = 0
 var lose_health = false
 
 func get_gold() -> int:

@@ -13,7 +13,7 @@ size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 633.233, 43.7725 )
+extents = Vector2( 633.233, 5.43553 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 638.435, 10 )
@@ -123,14 +123,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="answer1" type="Button" parent="RigidBody2D/buttons"]
+[node name="calcul" type="Button" parent="RigidBody2D/buttons"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 231.0
 margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="answer2" type="Button" parent="RigidBody2D/buttons"]
+[node name="answer1" type="Button" parent="RigidBody2D/buttons"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 261.0
 margin_right = 492.0
@@ -138,7 +138,7 @@ margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="answer3" type="Button" parent="RigidBody2D/buttons"]
+[node name="answer2" type="Button" parent="RigidBody2D/buttons"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 522.0
 margin_right = 753.0
@@ -146,7 +146,7 @@ margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="answer4" type="Button" parent="RigidBody2D/buttons"]
+[node name="answer3" type="Button" parent="RigidBody2D/buttons"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 783.0
 margin_right = 1014.0
@@ -154,7 +154,7 @@ margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="calcul" type="Button" parent="RigidBody2D/buttons"]
+[node name="answer4" type="Button" parent="RigidBody2D/buttons"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1044.0
 margin_right = 1277.0
@@ -163,7 +163,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 669.564, 72.4272 )
+position = Vector2( 636.755, 162.651 )
 shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -171,7 +171,7 @@ position = Vector2( 113, 313.001 )
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 527.102, 429.363 )
+position = Vector2( 525.051, 462.172 )
 shape = SubResource( 3 )
 [connection signal="pressed" from="RigidBody2D/buttons/answer1" to="." method="_on_answer1_pressed"]
 [connection signal="pressed" from="RigidBody2D/buttons/answer2" to="." method="_on_answer2_pressed"]
