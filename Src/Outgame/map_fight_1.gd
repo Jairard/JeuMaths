@@ -26,6 +26,7 @@ var listener_enemy : Component = null
 var treasure_comp : Component = null
 var answerToSpell_hero : Component = null
 var damage_comp_hero : Component = null
+var health_comp_hero : Component = null
 
 var answer_listener : Array = []
 
@@ -65,10 +66,14 @@ func _ready():
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(50,900))
 
-	var hero_health = FileBankUtils.health_max
+	var hero_health = FileBankUtils.health
 	var hero_health_max = FileBankUtils.health_max
-	var health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
-	health_comp_hero.init(hero_health,hero_health_max)
+	if hero_health <= 0:
+		health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health) as HealthComponent
+		health_comp_hero.init(hero_health_max,hero_health_max)
+	else:
+		health_comp_hero = ECS.add_component(heroNode, ComponentsLibrary.Health, TagsLibrary.Tag_Hero) as HealthComponent
+		health_comp_hero.init(hero_health,hero_health_max)
 
 	treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent
 	treasure_comp.init(FileBankUtils.treasure)
