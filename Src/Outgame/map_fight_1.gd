@@ -64,7 +64,7 @@ func _ready():
 	var animation_player_hero = heroNode.get_node("animation_hero")
 	comp_anim_hero.init(anim_name_hero, animation_player_hero)
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(50,900))
+	pos_comp.set_position(Vector2(95,940))
 
 	var hero_health = FileBankUtils.health
 	var hero_health_max = FileBankUtils.health_max
@@ -150,7 +150,7 @@ func spawn() :
 	CameraUtils.set_offset(Vector2(600, -400))
 	CameraUtils.set_zoom(2.5)
 	add_child(enemyNode)
-	enemyNode.set_position(Vector2(1700,900))
+	enemyNode.set_position(Vector2(1700,810))
 	var sprite = $Ennemy/Sprite
 	sprite.apply_scale(Vector2(3, 3))
 	$Ennemy/CollisionShape2D.scale = Vector2(3, 3)
