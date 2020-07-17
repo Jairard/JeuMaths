@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Src/Ingame/characters/Ennemy.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Textures/hud/spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Animation/wingMan5.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Animation/wingMan4.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/Animation/wingMan3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/Animation/wingMan2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Animation/wingMan1.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 38.8985, 42.8537 )
@@ -32,21 +36,31 @@ scale_random = 1.0
 scale_curve = SubResource( 5 )
 color_ramp = SubResource( 3 )
 
+[sub_resource type="Animation" id=7]
+resource_name = "anim"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ) ]
+}
+
 [node name="Ennemy" type="KinematicBody2D"]
 modulate = Color( 0.92549, 0.898039, 0.898039, 1 )
 collision_layer = 4
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.666667, 0.0823529, 0.0823529, 1 )
-scale = Vector2( 1.27929, 1.37239 )
-texture = ExtResource( 2 )
-vframes = 8
-hframes = 8
-frame = 26
+modulate = Color( 0.760784, 0, 0, 1 )
+texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -59,3 +73,6 @@ lifetime = 0.6
 one_shot = true
 explosiveness = 0.26
 process_material = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/anim = SubResource( 7 )
