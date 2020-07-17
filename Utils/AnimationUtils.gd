@@ -73,8 +73,8 @@ func tween_hero_death(node : Node2D, current_pos : Vector2, final_pos : Vector2)
 func floating_damage(node : Node2D, dmg : int, _bool : bool, font):
 	if _bool:
 
-		var label = NodeUtils.create_label(Vector2(node.get_position().x + 100, node.get_position().y - 20), 
-										   Vector2(200,200), Color.red, font, 60,3, Color.black)
+		var label = NodeUtils.create_label(Vector2(node.get_position().x - 100, node.get_position().y + 150), 
+										   Vector2(200,200), Color.black, font, 70,1, Color.black)
 
 		var parent = node.get_parent()
 		parent.add_child(label)
