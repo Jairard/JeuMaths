@@ -289,10 +289,10 @@ func _on_calcul4_pressed():
 func _on_reduction1_pressed():
 	on_answer_pressed(answers[0]["is_good_answer"])
 
-func _on_reduction3_pressed():
-	on_answer_pressed(answers[1]["is_good_answer"])
-
 func _on_reduction2_pressed():
+	on_answer_pressed(answers[1]["is_good_answer"])
+	
+func _on_reduction3_pressed():
 	on_answer_pressed(answers[2]["is_good_answer"])
 
 func _on_reduction4_pressed():
