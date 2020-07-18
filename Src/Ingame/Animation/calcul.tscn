@@ -149,8 +149,7 @@ __meta__ = {
 }
 
 [node name="fraction1" type="Button" parent="Fractions/Control/Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0.858824 )
-self_modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 365.0
 margin_bottom = 146.0
 size_flags_horizontal = 3
@@ -160,8 +159,8 @@ __meta__ = {
 }
 
 [node name="fraction2" type="Button" parent="Fractions/Control/Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0.858824 )
-self_modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.705882 )
 margin_left = 565.0
 margin_right = 930.0
 margin_bottom = 146.0
@@ -172,8 +171,8 @@ __meta__ = {
 }
 
 [node name="fraction3" type="Button" parent="Fractions/Control/Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0.858824 )
-self_modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.705882 )
 margin_left = 1130.0
 margin_right = 1495.0
 margin_bottom = 146.0
@@ -184,8 +183,8 @@ __meta__ = {
 }
 
 [node name="fraction4" type="Button" parent="Fractions/Control/Buttons_fractions"]
-modulate = Color( 1, 1, 1, 0.858824 )
-self_modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.705882 )
 margin_left = 1695.0
 margin_right = 2061.0
 margin_bottom = 146.0
@@ -1140,14 +1139,14 @@ __meta__ = {
 }
 
 [node name="percent1" type="Button" parent="Percentages/Control/Buttons_percentages"]
-modulate = Color( 0.882813, 0.747567, 0.0172424, 0 )
+modulate = Color( 0.882353, 0.74902, 0.0156863, 0 )
 margin_right = 495.0
 margin_bottom = 183.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="percent2" type="Button" parent="Percentages/Control/Buttons_percentages"]
-modulate = Color( 0.882813, 0.747567, 0.0172424, 0 )
+modulate = Color( 0.882353, 0.74902, 0.0156863, 0 )
 margin_left = 695.0
 margin_right = 1190.0
 margin_bottom = 183.0
@@ -1155,7 +1154,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="percent3" type="Button" parent="Percentages/Control/Buttons_percentages"]
-modulate = Color( 0.882813, 0.747567, 0.0172424, 0 )
+modulate = Color( 0.882353, 0.74902, 0.0156863, 0 )
 margin_left = 1390.0
 margin_right = 1885.0
 margin_bottom = 183.0
@@ -1163,7 +1162,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="percent4" type="Button" parent="Percentages/Control/Buttons_percentages"]
-modulate = Color( 0.882813, 0.747567, 0.0172424, 0 )
+modulate = Color( 0.882353, 0.74902, 0.0156863, 0 )
 margin_left = 2085.0
 margin_right = 2580.0
 margin_bottom = 183.0
