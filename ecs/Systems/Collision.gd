@@ -248,6 +248,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 					FileBankUtils.scene_counter += 1
 					FileBankUtils.portal = false
 				Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+			unique_collision(collider)
 
 		if (has_collision_layer(collider,portal_fight_layer_bit) == true
 			and my_body.get_collision_layer_bit(hero_layer_bit) == true):    			# PORTAL FIGHT
@@ -256,6 +257,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 			if health_comp != null:
 				Fade.change_scene(FileBankUtils.loaded_scenes["invader"])
+			unique_collision(collider)
 
 func unique_collision(collider):
 		collider.get_node("CollisionShape2D").disabled = true
