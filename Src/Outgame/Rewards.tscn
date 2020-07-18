@@ -13,10 +13,10 @@
 [ext_resource path="res://Assets/Textures/GUI/towerAlt.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Textures/hud/spritesheet2.png" type="Texture" id=12]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=6]
 0/name = "medievalTile_199.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -29,7 +29,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -131,12 +131,12 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 2048 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
+tile_set = SubResource( 6 )
 format = 1
 tile_data = PoolIntArray( 589822, 10, 0, 524288, 9, 0, 524289, 9, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 917503, 8, 0, 851968, 6, 0, 851969, 7, 0, 983039, 0, 0, 917504, 0, 0, 917505, 0, 0, 1048575, 0, 0, 983040, 0, 0, 983041, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0 )
 
 [node name="towerAlt" type="Sprite" parent="."]
-position = Vector2( -1472.15, 948.596 )
+position = Vector2( 2627.18, 950.292 )
 texture = ExtResource( 11 )
 
 [node name="TileMap2" type="TileMap" parent="."]
