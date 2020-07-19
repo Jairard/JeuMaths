@@ -192,6 +192,8 @@ func init_stats(stats : Dictionary, _pseudo : String) -> void:
 	
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		if health <= 0:
+			health = health_max
 		var stats : Dictionary = {
 									"damage":damage, "health":health,
 									"treasure":treasure,"good_answer":good_answer,"wrong_answer":wrong_answer,
