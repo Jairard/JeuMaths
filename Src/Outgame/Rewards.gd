@@ -80,7 +80,7 @@ func _ready():
 	FileBankUtils.health = hero_health
 
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(250,1000))
+	pos_comp.set_position(Vector2(250,1045))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
 	var treasure_comp = ECS.add_component(heroNode, ComponentsLibrary.Treasure, TagsLibrary.Tag_Hero) as TreasureComponent	
@@ -101,7 +101,7 @@ func _ready():
 
 	ECS.add_component(lootNode, ComponentsLibrary.Collision)
 	var pos_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp_loot.set_position(Vector2(100,500))
+	pos_comp_loot.set_position(Vector2(275,1045))
 
 	var health_comp_loot = ECS.add_component(lootNode, ComponentsLibrary.Health) as HealthComponent
 	health_comp_loot.init(1,1)
