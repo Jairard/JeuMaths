@@ -345,10 +345,10 @@ __meta__ = {
 }
 
 [node name="question" type="HBoxContainer" parent="Calcul"]
-margin_left = -283.618
-margin_top = -218.382
-margin_right = 1172.38
-margin_bottom = 36.6177
+margin_left = -805.0
+margin_top = -218.0
+margin_right = 1349.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -358,7 +358,7 @@ __meta__ = {
 
 [node name="question" type="Label" parent="Calcul/question"]
 margin_top = 35.0
-margin_right = 1455.0
+margin_right = 2154.0
 margin_bottom = 219.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -369,16 +369,16 @@ autowrap = true
 [node name="Control" type="Control" parent="Calcul"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( -770, 140 )
+rect_pivot_offset = Vector2( -770, 240 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="answer" type="HBoxContainer" parent="Calcul/Control"]
 margin_left = -899.0
-margin_top = 140.0
+margin_top = 240.0
 margin_right = 1477.0
-margin_bottom = 280.0
+margin_bottom = 380.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 200
@@ -390,7 +390,7 @@ __meta__ = {
 [node name="Label1" type="Label" parent="Calcul/Control/answer"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 444.0
-margin_bottom = 140.0
+margin_bottom = 139.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -402,7 +402,7 @@ clip_text = true
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 644.0
 margin_right = 1088.0
-margin_bottom = 140.0
+margin_bottom = 139.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -413,7 +413,7 @@ clip_text = true
 [node name="Label3" type="Label" parent="Calcul/Control/answer"]
 margin_left = 1288.0
 margin_right = 1732.0
-margin_bottom = 140.0
+margin_bottom = 139.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -424,7 +424,7 @@ clip_text = true
 [node name="Label4" type="Label" parent="Calcul/Control/answer"]
 margin_left = 1932.0
 margin_right = 2376.0
-margin_bottom = 140.0
+margin_bottom = 139.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -434,9 +434,9 @@ clip_text = true
 
 [node name="Buttons_calculs" type="HBoxContainer" parent="Calcul/Control"]
 margin_left = -902.392
-margin_top = 142.392
+margin_top = 240.0
 margin_right = 1473.61
-margin_bottom = 326.392
+margin_bottom = 424.0
 custom_constants/separation = 200
 __meta__ = {
 "_edit_use_anchors_": false
@@ -445,7 +445,7 @@ __meta__ = {
 [node name="calcul1" type="Button" parent="Calcul/Control/Buttons_calculs"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 444.0
-margin_bottom = 184.0
+margin_bottom = 183.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -456,7 +456,7 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 644.0
 margin_right = 1088.0
-margin_bottom = 184.0
+margin_bottom = 183.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -464,7 +464,7 @@ size_flags_vertical = 3
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1288.0
 margin_right = 1732.0
-margin_bottom = 184.0
+margin_bottom = 183.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -472,7 +472,7 @@ size_flags_vertical = 3
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 1932.0
 margin_right = 2376.0
-margin_bottom = 184.0
+margin_bottom = 183.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
