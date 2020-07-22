@@ -151,6 +151,7 @@ position = Vector2( -136.3, 842.868 )
 texture = ExtResource( 11 )
 
 [node name="TileMap2" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 tile_set = SubResource( 4 )
 collision_layer = 2
 format = 1

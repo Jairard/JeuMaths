@@ -16,3 +16,6 @@ const Endfight		 =   preload("res://ecs/Systems/End_fight.gd")
 const UpsideDown	 =   preload("res://ecs/Systems/Move_UpsideDown.gd")
 const Answer_invader =   preload("res://ecs/Systems/Answer_invader.gd")
 const End_invader	 = preload("res://ecs/Systems/End_invader.gd")
+const Chrono		 = preload("res://ecs/Systems/Chrono.gd")
+const End_chrono	 = preload("res://ecs/Systems/End_chrono.gd")
+

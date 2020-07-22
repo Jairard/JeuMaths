@@ -11,5 +11,5 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var current_health = invader.get_health()
 	if current_health == 0 :
 		FileBankUtils.treasure += invader.get_gold()
-		Fade.change_scene(FileBankUtils.load_right_scene())
+		Fade.change_scene(FileBankUtils.loaded_scenes["chrono"])
 		ECS.request_unregister_system(SystemsLibrary.End_invader)

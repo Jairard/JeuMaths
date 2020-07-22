@@ -91,7 +91,7 @@ margin_top = 45.5998
 margin_right = 646.05
 margin_bottom = 95.5998
 custom_fonts/font = SubResource( 3 )
-text = "+"
+text = "+ "
 __meta__ = {
 "_edit_use_anchors_": false
 }

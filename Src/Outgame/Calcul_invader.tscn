@@ -19,6 +19,7 @@ extents = Vector2( 633.233, 5.43553 )
 extents = Vector2( 638.435, 10 )
 
 [node name="Challenge_invader" type="Node2D"]
+modulate = Color( 1, 1, 1, 0 )
 script = ExtResource( 2 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]

@@ -11,7 +11,8 @@ func _get_mandatory_components() -> Array:
 func _get_optional_components() -> Array:
 	return [ ComponentsLibrary.Treasure, ComponentsLibrary.Scoreglobal, ComponentsLibrary.Health, 
 			ComponentsLibrary.Damage, ComponentsLibrary.Hud_treasure,ComponentsLibrary.Hud_map,
-			ComponentsLibrary.Hud_stats_popup,  ComponentsLibrary.Hud_invader,  ComponentsLibrary.Invader]
+			ComponentsLibrary.Hud_stats_popup,  ComponentsLibrary.Hud_invader, 
+			ComponentsLibrary.Invader, ComponentsLibrary.Chrono]
 
 func _process_node(dt : float, components : Dictionary) -> void:
 
@@ -25,13 +26,18 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var comp_hud_stats_popup= 	components[ComponentsLibrary.Hud_stats_popup] 	as	HudStatsPopupComponent
 	var comp_hud_invader	= 	components[ComponentsLibrary.Hud_invader] 		as	HudInvaderComponent
 	var comp_invader		= 	components[ComponentsLibrary.Invader] 			as	InvaderComponent
+	var comp_chrono			= 	components[ComponentsLibrary.Chrono] 			as	ChronoComponent
 
 
 	if comp_hud_invader != null:
-		var current_gold = comp_invader.get_gold()
-		comp_hud_invader.set_gold(current_gold)
-		var current_health = comp_invader.get_health()
-		comp_hud_invader.set_health(current_health)
+		if comp_chrono != null:
+			var current_gold = comp_chrono.get_gold()
+			comp_hud_invader.set_gold(current_gold)
+		else:
+			var current_gold = comp_invader.get_gold()
+			comp_hud_invader.set_gold(current_gold)
+			var current_health = comp_invader.get_health()
+			comp_hud_invader.set_health(current_health)
 
 	if comp_health != null:
 		comp_hud_fight.update_displayed_health(dt)	

@@ -1,11 +1,13 @@
 	
 	
-	DEFI CALCUL 2 : une vingtaine de calculs qui apparaissent en même temps
+	DEFI CHRONO :
  
 		un compte a rebours se lance 
-		pleins de solutions à déplacer (drag and drop) sur les calculs 
-		le joueur ne sait pas si sa réponse est bonne sur le moment
-		Il valide à la fin ses choix
+		chaque écran comprends 4 questions
+		a relier avec 4 réponses
+		si réponse bonne +1 gold
+		si réponse fause -5sec
+		quand 4 réponses validées et si encore du temps, une nouvelle page de 4 calculs est chargée
 
 
 		-----------------------
