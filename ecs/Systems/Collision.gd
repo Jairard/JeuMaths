@@ -244,9 +244,9 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			print("Portal  fight !")
 
 			if health_comp != null:
-				if FileBankUtils.portal:
-					FileBankUtils.scene_counter += 1
-					FileBankUtils.portal = false
+#				if FileBankUtils.portal:
+#					FileBankUtils.scene_counter += 1
+#					FileBankUtils.portal = false
 				Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 			unique_collision(collider)
 
