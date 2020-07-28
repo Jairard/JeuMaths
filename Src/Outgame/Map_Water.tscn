@@ -113,7 +113,7 @@ points = PoolVector2Array( 672, 608, 128, 608, 128, 96, 672, 96 )
 0/z_index = 0
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 256, 64, 288, 128, 288, 288, 32, 288, 32, 128, 64, 64 )
+points = PoolVector2Array( 256, 64, 288, 64, 288, 288, 32, 288, 32, 96, 64, 64 )
 
 [sub_resource type="TileSet" id=10]
 0/name = "test_bulle_png.png 0"
