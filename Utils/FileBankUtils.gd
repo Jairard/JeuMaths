@@ -12,7 +12,7 @@ var scene_counter	: int = 0
 var classroom		: int = 0
 var pseudo			: String = ""
 var popup			= false
-var portal			= false
+var portal			= true
 
 var loaded_scenes = load_json("res://Assets/Scenes.json")
 var stats_File_Name : String = "res://Assets/Stats_Characters/Hero_Stats.json"

@@ -41,7 +41,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
-
+	FileBankUtils.portal = true
 	var skin_hero = Scene_transition_data.get_data("skin_hero")
 	if skin_hero == 0:
 		heroNode = punk.instance()

@@ -43,7 +43,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Hud)
 	ECS.register_system(SystemsLibrary.Bullet)
 	ECS.register_system(SystemsLibrary.Bounce)
-
+	FileBankUtils.portal = true
 	load_characters()
 
 	_load_monsters()

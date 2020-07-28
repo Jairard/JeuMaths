@@ -23,7 +23,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	if current_health <= 0:
 			var node = comp_health.get_node()
 			emit_comp.set_emit(true)
-			FileBankUtils.scene_counter += 1
 			yield(node.get_parent().get_tree().create_timer(3.0), "timeout")
 			if node_hero != null and end_comp.get_end() == true:
 				FileBankUtils.defeats += 1
