@@ -26,16 +26,23 @@ script = ExtResource( 1 )
 line_spacing = 160
 arrow_i_lengh = 3
 arrow_j_lengh = 2
-line_H_count = 13
-line_V_count = 5
+line_H_count = 11
+line_V_count = 11
 
 [node name="arrow_y" type="Sprite" parent="Grid_creator"]
-position = Vector2( 320, 800 )
+position = Vector2( 800, 640 )
 rotation = -1.5708
 scale = Vector2( 3.51648, 1.40659 )
 texture = ExtResource( 3 )
 
 [node name="arrow_x" type="Sprite" parent="Grid_creator"]
-position = Vector2( 560, 960 )
+position = Vector2( 1040, 800 )
 scale = Vector2( 5.27473, 2.10989 )
 texture = ExtResource( 3 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+build_mode = 1
+polygon = PoolVector2Array( -137, 1919, 1939, 1914, 1948, -133, -116, -122, -127, -78, 1911, -81, 1887, 1876, -99, 1873, -106, -18, -127, -75, -137, -78, -115, -99, -145, -98, -123, -103, -175, -101, -178, -49 )

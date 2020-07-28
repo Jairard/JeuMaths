@@ -22,7 +22,7 @@ var scale_axis_y : float = 160
 var color_h_axis : Color = color_H
 var color_v_axis : Color = color_V
 
-export var intersection_coordonates : bool = false
+export var intersection_coordonates : bool = false setget set_intersection
 var line_intersection : Array = []
 var intersect_x : Array = []
 var intersect_y : Array = []
@@ -31,6 +31,10 @@ var circle : CircleShape2D = null
 var shape_array : Array = []
 
 func _init() -> void:
+	update()
+
+func set_intersection(value : bool) -> void:
+	intersection_coordonates = value
 	update()
 
 func set_axis_x_lengh(value : int) -> void:
@@ -42,13 +46,19 @@ func set_axis_y_lengh(value : int) -> void:
 	update()
 
 func set_line_H_count(value : int) -> void:
+	if value > 11:
+		value = 11
 	line_H_count = value
+	set_intersection(false)
 	update()
 
 func set_line_V_count(value : int) -> void:
+	if value > 11:
+		value = 11
 	line_V_count = value
+	set_intersection(false)
 	update()
-	
+
 func set_line_H_lengh(value : int) -> void:
 	line_H_lengh = value
 	update()
@@ -129,7 +139,8 @@ func _draw():
 	else:
 #		print(len(shape_array))
 		for m in len(shape_array) :
-			shape_array.erase(m)
+#			shape_array.erase(m)
+			shape_array[m].queue_free()
 		shape_array = []
 #		print(len(shape_array))
 
@@ -138,6 +149,7 @@ func _draw():
 	axis_position = Vector2(axis_x * line_spacing, axis_y * line_spacing)
 	origin_x(axis_position)
 	origin_y(axis_position)
+#	wall_creation(line_H_count, line_V_count, line_spacing)
 
 func origin_x(pos : Vector2) -> void:
 	var sprite_size = $arrow_x.texture.get_size()
@@ -155,3 +167,32 @@ func origin_y(pos : Vector2) -> void:
 	var sprite_scale_size = sprite_size * scale_axis_y
 	$arrow_y.set_position(pos + Vector2(0, -sprite_scale_size.x/2))
 	update()
+
+func wall_creation(line_H_count : int, line_V_count: int, line_spacing: int):
+	var wall_up : CollisionShape2D = CollisionShape2D.new()
+	var wall_right : CollisionShape2D = CollisionShape2D.new()
+	var wall_down : CollisionShape2D = CollisionShape2D.new()
+	var wall_left : CollisionShape2D = CollisionShape2D.new()
+	var rect : RectangleShape2D = RectangleShape2D.new()
+
+	wall_up.shape = rect
+	add_child(wall_up)
+	wall_up.set_position(Vector2(0,0))
+	wall_up.set_rotation_degrees(-90)
+	wall_up.set_modulate(Color.red)
+
+	wall_right.shape = rect
+	add_child(wall_right)
+	wall_right.set_position(Vector2(line_V_count * line_spacing, 0))
+	wall_right.set_modulate(Color.red)
+
+	wall_down.shape = rect
+	add_child(wall_down)
+	wall_down.set_position(Vector2(0, line_H_count * line_spacing))
+	wall_down.set_rotation_degrees(-90)
+	wall_down.set_modulate(Color.red)
+
+	wall_left.shape = rect
+	add_child(wall_left)
+	wall_left.set_position(Vector2(-20,0))
+	wall_left.set_modulate(Color.red)

@@ -29,6 +29,7 @@ func _ready():
 
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Move)
+	ECS.register_system(SystemsLibrary.Collision)
 
 	add_child(heroNode)
 	var sprite = $hero/Sprite
