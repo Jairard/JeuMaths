@@ -1,14 +1,3 @@
-	
-	
-	DEFI CHRONO :
- 
-		un compte a rebours se lance 
-		chaque écran comprends 4 questions
-		a relier avec 4 réponses
-		si réponse bonne +1 gold
-		si réponse fause -5sec
-		quand 4 réponses validées et si encore du temps, une nouvelle page de 4 calculs est chargée
-
 
 		-----------------------
 		-----------------------
@@ -22,4 +11,4 @@ sinon il prends des dégats. Si il y arrive le boss prends des dégats.
 		----------------------
 
 Combat pour le repérage des nombres décimaux / relatifs / fractions
-==> concevoir une (demie)droite graduée et se déplcaer dessus
+==> concevoir une (demie)droite graduée et se déplacer dessus

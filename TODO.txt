@@ -18,7 +18,6 @@
 ---------   mécanique du saut : améliorer le joystick + jump en même temps
 ---------   AnimationNode  : pour organiser l'ordre des animations
 ---------   effets sonores
----------   map rewards
 
                                 |   Gameplay  |
 
