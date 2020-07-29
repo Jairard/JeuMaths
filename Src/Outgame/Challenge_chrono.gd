@@ -5,6 +5,7 @@ onready var game_timer = get_node("Timer")
 onready var hud				= preload("res://Assets/Textures/hud/hud_invader.tscn")
 onready var calcul			= preload("res://Src/Outgame/Calcul_chrono.tscn")
 var chrono_component : ChronoComponent = null
+var current_calcul : Node2D = null
 
 
 var questions : Array = []
@@ -14,6 +15,9 @@ func load_questions() -> void:
 
 func create_calcul():
 	var node = calcul.instance()
+	if current_calcul != null:
+		current_calcul.queue_free()
+	current_calcul = node
 	var chrono_calcul = ECS.add_component(node, ComponentsLibrary.Chrono_calcul) as ChronoCalculComponent
 	chrono_calcul.init(chrono_component)
 	node.setup_question(questions, chrono_component)
