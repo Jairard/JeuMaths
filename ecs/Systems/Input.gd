@@ -1,7 +1,9 @@
 extends System
 
 class_name InputSystem
-
+var counter = 0
+var input_jump = 0
+var is_jumping = 0
 func _get_mandatory_components() -> Array:
 	return [ComponentsLibrary.Movement, ComponentsLibrary.InputListener]
 
@@ -26,15 +28,22 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	comp.set_direction(move_direction)
 
 	# Jump
+	if comp.is_jumping() and comp.get_node().is_on_floor():
+		comp.set_is_jumping(false)
 	if Input.is_action_just_pressed("ui_accept"):
+		input_jump += 1
 		input.set_is_jumping(true)
 
 	if input.is_jumping():
 		# Consume the input
+		is_jumping += 1
 		input.set_is_jumping(false)
 		# Trigger a real jump if possible
-		if comp.get_node().is_on_floor():
-			comp.set_is_jumping(true)
+		if !comp.is_jumping():
+#			counter += 1
+			comp.set_start_jumping(true)
+#	print(input_jump,"    ", is_jumping, "    ", counter)
+	print(comp.get_node().is_on_floor())
 
 func __get_move_direction(keyboard_dir, touch_dir):
 	# Both inputs are the same, no conflict
