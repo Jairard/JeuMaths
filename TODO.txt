@@ -7,7 +7,7 @@
 ---------   fonctions : faire collisionner les points d'intersection avec le hero et comparer avec les coordonnées de la réponse
 ---------   récupérer le composant de dégats dans la scene de calcul et l'envoyer dans "setup_question" car pour le moment on ne récupère pas le temps 
             pour les dégats critiques initialisés dans la map de fight mais on l'écrit à la main
-
+---------   saut a optimiser,  pas déclencher sur certains tiles, là on regarde quand il a atteri avec le move_and_slide
 
                                 |   Positioning  |
  
@@ -15,7 +15,6 @@
 
                                 |   Features  |
 
----------   mécanique du saut : améliorer le joystick + jump en même temps
 ---------   AnimationNode  : pour organiser l'ordre des animations
 ---------   effets sonores
 
@@ -35,5 +34,5 @@
 _____________________________________________________________________________________
 Problèmes : 
   _grid creator : intersection coordonates ==> le clickable pour afficher les intersections ne se déclique pas quand on set sa valeur a false
-
   _logs timer dans calcul gd
+  _touch controller : jump images à inverser
