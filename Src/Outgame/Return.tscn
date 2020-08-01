@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Textures/GUI/return.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/GUI/signExit.png" type="Texture" id=1]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TouchScreenButton
@@ -10,7 +10,7 @@ func _on_return_pressed():
 "
 
 [node name="return" type="TouchScreenButton"]
-position = Vector2( 1217.11, 13.6818 )
+position = Vector2( 1207.56, 76.7277 )
 normal = ExtResource( 1 )
 script = SubResource( 1 )
 [connection signal="pressed" from="." to="." method="_on_return_pressed"]

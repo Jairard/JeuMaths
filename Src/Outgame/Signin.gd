@@ -146,10 +146,10 @@ func _ready():
 	if FileBankUtils.loaded_heroes_stats != null:
 		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
 
-	add_map_option_()
-	add_fight_option()
-	add_featured_option()
-	add_unused_option()
+#	add_map_option_()
+#	add_fight_option()
+#	add_featured_option()
+#	add_unused_option()
 
 	$hero_png.texture = load("res://Assets/Textures/Characters/punk .png")
 
@@ -301,7 +301,8 @@ func _on_TouchScreenButton_pressed():
 #		Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
 	#	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
 #		Fade.change_scene(FileBankUtils.load_right_scene())
-		Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+#		Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+		Fade.change_scene(FileBankUtils.loaded_scenes["upside_down"])
 
 
 func _on_TouchScreenButton2_pressed():

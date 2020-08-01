@@ -22,7 +22,6 @@ func _process_node(dt : float, components : Dictionary) -> void:
 		comp_anim.play(comp_anim.anim.idle)
 
 	if comp.is_jumping() == true :
-		print("jump")
 		comp_anim.play(comp_anim.anim.jump)
 
 	if comp.get_direction() == MoveUtils.dir.colliding :

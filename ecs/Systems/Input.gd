@@ -43,7 +43,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 #			counter += 1
 			comp.set_start_jumping(true)
 #	print(input_jump,"    ", is_jumping, "    ", counter)
-	print(comp.get_node().is_on_floor())
+	(comp.get_node().is_on_floor())
 
 func __get_move_direction(keyboard_dir, touch_dir):
 	# Both inputs are the same, no conflict
