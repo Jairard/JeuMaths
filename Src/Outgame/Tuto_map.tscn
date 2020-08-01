@@ -6,7 +6,7 @@
 [ext_resource path="res://Src/Outgame/Tuto_map.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 60
+size = 55
 font_data = ExtResource( 1 )
 
 [node name="Control" type="Control"]
@@ -18,10 +18,10 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 1086.68
-margin_top = 577.793
-margin_right = 1156.68
-margin_bottom = 647.793
+margin_left = 1167.55
+margin_top = 569.003
+margin_right = 1237.55
+margin_bottom = 639.003
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -33,15 +33,16 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="Label4" type="Label" parent="."]
-margin_left = 19.0323
-margin_top = 481.612
-margin_right = 1049.03
-margin_bottom = 712.612
+margin_left = 29.7904
+margin_top = 435.661
+margin_right = 1050.79
+margin_bottom = 744.661
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "Après ces 3 combats ton héros 
-peut récupérer de l'or,
-mais attention à ta vie !"
+peut récupérer de l'or pour 
+augmenter ses dégats ou sa vie,
+Mais attention aux pièges !"
 __meta__ = {
 "_edit_use_anchors_": false
 }

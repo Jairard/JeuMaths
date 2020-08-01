@@ -18,10 +18,10 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 1098.97
-margin_top = 472.045
-margin_right = 1168.97
-margin_bottom = 542.045
+margin_left = 1113.03
+margin_top = 398.206
+margin_right = 1183.03
+margin_bottom = 468.206
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -34,14 +34,15 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="Label" type="Label" parent="."]
-margin_left = 12.1158
-margin_top = 566.339
-margin_right = 1261.12
-margin_bottom = 767.339
+margin_left = 8.59956
+margin_top = 503.048
+margin_right = 1257.6
+margin_bottom = 734.048
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
-text = "Prends ton temps ! 
-Mieux tu réponds, plus haut est ton score"
+text = "Prends ton temps !
+Ton score est calculé avec ces réponses
+Le but est d'avoir le score le plus élevé"
 __meta__ = {
 "_edit_use_anchors_": false
 }
