@@ -89,12 +89,13 @@ func load_characters() :
 	controllerNode.set_controller(input, heroNode)
 	ECS.add_component(heroNode, ComponentsLibrary.Bounce)
 
-	heroNode.get_node("hero_spr").set_rotation_degrees(-180)
-	heroNode.get_node("hero_spr").set_flip_h(true)
+	heroNode.get_node("Sprite").set_rotation_degrees(-180)
+	heroNode.get_node("Sprite").set_flip_h(true)
 	pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
 	pos_comp.set_position(Vector2(100,300))
 	ECS.add_component(heroNode, ComponentsLibrary.Collision)
 	ECS.add_component(heroNode, ComponentsLibrary.Velocity)
+	ECS.add_component(heroNode, ComponentsLibrary.Upside_down)
 	var gravity_comp = ECS.add_component(heroNode, ComponentsLibrary.Gravity) as GravityComponent
 	gravity_comp.set_gravity(20)
 	var move_comp = ECS.add_component(heroNode, ComponentsLibrary.Movement) as MovementComponent

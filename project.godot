@@ -285,6 +285,11 @@ _global_script_classes=[ {
 "path": "res://ecs/Components/Treasure.gd"
 }, {
 "base": "Component",
+"class": "UpsideDownComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Upside_down.gd"
+}, {
+"base": "Component",
 "class": "VelocityComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Velocity.gd"
@@ -350,6 +355,7 @@ _global_script_class_icons={
 "SpellComponent": "",
 "System": "",
 "TreasureComponent": "",
+"UpsideDownComponent": "",
 "VelocityComponent": "",
 "bulletSystem": ""
 }

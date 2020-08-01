@@ -36,6 +36,8 @@ const Hud_invader	=   preload("res://ecs/Components/Hud_invader.gd")
 const Invader_calcul=   preload("res://ecs/Components/Invader_calcul.gd")
 const Chrono		=   preload("res://ecs/Components/Chrono.gd")
 const Chrono_calcul	=   preload("res://ecs/Components/Chrono_calcul.gd")
+const Upside_down	=   preload("res://ecs/Components/Upside_down.gd")
+
 
 
 
