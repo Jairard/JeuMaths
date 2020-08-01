@@ -23,7 +23,7 @@ __meta__ = {
 }
 
 [node name="question1" type="TextureButton" parent="questions"]
-margin_left = 240.0
+margin_left = 83.0
 margin_top = 170.0
 margin_right = 640.0
 margin_bottom = 270.0
@@ -36,17 +36,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 7.62939e-06
 custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="bowArrow" type="Sprite" parent="questions/question1"]
-position = Vector2( -100, 50.545 )
+position = Vector2( 65, 55 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 4 )
 
 [node name="question2" type="TextureButton" parent="questions"]
-margin_left = 240.0
+margin_left = 83.0
 margin_top = 320.0
 margin_right = 640.0
 margin_bottom = 420.0
@@ -59,37 +60,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 7.62939e-06
 custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="bowArrow2" type="Sprite" parent="questions/question2"]
-position = Vector2( -100, 52.1339 )
+position = Vector2( 65, 55 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 4 )
 
 [node name="question3" type="TextureButton" parent="questions"]
-margin_left = 240.0
+margin_left = 83.0
 margin_top = 470.0
 margin_right = 640.0
 margin_bottom = 570.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="question3" type="Label" parent="questions/question3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 7.62939e-06
 custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="bowArrow3" type="Sprite" parent="questions/question3"]
-position = Vector2( -100, 51.8741 )
+position = Vector2( 65, 55 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 4 )
 
 [node name="question4" type="TextureButton" parent="questions"]
-margin_left = 240.0
+margin_left = 83.0
 margin_top = 620.0
 margin_right = 640.0
 margin_bottom = 720.0
@@ -102,12 +108,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 7.62939e-06
 custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="bowArrow4" type="Sprite" parent="questions/question4"]
-position = Vector2( -100, 52.311 )
+position = Vector2( 65, 55 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 4 )
 
@@ -119,7 +126,7 @@ __meta__ = {
 }
 
 [node name="answer1" type="TextureButton" parent="answers"]
-margin_left = 860.0
+margin_left = 705.0
 margin_top = 170.0
 margin_right = 1260.0
 margin_bottom = 270.0
@@ -132,17 +139,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 3.05176e-05
 custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="duck_target_yellow" type="Sprite" parent="answers/answer1"]
-position = Vector2( -100, 40.0947 )
+position = Vector2( 65, 55 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="answer2" type="TextureButton" parent="answers"]
-margin_left = 860.0
+margin_left = 705.0
 margin_top = 320.0
 margin_right = 1260.0
 margin_bottom = 420.0
@@ -152,17 +160,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 3.05176e-05
 custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="duck_target_yellow2" type="Sprite" parent="answers/answer2"]
-position = Vector2( -100, 40.2232 )
+position = Vector2( 65, 55 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="answer3" type="TextureButton" parent="answers"]
-margin_left = 860.0
+margin_left = 705.0
 margin_top = 470.0
 margin_right = 1260.0
 margin_bottom = 570.0
@@ -172,17 +181,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 3.05176e-05
 custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="duck_target_yellow3" type="Sprite" parent="answers/answer3"]
-position = Vector2( -100, 40.3925 )
+position = Vector2( 65, 55 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="answer4" type="TextureButton" parent="answers"]
-margin_left = 860.0
+margin_left = 705.0
 margin_top = 620.0
 margin_right = 1260.0
 margin_bottom = 720.0
@@ -195,18 +205,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 3.05176e-05
 custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="duck_target_yellow4" type="Sprite" parent="answers/answer4"]
-position = Vector2( -100, 42.0895 )
+position = Vector2( 65, 55 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( -213.222, -64.2815 )
