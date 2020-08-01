@@ -22,6 +22,8 @@
 
 ---------   faire un effecteur : colonne de vent
 ---------   faire un laser
+---------   ajouter animation de saut pour les héros
+   
 
                                 |   Add_on  |
 
@@ -36,3 +38,5 @@ Problèmes :
   _grid creator : intersection coordonates ==> le clickable pour afficher les intersections ne se déclique pas quand on set sa valeur a false
   _logs timer dans calcul gd
   _touch controller : jump images à inverser
+  _invader : marquer la réponse fausse
+  _upside down

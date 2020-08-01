@@ -299,7 +299,7 @@ func _on_TouchScreenButton_pressed():
 	else:
 		before_change_scene()
 #		Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
-	#	Fade.change_scene(FileBankUtils.loaded_scenes["playing_map"][0]["map_tuto"])
+#		Fade.change_scene(FileBankUtils.loaded_scenes["map_water"])
 #		Fade.change_scene(FileBankUtils.load_right_scene())
 #		Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 		Fade.change_scene(FileBankUtils.loaded_scenes["upside_down"])
