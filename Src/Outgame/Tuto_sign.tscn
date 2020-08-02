@@ -55,6 +55,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="title" type="Label" parent="."]
+margin_left = 337.292
+margin_top = -2.5847
+margin_right = 519.292
+margin_bottom = 76.4153
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "TUTO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="themes" type="Label" parent="."]
 margin_left = 650.052
 margin_top = 376.074

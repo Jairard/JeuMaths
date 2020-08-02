@@ -301,8 +301,8 @@ func _on_TouchScreenButton_pressed():
 #		Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
 #		Fade.change_scene(FileBankUtils.loaded_scenes["map_water"])
 #		Fade.change_scene(FileBankUtils.load_right_scene())
-#		Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
-		Fade.change_scene(FileBankUtils.loaded_scenes["upside_down"])
+		Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
+#		Fade.change_scene(FileBankUtils.loaded_scenes["upside_down"])
 
 
 func _on_TouchScreenButton2_pressed():
