@@ -56,7 +56,6 @@ func setup_question(exercices : Array, constants : Array) -> void:
 	var questions		: Array 		= exercices[random_theme]["questions"]
 	var random_question : int 			= RandomUtils.randi_to(len(questions))
 	var chosen_question : Dictionary 	= questions[random_question]
-
 	var font_timer = "res://Assets/Font/Comfortaa-Bold.ttf"
 	timer = NodeUtils.create_timer(6, true, true)
 	add_child(timer)
@@ -218,11 +217,6 @@ func setup_question(exercices : Array, constants : Array) -> void:
 		buttons = $Calcul/Control/Buttons_calculs
 
 
-#		if ans["is_good_answer"] == true:
-#			var style : StyleBoxFlat = StyleBoxFlat.new()
-#			style.set_bg_color(Color(0,255,0))
-#			button_answer.add_stylebox_override("hover",style)
-
 func critic(qestion : Label, delta : float) -> void:
 	if int(timer.get_time_left()) > 0:
 		question.add_color_override("font_color", Color.darkorchid)
@@ -241,6 +235,11 @@ func _process(delta):
 	critic(question, delta)
 
 func on_answer_pressed(is_good_answer : bool):
+	for i in answers:
+		if i["is_good_answer"] == true:
+			var style : StyleBoxFlat = StyleBoxFlat.new()
+			style.set_bg_color(Color(0,255,0))
+#			j.get_node().add_stylebox_override("hover",style)
 	var answer = AnswerListenerComponent.answer.false
 	if is_good_answer == true:
 		answer = AnswerListenerComponent.answer.true
