@@ -29,3 +29,7 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="return" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 650, 350 )
+current = true

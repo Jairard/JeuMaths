@@ -35,15 +35,18 @@ scroll_ignore_camera_zoom = true
 motion_scale = Vector2( 0, 0.2 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -1271.43, 0 )
+scale = Vector2( 1.6622, 1 )
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( 0, -1000 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 2160 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="return" parent="CanvasLayer" instance=ExtResource( 4 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 650, 350 )
+current = true

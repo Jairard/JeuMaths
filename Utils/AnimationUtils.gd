@@ -85,7 +85,24 @@ func floating_damage(node : Node2D, dmg : int, _bool : bool, font):
 
 		tween.interpolate_property(label, "modulate", Color("#f1ff08"), Color("#00ffffff"), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()	
-		yield(tween, "tween_completed")		
+		yield(tween, "tween_completed")
 
 		_bool = false
 		return tween
+
+func ShakeScreen(node : Node2D, amplitude : int):
+#	var randomX : int = rand_range(-2,2)
+#	var randomY : int = rand_range(-2,2)
+	var camera = node.get_node("Camera2D")
+	var camera_pos = camera.get_offset()
+	node.set_modulate(Color.red)
+	camera.set_offset(Vector2(camera_pos.x + amplitude,camera_pos.y - amplitude))
+	yield(get_tree().create_timer(.02), "timeout")
+	camera.set_offset(Vector2(camera_pos.x + amplitude,camera_pos.y + amplitude))
+	yield(get_tree().create_timer(.02), "timeout")
+	camera.set_offset(Vector2(camera_pos.x - amplitude,camera_pos.y + amplitude))
+	yield(get_tree().create_timer(.02), "timeout")
+	camera.set_offset(Vector2(camera_pos.x - amplitude,camera_pos.y - amplitude))
+	yield(get_tree().create_timer(.02), "timeout")
+	camera.set_offset(camera_pos)
+	node.set_modulate(Color.white)

@@ -21,3 +21,5 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			var new_timer = timer - 5
 			timerNode.start(new_timer)
 			chrono.set_discolor_nodes(true)
+			var node = chrono.get_node()
+			AnimationUtils.ShakeScreen(node, 50)

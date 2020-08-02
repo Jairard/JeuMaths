@@ -22,6 +22,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	if answer == AnswerListenerComponent.answer.false:
 			invader.set_health(invader.get_health() - 1)
+			var node = invader.get_node()
+			AnimationUtils.ShakeScreen(node, 50)
 			answ.get_node().queue_free()
 
 	answ.set_answer(AnswerListenerComponent.answer.none)
