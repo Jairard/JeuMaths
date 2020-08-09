@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Textures/sheet/Zombie.png" type="Texture" id=1]
+[ext_resource path="res://Src/Outgame/TorchLight.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 41.4536
@@ -44,6 +45,7 @@ current = true
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+offset = Vector2( 0, -50 )
 vframes = 5
 hframes = 9
 frame = 25
@@ -51,9 +53,11 @@ frame = 25
 [node name="Tween" type="Tween" parent="Sprite"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.67548, 33.8143 )
+position = Vector2( 3.675, -10 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/anim_idle = SubResource( 2 )
 anims/anim_right = SubResource( 3 )
+
+[node name="TorchLight" parent="." instance=ExtResource( 2 )]

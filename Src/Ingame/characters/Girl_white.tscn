@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/Ingame/characters/Girl_white.gd" type="Script" id=1]
+[ext_resource path="res://Src/Outgame/TorchLight.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Textures/sheet/Girl_white.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -47,7 +48,7 @@ anims/anim_idle = SubResource( 1 )
 anims/anim_right = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2.20499, 43.7803 )
+position = Vector2( -2.205, -10 )
 shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -55,8 +56,11 @@ current = true
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
+offset = Vector2( 0, -50 )
 vframes = 5
 hframes = 9
 frame = 15
 
 [node name="Tween" type="Tween" parent="Sprite"]
+
+[node name="TorchLight" parent="." instance=ExtResource( 2 )]

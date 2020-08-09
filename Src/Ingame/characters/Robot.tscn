@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Textures/sheet/Robot.png" type="Texture" id=1]
+[ext_resource path="res://Src/Outgame/TorchLight.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_idle"
@@ -45,7 +46,7 @@ anims/anim_idle = SubResource( 1 )
 anims/anim_right = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 5.68802, 33.5593 )
+position = Vector2( 5.688, -10 )
 shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -53,8 +54,11 @@ current = true
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+offset = Vector2( 0, -50 )
 vframes = 5
 hframes = 9
 frame = 25
 
 [node name="Tween" type="Tween" parent="Sprite"]
+
+[node name="TorchLight" parent="." instance=ExtResource( 2 )]
