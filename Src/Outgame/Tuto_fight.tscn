@@ -39,7 +39,7 @@ margin_top = 503.048
 margin_right = 1257.6
 margin_bottom = 734.048
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Prends ton temps !
 Ton score est calculé avec ces réponses
 Le but est d'avoir le score le plus élevé"

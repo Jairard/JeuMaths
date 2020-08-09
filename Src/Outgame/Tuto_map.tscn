@@ -38,7 +38,7 @@ margin_top = 435.661
 margin_right = 1050.79
 margin_bottom = 744.661
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Après ces 3 combats ton héros 
 peut récupérer de l'or pour 
 augmenter ses dégats ou sa vie,

@@ -38,7 +38,7 @@ margin_top = 482.253
 margin_right = 964.747
 margin_bottom = 713.253
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "1er défi de vitesse : 
 tu as 5 vies pour obtenir le plus 
 de pièces d'or possibles"

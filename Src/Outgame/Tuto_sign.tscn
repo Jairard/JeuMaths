@@ -48,7 +48,7 @@ margin_top = 115.019
 margin_right = 1278.41
 margin_bottom = 268.019
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Rentre ton pseudo
 et choisis ton héros"
 __meta__ = {
@@ -61,7 +61,7 @@ margin_top = -2.5847
 margin_right = 519.292
 margin_bottom = 76.4153
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
 text = "TUTO"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -73,7 +73,7 @@ margin_top = 376.074
 margin_right = 1276.05
 margin_bottom = 529.074
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.92549, 0.00784314, 0.137255, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Thèmes sur lesquels 
 on a tes stats"
 __meta__ = {
