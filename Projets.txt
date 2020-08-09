@@ -1,6 +1,11 @@
 
 		-----------------------
 		-----------------------
+Maps dans le noir:
+
+scene torchlight déjà créée
+activer la scene
+mettre en place des occluder sur les tilemaps
 		-----------------------
 
 Combat pour les fonctions  : le perso se déplace sur une grille de cases en cases: 

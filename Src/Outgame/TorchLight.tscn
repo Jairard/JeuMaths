@@ -4,4 +4,8 @@
 
 [node name="TorchLight" type="Light2D"]
 position = Vector2( 380, 0 )
+enabled = false
 texture = ExtResource( 1 )
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 0.2
