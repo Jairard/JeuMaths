@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 36.5191, 10 )
+extents = Vector2( 91.543, 104.096 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 collision_layer = 64
