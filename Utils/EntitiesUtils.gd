@@ -83,3 +83,11 @@ func create_platform(root : Node2D, resource : Resource, pos_start : Vector2, po
 	pos_comp_platform.set_position(pos_start)
 	var comp_patrol_platform = ECS.add_component(platformNode, ComponentsLibrary.Patrol) as PatrolComponent
 	comp_patrol_platform.init(pos_start, pos_end, timer)
+
+func create_light(root : Node2D, resource : Resource, pos : Vector2):
+	var light = resource.instance()
+	root.add_child(light)
+	
+	ECS.add_component(light, ComponentsLibrary.Collision)
+	var light_pos_comp = ECS.add_component(light, ComponentsLibrary.Position) as PositionComponent
+	light_pos_comp.set_position(pos)
