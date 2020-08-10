@@ -80,3 +80,4 @@ position = Vector2( 0.500031, 0 )
 shape = SubResource( 3 )
 
 [node name="TorchLight" parent="." instance=ExtResource( 3 )]
+position = Vector2( 426.776, -12.4154 )

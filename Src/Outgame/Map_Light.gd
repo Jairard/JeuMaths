@@ -26,7 +26,7 @@ func _ready():
 	CameraUtils.set_offset(Vector2(250, 50))
 	CameraUtils.set_zoom(1.5)
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(100,300))
+	pos_comp.set_position(Vector2(6000,500))
 	var input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
 	var controllerNode = controller.instance()
 	add_child(controllerNode)
@@ -59,6 +59,19 @@ func _load_monsters():
 func _load_light():
 	EntitiesUtils.create_light(self, light, Vector2(500,200))
 	EntitiesUtils.create_light(self, light, Vector2(900,455))
+	EntitiesUtils.create_light(self, light, Vector2(2530,-175))
+	EntitiesUtils.create_light(self, light, Vector2(2905,-175))
+	
+	EntitiesUtils.create_light(self, light, Vector2(3615,15))
+	EntitiesUtils.create_light(self, light, Vector2(4010,600))
+	EntitiesUtils.create_light(self, light, Vector2(5480,600))
+	EntitiesUtils.create_light(self, light, Vector2(5410,-180))
+	
+	EntitiesUtils.create_light(self, light, Vector2(5040,-50))
+	EntitiesUtils.create_light(self, light, Vector2(6050,-50))
+	EntitiesUtils.create_light(self, light, Vector2(6370,270))
+	EntitiesUtils.create_light(self, light, Vector2(7430,420))
+	
 	
 func get_touched_area_metrics(box : Rect2) -> float:
 	return sqrt(box.size.x * box.size.x + box.size.y * box.size.y)
