@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Src/Ingame/Animation/spell_hero.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/GUI/rockGrey_medium4.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Light/light.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.3715, 32.7623 )
@@ -16,3 +17,8 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 0.1
+color = Color( 0.815686, 0.803922, 0.803922, 1 )

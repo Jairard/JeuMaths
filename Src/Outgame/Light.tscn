@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Textures/Light/light.png" type="Texture" id=1]
+[ext_resource path="res://Src/Outgame/Light.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Textures/Light/pantsLightBlue3.png" type="Texture" id=3]
+
+[node name="Light" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 1 )
+texture_scale = 0.2
+shadow_enabled = true

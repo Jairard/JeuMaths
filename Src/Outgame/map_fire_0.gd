@@ -76,6 +76,8 @@ func load_characters() :
 		heroNode = robot.instance()
 	else:
 		heroNode = punk.instance()
+	heroNode.get_node("TorchLight").enabled = false
+
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))

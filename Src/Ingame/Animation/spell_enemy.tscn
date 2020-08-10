@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Src/Ingame/Animation/spell_enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/GUI/slime_walk.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Light/light.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.3865
@@ -15,3 +16,9 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 0.2
+color = Color( 0.815686, 0.0588235, 1, 1 )
+energy = 2.0
