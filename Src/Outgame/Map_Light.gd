@@ -7,6 +7,7 @@ onready var gold			= 	preload("res://Src/Ingame/characters/gold.tscn")
 onready var damage			= 	preload("res://Src/Ingame/characters/Damage.tscn")
 onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var light			= 	preload("res://Src/Outgame/Light.tscn")
+onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 
 onready var min_metric_edit = get_node("CanvasLayer/Control/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/Control/MaxMetrics")
@@ -20,13 +21,15 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Move)
 	ECS.register_system(SystemsLibrary.Input)
 	ECS.register_system(SystemsLibrary.Collision)
+	ECS.register_system(SystemsLibrary.Patrol)
+	ECS.register_system(SystemsLibrary.Bullet)
 	var heroNode = punk.instance()
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))
 	CameraUtils.set_zoom(1.5)
 	var pos_comp = ECS.add_component(heroNode, ComponentsLibrary.Position) as PositionComponent
-	pos_comp.set_position(Vector2(6000,500))
+	pos_comp.set_position(Vector2(100,500))
 	var input = ECS.add_component(heroNode, ComponentsLibrary.InputListener) as InputListenerComponent
 	var controllerNode = controller.instance()
 	add_child(controllerNode)
@@ -54,7 +57,16 @@ func _input(event):
 		CameraUtils.set_zoom(CameraUtils.get_zoom() + 0.05)
 
 func _load_monsters():
-	EntitiesUtils.create_monster(self, monster, Vector2(1500,350), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(1500,360), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(410,100), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(1300,-90), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(2175,860), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(3610,-90), gold, health, damage)
+	EntitiesUtils.create_monster(self, monster, Vector2(5150,100), gold, health, damage)
+
+func _load_bullets():
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(4000,600))
+	EntitiesUtils.create_bullet(self, spawn_fire, Vector2(5450,600))
 
 func _load_light():
 	EntitiesUtils.create_light(self, light, Vector2(500,200))
@@ -92,3 +104,7 @@ func update_dragging():
 		CameraUtils.set_zoom_ratio(origin_zoom_ratio + ratio_delta)
 	else:
 		is_dragging = false
+
+
+func _on_Timer_timeout():
+	_load_bullets()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/Ingame/FX/Fire.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Textures/Light/light.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 68.1068, 25.7147 )
@@ -37,3 +38,9 @@ angle = 45.0
 scale_amount = 25.0
 scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 38.1122, 0 )
+scale = Vector2( 1.74438, 1 )
+texture = ExtResource( 2 )
+texture_scale = 0.1
