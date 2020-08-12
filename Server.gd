@@ -3,7 +3,6 @@ extends Node2D
 var Tcp_Server : TCP_Server = TCP_Server.new()
 var connected_clients : Array = []
 var connecting_clients : Array = []
-var timer = false
 
 func Server_Start_Listening():
 	print("Starting the server...")
@@ -18,22 +17,18 @@ func _ready():
 	Server_Start_Listening()
 
 func _process(delta):
-	if timer:
-		timer = false
-		if Tcp_Server.is_connection_available(): 
-			var client : StreamPeerTCP = Tcp_Server.take_connection()
-			var pseudo = client.get_var()
-			connecting_clients.append(client)
+	if Tcp_Server.is_connection_available(): 
+		var client : StreamPeerTCP = Tcp_Server.take_connection()
+		var pseudo = client.get_var()
+		connecting_clients.append(client)
 
-			print("A client has connected ! -------- pseudo : ", str(pseudo))
-		print("There are currently ", str(len(connected_clients)) ," clients connected")
-
+		print("A client has connected ! -------- pseudo : ", str(pseudo))
 
 func _exit_tree():
 	print("Closing the server")
 	Tcp_Server.stop()
 
-func _handle_client():
+func handle_clients():
 	var clients_to_remove : Array = []
 	for client in connecting_clients:
 		match(client.get_status()):
@@ -69,8 +64,10 @@ func _handle_client():
 	for client in clients_to_remove:
 		connected_clients.erase(client)
 
+	print("They are currently ", str(len(connecting_clients)), " clients connecting and ", str(len(connected_clients)) ," clients connected")
+
 func handle_client_message(client : StreamPeerTCP):
 	pass
 
 func _on_Timer_timeout():
-	timer = true
+	handle_clients()

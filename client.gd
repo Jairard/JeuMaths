@@ -16,7 +16,6 @@ func Client_Connection():
 		Tcp_Client = null
 		return
 
-#	Tcp_Client.put_var(pseudo)
 	print("Connected !")
 
 func _ready():
@@ -26,11 +25,31 @@ func _exit_tree():
 	print("Closing the server")
 	Tcp_Client.disconnect_from_host()
 
-func _process(delta):
-	if Tcp_Client == null:
-		pass
+func handle_message():
+	pass
+
+func end_connection():
+	if Tcp_Client!= null:
+		print("Client disconnected")
+		Tcp_Client.disconnect_from_host()
+		Tcp_Client = null
 
 func _on_Button_pressed():
 	pseudo = $LineEdit.get_text()
 	print("new pseudo")
 	Tcp_Client.put_var(pseudo)
+
+
+func _on_Timer_timeout():
+	if Tcp_Client == null:
+			pass
+
+	match(Tcp_Client.get_status()):
+		StreamPeerTCP.STATUS_NONE:
+			end_connection()
+		StreamPeerTCP.STATUS_CONNECTING:
+			print("Waiting for connection")
+		StreamPeerTCP.STATUS_CONNECTED:
+			handle_message()
+		StreamPeerTCP.STATUS_ERROR:
+			end_connection()

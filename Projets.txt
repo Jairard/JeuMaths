@@ -4,8 +4,6 @@
 Maps dans le noir:
 
 mettre en place un controller pour l'angle de la torche
-placer les monstres 
-placer les feux
 		-----------------------
 
 Combat pour les fonctions  : le perso se déplace sur une grille de cases en cases: 
