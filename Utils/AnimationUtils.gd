@@ -90,6 +90,25 @@ func floating_damage(node : Node2D, dmg : int, _bool : bool, font):
 		_bool = false
 		return tween
 
+func validate_answer(node : Node2D):
+	var tween : Tween = Tween.new()
+	node.add_child(tween)
+
+	var sprite = Sprite.new()
+	node.add_child(sprite)
+	sprite.texture = load("res://Assets/Textures/GUI/pouce.png")
+	sprite.position = Vector2(600,400)
+
+	tween.interpolate_property(sprite, "modulate", Color("#f1ff08"), Color("#00ffffff"), 
+								1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+
+	tween.interpolate_property( sprite, "scale", Vector2(1,1), Vector2(8, 8),
+								1, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+
+	tween.start()
+	yield(tween, "tween_completed")
+	return tween
+
 func ShakeScreen(node : Node2D, amplitude : int):
 	var camera = node.get_node("Camera2D")
 	var camera_pos = camera.get_offset()
