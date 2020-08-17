@@ -2,7 +2,7 @@
 
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Tuto/chrono.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Textures/GUI/signRight.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/GUI/cross.png" type="Texture" id=3]
 [ext_resource path="res://Src/Outgame/Tuto_chrono.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -18,10 +18,10 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 1116.57
-margin_top = 576.035
-margin_right = 1186.57
-margin_bottom = 646.035
+margin_left = 1165.8
+margin_top = 591.858
+margin_right = 1235.8
+margin_bottom = 661.858
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

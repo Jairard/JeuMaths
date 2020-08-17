@@ -21,6 +21,8 @@ onready var score			= 	preload("res://Assets/Textures/hud/hud_score.tscn")
 onready var min_metric_edit = get_node("CanvasLayer/Control/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/Control/MaxMetrics")
 
+var hud_open  : Component = null
+var Hud_heroNode : Node2D = null
 var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode = null
@@ -82,10 +84,12 @@ func load_characters() :
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))
 	CameraUtils.set_zoom(1.5)
-
+	Hud_heroNode = hud.instance()
+	add_child(Hud_heroNode)
+	hud_open = ECS.add_component(heroNode, ComponentsLibrary.Is_Open) as IsOpenComponent
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
-	ScoreNode.set_hero_node(heroNode, null)
+	ScoreNode.set_hero_node(heroNode, hud_open)
 
 	var portalNode = portal.instance()
 	add_child(portalNode)
@@ -132,9 +136,6 @@ func load_characters() :
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
 	score_comp.init_stats(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories, FileBankUtils.defeats)	
 
-	var Hud_heroNode = hud.instance()
-	add_child(Hud_heroNode)
-	Hud_heroNode.set_name("Hud_hero")
 
 	var hud_comp_hero_fight = ECS.add_component(heroNode, ComponentsLibrary.Hud_fight) as HudFightComponent
 

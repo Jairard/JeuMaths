@@ -7,7 +7,7 @@ const init_stats : Dictionary =  {
 									"damage":15, "health":70,
 									"treasure":0,"good_answer":0,
 									"wrong_answer":0,"victories":0,"defeats":0,
-									"health_max":70, "scene_counter":0
+									"health_max":70, "scene_counter":0, "hide_tuto":false
 									}
 
 var constants : Dictionary = {"+_fraction_simple" : 0, "-_fraction_simple" : 1,
@@ -298,12 +298,10 @@ func _on_TouchScreenButton_pressed():
 		$pseudo_empty.show()
 	else:
 		before_change_scene()
-#		Fade.change_scene(FileBankUtils.loaded_scenes["rewards"])
-#		Fade.change_scene(FileBankUtils.loaded_scenes["map_water"])
-#		Fade.change_scene(FileBankUtils.load_right_scene())
-		Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
-#		Fade.change_scene(FileBankUtils.loaded_scenes["upside_down"])
-
+		if FileBankUtils.hide_tuto:
+			Fade.change_scene(FileBankUtils.load_right_scene())
+		else:
+			Fade.change_scene(FileBankUtils.loaded_scenes["tuto_fight"])
 
 func _on_TouchScreenButton2_pressed():
 	before_change_scene()

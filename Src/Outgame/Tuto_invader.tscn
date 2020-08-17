@@ -2,7 +2,7 @@
 
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Tuto/invader.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Textures/GUI/signRight.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/GUI/cross.png" type="Texture" id=3]
 [ext_resource path="res://Src/Outgame/Tuto_invader.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -18,10 +18,10 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 1076.41
-margin_top = 566.37
-margin_right = 1146.41
-margin_bottom = 636.37
+margin_left = 1176.62
+margin_top = 590.983
+margin_right = 1246.62
+margin_bottom = 660.983
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

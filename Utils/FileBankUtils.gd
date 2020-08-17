@@ -13,6 +13,7 @@ var classroom		: int = 0
 var pseudo			: String = ""
 var popup			= false
 var portal			= true
+var hide_tuto		= false
 
 var loaded_scenes = load_json("res://Assets/Scenes.json")
 var stats_File_Name : String = "res://Assets/Stats_Characters/Hero_Stats.json"
@@ -191,6 +192,7 @@ func init_stats(stats : Dictionary, _pseudo : String) -> void:
 	health_max		= stats["health_max"]
 	pseudo			= _pseudo
 	scene_counter	= stats["scene_counter"]
+	hide_tuto		= stats["hide_tuto"]
 	
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
@@ -199,8 +201,8 @@ func _notification(what):
 		var stats : Dictionary = {
 									"damage":damage, "health":health,
 									"treasure":treasure,"good_answer":good_answer,"wrong_answer":wrong_answer,
-									"victories":victories, "defeats":defeats,
-									"health_max":health_max, "scene_counter":scene_counter	  
+									"victories":victories, "defeats":defeats, "health_max":health_max, 
+									"scene_counter":scene_counter, "hide_tuto":hide_tuto  
 								}
 		if loaded_heroes_stats == null:
 			loaded_heroes_stats = {}

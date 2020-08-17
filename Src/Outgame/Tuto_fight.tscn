@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://font/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/Textures/GUI/signRight.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/GUI/cross.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Tuto/fight.png" type="Texture" id=3]
 [ext_resource path="res://Src/Outgame/Tuto_fight.gd" type="Script" id=4]
 
@@ -18,10 +18,10 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 1113.03
-margin_top = 398.206
-margin_right = 1183.03
-margin_bottom = 468.206
+margin_left = 1197.42
+margin_top = 465.013
+margin_right = 1267.42
+margin_bottom = 535.013
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

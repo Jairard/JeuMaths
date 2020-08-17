@@ -363,7 +363,7 @@ _global_script_class_icons={
 [application]
 
 config/name="jeu"
-run/main_scene="res://Client.tscn"
+run/main_scene="res://Src/Outgame/Signin.tscn"
 config/icon="res://Assets/Textures/GUI/icon.png"
 
 [autoload]
@@ -387,6 +387,8 @@ Fade="*res://Utils/Fade.tscn"
 Scene_transition_data="*res://Utils/Scene_transition_data.gd"
 CameraUtils="*res://Utils/CameraUtils.gd"
 TouchUtils="*res://Utils/TouchUtils.gd"
+NetworkUtils="*res://Utils/NetworkUtils.gd"
+Protocol="*res://Utils/Protocol.gd"
 
 [debug]
 

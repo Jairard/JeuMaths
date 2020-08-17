@@ -84,15 +84,13 @@ func floating_damage(node : Node2D, dmg : int, _bool : bool, font):
 		node.add_child(tween)
 
 		tween.interpolate_property(label, "modulate", Color("#f1ff08"), Color("#00ffffff"), 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()	
+		tween.start()
 		yield(tween, "tween_completed")
 
 		_bool = false
 		return tween
 
 func ShakeScreen(node : Node2D, amplitude : int):
-#	var randomX : int = rand_range(-2,2)
-#	var randomY : int = rand_range(-2,2)
 	var camera = node.get_node("Camera2D")
 	var camera_pos = camera.get_offset()
 	node.set_modulate(Color.red)

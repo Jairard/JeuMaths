@@ -20,6 +20,8 @@ onready var portal 			= 	preload("res://Src/Ingame/FX/smoke_red.tscn")
 onready var min_metric_edit = get_node("CanvasLayer/Control/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/Control/MaxMetrics")
 
+var hud_open  : Component = null
+var Hud_heroNode : Node2D = null
 var health_comp_hero : Component = null
 var pos_comp : Component = null
 var heroNode : Node2D = null
@@ -107,13 +109,13 @@ func _ready():
 	pos_comp_portal.set_position(Vector2(18200,1900))
 
 
-	var Hud_heroNode = hud.instance()
+	Hud_heroNode = hud.instance()
 	add_child(Hud_heroNode)
-	Hud_heroNode.set_name("Hud_hero")
+	hud_open = ECS.add_component(heroNode, ComponentsLibrary.Is_Open) as IsOpenComponent
 
 	var ScoreNode = score.instance()
 	add_child(ScoreNode)
-	ScoreNode.set_hero_node(heroNode, null)
+	ScoreNode.set_hero_node(heroNode, hud_open)
 
 	var score_comp = ECS.add_component(heroNode, ComponentsLibrary.Scoreglobal, TagsLibrary.Tag_Hero) as ScoreglobalcounterComponent
 	score_comp.init_score(FileBankUtils.good_answer, FileBankUtils.wrong_answer, FileBankUtils.victories)
