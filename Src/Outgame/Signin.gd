@@ -299,7 +299,7 @@ func _on_TouchScreenButton_pressed():
 	else:
 		before_change_scene()
 		if FileBankUtils.hide_tuto:
-			Fade.change_scene(FileBankUtils.load_right_scene())
+			Fade.change_scene(FileBankUtils.loaded_scenes["map_fight_1"])
 		else:
 			Fade.change_scene(FileBankUtils.loaded_scenes["tuto_fight"])
 

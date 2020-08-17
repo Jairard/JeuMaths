@@ -18,6 +18,7 @@ func _process_node(dt : float, components : Dictionary) -> void:
 	var answer = answ.get_answer()
 	if answer == AnswerListenerComponent.answer.true:
 			invader.set_gold(invader.get_gold() + 1)
+			AnimationUtils.validate_answer(calcul.get_node().get_parent())
 			answ.get_node().queue_free()
 
 	if answer == AnswerListenerComponent.answer.false:

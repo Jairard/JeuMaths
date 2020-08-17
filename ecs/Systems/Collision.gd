@@ -256,7 +256,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 				if FileBankUtils.portal:
 					FileBankUtils.scene_counter += 1
 					FileBankUtils.portal = false
-				Fade.change_scene(FileBankUtils.loaded_scenes["tuto_invader"])
+				if FileBankUtils.hide_tuto:
+					Fade.change_scene(FileBankUtils.loaded_scenes["invader"])
+				else:
+					Fade.change_scene(FileBankUtils.loaded_scenes["tuto_invader"])
 			unique_collision(collider)
 
 func unique_collision(collider):
