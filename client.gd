@@ -3,6 +3,7 @@ extends Node2D
 var Tcp_Client : StreamPeerTCP = StreamPeerTCP.new()
 var pseudo : String = ""
 
+
 func Client_Connection():
 	print("Connecting to server...")
 	Tcp_Client.connect_to_host("127.0.0.1", 1337)
@@ -36,7 +37,6 @@ func end_connection():
 
 func _on_Button_pressed():
 	pseudo = $LineEdit.get_text()
-	print("new pseudo")
 	Tcp_Client.put_var(pseudo)
 
 
