@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Textures/sheet/Boy_white.png" type="Texture" id=1]
-[ext_resource path="res://Src/Outgame/TorchLight.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 42.8176
@@ -58,5 +57,3 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/anim_idle = SubResource( 2 )
 anims/anim_right = SubResource( 3 )
-
-[node name="TorchLight" parent="." instance=ExtResource( 2 )]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/Ingame/characters/Girl_white.gd" type="Script" id=1]
-[ext_resource path="res://Src/Outgame/TorchLight.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Textures/sheet/Girl_white.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -62,5 +61,3 @@ hframes = 9
 frame = 15
 
 [node name="Tween" type="Tween" parent="Sprite"]
-
-[node name="TorchLight" parent="." instance=ExtResource( 2 )]

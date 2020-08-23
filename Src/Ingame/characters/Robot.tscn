@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Textures/sheet/Robot.png" type="Texture" id=1]
-[ext_resource path="res://Src/Outgame/TorchLight.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_idle"
@@ -60,5 +59,3 @@ hframes = 9
 frame = 25
 
 [node name="Tween" type="Tween" parent="Sprite"]
-
-[node name="TorchLight" parent="." instance=ExtResource( 2 )]
