@@ -62,7 +62,7 @@ func _ready():
 		heroNode = robot.instance()
 	else:
 		heroNode = punk.instance()
-	heroNode.get_node("TorchLight").enabled = false
+#	heroNode.get_node("TorchLight").enabled = false
 
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)

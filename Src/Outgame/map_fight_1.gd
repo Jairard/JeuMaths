@@ -149,7 +149,7 @@ func spawn() :
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(600, -400))
 	CameraUtils.set_zoom(2.5)
-	heroNode.get_node("TorchLight").enabled = false
+#	heroNode.get_node("TorchLight").enabled = false
 	add_child(enemyNode)
 	enemyNode.set_position(Vector2(1700,810))
 	var sprite = $Ennemy/Sprite

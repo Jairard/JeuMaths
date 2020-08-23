@@ -11,6 +11,7 @@ onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 
 onready var min_metric_edit = get_node("CanvasLayer/Control/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/Control/MaxMetrics")
+var heroNode : Node2D = null
 var zoom_min : Vector2 = Vector2(0,0)
 var zoom_max : Vector2 = Vector2(0,0)
 var is_dragging : bool = false
@@ -23,7 +24,7 @@ func _ready():
 	ECS.register_system(SystemsLibrary.Collision)
 	ECS.register_system(SystemsLibrary.Patrol)
 	ECS.register_system(SystemsLibrary.Bullet)
-	var heroNode = punk.instance()
+	heroNode = punk.instance()
 	add_child(heroNode)
 	CameraUtils.set_camera_root(heroNode)
 	CameraUtils.set_offset(Vector2(250, 50))
@@ -108,3 +109,7 @@ func update_dragging():
 
 func _on_Timer_timeout():
 	_load_bullets()
+
+
+func _on_light_battery_timeout():
+	heroNode.get_node("TorchLight").energy -= 0.5
