@@ -17,6 +17,7 @@
 
 ---------   AnimationNode  : pour organiser l'ordre des animations
 ---------   effets sonores
+---------   Animation d'impact des sorts : explosion
 
                                 |   Gameplay  |
 
@@ -38,5 +39,5 @@ Problèmes :
   _grid creator : intersection coordonates ==> le clickable pour afficher les intersections ne se déclique pas quand on set sa valeur a false
   _logs timer dans calcul gd
   _touch controller : jump images à inverser
-  _invader : marquer la réponse fausse
-  _upside down
+  _map fight : afficher la bonne réponse
+

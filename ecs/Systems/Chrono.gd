@@ -15,6 +15,8 @@ func _process_node(dt : float, components : Dictionary) -> void:
 			chrono.set_gold(chrono.get_gold() + 1)
 			chrono.set_delete_nodes(true)
 			chrono.set_answer_count(chrono.get_answer_count() + 1)
+			var node = chrono.get_node()
+			AnimationUtils.validate_answer(node)
 		else:
 			var timerNode = chrono.get_node().get_node("Timer")
 			var timer = timerNode.get_time_left()

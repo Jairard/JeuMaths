@@ -17,10 +17,10 @@ func _process_node(dt : float, components : Dictionary) -> void:
 
 	velocity.y -= gravity_comp.get_gravity()
 	if move_comp.get_direction() == MoveUtils.dir.right :
-		velocity.x = move_comp.get_lateral_velocity()
+		velocity.x = -move_comp.get_lateral_velocity()
 
 	elif move_comp.get_direction() == MoveUtils.dir.left :
-		velocity.x = -move_comp.get_lateral_velocity()
+		velocity.x = move_comp.get_lateral_velocity()
 
 	else :
 		velocity.x = 0

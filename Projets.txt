@@ -1,9 +1,11 @@
 
 		-----------------------
+
 		-----------------------
 Maps dans le noir:
 
 mettre en place un controller pour l'angle de la torche
+timer qui gèere la batterie restante
 		-----------------------
 
 Combat pour les fonctions  : le perso se déplace sur une grille de cases en cases: 
