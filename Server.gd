@@ -67,7 +67,17 @@ func handle_clients():
 	print("They are currently ", str(len(connecting_clients)), " clients connecting and ", str(len(connected_clients)) ," clients connected")
 
 func handle_client_message(client : StreamPeerTCP):
-	pass
+	if client.get_available_bytes() < 1:
+		return
+	var message : Protocol.NetworkMessage = Protocol.create_client_message_from_network(client.get_var())
+	if message == null:
+		return
+	print("Mesage received")
+	match message.type:
+		Protocol.ClientMessage.LoginRequest:
+			var answer : Protocol.NetworkMessage = Protocol.create_server_message(Protocol.ServerMessage.LoginAccepted)
+			answer.send(client)
+			print("LoginAccepted send to client")
 
 func _on_Timer_timeout():
 	handle_clients()

@@ -2,6 +2,9 @@ extends Node2D
 
 var Tcp_Client : StreamPeerTCP = StreamPeerTCP.new()
 var pseudo : String = ""
+var is_in_chat_room = false
+enum app_status {waiting_for_server, waiting_for_login, logged}
+var status = app_status.waiting_for_server
 
 
 func Client_Connection():
@@ -27,13 +30,24 @@ func _exit_tree():
 	Tcp_Client.disconnect_from_host()
 
 func handle_message():
-	pass
+	match status:
+		app_status.waiting_for_server:
+			var message : Protocol.NetworkMessage = Protocol.create_client_message(Protocol.ClientMessage.LoginRequest, ["Compote"])
+			message.send(Tcp_Client)
+			print("LoginRequest send to server")
+			status = app_status.waiting_for_login
+		app_status.waiting_for_login:
+			pass
+		app_status.logged:
+			pass
+
 
 func end_connection():
 	if Tcp_Client!= null:
 		print("Client disconnected")
 		Tcp_Client.disconnect_from_host()
 		Tcp_Client = null
+		is_in_chat_room = false
 
 func _on_Button_pressed():
 	pseudo = $LineEdit.get_text()
