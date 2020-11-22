@@ -41,3 +41,4 @@ Problèmes :
   _touch controller : jump images à inverser
   _map fight : afficher la bonne réponse
 
+
