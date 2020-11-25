@@ -146,11 +146,6 @@ func _ready():
 	if FileBankUtils.loaded_heroes_stats != null:
 		stats = FileBankUtils.loaded_heroes_stats.duplicate(true)
 
-#	add_map_option_()
-#	add_fight_option()
-#	add_featured_option()
-#	add_unused_option()
-
 	$hero_png.texture = load("res://Assets/Textures/Characters/punk .png")
 	Client_Connection()
 	
@@ -323,17 +318,6 @@ func _on_TextureButton_pressed():
 	$PopupDialog.hide()
 	$VBoxContainer.show()
 
-#func _process(delta):
-#	if FileBankUtils.popup:
-#		var popup : Popup = Popup.new()
-#		add_child(popup)
-#		var text  : Label = Label.new()
-#		text.text = "Fractions images are not up to date ! Please generate them"
-#		popup.add_child(text)
-#		popup.show()
-#		popup.set_position($pseudo.get_position())
-#		FileBankUtils.popup = false
-
 
 func _on_hero_pressed():
 	hero_count += 1
@@ -384,18 +368,10 @@ func Client_Connection():
 
 	print("Connected !")
 
-#func _ready():
-#	Client_Connection()
-
 func _process(delta):
 	if Tcp_Client.is_connected_to_host():
 		handle_server_message(Tcp_Client)
 
-func _exit_tree():
-	var message : Protocol.NetworkMessage = Protocol.create_client_message(Protocol.ClientMessage.Leave)
-	message.send(Tcp_Client)
-	print("Closing the client")
-	Tcp_Client.disconnect_from_host()
 
 func handle_message():
 	match status:
