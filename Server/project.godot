@@ -72,6 +72,7 @@ Interface="*res://Network/Server.gd"
 FileUtils="*res://FileUtils.gd"
 PlayerIdDatabase="*res://Network/PlayerIdDatabase.gd"
 MessageFactory="*res://Network/MessageFactory.gd"
+NetworkCodeSynchronizer="*res://Network/Editor/NetworkCodeSynchronizer.gd"
 
 [rendering]
 
