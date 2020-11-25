@@ -152,7 +152,8 @@ func _ready():
 #	add_unused_option()
 
 	$hero_png.texture = load("res://Assets/Textures/Characters/punk .png")
-
+	Client_Connection()
+	
 func add_map_option_() -> void:
 	$Control_Option/Option_map.set_text("Maps")
 	$Control_Option/Option_map.add_separator()
@@ -360,3 +361,65 @@ func _on_hero_pressed():
 func _on_pseudo_empty_pressed():
 	$pseudo_empty.hide()
 	$VBoxContainer.show()
+
+
+var Tcp_Client : StreamPeerTCP = StreamPeerTCP.new()
+var is_in_chat_room = false
+enum app_status {waiting_for_server, waiting_for_login, logged}
+var status = app_status.waiting_for_server
+var message_listeners : Array = []
+
+func Client_Connection():
+	print("Connecting to server...")
+	Tcp_Client.connect_to_host("172.30.208.1", 1337)#127.0.0.1
+
+	if Tcp_Client.get_connected_port() != 1337:
+		print("ERROR with port 1337")
+		Tcp_Client = null
+		return
+	if !Tcp_Client.is_connected_to_host():
+		print("ERROR : Fail to connection to Server")
+		Tcp_Client = null
+		return
+
+	print("Connected !")
+
+#func _ready():
+#	Client_Connection()
+
+func _process(delta):
+	if Tcp_Client.is_connected_to_host():
+		handle_server_message(Tcp_Client)
+
+func _exit_tree():
+	var message : Protocol.NetworkMessage = Protocol.create_client_message(Protocol.ClientMessage.Leave)
+	message.send(Tcp_Client)
+	print("Closing the client")
+	Tcp_Client.disconnect_from_host()
+
+func handle_message():
+	match status:
+		app_status.waiting_for_server:
+			pass
+		app_status.waiting_for_login:
+			print("LoginRequest waiting to be accepted")
+		app_status.logged:
+			pass
+
+func handle_server_message(server : StreamPeerTCP):
+	if server.get_available_bytes() < 1:
+		return
+	var artefact = MessageFactory.create_message_from_network(server.get_var()) #message + type of message
+	if !artefact.is_valid():
+		return
+
+	for listener in message_listeners:
+		listener.on_message(artefact.type, artefact.message)
+
+func register_message_listener(listener) -> void:
+	message_listeners.append(listener)
+
+func unregister_message_listener(listener) -> bool:
+	var was_present = message_listeners.has(listener)
+	message_listeners.erase(listener)
+	return was_present

@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Components/AnswertoSpell.gd"
 }, {
+"base": "Reference",
+"class": "BaseNetworkMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/BaseNetworkMessage.gd"
+}, {
 "base": "Component",
 "class": "BounceComponent",
 "language": "GDScript",
@@ -73,6 +78,11 @@ _global_script_classes=[ {
 "class": "ChronoSystem",
 "language": "GDScript",
 "path": "res://ecs/Systems/Chrono.gd"
+}, {
+"base": "BaseNetworkMessage",
+"class": "ClientDisconnectedMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/ClientDisconnected.gd"
 }, {
 "base": "Component",
 "class": "CollisionComponent",
@@ -194,10 +204,30 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Components/is_open.gd"
 }, {
+"base": "BaseNetworkMessage",
+"class": "LoginAcceptedMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/LoginAccepted.gd"
+}, {
+"base": "BaseNetworkMessage",
+"class": "LoginDeniedMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/LoginDenied.gd"
+}, {
+"base": "BaseNetworkMessage",
+"class": "LoginRequestMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/LoginRequestMessage.gd"
+}, {
 "base": "Component",
 "class": "LootComponent",
 "language": "GDScript",
 "path": "res://ecs/Components/Loot.gd"
+}, {
+"base": "Node2D",
+"class": "MessageListener",
+"language": "GDScript",
+"path": "res://Network/MessageListener.gd"
 }, {
 "base": "System",
 "class": "MissileSystem",
@@ -244,6 +274,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/Systems/Patrol.gd"
 }, {
+"base": "Node",
+"class": "PlayerId",
+"language": "GDScript",
+"path": "res://Network/PlayerId.gd"
+}, {
 "base": "Component",
 "class": "PositionComponent",
 "language": "GDScript",
@@ -279,6 +314,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ecs/System.gd"
 }, {
+"base": "BaseNetworkMessage",
+"class": "TalkMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/Talk.gd"
+}, {
 "base": "Component",
 "class": "TreasureComponent",
 "language": "GDScript",
@@ -306,6 +346,7 @@ _global_script_class_icons={
 "AnswerListenerComponent": "",
 "AnswerSystem": "",
 "AnswertoSpellComponent": "",
+"BaseNetworkMessage": "",
 "BounceComponent": "",
 "BounceSystem": "",
 "BulletComponent": "",
@@ -313,6 +354,7 @@ _global_script_class_icons={
 "ChronoCalculComponent": "",
 "ChronoComponent": "",
 "ChronoSystem": "",
+"ClientDisconnectedMessage": "",
 "CollisionComponent": "",
 "CollisionSystem": "",
 "Component": "",
@@ -337,7 +379,11 @@ _global_script_class_icons={
 "InvaderCalculComponent": "",
 "InvaderComponent": "",
 "IsOpenComponent": "",
+"LoginAcceptedMessage": "",
+"LoginDeniedMessage": "",
+"LoginRequestMessage": "",
 "LootComponent": "",
+"MessageListener": "",
 "MissileSystem": "",
 "MoveSystem": "",
 "MoveUpsideDownSystem": "",
@@ -347,6 +393,7 @@ _global_script_class_icons={
 "NodegetidComponent": "",
 "PatrolComponent": "",
 "PatrolSystem": "",
+"PlayerId": "",
 "PositionComponent": "",
 "RotationComponent": "",
 "SceneCounterComponent": "",
@@ -354,6 +401,7 @@ _global_script_class_icons={
 "ShopSystem": "",
 "SpellComponent": "",
 "System": "",
+"TalkMessage": "",
 "TreasureComponent": "",
 "UpsideDownComponent": "",
 "VelocityComponent": "",
@@ -389,6 +437,7 @@ CameraUtils="*res://Utils/CameraUtils.gd"
 TouchUtils="*res://Utils/TouchUtils.gd"
 NetworkUtils="*res://Utils/NetworkUtils.gd"
 Protocol="*res://Utils/Protocol.gd"
+MessageFactory="*res://Network/MessageFactory.gd"
 
 [debug]
 
