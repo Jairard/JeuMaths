@@ -1,0 +1,428 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Component",
+"class": "AnimationComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Animation.gd"
+}, {
+"base": "System",
+"class": "AnimationSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Animation.gd"
+}, {
+"base": "System",
+"class": "AnswerInvaderSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Answer_invader.gd"
+}, {
+"base": "Component",
+"class": "AnswerListenerComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/AnswerListener.gd"
+}, {
+"base": "System",
+"class": "AnswerSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Answer_system.gd"
+}, {
+"base": "Component",
+"class": "AnswertoSpellComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/AnswertoSpell.gd"
+}, {
+"base": "Component",
+"class": "BounceComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Bounce.gd"
+}, {
+"base": "System",
+"class": "BounceSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Bounce_collision.gd"
+}, {
+"base": "Component",
+"class": "BulletComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Bullet.gd"
+}, {
+"base": "Component",
+"class": "CharacterstatsComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Character_stats.gd"
+}, {
+"base": "Component",
+"class": "CollisionComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Collision.gd"
+}, {
+"base": "System",
+"class": "CollisionSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Collision.gd"
+}, {
+"base": "Object",
+"class": "Component",
+"language": "GDScript",
+"path": "res://ecs/Component.gd"
+}, {
+"base": "Component",
+"class": "DamageComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Damage.gd"
+}, {
+"base": "Component",
+"class": "EmitParticulesComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Emit_particules.gd"
+}, {
+"base": "System",
+"class": "EmitParticulesSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Emit_particules.gd"
+}, {
+"base": "System",
+"class": "EndInvaderSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/End_invader.gd"
+}, {
+"base": "Component",
+"class": "EndfightComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/End_fight.gd"
+}, {
+"base": "System",
+"class": "EndfightSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/End_fight.gd"
+}, {
+"base": "Reference",
+"class": "GhostsHandler",
+"language": "GDScript",
+"path": "res://ecs/Internal/GhostsHandler.gd"
+}, {
+"base": "Component",
+"class": "GravityComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Gravity.gd"
+}, {
+"base": "Component",
+"class": "HealthComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Health.gd"
+}, {
+"base": "Component",
+"class": "HudFightComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Hud_fight.gd"
+}, {
+"base": "Component",
+"class": "HudInvaderComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Hud_invader.gd"
+}, {
+"base": "Component",
+"class": "HudMapComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Hud_map.gd"
+}, {
+"base": "Component",
+"class": "HudStatsPopupComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Hud_stats_popup.gd"
+}, {
+"base": "System",
+"class": "HudSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Hud.gd"
+}, {
+"base": "Component",
+"class": "HudTreasureComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Hud_treasure.gd"
+}, {
+"base": "Component",
+"class": "InputListenerComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Input_Listener.gd"
+}, {
+"base": "System",
+"class": "InputSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Input.gd"
+}, {
+"base": "Component",
+"class": "InvaderCalculComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Invader_calcul.gd"
+}, {
+"base": "Component",
+"class": "InvaderComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Invader.gd"
+}, {
+"base": "Component",
+"class": "IsOpenComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/is_open.gd"
+}, {
+"base": "Component",
+"class": "LootComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Loot.gd"
+}, {
+"base": "System",
+"class": "MissileSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Missile.gd"
+}, {
+"base": "System",
+"class": "MoveSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Move.gd"
+}, {
+"base": "System",
+"class": "MoveUpsideDownSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Move_UpsideDown.gd"
+}, {
+"base": "Component",
+"class": "MovementComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Movement.gd"
+}, {
+"base": "Component",
+"class": "NodeEnemyComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/node_enemy.gd"
+}, {
+"base": "Component",
+"class": "NodeHeroComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/node_hero.gd"
+}, {
+"base": "Component",
+"class": "NodegetidComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Node_get_id.gd"
+}, {
+"base": "Component",
+"class": "PatrolComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Patrol.gd"
+}, {
+"base": "System",
+"class": "PatrolSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Patrol.gd"
+}, {
+"base": "Component",
+"class": "PositionComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Position.gd"
+}, {
+"base": "Component",
+"class": "RotationComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Rotation.gd"
+}, {
+"base": "Component",
+"class": "SceneCounterComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Scene_counter.gd"
+}, {
+"base": "Component",
+"class": "ScoreglobalcounterComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Score_global_counter.gd"
+}, {
+"base": "System",
+"class": "ShopSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Shop.gd"
+}, {
+"base": "Component",
+"class": "SpellComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Spell.gd"
+}, {
+"base": "Object",
+"class": "System",
+"language": "GDScript",
+"path": "res://ecs/System.gd"
+}, {
+"base": "Component",
+"class": "TreasureComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Treasure.gd"
+}, {
+"base": "Component",
+"class": "VelocityComponent",
+"language": "GDScript",
+"path": "res://ecs/Components/Velocity.gd"
+}, {
+"base": "System",
+"class": "bulletSystem",
+"language": "GDScript",
+"path": "res://ecs/Systems/Bullet.gd"
+} ]
+_global_script_class_icons={
+"AnimationComponent": "",
+"AnimationSystem": "",
+"AnswerInvaderSystem": "",
+"AnswerListenerComponent": "",
+"AnswerSystem": "",
+"AnswertoSpellComponent": "",
+"BounceComponent": "",
+"BounceSystem": "",
+"BulletComponent": "",
+"CharacterstatsComponent": "",
+"CollisionComponent": "",
+"CollisionSystem": "",
+"Component": "",
+"DamageComponent": "",
+"EmitParticulesComponent": "",
+"EmitParticulesSystem": "",
+"EndInvaderSystem": "",
+"EndfightComponent": "",
+"EndfightSystem": "",
+"GhostsHandler": "",
+"GravityComponent": "",
+"HealthComponent": "",
+"HudFightComponent": "",
+"HudInvaderComponent": "",
+"HudMapComponent": "",
+"HudStatsPopupComponent": "",
+"HudSystem": "",
+"HudTreasureComponent": "",
+"InputListenerComponent": "",
+"InputSystem": "",
+"InvaderCalculComponent": "",
+"InvaderComponent": "",
+"IsOpenComponent": "",
+"LootComponent": "",
+"MissileSystem": "",
+"MoveSystem": "",
+"MoveUpsideDownSystem": "",
+"MovementComponent": "",
+"NodeEnemyComponent": "",
+"NodeHeroComponent": "",
+"NodegetidComponent": "",
+"PatrolComponent": "",
+"PatrolSystem": "",
+"PositionComponent": "",
+"RotationComponent": "",
+"SceneCounterComponent": "",
+"ScoreglobalcounterComponent": "",
+"ShopSystem": "",
+"SpellComponent": "",
+"System": "",
+"TreasureComponent": "",
+"VelocityComponent": "",
+"bulletSystem": ""
+}
+
+[application]
+
+config/name="jeu"
+<<<<<<< Updated upstream
+run/main_scene="res://Src/Outgame/Signin.tscn"
+=======
+run/main_scene="res://Src/Outgame/Calcul_invader.tscn"
+>>>>>>> Stashed changes
+config/icon="res://Assets/Textures/Characters/icon.png"
+
+[autoload]
+
+ECS="*res://ecs/World.gd"
+ComponentsLibrary="*res://ecs/Components/Library.gd"
+SystemsLibrary="*res://ecs/Systems/Library.gd"
+ArrayUtils="*res://Utils/Array_Utils.gd"
+MoveUtils="*res://Utils/MoveUtils.gd"
+RandomUtils="*res://Utils/RandomUtils.gd"
+EcsUtils="*res://Utils/EcsUtils.gd"
+RainUtils="*res://Utils/RainUtils.gd"
+DebugUtils="*res://Utils/DebugUtils.gd"
+FileBankUtils="*res://Utils/FileBankUtils.gd"
+TagsLibrary="*res://ecs/TagsLibrary.gd"
+EntitiesUtils="*res://Utils/EntitiesUtils.gd"
+AnimationUtils="*res://Utils/AnimationUtils.gd"
+FontChoice="*res://font/FontChoice.gd"
+NodeUtils="*res://Utils/NodeUtils.gd"
+Fade="*res://Utils/Fade.tscn"
+Scene_transition_data="*res://Utils/Scene_transition_data.gd"
+CameraUtils="*res://Utils/CameraUtils.gd"
+TouchUtils="*res://Utils/TouchUtils.gd"
+
+[debug]
+
+settings/fps/force_fps=60
+shapes/collision/shape_color=Color( 0, 0.6, 0.701961, 0.501961 )
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "Grid" )
+
+[input]
+
+clic={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+Arrow_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+Arrow_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="hero"
+2d_physics/layer_2="wall"
+2d_physics/layer_3="ennemy"
+2d_physics/layer_4="spell"
+2d_physics/layer_5="rain"
+2d_physics/layer_6="xp"
+2d_physics/layer_7="monster"
+2d_physics/layer_8="missile"
+2d_physics/layer_9="fire"
+2d_physics/layer_10="gold"
+2d_physics/layer_11="answer"
+2d_physics/layer_12="damage"
+2d_physics/layer_13="health"
+2d_physics/layer_14="portal"
+2d_physics/layer_15="portal_fight"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/driver/fallback_to_gles2=true
+quality/2d/use_pixel_snap=true
+vram_compression/import_s3tc=false
+vram_compression/import_etc=true
+environment/default_environment="res://default_env.tres"

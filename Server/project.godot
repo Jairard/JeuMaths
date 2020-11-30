@@ -1,0 +1,82 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "BaseNetworkMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/BaseNetworkMessage.gd"
+}, {
+"base": "BaseNetworkMessage",
+"class": "ClientDisconnectedMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/ClientDisconnected.gd"
+}, {
+"base": "BaseNetworkMessage",
+"class": "LoginAcceptedMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/LoginAccepted.gd"
+}, {
+"base": "BaseNetworkMessage",
+"class": "LoginDeniedMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/LoginDenied.gd"
+}, {
+"base": "BaseNetworkMessage",
+"class": "LoginRequestMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/LoginRequestMessage.gd"
+}, {
+"base": "Node2D",
+"class": "MessageListener",
+"language": "GDScript",
+"path": "res://Network/MessageListener.gd"
+}, {
+"base": "Node",
+"class": "PlayerId",
+"language": "GDScript",
+"path": "res://Network/PlayerId.gd"
+}, {
+"base": "BaseNetworkMessage",
+"class": "TalkMessage",
+"language": "GDScript",
+"path": "res://Network/Messages/Talk.gd"
+} ]
+_global_script_class_icons={
+"BaseNetworkMessage": "",
+"ClientDisconnectedMessage": "",
+"LoginAcceptedMessage": "",
+"LoginDeniedMessage": "",
+"LoginRequestMessage": "",
+"MessageListener": "",
+"PlayerId": "",
+"TalkMessage": ""
+}
+
+[application]
+
+config/name="Server"
+run/main_scene="res://Server.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Interface="*res://Network/Server.gd"
+FileUtils="*res://FileUtils.gd"
+PlayerIdDatabase="*res://Network/PlayerIdDatabase.gd"
+MessageFactory="*res://Network/MessageFactory.gd"
+NetworkCodeSynchronizer="*res://Network/Editor/NetworkCodeSynchronizer.gd"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Tests/MessageListenerSandbox.gd" type="Script" id=1]
+[ext_resource path="res://Tests/FakeServer.gd" type="Script" id=2]
+[ext_resource path="res://Tests/FakeChat.gd" type="Script" id=3]
+[ext_resource path="res://Tests/FakeConnectionManager.gd" type="Script" id=4]
+
+[node name="MessageListenerSandbox" type="Node"]
+script = ExtResource( 1 )
+
+[node name="FakeServer" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="FakeChat" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="FakeConnectionManager" type="Node" parent="."]
+script = ExtResource( 4 )

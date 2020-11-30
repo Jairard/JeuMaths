@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+visible = true
+margin_right = 250.0
+margin_bottom = 81.0
+popup_exclusive = true
+window_title = "Warning"
+dialog_text = "Fractions images are not up to date !
+Please generate them."
+__meta__ = {
+"_edit_use_anchors_": false
+}
