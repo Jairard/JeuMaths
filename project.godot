@@ -438,6 +438,7 @@ TouchUtils="*res://Utils/TouchUtils.gd"
 NetworkUtils="*res://Utils/NetworkUtils.gd"
 Protocol="*res://Utils/Protocol.gd"
 MessageFactory="*res://Network/MessageFactory.gd"
+NetworkClient="*res://Network/NetworkClient.gd"
 
 [debug]
 
