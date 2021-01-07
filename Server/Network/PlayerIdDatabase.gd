@@ -1,7 +1,9 @@
 extends Node
 
 enum EntryType { School, Teacher, Class, Student}
+enum RelationType {SchoolClass, ClassStudent }
 
+var RelationTable : Array = []
 var database : Array = []
 var next_id : Array = []
 
@@ -54,6 +56,45 @@ func _exit_tree():
 
 func commit() -> bool:
 	return IOHandler.save(database)
+
+func insert_school_class_relation(var classid : int, var schoolid : int) -> void:
+	insert_relation(RelationType.SchoolClass, classid, schoolid)
+
+func insert_class_student_relation(var Studentid : int, var classid : int) -> void:
+	insert_relation(RelationType.ClassStudent, Studentid, classid)
+
+func insert_relation(var type : int, var to_id : int, var from_id : int) -> void:
+	var table : Dictionary = RelationTable[type]
+	if !table.has(from_id):
+		table[from_id] = []
+	#TODO : tester si class id existe déjà avec log
+	table[from_id].append(to_id)
+	print("table : ", table)
+
+func get_school_of_class(var classid : int) -> int:
+	return get_related_unique_element(RelationType.SchoolClass , classid)
+
+func get_class_of_student(var studentid : int) -> int:
+	return get_related_unique_element(RelationType.ClassStudent , studentid)
+
+func get_related_unique_element( var type : int, var to_id : int) -> int:
+	var table : Dictionary = RelationTable[type]	#{1 : [1.2.3]}
+	for from_id in table.keys():
+		if to_id in table[from_id]:
+			return from_id
+	return invalid_id
+
+func get_related_elements(var type: int, var from_id : int) -> Array:
+	var table : Dictionary = RelationTable[type]
+	if table.has(from_id):
+		return table[from_id]
+	return []
+
+func get_classes_of_school(var schoolid : int) -> Array:
+	return get_related_elements(RelationType.SchoolClass , schoolid)
+
+func get_students_of_class(var classid : int) -> Array:
+	return get_related_elements(RelationType.ClassStudent , classid)
 
 func insert_school(var name : String) -> int:
 	return insert_value(EntryType.School, name)
@@ -177,3 +218,5 @@ func __init_from_void():
 	for type in EntryType.values():
 		database.append({})
 		next_id.append(first_id)
+	for type in RelationType.values():
+		RelationTable.append({})
