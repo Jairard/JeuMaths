@@ -67,6 +67,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Delete" type="TextureButton" parent="."]
+visible = false
 margin_left = -307.632
 margin_top = 229.226
 margin_right = -179.632
@@ -112,22 +113,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Teacher" type="Label" parent="Management"]
-margin_left = 1398.07
-margin_top = 366.593
-margin_right = 1632.07
-margin_bottom = 404.593
-custom_fonts/font = SubResource( 2 )
-text = "Enseignant :"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Class" type="Label" parent="Management"]
-margin_left = 1395.07
-margin_top = 636.68
-margin_right = 1629.07
-margin_bottom = 674.68
+visible = false
+margin_left = 1389.25
+margin_top = 350.209
+margin_right = 1623.25
+margin_bottom = 388.209
 custom_fonts/font = SubResource( 2 )
 text = "Classe :"
 __meta__ = {
@@ -156,22 +147,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TeacherText" type="LineEdit" parent="Management"]
-visible = false
-margin_left = 2076.72
-margin_top = 371.342
-margin_right = 2345.72
-margin_bottom = 395.342
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ClassText" type="LineEdit" parent="Management"]
 visible = false
-margin_left = 2076.72
-margin_top = 612.535
-margin_right = 2345.72
-margin_bottom = 636.535
+margin_left = 2068.63
+margin_top = 326.064
+margin_right = 2337.63
+margin_bottom = 350.064
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -212,23 +193,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AddTeacher" type="TextureButton" parent="Management"]
-margin_left = 2000.43
-margin_top = 357.622
-margin_right = 2128.43
-margin_bottom = 485.622
-rect_scale = Vector2( 0.4, 0.4 )
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="AddClass" type="TextureButton" parent="Management"]
-margin_left = 1999.9
-margin_top = 603.697
-margin_right = 2127.9
-margin_bottom = 731.697
+visible = false
+margin_left = 1988.72
+margin_top = 317.226
+margin_right = 2116.72
+margin_bottom = 445.226
 rect_scale = Vector2( 0.4, 0.4 )
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
@@ -237,6 +207,7 @@ __meta__ = {
 }
 
 [node name="AddStudent" type="TextureButton" parent="Management"]
+visible = false
 margin_left = 2464.59
 margin_top = 743.522
 margin_right = 2592.59
@@ -264,10 +235,10 @@ __meta__ = {
 
 [node name="CheckClass" type="TextureButton" parent="Management"]
 visible = false
-margin_left = 2378.54
-margin_top = 605.653
-margin_right = 2506.54
-margin_bottom = 733.653
+margin_left = 2367.36
+margin_top = 316.091
+margin_right = 2495.36
+margin_bottom = 444.091
 rect_scale = Vector2( 0.4, 0.4 )
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 10 )
@@ -290,20 +261,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckTeacher" type="TextureButton" parent="Management"]
-visible = false
-margin_left = 2373.11
-margin_top = 357.639
-margin_right = 2501.12
-margin_bottom = 485.639
-rect_scale = Vector2( 0.4, 0.4 )
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 10 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ListSchool" type="OptionButton" parent="Management"]
 margin_left = 1659.48
 margin_top = 80.0
@@ -313,20 +270,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ListTeacher" type="OptionButton" parent="Management"]
-margin_left = 1667.42
-margin_top = 354.863
-margin_right = 1983.42
-margin_bottom = 405.863
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ListClass" type="OptionButton" parent="Management"]
-margin_left = 1654.42
-margin_top = 612.951
-margin_right = 1970.42
-margin_bottom = 663.951
+visible = false
+margin_left = 1624.7
+margin_top = 348.116
+margin_right = 1940.7
+margin_bottom = 399.116
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -385,23 +334,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeleteTeacher" type="TextureButton" parent="Management"]
-margin_left = 2008.3
-margin_top = 443.23
-margin_right = 2136.3
-margin_bottom = 571.23
-rect_scale = Vector2( 0.4, 0.4 )
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="DeleteClass" type="TextureButton" parent="Management"]
-margin_left = 2010.46
-margin_top = 704.405
-margin_right = 2138.46
-margin_bottom = 832.405
+visible = false
+margin_left = 1999.28
+margin_top = 417.934
+margin_right = 2127.28
+margin_bottom = 545.934
 rect_scale = Vector2( 0.4, 0.4 )
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 7 )
@@ -410,6 +348,7 @@ __meta__ = {
 }
 
 [node name="DeleteStudent" type="TextureButton" parent="Management"]
+visible = false
 margin_left = 2470.21
 margin_top = 847.224
 margin_right = 2598.21
@@ -5139,24 +5078,19 @@ __meta__ = {
 }
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="text_changed" from="Management/SchoolText" to="." method="_on_SchoolText_text_changed"]
-[connection signal="text_changed" from="Management/TeacherText" to="." method="_on_TeacherText_text_changed"]
 [connection signal="text_changed" from="Management/ClassText" to="." method="_on_ClassText_text_changed"]
 [connection signal="text_changed" from="Management/StudentText" to="." method="_on_StudentText_text_changed"]
 [connection signal="pressed" from="Management/AddSchool" to="." method="_on_AddSchool_pressed"]
-[connection signal="pressed" from="Management/AddTeacher" to="." method="_on_AddTeacher_pressed"]
 [connection signal="pressed" from="Management/AddClass" to="." method="_on_AddClass_pressed"]
 [connection signal="pressed" from="Management/AddStudent" to="." method="_on_AddStudent_pressed"]
 [connection signal="pressed" from="Management/CheckSchool" to="." method="_on_CheckSchool_pressed"]
 [connection signal="pressed" from="Management/CheckClass" to="." method="_on_CheckClass_pressed"]
 [connection signal="pressed" from="Management/CheckStudent" to="." method="_on_CheckStudent_pressed"]
-[connection signal="pressed" from="Management/CheckTeacher" to="." method="_on_CheckTeacher_pressed"]
 [connection signal="item_selected" from="Management/ListSchool" to="." method="_on_ListSchool_item_selected"]
-[connection signal="item_selected" from="Management/ListTeacher" to="." method="_on_ListTeacher_item_selected"]
 [connection signal="item_selected" from="Management/ListClass" to="." method="_on_ListClass_item_selected"]
 [connection signal="item_selected" from="Management/ListStudent" to="." method="_on_ListStudent_item_selected"]
 [connection signal="pressed" from="Management/SwapStats" to="." method="_on_SwapStats_pressed"]
 [connection signal="pressed" from="Management/DeleteSchool" to="." method="_on_DeleteSchool_pressed"]
-[connection signal="pressed" from="Management/DeleteTeacher" to="." method="_on_DeleteTeacher_pressed"]
 [connection signal="pressed" from="Management/DeleteClass" to="." method="_on_DeleteClass_pressed"]
 [connection signal="pressed" from="Management/DeleteStudent" to="." method="_on_DeleteStudent_pressed"]
 [connection signal="pressed" from="Statistics/Class/AddClass" to="." method="_on_AddClass_pressed"]

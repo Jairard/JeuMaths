@@ -22,9 +22,10 @@ var statsSecondDetailFraction : Array = ["Statistics/Stats/ControlSecondDetailSt
 										"Statistics/Stats/ControlSecondDetailStats/SecondDetailStatsFraction/Soustraction",
 										"Statistics/Stats/ControlSecondDetailStats/SecondDetailStatsFraction/Multiplication"]
 var bdd_school 		: Dictionary = {}
-var bdd_teacher		: Dictionary = {}
 var bdd_class 		: Dictionary = {}
 var bdd_student		: Dictionary = {}
+
+var ClassOfSchool : Array = []
 
 var selectionned_text :String = ""
 var id : int = 0
@@ -36,11 +37,9 @@ func _ready():
 	show_stats(stats, "Stats/ControlStats")
 	add_child(tests)
 	SchoolNameList(PlayerIdDatabase.get_all_schools())
-	TeacherNameList(PlayerIdDatabase.get_all_teachers())
 	ClassNameList(PlayerIdDatabase.get_all_classes())
 	StudentNameList(PlayerIdDatabase.get_all_student())
 	bdd_school = PlayerIdDatabase.get_all_schools()
-	bdd_teacher = PlayerIdDatabase.get_all_teachers()
 	bdd_class = PlayerIdDatabase.get_all_classes()
 	bdd_student = PlayerIdDatabase.get_all_student()
 	$Statistics.hide()
@@ -225,8 +224,8 @@ func _on_AddSchool_pressed():
 func _on_CheckSchool_pressed():
 	var SchoolName : String = $Management/SchoolText.get_text()
 	var SchoolList : Dictionary = PlayerIdDatabase.get_all_schools()
-	var SchoolListeValues : Array = SchoolList.values()
-	if !SchoolListeValues.has(SchoolName):
+	var SchoolListValues : Array = SchoolList.values()
+	if !SchoolListValues.has(SchoolName):
 		id = PlayerIdDatabase.insert_school(SchoolName)
 		bdd_school[id] = SchoolName
 		SchoolList = PlayerIdDatabase.get_all_schools()
@@ -235,16 +234,30 @@ func _on_CheckSchool_pressed():
 	$Management/SchoolText.hide()
 	$Management/CheckSchool.hide()
 
+
 func SchoolNameList(NewSchoolList : Dictionary) -> void:
 	$Management/ListSchool.clear()
 	for School in NewSchoolList:
 		$Management/ListSchool.add_separator()
 		$Management/ListSchool.add_item(str(NewSchoolList[School]))
- 
+
+
 func _on_ListSchool_item_selected(id):
 	selectionned_text = $Management/ListSchool.get_item_text(id)
 	$Management/DeleteSchool.show()
+	$Management/Class.show()
+	$Management/AddClass.show()
+	$Management/ListClass.show()
+	print("RELATION table : ", PlayerIdDatabase.RelationTable)
+	ClassOfSchool = PlayerIdDatabase.get_classes_of_school(PlayerIdDatabase.EntryType.School)
+	print("classes : ", ClassOfSchool)
+	ClassOfSchoolList(ClassOfSchool)
 
+func ClassOfSchoolList(ExistingClass : Array) -> void:
+#	print("existing class : ", ExistingClass)
+	for Class in ExistingClass:
+		$Management/ListClass.add_separator()
+		$Management/ListSClass.add_item(str(Class))
 
 func _on_DeleteSchool_pressed():
 	for key in bdd_school.keys():
@@ -259,43 +272,6 @@ func _on_SchoolText_text_changed(new_text):
 	$Management/CheckSchool.show()
 
 
-func _on_AddTeacher_pressed():
-	$Management/TeacherText.show()
-
-
-func _on_TeacherText_text_changed(new_text):
-	$Management/CheckTeacher.show()
-
-func _on_ListTeacher_item_selected(id):
-	$Management/DeleteTeacher.show()
-
-func _on_CheckTeacher_pressed():
-	var TeacherName : String = $Management/TeacherText.get_text()
-	var TeacherList : Dictionary = PlayerIdDatabase.get_all_teachers()
-	var TeacherListeValues : Array = TeacherList.values()
-	if !TeacherListeValues.has(TeacherName):
-		id = PlayerIdDatabase.insert_teacher(TeacherName)
-		bdd_teacher[id] = TeacherName
-		TeacherList = PlayerIdDatabase.get_all_teachers()
-		TeacherNameList(TeacherList)
-	$Management/TeacherText.clear()
-	$Management/TeacherText.hide()
-	$Management/CheckTeacher.hide()
-
-func TeacherNameList(NewTeacherList : Dictionary) -> void:
-	$Management/ListTeacher.clear()
-	for Teacher in NewTeacherList:
-		$Management/ListTeacher.add_separator()
-		$Management/ListTeacher.add_item(str(NewTeacherList[Teacher]))
-
-func _on_DeleteTeacher_pressed():
-	for key in bdd_teacher.keys():
-		if bdd_teacher[key] == selectionned_text:
-			PlayerIdDatabase.remove_teacher_name(key)
-			bdd_teacher = PlayerIdDatabase.get_all_teachers()
-	TeacherNameList(PlayerIdDatabase.get_all_teachers())
-	$Management/DeleteTeacher.hide()
-
 
 func _on_AddClass_pressed():
 	$Management/ClassText.show()
@@ -307,6 +283,8 @@ func _on_ClassText_text_changed(new_text):
 func _on_ListClass_item_selected(id):
 	selectionned_text = $Management/ListClass.get_item_text(id)
 	$Management/DeleteClass.show()
+	$Management/AddStudent.show()
+	$Management/ListStudent.show()
 
 func _on_CheckClass_pressed():
 	var ClassName : String = $Management/ClassText.get_text()
@@ -316,6 +294,10 @@ func _on_CheckClass_pressed():
 		id = PlayerIdDatabase.insert_class(ClassName)
 		bdd_class[id] = ClassName
 		ClassList = PlayerIdDatabase.get_all_classes()
+		PlayerIdDatabase.insert_school_class_relation(PlayerIdDatabase.EntryType.Class, PlayerIdDatabase.EntryType.School)
+		print("relation table : ", PlayerIdDatabase.RelationTable)
+		ClassOfSchool = PlayerIdDatabase.get_classes_of_school(PlayerIdDatabase.EntryType.School)
+		print("classes upload : ", ClassOfSchool)
 		ClassNameList(ClassList)
 	$Management/ClassText.clear()
 	$Management/ClassText.hide()
