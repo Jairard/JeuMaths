@@ -15,8 +15,9 @@ var compiled_exclude_regexes : Array = []
 const is_enabled : bool = true
 
 func _ready():
-	init()
-	fetch_common_files()
+	#init()
+	#fetch_common_files()
+	pass
 
 func init() -> void:
 	var file_system = plugin.get_editor_interface().get_resource_filesystem()
