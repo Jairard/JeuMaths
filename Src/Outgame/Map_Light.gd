@@ -9,7 +9,6 @@ onready var health			= 	preload("res://Src/Ingame/characters/Health.tscn")
 onready var light			= 	preload("res://Src/Outgame/Light.tscn")
 onready var spawn_fire 		= 	preload("res://Src/Ingame/FX/Fire.tscn")
 
-
 onready var min_metric_edit = get_node("CanvasLayer/Control/MinMetrics")
 onready var max_metric_edit = get_node("CanvasLayer/Control/MaxMetrics")
 var heroNode : Node2D = null
