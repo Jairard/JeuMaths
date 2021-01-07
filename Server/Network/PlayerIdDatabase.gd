@@ -14,7 +14,7 @@ const first_id : int = 0
 class IOHandler:
 	const __file_name : String = "res://Assets/player_id_database.json"
 
-	static func load(var db) -> bool:
+	static func load(var db, var rt) -> bool:
 		if !File.new().file_exists(__file_name):
 			return false
 
@@ -23,39 +23,50 @@ class IOHandler:
 			return false
 
 		var dict = data as Dictionary
-		for k in dict.keys():
-			if !EntryType.has(k):
+		if !dict.has("Entities") or !dict.has("RelationData"):
+			return false
+
+		var EntitiesData : Dictionary = dict["Entities"]
+		var RelationData : Dictionary = dict["RelationData"]
+		return LoadDataFromJson(RelationData, RelationType, rt) and LoadDataFromJson(EntitiesData, EntryType, db)
+
+	static func save(var db, var rt) -> bool:
+		var EntititesData : Dictionary = {}
+		for typeStr in EntryType.keys():
+			EntititesData[typeStr] = db[EntryType[typeStr]]
+		var RelationData : Dictionary = {}
+		for typeStr in RelationType.keys():
+			RelationData[typeStr] = rt[RelationType[typeStr]]
+		var JsonData : Dictionary = {"Entities" : EntititesData, "RelationData" : RelationData}
+		return FileUtils.save_json(JsonData, __file_name)
+
+	static func LoadDataFromJson(var JsonData, var ExpectedKeys, var OutData) -> bool:
+		for k in JsonData.keys():
+			if !ExpectedKeys.has(k):
 				continue
-			var loaded_values = dict[k]
+			var loaded_values = JsonData[k]
 			if !(loaded_values is Dictionary):
 				continue
 
 			# Json keys are always strings so we have to parse them into ids
-			var values = db[EntryType[k]]
+			var values = OutData[ExpectedKeys[k]]
 			for id_str in loaded_values.keys():
 				var id = int(id_str)
 				if values.has(id):
 					return false
 				values[id] = loaded_values[id_str]
-
 		return true
-
-	static func save(var db) -> bool:
-		var jsonData : Dictionary = {}
-		for typeStr in EntryType.keys():
-			jsonData[typeStr] = db[EntryType[typeStr]]
-		return FileUtils.save_json(jsonData, __file_name)
 
 func _ready():
 	__init_from_void()
-	if IOHandler.load(database):
+	if IOHandler.load(database, RelationTable):
 		__compute_next_ids()
 
 func _exit_tree():
 	commit()
 
 func commit() -> bool:
-	return IOHandler.save(database)
+	return IOHandler.save(database, RelationTable)
 
 func insert_school_class_relation(var classid : int, var schoolid : int) -> void:
 	insert_relation(RelationType.SchoolClass, classid, schoolid)

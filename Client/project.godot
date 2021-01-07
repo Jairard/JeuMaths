@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "BaseNetworkMessage",
 "language": "GDScript",
-"path": "res://Network/Messages/BaseNetworkMessage.gd"
+"path": "res://Test/2/Network/Messages/BaseNetworkMessage.gd"
 }, {
 "base": "Component",
 "class": "BounceComponent",
@@ -82,7 +82,7 @@ _global_script_classes=[ {
 "base": "BaseNetworkMessage",
 "class": "ClientDisconnectedMessage",
 "language": "GDScript",
-"path": "res://Network/Messages/ClientDisconnected.gd"
+"path": "res://Test/2/Network/Messages/ClientDisconnected.gd"
 }, {
 "base": "Component",
 "class": "CollisionComponent",
@@ -207,17 +207,17 @@ _global_script_classes=[ {
 "base": "BaseNetworkMessage",
 "class": "LoginAcceptedMessage",
 "language": "GDScript",
-"path": "res://Network/Messages/LoginAccepted.gd"
+"path": "res://Test/2/Network/Messages/LoginAccepted.gd"
 }, {
 "base": "BaseNetworkMessage",
 "class": "LoginDeniedMessage",
 "language": "GDScript",
-"path": "res://Network/Messages/LoginDenied.gd"
+"path": "res://Test/2/Network/Messages/LoginDenied.gd"
 }, {
 "base": "BaseNetworkMessage",
 "class": "LoginRequestMessage",
 "language": "GDScript",
-"path": "res://Network/Messages/LoginRequestMessage.gd"
+"path": "res://Test/2/Network/Messages/LoginRequestMessage.gd"
 }, {
 "base": "Component",
 "class": "LootComponent",
@@ -227,7 +227,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "MessageListener",
 "language": "GDScript",
-"path": "res://Network/MessageListener.gd"
+"path": "res://Test/2/Network/MessageListener.gd"
 }, {
 "base": "System",
 "class": "MissileSystem",
@@ -277,7 +277,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "PlayerId",
 "language": "GDScript",
-"path": "res://Network/PlayerId.gd"
+"path": "res://Test/2/Network/PlayerId.gd"
 }, {
 "base": "Component",
 "class": "PositionComponent",
@@ -317,7 +317,7 @@ _global_script_classes=[ {
 "base": "BaseNetworkMessage",
 "class": "TalkMessage",
 "language": "GDScript",
-"path": "res://Network/Messages/Talk.gd"
+"path": "res://Test/2/Network/Messages/Talk.gd"
 }, {
 "base": "Component",
 "class": "TreasureComponent",
